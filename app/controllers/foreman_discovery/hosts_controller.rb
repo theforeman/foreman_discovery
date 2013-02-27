@@ -5,7 +5,7 @@ module ForemanDiscovery
   class HostsController < ::HostsController
 
     # change layout if
-    layout 'foreman_discovery/layouts/new_layout'
+    # layout 'foreman_discovery/layouts/new_layout'
 
     # separate display for discovered hosts
     def discovered (title = nil)
