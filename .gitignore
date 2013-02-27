@@ -16,3 +16,9 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# RBenv
+.rbenv*
+.ruby*
+
+*.swp
