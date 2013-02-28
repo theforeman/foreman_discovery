@@ -1,6 +1,9 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
-  class DiscoveredhostsController < ActionController::Base
+  class DiscoveredhostsController < ::HostsController
+    before_filter :find_by_name, :only => %w[disc_show]
+
+    helper :hosts
 
     layout 'layouts/application'
 
@@ -19,7 +22,6 @@ module ForemanDiscovery
     end
 
     def disc_show
-      @host = Host::Discovered.find(params[:id])
       respond_to do |format|
         format.html {
           # filter graph time range
