@@ -1,7 +1,7 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
   class DiscoveredController < ::ApplicationController
-    before_filter :find_by_name, :only => %w[show destroy]
+    before_filter :find_by_name, :only => %w[show destroy refresh_facts]
 
     helper :hosts
 
@@ -36,6 +36,18 @@ module ForemanDiscovery
     def destroy
       @host.destroy
       redirect_to :action => "index"
+    end
+
+    def convert
+      redirect_to :action => :edit, :type => "ManagedHost"
+    end
+
+    def refresh_facts
+      if @host.is_a?(Host::Discovered) and @host.refresh_facts
+        process_success :success_msg =>  "Facts refreshed for #{@host.name}", :success_redirect => :back
+      else
+        process_error :error_msg => "Failed to refresh facts for #{@host.name}", :redirect => :back
+      end
     end
 
     def find_by_name

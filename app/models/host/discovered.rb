@@ -44,6 +44,18 @@ class Host::Discovered < ::Host::Base
     self.save
   end
 
+  def refresh_facts
+    # TODO: Can we rely on self.ip? The lease might expire/change....
+    begin
+      logger.debug "retrieving facts from proxy"
+      facts = ProxyAPI::Facts.new(:url => "http://#{self.ip}:8443").facts
+    rescue Exception => e
+      raise "Could not get facts from Proxy: #{e}"
+    end
+
+    return self.class.importHostAndFacts facts
+  end
+
   def self.model_name
     ActiveModel::Name.new(Host)
   end
