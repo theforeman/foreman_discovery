@@ -2,7 +2,7 @@
 Rails.application.routes.draw do
 
   #Example
-  match 'discovered',     :to => 'hosts#discovered'
-  match 'discovered/:id', :to => 'hosts#disc_show', :as => 'disc'
+  match 'discovered',     :to => 'discoveredhosts#discovered'
+  match 'discovered/:id', :to => 'discoveredhosts#disc_show', :as => 'disc'
 
 end

@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
-    "app/controllers/foreman_discovery/hosts_controller_extensions.rb",
+    "app/controllers/foreman_discovery/discoveredhosts_controller.rb",
     "app/helpers/host_discovered_helper.rb",
     "app/models/host/discovered.rb",
     "app/views/hosts/discovered.html.erb",

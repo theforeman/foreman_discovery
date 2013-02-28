@@ -1,8 +1,6 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
-  # Example: Create new instance and class methods on Foreman's Host model
-  module HostsControllerExtensions
-    extend ActiveSupport::Concern
+  class DiscoveredhostsController < ActionController::Base
 
     def discovered (title = nil)
       begin
