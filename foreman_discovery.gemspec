@@ -17,10 +17,12 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    "app/controllers/foreman_discovery/hosts_controller_extensions.rb",
+    "app/models/host_discovered_helpers.rb",
     "app/models/host/discovered.rb",
-    "app/controllers/foreman_discovery/hosts_controller.rb",
-    "app/views/foreman_discovery/hosts/new_action.html.erb",
-    "app/views/foreman_discovery/layouts/new_layout.html.erb",
+    "app/views/hosts/discovered.html.erb",
+    "app/views/hosts/_discovered_list.html.erb",
+    "app/views/hosts/disc_show.html.erb",
     "config/routes.rb",
     "lib/foreman_discovery/engine.rb",
     "lib/foreman_discovery.rb",

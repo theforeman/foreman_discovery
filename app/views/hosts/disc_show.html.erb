@@ -1,0 +1,16 @@
+<% title "Discovered Host: #{@host.to_label}" %>
+
+<%= disc_host_title_actions(@host) %>
+
+<h3> Facts Discovered on this Host </h3>
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>Fact</th>
+    <th>Value</th>
+  <% @host.facts_hash.sort.each do |fact| -%>
+    <tr>
+      <td><%= fact[0] %></td>
+      <td><%= fact[1] %></td>
+    </tr>
+  <% end -%>
+</table>

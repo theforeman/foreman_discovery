@@ -1,13 +1,9 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
+  # Example: Create new instance and class methods on Foreman's Host model
+  module HostsControllerExtensions
+    extend ActiveSupport::Concern
 
-  # Example: Plugin's HostsController inherits from Foreman's HostsController
-  class HostsController < ::HostsController
-
-    # change layout if
-    # layout 'foreman_discovery/layouts/new_layout'
-
-    # separate display for discovered hosts
     def discovered (title = nil)
       begin
         search = Host::Discovered.search_for(params[:search],:order => params[:order])
@@ -19,6 +15,19 @@ module ForemanDiscovery
         format.html do
           @hosts = search.paginate :page => params[:page]
         end
+      end
+    end
+
+    def disc_show
+      @host = Host::Discovered.find(params[:id])
+      respond_to do |format|
+        format.html {
+          # filter graph time range
+          @range = nil
+
+          # summary report text
+          @report_summary = nil
+        }
       end
     end
 

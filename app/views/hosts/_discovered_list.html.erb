@@ -10,7 +10,7 @@
     <tr>
       <td><%= link_to("#{host}", disc_host_path(host)) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
-      <td class="hidden-tablet hidden-phone"><%= last_report_column(host) %></td>
+      <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
           link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host), :class=>"btn btn-small"),

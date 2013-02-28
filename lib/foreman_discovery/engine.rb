@@ -7,7 +7,7 @@ module ForemanDiscovery
 
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
-      #::UnattendedController.send :include, ForemanDiscovery::UnattendedControllerExtensions
+      ::HostsController.send :include, ForemanDiscovery::HostsControllerExtensions
     end
 
   end

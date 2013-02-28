@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
 
   #Example
-  match 'discovered', :to => 'foreman_discovery/hosts#discovered'
+  match 'discovered',     :to => 'hosts#discovered'
+  match 'discovered/:id', :to => 'hosts#disc_show', :as => 'disc_host'
 
 end
