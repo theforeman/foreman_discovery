@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "app/controllers/foreman_discovery/hosts_controller_extensions.rb",
-    "app/models/host_discovered_helpers.rb",
+    "app/helpers/host_discovered_helper.rb",
     "app/models/host/discovered.rb",
     "app/views/hosts/discovered.html.erb",
     "app/views/hosts/_discovered_list.html.erb",

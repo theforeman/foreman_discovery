@@ -8,6 +8,7 @@ module ForemanDiscovery
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
       ::HostsController.send :include, ForemanDiscovery::HostsControllerExtensions
+      ApplicationController.helper(HostDiscoveredHelper)
     end
 
   end

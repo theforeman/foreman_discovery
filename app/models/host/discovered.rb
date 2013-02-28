@@ -1,5 +1,4 @@
 class Host::Discovered < ::Host::Base
-  include HostDiscoveredHelpers
 
   def self.importHostAndFacts data
     # data might already be a hash, from refresh_facts
