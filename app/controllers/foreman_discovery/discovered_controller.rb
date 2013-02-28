@@ -1,13 +1,13 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
-  class DiscoveredhostsController < ::HostsController
-    before_filter :find_by_name, :only => %w[disc_show]
+  class DiscoveredController < ::ApplicationController
+    before_filter :find_by_name, :only => %w[show destroy]
 
     helper :hosts
 
     layout 'layouts/application'
 
-    def discovered (title = nil)
+    def index (title = nil)
       begin
         search = Host::Discovered.search_for(params[:search],:order => params[:order])
       rescue => e
@@ -21,7 +21,7 @@ module ForemanDiscovery
       end
     end
 
-    def disc_show
+    def show
       respond_to do |format|
         format.html {
           # filter graph time range
@@ -31,6 +31,16 @@ module ForemanDiscovery
           @report_summary = nil
         }
       end
+    end
+
+    def destroy
+      @host.destroy
+      redirect_to :action => "index"
+    end
+
+    def find_by_name
+      @host = Host::Discovered.find_by_id(params[:id])
+      @host ||= Host::Discovered.find_by_name(params[:id])
     end
 
   end

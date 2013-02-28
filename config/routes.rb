@@ -2,8 +2,7 @@
 Rails.application.routes.draw do
 
   scope :module => "ForemanDiscovery" do
-    match 'discovered'                   => 'discoveredhosts#discovered'
-    match 'discovered/:id'               => 'discoveredhosts#disc_show',     :as => 'disc'
+    resources :discovered
     match 'discovered/:id/convert'       => 'discoveredhosts#convert',       :as => 'disc_convert'
     match 'discovered/:id/refresh_facts' => 'discoveredhosts#refresh_facts', :as => 'refresh_facts'
   end

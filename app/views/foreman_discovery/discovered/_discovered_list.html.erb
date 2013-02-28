@@ -8,14 +8,14 @@
   </tr>
   <% hosts.each do |host| -%>
     <tr>
-      <td><%= link_to("#{host}", disc_path(host) ) %> </td>
+      <td><%= link_to("#{host}", discovered_path(host) ) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
       <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
-          link_to("Provision", hash_for_disc_convert_path(:id => host), :disabled => true),
-          link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host), :class=>"btn btn-small"),
-          display_delete_if_authorized(hash_for_host_path(:id => host), :confirm => "Delete #{host.name}?", :action => :destroy))%>
+          link_to("Provision", hash_for_disc_convert_path(:id => host)),
+          link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host)),
+          display_delete_if_authorized(hash_for_discovered_path(:id => host), :confirm => "Delete #{host.name}?", :action => :destroy))%>
         </td>
       </tr>
     <% end -%>
