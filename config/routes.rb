@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   #Example
   match 'discovered',     :to => 'hosts#discovered'
-  match 'discovered/:id', :to => 'hosts#disc_show', :as => 'disc_host'
+  match 'discovered/:id', :to => 'hosts#disc_show', :as => 'disc'
 
 end

@@ -2,10 +2,7 @@ class Host::Discovered < ::Host::Base
 
   def self.importHostAndFacts data
     # data might already be a hash, from refresh_facts
-    logger.info data
-    logger.info data.type
     facts = data.is_a?(Hash) ? data : YAML::load(data)
-    logger.info facts.inspect
     case facts
       # Discovered hosts don't have a name yet - use MAC for now
       # TODO: make this more intelligent, we might not have an eth0...
