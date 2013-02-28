@@ -6,7 +6,7 @@ module ForemanDiscovery
   class Engine < ::Rails::Engine
 
     initializer 'foreman_discovery.helper' do |app|
-      ActionView::Base.send :include, ForemanDiscovery::HostDiscoveredHelper
+      ActionView::Base.send :include, ForemanDiscovery::DiscoveredhostHelper
     end
 
     #initializer 'foreman_discovery.controller' do |app|  

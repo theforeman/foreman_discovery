@@ -2,6 +2,8 @@
 module ForemanDiscovery
   class DiscoveredhostsController < ActionController::Base
 
+    layout 'layouts/application'
+
     def discovered (title = nil)
       begin
         search = Host::Discovered.search_for(params[:search],:order => params[:order])
