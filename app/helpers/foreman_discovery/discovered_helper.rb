@@ -12,7 +12,7 @@ module ForemanDiscovery
         ),
         button_group(
           link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host)),
-          link_to("Provision", hash_for_disc_convert_path(:id => host)),
+          link_to("Provision", hash_for_edit_discovered_path(:id => host)),
           link_to("Delete", hash_for_discovered_path(:id => host),
                      :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete)
         )

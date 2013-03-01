@@ -4,7 +4,8 @@ module ForemanDiscovery
 
     unloadable
 
-    before_filter :find_by_name, :only => %w[show destroy refresh_facts]
+    before_filter :find_by_name, :only => %w[show destroy refresh_facts convert]
+    before_filter :change_host_type, :only =>%w[edit update]
 
     helper :hosts
 
@@ -41,8 +42,9 @@ module ForemanDiscovery
       redirect_to :action => "index"
     end
 
-    def convert
-      redirect_to :action => :edit, :type => "ManagedHost"
+    def edit
+      # This is really bad ...
+      redirect_to edit_host_path(@host)
     end
 
     def refresh_facts
@@ -56,6 +58,18 @@ module ForemanDiscovery
     def find_by_name
       @host = Host::Discovered.find_by_id(params[:id])
       @host ||= Host::Discovered.find_by_name(params[:id])
+    end
+
+    def change_host_type
+      # We'll only ever edit a host when converting it to Managed, so change the type
+      @host ||= Host::Discovered.find_by_name params[:id]
+      type = Host::Managed
+      Host.connection.execute "UPDATE 'hosts' SET type = '#{type}' WHERE id = '#{@host.id}'"
+      @host = @host.becomes(type)
+      @host.type = type.to_s
+      @host.mac = @host.name
+      @host.managed = true
+      @host.setBuild
     end
 
   end
