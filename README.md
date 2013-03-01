@@ -1,6 +1,7 @@
 # foreman\_discovery
 
-This plugin aims to enable MaaS hardware discovery in Foreman. It is not ready yet ;)
+This plugin aims to enable MaaS hardware discovery in Foreman. It is of alpha quality
+right now ;)
 
 # Installation:
 
@@ -33,10 +34,12 @@ so you'll have to reboot the machine by hand after the Host has been saved.
 * Session information is not being passed correctly in the redirect, so you have to
 click "Managed" and fill in most things yourself (including the MAC, annoyingly)
 * Various tabs don't work as expected (mainly the Parameters tab)
+* The topbar (Dashboard|Hosts|Reports etc) cannot be displayed due to a namespace bug
 
 # TODO
 
 * Fix the caveats
+* Get stuff merged up so the foreman/smart-proxy branches are not required
 * Add ACLs
 * Add Tests
 * Add API
