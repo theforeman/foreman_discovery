@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "app/helpers/foreman_discovery/discovered_helper.rb",
     "app/models/host/discovered.rb",
     "app/overrides/add_discovered_link.rb",
+    "app/overrides/remove_topbar.rb",
     "app/views/foreman_discovery/discovered/_discovered_list.html.erb",
     "app/views/foreman_discovery/discovered/index.html.erb",
     "app/views/foreman_discovery/discovered/show.html.erb",
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
     "foreman_discovery.gemspec",
     "lib/foreman_discovery.rb",
     "lib/foreman_discovery/engine.rb",
+    "lib/foreman_discovery/proxy_api_extensions.rb",
     "test/tests_go_here"
   ]
   s.homepage = %q{http://github.com/GregSutcliffe/foreman_discovery}

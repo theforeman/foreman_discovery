@@ -1,6 +1,9 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
   class DiscoveredController < ::ApplicationController
+
+    unloadable
+
     before_filter :find_by_name, :only => %w[show destroy refresh_facts]
 
     helper :hosts
