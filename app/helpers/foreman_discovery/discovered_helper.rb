@@ -8,6 +8,9 @@ module ForemanDiscovery
     def discovered_title_actions(host)
       title_actions(
         button_group(
+          link_to('Back to Discovered', '/discovered/', :class => 'btn-primary')
+        ),
+        button_group(
           link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host)),
           link_to("Provision", hash_for_disc_convert_path(:id => host)),
           link_to("Delete", hash_for_discovered_path(:id => host),
