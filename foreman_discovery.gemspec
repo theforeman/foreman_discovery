@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Greg Sutcliffe"]
-  s.date = %q{2013-02-27}
+  s.date = %q{2013-03-01}
   s.description = %q{MaaS Discovery Plugin engine for Foreman }
   s.email = %q{gsutclif@redhat.com}
   s.extra_rdoc_files = [
@@ -17,17 +17,24 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
-    "app/controllers/foreman_discovery/discoveredhosts_controller.rb",
-    "app/helpers/host_discovered_helper.rb",
-    "app/models/host/discovered.rb",
-    "app/views/hosts/discovered.html.erb",
-    "app/views/hosts/_discovered_list.html.erb",
-    "app/views/hosts/disc_show.html.erb",
-    "config/routes.rb",
-    "lib/foreman_discovery/engine.rb",
-    "lib/foreman_discovery.rb",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE",
     "README.md",
-    "VERSION"
+    "Rakefile",
+    "VERSION",
+    "app/controllers/foreman_discovery/discovered_controller.rb",
+    "app/helpers/foreman_discovery/discovered_helper.rb",
+    "app/models/host/discovered.rb",
+    "app/overrides/add_discovered_link.rb",
+    "app/views/foreman_discovery/discovered/_discovered_list.html.erb",
+    "app/views/foreman_discovery/discovered/index.html.erb",
+    "app/views/foreman_discovery/discovered/show.html.erb",
+    "config/routes.rb",
+    "foreman_discovery.gemspec",
+    "lib/foreman_discovery.rb",
+    "lib/foreman_discovery/engine.rb",
+    "test/tests_go_here"
   ]
   s.homepage = %q{http://github.com/GregSutcliffe/foreman_discovery}
   s.licenses = ["GPL-3"]
@@ -50,3 +57,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
+
