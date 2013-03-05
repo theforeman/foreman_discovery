@@ -17,10 +17,19 @@ Update & Restart Foreman:
 
     bundle update
 
+## Grace Note: Testing
+
+If you only wish to test the plugin code itself, you don't need to create the ISO below, or
+have a TFTP server to run it from. Simply POST a hash of Host Facts to
+`/fact_values/create?type=Host::Discovered`.The
+[script](https://github.com/GregSutcliffe/smart-proxy/blob/discovery/bin/discover_host#L73)
+in my ISO that does this can be used as an example.
+
+The uploaded hash will appear as a discovered host, and provisioning it should work.
+
 # Usage
 
-
-Boot a machine using the ISO detailed in my [smart-proxy/discovery branch](https://github.com/GregSutcliffe/smart-proxy/tree/discovery). It should register with Foreman and show up on `/discovered`.
+Boot a machine using the ISO detailed in my [smart-proxy/discovery branch](https://github.com/GregSutcliffe/smart-proxy/blob/discovery/discovery_setup_notes.md). It should register with Foreman and show up on `/discovered`.
 
 Select the Host, view the Facts, click Provision to be taken to a screen where you
 can detail the provisioning info.
