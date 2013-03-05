@@ -4,7 +4,7 @@ module ForemanDiscovery
 
     unloadable
 
-    before_filter :find_by_name, :only => %w[show destroy refresh_facts convert]
+    before_filter :find_by_name, :only => %w[show destroy update refresh_facts convert]
     before_filter :change_host_type, :only =>%w[edit update]
 
     helper :hosts
@@ -43,8 +43,13 @@ module ForemanDiscovery
     end
 
     def edit
-      # This is really bad ...
-      redirect_to edit_host_path(@host)
+      render :template => "hosts/edit"
+    end
+
+    def update
+      # This doesn't get called because we've rendered the hosts/form
+      # And it loses all the data stored in @host anyway
+      redirect_to @host, :action => 'update'
     end
 
     def refresh_facts
@@ -64,6 +69,7 @@ module ForemanDiscovery
       # We'll only ever edit a host when converting it to Managed, so change the type
       @host ||= Host::Discovered.find_by_name params[:id]
       type = Host::Managed
+      # Fix this properly...
       Host.connection.execute "UPDATE 'hosts' SET type = '#{type}' WHERE id = '#{@host.id}'"
       @host = @host.becomes(type)
       @host.type = type.to_s
