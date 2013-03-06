@@ -4,8 +4,7 @@ module ForemanDiscovery
 
     unloadable
 
-    before_filter :find_by_name, :only => %w[show destroy update refresh_facts convert]
-    before_filter :change_host_type, :only =>%w[edit update]
+    before_filter :find_by_name, :only => %w[show edit destroy refresh_facts convert]
 
     helper :hosts
 
@@ -39,17 +38,17 @@ module ForemanDiscovery
 
     def destroy
       @host.destroy
-      redirect_to :action => "index"
+      redirect_to :action => 'index'
     end
 
     def edit
-      render :template => "hosts/edit"
-    end
+      @host         = @host.becomes(Host::Managed)
+      @host.type    = 'Host::Managed'
+      @host.mac     = @host.name
+      @host.managed = true
+      @host.setBuild
 
-    def update
-      # This doesn't get called because we've rendered the hosts/form
-      # And it loses all the data stored in @host anyway
-      redirect_to @host, :action => 'update'
+      render :template => 'hosts/edit'
     end
 
     def refresh_facts
@@ -61,21 +60,10 @@ module ForemanDiscovery
     end
 
     def find_by_name
+      params[:id].downcase! if params[:id].present?
       @host = Host::Discovered.find_by_id(params[:id])
       @host ||= Host::Discovered.find_by_name(params[:id])
-    end
-
-    def change_host_type
-      # We'll only ever edit a host when converting it to Managed, so change the type
-      @host ||= Host::Discovered.find_by_name params[:id]
-      type = Host::Managed
-      # Fix this properly...
-      Host.connection.execute "UPDATE 'hosts' SET type = '#{type}' WHERE id = '#{@host.id}'"
-      @host = @host.becomes(type)
-      @host.type = type.to_s
-      @host.mac = @host.name
-      @host.managed = true
-      @host.setBuild
+      return false unless @host
     end
 
   end
