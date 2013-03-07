@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{foreman_discovery}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Greg Sutcliffe"]
-  s.date = %q{2013-03-01}
+  s.date = %q{2013-03-07}
   s.description = %q{MaaS Discovery Plugin engine for Foreman }
   s.email = %q{gsutclif@redhat.com}
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "app/controllers/foreman_discovery/discovered_controller.rb",
     "app/helpers/foreman_discovery/discovered_helper.rb",
     "app/models/host/discovered.rb",
+    "app/overrides/add_build_flag.rb",
     "app/overrides/add_discovered_link.rb",
     "app/overrides/remove_topbar.rb",
     "app/views/foreman_discovery/discovered/_discovered_list.html.erb",

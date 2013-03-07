@@ -40,9 +40,7 @@ Delete a machine and reboot it to have it move back to the Discovery Pool.
 
 * Does not have the connection to the proxy to cause a reboot after provisioning,
 so you'll have to reboot the machine by hand after the Host has been saved.
-* Session information is not being passed correctly in the redirect, so you have to
-click "Managed" and fill in most things yourself (including the MAC, annoyingly)
-* Various tabs don't work as expected (mainly the Parameters tab)
+* Various dropdowns don't work as expected (mainly the Hostgroup/Environment/Puppet classes)
 * The topbar (Dashboard|Hosts|Reports etc) cannot be displayed due to a namespace bug
 
 # TODO
