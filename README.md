@@ -3,11 +3,13 @@
 This plugin aims to enable MaaS hardware discovery in Foreman. It is of alpha quality
 right now ;)
 
+# Dependencies
+
+* Foreman running from commit 8dcdcce6f9fdb5d (or newer)
+
 # Installation:
 
-First, get my Host model refactoring from my [foreman/discovery branch](https://github.com/GregSutcliffe/foreman/tree/discovery_plugin). Get that running.
-
-Then require the gem in Foreman, and also Deface:
+Require the gem in Foreman, and also Deface:
 
     bundler.d/Gemfile.local.rb:
     gem 'deface', '0.7.2'
@@ -50,6 +52,7 @@ so you'll have to reboot the machine by hand after the Host has been saved.
 * Add ACLs
 * Add Tests
 * Add API
+* Get Deface into the plugin gemfile
 
 # Copyright
 
