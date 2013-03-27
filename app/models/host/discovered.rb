@@ -1,5 +1,7 @@
 class Host::Discovered < ::Host::Base
 
+  include ::Hostext::Search
+
   def self.importHostAndFacts data
     # data might already be a hash, from refresh_facts
     facts = data.is_a?(Hash) ? data : YAML::load(data)
