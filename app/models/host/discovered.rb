@@ -57,7 +57,7 @@ class Host::Discovered < ::Host::Base
     # TODO: Can we rely on self.ip? The lease might expire/change....
     begin
       logger.debug "retrieving facts from proxy"
-      facts = Facts.new(:url => "http://#{self.ip}:8443").facts
+      facts = ForemanDiscovery::Facts.new(:url => "http://#{self.ip}:8443").facts
     rescue Exception => e
       raise "Could not get facts from Proxy: #{e}"
     end
