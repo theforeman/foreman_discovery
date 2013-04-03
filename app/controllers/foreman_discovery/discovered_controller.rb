@@ -12,7 +12,7 @@ module ForemanDiscovery
 
     def index
       begin
-        @hosts = Host::Discovered.paginate :page => params[:page]
+        @hosts = Host::Discovered.all.paginate :page => params[:page]
       end
     end
 
