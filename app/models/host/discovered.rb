@@ -1,3 +1,5 @@
+require 'foreman_discovery/facts'
+
 class Host::Discovered < ::Host::Base
 
   scoped_search :on => :name, :complete_value => true, :default_order => true
@@ -55,7 +57,7 @@ class Host::Discovered < ::Host::Base
     # TODO: Can we rely on self.ip? The lease might expire/change....
     begin
       logger.debug "retrieving facts from proxy"
-      facts = ProxyAPI::Facts.new(:url => "http://#{self.ip}:8443").facts
+      facts = Facts.new(:url => "http://#{self.ip}:8443").facts
     rescue Exception => e
       raise "Could not get facts from Proxy: #{e}"
     end
