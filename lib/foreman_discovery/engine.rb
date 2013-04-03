@@ -14,5 +14,9 @@ module ForemanDiscovery
       ActionView::Base.send :include, ForemanDiscovery::DiscoveredHelper
     end
 
+    initializer 'foreman_discovery.orchestration' do |app|
+      Host::Managed.send(:include, ForemanDiscovery::Orchestration::Reboot) if SETTINGS[:unattended]
+    end
+
   end
 end
