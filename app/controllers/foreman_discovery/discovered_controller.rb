@@ -10,17 +10,9 @@ module ForemanDiscovery
 
     layout 'layouts/application'
 
-    def index (title = nil)
+    def index
       begin
-        search = Host::Discovered.search_for(params[:search],:order => params[:order])
-      rescue => e
-        error e.to_s
-        search = Host::Discovered.search_for ''
-      end
-      respond_to do |format|
-        format.html do
-          @hosts = search.paginate :page => params[:page]
-        end
+        @hosts = Host::Discovered.paginate :page => params[:page]
       end
     end
 
