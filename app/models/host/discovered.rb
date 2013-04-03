@@ -15,15 +15,15 @@ class Host::Discovered < ::Host::Base
     case facts
       # Discovered hosts don't have a name yet - use MAC for now
       # TODO: make this more intelligent, we might not have an eth0...
-    when Puppet::Node::Facts
-      name     = facts.values["macaddress_eth0"].downcase
-      values   = facts.values
-    when Hash
-      name     = facts["macaddress_eth0"].downcase
-      values   = facts
-      return raise("invalid facts hash") unless name and values
-    else
-      return raise("Invalid Facts, much be a Puppet::Node::Facts or a Hash")
+      when Puppet::Node::Facts
+        name   = facts.values["macaddress_eth0"].downcase
+        values = facts.values
+      when Hash
+        name   = facts["macaddress_eth0"].downcase
+        values = facts
+        return raise("invalid facts hash") unless name and values
+      else
+        return raise("Invalid Facts, much be a Puppet::Node::Facts or a Hash")
     end
 
     # TODO: Filter the facts to a known set - we don't need most of the full list
