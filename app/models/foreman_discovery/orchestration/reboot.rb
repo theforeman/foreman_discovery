@@ -1,6 +1,6 @@
 # Ensure that module is namespaced with plugin name
 module ForemanDiscovery
-  module Orchestration::Test
+  module Orchestration::Reboot
     def self.included(base)
       base.send :include, InstanceMethods
       base.class_eval do
