@@ -1,4 +1,4 @@
-<% title header ||= "" %>
+<% title 'Discovered Hosts' %>
 <table class="table table-bordered table-striped table-condensed" >
   <tr>
     <th class=''><%= sort :name %></th>
@@ -6,7 +6,7 @@
     <th class="hidden-tablet hidden-phone"><%= sort :last_report, :as => "Facts last received" %></th>
     <th></th>
   </tr>
-  <% hosts.each do |host| -%>
+  <% @hosts.each do |host| -%>
     <tr>
       <td><%= link_to("#{host}", discovered_path(host) ) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
@@ -21,5 +21,5 @@
     <% end -%>
   </table>
 
-<%= page_entries_info hosts, :more => " - <strong><span class='select_count'>0</span></strong> Selected" %>
-<%= will_paginate hosts %>
+<%= page_entries_info @hosts, :model => 'Hosts' %>
+<%= will_paginate @hosts %>

@@ -1,2 +1,2 @@
-<% title_actions link_to('Back To Hosts', '/hosts', :class => 'btn-primary') -%>
-<%= render 'discovered_list', :hosts => @hosts, :header => @title || "Discovered Hosts"  %>
+<% title_actions link_to('Back To Hosts', hosts_path, :class => 'btn btn-primary') -%>
+<%= render 'discovered_list' %>
