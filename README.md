@@ -12,7 +12,6 @@ right now ;)
 Require the gem in Foreman, and also Deface:
 
     bundler.d/Gemfile.local.rb:
-    gem 'deface', '0.7.2'
     gem 'foreman_discovery', :git => "https://github.com/GregSutcliffe/foreman_discovery.git"
 
 Update & Restart Foreman:
