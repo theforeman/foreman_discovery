@@ -1,6 +1,11 @@
 class Host::Discovered < ::Host::Base
 
-  include ::Hostext::Search
+  scoped_search :on => :name, :complete_value => true, :default_order => true
+  scoped_search :on => :last_report, :complete_value => true
+  scoped_search :on => :ip, :complete_value => true
+  scoped_search :on => :mac, :complete_value => true
+  scoped_search :in => :model, :on => :name, :complete_value => true, :rename => :model
+  scoped_search :in => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
 
   def self.importHostAndFacts data
     # data might already be a hash, from refresh_facts
