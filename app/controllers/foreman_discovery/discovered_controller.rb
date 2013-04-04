@@ -36,9 +36,8 @@ module ForemanDiscovery
     def edit
       @host         = @host.becomes(::Host::Managed)
       @host.type    = 'Host::Managed'
-      @host.mac     = @host.name
       @host.managed = true
-      @host.setBuild
+      @host.build   = true
 
       render :template => 'hosts/edit'
     end

@@ -29,9 +29,11 @@ class Host::Discovered < ::Host::Base
     # TODO: Filter the facts to a known set - we don't need most of the full list
 
     if name
-      h = Host::Discovered.find_by_name name
+      h = ::Host::Discovered.find_by_name name
     end
     h ||= Host.new :name => name, :type => "Host::Discovered"
+    h.type = "Host::Discovered"
+    h.mac = values["macaddress_eth0"]
 
     h.save if h.new_record?
     h.importFacts(name, values)

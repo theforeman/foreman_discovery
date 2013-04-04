@@ -9,24 +9,17 @@ module ForemanDiscovery
     end
 
     def queue_reboot
-      logger.info "gss"
-      logger.info type_changed?
-      logger.info old.inspect
-      logger.info old.type.inspect
-      return
-      return unless type_changed? and old.type == "Host::Discovered"
+      return unless type_changed? and ::Host::Base.find(self.id).type == "Host::Discovered"
       post_queue.create(:name => "Rebooting #{self}", :priority => 10000,
                         :action => [self, :setReboot])
     end
 
     def setReboot
-      logger.info "Rebooting #{name} as its being discovered and assigned"
-      res = ::ProxyAPI::BMC.new(:url => "http://#{ip}:8443").power :action => "cycle"
-      # res? we should abstract it in the BMC class
-      if res['result'] == true
-        logger.info "ForemanDiscoveryOrchestration: after_save: reboot result: successful"
+      logger.info "ForemanDiscovery: Rebooting #{name} as its being discovered and assigned"
+      if ::ProxyAPI::BMC.new(:url => "http://#{ip}:8443").power :action => "cycle"
+        logger.info "ForemanDiscovery: reboot result: successful"
       else
-        failure "Failed to reboot: #{res.inpect}" # we don't get much back, but we may as well show itd
+        logger.info "ForemanDiscovery: reboot result: failed"
       end
     rescue => e
       failure "Failed to reboot: #{proxy_error e}"
@@ -35,10 +28,6 @@ module ForemanDiscovery
     def delReboot
       # nothing to do here, in reality we should never hit this method since this should be the
       # last action in the queue.
-    end
-
-    def discover_test
-      puts "loaded!"
     end
 
   end
