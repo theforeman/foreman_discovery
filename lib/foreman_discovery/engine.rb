@@ -9,9 +9,16 @@ module ForemanDiscovery
       ActionView::Base.send :include, ForemanDiscovery::DiscoveredHelper
     end
 
-    initializer 'foreman_discovery.orchestration' do |app|
-      Host::Managed.send(:include, ForemanDiscovery::Orchestration::Reboot) if SETTINGS[:unattended]
+    #initializer 'foreman_discovery.orchestration' do |app|
+    #  Host::Managed.send(:include, ForemanDiscovery::Orchestration::Reboot) if SETTINGS[:unattended]
+    #end
+
+    # Include extenstions to models in this config.to_prepare block
+    config.to_prepare do
+      # Include host extenstions
+      ::Host::Managed.send :include, ForemanDiscovery::Host::ManagedExtensions
     end
+
 
   end
 end

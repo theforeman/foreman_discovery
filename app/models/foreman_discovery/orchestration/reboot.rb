@@ -4,8 +4,7 @@ module ForemanDiscovery
     def self.included(base)
       base.send :include, InstanceMethods
       base.class_eval do
-        before_save :test_info
-        after_save :queue_test
+        after_validation :queue_reboot
       end
     end
 
@@ -13,27 +12,32 @@ module ForemanDiscovery
 
       protected
 
-      def test_info
-        @old_type = Host::Base.find(self).type
-        logger.debug "ForemanDiscoveryOrchestration: before_save: old_type logged as #{@old_type}"
+      def queue_reboot
+        logger.debug type_changed?
+        logger.debug old.inspect
+        logger.debug old.type.inspect
+        return
+        return unless type_changed? and old.type == "Host::Discovered"
+        post_queue.create(:name => "Rebooting #{self}", :priority => 10000,
+                          :action => [self, :setReboot])
       end
 
-      def queue_test
-        logger.debug "ForemanDiscoveryOrchestration: after_save: old type retrieved as #{@old_type}"
-        logger.debug "ForemanDiscoveryOrchestration: after_save: new logged as #{self.type}"
-        if @old_type == "Host::Discovered" and self.type == "Host::Managed"
-          logger.info "ForemanDiscoveryOrchestration: after_save: sending reboot to #{self.ip}"
-          res = ::ProxyAPI::BMC.new(:url => "http://192.168.122.16:8443").power :action => "cycle"
-          if res['result'] == true
-            logger.info "ForemanDiscoveryOrchestration: after_save: reboot result: successful"
-          else
-            logger.info "ForemanDiscoveryOrchestration: after_save: reboot result: failed"
-            logger.info res.inspect
-            raise
-          end
+      def setReboot
+        logger.info "Rebooting #{name} as its being discovered and assigned"
+        res = ::ProxyAPI::BMC.new(:url => "http://#{ip}:8443").power :action => "cycle"
+        # res? we should abstract it in the BMC class
+        if res['result'] == true
+          logger.info "ForemanDiscoveryOrchestration: after_save: reboot result: successful"
         else
-          logger.debug "ForemanDiscoveryOrchestration: after_save: no action required"
+          failure "Failed to reboot: #{res.inpect}" # we don't get much back, but we may as well show itd
         end
+      rescue => e
+        failure "Failed to reboot: #{proxy_error e}"
+      end
+
+      def delReboot
+        # nothing to do here, in reality we should never hit this method since this should be the
+        # last action in the queue.
       end
 
     end

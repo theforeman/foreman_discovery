@@ -12,7 +12,7 @@ module ForemanDiscovery
 
     def index
       begin
-        @hosts = Host::Discovered.all.paginate :page => params[:page]
+        @hosts = ::Host::Discovered.all.paginate :page => params[:page]
       end
     end
 
@@ -34,7 +34,7 @@ module ForemanDiscovery
     end
 
     def edit
-      @host         = @host.becomes(Host::Managed)
+      @host         = @host.becomes(::Host::Managed)
       @host.type    = 'Host::Managed'
       @host.mac     = @host.name
       @host.managed = true
@@ -44,7 +44,7 @@ module ForemanDiscovery
     end
 
     def refresh_facts
-      if @host.is_a?(Host::Discovered) and @host.refresh_facts
+      if @host.is_a?(::Host::Discovered) and @host.refresh_facts
         process_success :success_msg =>  "Facts refreshed for #{@host.name}", :success_redirect => :back
       else
         process_error :error_msg => "Failed to refresh facts for #{@host.name}", :redirect => :back
@@ -53,8 +53,8 @@ module ForemanDiscovery
 
     def find_by_name
       params[:id].downcase! if params[:id].present?
-      @host = Host::Discovered.find_by_id(params[:id])
-      @host ||= Host::Discovered.find_by_name(params[:id])
+      @host = ::Host::Discovered.find_by_id(params[:id])
+      @host ||= ::Host::Discovered.find_by_name(params[:id])
       return false unless @host
     end
 
