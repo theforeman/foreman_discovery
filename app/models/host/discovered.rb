@@ -2,6 +2,9 @@ require 'foreman_discovery/facts'
 
 class Host::Discovered < ::Host::Base
 
+  belongs_to :location
+  belongs_to :organization
+
   scoped_search :on => :name, :complete_value => true, :default_order => true
   scoped_search :on => :last_report, :complete_value => true
   scoped_search :on => :ip, :complete_value => true
@@ -34,6 +37,21 @@ class Host::Discovered < ::Host::Base
     h ||= Host.new :name => name, :type => "Host::Discovered"
     h.type = "Host::Discovered"
     h.mac = values["macaddress_eth0"]
+
+    if SETTINGS[:locations_enabled]
+      begin
+        h.location = Location.find_by_name SETTINGS[:discovery][:default_location]
+      rescue
+        h.location = Location.first
+      end
+    end
+    if SETTINGS[:organizations_enabled]
+      begin
+        h.organization = Organization.find_by_name SETTINGS[:discovery][:default_organization]
+      rescue
+        h.organization = Organization.first
+      end
+    end
 
     h.save if h.new_record?
     h.importFacts(name, values)

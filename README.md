@@ -7,7 +7,7 @@ right now ;)
 
 * Foreman running from commit 8dcdcce6f9fdb5d (or newer)
 
-# Installation:
+# Installation
 
 Require the gem in Foreman, and also Deface:
 
@@ -17,6 +17,21 @@ Require the gem in Foreman, and also Deface:
 Update & Restart Foreman:
 
     bundle update
+
+# Configuration
+
+No configuration of Foreman is required. If you are using Locations and/or Organisations,
+Foreman will default to using the first Location and first Organisation for Discovered
+hosts. If you wish to place them in some other Location/Organization, you can (for now)
+only statically configure it. To do so, add the following config snippet to
+`config/settings.yaml`:
+
+    :discovery:
+      :default_location: MyLoc
+      :default_organization: MyOrg
+
+Newly discovered hosts will be placed into this Location / Organisation. A proper UI
+to alter this more flexibly is planned.
 
 ## Grace Note: Testing
 
@@ -51,7 +66,7 @@ so you'll have to reboot the machine by hand after the Host has been saved.
 * Add ACLs
 * Add Tests
 * Add API
-* Get Deface into the plugin gemfile
+* Add proper Location/Organization handling
 
 # Copyright
 
