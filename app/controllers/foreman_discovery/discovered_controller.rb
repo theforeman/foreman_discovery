@@ -4,7 +4,7 @@ module ForemanDiscovery
 
     unloadable
 
-    before_filter :find_by_name, :only => %w[show edit destroy refresh_facts convert]
+    before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
 
     helper :hosts
 
@@ -40,6 +40,42 @@ module ForemanDiscovery
       @host.build   = true
 
       render :template => 'hosts/edit'
+    end
+
+    def update
+      @host         = @host.becomes(::Host::Managed)
+      @host.type    = 'Host::Managed'
+      forward_url_options
+      Taxonomy.no_taxonomy_scope do
+        if @host.update_attributes(params[:host])
+          process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
+        else
+          load_vars_for_ajax
+          offer_to_overwrite_conflicts
+          process_error
+        end
+      end
+    end
+
+    def load_vars_for_ajax
+      return unless @host
+
+      @environment     = @host.environment
+      @architecture    = @host.architecture
+      @domain          = @host.domain
+      @operatingsystem = @host.operatingsystem
+      @medium          = @host.medium
+    end
+
+    # this is required for template generation (such as pxelinux) which is not done via a web request
+    def forward_url_options(host = @host)
+      host.url_options = url_options if @host.respond_to?(:url_options)
+    end
+
+    # if a save failed and the only reason was network conflicts then flag this so that the view
+    # is rendered differently and the next save operation will be forced
+    def offer_to_overwrite_conflicts
+      @host.overwrite = "true" if @host.errors.any? and @host.errors.are_all_conflicts?
     end
 
     def refresh_facts

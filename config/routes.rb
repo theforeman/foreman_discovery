@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   match 'os_selected_discovered'           => 'hosts#os_selected'
   match 'medium_selected_discovered'       => 'hosts#medium_selected'
 
-  # Fix hosts update routing
-  put 'discovered/:id' => 'hosts#update'
-
   scope :module => "foreman_discovery" do
     constraints(:id => /[^\/]+/) do
       resources :discovered
