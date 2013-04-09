@@ -1,3 +1,4 @@
+require 'deface'
 require 'foreman_discovery'
 
 module ForemanDiscovery
