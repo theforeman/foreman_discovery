@@ -16,10 +16,10 @@ class Host::Discovered < ::Host::Base
       # Discovered hosts don't have a name yet - use MAC for now
       # TODO: make this more intelligent, we might not have an eth0...
       when Puppet::Node::Facts
-        name   = facts.values["macaddress_eth0"].downcase
+        name   = facts.values["macaddress_eth0"].downcase.gsub(/:/,'')
         values = facts.values
       when Hash
-        name   = facts["macaddress_eth0"].downcase
+        name   = facts["macaddress_eth0"].downcase.gsub(/:/,'')
         values = facts
         return raise("invalid facts hash") unless name and values
       else
