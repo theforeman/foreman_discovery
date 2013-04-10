@@ -1,5 +1,4 @@
 require 'deface'
-require 'foreman_discovery'
 
 module ForemanDiscovery
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
@@ -7,17 +6,13 @@ module ForemanDiscovery
   class Engine < ::Rails::Engine
 
     initializer 'foreman_discovery.helper' do |app|
-      ActionView::Base.send :include, ForemanDiscovery::DiscoveredHelper
+      ActionView::Base.send :include, DiscoveredHelper
     end
-
-    #initializer 'foreman_discovery.orchestration' do |app|
-    #  Host::Managed.send(:include, ForemanDiscovery::Orchestration::Reboot) if SETTINGS[:unattended]
-    #end
 
     # Include extenstions to models in this config.to_prepare block
     config.to_prepare do
       # Include host extenstions
-      ::Host::Managed.send :include, ForemanDiscovery::Host::ManagedExtensions
+      ::Host::Managed.send :include, Host::ManagedExtensions
     end
 
 

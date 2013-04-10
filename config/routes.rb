@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   match 'os_selected_discovered'           => 'hosts#os_selected'
   match 'medium_selected_discovered'       => 'hosts#medium_selected'
 
-  scope :module => "foreman_discovery" do
-    constraints(:id => /[^\/]+/) do
-      resources :discovered
-      match 'discovered/:id/refresh_facts' => 'discovered#refresh_facts', :as => 'refresh_facts'
-    end
+  constraints(:id => /[^\/]+/) do
+    resources :discovered
+    match 'discovered/:id/refresh_facts' => 'discovered#refresh_facts', :as => 'refresh_facts'
   end
 
 end
