@@ -19,7 +19,7 @@
       <td class="ca">
         <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
       </td>
-      <td><%= link_to("#{host}", discovered_path(host) ) %> </td>
+      <td><%= link_to("#{host}", discover_path(host) ) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
       <% if SETTINGS[:locations_enabled] -%>
         <td class="hidden-tablet hidden-phone"><%= host.location.name %></td>
@@ -30,9 +30,9 @@
       <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
-          link_to("Provision", hash_for_edit_discovered_path(:id => host)),
-          link_to("Refresh Facts", hash_for_refresh_facts_discovered_path(:id => host)),
-          display_delete_if_authorized(hash_for_discovered_path(:id => host), :confirm => "Delete #{host.name}?", :action => :destroy))%>
+          link_to("Provision", hash_for_edit_discover_path(:id => host)),
+          link_to("Refresh Facts", hash_for_refresh_facts_discover_path(:id => host)),
+          display_delete_if_authorized(hash_for_discover_path(:id => host), :confirm => "Delete #{host.name}?", :action => :destroy))%>
         </td>
       </tr>
     <% end -%>

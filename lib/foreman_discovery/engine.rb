@@ -7,7 +7,7 @@ module ForemanDiscovery
   class Engine < ::Rails::Engine
 
     initializer 'foreman_discovery.helper' do |app|
-      ActionView::Base.send :include, DiscoveredHelper
+      ActionView::Base.send :include, DiscoversHelper
     end
 
     # Include extenstions to models in this config.to_prepare block

@@ -1,8 +1,9 @@
-class DiscoveredController < ::ApplicationController
+class DiscoversController < ::ApplicationController
 
   unloadable
 
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
+  before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
 
   helper :hosts
 
@@ -89,6 +90,40 @@ class DiscoveredController < ::ApplicationController
     @host = ::Host::Discovered.find_by_id(params[:id])
     @host ||= ::Host::Discovered.find_by_name(params[:id])
     return false unless @host
+  end
+
+  def find_multiple
+  # Lets search by name or id and make sure one of them exists first
+    if params[:host_names].present? or params[:host_ids].present?
+      @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
+      if @hosts.empty?
+        error 'No hosts were found with that id or name'
+        redirect_to(discovers_path) and return false
+      end
+    else
+      error 'No Hosts selected'
+      redirect_to(discovers_path) and return false
+    end
+
+    rescue => e
+      error "Something went wrong while selecting hosts - #{e}"
+      redirect_to discovers_path
+  end
+
+  def multiple_destroy
+  end
+
+  def submit_multiple_destroy
+    # keep all the ones that were not deleted for notification.
+    @hosts.delete_if {|host| host.destroy}
+
+    missed_hosts = @hosts.map(&:name).join('<br/>')
+    if @hosts.empty?
+      notice "Destroyed selected hosts"
+    else
+      error "The following hosts were not deleted: #{missed_hosts}"
+    end
+    redirect_to(discovers_path)
   end
 
 end

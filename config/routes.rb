@@ -2,12 +2,12 @@
 Rails.application.routes.draw do
 
   # Needed to make the hosts/edit form render
-  match 'architecture_selected_discovered' => 'hosts#architecture_selected'
-  match 'os_selected_discovered'           => 'hosts#os_selected'
-  match 'medium_selected_discovered'       => 'hosts#medium_selected'
+  match 'architecture_selected_discovers' => 'hosts#architecture_selected'
+  match 'os_selected_discovers'           => 'hosts#os_selected'
+  match 'medium_selected_discovers'       => 'hosts#medium_selected'
 
   constraints(:id => /[^\/]+/) do
-    resources :discovered do
+    resources :discovers do
       member do
         get 'refresh_facts'
       end
