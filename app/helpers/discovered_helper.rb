@@ -18,4 +18,19 @@ module DiscoveredHelper
     )
   end
 
+  def multiple_discovered_actions_select
+    actions = [
+      ['Delete Hosts', multiple_destroy_hosts_path, 'trash'],
+    ]
+    actions <<  ['Assign Organization', select_multiple_organization_hosts_path, 'tags'] if SETTINGS[:organizations_enabled]
+    actions <<  ['Assign Location', select_multiple_location_hosts_path, 'map-marker'] if SETTINGS[:locations_enabled]
+
+    content_tag :span, :id => 'submit_multiple', :class => 'fl' do
+      actions.map do |action|
+        link_to(icon_text(action[2]), action[1], :title => action[0])
+      end.join(' ').html_safe
+    end
+
+  end
+
 end

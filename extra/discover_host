@@ -1,0 +1,79 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'net/http'
+require 'net/https'
+require 'uri'
+require 'yaml'
+
+# Would like to not need this...
+require 'rubygems'
+require 'json'
+
+def discover_server
+  server = (discover_by_pxe or discover_by_dns)
+  unless server =~ /^http/
+    server = "http://#{server}"
+  end
+  server
+end
+
+def discover_by_pxe
+  begin
+    contents = File.open("/proc/cmdline", 'r') { |f| f.read }
+    server_ip = contents.split.map { |x| $1 if x.match(/foreman.ip=(.*)/)}.compact
+    if server_ip.size == 1
+      return server_ip.join
+    else
+      return false
+    end
+  rescue
+    return false
+  end
+end
+
+def discover_by_dns
+  begin
+    contents = File.open("/proc/cmdline", 'r') { |f| f.read }
+    server_name = contents.split.map { |x| $1 if x.match(/foreman.server=(.*)/)}.compact
+    server_name = server_name.size == 1 ? server_name.join : 'razor'
+
+    require 'socket'
+    return TCPSocket.gethostbyname(server_name)[3..-1].first || false
+  rescue
+    return false
+  end
+end
+
+# Main
+
+$stdout.reopen("/tmp/proxy-discovery.log", "w")
+$stderr.reopen("/tmp/proxy-discovery.err", "w")
+
+# Get facts from the Proxy
+puts "retrieving facts"
+begin
+  uri = URI.parse("http://localhost:8443/facts")
+  http = Net::HTTP.new(uri.host, uri.port)
+  response = http.request(Net::HTTP::Get.new(uri.request_uri))
+  # Ugly
+  facts = YAML.dump(JSON.parse(response.body))
+rescue Exception => e
+  raise "Could not get facts from Proxy: #{e}"
+end
+
+puts "Importing facts"
+begin
+  uri = URI.parse(discover_server)
+  http = Net::HTTP.new(uri.host, uri.port)
+  if uri.scheme == 'https' then
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  end
+  req = Net::HTTP::Post.new("/fact_values/create?type=Host::Discovered")
+  req.set_form_data({'facts' => facts})
+  response = http.request(req)
+  puts response.body
+rescue Exception => e
+  raise "Could not send facts to Foreman: #{e}"
+end

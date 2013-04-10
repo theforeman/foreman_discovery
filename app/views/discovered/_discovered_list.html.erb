@@ -1,15 +1,32 @@
+<%= javascript "jquery.cookie", "host_checkbox" %>
 <% title 'Discovered Hosts' %>
 <table class="table table-bordered table-striped table-condensed" >
   <tr>
+    <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :title => "Select All" } %></th>
     <th class=''><%= sort :name %></th>
     <th class="hidden-tablet hidden-phone"><%= sort :model %></th>
+    <% if SETTINGS[:locations_enabled] -%>
+      <th class="hidden-tablet hidden-phone"><%= sort :location %></th>
+    <% end -%>
+    <% if SETTINGS[:organizations_enabled] -%>
+      <th class="hidden-tablet hidden-phone"><%= sort :organization %></th>
+    <% end -%>
     <th class="hidden-tablet hidden-phone"><%= sort :last_report, :as => "Facts last received" %></th>
     <th></th>
   </tr>
   <% @hosts.each do |host| -%>
     <tr>
+      <td class="ca">
+        <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
+      </td>
       <td><%= link_to("#{host}", discovered_path(host) ) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
+      <% if SETTINGS[:locations_enabled] -%>
+        <td class="hidden-tablet hidden-phone"><%= host.location.name %></td>
+      <% end -%>
+      <% if SETTINGS[:organizations_enabled] -%>
+        <td class="hidden-tablet hidden-phone"><%= host.organization.name %></td>
+      <% end -%>
       <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
