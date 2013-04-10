@@ -7,8 +7,19 @@ Rails.application.routes.draw do
   match 'medium_selected_discovered'       => 'hosts#medium_selected'
 
   constraints(:id => /[^\/]+/) do
-    resources :discovered
-    match 'discovered/:id/refresh_facts' => 'discovered#refresh_facts', :as => 'refresh_facts'
+    resources :discovered do
+      member do
+        get 'refresh_facts'
+      end
+      collection do
+        get 'multiple_destroy'
+        post 'submit_multiple_destroy'
+        get  'select_multiple_organization'
+        post 'update_multiple_organization'
+        get  'select_multiple_location'
+        post 'update_multiple_location'
+      end
+    end
   end
 
 end

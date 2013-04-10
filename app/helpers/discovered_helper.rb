@@ -20,10 +20,10 @@ module DiscoveredHelper
 
   def multiple_discovered_actions_select
     actions = [
-      ['Delete Hosts', multiple_destroy_hosts_path, 'trash'],
+      ['Delete Hosts', multiple_destroy_discovered_path, 'trash'],
     ]
-    actions <<  ['Assign Organization', select_multiple_organization_hosts_path, 'tags'] if SETTINGS[:organizations_enabled]
-    actions <<  ['Assign Location', select_multiple_location_hosts_path, 'map-marker'] if SETTINGS[:locations_enabled]
+    actions <<  ['Assign Organization', select_multiple_organization_discovered_path, 'tags'] if SETTINGS[:organizations_enabled]
+    actions <<  ['Assign Location', select_multiple_location_discovered_path, 'map-marker'] if SETTINGS[:locations_enabled]
 
     content_tag :span, :id => 'submit_multiple', :class => 'fl' do
       actions.map do |action|

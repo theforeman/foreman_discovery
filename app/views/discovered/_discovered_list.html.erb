@@ -31,7 +31,7 @@
       <td>
         <%= action_buttons(
           link_to("Provision", hash_for_edit_discovered_path(:id => host)),
-          link_to("Refresh Facts", hash_for_refresh_facts_path(:id => host)),
+          link_to("Refresh Facts", hash_for_refresh_facts_discovered_path(:id => host)),
           display_delete_if_authorized(hash_for_discovered_path(:id => host), :confirm => "Delete #{host.name}?", :action => :destroy))%>
         </td>
       </tr>
