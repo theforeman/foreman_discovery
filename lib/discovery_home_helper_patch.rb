@@ -13,7 +13,7 @@ module DiscoveryHomeHelperPatch
       choices = setting_options_without_discovers_link
       choices += [
         [:divider],
-        ['Discovered', :discovers]
+        ['Discovered Hosts', :discovers]
       ]
       authorized_menu_actions(choices)
     end
