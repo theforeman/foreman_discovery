@@ -18,6 +18,9 @@ module ForemanDiscovery
       ::HomeHelper.send :include, DiscoveryHomeHelperPatch
     end
 
+    rake_tasks do
+      load "tasks.rake"
+    end
 
   end
 end
