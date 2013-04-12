@@ -9,7 +9,7 @@ right now ;)
 
 # Installation
 
-Require the gem in Foreman, and also Deface:
+Require the gem in Foreman.
 
     bundler.d/Gemfile.local.rb:
     gem 'foreman_discovery', :git => "https://github.com/GregSutcliffe/foreman_discovery.git"
@@ -18,9 +18,45 @@ Update & Restart Foreman:
 
     bundle update
 
+# Building the Discovery PXE Image
+
+There is a rake task for the discovery image. Run this in the Foreman app root:
+
+    rake discovery:build_image
+
+You image will be in ./discovery\_image. Run the rake task as root, or with passwordless
+sudo, as the password prompts may get lost in the ruby->bash forking process.
+
 # Configuration
 
-No configuration of Foreman is required. If you are using Locations and/or Organisations,
+## PXE config
+
+Configure the PXE default to boot the Discovery Image built above, eg:
+
+    DEFAULT menu
+    PROMPT 0
+    MENU TITLE PXE Menu
+    TIMEOUT 200
+    TOTALTIMEOUT 6000
+    ONTIMEOUT discovery
+
+    LABEL discovery
+    MENU LABEL Boot Discovery
+    TEXT HELP
+    Boot the Foreman Discovery Image
+    Use TAB to edit options for specific needs.
+    ENDTEXT
+    KERNEL /boot/TinyCore-vmlinuz
+    APPEND initrd=/boot/TinyCore-initrd.gz foreman.ip=192.168.122.1:3000
+
+Be sure to alter the foreman.ip appropriately. You can also use foreman.server to
+specify a DNS record (`foreman.server=myforemanhost`) but in this case the port will
+be assumed to be http (80). If all else fails (say, USB boot where we can't provide
+options) it will look for a DNS record of `foreman`
+
+## UI config
+
+No configuration of the Foreman UI is required. If you are using Locations and/or Organisations,
 Foreman will default to using the first Location and first Organisation for Discovered
 hosts. If you wish to place them in some other Location/Organization, you can (for now)
 only statically configure it. To do so, add the following config snippet to
@@ -35,34 +71,33 @@ to alter this more flexibly is planned.
 
 ## Grace Note: Testing
 
-If you only wish to test the plugin code itself, you don't need to create the ISO below, or
-have a TFTP server to run it from. Simply POST a hash of Host Facts to
+If you only wish to test the plugin code itself, you don't need to create the PXE boot
+image above, or have a TFTP server to run it from. Simply POST a hash of Host Facts to
 `/fact_values/create?type=Host::Discovered`.The
-[script](https://github.com/GregSutcliffe/smart-proxy/blob/discovery/bin/discover_host#L73)
-in my ISO that does this can be used as an example.
+[script](extra/discover_host#L73)
+in my PXE image that does this can be used as an example.
 
 The uploaded hash will appear as a discovered host, and provisioning it should work.
 
 # Usage
 
-Boot a machine using the ISO detailed in my [smart-proxy/discovery branch](https://github.com/GregSutcliffe/smart-proxy/blob/discovery/discovery_setup_notes.md). It should register with Foreman and show up on `/discovered`.
+Boot a machine using the new PXE config above. It should register with Foreman.
+The new Host should show up in `More->Discovered Hosts`. Then select a Discovered Host
+and choose Provision. You'll be taken to the normal Edit page for a Host, with the
+discovered data filled in where possible. Fill in the details as normal.
 
-Select the Host, view the Facts, click Provision to be taken to a screen where you
-can detail the provisioning info.
+On save, a reboot is sent to the discovered host, after which it should reboot into
+the installer for the chosen OS, and finally into the installed OS.
 
 Delete a machine and reboot it to have it move back to the Discovery Pool.
 
 # Caveats
 
-* Does not have the connection to the proxy to cause a reboot after provisioning,
-so you'll have to reboot the machine by hand after the Host has been saved.
-* Various dropdowns don't work as expected (mainly the Hostgroup/Environment/Puppet classes)
-* The topbar (Dashboard|Hosts|Reports etc) cannot be displayed due to a namespace bug
+* Mass-update buttons (Delete/Location/Organization) don't work properly
 
 # TODO
 
 * Fix the caveats
-* Get stuff merged up so the foreman/smart-proxy branches are not required
 * Add ACLs
 * Add Tests
 * Add API
