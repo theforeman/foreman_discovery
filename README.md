@@ -29,6 +29,16 @@ sudo, as the password prompts may get lost in the ruby->bash forking process.
 
 # Configuration
 
+## Image configuration
+
+The PXE image has no configuration options during build. However, it will attempt to
+download `/discovery_init.sh` from your Foreman server and run it. This is entirely
+optional - if the server cannot be reached or the file cannot be found, the image
+has a fallback script built in.
+
+You can find an example script [here](extra/discovery_init.sh.example) - place your
+modified version in the `public/` directory on your Foreman server.
+
 ## PXE config
 
 Configure the PXE default to boot the Discovery Image built above, eg:

@@ -15,7 +15,12 @@ TOPDIR=`mktemp -d`
 cd $TOPDIR
 
 # Download/Unpack TCL ISO
-wget http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/Core-current.iso -O tcl.iso
+if [ -f /tmp/tcl.iso ]; then
+  echo "Using cached TCL iso"
+  cp /tmp/tcl.iso ./tcl.iso
+else
+  wget http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/Core-current.iso -O tcl.iso
+fi
 mkdir loop && mount -oloop tcl.iso loop/
 cp loop/boot/core.gz loop/boot/vmlinuz .
 umount loop && rmdir loop
@@ -28,10 +33,21 @@ for n in $GEMS ; do gem fetch $n ; done
 
 # Build the init script
 echo "" >> ../bootlocal.sh
-for n in $GEMS ; do echo "gem install -l /opt/gems/`ls *$n-[0-9]*.gem`" >> ../bootlocal.sh ; done
+echo "sleep 20" >> ../bootlocal.sh # network can be slow to come up, and we're not in a rush
+echo "/opt/foreman_startup.rb" >> ../bootlocal.sh
+echo "/opt/discovery_init.sh" >> ../bootlocal.sh
+
+# Get the downloader
+wget https://raw.github.com/GregSutcliffe/foreman_discovery/master/extra/foreman_startup.rb -O ../foreman_startup.rb
+chmod 755 ../foreman_startup.rb
+
+# Build the fallback script
+echo "#!/bin/sh" >> ../discovery_init.sh
+for n in $GEMS ; do echo "gem install -l /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
 echo "" >> ../bootlocal.sh
-echo "/usr/share/foreman-proxy/bin/smart-proxy" >> ../bootlocal.sh
-echo "/usr/share/foreman-proxy/bin/discover_host" >> ../bootlocal.sh
+echo "/usr/share/foreman-proxy/bin/smart-proxy" >> ../discovery_init.sh
+echo "/usr/share/foreman-proxy/bin/discover_host" >> ../discovery_init.sh
+chmod 755 ../discovery_init.sh
 
 # Repack
 cd $TOPDIR/extract
