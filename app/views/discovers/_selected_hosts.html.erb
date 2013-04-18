@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="span8">
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th> Name </th>
+          <th> Model </th>
+          <%= raw("<th>Location</th>") if SETTINGS[:locations_enabled]%>
+          <%= raw("<th>Organization</th>") if SETTINGS[:organizations_enabled]%>
+        </tr>
+      </thead>
+      <tbody>
+        <% hosts.each do |host| -%>
+          <tr>
+            <td><%=h host %> </td>
+            <td><%=h host.model %> </td>
+            <% if SETTINGS[:locations_enabled]%>
+            <td><%=h host.try(:location) %></td>
+            <% end %>
+            <% if SETTINGS[:organizations_enabled]%>
+            <td><%=h host.try(:organization) %></td>
+            <% end %>
+          </tr>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+</div>

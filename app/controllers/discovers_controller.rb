@@ -1,18 +1,18 @@
 class DiscoversController < ::ApplicationController
-
+  include Foreman::Controller::AutoCompleteSearch
+  include Foreman::Controller::TaxonomyMultiple
   unloadable
 
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
+
 
   helper :hosts
 
   layout 'layouts/application'
 
   def index
-    begin
-      @hosts = ::Host::Discovered.all.paginate :page => params[:page]
-    end
+    @hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order]).paginate :page => params[:page]
   end
 
   def show
@@ -125,5 +125,20 @@ class DiscoversController < ::ApplicationController
     end
     redirect_to(discovers_path)
   end
+
+  def auto_complete_search
+     begin
+       @items = Host::Discovered.complete_for(params[:search])
+       @items = @items.map do |item|
+         category = (['and','or','not','has'].include?(item.to_s.sub(/^.*\s+/,''))) ? 'Operators' : ''
+         part = item.to_s.sub(/^.*\b(and|or)\b/i) {|match| match.sub(/^.*\s+/,'')}
+         completed = item.to_s.chomp(part)
+         {:completed => completed, :part => part, :label => item, :category => category}
+       end
+     rescue ScopedSearch::QueryNotSupported => e
+       @items = [{:error =>e.to_s}]
+     end
+     render :json => @items
+   end
 
 end
