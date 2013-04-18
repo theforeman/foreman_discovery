@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         post 'update_multiple_organization'
         get  'select_multiple_location'
         post 'update_multiple_location'
+        get  'auto_complete_search'
       end
     end
   end
