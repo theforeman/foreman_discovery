@@ -1,9 +1,11 @@
 class DiscoversController < ::ApplicationController
   include Foreman::Controller::AutoCompleteSearch
+  include Foreman::Controller::TaxonomyMultiple
   unloadable
 
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
+
 
   helper :hosts
 

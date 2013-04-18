@@ -1,0 +1,10 @@
+<%= render 'selected_hosts', :hosts => @hosts %>
+<div class="row">
+  <div class="span8">
+    <%= form_for :organization, :url => update_multiple_organization_hosts_path(:host_ids => params[:host_ids]) do |f| %>
+      <%= f.select :id, Organization.all.map{|e| [e.name, e.id]},{:include_blank => "Select Organization"},
+                   :onchange => "toggle_multiple_ok_button(this)" %>
+      <%= f.hidden_field :optimistic_import, :value => "yes" %>
+    <% end %>
+  </div>
+</div>
