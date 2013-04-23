@@ -7,6 +7,7 @@ module Host::ManagedExtensions
   end
 
   def queue_reboot
+    return if new_record? # Discovered Hosts already exist, and new_records will break `find`
     return unless type_changed? and ::Host::Base.find(self.id).type == "Host::Discovered"
     post_queue.create(:name => "Rebooting #{self}", :priority => 10000,
                       :action => [self, :setReboot])
