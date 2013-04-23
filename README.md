@@ -5,7 +5,7 @@ right now ;)
 
 # Dependencies
 
-* Foreman running from commit 8dcdcce6f9fdb5d (or newer)
+* Foreman running from commit e36b1d6689773a9b (or newer)
 
 # Installation
 
@@ -101,17 +101,17 @@ the installer for the chosen OS, and finally into the installed OS.
 
 Delete a machine and reboot it to have it move back to the Discovery Pool.
 
-# Caveats
+# Permissions
 
-* Mass-update buttons (Delete/Location/Organization) don't work properly
+The plugin will create a Role called "Discovery" when first started. You can assign
+this role to non-admins to allow them to use the discovery plugin. Alternatively
+assign the `:perform_discovery` permission to an existing Role.
 
 # TODO
 
-* Fix the caveats
-* Add ACLs
 * Add Tests
 * Add API
-* Add proper Location/Organization handling
+* Add proper Location/Organization handling (via a Wizard maybe?)
 
 # Copyright
 
