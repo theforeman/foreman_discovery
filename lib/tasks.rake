@@ -57,8 +57,8 @@ namespace :discovery do
       Dir.mkdir 'discovery_image' unless File.directory?('discovery_image')
       #File.copy "#{builddir}/initrd.gz", './discovery_image/'  # this seems to give
       #File.copy "#{builddir}/vmlinuz", './discovery_image/'    # some weird errors...
-      `cp #{builddir}/initrd.gz" ./discovery_image/`
-      `cp #{builddir}/vmlinuz" ./discovery_image/`
+      `cp #{builddir}/initrd.gz ./discovery_image/`
+      `cp #{builddir}/vmlinuz ./discovery_image/`
       puts "Your Discovery Image is in ./discovery_image - please copy these files"
       puts "to your TFTP server and configure the default boot to use them"
     else
