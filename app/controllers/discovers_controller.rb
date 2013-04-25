@@ -13,6 +13,9 @@ class DiscoversController < ::ApplicationController
 
   def index
     hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order])
+    # This shouldn't be necessary, but randomly the sql query on the line above
+    # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
+    hosts.reject! {|h| h.type != "Host::Discovered" }
     respond_to do |format|
       format.html { @hosts = hosts.includes(:model, :location, :organization).paginate :page => params[:page] }
       format.json { render :json => hosts }

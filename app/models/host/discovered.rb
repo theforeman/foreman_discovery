@@ -30,7 +30,7 @@ class Host::Discovered < ::Host::Base
     end
 
     # filter facts
-    values.reject!{|v| v =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
+    values.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
 
     if name
       h = ::Host::Discovered.find_by_name name
