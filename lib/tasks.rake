@@ -27,6 +27,16 @@ namespace :discovery do
       prefix = 'sudo'
     end
 
+    # dep check
+    unless system("which unsquashfs")
+      puts "please install unsquashfs"
+      exit 1
+    end
+    unless system("which advdef")
+      puts "please install advdef"
+      exit 1
+    end
+
     script=`bundle show foreman_discovery`.strip + '/extra/build_iso.sh'
     builddir=''
     puts 'Building TCL Discovery Image - this may take a while'
