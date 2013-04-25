@@ -29,7 +29,8 @@ class Host::Discovered < ::Host::Base
         return raise("Invalid Facts, much be a Puppet::Node::Facts or a Hash")
     end
 
-    # TODO: Filter the facts to a known set - we don't need most of the full list
+    # filter facts
+    values.reject!{|v| v =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
 
     if name
       h = ::Host::Discovered.find_by_name name

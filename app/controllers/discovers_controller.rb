@@ -12,7 +12,11 @@ class DiscoversController < ::ApplicationController
   layout 'layouts/application'
 
   def index
-    @hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order]).paginate :page => params[:page]
+    hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order])
+    respond_to do |format|
+      format.html { @hosts = hosts.includes(:model, :location, :organization).paginate :page => params[:page] }
+      format.json { render :json => hosts }
+    end
   end
 
   def show
