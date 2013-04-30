@@ -4,6 +4,7 @@ class Host::Discovered < ::Host::Base
 
   belongs_to :location
   belongs_to :organization
+  belongs_to :subnet
 
   scoped_search :on => :name, :complete_value => true, :default_order => true
   scoped_search :on => :last_report, :complete_value => true
@@ -76,6 +77,7 @@ class Host::Discovered < ::Host::Base
 
   def populateFieldsFromFacts facts = self.facts_hash
     importer = super
+    self.subnet = Subnet.subnet_for(importer.ip)
     self.save
   end
 
