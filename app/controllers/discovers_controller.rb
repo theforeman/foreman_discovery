@@ -13,11 +13,12 @@ class DiscoversController < ::ApplicationController
 
   def index
     hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order])
-    # This shouldn't be necessary, but randomly the sql query on the line above
-    # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
-    hosts.reject! {|h| h.type != "Host::Discovered" }
     respond_to do |format|
-      format.html { @hosts = hosts.includes(:model, :location, :organization).paginate :page => params[:page] }
+      format.html do
+        # This `where` shouldn't be necessary, but randomly the sql query on the line above
+        # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
+        @hosts = hosts.where(:type => "Host::Discovered").includes(:model, :location, :organization).paginate :page => params[:page]
+      end
       format.json { render :json => hosts }
     end
   end
@@ -100,7 +101,7 @@ class DiscoversController < ::ApplicationController
   end
 
   def find_multiple
-  # Lets search by name or id and make sure one of them exists first
+    # Lets search by name or id and make sure one of them exists first
     if params[:host_names].present? or params[:host_ids].present?
       @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
       if @hosts.empty?
@@ -112,9 +113,9 @@ class DiscoversController < ::ApplicationController
       redirect_to(discovers_path) and return false
     end
 
-    rescue => e
-      error "Something went wrong while selecting hosts - #{e}"
-      redirect_to discovers_path
+  rescue => e
+    error "Something went wrong while selecting hosts - #{e}"
+    redirect_to discovers_path
   end
 
   def multiple_destroy
@@ -134,18 +135,18 @@ class DiscoversController < ::ApplicationController
   end
 
   def auto_complete_search
-     begin
-       @items = Host::Discovered.complete_for(params[:search])
-       @items = @items.map do |item|
-         category = (['and','or','not','has'].include?(item.to_s.sub(/^.*\s+/,''))) ? 'Operators' : ''
-         part = item.to_s.sub(/^.*\b(and|or)\b/i) {|match| match.sub(/^.*\s+/,'')}
-         completed = item.to_s.chomp(part)
-         {:completed => completed, :part => part, :label => item, :category => category}
-       end
-     rescue ScopedSearch::QueryNotSupported => e
-       @items = [{:error =>e.to_s}]
-     end
-     render :json => @items
-   end
+    begin
+      @items = Host::Discovered.complete_for(params[:search])
+      @items = @items.map do |item|
+        category = (['and','or','not','has'].include?(item.to_s.sub(/^.*\s+/,''))) ? 'Operators' : ''
+        part = item.to_s.sub(/^.*\b(and|or)\b/i) {|match| match.sub(/^.*\s+/,'')}
+        completed = item.to_s.chomp(part)
+        {:completed => completed, :part => part, :label => item, :category => category}
+      end
+    rescue ScopedSearch::QueryNotSupported => e
+      @items = [{:error =>e.to_s}]
+    end
+    render :json => @items
+  end
 
 end
