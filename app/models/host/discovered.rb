@@ -12,6 +12,11 @@ class Host::Discovered < ::Host::Base
   scoped_search :in => :model, :on => :name, :complete_value => true, :rename => :model
   scoped_search :in => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
 
+  # This `where` shouldn't be necessary, but randomly the sql query on the line above
+  # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
+  # this seems like a rails bug, TODO: figure out whats really wrong here
+  scope :list, lambda { where(:type => "Host::Discovered").includes(:model, :location, :organization) }
+
   def self.importHostAndFacts data
     # data might already be a hash, from refresh_facts
     facts = data.is_a?(Hash) ? data : YAML::load(data)
