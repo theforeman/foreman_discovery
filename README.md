@@ -12,7 +12,7 @@ right now ;)
 Require the gem in Foreman.
 
     bundler.d/Gemfile.local.rb:
-    gem 'foreman_discovery', :git => "https://github.com/GregSutcliffe/foreman_discovery.git"
+    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
 
 Update & Restart Foreman:
 
