@@ -41,14 +41,14 @@ class Host::Discovered < ::Host::Base
 
     if SETTINGS[:locations_enabled]
       begin
-        h.location = Location.find_by_name Setting[:discovery_location]
+        h.location = (Location.find_by_name Setting[:discovery_location]) || Location.first
       rescue
         h.location = Location.first
       end
     end
     if SETTINGS[:organizations_enabled]
       begin
-        h.organization = Organization.find_by_name Setting[:discovery_organization]
+        h.organization = (Organization.find_by_name Setting[:discovery_organization]) || Organization.first
       rescue
         h.organization = Organization.first
       end
