@@ -6,7 +6,6 @@ class DiscoversController < ::ApplicationController
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
 
-
   helper :hosts
 
   layout 'layouts/application'
@@ -23,15 +22,11 @@ class DiscoversController < ::ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html {
-        # filter graph time range
-        @range = nil
+    # filter graph time range
+    @range = nil
 
-        # summary report text
-        @report_summary = nil
-      }
-    end
+    # summary report text
+    @report_summary = nil
   end
 
   def destroy
@@ -63,58 +58,12 @@ class DiscoversController < ::ApplicationController
     end
   end
 
-  def load_vars_for_ajax
-    return unless @host
-
-    @environment     = @host.environment
-    @architecture    = @host.architecture
-    @domain          = @host.domain
-    @operatingsystem = @host.operatingsystem
-    @medium          = @host.medium
-  end
-
-  # this is required for template generation (such as pxelinux) which is not done via a web request
-  def forward_url_options(host = @host)
-    host.url_options = url_options if @host.respond_to?(:url_options)
-  end
-
-  # if a save failed and the only reason was network conflicts then flag this so that the view
-  # is rendered differently and the next save operation will be forced
-  def offer_to_overwrite_conflicts
-    @host.overwrite = "true" if @host.errors.any? and @host.errors.are_all_conflicts?
-  end
-
   def refresh_facts
     if @host.is_a?(::Host::Discovered) and @host.refresh_facts
       process_success :success_msg =>  "Facts refreshed for #{@host.name}", :success_redirect => :back
     else
       process_error :error_msg => "Failed to refresh facts for #{@host.name}", :redirect => :back
     end
-  end
-
-  def find_by_name
-    params[:id].downcase! if params[:id].present?
-    @host = ::Host::Discovered.find_by_id(params[:id])
-    @host ||= ::Host::Discovered.find_by_name(params[:id])
-    return false unless @host
-  end
-
-  def find_multiple
-    # Lets search by name or id and make sure one of them exists first
-    if params[:host_names].present? or params[:host_ids].present?
-      @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
-      if @hosts.empty?
-        error 'No hosts were found with that id or name'
-        redirect_to(discovers_path) and return false
-      end
-    else
-      error 'No Hosts selected'
-      redirect_to(discovers_path) and return false
-    end
-
-  rescue => e
-    error "Something went wrong while selecting hosts - #{e}"
-    redirect_to discovers_path
   end
 
   def multiple_destroy
@@ -147,5 +96,54 @@ class DiscoversController < ::ApplicationController
     end
     render :json => @items
   end
+
+  private
+
+  def load_vars_for_ajax
+    return unless @host
+
+    @environment     = @host.environment
+    @architecture    = @host.architecture
+    @domain          = @host.domain
+    @operatingsystem = @host.operatingsystem
+    @medium          = @host.medium
+  end
+
+  # this is required for template generation (such as pxelinux) which is not done via a web request
+  def forward_url_options(host = @host)
+    host.url_options = url_options if @host.respond_to?(:url_options)
+  end
+
+  # if a save failed and the only reason was network conflicts then flag this so that the view
+  # is rendered differently and the next save operation will be forced
+  def offer_to_overwrite_conflicts
+    @host.overwrite = "true" if @host.errors.any? and @host.errors.are_all_conflicts?
+  end
+
+  def find_by_name
+    params[:id].downcase! if params[:id].present?
+    @host = ::Host::Discovered.find_by_id(params[:id])
+    @host ||= ::Host::Discovered.find_by_name(params[:id])
+    return false unless @host
+  end
+
+  def find_multiple
+    # Lets search by name or id and make sure one of them exists first
+    if params[:host_names].present? or params[:host_ids].present?
+      @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
+      if @hosts.empty?
+        error 'No hosts were found with that id or name'
+        redirect_to(discovers_path) and return false
+      end
+    else
+      error 'No Hosts selected'
+      redirect_to(discovers_path) and return false
+    end
+
+  rescue => e
+    error "Something went wrong while selecting hosts - #{e}"
+    redirect_to discovers_path
+  end
+
 
 end
