@@ -9,12 +9,10 @@ Foreman::AccessControl.map do |map|
 end
 
 begin
-# Add a new role called 'Discovery' if it doesn't exist
-Role.transaction do
-  discovery_role = Role.find_or_create_by_name("Discovery")
-  if discovery_role.permissions.empty?
-    discovery_role.update_attribute :permissions, [:perform_discovery]
+  # Add a new role called 'Discovery' if it doesn't exist
+  Role.transaction do
+    role = Role.find_or_create_by_name("Discovery")
+    role.update_attribute :permissions, [:perform_discovery] if role.permissions.empty?
   end
-end
 rescue
 end
