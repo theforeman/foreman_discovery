@@ -12,6 +12,9 @@ class Host::Discovered < ::Host::Base
   scoped_search :on => :mac, :complete_value => true
   scoped_search :in => :model, :on => :name, :complete_value => true, :rename => :model
   scoped_search :in => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
+  scoped_search :in => :location, :on => :name, :rename => :location, :complete_value => true         if SETTINGS[:locations_enabled]
+  scoped_search :in => :organization, :on => :name, :rename => :organization, :complete_value => true if SETTINGS[:organizations_enabled]
+  scoped_search :in => :subnet, :on => :network, :complete_value => true, :rename => :subnet
 
   # This `where` shouldn't be necessary, but randomly the sql query on the line above
   # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
