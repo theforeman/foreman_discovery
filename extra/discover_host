@@ -36,7 +36,7 @@ def discover_by_dns
   begin
     contents = File.open("/proc/cmdline", 'r') { |f| f.read }
     server_name = contents.split.map { |x| $1 if x.match(/foreman.server=(.*)/)}.compact
-    server_name = server_name.size == 1 ? server_name.join : 'razor'
+    server_name = server_name.size == 1 ? server_name.join : 'foreman'
 
     require 'socket'
     return TCPSocket.gethostbyname(server_name)[3..-1].first || false

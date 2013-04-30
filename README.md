@@ -12,7 +12,11 @@ right now ;)
 Require the gem in Foreman.
 
     bundler.d/Gemfile.local.rb:
-    gem 'foreman_discovery', :git => "https://github.com/GregSutcliffe/foreman_discovery.git"
+    gem 'foreman_discovery'
+
+If you want to use the very latest code, use a git gem:
+
+    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
 
 Update & Restart Foreman:
 
@@ -68,16 +72,8 @@ options) it will look for a DNS record of `foreman`
 
 No configuration of the Foreman UI is required. If you are using Locations and/or Organisations,
 Foreman will default to using the first Location and first Organisation for Discovered
-hosts. If you wish to place them in some other Location/Organization, you can (for now)
-only statically configure it. To do so, add the following config snippet to
-`config/settings.yaml`:
-
-    :discovery:
-      :default_location: MyLoc
-      :default_organization: MyOrg
-
-Newly discovered hosts will be placed into this Location / Organisation. A proper UI
-to alter this more flexibly is planned.
+hosts. If you wish to place them in some other Location/Organization, you can alter the
+default Loc/Org in `More->Settings->Discovery Settings`
 
 ## Grace Note: Testing
 
@@ -103,7 +99,7 @@ Delete a machine and reboot it to have it move back to the Discovery Pool.
 
 # Permissions
 
-The plugin will create a Role called "Discovery" when first started. You can assign
+The plugin will create a Role called `Discovery` when first started. You can assign
 this role to non-admins to allow them to use the discovery plugin. Alternatively
 assign the `:perform_discovery` permission to an existing Role.
 
@@ -112,6 +108,7 @@ assign the `:perform_discovery` permission to an existing Role.
 * Add Tests
 * Add API
 * Add proper Location/Organization handling (via a Wizard maybe?)
+* Add per-subnet discovery
 
 # Copyright
 

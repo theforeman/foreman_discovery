@@ -38,12 +38,12 @@ echo "/opt/foreman_startup.rb" >> ../bootlocal.sh
 echo "/opt/discovery_init.sh" >> ../bootlocal.sh
 
 # Get the downloader
-wget https://raw.github.com/GregSutcliffe/foreman_discovery/master/extra/foreman_startup.rb -O ../foreman_startup.rb
+wget https://raw.github.com/theforeman/foreman_discovery/master/extra/foreman_startup.rb -O ../foreman_startup.rb
 chmod 755 ../foreman_startup.rb
 
 # Build the fallback script
 echo "#!/bin/sh" >> ../discovery_init.sh
-for n in $GEMS ; do echo "gem install -l /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
+for n in $GEMS ; do echo "gem install -l --no-ri --no-rdoc /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
 echo "" >> ../bootlocal.sh
 echo "/usr/share/foreman-proxy/bin/smart-proxy" >> ../discovery_init.sh
 echo "/usr/share/foreman-proxy/bin/discover_host" >> ../discovery_init.sh
@@ -87,7 +87,7 @@ mkdir -p ./proxy/usr/share
 mkdir -p ./proxy/var/run/foreman-proxy
 mkdir -p ./proxy/var/log/foreman-proxy
 git clone https://github.com/theforeman/smart-proxy.git ./proxy/usr/share/foreman-proxy
-wget https://raw.github.com/GregSutcliffe/foreman_discovery/master/extra/discover_host -O ./proxy/usr/share/foreman-proxy/bin/discover_host
+wget https://raw.github.com/theforeman/foreman_discovery/master/extra/discover_host -O ./proxy/usr/share/foreman-proxy/bin/discover_host
 chmod 755 ./proxy/usr/share/foreman-proxy/bin/discover_host
 cp ./proxy/usr/share/foreman-proxy/config/settings.yml{.example,}
 sed -i 's/.*:bmc:.*/:bmc: true/' ./proxy/usr/share/foreman-proxy/config/settings.yml

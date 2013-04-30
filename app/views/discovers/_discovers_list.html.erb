@@ -22,10 +22,10 @@
       <td><%= link_to("#{host}", discover_path(host) ) %> </td>
       <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
       <% if SETTINGS[:locations_enabled] -%>
-        <td class="hidden-tablet hidden-phone"><%= host.location.name %></td>
+        <td class="hidden-tablet hidden-phone"><%= host.location.try(:name) %></td>
       <% end -%>
       <% if SETTINGS[:organizations_enabled] -%>
-        <td class="hidden-tablet hidden-phone"><%= host.organization.name %></td>
+        <td class="hidden-tablet hidden-phone"><%= host.organization.try(:name) %></td>
       <% end -%>
       <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
       <td>

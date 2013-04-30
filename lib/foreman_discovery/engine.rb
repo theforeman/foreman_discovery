@@ -6,6 +6,12 @@ module ForemanDiscovery
   #Thus, inherits from ::Rails::Engine and not from Rails::Engine
   class Engine < ::Rails::Engine
 
+    # Load this before the Foreman config initizializers, so that the Setting.descendants
+    # list includes the plugin STI setting class
+    initializer 'foreman_discovery.load_default_settings', :before => :load_config_initializers do |app|
+      require_dependency File.expand_path("../../../app/models/setting/discovered.rb", __FILE__)
+    end
+
     initializer 'foreman_discovery.helper' do |app|
       ActionView::Base.send :include, DiscoversHelper
     end
