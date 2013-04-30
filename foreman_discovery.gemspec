@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["test/**/*"]
   s.homepage = %q{http://github.com/GregSutcliffe/foreman_discovery}
   s.licenses = ["GPL-3"]
   s.summary = %q{MaaS Discovery Plugin for Foreman}

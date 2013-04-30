@@ -24,3 +24,6 @@ doc/
 .ruby*
 
 *.swp
+
+# Tests
+test/foreman_app

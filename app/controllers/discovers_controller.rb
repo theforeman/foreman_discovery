@@ -13,12 +13,11 @@ class DiscoversController < ::ApplicationController
 
   def index
     hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order])
+    # This `where` shouldn't be necessary, but randomly the sql query on the line above
+    # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
+    @hosts = hosts.where(:type => "Host::Discovered").includes(:model, :location, :organization).paginate :page => params[:page]
     respond_to do |format|
-      format.html do
-        # This `where` shouldn't be necessary, but randomly the sql query on the line above
-        # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
-        @hosts = hosts.where(:type => "Host::Discovered").includes(:model, :location, :organization).paginate :page => params[:page]
-      end
+      format.html { }
       format.json { render :json => hosts }
     end
   end
