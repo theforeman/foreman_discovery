@@ -43,7 +43,7 @@ chmod 755 ../foreman_startup.rb
 
 # Build the fallback script
 echo "#!/bin/sh" >> ../discovery_init.sh
-for n in $GEMS ; do echo "gem install -l /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
+for n in $GEMS ; do echo "gem install -l --no-ri --no-rdoc /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
 echo "" >> ../bootlocal.sh
 echo "/usr/share/foreman-proxy/bin/smart-proxy" >> ../discovery_init.sh
 echo "/usr/share/foreman-proxy/bin/discover_host" >> ../discovery_init.sh
