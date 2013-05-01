@@ -12,7 +12,7 @@ MODE=$1
 
 # Setup
 GEMS="facter json_pure rack rack-protection tilt sinatra"
-TGZS="libssl-0.9.8 ruby firmware"
+TGZS="libssl-0.9.8 ruby firmware firmware-bnx2 firmware-broadcom dmidecode"
 if [[ $MODE == 'debug' ]] ; then
   TGZS="$TGZS gcc_libs openssl-1.0.0 openssh"
 fi
