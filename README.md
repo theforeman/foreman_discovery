@@ -35,10 +35,17 @@ sudo, as the password prompts may get lost in the ruby->bash forking process.
 
 ## Image configuration
 
-The PXE image has no configuration options during build. However, it will attempt to
-download `/discovery_init.sh` from your Foreman server and run it. This is entirely
-optional - if the server cannot be reached or the file cannot be found, the image
-has a fallback script built in.
+The PXE image has two configuration options during build:
+
+* By default it will have an automatic login to the 'tc' user and start ssh so you can
+ssh to `tc@<ip>` with password test1234. By specifying `mode=prod` on the rake task,
+you can disable both of these - the image will have no accounts that can be logged in
+* If you need to add additional files to the image, put them in `./additional_build_files/` -
+these will be copied to `/additional_build_files/` in the image
+
+Also, it will attempt todownload `/discovery_init.sh` from your Foreman server and run
+it. This is entirely optional - if the server cannot be reached or the file cannot be
+found, the image has a fallback script built in.
 
 You can find an example script [here](extra/discovery_init.sh.example) - place your
 modified version in the `public/` directory on your Foreman server.
