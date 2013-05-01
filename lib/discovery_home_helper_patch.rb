@@ -11,10 +11,7 @@ module DiscoveryHomeHelperPatch
     # Adds a discovers link to the More menu
     def setting_options_with_discovers_link
       choices = setting_options_without_discovers_link
-      choices += [
-        [:divider],
-        ['Discovered Hosts', :discovers]
-      ]
+      choices[2][2].insert(2,['Discovered Hosts', :discovers])
       authorized_menu_actions(choices)
     end
   end
