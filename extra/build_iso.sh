@@ -38,8 +38,9 @@ mkdir extract && cd extract
 zcat $TOPDIR/core.gz | sudo cpio -i -H newc -d
 
 # Include static additional files
-if [ -f $LAUNCH_DIR/additional_build_files ]; then
-  cp -r $LAUNCH_DIR/additional_build_files extract/.
+if [ -d $LAUNCH_DIR/additional_build_files ]; then
+  echo "including files from $LAUNCH_DIR/additional_build_files"
+  cp -r $LAUNCH_DIR/additional_build_files .
 fi
 
 # Account/SSH setup
