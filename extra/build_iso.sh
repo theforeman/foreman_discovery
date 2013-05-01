@@ -38,7 +38,7 @@ mkdir extract && cd extract
 zcat $TOPDIR/core.gz | sudo cpio -i -H newc -d
 
 # add link for dmidecode so facter can detect it.
-ln -s /usr/sbin/dmidecode /usr/local/sbin/dmidecode
+ln -s /usr/local/sbin/dmidecode /usr/sbin/dmidecode
 
 # Include static additional files
 if [ -d $LAUNCH_DIR/additional_build_files ]; then
