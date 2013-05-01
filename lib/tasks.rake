@@ -11,7 +11,13 @@ END_DESC
 namespace :discovery do
   task :build_image => :environment do
 
-    verbose = ENV['build_verbose'] && ENV['build_verbose'] != 'false' ? true : false
+    verbose = ( ENV['build_verbose'] and ENV['build_verbose'] != 'false' ) ? true : false
+    mode = case ENV['mode']
+           when /prod/
+             "prod"
+           else
+             "debug"
+           end
 
     # This requires a lot of root-level actions, lets ensure we have root access
     if Process.uid == 0 && Process.euid == 0
@@ -39,9 +45,8 @@ namespace :discovery do
 
     script=`bundle show foreman_discovery`.strip + '/extra/build_iso.sh'
     builddir=''
-    puts 'Building TCL Discovery Image - this may take a while'
     begin
-      status = Open4::popen4("#{prefix} #{script}") do |pid, stdin, stdout, stderr|
+      status = Open4::popen4("#{prefix} #{script} #{mode}") do |pid, stdin, stdout, stderr|
         puts "pid        : #{ pid }" if verbose
         stdrout=stdout.read.strip
         builddir = stdrout.split("\n").delete_if {|x| x !~ /#TMPDIR#/}.to_s.split(' ').last
