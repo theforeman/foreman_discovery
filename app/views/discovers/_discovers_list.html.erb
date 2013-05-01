@@ -2,7 +2,7 @@
 <% title 'Discovered Hosts' %>
 <table class="table table-bordered table-striped table-condensed" >
   <tr>
-    <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :title => "Select All" } %></th>
+    <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class=''><%= sort :name %></th>
     <th class="hidden-tablet hidden-phone"><%= sort :model %></th>
     <% if SETTINGS[:locations_enabled] -%>
