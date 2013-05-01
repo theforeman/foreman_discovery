@@ -50,7 +50,7 @@ class DiscoversController < ::ApplicationController
       else
         load_vars_for_ajax
         offer_to_overwrite_conflicts
-        process_error
+        process_error :object => @host, :render => 'hosts/edit'
       end
     end
   end
