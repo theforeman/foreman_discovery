@@ -3,14 +3,21 @@
 ## Remaster TCL for the Discovery Image
 # (from http://wiki.tinycorelinux.net/wiki:remastering)
 #
-# This script will build the boot image. You will need squashfs-tools and 
+# This script will build the boot image. You will need squashfs-tools and
 # advancecomp. Run it as root, or with passwordless sudo, or the password prompts
 # may get lost when the rake task is run.
 
+# Image type
+MODE=$1
+
 # Setup
 GEMS="facter json_pure rack rack-protection tilt sinatra"
-TGZS="libssl-0.9.8 ruby"
+TGZS="libssl-0.9.8 ruby firmware"
+if [[ $MODE == 'debug' ]] ; then
+  TGZS="$TGZS gcc_libs openssl-1.0.0 openssh"
+fi
 
+LAUNCH_DIR=`pwd`
 TOPDIR=`mktemp -d`
 cd $TOPDIR
 
@@ -20,6 +27,7 @@ if [ -f /tmp/tcl.iso ]; then
   cp /tmp/tcl.iso ./tcl.iso
 else
   wget http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/Core-current.iso -O tcl.iso
+  cp tcl.iso /tmp/tcl.iso
 fi
 mkdir loop && mount -oloop tcl.iso loop/
 cp loop/boot/core.gz loop/boot/vmlinuz .
@@ -28,18 +36,59 @@ umount loop && rmdir loop
 # Modify basic image:
 mkdir extract && cd extract
 zcat $TOPDIR/core.gz | sudo cpio -i -H newc -d
-mkdir opt/gems && cd opt/gems
-for n in $GEMS ; do gem fetch $n ; done
+
+# Include static additional files
+if [ -f $LAUNCH_DIR/additional_build_files ]; then
+  cp -r $LAUNCH_DIR/additional_build_files extract/.
+fi
+
+# Account/SSH setup
+cd $TOPDIR/extract
+if [[ $MODE == "prod" ]] ; then
+  # Prod mode, lock out the accounts
+  echo "Prod mode; disabling shell"
+  cat > etc/passwd <<EOF
+root:x:0:0:root:/root:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/false
+tc:x:1001:50:Linux User,,,:/home/tc:/bin/sh
+EOF
+  cat > etc/shadow <<EOF
+root:*:13525:0:99999:7:::
+lp:*:13510:0:99999:7:::
+nobody:*:13509:0:99999:7:::
+tc:*:15492:0:99999:7:::
+EOF
+  sed -i 's/-nl \/sbin\/autologin.*/38400 tty1/' etc/inittab
+else
+  echo "Debug mode; enabling SSH"
+  echo "" >> opt/bootlocal.sh
+  echo "ssh-keygen -t rsa -f /usr/local/etc/ssh/ssh_host_rsa_key -N ''" >> opt/bootlocal.sh
+  echo "ssh-keygen -t dsa -f /usr/local/etc/ssh/ssh_host_dsa_key -N ''" >> opt/bootlocal.sh
+  echo "ssh-keygen -t ecdsa -f /usr/local/etc/ssh/ssh_host_ecdsa_key -N ''" >> opt/bootlocal.sh
+  echo "cp /usr/local/etc/ssh/sshd_config.example /usr/local/etc/ssh/sshd_config" >> opt/bootlocal.sh
+  cat > etc/shadow <<EOF
+root:*:13525:0:99999:7:::
+lp:*:13510:0:99999:7:::
+nobody:*:13509:0:99999:7:::
+tc:\$1\$TdSq3t4T\$yCDutSXcI9meEywIoopbu/:15492:0:99999:7:::
+EOF
+  echo "/usr/local/sbin/sshd" >> opt/bootlocal.sh
+fi
 
 # Build the init script
-echo "" >> ../bootlocal.sh
-echo "sleep 20" >> ../bootlocal.sh # network can be slow to come up, and we're not in a rush
-echo "/opt/foreman_startup.rb" >> ../bootlocal.sh
-echo "/opt/discovery_init.sh" >> ../bootlocal.sh
+echo "" >> opt/bootlocal.sh
+echo "sleep 20" >> opt/bootlocal.sh # network can be slow to come up, and we're not in a rush
+echo "/opt/foreman_startup.rb" >> opt/bootlocal.sh
+echo "/opt/discovery_init.sh" >> opt/bootlocal.sh
 
 # Get the downloader
-wget https://raw.github.com/theforeman/foreman_discovery/master/extra/foreman_startup.rb -O ../foreman_startup.rb
-chmod 755 ../foreman_startup.rb
+wget https://raw.github.com/theforeman/foreman_discovery/master/extra/foreman_startup.rb -O opt/foreman_startup.rb
+chmod 755 opt/foreman_startup.rb
+
+# Get the gems
+mkdir opt/gems && cd opt/gems
+for n in $GEMS ; do gem fetch $n ; done
 
 # Build the fallback script
 echo "#!/bin/sh" >> ../discovery_init.sh
