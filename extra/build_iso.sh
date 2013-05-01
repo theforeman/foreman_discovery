@@ -12,7 +12,7 @@ MODE=$1
 
 # Setup
 GEMS="facter json_pure rack rack-protection tilt sinatra"
-TGZS="libssl-0.9.8 ruby firmware firmware-bnx2 firmware-broadcom dmidecode"
+TGZS="libssl-0.9.8 ruby firmware firmware-bnx2 firmware-broadcom scsi-3.0.21-tinycore dmidecode"
 if [[ $MODE == 'debug' ]] ; then
   TGZS="$TGZS gcc_libs openssl-1.0.0 openssh"
 fi
@@ -36,6 +36,9 @@ umount loop && rmdir loop
 # Modify basic image:
 mkdir extract && cd extract
 zcat $TOPDIR/core.gz | sudo cpio -i -H newc -d
+
+# add link for dmidecode so facter can detect it.
+ln -s /usr/sbin/dmidecode /usr/local/sbin/dmidecode
 
 # Include static additional files
 if [ -d $LAUNCH_DIR/additional_build_files ]; then
