@@ -88,7 +88,7 @@ The uploaded hash will appear as a discovered host, and provisioning it should w
 # Usage
 
 Boot a machine using the new PXE config above. It should register with Foreman.
-The new Host should show up in `More->Discovered Hosts`. Then select a Discovered Host
+The new Host should show up in `More->Provisioning->Discovered Hosts`. Then select a Discovered Host
 and choose Provision. You'll be taken to the normal Edit page for a Host, with the
 discovered data filled in where possible. Fill in the details as normal.
 
