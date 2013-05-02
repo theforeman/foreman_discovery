@@ -1,3 +1,4 @@
+require 'deface'
 require 'discovery_home_helper_patch'
 
 module ForemanDiscovery
