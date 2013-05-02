@@ -3,6 +3,9 @@ class DiscoversController < ::ApplicationController
   include Foreman::Controller::TaxonomyMultiple
   unloadable
 
+  # Avoid auth for discovered host creation
+  skip_before_filter :require_login, :require_ssl, :authorize, :verify_authenticity_token, :set_taxonomy, :session_expiry, :update_activity_time, :only => :create
+
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
 
@@ -16,6 +19,26 @@ class DiscoversController < ::ApplicationController
       format.html { @hosts = hosts.list.paginate :page => params[:page] }
       format.json { render :json => hosts }
     end
+  end
+
+  # Importing yaml is restricted to puppetmasters, so instead we take the ip
+  # as a parameter and use refresh_facts to get the rest
+  def create
+    Taxonomy.no_taxonomy_scope do
+      imported = Host::Discovered.new(:ip => get_ip_from_env).refresh_facts
+      respond_to do |format|
+        format.yml {
+          if imported
+            render :text => _("Imported facts"), :status => 200 and return
+          else
+            render :text => _("Failed to import facts"), :status => 400
+          end
+        }
+      end
+    end
+  rescue Exception => e
+    logger.warn "Failed to import facts: #{e}"
+    render :text => _("Failed to import facts: %s") % (e), :status => 400
   end
 
   def show
@@ -142,5 +165,19 @@ class DiscoversController < ::ApplicationController
     redirect_to discovers_path
   end
 
+  def get_ip_from_env
+    # try to find host based on our client ip address
+    ip = request.env['REMOTE_ADDR']
+
+    # check if someone is asking on behave of another system (load balance etc)
+    ip = request.env['HTTP_X_FORWARDED_FOR'] if request.env['HTTP_X_FORWARDED_FOR'].present?
+
+    # Check for explicit parameter override
+    ip = params.delete('ip') if params.include?('ip')
+
+    Rails.logger.info ip.inspect
+    # in case we got back multiple ips (see #1619)
+    ip = ip.split(',').first
+  end
 
 end

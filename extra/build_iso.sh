@@ -87,7 +87,7 @@ echo "/opt/foreman_startup.rb" >> opt/bootlocal.sh
 echo "/opt/discovery_init.sh" >> opt/bootlocal.sh
 
 # Get the downloader
-wget https://raw.github.com/theforeman/foreman_discovery/master/extra/foreman_startup.rb -O opt/foreman_startup.rb
+cp `dirname $0`/foreman_startup.rb opt/foreman_startup.rb
 chmod 755 opt/foreman_startup.rb
 
 # Get the gems
@@ -140,7 +140,7 @@ mkdir -p ./proxy/usr/share
 mkdir -p ./proxy/var/run/foreman-proxy
 mkdir -p ./proxy/var/log/foreman-proxy
 git clone https://github.com/theforeman/smart-proxy.git ./proxy/usr/share/foreman-proxy
-wget https://raw.github.com/theforeman/foreman_discovery/master/extra/discover_host -O ./proxy/usr/share/foreman-proxy/bin/discover_host
+cp `dirname $0`/discover_host ./proxy/usr/share/foreman-proxy/bin/discover_host
 chmod 755 ./proxy/usr/share/foreman-proxy/bin/discover_host
 cp ./proxy/usr/share/foreman-proxy/config/settings.yml{.example,}
 sed -i 's/.*:bmc:.*/:bmc: true/' ./proxy/usr/share/foreman-proxy/config/settings.yml
