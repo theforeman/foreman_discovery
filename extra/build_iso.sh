@@ -12,7 +12,7 @@ MODE=$1
 
 # Setup
 GEMS="facter json_pure rack rack-protection tilt sinatra"
-TGZS="libssl-0.9.8 ruby firmware firmware-bnx2 firmware-broadcom scsi-3.0.21-tinycore dmidecode"
+TGZS="libssl-0.9.8 ruby firmware firmware-bnx2 firmware-broadcom scsi-3.0.21-tinycore dmidecode lldpad"
 if [[ $MODE == 'debug' ]] ; then
   TGZS="$TGZS gcc_libs openssl-1.0.0 openssh"
 fi
@@ -41,6 +41,9 @@ zcat $TOPDIR/core.gz | sudo cpio -i -H newc -d
 ln -s /usr/local/sbin/dmidecode usr/sbin/dmidecode
 
 # Include static additional files
+mkdir ./additional_build_files
+wget -O ./additional_build_files/ipmi.rb https://github.com/zoide/puppet-ipmi/raw/master/lib/facter/ipmi.rb
+wget -O ./additional_build_files/lldp.rb https://github.com/mfournier/puppet-lldp/raw/master/lib/facter/lldp.rb
 if [ -d $LAUNCH_DIR/additional_build_files ]; then
   echo "including files from $LAUNCH_DIR/additional_build_files"
   cp -r $LAUNCH_DIR/additional_build_files .
@@ -97,7 +100,12 @@ for n in $GEMS ; do gem fetch $n ; done
 # Build the fallback script
 echo "#!/bin/sh" >> ../discovery_init.sh
 for n in $GEMS ; do echo "gem install -l --no-ri --no-rdoc /opt/gems/`ls *$n-[0-9]*.gem`" >> ../discovery_init.sh ; done
-echo "" >> ../bootlocal.sh
+echo "" >> ../discovery_init.sh
+echo 'FACTER_LIB=`gem which facter`' >> ../discovery_init.sh
+echo 'FACTER_PATH=`dirname $FACTER_LIB`' >> ../discovery_init.sh
+echo 'cp /additional_build_files/ipmi.rb $FACTER_PATH/facter/ipmi.rb' >> ../discovery_init.sh
+echo 'cp /additional_build_files/lldp.rb $FACTER_PATH/facter/lldp.rb' >> ../discovery_init.sh
+echo 'cp /additional_build_files/netinfo.rb $FACTER_PATH/facter/netinfo.rb' >> ../discovery_init.sh
 echo "/usr/share/foreman-proxy/bin/smart-proxy" >> ../discovery_init.sh
 echo "/usr/share/foreman-proxy/bin/discover_host" >> ../discovery_init.sh
 chmod 755 ../discovery_init.sh
