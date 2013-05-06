@@ -112,10 +112,12 @@ assign the `:perform_discovery` permission to an existing Role.
 
 # TODO
 
-* Add Tests
+* Add more Tests
 * Add API
 * Add proper Location/Organization handling (via a Wizard maybe?)
 * Add per-subnet discovery
+* Rake Task for ISO build
+* Easy way to add custom facts to build/runtime
 
 # Copyright
 
