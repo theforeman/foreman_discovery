@@ -4,11 +4,11 @@ require 'fileutils'
 require 'net/http'
 require 'net/https'
 require 'uri'
-require 'yaml'
 
-# Would like to not need this...
+# For comparison
 require 'rubygems'
-require 'json'
+require 'facter'
+require 'yaml'
 
 def discover_server
   server = (discover_by_pxe or discover_by_dns)
@@ -45,35 +45,47 @@ def discover_by_dns
   end
 end
 
+def upload
+  puts "#{Time.now}: Triggering import of facts from Foreman"
+  begin
+    uri = URI.parse(discover_server)
+    http = Net::HTTP.new(uri.host, uri.port)
+    if uri.scheme == 'https' then
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    end
+    req = Net::HTTP::Post.new("/discovers")
+    req.set_form_data({})
+    response = http.request(req)
+    puts response.body
+  rescue Exception => e
+    raise "#{Time.now}: Could not send facts to Foreman: #{e}"
+  end
+end
+
+def write_cache(data)
+  File.open('/tmp/proxy_cache', 'w') {|f| f.write(data) }
+end
+
+def read_cache
+  File.read('/tmp/proxy_cache')
+rescue => e
+  "empty cache"
+end
+
 # Main
 
 $stdout.reopen("/tmp/proxy-discovery.log", "w")
 $stderr.reopen("/tmp/proxy-discovery.err", "w")
 
-# Get facts from the Proxy
-puts "retrieving facts"
-begin
-  uri = URI.parse("http://localhost:8443/facts")
-  http = Net::HTTP.new(uri.host, uri.port)
-  response = http.request(Net::HTTP::Get.new(uri.request_uri))
-  # Ugly
-  facts = YAML.dump(JSON.parse(response.body))
-rescue Exception => e
-  raise "Could not get facts from Proxy: #{e}"
-end
-
-puts "Importing facts"
-begin
-  uri = URI.parse(discover_server)
-  http = Net::HTTP.new(uri.host, uri.port)
-  if uri.scheme == 'https' then
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+# loop, but only upload on changes
+while true do
+  uninteresting_facts=/kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version|selinux/i
+  facts = Facter.to_hash.reject! {|k,v| k =~ uninteresting_facts }
+  unless YAML.load(read_cache) == facts
+    puts "Fact cache invalid, reloading to foreman"
+    upload
+    write_cache(YAML.dump(facts))
   end
-  req = Net::HTTP::Post.new("/fact_values/create?type=Host::Discovered")
-  req.set_form_data({'facts' => facts})
-  response = http.request(req)
-  puts response.body
-rescue Exception => e
-  raise "Could not send facts to Foreman: #{e}"
+  sleep 60
 end
