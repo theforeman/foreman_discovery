@@ -8,6 +8,7 @@ class DiscoversController < ::ApplicationController
 
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
+  before_filter :taxonomy_scope, :only => [:edit] 
 
   helper :hosts
 
@@ -178,6 +179,22 @@ class DiscoversController < ::ApplicationController
     Rails.logger.info ip.inspect
     # in case we got back multiple ips (see #1619)
     ip = ip.split(',').first
+  end
+
+  def taxonomy_scope
+    if params[:host]
+      @organization = Organization.find_by_id(params[:host][:organization_id])
+      @location = Location.find_by_id(params[:host][:location_id])
+    end
+
+    if SETTINGS[:organizations_enabled]
+      @organization ||= Organization.current
+      @organization ||= Organization.my_organizations.first
+    end
+    if SETTINGS[:locations_enabled]
+      @location ||= Location.current
+      @location ||= Location.my_locations.first
+    end
   end
 
 end
