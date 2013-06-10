@@ -46,7 +46,7 @@ class Host::Discovered < ::Host::Base
     end
     h ||= Host.new :name => name, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-    h.mac = values["macaddress_eth0"]
+    h.mac = values["macaddress_eth0"].downcase
 
     if SETTINGS[:locations_enabled]
       begin

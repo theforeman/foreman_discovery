@@ -1,4 +1,3 @@
-require 'deface'
 require 'discovery_home_helper_patch'
 
 module ForemanDiscovery
@@ -20,6 +19,8 @@ module ForemanDiscovery
     config.to_prepare do
       # Include host extenstions
       ::Host::Managed.send :include, Host::ManagedExtensions
+      # Include controller extenstions
+      ::HostsController.send :include, HostsControllerExtensions
       # Patch the menu
       ::HomeHelper.send :include, DiscoveryHomeHelperPatch
     end
