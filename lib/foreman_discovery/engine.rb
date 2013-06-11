@@ -8,7 +8,7 @@ module ForemanDiscovery
     # Load this before the Foreman config initizializers, so that the Setting.descendants
     # list includes the plugin STI setting class
     initializer 'foreman_discovery.load_default_settings', :before => :load_config_initializers do |app|
-      require_dependency File.expand_path("../../../app/models/setting/discovered.rb", __FILE__)
+      require_dependency File.expand_path("../../../app/models/setting/discovered.rb", __FILE__) if (Setting.table_exists? rescue(false))
     end
 
     initializer 'foreman_discovery.helper' do |app|
