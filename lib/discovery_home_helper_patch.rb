@@ -3,16 +3,16 @@ module DiscoveryHomeHelperPatch
     base.send(:include, InstanceMethods)
 
     base.class_eval do
-      alias_method_chain :setting_options, :discovers_link
+      alias_method_chain :settings_menu_items, :discovers_link
     end
   end
 
   module InstanceMethods
     # Adds a discovers link to the More menu
-    def setting_options_with_discovers_link
-      choices = setting_options_without_discovers_link
-      choices[2][2].insert(2,['Discovered Hosts', :discovers])
-      authorized_menu_actions(choices)
+    def settings_menu_items_with_discovers_link
+      menu_items = settings_menu_items_without_discovers_link
+      menu_items[2][2].insert(2,['Discovered Hosts', :discovers]) if menu_items[2]
+      menu_items
     end
   end
 end
