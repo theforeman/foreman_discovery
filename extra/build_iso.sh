@@ -46,6 +46,7 @@ ln -s /usr/local/sbin/dmidecode usr/sbin/dmidecode
 mkdir ./additional_build_files
 wget -O ./additional_build_files/ipmi.rb https://github.com/zoide/puppet-ipmi/raw/master/lib/facter/ipmi.rb
 wget -O ./additional_build_files/lldp.rb https://github.com/mfournier/puppet-lldp/raw/master/lib/facter/lldp.rb
+wget -O ./additional_build_files/netinfo.rb https://github.com/ohadlevy/puppet-network/raw/master/lib/facter/netinfo.rb
 if [ -d $LAUNCH_DIR/additional_build_files ]; then
   echo "including files from $LAUNCH_DIR/additional_build_files"
   cp -r $LAUNCH_DIR/additional_build_files .
