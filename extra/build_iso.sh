@@ -17,6 +17,8 @@ if [[ $MODE == 'debug' ]] ; then
   TGZS="$TGZS gcc_libs openssl-1.0.0 openssh"
 fi
 
+DIRNAME=`dirname $0`
+SCRIPT_DIR=`readlink -f $DIRNAME`
 LAUNCH_DIR=`pwd`
 TOPDIR=`mktemp -d`
 cd $TOPDIR
@@ -90,7 +92,7 @@ echo "/opt/foreman_startup.rb" >> opt/bootlocal.sh
 echo "/opt/discovery_init.sh" >> opt/bootlocal.sh
 
 # Get the downloader
-cp `dirname $0`/foreman_startup.rb opt/foreman_startup.rb
+cp $SCRIPT_DIR/foreman_startup.rb opt/foreman_startup.rb
 chmod 755 opt/foreman_startup.rb
 
 # Get the gems
@@ -134,7 +136,15 @@ mkdir rubygems
 tar xvzf ../rubygems-1.8.24.tgz && cd rubygems-1.8.24
 ruby setup.rb --destdir=../rubygems --prefix=/usr/local
 cd ../rubygems
-sed -i 's?#!.*?#!/usr/local/bin/ruby?' ./usr/local/bin/gem
+# Detect gem executable
+if [ -f ./usr/local/bin/gem ] ; then
+  echo "Found proper gem executable"
+  sed -i 's?#!.*?#!/usr/local/bin/ruby?' ./usr/local/bin/gem
+else
+  echo "Found gem1.8 executable"
+  sed -i 's?#!.*?#!/usr/local/bin/ruby?' ./usr/local/bin/gem1.8
+  ln -snf /usr/local/bin/gem1.8 ./usr/local/bin/gem
+fi
 mkdir ./usr/local/lib/ruby/1.8 -p
 mv ./usr/local/lib/* ./usr/local/lib/ruby/1.8
 chown -R 0:0 .
@@ -148,7 +158,7 @@ mkdir -p ./proxy/usr/share
 mkdir -p ./proxy/var/run/foreman-proxy
 mkdir -p ./proxy/var/log/foreman-proxy
 git clone https://github.com/theforeman/smart-proxy.git ./proxy/usr/share/foreman-proxy
-cp `dirname $0`/discover_host ./proxy/usr/share/foreman-proxy/bin/discover_host
+cp $SCRIPT_DIR/discover_host ./proxy/usr/share/foreman-proxy/bin/discover_host
 chmod 755 ./proxy/usr/share/foreman-proxy/bin/discover_host
 cp ./proxy/usr/share/foreman-proxy/config/settings.yml{.example,}
 sed -i 's/.*:bmc:.*/:bmc: true/' ./proxy/usr/share/foreman-proxy/config/settings.yml
