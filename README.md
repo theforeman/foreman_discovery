@@ -75,6 +75,18 @@ specify a DNS record (`foreman.server=myforemanhost`) but in this case the port 
 be assumed to be http (80). If all else fails (say, USB boot where we can't provide
 options) it will look for a DNS record of `foreman`
 
+On some multi-core systems the TinyCore kernel may segfault on boot with an error message similar to :
+        
+    "Fixing recursive fault but reboot is needed!"
+
+If this happens, it can be fixed by changing the KERNEL line in the PXE config above to read :
+
+    KERNEL /boot/TinyCore-vmlinuz maxcpus=1
+    
+More information on the maxcpus kernel parameter can be found at <https://www.kernel.org/doc/Documentation/kernel-parameters.txt>
+
+A currently unavoidable side effect of this setting is that the initial facts gathered during discovery will only show a single processor, since that is all that is visible to the kernel.
+
 ## UI config
 
 No configuration of the Foreman UI is required. If you are using Locations and/or Organisations,
