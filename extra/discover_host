@@ -47,6 +47,8 @@ end
 
 def upload
   puts "#{Time.now}: Triggering import of facts from Foreman"
+  ip = Facter.value('ipaddress') 
+  data = ip.nil? ? {} : {'ip' => ip}
   begin
     uri = URI.parse(discover_server)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -55,7 +57,7 @@ def upload
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
     req = Net::HTTP::Post.new("/discovers")
-    req.set_form_data({})
+    req.set_form_data(data)
     response = http.request(req)
     puts response.body
   rescue Exception => e
