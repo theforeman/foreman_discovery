@@ -49,7 +49,7 @@ namespace :discovery do
       status = Open4::popen4("#{prefix} #{script} #{mode}") do |pid, stdin, stdout, stderr|
         puts "pid        : #{ pid }" if verbose
         stdrout=stdout.read.strip
-        builddir = stdrout.split("\n").delete_if {|x| x !~ /#TMPDIR#/}.to_s.split(' ').last
+        builddir = stdrout.split("\n").delete_if {|x| x !~ /#TMPDIR#/}.to_s.split(' ').last.sub(/[\]\"]+/,"")
         puts "stdout     : #{ stdrout }" if verbose
         puts "stderr     : #{ stderr.read.strip }" if verbose
       end
