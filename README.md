@@ -24,7 +24,11 @@ Update & Restart Foreman:
 
 # Building the Discovery PXE Image
 
-There is a rake task for the discovery image. Run this in the Foreman app root:
+There is a rake task for the discovery image. It requires Ruby 1.8, but should
+appropriately detect and use ruby1.8 even if the system default is 1.9. If you
+have trouble building it, try a ruby1.8-only system.
+
+Run this in the Foreman app root:
 
     rake discovery:build_image
 
