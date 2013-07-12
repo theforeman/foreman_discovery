@@ -5,7 +5,7 @@ right now ;)
 
 # Dependencies
 
-* Foreman running from commit e36b1d6689773a9b (or newer)
+* Foreman >= 1.2.0
 
 # Installation
 
