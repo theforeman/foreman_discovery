@@ -135,7 +135,12 @@ wget http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz
 mkdir tmp-install-rubygems && cd tmp-install-rubygems
 mkdir rubygems
 tar xvzf ../rubygems-1.8.24.tgz && cd rubygems-1.8.24
-ruby setup.rb --destdir=../rubygems --prefix=/usr/local
+if [[ `readlink -f /usr/bin/ruby` =~ 1.9 ]] ; then
+  rubybin=ruby1.8
+else
+  rubybin=ruby
+fi
+$rubybin setup.rb --destdir=../rubygems --prefix=/usr/local
 cd ../rubygems
 # Detect gem executable
 if [ -f ./usr/local/bin/gem ] ; then
