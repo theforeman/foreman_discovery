@@ -22,6 +22,11 @@ Update & Restart Foreman:
 
     bundle update
 
+Note: If you are using RHEL6 or clones, make sure you run the above command
+with the SCL Ruby:
+
+    scl enable ruby193 "bundle update"
+
 # Building the Discovery PXE Image
 
 There is a rake task for the discovery image. It requires Ruby 1.8, but should
@@ -31,6 +36,11 @@ have trouble building it, try a ruby1.8-only system.
 Run this in the Foreman app root:
 
     rake discovery:build_image
+
+Note: If you are using RHEL6 or clones, make sure you run the above command
+with the SCL Ruby:
+
+    scl enable ruby193 "rake discovery:build_image"
 
 You image will be in ./discovery\_image. Run the rake task as root, or with passwordless
 sudo, as the password prompts may get lost in the ruby->bash forking process.
