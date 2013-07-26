@@ -14,13 +14,19 @@ Require the gem in Foreman.
     bundler.d/Gemfile.local.rb:
     gem 'foreman_discovery'
 
-If you want to use the very latest code, use a git gem:
+SCL-based OSes will want to avoid a large number of dependencies by doing this:
 
-    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
+     yum -y install ruby193-rubygem-nokogiri && scl enable ruby193 'gem install foreman_discovery' 
 
 Update & Restart Foreman:
 
     bundle update
+
+## Latest code
+
+You can get the develop branch of the plugin this way:
+
+    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
 
 # Building the Discovery PXE Image
 
