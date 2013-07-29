@@ -9,23 +9,19 @@ right now ;)
 
 # Installation
 
-Require the gem in Foreman.
+Require the gem in Foreman by creating `bundler.d/Gemfile.local.rb` with the following:
 
-    bundler.d/Gemfile.local.rb:
     gem 'foreman_discovery'
 
-SCL-based OSes will want to avoid a large number of dependencies by doing this:
+SCL-based OSes (i.e. EL6) will want to avoid a large number of dependencies by doing this:
 
-     yum -y install ruby193-rubygem-nokogiri && scl enable ruby193 'gem install foreman_discovery' 
+    yum -y install ruby193-rubygem-nokogiri && scl enable ruby193 'gem install foreman_discovery' 
 
-Update & Restart Foreman:
+Other OSes should run:
 
     bundle update
 
-Note: If you are using RHEL6 or clones, make sure you run the above command
-with the SCL Ruby:
-
-    scl enable ruby193 "bundle update"
+Lastly, restart Foreman.
 
 ## Latest code
 
