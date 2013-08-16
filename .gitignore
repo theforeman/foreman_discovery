@@ -13,6 +13,11 @@ test/tmp
 test/version_tmp
 tmp
 Gemfile.lock
+locale/*.mo
+locale/*/*.pox
+locale/*/LC_MESSAGES
+tags
+TAGS
 
 # YARD artifacts
 .yardoc
@@ -25,5 +30,6 @@ doc/
 
 *.swp
 
-# Tests
+# Foreman app support
 test/foreman_app
+.foreman_app

@@ -1,5 +1,7 @@
 require 'deface'
 require 'discovery_home_helper_patch'
+require 'fast_gettext'
+require 'gettext_i18n_rails'
 
 module ForemanDiscovery
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
@@ -14,6 +16,13 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.helper' do |app|
       ActionView::Base.send :include, DiscoversHelper
+    end
+
+    initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
+      locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
+      locale_domain = 'discovery'
+
+      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
     # Include extenstions to models in this config.to_prepare block

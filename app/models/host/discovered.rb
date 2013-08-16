@@ -77,7 +77,7 @@ class Host::Discovered < ::Host::Base
       logger.debug "retrieving facts from proxy on ip: #{self.ip}"
       facts = ForemanDiscovery::Facts.new(:url => "http://#{self.ip}:8443").facts
     rescue Exception => e
-      raise "Could not get facts from Proxy: #{e}"
+      raise _("Could not get facts from proxy: %s") % e
     end
 
     return self.class.importHostAndFacts facts
