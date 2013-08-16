@@ -2,12 +2,12 @@ source "http://rubygems.org"
 
 gemspec
 
-FOREMAN_GEMFILE=File.expand_path('../test/foreman_app/Gemfile', __FILE__)
+FOREMAN_GEMFILE=File.expand_path('../.foreman_app/Gemfile', __FILE__)
 unless File.exist?(FOREMAN_GEMFILE)
   puts <<MESSAGE
 Foreman source code is not present. To get the latest version, run:
 
-  rake test:foreman_prepare
+  rake setup:foreman_prepare
 
 and try again.
 MESSAGE

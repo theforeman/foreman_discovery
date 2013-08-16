@@ -6,11 +6,15 @@ require 'fileutils'
 
 task :default => :test
 
+PLUGIN_NAME = "discovery"
 ENGINE_DIR = File.expand_path('..', __FILE__)
-FOREMAN_DIR = 'test/foreman_app'
+FOREMAN_DIR = '.foreman_app'
 
-namespace :test do
-  desc "Download latest foreman devel source and install dependencies"
+ENV['TEXTDOMAIN'] = PLUGIN_NAME
+import "#{FOREMAN_DIR}/Rakefile" if File.exists? "#{FOREMAN_DIR}/Rakefile"
+
+namespace :setup do
+  desc "Download latest foreman core devel source and install dependencies"
   task :foreman_prepare do
     foreman_repo = 'https://github.com/theforeman/foreman.git'
     foreman_gemfile = File.join(FOREMAN_DIR, "Gemfile")
@@ -19,18 +23,10 @@ namespace :test do
       puts "Downloading latest Foreman development branch into #{FOREMAN_DIR}..."
       FileUtils.mkdir_p(FOREMAN_DIR)
 
-      unless system("git clone #{foreman_repo} #{FOREMAN_DIR}")
+      unless system("git clone --depth 1 #{foreman_repo} #{FOREMAN_DIR}")
         puts "Error while getting latest Foreman code from #{foreman_repo} into #{FOREMAN_DIR}"
         fail
       end
-    end
-
-    gemfile_content = File.read(foreman_gemfile)
-    unless gemfile_content.include?('FOREMAN_GEMFILE')
-      puts 'Preparing Gemfile'
-      gemfile_content.gsub!('__FILE__', 'FOREMAN_GEMFILE')
-      gemfile_content.insert(0, "FOREMAN_GEMFILE = __FILE__ unless defined? FOREMAN_GEMFILE\n")
-      File.open(foreman_gemfile, 'w') { |f| f << gemfile_content }
     end
 
     settings_file = "#{FOREMAN_DIR}/config/settings.yaml"
@@ -79,7 +75,7 @@ GEMFILE
       puts <<MESSAGE
 Foreman source code not prepared. Run
 
-  rake test:foreman_prepare
+  rake setup:foreman_prepare
 
 to download foreman source and its dependencies
 MESSAGE
@@ -96,16 +92,19 @@ MESSAGE
     FileUtils.cd(pwd)
   end
 
+  task :all => [:foreman_prepare, :db_prepare]
+end
+
+namespace :test do
   task :set_loadpath do
     %w[lib test].each do |dir|
       $:.unshift(File.expand_path(dir, ENGINE_DIR))
     end
   end
 
-  task :all => [:db_prepare, :set_loadpath] do
-    Dir.glob('test/**/*_test.rb') { |f| require f.sub('test/','')  unless f.include? '/foreman_app/' }
+  task :all => ['setup:db_prepare', 'test:set_loadpath'] do
+    Dir.glob('test/**/*_test.rb') { |f| require f.sub('test/','') unless f.include? '.foreman_app/' }
   end
-
 end
 
 task :test => 'test:all'

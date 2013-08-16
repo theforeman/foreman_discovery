@@ -1,12 +1,12 @@
-<% title "Discovered Host: #{@host.to_label}" %>
+<% title(_("Discovered host: %s") % @host.to_label) %>
 
 <%= discovers_title_actions(@host) %>
 
-<h3> Facts Discovered on this Host </h3>
+<h3><%= _('Facts discovered on this host') -%></h3>
 <table class="table table-bordered table-striped table-condensed">
   <tr>
-    <th>Fact</th>
-    <th>Value</th>
+    <th><%= _('Fact') -%></th>
+    <th><%= _('Value') -%></th>
   <% @host.facts_hash.sort.each do |fact| -%>
     <tr>
       <td><%= fact[0] %></td>
