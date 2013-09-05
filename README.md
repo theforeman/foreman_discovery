@@ -4,8 +4,14 @@ This plugin enables MaaS hardware discovery in Foreman.
 
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+Please see the Foreman wiki for appropriate instructions:
+
+* [Foreman: How to Install a Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
+
+The gem name is "foreman_discovery".
+
+RPM users can install the "ruby193-rubygem-foreman_discovery" or
+"rubygem-foreman_discovery" packages.
 
 ## Compatibility
 
