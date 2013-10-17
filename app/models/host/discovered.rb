@@ -21,32 +21,18 @@ class Host::Discovered < ::Host::Base
   # this seems like a rails bug, TODO: figure out whats really wrong here
   scope :list, lambda { where(:type => "Host::Discovered").includes(:model, :location, :organization) }
 
-  def self.importHostAndFacts data
-    # data might already be a hash, from refresh_facts
-    facts = data.is_a?(Hash) ? data : YAML::load(data)
-    case facts
-      # Discovered hosts don't have a name yet - use MAC for now
-      # TODO: make this more intelligent, we might not have an eth0...
-      when Puppet::Node::Facts
-        name   = facts.values["macaddress_eth0"].downcase.gsub(/:/,'')
-        values = facts.values
-      when Hash
-        name   = facts["macaddress_eth0"].downcase.gsub(/:/,'')
-        values = facts
-        return raise("invalid facts hash") unless name and values
-      else
-        return raise("Invalid Facts, much be a Puppet::Node::Facts or a Hash")
-    end
+  def self.importHostAndFacts facts
+    raise(::Foreman::Exception.new("Invalid Facts, must be a Hash")) unless facts.is_a?(Hash)
+    hostname   = facts["macaddress_eth0"].try(:downcase).try(:gsub,/:/,'')
+    raise(::Foreman::Exception.new("Invalid facts: hash does not contain macaddress_eth0 to use as hostname")) unless hostname
 
     # filter facts
-    values.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version/i }
+    facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version/i }
 
-    if name
-      h = ::Host::Discovered.find_by_name name
-    end
-    h ||= Host.new :name => name, :type => "Host::Discovered"
+    h = ::Host::Discovered.find_by_name hostname
+    h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-    h.mac = values["macaddress_eth0"].downcase
+    h.mac = facts["macaddress_eth0"].try(:downcase)
 
     if SETTINGS[:locations_enabled]
       begin
@@ -63,11 +49,12 @@ class Host::Discovered < ::Host::Base
       end
     end
 
-    h.save if h.new_record?
-    h.importFacts(name, values)
+    h.save(:validate => false) if h.new_record?
+    state = h.importFacts(facts)
+    return h, state
   end
 
-  def importFacts name, facts
+  def importFacts facts
     # Discovered Hosts won't report in via puppet, so we can use that field to
     # record the last time it sent facts...
     self.last_report = Time.now
