@@ -22,21 +22,9 @@ class Host::Discovered < ::Host::Base
   scope :list, lambda { where(:type => "Host::Discovered").includes(:model, :location, :organization) }
 
   def self.importHostAndFacts data
-    # data might already be a hash, from refresh_facts
-    facts = data.is_a?(Hash) ? data : YAML::load(data)
-    case facts
-      # Discovered hosts don't have a name yet - use MAC for now
-      # TODO: make this more intelligent, we might not have an eth0...
-      when Puppet::Node::Facts
-        name   = facts.values["macaddress_eth0"].downcase.gsub(/:/,'')
-        values = facts.values
-      when Hash
-        name   = facts["macaddress_eth0"].downcase.gsub(/:/,'')
-        values = facts
-        return raise("invalid facts hash") unless name and values
-      else
-        return raise("Invalid Facts, much be a Puppet::Node::Facts or a Hash")
-    end
+  	facts = data
+	name   = facts["macaddress_eth0"].downcase.gsub(/:/,'')
+	values = facts
 
     # filter facts
     values.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version/i }
@@ -64,7 +52,7 @@ class Host::Discovered < ::Host::Base
     end
 
     h.save if h.new_record?
-    h.importFacts(name, values)
+    h.importFacts(values)
   end
 
   def importFacts name, facts
