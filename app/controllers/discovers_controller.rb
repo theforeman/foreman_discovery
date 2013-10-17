@@ -8,7 +8,7 @@ class DiscoversController < ::ApplicationController
 
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
-  before_filter :taxonomy_scope, :only => [:edit] 
+  before_filter :taxonomy_scope, :only => [:edit]
 
   helper :hosts
 
@@ -72,6 +72,7 @@ class DiscoversController < ::ApplicationController
       if @host.update_attributes(params[:host])
         process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
       else
+        taxonomy_scope
         load_vars_for_ajax
         offer_to_overwrite_conflicts
         process_error :object => @host, :render => 'hosts/edit'
