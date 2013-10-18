@@ -1,31 +1,22 @@
 # foreman\_discovery
 
-This plugin aims to enable MaaS hardware discovery in Foreman. It is of alpha quality
-right now ;)
+This plugin enables MaaS hardware discovery in Foreman.
 
-# Dependencies
+## Installation
 
-* Foreman >= 1.2.0
+See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
+for how to install Foreman plugins
 
-# Installation
+## Compatibility
 
-Require the gem in Foreman by creating `bundler.d/Gemfile.local.rb` with the following:
-
-    gem 'foreman_discovery'
-
-SCL-based OSes (i.e. EL6) will want to avoid a large number of dependencies by doing this:
-
-    yum -y install ruby193-rubygem-nokogiri && scl enable ruby193 'gem install foreman_discovery' 
-
-Other OSes should run:
-
-    bundle update
-
-Lastly, restart Foreman.
+| Foreman Version | Plugin Version |
+| --------------- | --------------:|
+| <= 1.2          | 1.0.2          |
+| >= 1.3          | 1.1.0          |
 
 ## Latest code
 
-You can get the develop branch of the plugin this way:
+You can get the develop branch of the plugin by specifying your Gemfile in this way:
 
     gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
 
