@@ -26,14 +26,9 @@ There is a rake task for the discovery image. It requires Ruby 1.8, but should
 appropriately detect and use ruby1.8 even if the system default is 1.9. If you
 have trouble building it, try a ruby1.8-only system.
 
-Run this in the Foreman app root:
+Run this rake task to create the image:
 
-    rake discovery:build_image
-
-Note: If you are using RHEL6 or clones, make sure you run the above command
-with the SCL Ruby:
-
-    scl enable ruby193 "rake discovery:build_image"
+    foreman-rake discovery:build_image
 
 You image will be in ./discovery\_image. Run the rake task as root, or with passwordless
 sudo, as the password prompts may get lost in the ruby->bash forking process.
