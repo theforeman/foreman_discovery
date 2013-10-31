@@ -25,7 +25,7 @@ module ForemanDiscovery
     end
 
     rake_tasks do
-      load "tasks.rake"
+      load "discovery.rake"
     end
 
   end
