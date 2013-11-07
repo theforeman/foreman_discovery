@@ -42,6 +42,10 @@ namespace :discovery do
       puts "please install advdef"
       exit 1
     end
+    unless system("echo -n 'testing dependency: ' ; which git")
+      puts "please install git"
+      exit 1
+    end
 
     script = File.join(File.dirname(__FILE__), '..', 'extra', 'build_iso.sh')
     builddir=''
