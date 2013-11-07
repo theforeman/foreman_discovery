@@ -27,7 +27,7 @@ class Host::Discovered < ::Host::Base
     raise(::Foreman::Exception.new("Invalid facts: hash does not contain macaddress_eth0 to use as hostname")) unless hostname
 
     # filter facts
-    facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version/i }
+    facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
 
     h = ::Host::Discovered.find_by_name hostname
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
