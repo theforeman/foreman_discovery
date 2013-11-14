@@ -1,0 +1,4 @@
+# Note that we uninstall ovirt-node so this is not effective, but we
+# keep this for completeness of the foreman plugin.
+8443,tcp
+@EXTRA_FIREWALL_RULE@
