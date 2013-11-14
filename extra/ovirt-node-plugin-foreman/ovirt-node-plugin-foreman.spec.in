@@ -1,0 +1,121 @@
+# vim: ts=4:sw=4:et
+#
+# Copyright (C) 2013 Red Hat, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA  02110-1301, USA.  A copy of the GNU General Public License is
+# also available at http://www.gnu.org/copyleft/gpl.html.
+
+Summary:        A plugin for Foreman Discovery nodes
+Name:           ovirt-node-plugin-foreman
+Version:        @VERSION@
+Release:        1%{?BUILD_NUMBER}%{?extra_release}%{?dist}
+Source0:        %{name}-%{version}.tar.gz
+License:        GPLv2+
+Group:          Applications/System
+
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+URL:            http://www.ovirt.org/
+Requires:       ovirt-node >= 3.0.0
+Requires:	    facter
+Requires:	    foreman-proxy
+%if "@PLUGIN_DEBUG@" == "1"
+Requires:	    openssh-server
+Requires:       vim-minimal
+Requires:	    file telnet lsof
+%endif
+
+BuildArch:      noarch
+
+BuildRequires:  systemd
+
+%define app_root %{_datadir}/%{name}
+%define recipe_root %{_datadir}/ovirt-node-recipe
+
+%description
+Provides Foreman Proxy and Discovery component for automatic registration
+of nodes in Foreman and provisioning.
+
+%package recipe
+Summary:        Kickstarts for building Node isos including %{name}
+Group:          Applications/System
+Requires:       ovirt-node-recipe >= 2.6.0
+
+%description recipe
+Provides kickstart files for generating an oVirt Node ISO image containing
+%{name}.
+
+%prep
+%setup -q
+
+
+%build
+%if "@PLUGIN_DEBUG@" == "1"
+%configure --enable-debug
+%else
+%configure
+%endif
+
+%install
+%{__rm} -rf %{buildroot}
+make install DESTDIR=%{buildroot}
+
+%post
+# In development mode set password and enable ssh daemon (with root access)
+%if "@PLUGIN_DEBUG@" == "1"
+echo "root:development" | chpasswd
+sed -i 's/^.*PasswordAuthentication.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/^.*PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
+%endif
+
+# Configure foreman-proxy (logs in /tmp directory)
+%if "@PLUGIN_DEBUG@" == "1"
+LOGLEVEL="DEBUG"
+%else
+LOGLEVEL="ERROR"
+%endif
+sed -i 's|.*:log_file:.*|:log_file: /tmp/foreman-proxy.log|' /etc/foreman-proxy/settings.yml
+sed -i "s/.*:log_level:.*/:log_level: $LOGLEVEL/" /etc/foreman-proxy/settings.yml
+sed -i 's/.*:bmc:.*/:bmc: true/' /etc/foreman-proxy/settings.yml
+sed -i 's/.*:bmc_default_provider:.*/:bmc_default_provider: shell/' /etc/foreman-proxy/settings.yml
+
+# Enable Foreman Proxy and Discover Host services
+ln -s '/usr/lib/systemd/system/foreman-proxy.service' '/etc/systemd/system/multi-user.target.wants/foreman-proxy.service'
+ln -s '/usr/lib/systemd/system/discover-host.service' '/etc/systemd/system/multi-user.target.wants/discover-host.service'
+
+# Add foreman-proxy user to sudo and disable interactive tty for reboot
+sed -i -e 's/^Defaults.*requiretty/Defaults !requiretty/g' /etc/sudoers
+echo "foreman-proxy ALL=NOPASSWD: /sbin/shutdown" >> /etc/sudoers
+
+# Limit maximum use of systemd journal (it is kept in memory for stateless)
+sed -i -e 's/^.*SystemMaxUse.*$/SystemMaxUse=20M/g' /etc/systemd/journald.conf
+
+# Set extra directory for facter
+sed -i '/\[Service\]/a Environment="FACTERLIB=/usr/share/ovirt-node-plugin-foreman"' /usr/lib/systemd/system/foreman-proxy.service
+
+%preun
+
+%files recipe
+%{recipe_root}
+
+%files
+%{_bindir}/discover-host.rb
+%{_bindir}/find-missing-libs
+%{_datadir}/%{name}/discovery-version-fact.rb
+%{_unitdir}/discover-host.service
+%{_sysconfdir}/ovirt-plugins.d
+
+%changelog
+* Wed Oct 30 2013 Lukas Zapletal <lzap+rpm@redhat.com> 0.1.0-1
+- Initial version

@@ -1,0 +1,145 @@
+#!/usr/bin/env ruby
+#
+# vim: ts=2:sw=2:et
+#
+# Copyright (C) 2012-2013 Red Hat, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA  02110-1301, USA.  A copy of the GNU General Public License is
+# also available at http://www.gnu.org/copyleft/gpl.html.
+
+PACKAGE_NAME = '@PACKAGE_NAME@'
+PACKAGE_VERSION = '@PACKAGE_VERSION@'
+ENGINE_NAME = '@ENGINENAME@'
+DEBUG = @PLUGIN_DEBUG@
+PROXY_CACHE = '/tmp/proxy_cache'
+
+require 'fileutils'
+require 'net/http'
+require 'net/https'
+require 'uri'
+
+# For comparison
+require 'rubygems'
+require 'facter'
+require 'yaml'
+
+# Script was (re)started - delete old data
+File.unlink(PROXY_CACHE) if File.exists?(PROXY_CACHE)
+
+def debug msg
+  if DEBUG == 1
+    puts "#{Time.now}: #{msg}"
+  end
+end
+
+def error msg
+  $stderr.puts "#{Time.now}: #{msg}"
+end
+
+def cmdline
+  return File.open("/proc/cmdline", 'r') { |f| f.read }
+end
+
+def discover_server
+  debug "Parsing kernel line: #{cmdline}"
+  server = (discover_by_pxe or discover_by_dns)
+  unless server =~ /^http/
+    server = "http://#{server}"
+  end
+  server
+end
+
+def discover_by_pxe
+  begin
+    server_ip = cmdline.split.map { |x| $1 if x.match(/foreman.ip=(.*)/)}.compact
+    if server_ip.size == 1
+      result = server_ip.join
+      debug "Discovered by PXE: #{result}"
+      return result
+    else
+      return false
+    end
+  rescue
+    return false
+  end
+end
+
+def discover_by_dns
+  begin
+    server_name = cmdline.split.map { |x| $1 if x.match(/foreman.server=(.*)/)}.compact
+    server_name = server_name.size == 1 ? server_name.join : 'foreman'
+
+    require 'socket'
+    result = TCPSocket.gethostbyname(server_name)[3..-1].first || false
+    debug "Discovered by DNS: #{result}"
+    return result
+  rescue
+    return false
+  end
+end
+
+def upload
+  ip = Facter.value('ipaddress')
+  server = discover_server
+  debug "Triggering import of facts from Foreman (#{server}, ip=#{ip})"
+  data = ip.nil? ? {} : {'ip' => ip}
+  begin
+    uri = URI.parse(server)
+    http = Net::HTTP.new(uri.host, uri.port)
+    if uri.scheme == 'https' then
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    end
+    req = Net::HTTP::Post.new("/discovers")
+    req.set_form_data(data)
+    response = http.request(req)
+    debug "Response from Foreman #{response.code}: #{response.body}"
+    if response.code == "200"
+      return true
+    else
+      return false
+    end
+  rescue Exception => e
+    error "Could not send facts to Foreman: #{e}"
+    return false
+  end
+end
+
+def write_cache(data)
+  File.open(PROXY_CACHE, 'w') {|f| f.write(data) }
+end
+
+def read_cache
+  File.read(PROXY_CACHE)
+rescue => e
+  "empty cache"
+end
+
+# Main
+
+$stdout.reopen("/tmp/discover-host.log", "w")
+$stderr.reopen("/tmp/discover-host.err", "w")
+debug "Started #{ENGINE_NAME} (#{PACKAGE_NAME} #{PACKAGE_VERSION})"
+
+# loop, but only upload on changes
+while true do
+  sleep DEBUG == 1 ? 30 : 60
+  uninteresting_facts=/kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version|selinux/i
+  facts = Facter.to_hash.reject! {|k,v| k =~ uninteresting_facts }
+  unless YAML.load(read_cache) == facts
+    debug "Fact cache invalid, reloading to foreman"
+    write_cache(YAML.dump(facts)) if upload
+  end
+end

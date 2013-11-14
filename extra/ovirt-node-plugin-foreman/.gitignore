@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+aclocal.m4
+configure
+missing
+install-sh
+ovirt-node-plugin*.spec
+ovirt-node-plugin*tar.gz
+autom4te.cache
+*.swp
+config.status
+config.log
+src/discover-host.rb
+src/discovery-version-fact.rb
+conf/foreman-plugin.firewall
