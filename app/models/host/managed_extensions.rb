@@ -9,7 +9,7 @@ module Host::ManagedExtensions
   def queue_reboot
     return if new_record? # Discovered Hosts already exist, and new_records will break `find`
     return unless type_changed? and ::Host::Base.find(self.id).type == "Host::Discovered"
-    post_queue.create(:name => "Rebooting #{self}", :priority => 10000,
+    post_queue.create(:name => _("Rebooting %s") % self, :priority => 10000,
                       :action => [self, :setReboot])
   end
 
@@ -21,7 +21,7 @@ module Host::ManagedExtensions
       logger.info "ForemanDiscovery: reboot result: failed"
     end
   rescue => e
-    failure "Failed to reboot: #{proxy_error e}"
+    failure _("Failed to reboot: %s") % proxy_error(e)
   end
 
   def delReboot

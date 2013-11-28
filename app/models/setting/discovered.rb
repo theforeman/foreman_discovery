@@ -9,14 +9,14 @@ class Setting::Discovered < ::Setting
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_location', "The default Location to place Discovered Hosts in", ""),
+          self.set('discovery_location', _("The default location to place discovered hosts in"), ""),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end
     if SETTINGS[:organizations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_organization', "The default Organization to place Discovered Hosts in", "" ),
+          self.set('discovery_organization', _("The default organization to place discovered hosts in"), "" ),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end

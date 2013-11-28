@@ -4,10 +4,14 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th> Name </th>
-          <th> Model </th>
-          <%= raw("<th>Location</th>") if SETTINGS[:locations_enabled]%>
-          <%= raw("<th>Organization</th>") if SETTINGS[:organizations_enabled]%>
+          <th><%= _('Name') %></th>
+          <th><%= _('Model') %></th>
+          <% if SETTINGS[:locations_enabled] %>
+            <th><%= _('Location') %></th>
+          <% end %>
+          <% if SETTINGS[:organizations_enabled] %>
+            <th><%= _('Organization') %></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>

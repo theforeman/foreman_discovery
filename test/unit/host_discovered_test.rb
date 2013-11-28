@@ -11,13 +11,19 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should import facts from yaml as Host::Discovered" do
-    assert Host::Discovered.importHostAndFacts(File.read(File.expand_path(File.dirname(__FILE__) + "/facts.yml")))
+    raw = parse_json_fixture('/facts.json')
+    assert Host::Discovered.importHostAndFacts(raw['facts'])
   end
 
   test "should be able to refresh facts" do
     host = Host.create :name => "mydiscoveredhost", :ip => "1.2.3.4", :type => "Host::Discovered"
-    ForemanDiscovery::Facts.any_instance.stubs(:facts).returns({"macaddress_eth0" => "aa:bb:cc:dd:ee:ff"})
+    raw = parse_json_fixture('/facts.json')
+    ForemanDiscovery::Facts.any_instance.stubs(:facts).returns(raw['facts'])
     assert host.refresh_facts
+  end
+
+  def parse_json_fixture(relative_path)
+    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 
 end

@@ -82,9 +82,9 @@ class DiscoversController < ::ApplicationController
 
   def refresh_facts
     if @host.is_a?(::Host::Discovered) and @host.refresh_facts
-      process_success :success_msg =>  "Facts refreshed for #{@host.name}", :success_redirect => :back
+      process_success :success_msg => _("Facts refreshed for %s") % @host.name, :success_redirect => :back
     else
-      process_error :error_msg => "Failed to refresh facts for #{@host.name}", :redirect => :back
+      process_error :error_msg => _("Failed to refresh facts for %s") % @host.name, :redirect => :back
     end
   end
 
@@ -97,9 +97,9 @@ class DiscoversController < ::ApplicationController
 
     missed_hosts = @hosts.map(&:name).join('<br/>')
     if @hosts.empty?
-      notice "Destroyed selected hosts"
+      notice _("Destroyed selected hosts")
     else
-      error "The following hosts were not deleted: #{missed_hosts}"
+      error _("The following hosts were not deleted: %s") % missed_hosts
     end
     redirect_to(discovers_path)
   end
@@ -154,16 +154,16 @@ class DiscoversController < ::ApplicationController
     if params[:host_names].present? or params[:host_ids].present?
       @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
       if @hosts.empty?
-        error 'No hosts were found with that id or name'
+        error _('No hosts were found with that id or name')
         redirect_to(discovers_path) and return false
       end
     else
-      error 'No Hosts selected'
+      error _('No hosts selected')
       redirect_to(discovers_path) and return false
     end
 
   rescue => e
-    error "Something went wrong while selecting hosts - #{e}"
+    error _("Something went wrong while selecting hosts - %s") % e
     redirect_to discovers_path
   end
 
