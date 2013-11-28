@@ -111,7 +111,6 @@ droprpm sos
 droprpm spice-server
 droprpm squashfs-tools
 droprpm strace
-droprpm sudo
 droprpm sysfsutils
 droprpm sysstat
 droprpm systemtap-runtime
@@ -132,11 +131,17 @@ drop /usr/share/mime
 drop /usr/share/groff
 drop /usr/share/locale
 
-# The following packages MUST be present
+# The following packages are REQUIRED
+#
+# ruby
+# facter
+# sudo
+# ipmitool
+
+# The following packages are required to boot
 #
 # ncurses-libs
 # NetworkManager-glib
-# ipmitool
 # grubby
 # libselinux
 # lua
@@ -145,6 +150,7 @@ drop /usr/share/locale
 # mozjs17
 
 # The following packages SHOULD not be dropped
+# (used in development mode)
 #
 # file
 # vim-minimal

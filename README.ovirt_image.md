@@ -41,7 +41,7 @@ File":
     LABEL discovery
     MENU LABEL Foreman Discovery
     KERNEL boot/discovery-vmlinuz
-    APPEND rootflags=loop initrd=boot/discovery-initrd.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 foreman.ip=192.168.122.1 selinux=0 stateless
+    APPEND rootflags=loop initrd=boot/discovery-initrd.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 foreman.ip=192.168.122.1 nomodeset selinux=0 stateless
 
 Note the long line and selinux is disabled for oVirt Node image. Also do not
 forget to press "Build PXE Default" button afterwards.

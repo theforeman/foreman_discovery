@@ -22,7 +22,7 @@
 PACKAGE_NAME = '@PACKAGE_NAME@'
 PACKAGE_VERSION = '@PACKAGE_VERSION@'
 ENGINE_NAME = '@ENGINENAME@'
-DEBUG = @PLUGIN_DEBUG@
+DEBUG = ('@PLUGIN_DEBUG@'.to_i == 1) rescue false
 PROXY_CACHE = '/tmp/proxy_cache'
 
 require 'fileutils'
@@ -35,17 +35,43 @@ require 'rubygems'
 require 'facter'
 require 'yaml'
 
-# Script was (re)started - delete old data
-File.unlink(PROXY_CACHE) if File.exists?(PROXY_CACHE)
+BANNER = <<'EOS'
+
+
+
+  _____
+ |  ___|__  _ __ ___ _ __ ___   __ _ _ __
+ | |_ / _ \| '__/ _ \ '_ ` _ \ / _` | '_ \
+ |  _| (_) | | |  __/ | | | | | (_| | | | |
+ |_|__\___/|_|  \___|_| |_| |_|\__,_|_| |_|
+   |  _ \(_)___  ___ _____   _____ _ __ _   _
+   | | | | / __|/ __/ _ \ \ / / _ \ '__| | | |
+   | |_| | \__ \ (_| (_) \ V /  __/ |  | |_| |
+   |____/|_|___/\___\___/ \_/ \___|_|   \__, |
+                                        |___/
+
+
+EOS
+
+$start_time = Time.now
+def time_prefix
+  Time.at(Time.now - $start_time).strftime("[%_4s]")
+rescue
+  "[ ? ]"
+end
+
+def println msg
+  puts "#{time_prefix} #{msg}\n"
+end
 
 def debug msg
-  if DEBUG == 1
-    puts "#{Time.now}: #{msg}"
+  if DEBUG
+    println msg
   end
 end
 
 def error msg
-  $stderr.puts "#{Time.now}: #{msg}"
+  $stderr.puts "#{time_prefix} #{msg}"
 end
 
 def cmdline
@@ -66,7 +92,7 @@ def discover_by_pxe
     server_ip = cmdline.split.map { |x| $1 if x.match(/foreman.ip=(.*)/)}.compact
     if server_ip.size == 1
       result = server_ip.join
-      debug "Discovered by PXE: #{result}"
+      println "Discovered by PXE: #{result}"
       return result
     else
       return false
@@ -83,7 +109,7 @@ def discover_by_dns
 
     require 'socket'
     result = TCPSocket.gethostbyname(server_name)[3..-1].first || false
-    debug "Discovered by DNS: #{result}"
+    println "Discovered by DNS: #{result}"
     return result
   rescue
     return false
@@ -93,7 +119,7 @@ end
 def upload
   ip = Facter.value('ipaddress')
   server = discover_server
-  debug "Triggering import of facts from Foreman (#{server}, ip=#{ip})"
+  println "Triggering import of facts from Foreman (#{server}, ip=#{ip})"
   data = ip.nil? ? {} : {'ip' => ip}
   begin
     uri = URI.parse(server)
@@ -129,13 +155,28 @@ end
 
 # Main
 
-$stdout.reopen("/tmp/discover-host.log", "w")
-$stderr.reopen("/tmp/discover-host.err", "w")
-debug "Started #{ENGINE_NAME} (#{PACKAGE_NAME} #{PACKAGE_VERSION})"
+$stdout.reopen("/dev/tty1", "w")
+$stderr.reopen("/dev/tty1", "w")
+
+# Script was (re)started - delete old data
+File.unlink(PROXY_CACHE) if File.exists?(PROXY_CACHE)
+
+puts "\e[H\e[2J"
+println BANNER
+TAG = DEBUG ? 'D' : 'P'
+println "This is Foreman Discovery #{PACKAGE_VERSION} (#{TAG}), tty1 is reserved for logs. "
+if DEBUG
+  println "The image was build with debug support, you can switch over to tty2+ "
+  println "and login as root/development."
+end
+println "Some interesting facts about this system:"
+facts = Facter.to_hash.select {|k,v| k =~ /address|hardware|manufacturer|productname|memorytotal/}
+facts.keys.sort.each {|k| println " #{k}: #{facts[k]}"}
+println "\nLogs from discovery services now follows:"
 
 # loop, but only upload on changes
 while true do
-  sleep DEBUG == 1 ? 30 : 60
+  sleep DEBUG ? 30 : 60
   uninteresting_facts=/kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version|selinux/i
   facts = Facter.to_hash.reject! {|k,v| k =~ uninteresting_facts }
   unless YAML.load(read_cache) == facts
