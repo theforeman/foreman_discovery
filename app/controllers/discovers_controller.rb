@@ -183,9 +183,9 @@ class DiscoversController < ::ApplicationController
   end
 
   def taxonomy_scope
-    if params[:host]
-      @organization = Organization.find_by_id(params[:host][:organization_id])
-      @location = Location.find_by_id(params[:host][:location_id])
+    if @host
+      @organization = @host.organization
+      @location = @host.location
     end
 
     if SETTINGS[:organizations_enabled]
