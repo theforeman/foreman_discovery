@@ -30,6 +30,7 @@ URL:            http://www.ovirt.org/
 Requires:       ovirt-node >= 3.0.0
 Requires:	    facter
 Requires:	    foreman-proxy
+Requires:	    sudo
 %if "@PLUGIN_DEBUG@" == "1"
 Requires:	    openssh-server
 Requires:       vim-minimal
@@ -72,6 +73,12 @@ Provides kickstart files for generating an oVirt Node ISO image containing
 make install DESTDIR=%{buildroot}
 
 %post
+# Modify login issue
+sed -i 's/oVirt Node Hypervisor/Foreman Discovery/' /etc/issue
+
+# Reserve tty1 only for logs
+rm -f /etc/systemd/system/getty.target.wants/getty@tty1.service
+
 # In development mode set password and enable ssh daemon (with root access)
 %if "@PLUGIN_DEBUG@" == "1"
 echo "root:development" | chpasswd
@@ -79,20 +86,25 @@ sed -i 's/^.*PasswordAuthentication.*$/PasswordAuthentication yes/' /etc/ssh/ssh
 sed -i 's/^.*PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
 %endif
 
-# Configure foreman-proxy (logs in /tmp directory)
+# Configure foreman-proxy
 %if "@PLUGIN_DEBUG@" == "1"
 LOGLEVEL="DEBUG"
 %else
 LOGLEVEL="ERROR"
 %endif
-sed -i 's|.*:log_file:.*|:log_file: /tmp/foreman-proxy.log|' /etc/foreman-proxy/settings.yml
+sed -i 's|.*:log_file:.*|:log_file: /dev/tty1|' /etc/foreman-proxy/settings.yml
 sed -i "s/.*:log_level:.*/:log_level: $LOGLEVEL/" /etc/foreman-proxy/settings.yml
 sed -i 's/.*:bmc:.*/:bmc: true/' /etc/foreman-proxy/settings.yml
 sed -i 's/.*:bmc_default_provider:.*/:bmc_default_provider: shell/' /etc/foreman-proxy/settings.yml
 
-# Enable Foreman Proxy and Discover Host services
-ln -s '/usr/lib/systemd/system/foreman-proxy.service' '/etc/systemd/system/multi-user.target.wants/foreman-proxy.service'
-ln -s '/usr/lib/systemd/system/discover-host.service' '/etc/systemd/system/multi-user.target.wants/discover-host.service'
+# Enable Foreman Proxy service
+systemctl enable foreman-proxy.service
+
+# Enable Discover Host service (must be executed as the last - idle - service)
+systemctl enable discover-host.service
+
+# Force NetworkManager to wait for IP address
+systemctl enable NetworkManager-wait-online.service
 
 # Add foreman-proxy user to sudo and disable interactive tty for reboot
 sed -i -e 's/^Defaults.*requiretty/Defaults !requiretty/g' /etc/sudoers
@@ -100,6 +112,9 @@ echo "foreman-proxy ALL=NOPASSWD: /sbin/shutdown" >> /etc/sudoers
 
 # Limit maximum use of systemd journal (it is kept in memory for stateless)
 sed -i -e 's/^.*SystemMaxUse.*$/SystemMaxUse=20M/g' /etc/systemd/journald.conf
+
+# When using ntpdate during start, do not pause when time servers not available
+[ -f /etc/sysconfig/ntpdate ] && sed -i -e 's/^.*RETRIES.*$/RETRIES=0/g' /etc/sysconfig/ntpdate
 
 # Set extra directory for facter
 sed -i '/\[Service\]/a Environment="FACTERLIB=/usr/share/ovirt-node-plugin-foreman"' /usr/lib/systemd/system/foreman-proxy.service
@@ -117,5 +132,10 @@ sed -i '/\[Service\]/a Environment="FACTERLIB=/usr/share/ovirt-node-plugin-forem
 %{_sysconfdir}/ovirt-plugins.d
 
 %changelog
+* Thu Dec 19 2013 Lukas Zapletal <lzap+rpm@redhat.com> 0.2.0-1
+- Logging on tty1
+- Changes to /etc/issue
+- Faster start
+
 * Wed Oct 30 2013 Lukas Zapletal <lzap+rpm@redhat.com> 0.1.0-1
 - Initial version

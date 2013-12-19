@@ -123,7 +123,7 @@ RPMSDIR directory just to make sure it's clean and publish it to the cache repos
 
     cd $OVIRT_NODE_BASE
     RPMSDIR=$(rpm --eval '%{_rpmdir}')
-    rm -f $RPMSDIR/*rpm
+    rm -f $RPMSDIR/noarch/*rpm
     git clone https://github.com/theforeman/foreman_discovery.git
     cd foreman_discovery/extra/ovirt-node-plugin-foreman
     ./autogen.sh
