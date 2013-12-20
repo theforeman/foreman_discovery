@@ -88,5 +88,8 @@ that is visible to the kernel.
 
 # More configuration
 
+Set the `discovery_fact` Setting (Settings > Discovered) to `macaddress_eth0`
+as the main `macaddress` fact does not work in TCL.
+
 Some configuration needs to be done in Foreman - go back to the [discovery
 readme](README.md) to find out more.
