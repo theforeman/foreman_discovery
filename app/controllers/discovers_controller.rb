@@ -177,7 +177,6 @@ class DiscoversController < ::ApplicationController
     # Check for explicit parameter override
     ip = params.delete('ip') if params.include?('ip')
 
-    Rails.logger.info ip.inspect
     # in case we got back multiple ips (see #1619)
     ip = ip.split(',').first
   end

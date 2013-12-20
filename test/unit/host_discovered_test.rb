@@ -3,6 +3,10 @@ require 'test_helper'
 class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
+    FactoryGirl.create(:setting,
+                       name: 'discovery_fact',
+                       value: 'macaddress',
+                       category: 'Setting::Discovered')
   end
 
   test "should be able to create Host::Discovered objects" do
@@ -13,6 +17,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should import facts from yaml as Host::Discovered" do
     raw = parse_json_fixture('/facts.json')
     assert Host::Discovered.importHostAndFacts(raw['facts'])
+  end
+
+  test "should raise when fact_name setting isn't present" do
+    raw = parse_json_fixture('/facts.json')
+    Setting[:discovery_fact] = 'macaddress_foo'
+    assert_raises Foreman::Exception do
+      Host::Discovered.importHostAndFacts(raw['facts'])
+    end
   end
 
   test "should be able to refresh facts" do
