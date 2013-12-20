@@ -6,6 +6,12 @@ class Setting::Discovered < ::Setting
     # Check the table exists
     return unless super
 
+    Setting.transaction do
+      [
+        self.set('discovery_fact', _("The default fact name to use for the MAC of the system"), "macaddress"),
+      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+    end
+
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
