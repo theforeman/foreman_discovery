@@ -92,10 +92,14 @@ LOGLEVEL="DEBUG"
 %else
 LOGLEVEL="ERROR"
 %endif
-sed -i 's|.*:log_file:.*|:log_file: /dev/tty1|' /etc/foreman-proxy/settings.yml
+sed -i 's|.*:log_file:.*|:log_file: /dev/stdout|' /etc/foreman-proxy/settings.yml
 sed -i "s/.*:log_level:.*/:log_level: $LOGLEVEL/" /etc/foreman-proxy/settings.yml
 sed -i 's/.*:bmc:.*/:bmc: true/' /etc/foreman-proxy/settings.yml
 sed -i 's/.*:bmc_default_provider:.*/:bmc_default_provider: shell/' /etc/foreman-proxy/settings.yml
+
+# Connect smart-proxy standard output to tty1
+sed '/^ExecStart/aStandardOutput=tty' -i /usr/lib/systemd/system/foreman-proxy.service
+sed '/^ExecStart/aTTYPath=/dev/tty1' -i /usr/lib/systemd/system/foreman-proxy.service
 
 # Enable Foreman Proxy service
 systemctl enable foreman-proxy.service
