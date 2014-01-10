@@ -24,14 +24,21 @@ page](https://github.com/theforeman/foreman_discovery).
 Injecting into existing base image
 ----------------------------------
 
-At the moment, it is not possible to use existing oVirt Node ISO base files
-and insert discovery plugin RPM into them as version 3.0.1 (current stable) is
-not compatible.
+Warning: This process will set SELinux to permissive mode during the build of
+new iso image. Since this can compromise security, it is highly recommended to
+use dedicated VM guest for building images.
 
-Once oVirt Node 3.1.0 is out, we will provide discovery node plugin RPM and
-image can be easily modified using ovirt-node tools. We are not there yet, but
-the images will be published on the [oVirt Node download
-page](http://www.ovirt.org/Node).
+Although it is not possible to use stable version (3.0) for a base image,
+there are couple of [nightly
+builds](http://resources.ovirt.org/releases/node-base/nightly/iso/) that can
+be used. It seems any image from version 3.0.3 can be used.
+
+Discovery image 0.3.0 is built from 0.3.0-1.1.fc19 base iso image:
+
+    wget http://resources.ovirt.org/releases/node-base/nightly/iso/ovirt-node-iso-3.0.3-1.1.fc19.iso
+
+We plan to release Fedora and RHEL based discovery images built from oVirt
+Node stable version 3.1.
 
 Building the base image from git
 --------------------------------

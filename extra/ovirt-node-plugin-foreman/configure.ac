@@ -17,7 +17,7 @@
 # MA  02110-1301, USA.  A copy of the GNU General Public License is
 # also available at http://www.gnu.org/copyleft/gpl.html.
 
-AC_INIT([ovirt-node-plugin-foreman], [0.2.0], [foreman-dev@googlegroups.com])
+AC_INIT([ovirt-node-plugin-foreman], [0.3.0], [foreman-dev@googlegroups.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign -Wno-portability tar-pax])
 AC_SUBST([ENGINENAME], ['Foreman Discovery'])
 PKG_PROG_PKG_CONFIG
