@@ -26,17 +26,17 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 1.4'
+        requires_foreman '> 1.4'
 
         # Add permissions
         security_block :discovery do
-          permission :view_discovered_hosts, {:discovers => [:index, :show, :auto_complete_search, :refresh_facts] }
-          permission :provision_discovered_hosts, {:discovers => [:new, :create] }
+          permission :view_discovered_hosts, {:discovers => [:index, :show, :auto_complete_search, :refresh_facts] }, :resource_type => 'Host'
+          permission :provision_discovered_hosts, {:discovers => [:new, :create] }, :resource_type => 'Host'
           permission :edit_discovered_hosts, {:discovers => [:edit, :update, :update_multiple_location,
                                                              :select_multiple_organization,
                                                              :update_multiple_organization,
-                                                             :select_multiple_location] }
-          permission :destroy_discovered_hosts, {:discovers => [:destroy, :submit_multiple_destroy, :multiple_destroy] }
+                                                             :select_multiple_location] }, :resource_type => 'Host'
+          permission :destroy_discovered_hosts, {:discovers => [:destroy, :submit_multiple_destroy, :multiple_destroy] }, :resource_type => 'Host'
 
         end
 
