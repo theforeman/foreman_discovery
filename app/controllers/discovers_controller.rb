@@ -121,6 +121,10 @@ class DiscoversController < ::ApplicationController
 
   private
 
+  def resource_base
+    @resource_base ||= ::Host::Discovered.authorized(current_permission, ::Host::Discovered)
+  end
+
   def load_vars_for_ajax
     return unless @host
 
@@ -142,10 +146,29 @@ class DiscoversController < ::ApplicationController
     @host.overwrite = "true" if @host.errors.any? and @host.errors.are_all_conflicts?
   end
 
+  def controller_permission
+    'discovered_hosts'
+  end
+
+  def action_permission
+    case params[:action]
+      when 'refresh_facts'
+        :view
+      when 'new', 'create'
+        :provision
+      when 'update_multiple_location', 'select_multiple_organization', 'update_multiple_organization', 'select_multiple_location'
+        :edit
+      when 'submit_multiple_destroy', 'multiple_destroy'
+        :destroy
+      else
+        super
+    end
+  end
+
   def find_by_name
     params[:id].downcase! if params[:id].present?
-    @host = ::Host::Discovered.find_by_id(params[:id])
-    @host ||= ::Host::Discovered.find_by_name(params[:id])
+    @host = resource_base.find_by_id(params[:id])
+    @host ||= resource_base.find_by_name(params[:id])
     return false unless @host
   end
 
