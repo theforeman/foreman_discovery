@@ -1,0 +1,169 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+# domcleal <dcleal@redhat.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-20 17:47+0100\n"
+"PO-Revision-Date: 2013-11-22 09:30+0000\n"
+"Last-Translator: domcleal <dcleal@redhat.com>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/foreman/language/en_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - The following hosts are about to be changed"
+
+msgid "%s ago"
+msgstr "%s ago"
+
+msgid "Are you sure?"
+msgstr "Are you sure?"
+
+msgid "Assign Location"
+msgstr "Assign Location"
+
+msgid "Assign Organization"
+msgstr "Assign Organisation"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "Could not get facts from proxy: %s"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete %s?"
+msgstr "Delete %s?"
+
+msgid "Delete hosts"
+msgstr "Delete hosts"
+
+msgid "Destroyed selected hosts"
+msgstr "Destroyed selected hosts"
+
+msgid "Discovered Hosts"
+msgstr "Discovered Hosts"
+
+msgid "Discovered host: %s"
+msgstr "Discovered host: %s"
+
+msgid "Discovered hosts"
+msgstr "Discovered hosts"
+
+msgid "Fact"
+msgstr "Fact"
+
+msgid "Facts discovered on this host"
+msgstr "Facts discovered on this host"
+
+msgid "Facts refreshed for %s"
+msgstr "Facts refreshed for %s"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "Failed to import facts for Host::Discovered"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "Failed to import facts for Host::Discovered: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "Failed to reboot: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Failed to refresh facts for %s"
+
+msgid "Host Pool"
+msgstr "Host Pool"
+
+msgid "Imported Host::Discovered"
+msgstr "Imported Host::Discovered"
+
+msgid "Last facts upload"
+msgstr "Last facts upload"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "No hosts selected"
+msgstr "No hosts selected"
+
+msgid "No hosts were found with that id or name"
+msgstr "No hosts were found with that id or name"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Please Confirm"
+msgstr "Please Confirm"
+
+msgid "Provision"
+msgstr "Provision"
+
+msgid "Rebooting %s"
+msgstr "Rebooting %s"
+
+msgid "Refresh facts"
+msgstr "Refresh facts"
+
+msgid "Select action"
+msgstr "Select action"
+
+msgid "Select all items in this page"
+msgstr "Select all items in this page"
+
+msgid "Select location"
+msgstr "Select location"
+
+msgid "Select organization"
+msgstr "Select organisation"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Something went wrong while selecting hosts - %s"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Subnet"
+msgstr "Subnet"
+
+msgid "The default location to place discovered hosts in"
+msgstr "The default location to place discovered hosts in"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "The default organisation to place discovered hosts in"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "The following hosts were not deleted: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
+
+msgid "Unassigned hosts"
+msgstr "Unassigned hosts"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Warning"
+msgstr "Warning"
+
+msgid "items selected. Uncheck to Clear"
+msgstr "items selected. Uncheck to Clear"

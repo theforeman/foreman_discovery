@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 17:47+0100\n"
+"POT-Creation-Date: 2014-01-24 13:57+0100\n"
 "PO-Revision-Date: 2013-03-01 15:45-0500\n"
 "Last-Translator: \n"
 "Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -48,9 +48,6 @@ msgid "Delete hosts"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr ""
-
-msgid "Discovered Hosts"
 msgstr ""
 
 msgid "Discovered host: %s"
@@ -138,6 +135,9 @@ msgid "Submit"
 msgstr ""
 
 msgid "Subnet"
+msgstr ""
+
+msgid "The default fact name to use for the MAC of the system"
 msgstr ""
 
 msgid "The default location to place discovered hosts in"

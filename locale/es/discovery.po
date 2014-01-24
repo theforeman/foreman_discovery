@@ -1,0 +1,169 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+# francisvm <hackgo@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-20 17:47+0100\n"
+"PO-Revision-Date: 2013-11-22 15:40+0000\n"
+"Last-Translator: francisvm <hackgo@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - Los siguientes equipos están a punto de ser modificados"
+
+msgid "%s ago"
+msgstr "Hace %s"
+
+msgid "Are you sure?"
+msgstr "¿Estás seguro?"
+
+msgid "Assign Location"
+msgstr "Asignar Lugar"
+
+msgid "Assign Organization"
+msgstr "Asignar Organización"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "No se pueden obtener datos del proxy: %s"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Delete %s?"
+msgstr "¿Borrar %s?"
+
+msgid "Delete hosts"
+msgstr "Borrar Equipos"
+
+msgid "Destroyed selected hosts"
+msgstr "Eliminados equipos seleccionados"
+
+msgid "Discovered Hosts"
+msgstr "Equipos descubiertos"
+
+msgid "Discovered host: %s"
+msgstr "Equipo descubierto: %s"
+
+msgid "Discovered hosts"
+msgstr "Equipos descubiertos"
+
+msgid "Fact"
+msgstr "Dato"
+
+msgid "Facts discovered on this host"
+msgstr "Datos descubiertos en este equipo"
+
+msgid "Facts refreshed for %s"
+msgstr "Datos actualizados para %s"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "No se pudo importar datos para Host :: Descubierto"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "No se pudo importar datos para Host :: Descubierto %s"
+
+msgid "Failed to reboot: %s"
+msgstr "Fallo al reiniciar: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Fallo al refrescar datos para %s"
+
+msgid "Host Pool"
+msgstr "Conjunto de equipos"
+
+msgid "Imported Host::Discovered"
+msgstr "Importado Host::Descubierto"
+
+msgid "Last facts upload"
+msgstr "Últimos datos subidos"
+
+msgid "Location"
+msgstr "Lugares"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "No hosts selected"
+msgstr "Ningún equipo seleccionado"
+
+msgid "No hosts were found with that id or name"
+msgstr "No se han encontrado equipos con ese id o nombre"
+
+msgid "Organization"
+msgstr "Organización"
+
+msgid "Please Confirm"
+msgstr "Confirme, por favor"
+
+msgid "Provision"
+msgstr "Aprovisionamiento"
+
+msgid "Rebooting %s"
+msgstr "Reiniciando %s"
+
+msgid "Refresh facts"
+msgstr "Refrescar datos"
+
+msgid "Select action"
+msgstr "Seleccionar acción"
+
+msgid "Select all items in this page"
+msgstr "Seleccionar todos los objetos de esta página"
+
+msgid "Select location"
+msgstr "Seleccionar localización"
+
+msgid "Select organization"
+msgstr "Seleccionar organización"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Algo ha fallado al seleccionar equipos - %s"
+
+msgid "Submit"
+msgstr "Introducir"
+
+msgid "Subnet"
+msgstr "Subred"
+
+msgid "The default location to place discovered hosts in"
+msgstr "La ubicación predeterminada para colocar hosts descubiertos "
+
+msgid "The default organization to place discovered hosts in"
+msgstr "La ubicación predeterminada para colocar organizaciones descubiertas "
+
+msgid "The following hosts were not deleted: %s"
+msgstr "Los siguientes equipos no han sido eliminados: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
+
+msgid "Unassigned hosts"
+msgstr "Equipos sin asignar"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "Warning"
+msgstr "Aviso"
+
+msgid "items selected. Uncheck to Clear"
+msgstr "objetos seleccionados. Desactivar para limpiar"
