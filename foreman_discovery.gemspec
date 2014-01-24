@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md"
   ]
-  s.files = Dir["{app,extra,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,extra,config,db,lib,locale}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
   s.homepage = %q{http://github.com/theforeman/foreman_discovery}
   s.licenses = ["GPL-3"]

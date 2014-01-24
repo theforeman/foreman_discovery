@@ -1,0 +1,169 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+# johnny Westerlund <johnny.westerlund@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-20 17:47+0100\n"
+"PO-Revision-Date: 2014-01-14 14:34+0000\n"
+"Last-Translator: johnny Westerlund <johnny.westerlund@gmail.com>\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/foreman/language/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - Följande värdar kommer att ändras"
+
+msgid "%s ago"
+msgstr "%s sedan"
+
+msgid "Are you sure?"
+msgstr "Är du säker?"
+
+msgid "Assign Location"
+msgstr "Tilldela Plats"
+
+msgid "Assign Organization"
+msgstr "Tilldela Organisation"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "Kunde inte hämta fakta från proxy: %s"
+
+msgid "Delete"
+msgstr "Radera"
+
+msgid "Delete %s?"
+msgstr "Radera %s"
+
+msgid "Delete hosts"
+msgstr "Radera värdar"
+
+msgid "Destroyed selected hosts"
+msgstr "Förstör markerade värdar"
+
+msgid "Discovered Hosts"
+msgstr "Hittade värdar"
+
+msgid "Discovered host: %s"
+msgstr "Hittade värdar: %s"
+
+msgid "Discovered hosts"
+msgstr "Hittade värdar"
+
+msgid "Fact"
+msgstr "Fakta"
+
+msgid "Facts discovered on this host"
+msgstr "Fakta hittade för denna värd"
+
+msgid "Facts refreshed for %s"
+msgstr "Fakta uppdaterade för %s"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "Misslyckades att importera fakta för Host::Discovered"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "Misslyckades att importera fakta för Host::Discovered: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "Misslyckades att starta om: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Misslyckades med att uppdatera fakta för %s"
+
+msgid "Host Pool"
+msgstr "Värdpool"
+
+msgid "Imported Host::Discovered"
+msgstr "Importerade Host::Discovered"
+
+msgid "Last facts upload"
+msgstr "Sista faktauppladdning"
+
+msgid "Location"
+msgstr "Lokation"
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "No hosts selected"
+msgstr "Inga värdar markerade"
+
+msgid "No hosts were found with that id or name"
+msgstr "Inga värdar med det idt eller namnet hittades"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Please Confirm"
+msgstr "Var god, bekräfta"
+
+msgid "Provision"
+msgstr "Provisionera"
+
+msgid "Rebooting %s"
+msgstr "Startar om %s"
+
+msgid "Refresh facts"
+msgstr "Uppdatera fakta"
+
+msgid "Select action"
+msgstr "Välj åtgärd"
+
+msgid "Select all items in this page"
+msgstr "Markera alla valbara på denna sida"
+
+msgid "Select location"
+msgstr "Välj lokation"
+
+msgid "Select organization"
+msgstr "Välj organisation"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Något blev fel vid markering av värdar - %s"
+
+msgid "Submit"
+msgstr "Sänd"
+
+msgid "Subnet"
+msgstr "Subnät"
+
+msgid "The default location to place discovered hosts in"
+msgstr "Standardplatsen att placera värdar i"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "Standardorganisationen att placera hittade värdar i"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "Följande värdar raderades inte: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
+
+msgid "Unassigned hosts"
+msgstr "Otilldelade värdar"
+
+msgid "Value"
+msgstr "Värde"
+
+msgid "Warning"
+msgstr "Varning"
+
+msgid "items selected. Uncheck to Clear"
+msgstr "poster markerade. Avmarkera för att rensa"
