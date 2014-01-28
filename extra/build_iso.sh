@@ -88,7 +88,7 @@ fi
 
 # Build the init script
 echo "" >> opt/bootlocal.sh
-echo "sleep 20" >> opt/bootlocal.sh # network can be slow to come up, and we're not in a rush
+echo "/opt/wait_for_network.sh" >> opt/bootlocal.sh # network can be slow to come up
 echo "/opt/foreman_startup.rb" >> opt/bootlocal.sh
 echo "/opt/discovery_init.sh" >> opt/bootlocal.sh
 
@@ -96,9 +96,19 @@ echo "/opt/discovery_init.sh" >> opt/bootlocal.sh
 cp $SCRIPT_DIR/foreman_startup.rb opt/foreman_startup.rb
 chmod 755 opt/foreman_startup.rb
 
+# Copy the script that wait for network before trying to use it
+cp $SCRIPT_DIR/wait_for_network.sh opt/wait_for_network.sh
+chmod 755 opt/wait_for_network.sh
+
 # Get the gems
 mkdir opt/gems && cd opt/gems
-for n in $GEMS ; do gem fetch $n ; done
+gem fetch facter
+gem fetch json_pure
+gem fetch rack
+gem fetch rack-protection
+# Explicit version for tilt or it brakes sinatra (actual tilt version >= 2.0.0) :
+gem fetch --version 1.3.4 tilt
+gem fetch sinatra
 
 # Build the fallback script
 echo "#!/bin/sh" >> ../discovery_init.sh
