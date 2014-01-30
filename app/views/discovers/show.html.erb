@@ -10,7 +10,7 @@
   <% @host.facts_hash.sort.each do |fact| -%>
     <tr>
       <td><%= fact[0] %></td>
-      <td><%= fact[1] %></td>
+      <td><%= truncate(fact[1], :length => 100) %></td>
     </tr>
   <% end -%>
 </table>
