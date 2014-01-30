@@ -1,0 +1,2 @@
+# no relevant log files for foreman
+# (we are logging everything in /tmp in development mode)

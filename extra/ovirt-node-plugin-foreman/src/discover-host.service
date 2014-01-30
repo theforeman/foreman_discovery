@@ -1,0 +1,14 @@
+[Unit]
+Description=Discover this host to Foreman
+Wants=basic.target
+After=basic.target network.target nss-lookup.target
+
+[Service]
+Type=idle
+ExecStartPre=/usr/sbin/iptables -I INPUT 1 -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
+ExecStart=/usr/bin/discover-host.rb
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

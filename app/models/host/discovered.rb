@@ -23,16 +23,17 @@ class Host::Discovered < ::Host::Base
 
   def self.importHostAndFacts facts
     raise(::Foreman::Exception.new("Invalid Facts, must be a Hash")) unless facts.is_a?(Hash)
-    hostname   = facts["macaddress_eth0"].try(:downcase).try(:gsub,/:/,'')
-    raise(::Foreman::Exception.new("Invalid facts: hash does not contain macaddress_eth0 to use as hostname")) unless hostname
+    fact_name = Setting[:discovery_fact] || 'macaddress'
+    hostname   = facts[fact_name].try(:downcase).try(:gsub,/:/,'')
+    raise(::Foreman::Exception.new("Invalid facts: hash does not contain the required fact '#{fact_name}'")) unless hostname
 
     # filter facts
-    facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem|version/i }
+    facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
 
     h = ::Host::Discovered.find_by_name hostname
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-    h.mac = facts["macaddress_eth0"].try(:downcase)
+    h.mac = facts[fact_name].try(:downcase)
 
     if SETTINGS[:locations_enabled]
       begin
@@ -77,7 +78,7 @@ class Host::Discovered < ::Host::Base
       logger.debug "retrieving facts from proxy on ip: #{self.ip}"
       facts = ForemanDiscovery::Facts.new(:url => "http://#{self.ip}:8443").facts
     rescue Exception => e
-      raise "Could not get facts from Proxy: #{e}"
+      raise _("Could not get facts from proxy: %s") % e
     end
 
     return self.class.importHostAndFacts facts

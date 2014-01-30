@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 ENV["RAILS_ENV"] ||= 'test'
-require File.join("foreman_app/config/environment.rb")
+require File.expand_path("../../.foreman_app/config/environment.rb", __FILE__)
 
 require 'test/unit'
 require 'foreman_discovery'
@@ -16,7 +16,7 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
 
-  foreman_dir =  File.expand_path("../foreman_app", File.join(Dir.pwd, __FILE__))
+  foreman_dir =  File.expand_path("../../.foreman_app", File.join(Dir.pwd, __FILE__))
   fixture_path=File.join(foreman_dir, "test/fixtures")
   fixtures :all
 

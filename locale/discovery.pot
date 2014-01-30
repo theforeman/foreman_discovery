@@ -1,0 +1,165 @@
+# Template file for strings which can be localized in the Foreman Application.
+#
+# This file is distributed under the same license as the Foreman.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-24 13:57+0100\n"
+"PO-Revision-Date: 2013-03-01 15:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr ""
+
+msgid "%s ago"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Assign Location"
+msgstr ""
+
+msgid "Assign Organization"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Could not get facts from proxy: %s"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete %s?"
+msgstr ""
+
+msgid "Delete hosts"
+msgstr ""
+
+msgid "Destroyed selected hosts"
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr ""
+
+msgid "Discovered hosts"
+msgstr ""
+
+msgid "Fact"
+msgstr ""
+
+msgid "Facts discovered on this host"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr ""
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr ""
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr ""
+
+msgid "Failed to reboot: %s"
+msgstr ""
+
+msgid "Failed to refresh facts for %s"
+msgstr ""
+
+msgid "Host Pool"
+msgstr ""
+
+msgid "Imported Host::Discovered"
+msgstr ""
+
+msgid "Last facts upload"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr ""
+
+msgid "No hosts were found with that id or name"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Please Confirm"
+msgstr ""
+
+msgid "Provision"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr ""
+
+msgid "Refresh facts"
+msgstr ""
+
+msgid "Select action"
+msgstr ""
+
+msgid "Select all items in this page"
+msgstr ""
+
+msgid "Select location"
+msgstr ""
+
+msgid "Select organization"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Subnet"
+msgstr ""
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr ""
+
+msgid "The default organization to place discovered hosts in"
+msgstr ""
+
+msgid "The following hosts were not deleted: %s"
+msgstr ""
+
+msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgstr ""
+
+msgid "Unassigned hosts"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr ""

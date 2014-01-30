@@ -1,0 +1,169 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+# Claer <transiblu@claer.hammock.fr>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-20 17:47+0100\n"
+"PO-Revision-Date: 2013-11-27 14:30+0000\n"
+"Last-Translator: Claer <transiblu@claer.hammock.fr>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/foreman/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - les hôtes suivants vont être changés"
+
+msgid "%s ago"
+msgstr "Il y a %s"
+
+msgid "Are you sure?"
+msgstr "Êtes vous sûr ?"
+
+msgid "Assign Location"
+msgstr "Assigner une Localisation"
+
+msgid "Assign Organization"
+msgstr "Assigner une Organisation"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "Impossible de récupérer les facts depuis le proxy : %s"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Delete %s?"
+msgstr "Supprimer %s ?"
+
+msgid "Delete hosts"
+msgstr "Supprimer ces Hôtes"
+
+msgid "Destroyed selected hosts"
+msgstr "Hôtes sélectionnés détruits"
+
+msgid "Discovered Hosts"
+msgstr "Hôtes détectés"
+
+msgid "Discovered host: %s"
+msgstr "Hôtes détectés : %s"
+
+msgid "Discovered hosts"
+msgstr "Hôtes détectés"
+
+msgid "Fact"
+msgstr "Fact"
+
+msgid "Facts discovered on this host"
+msgstr "Facts détectés pour cet hôte"
+
+msgid "Facts refreshed for %s"
+msgstr "Facts rafraichis pour %s"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "Échec d'import des facts pour Host::Discovered"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "Échec d'import des facts pour Host::Discovered: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "Erreur de redémarrage : %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Échec de rafraichissement des facts pour %s"
+
+msgid "Host Pool"
+msgstr "Regrouppement d'hôtes"
+
+msgid "Imported Host::Discovered"
+msgstr "Host::Discovered importé"
+
+msgid "Last facts upload"
+msgstr "Derniers facts téléchargés"
+
+msgid "Location"
+msgstr "Localisation"
+
+msgid "Model"
+msgstr "Modèle"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "No hosts selected"
+msgstr "Aucun hôte sélectionné"
+
+msgid "No hosts were found with that id or name"
+msgstr "Aucun Hôte trouvé avec cet id ou ce nom"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Please Confirm"
+msgstr "Merci de confirmer"
+
+msgid "Provision"
+msgstr "Provisionner"
+
+msgid "Rebooting %s"
+msgstr "Redémarrage %s"
+
+msgid "Refresh facts"
+msgstr "Rafraichir les facts"
+
+msgid "Select action"
+msgstr "Choisir l'action"
+
+msgid "Select all items in this page"
+msgstr "Sélectionner tous les éléments de cette page"
+
+msgid "Select location"
+msgstr "Sélectionner une localisation"
+
+msgid "Select organization"
+msgstr "Choisir une organisation"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Quelque chose s'est mal passé lors de la sélection des hôtes - %s"
+
+msgid "Submit"
+msgstr "Soumettre"
+
+msgid "Subnet"
+msgstr "Sous-Réseau"
+
+msgid "The default location to place discovered hosts in"
+msgstr "Attribution de la localisation par défaut pour les hôtes détectés"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "Attribution de l'organisation par défaut pour les hôtes détectés"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "Les hôtes suivants n'ont pas été supprimés : %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "Cette action peut prendre un certain temps, pour tous les hôtes, les rapports et facts vont aussi être supprimés"
+
+msgid "Unassigned hosts"
+msgstr "Hôtes non assignés"
+
+msgid "Value"
+msgstr "Valeur"
+
+msgid "Warning"
+msgstr "Attention"
+
+msgid "items selected. Uncheck to Clear"
+msgstr "items sélectionnés. Décocher pour Effacer"
