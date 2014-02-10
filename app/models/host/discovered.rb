@@ -24,8 +24,9 @@ class Host::Discovered < ::Host::Base
   def self.importHostAndFacts facts
     raise(::Foreman::Exception.new("Invalid Facts, must be a Hash")) unless facts.is_a?(Hash)
     fact_name = Setting[:discovery_fact] || 'macaddress'
-    hostname   = facts[fact_name].try(:downcase).try(:gsub,/:/,'')
-    raise(::Foreman::Exception.new("Invalid facts: hash does not contain the required fact '#{fact_name}'")) unless hostname
+    hostname_fact_name = Setting[:discovery_hostname_fact] || 'macaddress'
+    hostname = facts[hostname_fact_name].try(:downcase).try(:gsub,/:/,'') || facts[fact_name].try(:downcase).try(:gsub,/:/,'')
+    raise(::Foreman::Exception.new("Invalid facts: hash does not contain the required fact '#{hostname_fact_name}'")) unless hostname
 
     # filter facts
     facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
@@ -37,14 +38,16 @@ class Host::Discovered < ::Host::Base
 
     if SETTINGS[:locations_enabled]
       begin
-        h.location = (Location.find_by_name Setting[:discovery_location]) || Location.first
+        location_fact_name = Setting[:discovery_location_fact]
+        h.location = (Location.find_by_name facts[location_fact_name]) || (Location.find_by_name Setting[:discovery_location]) || Location.first
       rescue
         h.location = Location.first
       end
     end
     if SETTINGS[:organizations_enabled]
       begin
-        h.organization = (Organization.find_by_name Setting[:discovery_organization]) || Organization.first
+        organization_fact_name = Setting[:discovery_organization_fact]
+        h.organization = (Organization.find_by_name facts[organization_fact_name]) || (Location.find_by_name Setting[:discovery_organization]) || Organization.first
       rescue
         h.organization = Organization.first
       end

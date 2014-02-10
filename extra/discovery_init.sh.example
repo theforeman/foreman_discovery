@@ -5,6 +5,27 @@ echo "Starting custom discovery script"
 GEMS="facter json_pure rack rack-protection tilt sinatra"
 for n in $GEMS ; do gem install --no-ri --no-rdoc -l `ls /opt/gems/*$n-[0-9]*.gem` ; done
 
+set -- `cat /proc/cmdline`
+for I in $*; do case "$I" in *=*) eval $I;; esac; done
+
+mkdir -p /etc/facter/facts.d
+if [ -n "$discovery_organization" ]; then
+  echo discovery_organization=$discovery_organization >/etc/facter/facts.d/discovery.txt
+fi
+
+if [ "$discovery_mode" == 'interactive' ]; then
+  chvt 2
+  (
+    echo Foreman interactive mode activated...
+    echo
+    read -p "Hostname: " discovery_hostname
+    if [ -n "$discovery_hostname" ]; then
+      echo discovery_hostname=$discovery_hostname >>/etc/facter/facts.d/discovery.txt
+    fi
+  )  </dev/tty2 >/dev/tty2 2>&1
+  chvt 1
+fi
+
 /usr/share/foreman-proxy/bin/smart-proxy
 /usr/share/foreman-proxy/bin/discover_host
 
