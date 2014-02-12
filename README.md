@@ -26,6 +26,12 @@ You can get the develop branch of the plugin by specifying your Gemfile in this 
 
     gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
 
+## Reporting bugs
+
+We use [RedMine
+instance](http://projects.theforeman.org/projects/discovery/issues) instead of
+github.com issues.
+
 # Building or downloading an image
 
 There are two options at the moment:
