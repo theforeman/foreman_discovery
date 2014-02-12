@@ -18,7 +18,8 @@ RPM users can install the "ruby193-rubygem-foreman_discovery" or
 | Foreman Version | Plugin Version | oVirt Image Version |
 | --------------- | --------------:| -------------------:|
 | <= 1.2          | 1.0.2          | N/A                 |
-| >= 1.3          | 1.1.0          | 0.1.0               |
+|  = 1.3          | 1.1.0          | 0.1.0               |
+| >= 1.4          | 1.2.0          | 0.3.0-1             |
 
 ## Latest code
 
