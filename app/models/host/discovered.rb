@@ -22,10 +22,10 @@ class Host::Discovered < ::Host::Base
   scope :list, lambda { where(:type => "Host::Discovered").includes(:model, :location, :organization) }
 
   def self.importHostAndFacts facts
-    raise(::Foreman::Exception.new("Invalid Facts, must be a Hash")) unless facts.is_a?(Hash)
+    raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
     fact_name = Setting[:discovery_fact] || 'macaddress'
     hostname   = facts[fact_name].try(:downcase).try(:gsub,/:/,'')
-    raise(::Foreman::Exception.new("Invalid facts: hash does not contain the required fact '#{fact_name}'")) unless hostname
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless hostname
 
     # filter facts
     facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
