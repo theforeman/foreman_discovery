@@ -4,15 +4,15 @@
   <tr>
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class=''><%= sort :name, :as => _('Name') %></th>
-    <th class="hidden-tablet hidden-phone"><%= sort :model, :as => _('Model') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :model, :as => _('Model') %></th>
     <% if SETTINGS[:locations_enabled] -%>
-      <th class="hidden-tablet hidden-phone"><%= sort :location, :as => _('Location') %></th>
+      <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
     <% end -%>
     <% if SETTINGS[:organizations_enabled] -%>
-      <th class="hidden-tablet hidden-phone"><%= sort :organization, :as => _('Organization') %></th>
+      <th class="hidden-tablet hidden-xs"><%= sort :organization, :as => _('Organization') %></th>
     <% end -%>
-    <th class="hidden-tablet hidden-phone"><%= sort :subnet, :as => _("Subnet") %></th>
-    <th class="hidden-tablet hidden-phone"><%= sort :last_report, :as => _("Last facts upload") %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :subnet, :as => _("Subnet") %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last facts upload") %></th>
     <th></th>
   </tr>
   <% @hosts.each do |host| -%>
@@ -21,15 +21,15 @@
         <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
       </td>
       <td><%= link_to("#{host}", discover_path(host) ) %> </td>
-      <td class="hidden-tablet hidden-phone"><%= model_name host %></td>
+      <td class="hidden-tablet hidden-xs"><%= model_name host %></td>
       <% if SETTINGS[:locations_enabled] -%>
-        <td class="hidden-tablet hidden-phone"><%= host.location.try(:name) %></td>
+        <td class="hidden-tablet hidden-xs"><%= host.location.try(:name) %></td>
       <% end -%>
       <% if SETTINGS[:organizations_enabled] -%>
-        <td class="hidden-tablet hidden-phone"><%= host.organization.try(:name) %></td>
+        <td class="hidden-tablet hidden-xs"><%= host.organization.try(:name) %></td>
       <% end -%>
-      <td class="hidden-tablet hidden-phone"><%= host.subnet %></td>
-      <td class="hidden-tablet hidden-phone"><%= disc_report_column(host) %></td>
+      <td class="hidden-tablet hidden-xs"><%= host.subnet %></td>
+      <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
           link_to(_("Provision"), hash_for_edit_discover_path(:id => host)),
@@ -40,17 +40,23 @@
     <% end -%>
   </table>
 
-<div id="confirmation-modal" class="modal hide fade">
-  <div class="modal-header">
-    <a href="#" class="close" data-dismiss="modal">×</a>
-    <h3><%= _('Please Confirm') %></h3>
-  </div>
-  <div class="modal-body"></div>
-  <div class="modal-footer">
-    <a href="#" class="btn btn-primary"><%= _('Submit') %></a>
-    <a href="#" class="btn secondary"><%= _('Cancel') %></a>
-  </div>
-</div>
+<div id="confirmation-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><%= _('Please Confirm') %></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= _('Cancel') %></button>
+        <button type="button" class="btn btn-primary"><%= _('Submit') %></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <%= page_entries_info @hosts %>
 <%= will_paginate @hosts %>

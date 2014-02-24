@@ -20,15 +20,15 @@ module DiscoversHelper
   end
 
   def multiple_discovers_actions_select
-    actions = [[_('Delete hosts'), multiple_destroy_discovers_path, 'trash']]
-    actions <<  [_('Assign Organization'), select_multiple_organization_discovers_path, 'tags'] if SETTINGS[:organizations_enabled]
-    actions <<  [_('Assign Location'), select_multiple_location_discovers_path, 'map-marker'] if SETTINGS[:locations_enabled]
+    actions = [[_('Delete hosts'), multiple_destroy_discovers_path]]
+    actions <<  [_('Assign Organization'), select_multiple_organization_discovers_path] if SETTINGS[:organizations_enabled]
+    actions <<  [_('Assign Location'), select_multiple_location_discovers_path] if SETTINGS[:locations_enabled]
 
-    content_tag :span, :id => 'submit_multiple' do
-      select_action_button( _("Select action"), actions.map do |action|
-        link_to(icon_text(action[2], action[0]) , action[1], :class=>'btn',  :title => _("%s - The following hosts are about to be changed") % action[0])
-      end.flatten)
-    end
+    select_action_button( _("Select Action"), {:id => 'submit_multiple'},
+      actions.map do |action|
+        link_to(action[0] , action[1], :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0])
+      end.flatten
+    )
 
   end
 
