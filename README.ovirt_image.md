@@ -41,15 +41,28 @@ File":
     LABEL discovery
     MENU LABEL Foreman Discovery
     KERNEL boot/discovery-vmlinuz
-    APPEND rootflags=loop initrd=boot/discovery-initrd.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 foreman.ip=192.168.122.1 nomodeset selinux=0 stateless
+    APPEND rootflags=loop initrd=boot/discovery-initrd.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 foreman.url=https://foreman.domain.lan nomodeset selinux=0 stateless
 
 Note the long line and selinux is disabled for oVirt Node image. Also do not
 forget to press "Build PXE Default" button afterwards.
 
-Be sure to alter the foreman.ip appropriately. You can also use foreman.server to
-specify a DNS record (`foreman.server=myforemanhost`) but in this case the port will
-be assumed to be http (80). If all else fails (say, USB boot where we can't provide
-options) it will look for a DNS record of `foreman`.
+There are several ways of configuring Foreman URL to be used for facts upload:
+
+ * foreman.url - specify URL of the foreman service. When using names, make sure
+   it does resolve correctly. Note the difference between http and https protocol
+   schemes. You may optionally specify port.
+ * foreman.server - specify hostname of the foreman (http scheme is used)
+ * foreman.ip - specify ip address of the foreman (http scheme is used)
+ * Nothing is provided - DNS SRV record with name `_foreman._tcp.domain.` is being
+   queried to determine hostname and port of the service.
+
+To configure the SRV entry with ISC BIND do something like:
+
+    _x-foreman._tcp.virtual.lan. 86400 IN SRV 0 5 443 foreman.virtual.lan.
+
+When port number 443 is specified, https scheme will be used, http otherwise.
+Also make sure that DHCP returns valid search domain, otherwise the SRV entry
+will not be found by the discovered node.
 
 # Known Issues with the image
 
