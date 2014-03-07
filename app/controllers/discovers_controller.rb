@@ -162,6 +162,7 @@ class DiscoversController < ::ApplicationController
       redirect_to(discovers_path) and return false
     end
 
+    return @hosts
   rescue => e
     error _("Something went wrong while selecting hosts - %s") % e
     redirect_to discovers_path
