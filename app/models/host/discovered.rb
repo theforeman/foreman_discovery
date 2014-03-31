@@ -6,6 +6,9 @@ class Host::Discovered < ::Host::Base
   belongs_to :organization
   belongs_to :subnet
 
+  validates :mac, :uniqueness => true, :format => {:with => Net::Validations::MAC_REGEXP}, :presence => true
+  validates :ip, :format => {:with => Net::Validations::IP_REGEXP}, :uniqueness => true
+
   scoped_search :on => :name, :complete_value => true, :default_order => true
   scoped_search :on => :last_report, :complete_value => true
   scoped_search :on => :ip, :complete_value => true

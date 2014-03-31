@@ -23,4 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
+  ## API
+  namespace :api, :defaults => {:format => 'json'} do
+    scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'}, :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
+      resources :discovers do
+        collection do
+          post 'facts'
+        end
+      end
+    end
+  end
+
 end
