@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-24 13:57+0100\n"
+"POT-Creation-Date: 2014-04-08 15:59+0200\n"
 "PO-Revision-Date: 2013-03-01 15:45-0500\n"
 "Last-Translator: \n"
 "Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -83,6 +83,12 @@ msgstr ""
 msgid "Imported Host::Discovered"
 msgstr ""
 
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr ""
+
 msgid "Last facts upload"
 msgstr ""
 
@@ -116,7 +122,7 @@ msgstr ""
 msgid "Refresh facts"
 msgstr ""
 
-msgid "Select action"
+msgid "Select Action"
 msgstr ""
 
 msgid "Select all items in this page"
