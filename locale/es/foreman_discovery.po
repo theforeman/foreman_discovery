@@ -4,14 +4,14 @@
 # 
 # 
 # Translators:
-# francisvm <hackgo@gmail.com>, 2013
+# francisvm <hackgo@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 17:47+0100\n"
-"PO-Revision-Date: 2013-11-22 15:40+0000\n"
-"Last-Translator: francisvm <hackgo@gmail.com>\n"
+"POT-Creation-Date: 2014-04-08 15:59+0200\n"
+"PO-Revision-Date: 2014-04-09 10:00+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,9 +52,6 @@ msgstr "Borrar Equipos"
 msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
 
-msgid "Discovered Hosts"
-msgstr "Equipos descubiertos"
-
 msgid "Discovered host: %s"
 msgstr "Equipo descubierto: %s"
 
@@ -87,6 +84,12 @@ msgstr "Conjunto de equipos"
 
 msgid "Imported Host::Discovered"
 msgstr "Importado Host::Descubierto"
+
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr ""
 
 msgid "Last facts upload"
 msgstr "Últimos datos subidos"
@@ -121,8 +124,8 @@ msgstr "Reiniciando %s"
 msgid "Refresh facts"
 msgstr "Refrescar datos"
 
-msgid "Select action"
-msgstr "Seleccionar acción"
+msgid "Select Action"
+msgstr "Seleccione una Acción"
 
 msgid "Select all items in this page"
 msgstr "Seleccionar todos los objetos de esta página"
@@ -141,6 +144,9 @@ msgstr "Introducir"
 
 msgid "Subnet"
 msgstr "Subred"
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr "El nombre de dato por defecto a usar para la MAC del sistema"
 
 msgid "The default location to place discovered hosts in"
 msgstr "La ubicación predeterminada para colocar hosts descubiertos "

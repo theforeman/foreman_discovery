@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 17:47+0100\n"
-"PO-Revision-Date: 2013-11-22 09:30+0000\n"
-"Last-Translator: domcleal <dcleal@redhat.com>\n"
+"POT-Creation-Date: 2014-04-08 15:59+0200\n"
+"PO-Revision-Date: 2014-04-09 09:46+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/foreman/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,9 +52,6 @@ msgstr "Delete hosts"
 msgid "Destroyed selected hosts"
 msgstr "Destroyed selected hosts"
 
-msgid "Discovered Hosts"
-msgstr "Discovered Hosts"
-
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
 
@@ -87,6 +84,12 @@ msgstr "Host Pool"
 
 msgid "Imported Host::Discovered"
 msgstr "Imported Host::Discovered"
+
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr ""
 
 msgid "Last facts upload"
 msgstr "Last facts upload"
@@ -121,8 +124,8 @@ msgstr "Rebooting %s"
 msgid "Refresh facts"
 msgstr "Refresh facts"
 
-msgid "Select action"
-msgstr "Select action"
+msgid "Select Action"
+msgstr ""
 
 msgid "Select all items in this page"
 msgstr "Select all items in this page"
@@ -141,6 +144,9 @@ msgstr "Submit"
 
 msgid "Subnet"
 msgstr "Subnet"
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr ""
 
 msgid "The default location to place discovered hosts in"
 msgstr "The default location to place discovered hosts in"
