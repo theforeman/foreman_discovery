@@ -4,7 +4,7 @@
 # 
 # 
 # Translators:
-# johnny Westerlund <johnny.westerlund@gmail.com>, 2014
+# bechtoldt <mail@arnoldbechtoldt.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
@@ -12,78 +12,78 @@ msgstr ""
 "POT-Creation-Date: 2014-04-08 15:59+0200\n"
 "PO-Revision-Date: 2014-04-09 10:00+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/foreman/language/sv_SE/)\n"
+"Language-Team: German (http://www.transifex.com/projects/p/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Följande värdar kommer att ändras"
+msgstr "%s - Die folgenden Hosts werden gerade geändert"
 
 msgid "%s ago"
-msgstr "%s sedan"
+msgstr "vor %s"
 
 msgid "Are you sure?"
-msgstr "Är du säker?"
+msgstr "Sind Sie sicher?"
 
 msgid "Assign Location"
-msgstr "Tilldela Plats"
+msgstr "Standort zuweisen"
 
 msgid "Assign Organization"
-msgstr "Tilldela Organisation"
+msgstr "Organisation zuweisen"
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Abbrechen"
 
 msgid "Could not get facts from proxy: %s"
-msgstr "Kunde inte hämta fakta från proxy: %s"
+msgstr "Konnte keine Fakten vom Proxy empfangen: %s"
 
 msgid "Delete"
-msgstr "Radera"
+msgstr "Löschen"
 
 msgid "Delete %s?"
-msgstr "Radera %s"
+msgstr "Löschen %s?"
 
 msgid "Delete hosts"
-msgstr "Radera värdar"
+msgstr "Lösche Hosts"
 
 msgid "Destroyed selected hosts"
-msgstr "Förstör markerade värdar"
+msgstr "ausgewählte gelöschte Systeme"
 
 msgid "Discovered host: %s"
-msgstr "Hittade värdar: %s"
+msgstr "Entdeckte Hosts: %s"
 
 msgid "Discovered hosts"
-msgstr "Hittade värdar"
+msgstr "Entdeckte Hosts"
 
 msgid "Fact"
-msgstr "Fakta"
+msgstr "Fakt"
 
 msgid "Facts discovered on this host"
-msgstr "Fakta hittade för denna värd"
+msgstr "Auf diesem Host entdeckte Fakten:"
 
 msgid "Facts refreshed for %s"
-msgstr "Fakta uppdaterade för %s"
+msgstr "Fakten erneuert für %s"
 
 msgid "Failed to import facts for Host::Discovered"
-msgstr "Misslyckades att importera fakta för Host::Discovered"
+msgstr "Fakten für Host::Discovered konnten nicht importiert werden"
 
 msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "Misslyckades att importera fakta för Host::Discovered: %s"
+msgstr "Fakten für Host::Discovered konnten nicht importiert werden: %s"
 
 msgid "Failed to reboot: %s"
-msgstr "Misslyckades att starta om: %s"
+msgstr "Neustart fehlgeschlagen: %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "Misslyckades med att uppdatera fakta för %s"
+msgstr "Konnte für %s keine Fakten erneuern"
 
 msgid "Host Pool"
-msgstr "Värdpool"
+msgstr "Host-Pool"
 
 msgid "Imported Host::Discovered"
-msgstr "Importerade Host::Discovered"
+msgstr "Host::Discovered wurde importiert"
 
 msgid "Invalid facts, must be a Hash"
 msgstr ""
@@ -92,7 +92,7 @@ msgid "Invalid facts: hash does not contain the required fact '%s'"
 msgstr ""
 
 msgid "Last facts upload"
-msgstr "Sista faktauppladdning"
+msgstr "Letzter Fakten-Upload"
 
 msgid "Location"
 msgstr "Lokation"
@@ -101,75 +101,75 @@ msgid "Model"
 msgstr "Modell"
 
 msgid "Name"
-msgstr "Namn"
+msgstr "Name"
 
 msgid "No hosts selected"
-msgstr "Inga värdar markerade"
+msgstr "Keine Systeme ausgewählt"
 
 msgid "No hosts were found with that id or name"
-msgstr "Inga värdar med det idt eller namnet hittades"
+msgstr "es wurden keine Systeme mit dieser ID oder Namen gefunden"
 
 msgid "Organization"
 msgstr "Organisation"
 
 msgid "Please Confirm"
-msgstr "Var god, bekräfta"
+msgstr "bitte bestätigen"
 
 msgid "Provision"
-msgstr "Provisionera"
+msgstr "Bereitstellen"
 
 msgid "Rebooting %s"
-msgstr "Startar om %s"
+msgstr "Starte %s neu"
 
 msgid "Refresh facts"
-msgstr "Uppdatera fakta"
+msgstr "Fakten erneuern"
 
 msgid "Select Action"
-msgstr "Välj Åtgärd"
+msgstr "Aktion auswählen"
 
 msgid "Select all items in this page"
-msgstr "Markera alla valbara på denna sida"
+msgstr "Alle Elemente auf dieser Seite auswählen"
 
 msgid "Select location"
-msgstr "Välj lokation"
+msgstr "Lokation auswählen"
 
 msgid "Select organization"
-msgstr "Välj organisation"
+msgstr "Organisation auswählen"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Något blev fel vid markering av värdar - %s"
+msgstr "Bei der Systemauswahl von %s ist ein Fehler aufgetreten"
 
 msgid "Submit"
-msgstr "Sänd"
+msgstr "Absenden"
 
 msgid "Subnet"
-msgstr "Subnät"
+msgstr "Subnetz"
 
 msgid "The default fact name to use for the MAC of the system"
-msgstr "Fördefinierat faktanamn att använda för MAC för systemet"
+msgstr "Der Standard-Faktenname zum Verwenden für die MAC des Systems"
 
 msgid "The default location to place discovered hosts in"
-msgstr "Standardplatsen att placera värdar i"
+msgstr "Standard-Lokation zum Platzieren entdeckter Hosts"
 
 msgid "The default organization to place discovered hosts in"
-msgstr "Standardorganisationen att placera hittade värdar i"
+msgstr "Standard-Organisation zum Platzieren entdeckter Hosts"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Följande värdar raderades inte: %s"
+msgstr "Die folgende Systeme wurden nicht gelöscht: %s"
 
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
 "as well"
-msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
+msgstr "Dies kann eine Weile dauern, weil alle Systeme, Fakten und Reporte auch gelöscht werden"
 
 msgid "Unassigned hosts"
-msgstr "Otilldelade värdar"
+msgstr "Unzugeordnete Hosts"
 
 msgid "Value"
-msgstr "Värde"
+msgstr "Wert"
 
 msgid "Warning"
-msgstr "Varning"
+msgstr "Warnung"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "poster markerade. Avmarkera för att rensa"
+msgstr "Elemente ausgewählt. Abwählen um zu Leeren"
