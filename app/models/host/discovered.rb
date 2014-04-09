@@ -34,6 +34,7 @@ class Host::Discovered < ::Host::Base
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
     h.mac = facts[fact_name].try(:downcase)
+    h.managed = false
 
     if SETTINGS[:locations_enabled]
       begin
