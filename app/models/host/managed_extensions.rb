@@ -21,7 +21,7 @@ module Host::ManagedExtensions
       logger.info "ForemanDiscovery: reboot result: failed"
     end
   rescue => e
-    failure _("Failed to reboot: %s") % proxy_error(e)
+    failure _("Failed to reboot: %s") % e.message
   end
 
   def delReboot
