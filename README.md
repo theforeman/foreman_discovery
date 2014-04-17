@@ -1,6 +1,13 @@
 # foreman\_discovery
 
-This plugin enables MaaS hardware discovery in Foreman.
+This plugin enables MaaS hardware discovery in Foreman. The machine boots from
+the network via PXE and loads a special image based on [Tiny Core Linux](http://distro.ibiblio.org/tinycorelinux/) that
+talks to Foreman and registers the machine as a Discovered Host. Once the
+machine is discovered it can be set up and provisioned just like regular hosts
+managed by Foreman.
+
+Please see the [Foreman Discovery Plugin Walkthrough video](http://www.youtube.com/watch?v=52K7gYAR84k)
+on YouTube for an introduction and installation walkthrough. 
 
 ## Installation
 
@@ -43,21 +50,85 @@ There are two options at the moment:
 The TCL image has the same version as the Foreman Discovery plugin, the oVirt
 Node image has different versioning scheme.
 
+# Preparing the DHCP server 
+
+A prerequisite is that the network's DHCP server can serve unknown clients and
+that it points those clients to the TFTP server from which they will load the
+discovery boot image. This is different from regular Foreman operation, where
+there are no unknown clients since Foreman creates leases for to-be-provisioned
+hosts beforehand.
+
+## ISC DHCP server
+
+Configure the ISC DHCP server to serve a range of IP addresses and point to the TFTP server:
+
+```
+subnet 10.1.7.0 netmask 255.255.255.0 {
+    # The range of IP addresses available for clients
+    # in this subnet. The dynamic-bootp flag indicates that
+    # BOOTP clients as well as DHCP clients will use this
+    # range.
+	range dynamic-bootp 10.1.7.1 10.1.7.253;
+	# This is our TFTP server serving PXE
+	next-server 10.1.7.10;
+	filename = "pxelinux.0";
+
+	option routers 10.1.7.254;
+	option domain-name-servers 10.1.7.42;
+	option domain-search "hosts.example.com", "example.com";
+}
+```
+
+Adjust to your own network settings, obviously.
+
 # Configuration
 
 ## UI config
 
 No configuration of the Foreman UI is required. If you are using Locations and/or Organisations,
 Foreman will default to using the first Location and first Organisation for Discovered
-hosts. If you wish to place them in some other Location/Organization, you can alter the
+Hosts. If you wish to place them in some other Location/Organization, you can alter the
 default Loc/Org in `More->Settings->Discovery Settings`
+
+## PXE configuation (PXE default file)
+
+Machines to be discovered boot from the network and using PXE will load the
+discovery image. But the default PXE configuration Foreman manages only instructs
+machines to boot from their local disk, so this needs to be changed.
+
+Go to `More -> Provisioning -> Provisioning Templates` and edit the `PXE Default File` to read:
+
+```
+DEFAULT menu
+PROMPT 0
+MENU TITLE PXE Menu
+TIMEOUT 100
+TOTALTIMEOUT 6000
+ONTIMEOUT discovery
+
+LABEL discovery
+    TEXT HELP
+    Boot the Foreman Discovery Image
+    Use TAB to edit options for specific needs.
+    ENDTEXT
+    KERNEL /boot/TinyCore-vmlinuz
+    APPEND initrd=/boot/TinyCore-initrd.gz foreman.ip=10.1.7.10:3000
+```
+
+Make sure `foreman.ip` is set appropriately, including any necessary port. You
+can also use `foreman.server` to specify a DNS record
+(`foreman.server=foreman.example.com`) but in this case the port will be
+assumed to be 80 (HTTP). If all else fails (say, USB boot where we can't
+provide options) it will look for a DNS record of `foreman`.
+
+After setting up the `PXE Default File` click `Build PXE Default` to save the
+PXE configuration to your TFTP servers.
 
 ## Grace Note: Testing
 
 If you only wish to test the plugin code itself, you don't need to create the PXE boot
 image above, or have a TFTP server to run it from. Simply POST a hash of Host Facts to
-`/fact_values/create?type=Host::Discovered`.The
-[script](extra/discover_host#L73)
+`/fact_values/create?type=Host::Discovered`. The [script](extra/discover_host#L73)
 in my PXE image that does this can be used as an example.
 
 The uploaded hash will appear as a discovered host, and provisioning it should work.
