@@ -8,7 +8,7 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-        self.set('discovery_fact', _("The default fact name to use for the MAC of the system"), "macaddress"),
+        self.set('discovery_fact', _("The default fact name to use for the MAC of the system"), "discovery_bootif"),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
