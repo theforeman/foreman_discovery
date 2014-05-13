@@ -19,7 +19,8 @@ RPM users can install the "ruby193-rubygem-foreman_discovery" or
 | --------------- | --------------:| -------------------:|
 | <= 1.2          | 1.0.2          | N/A                 |
 |  = 1.3          | 1.1.0          | 0.1.0               |
-| >= 1.4          | 1.2.0          | 0.3.0-1             |
+|  = 1.4          | 1.2.0          | 0.3.0-1             |
+| >= 1.5          | 1.3.0          | 0.5.0-1             |
 
 ## Latest code
 
@@ -35,13 +36,12 @@ github.com issues.
 
 # Building or downloading an image
 
-There are two options at the moment:
+To build or download discovery image please visit
+[ovirt-node-plugin-foreman](https://github.com/theforeman/ovirt-node-plugin-foreman)
+page with further information.
 
-* [Build or download Tiny Core Linux based image](README.tcl_image.md)
-* [Build or download oVirt Node based image](README.ovirt_image.md)
-
-The TCL image has the same version as the Foreman Discovery plugin, the oVirt
-Node image has different versioning scheme.
+On the page, you will find more info how to configure Foreman templates as
+well.
 
 # Configuration
 
@@ -51,6 +51,12 @@ No configuration of the Foreman UI is required. If you are using Locations and/o
 Foreman will default to using the first Location and first Organisation for Discovered
 hosts. If you wish to place them in some other Location/Organization, you can alter the
 default Loc/Org in `More->Settings->Discovery Settings`
+
+There is also setting called `discovery_fact` which defaults to
+`discovery_bootif` which specifies which incoming fact should be used to get
+the MAC address. By default PXELinux BOOTIF kernel command line option is used
+which gives a MAC address of the interface which was booted from. Make sure
+you have set `IPAPPEND 2` option set correctly in the Foreman template.
 
 ## Grace Note: Testing
 
