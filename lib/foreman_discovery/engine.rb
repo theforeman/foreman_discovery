@@ -14,7 +14,7 @@ module ForemanDiscovery
     end
 
     initializer 'foreman_discovery.helper' do |app|
-      ActionView::Base.send :include, DiscoversHelper
+      ActionView::Base.send :include, DiscoveredHostsHelper
     end
 
     initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
@@ -30,13 +30,13 @@ module ForemanDiscovery
 
         # Add permissions
         security_block :discovery do
-          permission :view_discovered_hosts, {:discovers => [:index, :show, :auto_complete_search, :refresh_facts] }, :resource_type => 'Host'
-          permission :provision_discovered_hosts, {:discovers => [:new, :create] }, :resource_type => 'Host'
-          permission :edit_discovered_hosts, {:discovers => [:edit, :update, :update_multiple_location,
+          permission :view_discovered_hosts, {:discovered_hosts => [:index, :show, :auto_complete_search, :refresh_facts] }, :resource_type => 'Host'
+          permission :provision_discovered_hosts, {:discovered_hosts => [:new, :create] }, :resource_type => 'Host'
+          permission :edit_discovered_hosts, {:discovered_hosts => [:edit, :update, :update_multiple_location,
                                                              :select_multiple_organization,
                                                              :update_multiple_organization,
                                                              :select_multiple_location] }, :resource_type => 'Host'
-          permission :destroy_discovered_hosts, {:discovers => [:destroy, :submit_multiple_destroy, :multiple_destroy] }, :resource_type => 'Host'
+          permission :destroy_discovered_hosts, {:discovered_hosts => [:destroy, :submit_multiple_destroy, :multiple_destroy] }, :resource_type => 'Host'
 
         end
 
@@ -44,7 +44,7 @@ module ForemanDiscovery
         role "Discovery", [:view_discovered_hosts, :provision_discovered_hosts, :edit_discovered_hosts, :destroy_discovered_hosts]
 
         #add menu entry
-        menu :top_menu, :discovery, :url_hash => {:controller=> :discovers, :action=>:index},
+        menu :top_menu, :discovery, :url_hash => {:controller=> :discovered_hosts, :action=>:index},
              :caption=> N_('Discovered hosts'),
              :parent => :hosts_menu,
              :after=>:hosts
