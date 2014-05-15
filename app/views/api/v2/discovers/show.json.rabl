@@ -1,5 +1,5 @@
 object @discovered_host
 
-extends "api/discovers/main"
+extends "api/v2/discovers/main"
 
 attributes :facts_hash
