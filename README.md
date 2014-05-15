@@ -80,11 +80,14 @@ The plugin will create a Role called `Discovery` when first started. You can ass
 this role to non-admins to allow them to use the discovery plugin. Alternatively
 assign the `:perform_discovery` permission to an existing Role.
 
+# API
+
+see the [API README](README.api.md)
+
 # TODO
 
 * Support for downloading shell script for oVirt Node image
 * Add more Tests
-* Add API
 * Add proper Location/Organization handling (via a Wizard maybe?)
 * Add per-subnet discovery
 * Rake Task for ISO build

@@ -16,14 +16,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should import facts from yaml as Host::Discovered" do
     raw = parse_json_fixture('/facts.json')
-    assert Host::Discovered.importHostAndFacts(raw['facts'])
+    assert Host::Discovered.import_host_and_facts(raw['facts'])
   end
 
   test "should raise when fact_name setting isn't present" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'macaddress_foo'
     assert_raises Foreman::Exception do
-      Host::Discovered.importHostAndFacts(raw['facts'])
+      Host::Discovered.import_host_and_facts(raw['facts'])
     end
   end
 

@@ -2,12 +2,12 @@
 Rails.application.routes.draw do
 
   # Needed to make the hosts/edit form render
-  match 'architecture_selected_discovers' => 'hosts#architecture_selected'
-  match 'os_selected_discovers'           => 'hosts#os_selected'
-  match 'medium_selected_discovers'       => 'hosts#medium_selected'
+  match 'architecture_selected_discovered_hosts' => 'hosts#architecture_selected'
+  match 'os_selected_discovered_hosts'           => 'hosts#os_selected'
+  match 'medium_selected_discovered_hosts'       => 'hosts#medium_selected'
 
   constraints(:id => /[^\/]+/) do
-    resources :discovers do
+    resources :discovered_hosts do
       member do
         get 'refresh_facts'
       end
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   ## API
   namespace :api, :defaults => {:format => 'json'} do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'}, :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
-      resources :discovers do
+      resources :discovered_hosts do
         collection do
           post 'facts'
         end

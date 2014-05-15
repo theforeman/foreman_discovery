@@ -1,4 +1,4 @@
-class DiscoversController < ::ApplicationController
+class DiscoveredHostsController < ::ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::TaxonomyMultiple
   unloadable
@@ -101,7 +101,7 @@ class DiscoversController < ::ApplicationController
     else
       error _("The following hosts were not deleted: %s") % missed_hosts
     end
-    redirect_to(discovers_path)
+    redirect_to(discovered_hosts_path)
   end
 
   def auto_complete_search
@@ -178,17 +178,17 @@ class DiscoversController < ::ApplicationController
       @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
       if @hosts.empty?
         error _('No hosts were found with that id or name')
-        redirect_to(discovers_path) and return false
+        redirect_to(discovered_hosts_path) and return false
       end
     else
       error _('No hosts selected')
-      redirect_to(discovers_path) and return false
+      redirect_to(discovered_hosts_path) and return false
     end
 
     return @hosts
   rescue => e
     error _("Something went wrong while selecting hosts - %s") % e
-    redirect_to discovers_path
+    redirect_to discovered_hosts_path
   end
 
   def get_ip_from_env

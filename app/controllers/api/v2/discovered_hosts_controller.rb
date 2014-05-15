@@ -1,21 +1,21 @@
 module Api
   module V2
-    class DiscoversController < ::Api::V2::BaseController
+    class DiscoveredHostsController < ::Api::V2::BaseController
 
       before_filter :find_resource, :except => %w{index create facts}
       skip_before_filter :authorize, :only => :facts
 
-      api :GET, "/discovers/", "List all discovered hosts"
+      api :GET, "/discovered_hosts/", "List all discovered hosts"
       param :search, String, :desc => "Filter results"
       param :order, String, :desc => "Sort results"
       param :page, String, :desc => "paginate results"
       param :per_page, String, :desc => "number of entries per request"
 
       def index
-        @discovers = resource_scope.search_for(*search_options).paginate(paginate_options)
+        @discovered_hosts = resource_scope.search_for(*search_options).paginate(paginate_options)
       end
 
-      api :GET, "/discovers/:id/", "Show a discovered host"
+      api :GET, "/discovered_hosts/:id/", "Show a discovered host"
       param :id, :identifier_dottable, :required => true
 
       def show
@@ -29,7 +29,7 @@ module Api
         end
       end
 
-      api :POST, "/discovers/", "Create a discovered host"
+      api :POST, "/discovered_hosts/", "Create a discovered host"
       param_group :discovered_host, :as => :create
 
       def create
@@ -37,7 +37,7 @@ module Api
         process_response @discovered_host.save
       end
 
-      api :PUT, "/discovers/:id/", "Provision a discovered host"
+      api :PUT, "/discovered_hosts/:id/", "Provision a discovered host"
       param :id, :identifier, :required => true
       param :discovered_host, Hash, :action_aware => true do
         param :name, String
@@ -52,7 +52,6 @@ module Api
         param :medium_id, :number
         param :ptable_id, :number
         param :subnet_id, :number
-        param :compute_resource_id, :number
         param :sp_subnet_id, :number
         param :model_id, :number
         param :hostgroup_id, :number
@@ -66,12 +65,9 @@ module Api
         param :managed, :bool
         param :progress_report_id, String, :desc => 'UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks'
         param :capabilities, String
-        param :compute_attributes, Hash do
-        end
       end
 
       def update
-        logger.debug @discovered_host.inspect
         @host         = @discovered_host.becomes(::Host::Managed)
         @host.type    = 'Host::Managed'
         @host.managed = true
@@ -80,14 +76,14 @@ module Api
         process_response @host.update_attributes(params[:discovered_host])
       end
 
-      api :DELETE, "/discovers/:id/", "Delete a discovered host"
+      api :DELETE, "/discovered_hosts/:id/", "Delete a discovered host"
       param :id, :identifier, :required => true
 
       def destroy
         process_response @discovered_host.destroy
       end
 
-      api :POST, "/discovers/facts", "Upload facts for a host, creating the host if required."
+      api :POST, "/discovered_hosts/facts", "Upload facts for a host, creating the host if required."
       param :facts, Hash, :required => true, :desc => "hash containing the facts for the host"
 
       def facts
@@ -99,16 +95,12 @@ module Api
 
       private
 
-      def resource_name
-        "discovered_host"
-      end
-
       def resource_class
         Host::Discovered
       end
 
       def forward_request_url
-        @discoverd_host.request_url = request.host_with_port if @discovered_host.respond_to?(:request_url)
+        @discovered_host.request_url = request.host_with_port if @discovered_host.respond_to?(:request_url)
       end
 
     end

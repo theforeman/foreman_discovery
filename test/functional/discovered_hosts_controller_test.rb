@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class DiscoversControllerTest < ActionController::TestCase
+class DiscoveredHostsControllerTest < ActionController::TestCase
   setup :initialize_host
 
   def test_index
@@ -17,7 +17,7 @@ class DiscoversControllerTest < ActionController::TestCase
   def test_add_entry_to_nav_menu
     get :index, {}, set_session_user
     assert_tag :tag => 'a',
-      :attributes => {:href => '/discovers'}
+      :attributes => {:href => '/discovered_hosts'}
   end
 
   private

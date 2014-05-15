@@ -5,7 +5,7 @@ Deface::Override.new(:virtual_path => "dashboard/_status_table",
 <h4 class='header'><%= _('Host Pool') %></h4>
 <ul>
   <li>
-    <%= link_to(_('Unassigned hosts'), discovers_path, :class=>'dashboard-links' ) %>
+    <%= link_to(_('Unassigned hosts'), discovered_hosts_path, :class=>'dashboard-links' ) %>
     <h4><%= Host::Discovered.count %></h4>
   </li>
 </ul>"))
