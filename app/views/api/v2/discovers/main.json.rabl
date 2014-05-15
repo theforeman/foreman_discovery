@@ -1,6 +1,6 @@
 object @discovered_host
 
-extends "api/discovers/base"
+extends "api/v2/discovers/base"
 
 attributes :ip, :environment_id, :environment_name, :last_report, :mac,
            :sp_mac, :sp_ip, :sp_name, :domain_id, :domain_name, :architecture_id, :architecture_name, :operatingsystem_id, :operatingsystem_name,
