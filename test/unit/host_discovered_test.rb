@@ -17,6 +17,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should import facts from yaml as Host::Discovered" do
     raw = parse_json_fixture('/facts.json')
     assert Host::Discovered.import_host_and_facts(raw['facts'])
+    assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
   test "should raise when fact_name setting isn't present" do
