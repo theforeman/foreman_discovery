@@ -48,6 +48,9 @@ module ForemanDiscovery
              :caption=> N_('Discovered hosts'),
              :parent => :hosts_menu,
              :after=>:hosts
+
+        # add dashboard widget
+        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
       end
     end
     # Include extensions to models in this config.to_prepare block
