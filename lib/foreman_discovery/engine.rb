@@ -59,6 +59,10 @@ module ForemanDiscovery
           :caption=> N_('Discovered hosts'),
           :parent => :hosts_menu,
           :after=>:hosts
+
+      # add dashboard widget
+      widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
+
       end
     end
     initializer "foreman_discovery.apipie" do
