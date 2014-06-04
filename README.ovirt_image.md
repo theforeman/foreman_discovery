@@ -19,8 +19,8 @@ plugin or even other oVirt Node plugins, and extracted kernel and initrd.
 To setup kernel and initial RAM disk on a TFTP server do something like:
 
     cd /var/lib/tftpboot/boot
-    wget http://lzap.fedorapeople.org/zzz/discovery-initrd.img
-    wget http://lzap.fedorapeople.org/zzz/discovery-vmlinuz
+    wget http://lzap.fedorapeople.org/zzz/discovery-prod-0.3.0-1-initrd.img
+    wget http://lzap.fedorapeople.org/zzz/discovery-prod-0.3.0-1-vmlinuz
 
 Check permissions and ownership after that.
 
