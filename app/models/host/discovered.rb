@@ -5,6 +5,7 @@ class Host::Discovered < ::Host::Base
   belongs_to :location
   belongs_to :organization
   belongs_to :subnet
+  belongs_to :hostgroup
 
   validates :mac, :uniqueness => true, :format => {:with => Net::Validations::MAC_REGEXP}, :presence => true
   validates :ip, :format => {:with => Net::Validations::IP_REGEXP}, :uniqueness => true
@@ -73,6 +74,11 @@ class Host::Discovered < ::Host::Base
     importer = super
     self.subnet = Subnet.subnet_for(importer.ip)
     self.save
+  end
+
+# no need to store anything in the db if the password is our default
+  def root_pass
+    read_attribute(:root_pass).blank? ? (hostgroup.try(:root_pass) || Setting[:root_pass]) : read_attribute(:root_pass)
   end
 
   def refresh_facts
