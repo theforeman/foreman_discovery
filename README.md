@@ -66,7 +66,7 @@ Discovery output. For a login prompt (nightly images only) use tty2.
 
 ### Download via installer
 
-As of Foreman 1.5, the foreman-installer is able to automatically download
+As of Foreman 1.6, the foreman-installer is able to automatically download
 latest stable CentOS6 images.  For this, re-run the installer with the
 following option:
 
