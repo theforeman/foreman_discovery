@@ -5,6 +5,12 @@ module Api
       before_filter :find_resource, :except => %w{index create facts}
       skip_before_filter :authorize, :only => :facts
 
+      resource_description do
+        resource_id 'discovered_hosts'
+        api_version 'v2'
+        api_base_url "/api/v2"
+      end
+
       api :GET, "/discovered_hosts/", "List all discovered hosts"
       param :search, String, :desc => "Filter results"
       param :order, String, :desc => "Sort results"
