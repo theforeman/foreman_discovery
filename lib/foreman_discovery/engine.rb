@@ -50,6 +50,13 @@ module ForemanDiscovery
              :after=>:hosts
       end
     end
+    initializer "foreman_discovery.apipie" do
+      # this condition is here for compatibility reason to work with Foreman 1.4.x
+      if Apipie.configuration.api_controllers_matcher.is_a?(Array) && Apipie.configuration.respond_to?(:checksum_path)
+        Apipie.configuration.api_controllers_matcher << "#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"
+        Apipie.configuration.checksum_path += ['/discovered_hosts/']
+      end
+    end
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
       # Include host extensions
