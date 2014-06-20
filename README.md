@@ -145,7 +145,12 @@ This can still be overriden with the command line opts.
 
 It is important to have *IPAPPEND 2* option which adds BOOTIF=MAC option which
 is then reported via facter as `discovery_bootif` which is key fact which is
-used for provisioning.
+used for provisioning. Without this line, DNS will not work properly as well.
+
+It is important to know that DNS servers from DHCP are enabled only for the
+interface that was specified via the BOOTIF option. This means when a system
+have multiple NICs, DNS will work for the correct interface - the one that was
+booted from.
 
 _Warning_: For now, the selinux=0 option *must* be provided, the image is read
 only anyway but we plan to enable and test with SELinux too.
