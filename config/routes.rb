@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   ## API
   namespace :api, :defaults => {:format => 'json'} do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'}, :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
-      resources :discovered_hosts do
+      resources :discovered_hosts, :except => [:new, :edit] do
         collection do
           post 'facts'
         end
