@@ -71,7 +71,7 @@ class Host::Discovered < ::Host::Base
     super + [:ip]
   end
 
-  def populate_fields_from_facts facts = self.facts_hash
+  def populate_fields_from_facts facts = self.facts_hash, type = 'puppet'
     importer = super
     self.subnet = Subnet.subnet_for(importer.ip)
     self.save
