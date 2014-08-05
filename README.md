@@ -217,6 +217,16 @@ If the booted machine fails to register with Foreman, then there are a number of
   * Check DNS is working for that image, or use an IP in `foreman.url`
   * Check DHCP is handing IPs to the booted image correctly
 
+When working with production images (no root password set), it is still
+possible to log on as root. Generate some root password:
+
+    $ openssl passwd -salt RH redhat
+    RHhwCLrQXB8zE
+
+And then provide it as an kernel command line option:
+
+    ... stateless rootpw=RHhwCLrQXB8zE
+
 # API
 
 see the [API README](README.api.md)
