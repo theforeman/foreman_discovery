@@ -20,10 +20,14 @@ class Host::Discovered < ::Host::Base
   scoped_search :in => :organization, :on => :name, :rename => :organization, :complete_value => true if SETTINGS[:organizations_enabled]
   scoped_search :in => :subnet, :on => :network, :complete_value => true, :rename => :subnet
 
-  # This `where` shouldn't be necessary, but randomly the sql query on the line above
-  # sometimes loses the `where` clause, leading to all Hosts on the Discovery index
-  # this seems like a rails bug, TODO: figure out whats really wrong here
-  scope :list, lambda { where(:type => "Host::Discovered").includes(:model, :location, :organization) }
+  default_scope lambda {
+    org = Organization.current
+    loc = Location.current
+    conditions = {}
+    conditions[:organization_id] = org.subtree_ids if org
+    conditions[:location_id]     = loc.subtree_ids if loc
+    where(conditions)
+  }
 
   def self.import_host_and_facts facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
@@ -77,7 +81,7 @@ class Host::Discovered < ::Host::Base
     self.save
   end
 
-# no need to store anything in the db if the password is our default
+  # no need to store anything in the db if the password is our default
   def root_pass
     read_attribute(:root_pass).blank? ? (hostgroup.try(:root_pass) || Setting[:root_pass]) : read_attribute(:root_pass)
   end

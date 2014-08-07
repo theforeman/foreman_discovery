@@ -1,4 +1,3 @@
-require 'deface'
 require 'fast_gettext'
 require 'gettext_i18n_rails'
 
@@ -26,29 +25,29 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '> 1.4'
+        requires_foreman '> 1.5'
 
         # Add permissions
         security_block :discovery do
           permission :view_discovered_hosts, {
-              :discovered_hosts          => [:index, :show, :auto_complete_search],
-              :"api/v2/discovered_hosts" => [:index, :show]
-            }, :resource_type => 'Host'
+            :discovered_hosts          => [:index, :show, :auto_complete_search],
+            :"api/v2/discovered_hosts" => [:index, :show]
+          }, :resource_type => 'Host'
           permission :provision_discovered_hosts, {
-              :discovered_hosts          => [:new, :create],
-              :"api/v2/discovered_hosts" => [:create]
-            }, :resource_type => 'Host'
+            :discovered_hosts          => [:new, :create],
+            :"api/v2/discovered_hosts" => [:create]
+          }, :resource_type => 'Host'
           permission :edit_discovered_hosts, {
-              :discovered_hosts          => [:edit, :update, :update_multiple_location,
-                                             :select_multiple_organization,
-                                             :update_multiple_organization,
-                                             :select_multiple_location, :refresh_facts],
-              :"api/v2/discovered_hosts" => [:update, :facts]
-            }, :resource_type => 'Host'
+            :discovered_hosts          => [:edit, :update, :update_multiple_location,
+                                           :select_multiple_organization,
+                                           :update_multiple_organization,
+                                           :select_multiple_location, :refresh_facts],
+                                           :"api/v2/discovered_hosts" => [:update, :facts]
+          }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
-              :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],
-              :"api/v2/discovered_hosts" => [:destroy]
-            }, :resource_type => 'Host'
+            :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],
+            :"api/v2/discovered_hosts" => [:destroy]
+          }, :resource_type => 'Host'
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
@@ -60,8 +59,8 @@ module ForemanDiscovery
           :parent => :hosts_menu,
           :after=>:hosts
 
-      # add dashboard widget
-      widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
+        # add dashboard widget
+        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
 
       end
     end
