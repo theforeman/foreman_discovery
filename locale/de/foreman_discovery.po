@@ -4,14 +4,15 @@
 # 
 # 
 # Translators:
-# bechtoldt <mail@arnoldbechtoldt.com>, 2014
+# Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2014
+# simon11 <simon.stieger.98@live.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-08 15:59+0200\n"
-"PO-Revision-Date: 2014-04-09 10:00+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2014-08-04 08:40+0000\n"
+"Last-Translator: simon11 <simon.stieger.98@live.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Die folgenden Hosts werden gerade geändert"
+msgstr "%s - Die folgenden Hosts werden  geändert"
 
 msgid "%s ago"
 msgstr "vor %s"
 
 msgid "Are you sure?"
-msgstr "Sind Sie sicher?"
+msgstr "Bist du sicher?"
 
 msgid "Assign Location"
 msgstr "Standort zuweisen"
@@ -44,16 +45,16 @@ msgid "Delete"
 msgstr "Löschen"
 
 msgid "Delete %s?"
-msgstr "Löschen %s?"
+msgstr "%s löschen?"
 
 msgid "Delete hosts"
-msgstr "Lösche Hosts"
+msgstr "Hosts löschen"
 
 msgid "Destroyed selected hosts"
-msgstr "ausgewählte gelöschte Systeme"
+msgstr "Ausgewählte Hosts gelöscht"
 
 msgid "Discovered host: %s"
-msgstr "Entdeckte Hosts: %s"
+msgstr "Entdeckter Host: %s"
 
 msgid "Discovered hosts"
 msgstr "Entdeckte Hosts"
@@ -62,10 +63,10 @@ msgid "Fact"
 msgstr "Fakt"
 
 msgid "Facts discovered on this host"
-msgstr "Auf diesem Host entdeckte Fakten:"
+msgstr "Auf diesem Host entdeckte Fakten"
 
 msgid "Facts refreshed for %s"
-msgstr "Fakten erneuert für %s"
+msgstr "Fakten für %s erneuert"
 
 msgid "Failed to import facts for Host::Discovered"
 msgstr "Fakten für Host::Discovered konnten nicht importiert werden"
@@ -77,7 +78,7 @@ msgid "Failed to reboot: %s"
 msgstr "Neustart fehlgeschlagen: %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "Konnte für %s keine Fakten erneuern"
+msgstr "Fakten für %s konnten nicht erneuert werden"
 
 msgid "Host Pool"
 msgstr "Host-Pool"
@@ -86,16 +87,16 @@ msgid "Imported Host::Discovered"
 msgstr "Host::Discovered wurde importiert"
 
 msgid "Invalid facts, must be a Hash"
-msgstr ""
+msgstr "Ungültige Fakten, es muss sich um einen Hash handeln"
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr ""
+msgstr "Ungültige Fakten: Der Hash enthält den benötigten Fakt nicht: %s"
 
 msgid "Last facts upload"
 msgstr "Letzter Fakten-Upload"
 
 msgid "Location"
-msgstr "Lokation"
+msgstr "Ort"
 
 msgid "Model"
 msgstr "Modell"
@@ -104,22 +105,22 @@ msgid "Name"
 msgstr "Name"
 
 msgid "No hosts selected"
-msgstr "Keine Systeme ausgewählt"
+msgstr "Keine Hosts ausgewählt"
 
 msgid "No hosts were found with that id or name"
-msgstr "es wurden keine Systeme mit dieser ID oder Namen gefunden"
+msgstr "Es wurden keine Systeme mit dieser ID oder diesem Namen gefunden"
 
 msgid "Organization"
 msgstr "Organisation"
 
 msgid "Please Confirm"
-msgstr "bitte bestätigen"
+msgstr "Bitte bestätigen"
 
 msgid "Provision"
 msgstr "Bereitstellen"
 
 msgid "Rebooting %s"
-msgstr "Starte %s neu"
+msgstr "%s wird neu gestartet"
 
 msgid "Refresh facts"
 msgstr "Fakten erneuern"
@@ -131,13 +132,13 @@ msgid "Select all items in this page"
 msgstr "Alle Elemente auf dieser Seite auswählen"
 
 msgid "Select location"
-msgstr "Lokation auswählen"
+msgstr "Ort auswählen"
 
 msgid "Select organization"
 msgstr "Organisation auswählen"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Bei der Systemauswahl von %s ist ein Fehler aufgetreten"
+msgstr "Beim Auswählen der Hosts ist ein Fehler aufgetreten - %s"
 
 msgid "Submit"
 msgstr "Absenden"
@@ -149,13 +150,13 @@ msgid "The default fact name to use for the MAC of the system"
 msgstr "Der Standard-Faktenname zum Verwenden für die MAC des Systems"
 
 msgid "The default location to place discovered hosts in"
-msgstr "Standard-Lokation zum Platzieren entdeckter Hosts"
+msgstr "Standard-Ort zum Platzieren entdeckter Hosts"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "Standard-Organisation zum Platzieren entdeckter Hosts"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Die folgende Systeme wurden nicht gelöscht: %s"
+msgstr "Die folgenden Systeme wurden nicht gelöscht: %s"
 
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
@@ -163,7 +164,7 @@ msgid ""
 msgstr "Dies kann eine Weile dauern, weil alle Systeme, Fakten und Reporte auch gelöscht werden"
 
 msgid "Unassigned hosts"
-msgstr "Unzugeordnete Hosts"
+msgstr "Nicht zugeordnete Hosts"
 
 msgid "Value"
 msgstr "Wert"
@@ -172,4 +173,4 @@ msgid "Warning"
 msgstr "Warnung"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "Elemente ausgewählt. Abwählen um zu Leeren"
+msgstr "Elemente ausgewählt. Zum Leeren abwählen"
