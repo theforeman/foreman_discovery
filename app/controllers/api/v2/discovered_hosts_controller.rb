@@ -11,17 +11,17 @@ module Api
         api_base_url "/api/v2"
       end
 
-      api :GET, "/discovered_hosts/", "List all discovered hosts"
-      param :search, String, :desc => "Filter results"
-      param :order, String, :desc => "Sort results"
-      param :page, String, :desc => "paginate results"
-      param :per_page, String, :desc => "number of entries per request"
+      api :GET, "/discovered_hosts/", N_("List all discovered hosts")
+      param :search, String, :desc => N_("filter results")
+      param :order, String, :desc => N_("sort results")
+      param :page, String, :desc => N_("paginate results")
+      param :per_page, String, :desc => N_("number of entries per request")
 
       def index
         @discovered_hosts = resource_scope.search_for(*search_options).paginate(paginate_options)
       end
 
-      api :GET, "/discovered_hosts/:id/", "Show a discovered host"
+      api :GET, "/discovered_hosts/:id/", N_("Show a discovered host")
       param :id, :identifier_dottable, :required => true
 
       def show
@@ -35,7 +35,7 @@ module Api
         end
       end
 
-      api :POST, "/discovered_hosts/", "Create a discovered host"
+      api :POST, "/discovered_hosts/", N_("Create a discovered host")
       param_group :discovered_host, :as => :create
 
       def create
@@ -43,13 +43,13 @@ module Api
         process_response @discovered_host.save
       end
 
-      api :PUT, "/discovered_hosts/:id/", "Provision a discovered host"
+      api :PUT, "/discovered_hosts/:id/", N_("Provision a discovered host")
       param :id, :identifier, :required => true
       param :discovered_host, Hash, :action_aware => true do
         param :name, String
         param :environment_id, String
-        param :ip, String, :desc => "not required if using a subnet with dhcp proxy"
-        param :mac, String, :desc => "not required if its a virtual machine"
+        param :ip, String, :desc => N_("not required if using a subnet with DHCP proxy")
+        param :mac, String, :desc => N_("not required if it's a virtual machine")
         param :architecture_id, :number
         param :domain_id, :number
         param :puppet_proxy_id, :number
@@ -69,7 +69,7 @@ module Api
         param :enabled, :bool
         param :provision_method, String
         param :managed, :bool
-        param :progress_report_id, String, :desc => 'UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks'
+        param :progress_report_id, String, :desc => N_("UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks")
         param :capabilities, String
       end
 
@@ -82,15 +82,15 @@ module Api
         process_response @host.update_attributes(params[:discovered_host])
       end
 
-      api :DELETE, "/discovered_hosts/:id/", "Delete a discovered host"
+      api :DELETE, "/discovered_hosts/:id/", N_("Delete a discovered host")
       param :id, :identifier, :required => true
 
       def destroy
         process_response @discovered_host.destroy
       end
 
-      api :POST, "/discovered_hosts/facts", "Upload facts for a host, creating the host if required."
-      param :facts, Hash, :required => true, :desc => "hash containing the facts for the host"
+      api :POST, "/discovered_hosts/facts", N_("Upload facts for a host, creating the host if required")
+      param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host")
 
       def facts
         @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
