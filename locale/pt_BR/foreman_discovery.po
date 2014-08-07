@@ -4,167 +4,167 @@
 # 
 # 
 # Translators:
-# francis <hackgo@gmail.com>, 2013-2014
-# Sergio Ocón <sergio@redhat.com>, 2014
+# Especialista em Automatizaçao <alvin@intechne.com.br>, 2014
+# luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-08 15:59+0200\n"
-"PO-Revision-Date: 2014-08-04 08:40+0000\n"
-"Last-Translator: Sergio Ocón <sergio@redhat.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
+"PO-Revision-Date: 2014-08-05 14:51+0000\n"
+"Last-Translator: Especialista em Automatizaçao <alvin@intechne.com.br>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/foreman/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Los siguientes equipos están a punto de ser modificados"
+msgstr "%s - Os seguintes hosts estão sob mudanças"
 
 msgid "%s ago"
-msgstr "Hace %s"
+msgstr "%s atrás"
 
 msgid "Are you sure?"
-msgstr "¿Estás seguro?"
+msgstr "Você tem certeza?"
 
 msgid "Assign Location"
-msgstr "Asignar Lugar"
+msgstr "Associar localização"
 
 msgid "Assign Organization"
-msgstr "Asignar Organización"
+msgstr "Associar Organização"
 
 msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Could not get facts from proxy: %s"
-msgstr "No se pueden obtener datos del proxy: %s"
+msgstr "Não foi possível obter fatos do proxy: %s"
 
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Apagar"
 
 msgid "Delete %s?"
-msgstr "¿Borrar %s?"
+msgstr "Apagar %s"
 
 msgid "Delete hosts"
-msgstr "Borrar Equipos"
+msgstr "Apagar hosts"
 
 msgid "Destroyed selected hosts"
-msgstr "Eliminados equipos seleccionados"
+msgstr "Destruir hosts selecionados"
 
 msgid "Discovered host: %s"
-msgstr "Equipo descubierto: %s"
+msgstr "Host descoberto: %s"
 
 msgid "Discovered hosts"
-msgstr "Equipos descubiertos"
+msgstr "Hosts descobertos"
 
 msgid "Fact"
-msgstr "Dato"
+msgstr "Fato"
 
 msgid "Facts discovered on this host"
-msgstr "Datos descubiertos en este equipo"
+msgstr "Fatos descobertos neste host"
 
 msgid "Facts refreshed for %s"
-msgstr "Datos actualizados para %s"
+msgstr "Fatos atualizados de %s"
 
 msgid "Failed to import facts for Host::Discovered"
-msgstr "No se pudo importar datos para Host :: Descubierto"
+msgstr "Falha ao importar fatos de Host::Discovered"
 
 msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "No se pudo importar datos para Host :: Descubierto %s"
+msgstr "Falha ao importar fatos de Host::Discovered: %s"
 
 msgid "Failed to reboot: %s"
-msgstr "Fallo al reiniciar: %s"
+msgstr "Falha ao reiniciar: %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "Fallo al refrescar datos para %s"
+msgstr "Falha ao atualizar fatos de %s"
 
 msgid "Host Pool"
-msgstr "Conjunto de equipos"
+msgstr "Host Pool"
 
 msgid "Imported Host::Discovered"
-msgstr "Host Importado::Descubierto"
+msgstr "Importado Host::Discovered"
 
 msgid "Invalid facts, must be a Hash"
-msgstr "Datos no válidos, debe ser un Hash"
+msgstr "Fatos inválidos, devem ser um Hash"
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr "Datos no válidos: el hash debe contener '%s'"
+msgstr "Fatos inválidos: hash não contém o fato requerido '%s'"
 
 msgid "Last facts upload"
-msgstr "Últimos datos subidos"
+msgstr "Ultimos fatos enviados"
 
 msgid "Location"
-msgstr "Lugares"
+msgstr "Localização"
 
 msgid "Model"
 msgstr "Modelo"
 
 msgid "Name"
-msgstr "Nombre"
+msgstr "Nome"
 
 msgid "No hosts selected"
-msgstr "Ningún equipo seleccionado"
+msgstr "Nenhum host selecionado"
 
 msgid "No hosts were found with that id or name"
-msgstr "No se han encontrado equipos con ese id o nombre"
+msgstr "Nenhum host foi encontrado com este id ou nome"
 
 msgid "Organization"
-msgstr "Organización"
+msgstr "Organização"
 
 msgid "Please Confirm"
-msgstr "Confirme, por favor"
+msgstr "Por favor Confirme"
 
 msgid "Provision"
-msgstr "Aprovisionamiento"
+msgstr "Provisão"
 
 msgid "Rebooting %s"
 msgstr "Reiniciando %s"
 
 msgid "Refresh facts"
-msgstr "Refrescar datos"
+msgstr "Atualizar fatos"
 
 msgid "Select Action"
-msgstr "Seleccione una Acción"
+msgstr "Selecionar ação"
 
 msgid "Select all items in this page"
-msgstr "Seleccionar todos los objetos de esta página"
+msgstr "Selecionar todos os itens nessa página"
 
 msgid "Select location"
-msgstr "Seleccionar localización"
+msgstr "Selecionar localização"
 
 msgid "Select organization"
-msgstr "Seleccionar organización"
+msgstr "Selecionar organização"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Algo ha fallado al seleccionar equipos - %s"
+msgstr "Aldo deu errado ao selecionar hosts - %s"
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Submeter"
 
 msgid "Subnet"
-msgstr "Subred"
+msgstr "Suberede"
 
 msgid "The default fact name to use for the MAC of the system"
-msgstr "El nombre de dato por defecto a usar para la MAC del sistema"
+msgstr "O nome do fato padrão utilizado para o MAC do sistema"
 
 msgid "The default location to place discovered hosts in"
-msgstr "La ubicación predeterminada para colocar hosts descubiertos "
+msgstr "A localização padrão para colocar os hosts descobertos"
 
 msgid "The default organization to place discovered hosts in"
-msgstr "La ubicación predeterminada para colocar organizaciones descubiertas "
+msgstr "A organização padrão para colocar os hosts descobertos"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Los siguientes equipos no han sido eliminados: %s"
+msgstr "Os seguintes hosts não foram excluídos: %s"
 
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
 "as well"
-msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
+msgstr "Isso pode levar um tempo, todos os hosts, fatos e relatórios serão destruídos"
 
 msgid "Unassigned hosts"
-msgstr "Equipos sin asignar"
+msgstr "Hosts não associados"
 
 msgid "Value"
 msgstr "Valor"
@@ -173,4 +173,4 @@ msgid "Warning"
 msgstr "Aviso"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "objetos seleccionados. Desactivar para limpiar"
+msgstr "itens selecionados. Desmarque para limpar"

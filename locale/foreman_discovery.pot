@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-08 15:59+0200\n"
+"POT-Creation-Date: 2014-08-07 10:19+0100\n"
 "PO-Revision-Date: 2013-03-01 15:45-0500\n"
 "Last-Translator: \n"
 "Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -38,10 +38,16 @@ msgstr ""
 msgid "Could not get facts from proxy: %s"
 msgstr ""
 
+msgid "Create a discovered host"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 
 msgid "Delete %s?"
+msgstr ""
+
+msgid "Delete a discovered host"
 msgstr ""
 
 msgid "Delete hosts"
@@ -92,6 +98,9 @@ msgstr ""
 msgid "Last facts upload"
 msgstr ""
 
+msgid "List all discovered hosts"
+msgstr ""
+
 msgid "Location"
 msgstr ""
 
@@ -116,6 +125,9 @@ msgstr ""
 msgid "Provision"
 msgstr ""
 
+msgid "Provision a discovered host"
+msgstr ""
+
 msgid "Rebooting %s"
 msgstr ""
 
@@ -132,6 +144,9 @@ msgid "Select location"
 msgstr ""
 
 msgid "Select organization"
+msgstr ""
+
+msgid "Show a discovered host"
 msgstr ""
 
 msgid "Something went wrong while selecting hosts - %s"
@@ -158,7 +173,13 @@ msgstr ""
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr ""
 
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
 msgid "Unassigned hosts"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
 msgstr ""
 
 msgid "Value"
@@ -167,5 +188,26 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
+msgid "filter results"
+msgstr ""
+
+msgid "hash containing facts for the host"
+msgstr ""
+
 msgid "items selected. Uncheck to Clear"
+msgstr ""
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "sort results"
 msgstr ""

@@ -4,7 +4,6 @@
 # 
 # 
 # Translators:
-# johnny.westerlund <johnny.westerlund@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
@@ -12,78 +11,78 @@ msgstr ""
 "POT-Creation-Date: 2014-04-08 15:59+0200\n"
 "PO-Revision-Date: 2014-08-04 08:40+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/foreman/language/sv_SE/)\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/foreman/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Följande värdar kommer att ändras"
+msgstr "%s - Os seguintes equipos están a piques de ser modificados"
 
 msgid "%s ago"
-msgstr "%s sedan"
+msgstr "Fai %s"
 
 msgid "Are you sure?"
-msgstr "Är du säker?"
+msgstr "¿Estás seguro?"
 
 msgid "Assign Location"
-msgstr "Tilldela Plats"
+msgstr "Asignar Lugar"
 
 msgid "Assign Organization"
-msgstr "Tilldela Organisation"
+msgstr "Asignar Organización"
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Cancelar"
 
 msgid "Could not get facts from proxy: %s"
-msgstr "Kunde inte hämta fakta från proxy: %s"
+msgstr ""
 
 msgid "Delete"
-msgstr "Radera"
+msgstr "Borrar"
 
 msgid "Delete %s?"
-msgstr "Radera %s"
+msgstr "¿Borrar %s?"
 
 msgid "Delete hosts"
-msgstr "Radera värdar"
+msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr "Förstör markerade värdar"
+msgstr "Eliminados equipos seleccionados"
 
 msgid "Discovered host: %s"
-msgstr "Hittade värdar: %s"
+msgstr ""
 
 msgid "Discovered hosts"
-msgstr "Hittade värdar"
+msgstr ""
 
 msgid "Fact"
-msgstr "Fakta"
+msgstr ""
 
 msgid "Facts discovered on this host"
-msgstr "Fakta hittade för denna värd"
+msgstr ""
 
 msgid "Facts refreshed for %s"
-msgstr "Fakta uppdaterade för %s"
+msgstr ""
 
 msgid "Failed to import facts for Host::Discovered"
-msgstr "Misslyckades att importera fakta för Host::Discovered"
+msgstr ""
 
 msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "Misslyckades att importera fakta för Host::Discovered: %s"
+msgstr ""
 
 msgid "Failed to reboot: %s"
-msgstr "Misslyckades att starta om: %s"
+msgstr ""
 
 msgid "Failed to refresh facts for %s"
-msgstr "Misslyckades med att uppdatera fakta för %s"
+msgstr ""
 
 msgid "Host Pool"
-msgstr "Värdpool"
+msgstr ""
 
 msgid "Imported Host::Discovered"
-msgstr "Importerade Host::Discovered"
+msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr ""
@@ -92,84 +91,84 @@ msgid "Invalid facts: hash does not contain the required fact '%s'"
 msgstr ""
 
 msgid "Last facts upload"
-msgstr "Sista faktauppladdning"
+msgstr ""
 
 msgid "Location"
-msgstr "Lokation"
+msgstr "Lugares"
 
 msgid "Model"
-msgstr "Modell"
+msgstr "Modelo"
 
 msgid "Name"
-msgstr "Namn"
+msgstr "Nome"
 
 msgid "No hosts selected"
-msgstr "Inga värdar markerade"
+msgstr "Ningún equipo seleccionado"
 
 msgid "No hosts were found with that id or name"
-msgstr "Inga värdar med det idt eller namnet hittades"
+msgstr "Non se atopou ningún equipos con ese id ou nome"
 
 msgid "Organization"
-msgstr "Organisation"
+msgstr "Organización"
 
 msgid "Please Confirm"
-msgstr "Var god, bekräfta"
+msgstr "Confirme, por favor"
 
 msgid "Provision"
-msgstr "Provisionera"
+msgstr "Aprovisionamento"
 
 msgid "Rebooting %s"
-msgstr "Startar om %s"
+msgstr ""
 
 msgid "Refresh facts"
-msgstr "Uppdatera fakta"
+msgstr ""
 
 msgid "Select Action"
-msgstr "Välj Åtgärd"
+msgstr "Selecciona unha Acción"
 
 msgid "Select all items in this page"
-msgstr "Markera alla valbara på denna sida"
+msgstr "Seleccionar tódolos obxetos desta páxina"
 
 msgid "Select location"
-msgstr "Välj lokation"
+msgstr ""
 
 msgid "Select organization"
-msgstr "Välj organisation"
+msgstr ""
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Något blev fel vid markering av värdar - %s"
+msgstr "Algo fallou ao seleccionar equipos - %s"
 
 msgid "Submit"
-msgstr "Sänd"
+msgstr "Introducir"
 
 msgid "Subnet"
-msgstr "Subnät"
+msgstr "Subrede"
 
 msgid "The default fact name to use for the MAC of the system"
-msgstr "Fördefinierat faktanamn att använda för MAC för systemet"
+msgstr ""
 
 msgid "The default location to place discovered hosts in"
-msgstr "Standardplatsen att placera värdar i"
+msgstr ""
 
 msgid "The default organization to place discovered hosts in"
-msgstr "Standardorganisationen att placera hittade värdar i"
+msgstr ""
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Följande värdar raderades inte: %s"
+msgstr "Os seguintes equipos non foron eliminados: %s"
 
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
 "as well"
-msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
+msgstr "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
 
 msgid "Unassigned hosts"
-msgstr "Otilldelade värdar"
+msgstr ""
 
 msgid "Value"
-msgstr "Värde"
+msgstr "Valor"
 
 msgid "Warning"
-msgstr "Varning"
+msgstr "Aviso"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "poster markerade. Avmarkera för att rensa"
+msgstr "obxetos seleccionados. Desactivar para limpar"
