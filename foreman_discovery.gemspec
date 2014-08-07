@@ -22,5 +22,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency "open4"
   s.add_dependency "ftools"
-  s.add_dependency "deface"
 end

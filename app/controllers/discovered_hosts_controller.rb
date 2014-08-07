@@ -15,9 +15,11 @@ class DiscoveredHostsController < ::ApplicationController
   layout 'layouts/application'
 
   def index
-    hosts = ::Host::Discovered.search_for(params[:search], :order => params[:order])
+    search = resource_base.search_for(params[:search], :order => params[:order])
     respond_to do |format|
-      format.html { @hosts = hosts.list.paginate :page => params[:page] }
+      format.html do
+        @hosts = search.paginate(:page => params[:page])
+      end
       format.json { render :json => hosts }
     end
   end

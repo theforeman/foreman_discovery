@@ -1,2 +1,16 @@
-<h4 class="header ca">Discovery</h4>
-Discovery plugin rocks!
+<h4 class="ca"><%= _('Discovered Host Pool') %> - <%= @current_permission %></h4>
+<% all_hosts = Host::Discovered.search_for '' %>
+<% hosts = all_hosts.limit(5) %>
+<% if hosts.empty? %>
+  <p class="ca"><%= _("No discovered hosts available") %></p>
+<% else %>
+  <table class="table table-striped ellipsis">
+    <% hosts.each do |host| %>
+      <tr>
+        <td><%= link_to h(host.name), discovered_host_path(host) %></td>
+        <td><%= host.ip  %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="ca"><%= link_to n_("Total pool size","Total pool size", all_hosts.size), discovered_hosts_path %> - <%= all_hosts.size %> </p>
+<% end %>
