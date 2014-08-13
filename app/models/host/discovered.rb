@@ -30,7 +30,7 @@ class Host::Discovered < ::Host::Base
     fact_name = Setting[:discovery_fact] || 'macaddress'
     hostname = facts[fact_name].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/,'mac')
     raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless hostname
-    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain IP address"))) unless facts[:ip]
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain IP address"))) unless facts['ipaddress']
 
     # filter facts
     facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
