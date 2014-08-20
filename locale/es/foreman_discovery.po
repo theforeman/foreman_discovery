@@ -8,10 +8,10 @@
 # Sergio Ocón <sergio@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_discovery 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-08 15:59+0200\n"
-"PO-Revision-Date: 2014-08-04 08:40+0000\n"
+"POT-Creation-Date: 2014-08-07 10:19+0100\n"
+"PO-Revision-Date: 2014-08-08 12:11+0000\n"
 "Last-Translator: Sergio Ocón <sergio@redhat.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -41,11 +41,17 @@ msgstr "Cancelar"
 msgid "Could not get facts from proxy: %s"
 msgstr "No se pueden obtener datos del proxy: %s"
 
+msgid "Create a discovered host"
+msgstr "Crear descubriendo un host"
+
 msgid "Delete"
 msgstr "Borrar"
 
 msgid "Delete %s?"
 msgstr "¿Borrar %s?"
+
+msgid "Delete a discovered host"
+msgstr "Borrar un host descubierto"
 
 msgid "Delete hosts"
 msgstr "Borrar Equipos"
@@ -95,6 +101,9 @@ msgstr "Datos no válidos: el hash debe contener '%s'"
 msgid "Last facts upload"
 msgstr "Últimos datos subidos"
 
+msgid "List all discovered hosts"
+msgstr "Enumerar todos los hosts descubiertos"
+
 msgid "Location"
 msgstr "Lugares"
 
@@ -119,6 +128,9 @@ msgstr "Confirme, por favor"
 msgid "Provision"
 msgstr "Aprovisionamiento"
 
+msgid "Provision a discovered host"
+msgstr "Provisionar un host descubierto"
+
 msgid "Rebooting %s"
 msgstr "Reiniciando %s"
 
@@ -136,6 +148,9 @@ msgstr "Seleccionar localización"
 
 msgid "Select organization"
 msgstr "Seleccionar organización"
+
+msgid "Show a discovered host"
+msgstr "Mostrar un host descubierto"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Algo ha fallado al seleccionar equipos - %s"
@@ -163,8 +178,15 @@ msgid ""
 "as well"
 msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
 
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
+
 msgid "Unassigned hosts"
 msgstr "Equipos sin asignar"
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr "Subir detalles para un host, creando el host si es necesario"
 
 msgid "Value"
 msgstr "Valor"
@@ -172,5 +194,26 @@ msgstr "Valor"
 msgid "Warning"
 msgstr "Aviso"
 
+msgid "filter results"
+msgstr "filtrar resultados"
+
+msgid "hash containing facts for the host"
+msgstr "hash que contiene detalles del host"
+
 msgid "items selected. Uncheck to Clear"
 msgstr "objetos seleccionados. Desactivar para limpiar"
+
+msgid "not required if it's a virtual machine"
+msgstr "no es necesario si es una máquina virtual"
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr "no es necesario si estás usando una subred con un proxy DHCP"
+
+msgid "number of entries per request"
+msgstr "número de entradas por petición"
+
+msgid "paginate results"
+msgstr "paginar resultados"
+
+msgid "sort results"
+msgstr "ordenar resultados"

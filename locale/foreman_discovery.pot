@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 10:19+0100\n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
 "PO-Revision-Date: 2013-03-01 15:45-0500\n"
 "Last-Translator: \n"
 "Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -56,10 +56,16 @@ msgstr ""
 msgid "Destroyed selected hosts"
 msgstr ""
 
+msgid "Discovered Host Pool"
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr ""
 
 msgid "Discovered hosts"
+msgstr ""
+
+msgid "Discovery widget"
 msgstr ""
 
 msgid "Fact"
@@ -83,13 +89,13 @@ msgstr ""
 msgid "Failed to refresh facts for %s"
 msgstr ""
 
-msgid "Host Pool"
-msgstr ""
-
 msgid "Imported Host::Discovered"
 msgstr ""
 
 msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain IP address"
 msgstr ""
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
@@ -108,6 +114,9 @@ msgid "Model"
 msgstr ""
 
 msgid "Name"
+msgstr ""
+
+msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No hosts selected"
@@ -173,10 +182,12 @@ msgstr ""
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr ""
 
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Unassigned hosts"
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
 msgid "Upload facts for a host, creating the host if required"
