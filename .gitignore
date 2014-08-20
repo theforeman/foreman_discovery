@@ -15,7 +15,6 @@ tmp
 Gemfile.lock
 locale/*.mo
 locale/*/*.pox
-locale/*/LC_MESSAGES
 tags
 TAGS
 

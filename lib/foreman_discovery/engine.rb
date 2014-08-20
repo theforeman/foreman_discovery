@@ -18,7 +18,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
       locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
-      locale_domain = 'discovery'
+      locale_domain = 'foreman_discovery'
 
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
