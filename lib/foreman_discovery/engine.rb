@@ -75,6 +75,7 @@ module ForemanDiscovery
     config.to_prepare do
       # Include host extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
+      ::PuppetFactParser.send :include, PuppetFactParserExtensions
     end
 
     rake_tasks do
