@@ -8,10 +8,10 @@
 # luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.3.0\n"
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 10:19+0100\n"
-"PO-Revision-Date: 2014-08-08 09:41+0000\n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-08-22 09:57+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/foreman/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -59,11 +59,17 @@ msgstr "Apagar hosts"
 msgid "Destroyed selected hosts"
 msgstr "Destruir hosts selecionados"
 
+msgid "Discovered Host Pool"
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr "Host descoberto: %s"
 
 msgid "Discovered hosts"
 msgstr "Hosts descobertos"
+
+msgid "Discovery widget"
+msgstr ""
 
 msgid "Fact"
 msgstr "Fato"
@@ -86,14 +92,14 @@ msgstr "Falha ao reiniciar: %s"
 msgid "Failed to refresh facts for %s"
 msgstr "Falha ao atualizar fatos de %s"
 
-msgid "Host Pool"
-msgstr "Host Pool"
-
 msgid "Imported Host::Discovered"
 msgstr "Importado Host::Discovered"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Fatos inválidos, devem ser um Hash"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
 msgstr "Fatos inválidos: hash não contém o fato requerido '%s'"
@@ -112,6 +118,9 @@ msgstr "Modelo"
 
 msgid "Name"
 msgstr "Nome"
+
+msgid "No discovered hosts available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "Nenhum host selecionado"
@@ -178,12 +187,14 @@ msgid ""
 "as well"
 msgstr "Isso pode levar um tempo, todos os hosts, fatos e relatórios serão destruídos"
 
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
-
-msgid "Unassigned hosts"
-msgstr "Hosts não associados"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""

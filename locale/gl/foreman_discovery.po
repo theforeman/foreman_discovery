@@ -6,10 +6,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.3.0\n"
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 10:19+0100\n"
-"PO-Revision-Date: 2014-08-08 09:41+0000\n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-08-22 09:57+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/foreman/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -57,10 +57,16 @@ msgstr ""
 msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
 
+msgid "Discovered Host Pool"
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr ""
 
 msgid "Discovered hosts"
+msgstr ""
+
+msgid "Discovery widget"
 msgstr ""
 
 msgid "Fact"
@@ -84,13 +90,13 @@ msgstr ""
 msgid "Failed to refresh facts for %s"
 msgstr ""
 
-msgid "Host Pool"
-msgstr ""
-
 msgid "Imported Host::Discovered"
 msgstr ""
 
 msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain IP address"
 msgstr ""
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
@@ -110,6 +116,9 @@ msgstr "Modelo"
 
 msgid "Name"
 msgstr "Nome"
+
+msgid "No discovered hosts available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "Ningún equipo seleccionado"
@@ -176,11 +185,13 @@ msgid ""
 "as well"
 msgstr "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
 
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
-
-msgid "Unassigned hosts"
 msgstr ""
 
 msgid "Upload facts for a host, creating the host if required"

@@ -8,10 +8,10 @@
 # Sergio Ocón <sergio@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.3.0\n"
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 10:19+0100\n"
-"PO-Revision-Date: 2014-08-08 12:11+0000\n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-08-29 11:11+0000\n"
 "Last-Translator: Sergio Ocón <sergio@redhat.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -59,11 +59,17 @@ msgstr "Borrar Equipos"
 msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
 
+msgid "Discovered Host Pool"
+msgstr "Pool de hosts descubierto"
+
 msgid "Discovered host: %s"
 msgstr "Equipo descubierto: %s"
 
 msgid "Discovered hosts"
 msgstr "Equipos descubiertos"
+
+msgid "Discovery widget"
+msgstr "Widget de descubrimiento"
 
 msgid "Fact"
 msgstr "Dato"
@@ -86,14 +92,14 @@ msgstr "Fallo al reiniciar: %s"
 msgid "Failed to refresh facts for %s"
 msgstr "Fallo al refrescar datos para %s"
 
-msgid "Host Pool"
-msgstr "Conjunto de equipos"
-
 msgid "Imported Host::Discovered"
 msgstr "Host Importado::Descubierto"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Datos no válidos, debe ser un Hash"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr "Detalles inválidiso: el hash no contiene una dirección IP"
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
 msgstr "Datos no válidos: el hash debe contener '%s'"
@@ -112,6 +118,9 @@ msgstr "Modelo"
 
 msgid "Name"
 msgstr "Nombre"
+
+msgid "No discovered hosts available"
+msgstr "No hay hosts descubiertos disponibles"
 
 msgid "No hosts selected"
 msgstr "Ningún equipo seleccionado"
@@ -178,12 +187,14 @@ msgid ""
 "as well"
 msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
 
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] "Tamaño total del pool"
+msgstr[1] "Tamaño total del pool"
+
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
-
-msgid "Unassigned hosts"
-msgstr "Equipos sin asignar"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Subir detalles para un host, creando el host si es necesario"
