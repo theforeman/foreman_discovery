@@ -1,0 +1,227 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-09-16 13:11+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/foreman/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - 以下主機即將受到更改"
+
+msgid "%s ago"
+msgstr "%s 之前"
+
+msgid "Are you sure?"
+msgstr "您是否確定？"
+
+msgid "Assign Location"
+msgstr "指定位置"
+
+msgid "Assign Organization"
+msgstr "指定組織"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "無法從協定取得詳情：%s"
+
+msgid "Create a discovered host"
+msgstr ""
+
+msgid "Delete"
+msgstr "刪除"
+
+msgid "Delete %s?"
+msgstr "刪除 %s？"
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Delete hosts"
+msgstr "刪除主機"
+
+msgid "Destroyed selected hosts"
+msgstr "刪除選擇的主機"
+
+msgid "Discovered Host Pool"
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr "發現的主機：%s"
+
+msgid "Discovered hosts"
+msgstr "發現的主機"
+
+msgid "Discovery widget"
+msgstr ""
+
+msgid "Fact"
+msgstr "詳情"
+
+msgid "Facts discovered on this host"
+msgstr "在這部主機上發現的詳情"
+
+msgid "Facts refreshed for %s"
+msgstr "%s 的詳情已刷新"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "匯入 Host::Discovered 的詳情失敗"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "匯入 Host::Discovered 的詳情失敗：%s"
+
+msgid "Failed to reboot: %s"
+msgstr "重新啟動失敗：%s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "刷新 %s 的詳情失敗"
+
+msgid "Imported Host::Discovered"
+msgstr "已匯入 Host::Discovered"
+
+msgid "Invalid facts, must be a Hash"
+msgstr "詳情無效，必須是雜湊"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr "詳情無效：雜湊未包含必要的詳情「%s」"
+
+msgid "Last facts upload"
+msgstr "最後上傳的詳情"
+
+msgid "List all discovered hosts"
+msgstr ""
+
+msgid "Location"
+msgstr "位置"
+
+msgid "Model"
+msgstr "型號"
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "未選擇主機"
+
+msgid "No hosts were found with that id or name"
+msgstr "沒有找到擁有此 ID 或名稱的主機"
+
+msgid "Organization"
+msgstr "組織"
+
+msgid "Please Confirm"
+msgstr "請確認"
+
+msgid "Provision"
+msgstr "佈建"
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "重新啟動 %s"
+
+msgid "Refresh facts"
+msgstr "刷新詳情"
+
+msgid "Select Action"
+msgstr "選擇動作"
+
+msgid "Select all items in this page"
+msgstr "選擇這頁中的所有項目"
+
+msgid "Select location"
+msgstr "選擇位置"
+
+msgid "Select organization"
+msgstr "選擇組織"
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "選擇主機時發生了錯誤 - %s"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Subnet"
+msgstr "子網路"
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr "系統之 MAC 所使用的預設詳情名稱"
+
+msgid "The default location to place discovered hosts in"
+msgstr "放置已發現之主機的預設位置"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "放置已發現之主機的預設組織"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "下列主機尚未刪除：%s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
+
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid "Value"
+msgstr "值"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "filter results"
+msgstr ""
+
+msgid "hash containing facts for the host"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "已選取項目。反選以清除"
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "sort results"
+msgstr ""

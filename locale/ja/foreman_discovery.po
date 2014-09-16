@@ -1,0 +1,227 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-09-16 13:10+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/foreman/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - 以下のホストはすぐに変更されます"
+
+msgid "%s ago"
+msgstr "%s 前"
+
+msgid "Are you sure?"
+msgstr "本当によろしいですか?"
+
+msgid "Assign Location"
+msgstr "ロケーションの割り当て"
+
+msgid "Assign Organization"
+msgstr "組織の割り当て"
+
+msgid "Cancel"
+msgstr "取り消し"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "プロキシーからファクトを取得できませんでした: %s"
+
+msgid "Create a discovered host"
+msgstr ""
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Delete %s?"
+msgstr "%s を削除しますか?"
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Delete hosts"
+msgstr "ホストの削除"
+
+msgid "Destroyed selected hosts"
+msgstr "破棄された選択ホスト"
+
+msgid "Discovered Host Pool"
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr "検出されたホスト: %s"
+
+msgid "Discovered hosts"
+msgstr "検出されたホスト"
+
+msgid "Discovery widget"
+msgstr ""
+
+msgid "Fact"
+msgstr "ファクト"
+
+msgid "Facts discovered on this host"
+msgstr "このホストで検出されたファクト"
+
+msgid "Facts refreshed for %s"
+msgstr "%s について更新されたファクト"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "検出されたホストについてのファクトのインポートに失敗しました"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "検出されたホストについてのファクトのインポートに失敗しました: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "再起動に失敗しました: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "%s のファクトの更新に失敗しました"
+
+msgid "Imported Host::Discovered"
+msgstr "検出されたホストをインポート済み"
+
+msgid "Invalid facts, must be a Hash"
+msgstr "無効なファクトです。ハッシュにする必要があります"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr "無効なファクト: ハッシュには必要なファクト '%s' が含まれていません"
+
+msgid "Last facts upload"
+msgstr "最終ファクトのアップロード"
+
+msgid "List all discovered hosts"
+msgstr ""
+
+msgid "Location"
+msgstr "ロケーション"
+
+msgid "Model"
+msgstr "モデル"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "ホストが選択されていません"
+
+msgid "No hosts were found with that id or name"
+msgstr "該当する ID または名前のホストが見つかりませんでした"
+
+msgid "Organization"
+msgstr "組織"
+
+msgid "Please Confirm"
+msgstr "確認してください"
+
+msgid "Provision"
+msgstr "プロビジョニング"
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "%s の再起動中"
+
+msgid "Refresh facts"
+msgstr "ファクトの更新"
+
+msgid "Select Action"
+msgstr "アクションの選択"
+
+msgid "Select all items in this page"
+msgstr "このページのすべての項目を選択"
+
+msgid "Select location"
+msgstr "ロケーションの選択"
+
+msgid "Select organization"
+msgstr "組織の選択"
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "ホストの選択中に問題が発生しました - %s"
+
+msgid "Submit"
+msgstr "送信"
+
+msgid "Subnet"
+msgstr "サブネット"
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr "システムの MAC に使用するデフォルトのファクト名"
+
+msgid "The default location to place discovered hosts in"
+msgstr "検出されたホストを配置するデフォルトのロケーション"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "検出されたホストを配置するデフォルトの組織"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "以下のホストが削除されました: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "ホスト、ファクトおよびレポートがすべて破棄されるため、時間がかかる場合があります。"
+
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid "Value"
+msgstr "値"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "filter results"
+msgstr ""
+
+msgid "hash containing facts for the host"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "項目が選択されています。クリアするにはチェックを解除してください"
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "sort results"
+msgstr ""

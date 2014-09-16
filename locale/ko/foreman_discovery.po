@@ -1,0 +1,227 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-09-16 13:10+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/foreman/language/ko/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - 다음 호스트는 즉시 변경됩니다 "
+
+msgid "%s ago"
+msgstr "%s 전 "
+
+msgid "Are you sure?"
+msgstr "정말로 삭제하시겠습니까? "
+
+msgid "Assign Location"
+msgstr "위치 지정 "
+
+msgid "Assign Organization"
+msgstr "조직 지정 "
+
+msgid "Cancel"
+msgstr "취소 "
+
+msgid "Could not get facts from proxy: %s"
+msgstr "프록시에서 요소를 가져올 수 없습니다: %s"
+
+msgid "Create a discovered host"
+msgstr ""
+
+msgid "Delete"
+msgstr "삭제 "
+
+msgid "Delete %s?"
+msgstr "%s 을(를) 삭제하시겠습니까?"
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Delete hosts"
+msgstr "호스트 삭제 "
+
+msgid "Destroyed selected hosts"
+msgstr "선택된 호스트 삭제"
+
+msgid "Discovered Host Pool"
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr "검색된 호스트: %s"
+
+msgid "Discovered hosts"
+msgstr "검색된 호스트 "
+
+msgid "Discovery widget"
+msgstr ""
+
+msgid "Fact"
+msgstr "정보 "
+
+msgid "Facts discovered on this host"
+msgstr "이 호스트에서 검색된 정보 "
+
+msgid "Facts refreshed for %s"
+msgstr "%s에 대해 업데이트된 정보 "
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "검색된 호스트에 대한 정보를 가져오는데 실패했습니다 "
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "검색된 호스트에 대한 정보를 가져오는데 실패했습니다: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "재부팅 실패: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "%s에 대한 정보를 새로고침하는데 실패했습니다 "
+
+msgid "Imported Host::Discovered"
+msgstr "검색된 호스트를 불러왔습니다 "
+
+msgid "Invalid facts, must be a Hash"
+msgstr "잘못된 정보, 해시여야 합니다 "
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr "잘못된 정보:  해시에 필요한 정보 '%s'가 포함되어 있지 않습니다 "
+
+msgid "Last facts upload"
+msgstr "마지막 정보 업로드 "
+
+msgid "List all discovered hosts"
+msgstr ""
+
+msgid "Location"
+msgstr "위치 "
+
+msgid "Model"
+msgstr "모델 "
+
+msgid "Name"
+msgstr "이름 "
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "선택된 호스트가 없음 "
+
+msgid "No hosts were found with that id or name"
+msgstr "해당 ID 또는 이름의 호스트를 찾을 수 없습니다 "
+
+msgid "Organization"
+msgstr "조직 "
+
+msgid "Please Confirm"
+msgstr "확인해 주십시오 "
+
+msgid "Provision"
+msgstr "프로비저닝 "
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "%s 재부팅 중 "
+
+msgid "Refresh facts"
+msgstr "정보 새로 고침 "
+
+msgid "Select Action"
+msgstr "작업 선택 "
+
+msgid "Select all items in this page"
+msgstr "이 페이지에 있는 모든 항목을 선택 "
+
+msgid "Select location"
+msgstr "위치 선택 "
+
+msgid "Select organization"
+msgstr "조직 선택 "
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "호스트를 선택하는 도중 문제가 발생했습니다 - %s"
+
+msgid "Submit"
+msgstr "제출 "
+
+msgid "Subnet"
+msgstr "서브넷 "
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr "시스템의 MAC에 사용할 기본 정보 이름 "
+
+msgid "The default location to place discovered hosts in"
+msgstr "검색된 호스트를 배치하기 위한 기본 위치 "
+
+msgid "The default organization to place discovered hosts in"
+msgstr "검색된 호스트를 배치하기 위한 기본 조직 "
+
+msgid "The following hosts were not deleted: %s"
+msgstr "다음 호스트가 삭제되지 않았습니다: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "모든 호스트, 정보, 보고서가 모두 삭제되기 때문에 시간이 걸릴 수 있습니다 "
+
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid "Value"
+msgstr "값 "
+
+msgid "Warning"
+msgstr "경고 "
+
+msgid "filter results"
+msgstr ""
+
+msgid "hash containing facts for the host"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "sort results"
+msgstr ""

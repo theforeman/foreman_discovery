@@ -1,0 +1,229 @@
+# Template file for strings which can be localized in the Foreman Application.
+# 
+# This file is distributed under the same license as the Foreman.
+# 
+# 
+# Translators:
+# caifti <caifti@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-20 08:33+0100\n"
+"PO-Revision-Date: 2014-09-16 13:11+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/foreman/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - I seguenti host stanno per essere modificati"
+
+msgid "%s ago"
+msgstr "%s fa"
+
+msgid "Are you sure?"
+msgstr "Sei sicuro?"
+
+msgid "Assign Location"
+msgstr "Assegna posizione"
+
+msgid "Assign Organization"
+msgstr "Assegna organizzazione"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Could not get facts from proxy: %s"
+msgstr "Impossibile ottenere gli eventi dal proxy: %s"
+
+msgid "Create a discovered host"
+msgstr ""
+
+msgid "Delete"
+msgstr "Cancella"
+
+msgid "Delete %s?"
+msgstr "Cancella %s?"
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Delete hosts"
+msgstr "Cancella gli host"
+
+msgid "Destroyed selected hosts"
+msgstr "Host selezionati annullati"
+
+msgid "Discovered Host Pool"
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr "Host trovati: %s"
+
+msgid "Discovered hosts"
+msgstr "Host trovati"
+
+msgid "Discovery widget"
+msgstr ""
+
+msgid "Fact"
+msgstr "Evento"
+
+msgid "Facts discovered on this host"
+msgstr "Eventi trovati su questo host"
+
+msgid "Facts refreshed for %s"
+msgstr "Eventi aggiornati per %s"
+
+msgid "Failed to import facts for Host::Discovered"
+msgstr "Impossibile importare gli eventi per Host::Discovered"
+
+msgid "Failed to import facts for Host::Discovered: %s"
+msgstr "Impossibile importare gli eventi per Host::Discovered: %s"
+
+msgid "Failed to reboot: %s"
+msgstr "Impossibile eseguire il riavvio: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Impossibile aggiornare gli eventi per %s"
+
+msgid "Imported Host::Discovered"
+msgstr "Host::Discovered importati"
+
+msgid "Invalid facts, must be a Hash"
+msgstr "Eventi non validi, deve essere un Hash"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr "Eventi non validi: hash deve avere l'evento '%s' necessario"
+
+msgid "Last facts upload"
+msgstr "Ultimo caricamento eventi"
+
+msgid "List all discovered hosts"
+msgstr ""
+
+msgid "Location"
+msgstr "Posizione"
+
+msgid "Model"
+msgstr "Modello"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "Nessun host selezionato"
+
+msgid "No hosts were found with that id or name"
+msgstr "Nessun host trovato con l'id o nome indicato"
+
+msgid "Organization"
+msgstr "Organizzazione"
+
+msgid "Please Confirm"
+msgstr "Conferma"
+
+msgid "Provision"
+msgstr "Provisioning"
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "Riavvio di %s"
+
+msgid "Refresh facts"
+msgstr "Aggiorna eventi"
+
+msgid "Select Action"
+msgstr "Seleziona azione"
+
+msgid "Select all items in this page"
+msgstr "Seleziona tutti gli oggetti in questa pagina"
+
+msgid "Select location"
+msgstr "Seleziona posizione"
+
+msgid "Select organization"
+msgstr "Seleziona organizzazione"
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Si è verificato un errore durante la selezione degli host - %s"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "Subnet"
+msgstr "Sottorete"
+
+msgid "The default fact name to use for the MAC of the system"
+msgstr "Il nome dell'evento predefinito da usare per il MAC del sistema"
+
+msgid "The default location to place discovered hosts in"
+msgstr "La posizione predefinita nella quale posizionare gli host trovati"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "L'organizzazione predefinita nella quale posizionare gli host trovati"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "I seguenti host non sono stati rilevati: %s"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
+msgstr "Questa operazione potrebbe richiedere qualche istante poichè saranno annullati anche gli host, eventi e riporti"
+
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid "Value"
+msgstr "Valore"
+
+msgid "Warning"
+msgstr "Avvertenza"
+
+msgid "filter results"
+msgstr ""
+
+msgid "hash containing facts for the host"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "oggetti selezionati. Deselezionare per annullare"
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "sort results"
+msgstr ""
