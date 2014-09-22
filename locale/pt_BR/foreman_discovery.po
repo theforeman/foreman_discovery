@@ -4,15 +4,16 @@
 # 
 # 
 # Translators:
+# Dominic Cleal <dcleal@redhat.com>, 2014
 # Especialista em Automatizaçao <alvin@intechne.com.br>, 2014
 # luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 08:33+0100\n"
-"PO-Revision-Date: 2014-08-22 09:57+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2014-09-16 13:30+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/foreman/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgid "Delete"
 msgstr "Apagar"
 
 msgid "Delete %s?"
-msgstr "Apagar %s"
+msgstr "Apagar %s?"
 
 msgid "Delete a discovered host"
 msgstr ""

@@ -9,10 +9,10 @@
 # simon11 <simon.stieger.98@live.de>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc1\n"
+"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 08:33+0100\n"
-"PO-Revision-Date: 2014-09-14 00:28+0000\n"
+"PO-Revision-Date: 2014-09-16 16:47+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -228,4 +228,4 @@ msgid "paginate results"
 msgstr ""
 
 msgid "sort results"
-msgstr ""
+msgstr "Ergebnisse sortieren"
