@@ -75,8 +75,13 @@ class Host::Discovered < ::Host::Base
     super + [:ip]
   end
 
-  def populate_fields_from_facts facts = self.facts_hash
-    importer = super
+  def populate_fields_from_facts facts = self.facts_hash, type = 'puppet'
+    # type arg only added in 1.7
+    if Gem::Dependency.new('', '> 1.6').match?('', SETTINGS[:version].notag)
+      importer = super
+    else
+      importer = super(facts)
+    end
     self.subnet = Subnet.subnet_for(importer.ip)
     self.save
   end
