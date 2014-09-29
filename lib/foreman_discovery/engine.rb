@@ -73,9 +73,16 @@ module ForemanDiscovery
     end
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
+
+      begin
+        require_dependency 'puppet_fact_parser'
+        ::PuppetFactParser.send :include, PuppetFactParserExtensions
+      rescue LoadError
+        Rails.logger.warn 'PuppetFactParser not found, not loading Parser extensions'
+      end
+
       # Include host extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
-      ::PuppetFactParser.send :include, PuppetFactParserExtensions if defined? PuppetFactParser
     end
 
     rake_tasks do

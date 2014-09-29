@@ -18,7 +18,9 @@ module PuppetFactParserExtensions
   # search for IP of interface with primary interface macaddress (ipaddress fact does not have to be interface used for boot)
   def ip_with_discovery_fact
     facts[:interfaces].split(',').each do |interface|
-      return facts["ipaddress_#{interface}"] if facts["macaddress_#{interface}"] == facts[discovery_mac_fact_name]
+      if facts["macaddress_#{interface}"].try(:downcase) == facts[discovery_mac_fact_name].try(:downcase)
+        return facts["ipaddress_#{interface}"]
+      end
     end
     ip_without_discovery_fact # fallback if IP was not found
   end
