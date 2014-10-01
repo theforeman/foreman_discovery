@@ -125,7 +125,7 @@ template and add:
     MENU LABEL Foreman Discovery
     MENU DEFAULT
     KERNEL boot/tftpboot/vmlinuz0
-    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=<%= foreman_url %>
     IPAPPEND 2
 
 to the end of the file.  Note the `foreman.url` option on the APPEND line,
@@ -168,7 +168,7 @@ like this:
     LABEL discovery
     MENU LABEL Foreman Discovery
     KERNEL boot/tftpboot/vmlinuz0
-    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=<%= foreman_url %>
     IPAPPEND 2
 
 # Configuration (plugin)
