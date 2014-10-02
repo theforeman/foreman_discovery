@@ -118,8 +118,8 @@ Foreman Discovery relies on intercepting the normal boot process for machines
 not registered in Foreman. To achieve this, the PXE default.cfg file needs to
 be altered to instruct new machines to boot the discovery image.
 
-In the Foreman UI, go to Provisioning Templates, edit *PXELinux global default*
-template and add:
+In the Foreman UI, go to Provisioning Templates, clone *PXELinux global default*, 
+edit the template and add:
 
     LABEL discovery
     MENU LABEL Foreman Discovery
