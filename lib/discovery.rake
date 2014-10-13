@@ -95,7 +95,7 @@ Rake::Task[:test].enhance do
 end
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:setup')
+if Rake::Task.task_defined?(:'jenkins:unit')
   Rake::Task["jenkins:unit"].enhance do
     Rake::Task['test:discovery'].invoke
   end
