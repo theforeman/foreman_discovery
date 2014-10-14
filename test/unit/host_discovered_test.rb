@@ -4,9 +4,9 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
     FactoryGirl.create(:setting,
-                       name: 'discovery_fact',
-                       value: 'macaddress',
-                       category: 'Setting::Discovered')
+                       :name     => 'discovery_fact',
+                       :value    => 'macaddress',
+                       :category => 'Setting::Discovered')
   end
 
   test "should be able to create Host::Discovered objects" do

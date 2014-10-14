@@ -20,7 +20,7 @@ class DiscoveredHostsController < ::ApplicationController
       format.html do
         @hosts = search.paginate(:page => params[:page])
       end
-      format.json { render :json => hosts }
+      format.json { render :json => search }
     end
   end
 
