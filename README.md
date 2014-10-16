@@ -70,7 +70,7 @@ As of Foreman 1.6, the foreman-installer is able to automatically download
 latest stable CentOS6 images.  For this, re-run the installer with the
 following option:
 
-    # foreman-installer --foreman-plugin-discovery-install-images=true
+    # foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true
 
 ### Manual download
 
@@ -104,7 +104,11 @@ When downloading the ISO file, it must be extracted before proceeding:
 
 Once the initrd/vmlinuz pair (whether from direct download or from ISO
 extraction) is available, copy them to the TFTP BOOT directory and rename them
-to *vmlinuz0* and *initrd0.img*.
+to *foreman-discovery-image-latest.el6.iso-vmlinuz* and
+*foreman-discovery-image-latest.el6.iso-img*.
+
+    mv tftpboot/vmlinuz0 /var/lib/tftpboot/boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+    mv tftpboot/initrd0.img /var/lib/tftpboot/boot/foreman-discovery-image-latest.el6.iso-img
 
 ### Building an image
 
@@ -124,8 +128,8 @@ template and add:
     LABEL discovery
     MENU LABEL Foreman Discovery
     MENU DEFAULT
-    KERNEL boot/tftpboot/vmlinuz0
-    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
     IPAPPEND 2
 
 to the end of the file.  Note the `foreman.url` option on the APPEND line,
@@ -167,8 +171,8 @@ like this:
 
     LABEL discovery
     MENU LABEL Foreman Discovery
-    KERNEL boot/tftpboot/vmlinuz0
-    APPEND rootflags=loop initrd=boot/tftpboot/initrd0.img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
     IPAPPEND 2
 
 # Configuration (plugin)
