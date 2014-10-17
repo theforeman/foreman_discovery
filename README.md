@@ -129,7 +129,7 @@ template and add:
     MENU LABEL Foreman Discovery
     MENU DEFAULT
     KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 rd.bootif=0 rd.neednet=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
     IPAPPEND 2
 
 to the end of the file.  Note the `foreman.url` option on the APPEND line,
@@ -172,7 +172,7 @@ like this:
     LABEL discovery
     MENU LABEL Foreman Discovery
     KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 rd.bootif=0 rd.neednet=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
     IPAPPEND 2
 
 # Configuration (plugin)
@@ -229,7 +229,17 @@ possible to log on as root. Generate some root password:
 
 And then provide it as an kernel command line option:
 
-    ... stateless rootpw=RHhwCLrQXB8zE
+    APPEND ... rootpw=RHhwCLrQXB8zE
+
+Images with systemd allows interactive mode to be enabled to track down boot
+problems. Add the following to the kernel command line option:
+
+    APPEND ... systemd.confirm_spawn=true
+
+By default SSHD daemon is configured to disallow passwords. You can enable
+this with:
+
+    APPEND ... ssh_pwauth=1
 
 # API
 
