@@ -77,7 +77,7 @@ class Host::Discovered < ::Host::Base
 
   def populate_fields_from_facts facts = self.facts_hash, type = 'puppet'
     # type arg only added in 1.7
-    if Gem::Dependency.new('', '> 1.6').match?('', SETTINGS[:version].notag)
+    if Gem::Dependency.new('', '>= 1.7').match?('', SETTINGS[:version].notag)
       importer = super
     else
       importer = super(facts)
