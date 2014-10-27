@@ -71,6 +71,7 @@ module Api
         param :managed, :bool
         param :progress_report_id, String, :desc => N_("UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks")
         param :capabilities, String
+        param :root_pass, String, :desc => N_("required if value is not inherited from host group or default password in settings")
       end
 
       def update
