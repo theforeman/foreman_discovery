@@ -31,8 +31,11 @@ class Host::Discovered < ::Host::Base
 
   def self.import_host_and_facts facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
-    fact_name = Setting[:discovery_fact] || 'macaddress'
-    hostname = facts[fact_name].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/,'mac')
+    fact_name = Setting[:discovery_fact] || 'discovery_bootif'
+    prefix_from_settings = Setting[:discovery_prefix]
+    hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
+    hostname_prefix ||= 'mac'
+    hostname = facts[fact_name].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
     raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless hostname
     raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain IP address"))) unless facts['ipaddress']
 

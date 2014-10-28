@@ -12,6 +12,12 @@ class Setting::Discovered < ::Setting
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
+    Setting.transaction do
+      [
+          self.set('discovery_prefix', _("The default prefix to use for the host name, must start with a letter"), "mac"),
+      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+    end
+
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
