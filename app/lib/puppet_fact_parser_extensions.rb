@@ -32,6 +32,6 @@ module PuppetFactParserExtensions
   private
 
   def discovery_mac_fact_name
-    Setting[:discovery_fact] || 'macaddress'
+    Setting[:discovery_fact] || 'discovery_bootif'
   end
 end
