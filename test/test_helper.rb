@@ -2,7 +2,6 @@ require 'rubygems'
 require 'bundler/setup'
 
 ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../.foreman_app/config/environment.rb", __FILE__)
 
 require 'test/unit'
 require 'foreman_discovery'
