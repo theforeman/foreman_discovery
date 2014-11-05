@@ -32,16 +32,16 @@ class DiscoveredHostsController < ::ApplicationController
       respond_to do |format|
         format.yml {
           if imported
-            render :text => _("Imported Host::Discovered"), :status => 200 and return
+            render :text => _("Imported discovered host"), :status => 200 and return
           else
-            render :text => _("Failed to import facts for Host::Discovered"), :status => 400
+            render :text => _("Failed to import facts for discovered host"), :status => 400
           end
         }
       end
     end
   rescue Exception => e
-    logger.warn "Failed to import facts for Host::Discovered: #{e}"
-    render :text => _("Failed to import facts for Host::Discovered: %s") % (e), :status => 400
+    logger.warn "Failed to import facts for discovered host: #{e}"
+    render :text => _("Failed to import facts for discovered host: %s") % (e), :status => 400
   end
 
   def show
