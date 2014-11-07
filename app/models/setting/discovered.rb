@@ -9,6 +9,7 @@ class Setting::Discovered < ::Setting
     Setting.transaction do
       [
         self.set('discovery_fact', _("The default fact name to use for the MAC of the system"), "discovery_bootif"),
+        self.set('discovery_auto', _("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 

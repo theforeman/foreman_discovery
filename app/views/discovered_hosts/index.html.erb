@@ -1,2 +1,3 @@
 <% title_actions multiple_discovered_hosts_actions_select -%>
+<% title_actions display_link_if_authorized(_("Auto Provision All"), hash_for_auto_provision_all_discovered_hosts_path, :method => :post) %>
 <%= render 'discovered_hosts_list' %>

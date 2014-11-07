@@ -1,12 +1,13 @@
 class DiscoveredHostsController < ::ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::TaxonomyMultiple
+  include Foreman::Controller::DiscoveredExtensions
   unloadable
 
   # Avoid auth for discovered host creation
   skip_before_filter :require_login, :require_ssl, :authorize, :verify_authenticity_token, :set_taxonomy, :session_expiry, :update_activity_time, :only => :create
 
-  before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert]
+  before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert auto_provision]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
   before_filter :taxonomy_scope, :only => [:edit]
 
@@ -121,6 +122,44 @@ class DiscoveredHostsController < ::ApplicationController
     render :json => @items
   end
 
+  def auto_provision
+    @host.transaction do
+      if rule = find_discovery_rule(@host)
+        if perform_auto_provision(@host.becomes(::Host::Managed), rule)
+          process_success :success_msg => _("Host %s was provisioned with rule %s") % [@host.name, rule.name], :success_redirect => :back
+        else
+          errors = @host.errors.full_messages.join(' ')
+          logger.warn "Failed to auto provision host %s: %s" % [@host.name, errors]
+          process_error :error_msg => _("Failed to auto provision host %s: %s") % [@host.name, errors], :redirect => :back
+        end
+      else
+        process_success :success_msg => _("No rule found for host %s") % @host.name, :success_redirect => :back
+      end
+    end
+  end
+
+  def auto_provision_all
+    result = true
+    Host.transaction do
+      overall_errors = ""
+      Host::Discovered.all.each do |discovered_host|
+        if rule = find_discovery_rule(discovered_host)
+          result &= perform_auto_provision(discovered_host.becomes(::Host::Managed), rule)
+          unless discovered_host.errors.empty?
+            errors = discovered_host.errors.full_messages.join(' ')
+            logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
+            overall_errors << "#{discovered_host.name}: #{errors} "
+          end
+        end
+      end
+      if result
+        process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => :back
+      else
+        process_error :error_msg => _("Errors during auto provisioning: %s") % overall_errors, :redirect => :back
+      end
+    end
+  end
+
   private
 
   def resource_base
@@ -162,6 +201,10 @@ class DiscoveredHostsController < ::ApplicationController
         :edit
       when 'submit_multiple_destroy', 'multiple_destroy'
         :destroy
+      when 'auto_provision'
+        :auto_provision
+      when 'auto_provision_all'
+        :auto_provision_all
       else
         super
     end
