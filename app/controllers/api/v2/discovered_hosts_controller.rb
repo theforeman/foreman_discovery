@@ -95,6 +95,11 @@ module Api
 
       def facts
         @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
+        if state && Setting['discovery_auto']
+          state = ForemanDiscovery.execute_auto_provisioning(@discovered_host)
+        else
+          Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
+        end
         process_response state
       rescue ::Foreman::Exception => e
         render :json => {'message'=>e.to_s}, :status => :unprocessable_entity
