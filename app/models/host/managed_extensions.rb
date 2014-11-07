@@ -4,6 +4,8 @@ module Host::ManagedExtensions
   included do
     # execute standard callbacks
     after_validation :queue_reboot
+
+    belongs_to :discovery_rule
   end
 
   def queue_reboot

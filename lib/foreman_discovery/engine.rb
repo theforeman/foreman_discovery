@@ -64,6 +64,11 @@ module ForemanDiscovery
 
       end
     end
+
+    initializer "foreman_discovery.load_app_instance_data" do |app|
+      app.config.paths['db/migrate'] += ForemanDiscovery::Engine.paths['db/migrate'].existent
+    end
+
     initializer "foreman_discovery.apipie" do
       # this condition is here for compatibility reason to work with Foreman 1.4.x
       if Apipie.configuration.api_controllers_matcher.is_a?(Array) && Apipie.configuration.respond_to?(:checksum_path)
@@ -71,6 +76,7 @@ module ForemanDiscovery
         Apipie.configuration.checksum_path += ['/discovered_hosts/']
       end
     end
+
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
 
@@ -81,8 +87,9 @@ module ForemanDiscovery
         Rails.logger.warn 'PuppetFactParser not found, not loading Parser extensions'
       end
 
-      # Include host extensions
+      # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
+      ::Hostgroup.send :include, HostgroupExtensions
     end
 
     rake_tasks do
