@@ -1,0 +1,26 @@
+<% title _("Discovery Rules") %>
+<% title_actions display_link_if_authorized(_("New Rule"), hash_for_new_discovery_rule_path), help_path %>
+
+<table class="table table-bordered table-striped table-two-pane">
+  <tr>
+    <th><%= sort :name, :as => s_("DiscoveryRule|Name") %></th>
+    <th><%= sort :priority, :as => s_("DiscoveryRule|Priority") %></th>
+    <th><%= sort :search, :as => s_("DiscoveryRule|Query") %></th>
+    <th><%= _("Host group") %></th>
+    <th><%= _("Hosts/limit") %></th>
+    <th><%= sort :enabled, :as => s_("DiscoveryRule|Enabled") %></th>
+    <th></th>
+  </tr>
+  <% for rule in @discovery_rules %>
+    <tr>
+      <td class='col-md-3'><%= link_to_if_authorized(trunc(rule.name), hash_for_edit_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer)) %></td>
+      <td><%= rule.priority %></td>
+      <td><%= rule.search %></td>
+      <td><%= rule.hostgroup.name %></td>
+      <td><%= rule.hosts.count %> / <%= rule.max_count %></td>
+      <td><%= rule.enabled %></td>
+      <td><%= action_buttons(*permitted_discovery_actions(rule)) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate_with_info @discovery_rules %>

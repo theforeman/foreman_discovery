@@ -1,0 +1,14 @@
+<%= form_for @discovery_rule, :url => (@discovery_rule.new_record? ? discovery_rules_path : discovery_rule_path(:id => @discovery_rule.id)) do |f| %>
+  <%= base_errors_for @discovery_rule %>
+  <%= text_f f, :name %>
+  <%= autocomplete_f f, :search,
+                     :path => "discovered_hosts",
+                     :control_group_id => 'search_group' %>
+  <%= select_f f, :hostgroup_id, accessible_hostgroups, :id, :to_label, { :include_blank => false },
+    { :help_inline => _('Target host group for this rule with all properties set')} %>
+  <%= text_f f, :hostname, :help_inline => _('Target hostname template pattern (empty for MAC)')  %>
+  <%= text_f f, :max_count, :label => _('Hosts limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)') %>
+  <%= text_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)')  %>
+  <%= checkbox_f f, :enabled %>
+  <%= submit_or_cancel f %>
+<% end %>
