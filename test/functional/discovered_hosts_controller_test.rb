@@ -24,8 +24,41 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_add_entry_to_nav_menu
     get :index, {}, set_session_user
-    assert_tag :tag => 'a',
-      :attributes => {:href => '/discovered_hosts'}
+    assert_tag :tag        => 'a',
+               :attributes => { :href => '/discovered_hosts' }
+  end
+
+  def test_reboot_success
+    @request.env["HTTP_REFERER"] = discovered_hosts_url
+    host = FactoryGirl.create(:host,
+                              :ip   => '1.2.3.4',
+                              :type => "Host::Discovered")
+    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(true)
+    post "reboot", { :id => host.id }, set_session_user
+    assert_redirected_to discovered_hosts_url
+    assert_equal "Rebooting host #{host.name}", flash[:notice]
+  end
+
+  def test_reboot_failure
+    @request.env["HTTP_REFERER"] = discovered_hosts_url
+    host = FactoryGirl.create(:host,
+                              :ip   => '1.2.3.4',
+                              :type => "Host::Discovered")
+    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(false)
+    post "reboot", { :id => host.id }, set_session_user
+    assert_redirected_to discovered_hosts_url
+    assert_equal "Failed to reboot host #{host.name}", flash[:error]
+  end
+
+  def test_reboot_error
+    @request.env["HTTP_REFERER"] = discovered_hosts_url
+    host = FactoryGirl.create(:host,
+                              :ip   => '1.2.3.4',
+                              :type => "Host::Discovered")
+    ::ProxyAPI::BMC.any_instance.expects(:power).raises("request must fail")
+    post "reboot", { :id => host.id }, set_session_user
+    assert_redirected_to discovered_hosts_url
+    assert_equal "Failed to reboot host #{host.name} with error request must fail", flash[:error]
   end
 
   def test_auto_provision_success
