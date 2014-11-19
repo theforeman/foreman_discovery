@@ -166,6 +166,15 @@ module Api
         render :json => { 'message' => e.to_s }
       end
 
+      api :PUT, "/discovered_hosts/:id/reboot", N_("Rebooting a discovered host")
+      param :id, :identifier, :required => true
+
+      def reboot
+        process_response @discovered_host.reboot
+      rescue ::Foreman::Exception => e
+        render :json => {'message'=>e.to_s}
+      end
+
       private
 
       def resource_class
@@ -182,13 +191,12 @@ module Api
             :auto_provision
           when 'auto_provision_all'
             :auto_provision_all
-          when 'refresh_facts'
+          when 'refresh_facts', 'reboot'
             :edit
           else
             super
         end
       end
-
     end
   end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :discovered_hosts do
       member do
         get 'refresh_facts'
+        put 'reboot'
         post 'auto_provision'
       end
       collection do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       resources :discovered_hosts, :except => [:new, :edit] do
         member do
           post 'auto_provision'
+          put 'reboot'
         end
         collection do
           post 'facts'

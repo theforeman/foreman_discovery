@@ -7,7 +7,7 @@ class DiscoveredHostsController < ::ApplicationController
   # Avoid auth for discovered host creation
   skip_before_filter :require_login, :require_ssl, :authorize, :verify_authenticity_token, :set_taxonomy, :session_expiry, :update_activity_time, :only => :create
 
-  before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert auto_provision]
+  before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert reboot auto_provision]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
   before_filter :taxonomy_scope, :only => [:edit]
 
@@ -89,11 +89,26 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def refresh_facts
-    if @host.is_a?(::Host::Discovered) and @host.refresh_facts
+    if @host.is_a?(::Host::Discovered) && @host.refresh_facts
       process_success :success_msg => _("Facts refreshed for %s") % @host.name, :success_redirect => :back
     else
       process_error :error_msg => _("Failed to refresh facts for %s") % @host.name, :redirect => :back
     end
+  end
+
+  def reboot
+    unless @host.is_a?(::Host::Discovered)
+      process_error :error_msg => _("Host of type %s can not be rebooted") % @host.type, :redirect => :back
+    end
+
+    if @host.reboot
+      process_success :success_msg => _("Rebooting host %s") % @host.name, :success_redirect => :back
+    else
+      process_error :error_msg => _("Failed to reboot host %s") % @host.name, :redirect => :back
+    end
+    rescue  => e
+      process_error :error_msg => _("Failed to reboot host %{hostname} with error %{error_message}") % {:hostname => @host.name, :error_message => e.message},
+                    :redirect => :back
   end
 
   def multiple_destroy
@@ -198,7 +213,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def action_permission
     case params[:action]
-      when 'refresh_facts'
+      when 'refresh_facts', 'reboot'
         :view
       when 'new', 'create'
         :provision
