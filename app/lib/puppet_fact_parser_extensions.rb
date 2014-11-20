@@ -2,8 +2,14 @@ module PuppetFactParserExtensions
   extend ActiveSupport::Concern
 
   included do
-    alias_method_chain :primary_interface, :discovery_fact
-    alias_method_chain :ip, :discovery_fact
+    # In Foreman 1.8 these two methods have been removed, we could reuse discovery_mac_fact_name in suggested_primary_interface(host) if needed
+    if instance_methods.include?(:primary_interface)
+      alias_method_chain :primary_interface, :discovery_fact
+    end
+
+    if instance_methods.include?(:ip)
+      alias_method_chain :ip, :discovery_fact
+    end
   end
 
   # we prefer discovery_bootif fact to choose right primary interface (interface used to boot the image)
