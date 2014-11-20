@@ -8,16 +8,18 @@ module PuppetFactParserExtensions
 
   # we prefer discovery_bootif fact to choose right primary interface (interface used to boot the image)
   def primary_interface_with_discovery_fact
-    mac = facts[discovery_mac_fact_name]
-    interfaces.each do |int, values|
-      return int.to_s if (values[:macaddress] == mac)
+    if facts.has_key?(discovery_mac_fact_name)
+      mac = facts[discovery_mac_fact_name]
+      interfaces.each do |int, values|
+        return int.to_s if (values[:macaddress].try(:downcase) == mac.try(:downcase))
+      end
     end
     primary_interface_without_discovery_fact # fallback if we didn't find interface with such macaddress
   end
 
   # search for IP of interface with primary interface macaddress (ipaddress fact does not have to be interface used for boot)
   def ip_with_discovery_fact
-    if facts[:interfaces]
+    if facts[:interfaces] && facts.has_key?(discovery_mac_fact_name)
       facts[:interfaces].split(',').each do |interface|
         if facts["macaddress_#{interface}"].try(:downcase) == facts[discovery_mac_fact_name].try(:downcase)
           return facts["ipaddress_#{interface}"]
