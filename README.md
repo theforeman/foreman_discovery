@@ -11,14 +11,9 @@ artifacts (and terms) used in this document:
 
 ## Minimal hardware requirements
 
-Since the bootable image runs from memory, keep in mind the following minimum
-requirements on the hardware that is being discovered:
-
-* 700 MB RAM for the CentOS image
-* 900 MB RAM for the Fedora image
-
-When testing those images on virtual machines, make sure they have allocated
-enough memory, otherwise kernel panic can be seen during boot sequence.
+Since the bootable image runs from memory, keep in mind the minimum
+requirement of 500 MB RAM otherwise kernel panic can be seen during boot
+sequence.
 
 # Installation (plugin)
 
@@ -33,12 +28,13 @@ RPM users can install the "ruby193-rubygem-foreman_discovery" or
 
 ## Compatibility
 
-| Foreman Version | Plugin Version | oVirt Image Version |
+| Foreman Version | Plugin Version | Image Version       |
 | --------------- | --------------:| -------------------:|
 | <= 1.2          | 1.0.2          | N/A                 |
 |  = 1.3          | 1.1.0          | 0.1.0               |
 |  = 1.4          | 1.2.0          | 0.3.0-1             |
-| >= 1.5          | 1.3.0          | 0.5.0-1             |
+|  = 1.5          | 1.3.0          | 0.5.0-1             |
+| >= 1.6          | 1.4.0          | 0.6 or 2.0          |
 
 ## Latest code
 
@@ -49,28 +45,20 @@ branch of the plugin can be obtained by updating the Gemfile in this way:
 
 # Installation (image)
 
-The image is based on CentOS 6 & Fedora 18 (there is an image for each) and it
-leverages the oVirt Node open-source project. The download site provides stable
-releases as well as nightly builds for those who want to live on the edge, or
-alternatively a local image can be rebuilt by the user.
-
-The recommended option is to download a prebuilt image from the Foreman
-repositories.
-
-Nightly builds have the ssh daemon enabled and root password set to "redhat";
-logging is also increased. Conversely, releases have the root account locked
-and there is no ssh access. Note that the first console (tty1) is reserved for
-Discovery output. For a login prompt (nightly images only) use tty2.
+The image is based on CentOS 7 and about 150 MB in size. The recommended
+option is to download a prebuilt image from the Foreman repositories.
 
 ## Downloading an image
 
 ### Download via installer
 
 As of Foreman 1.6, the foreman-installer is able to automatically download
-latest stable CentOS6 images.  For this, re-run the installer with the
-following option:
+latest stable image.  For this, re-run the installer with the following
+option:
 
-    # foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true
+    # foreman-installer \
+        --enable-foreman-plugin-discovery \
+        --foreman-plugin-discovery-install-images=true
 
 ### Manual download
 
@@ -78,43 +66,23 @@ Images are available from:
 
 * http://downloads.theforeman.org/discovery/
 
-A choice of using an ISO or a kernel/initrd pair is available.
+To download the latest release to the expected location, do the following:
 
-Kernel/initrd (recommended):
+    # wget http://downloads.theforeman.org/discovery/releases/latest/fdi-image-latest.tar \
+      -O - | tar x --overwrite -C /var/lib/tftpboot/boot
 
-* ovirt-node-iso-3.X.0-0.999.201404XXXXXX.el6.iso-img
-* ovirt-node-iso-3.X.0-0.999.201404XXXXXX.el6.iso-vmlinuz
+After download, verify checksums:
 
-or ISO file:
-
-* ovirt-node-iso-3.X.0-0.999.201404XXXXXX.el6.iso
-
-When downloading the ISO file, it must be extracted before proceeding:
-
-    # yum -y install livecd-tools
-    # ln -sf ovirt-node-iso-3.X.0-0.999.201404170648.el6.iso foreman.iso
-    # sudo livecd-iso-to-pxeboot foreman.iso
-    # find tftpboot/
-    tftpboot/
-    tftpboot/vmlinuz0
-    tftpboot/pxelinux.0
-    tftpboot/pxelinux.cfg
-    tftpboot/pxelinux.cfg/default
-    tftpboot/initrd0.img
-
-Once the initrd/vmlinuz pair (whether from direct download or from ISO
-extraction) is available, copy them to the TFTP BOOT directory and rename them
-to *foreman-discovery-image-latest.el6.iso-vmlinuz* and
-*foreman-discovery-image-latest.el6.iso-img*.
-
-    mv tftpboot/vmlinuz0 /var/lib/tftpboot/boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-    mv tftpboot/initrd0.img /var/lib/tftpboot/boot/foreman-discovery-image-latest.el6.iso-img
+    # cat /var/lib/tftpboot/boot/fdi-image/SHA256SUM
+    beb3cfba7d9fb9d71481c0c8f... initrd0.img
+    f03bce150d2473a28697d2988... vmlinuz0
+    # sha256sum /var/lib/tftpboot/boot/fdi-image/*
 
 ### Building an image
 
 To build a discovery image, please visit the
-[ovirt-node-plugin-foreman](https://github.com/theforeman/ovirt-node-plugin-foreman)
-page for further instructions.
+[foreman-discovery-image](https://github.com/theforeman/foreman-discovery-image)
+git repository and find the README for further instructions.
 
 # Configuration (image)
 
@@ -128,8 +96,8 @@ template and add:
     LABEL discovery
     MENU LABEL Foreman Discovery
     MENU DEFAULT
-    KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 rd.bootif=0 rd.neednet=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
+    KERNEL boot/fdi-image/vmlinuz0
+    APPEND initrd=boot/fdi-image/initrd0.img rootflags=loop root=live:/fdi.iso rootfstype=auto ro rd.live.image acpi=force rd.luks=0 rd.md=0 rd.dm=0 rd.lvm=0 rd.bootif=0 rd.neednet=0 nomodeset foreman.url=http://xyz
     IPAPPEND 2
 
 to the end of the file.  Note the `foreman.url` option on the APPEND line,
@@ -159,22 +127,6 @@ booted from.
 _Warning_: For now, the selinux=0 option *must* be provided, the image is read
 only anyway but we plan to enable and test with SELinux too.
 
-An example complete *PXELinux global default* template for Discovery might look
-like this:
-
-    DEFAULT menu
-    PROMPT 0
-    MENU TITLE PXE Menu
-    TIMEOUT 200
-    TOTALTIMEOUT 6000
-    ONTIMEOUT discovery
-
-    LABEL discovery
-    MENU LABEL Foreman Discovery
-    KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-    APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 rd.bootif=0 rd.neednet=0 nomodeset selinux=0 stateless foreman.url=https://foreman.example.com
-    IPAPPEND 2
-
 # Configuration (plugin)
 
 No configuration of the plugin in the Foreman UI is required, but some
@@ -183,7 +135,7 @@ configuration is available.
 If Locations and/or Organisations are enabled, Foreman will default to using
 the first Location and first Organisation for Discovered hosts. If hosts should
 be placed in some other Location/Organization, alter the default Loc/Org in
-`More->Settings->Discovery Settings`
+`More->Settings->Discovered`
 
 There is also setting called `discovery_fact` which defaults to
 `discovery_bootif` which specifies which incoming fact should be used to get
@@ -193,11 +145,11 @@ the `IPAPPEND 2` option is set correctly in the Foreman template.
 
 # Usage
 
-Boot a machine using the new PXE config above. It should register with Foreman.
-The new Host should show up in `More->Provisioning->Discovered Hosts`. Then
-select a Discovered Host and choose Provision. This will redirect to the normal
-Edit page for a Host, with the discovered data filled in where possible. Fill
-in the details as normal.
+Boot a machine using the new PXE config above. It should register with
+Foreman. The new Host should show up in `Hosts->Discovered Hosts`. Then select
+a Discovered Host and choose Provision. This will redirect to the normal Edit
+page for a Host, with the discovered data filled in where possible. Fill in
+the details as normal.
 
 On save, a reboot is sent to the discovered host, after which it should reboot into
 the installer for the chosen OS, and finally into the installed OS.
@@ -221,25 +173,11 @@ If the booted machine fails to register with Foreman, then there are a number of
   * Check DNS is working for that image, or use an IP in `foreman.url`
   * Check DHCP is handing IPs to the booted image correctly
 
-When working with production images (no root password set), it is still
-possible to log on as root. Generate some root password:
+To log in the running image you need to set root password which is locked by
+default. In addition, you can enable ssh server as well. To do this, provide
+the following kernel command line options:
 
-    $ openssl passwd -salt RH redhat
-    RHhwCLrQXB8zE
-
-And then provide it as an kernel command line option:
-
-    APPEND ... rootpw=RHhwCLrQXB8zE
-
-Images with systemd allows interactive mode to be enabled to track down boot
-problems. Add the following to the kernel command line option:
-
-    APPEND ... systemd.confirm_spawn=true
-
-By default SSHD daemon is configured to disallow passwords. You can enable
-this with:
-
-    APPEND ... ssh_pwauth=1
+    APPEND ... fdi.ssh=1 fdi.rootpw=redhat
 
 # API
 
@@ -256,18 +194,9 @@ If you only wish to test the plugin code itself, you don't need to create the PX
 image above, or have a TFTP server to run it from. Simply POST a hash of Host Facts to
 `/api/v2/discovered_hosts/facts` to create a Discovered Host in the UI.
 
-# TODO
-
-* Support for downloading shell script for oVirt Node image
-* Add more Tests
-* Add proper Location/Organization handling (via a Wizard maybe?)
-* Add per-subnet discovery
-* Rake Task for ISO build
-* Easy way to add custom facts to build/runtime
-
 # Copyright
 
-Copyright (c) 2012-2013 Greg Sutcliffe
+Copyright (c) 2012-2014 Greg Sutcliffe and The Foreman developers
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
