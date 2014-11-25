@@ -18,7 +18,7 @@ class DiscoveredHostsController < ::ApplicationController
     search = resource_base.search_for(params[:search], :order => params[:order])
     respond_to do |format|
       format.html do
-        @hosts = search.paginate(:page => params[:page])
+        @hosts = search.includes(:location, :organization, :subnet, :model).paginate(:page => params[:page])
       end
       format.json { render :json => search }
     end
