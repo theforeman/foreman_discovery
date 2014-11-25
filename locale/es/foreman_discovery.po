@@ -5,14 +5,14 @@
 # 
 # Translators:
 # francis <hackgo@gmail.com>, 2013-2014
-# Sergio Ocón <sergio@redhat.com>, 2014
+# Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
+"Project-Id-Version: foreman_discovery 1.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 08:33+0100\n"
 "PO-Revision-Date: 2014-08-29 11:11+0000\n"
-"Last-Translator: Sergio Ocón <sergio@redhat.com>\n"
+"Last-Translator: Sergio Ocón <sergio.ocon@redhat.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/foreman/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
