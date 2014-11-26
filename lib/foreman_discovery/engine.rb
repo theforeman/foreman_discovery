@@ -1,5 +1,6 @@
 require 'fast_gettext'
 require 'gettext_i18n_rails'
+require 'deface'
 
 module ForemanDiscovery
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
@@ -26,6 +27,11 @@ module ForemanDiscovery
       locale_domain = 'foreman_discovery'
 
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
+    end
+
+    # Add any db migrations
+    initializer "foreman_discovery.load_app_instance_data" do |app|
+      app.config.paths['db/migrate'] += ForemanDiscovery::Engine.paths['db/migrate'].existent
     end
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
@@ -129,10 +135,16 @@ module ForemanDiscovery
       # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
       ::Hostgroup.send :include, HostgroupExtensions
+
+      # Include subnet extensions
+      ::Subnet.send :include, DiscoverySubnet
     end
 
     rake_tasks do
       load "discovery.rake"
+      Rake::Task['db:seed'].enhance do
+        ForemanDiscovery::Engine.load_seed
+      end
     end
 
   end

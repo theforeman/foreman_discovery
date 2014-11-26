@@ -97,10 +97,16 @@ class Host::Discovered < ::Host::Base
   def refresh_facts
     # TODO: Can we rely on self.ip? The lease might expire/change....
     begin
-      logger.debug "retrieving facts from proxy on ip: #{self.ip}"
-      facts = ForemanDiscovery::Facts.new(:url => "http://#{self.ip}:8443").facts
+      proxy_url = if subnet.present? && subnet.discovery.present?
+                      subnet.discovery.url + "/discovery/#{self.ip}"
+                  else
+                      "http://#{self.ip}:8443"
+                  end
+
+      logger.debug "retrieving facts from proxy from url: #{proxy_url}"
+      facts = ForemanDiscovery::Facts.new(:url => proxy_url).facts
     rescue Exception => e
-      raise _("Could not get facts from proxy: %s") % e
+      raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
     end
 
     return self.class.import_host_and_facts facts
