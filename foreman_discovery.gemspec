@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/theforeman/foreman_discovery}
   s.licenses = ["GPL-3"]
   s.summary = %q{MaaS Discovery Plugin for Foreman}
+
+  s.add_dependency 'deface', '< 1.0'
 end
