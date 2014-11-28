@@ -91,7 +91,7 @@ not registered in Foreman. To achieve this, the PXE default.cfg file needs to
 be altered to instruct new machines to boot the discovery image.
 
 In the Foreman UI, go to Provisioning Templates, edit *PXELinux global default*
-template and add:
+template and add the following after the "LABEL local" block of options:
 
     LABEL discovery
     MENU LABEL Foreman Discovery
@@ -100,10 +100,10 @@ template and add:
     APPEND initrd=boot/fdi-image/initrd0.img rootflags=loop root=live:/fdi.iso rootfstype=auto ro rd.live.image acpi=force rd.luks=0 rd.md=0 rd.dm=0 rd.lvm=0 rd.bootif=0 rd.neednet=0 nomodeset foreman.url=http://xyz
     IPAPPEND 2
 
-to the end of the file.  Note the `foreman.url` option on the APPEND line,
-which defines where foreman instance is. Make sure this is set correctly or
-discovered hosts will not register to Foreman.  Then make this the default by
-altering the `ONTIMEOUT` option:
+Note the `foreman.url` option on the APPEND line, which defines where the foreman 
+instance is. Make sure this is set correctly or discovered hosts will not 
+register to Foreman.  Then make this the default by altering the `ONTIMEOUT` 
+option:
 
     ONTIMEOUT discovery
 
