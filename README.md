@@ -127,6 +127,12 @@ booted from.
 _Warning_: For now, the selinux=0 option *must* be provided, the image is read
 only anyway but we plan to enable and test with SELinux too.
 
+## Updating the on-disk `default` file
+
+Once the template has been updated, click the Build PXE Default button at the top
+of the Provisioning Templates page. This will instruct the TFTP proxy to rewrite
+the `pxelinux.cfg/default` file.
+
 # Configuration (plugin)
 
 No configuration of the plugin in the Foreman UI is required, but some
