@@ -97,13 +97,20 @@ template and add the following after the "LABEL local" block of options:
     MENU LABEL Foreman Discovery
     MENU DEFAULT
     KERNEL boot/fdi-image/vmlinuz0
-    APPEND initrd=boot/fdi-image/initrd0.img rootflags=loop root=live:/fdi.iso rootfstype=auto ro rd.live.image acpi=force rd.luks=0 rd.md=0 rd.dm=0 rd.lvm=0 rd.bootif=0 rd.neednet=0 nomodeset foreman.url=http://xyz
+    APPEND initrd=boot/fdi-image/initrd0.img rootflags=loop root=live:/fdi.iso rootfstype=auto ro rd.live.image acpi=force rd.luks=0 rd.md=0 rd.dm=0 rd.lvm=0 rd.bootif=0 rd.neednet=0 nomodeset proxy.url=http://xyz proxy.type=proxy
     IPAPPEND 2
 
-Note the `foreman.url` option on the APPEND line, which defines where the foreman
-instance is. Make sure this is set correctly or discovered hosts will not
-register to Foreman.  Then make this the default by altering the `ONTIMEOUT`
-option:
+The `proxy.type` option can be either `proxy` or `foreman`. In the first case
+all communication goes through Smart Proxy, in the latter case the
+communication goes directly to Foreman (legacy mode). This is the default when
+not specified.
+
+The `proxy.url` specifies URL of the Smart Proxy or Foreman depending on the
+previous setting. Both http and https schemes are supported. For backward
+compatibility, `foreman.url` is an alias for this setting.
+
+Once the APPEND line is modified properly, set the entry to be default via the
+`ONTIMEOUT` option:
 
     ONTIMEOUT discovery
 
