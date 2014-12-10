@@ -25,7 +25,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '> 1.5'
+        requires_foreman '> 1.7'
 
         # Add permissions
         security_block :discovery do
@@ -61,12 +61,12 @@ module ForemanDiscovery
 
         # add dashboard widget
         widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
+        apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
       end
     end
     initializer "foreman_discovery.apipie" do
       # this condition is here for compatibility reason to work with Foreman 1.4.x
-      if Apipie.configuration.api_controllers_matcher.is_a?(Array) && Apipie.configuration.respond_to?(:checksum_path)
-        Apipie.configuration.api_controllers_matcher << "#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"
+      if Apipie.configuration.respond_to?(:checksum_path)
         Apipie.configuration.checksum_path += ['/discovered_hosts/']
       end
     end
