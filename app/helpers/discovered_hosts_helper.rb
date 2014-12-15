@@ -10,6 +10,9 @@ module DiscoveredHostsHelper
         link_to(_("Provision"), hash_for_edit_discovered_host_path(:id => host), :class => 'btn-primary')
       ),
       button_group(
+        link_to(_("Auto Provision"), hash_for_auto_provision_discovered_host_path(:id => host), :method => :post)
+      ),
+      button_group(
         link_to(_("Refresh facts"), hash_for_refresh_facts_discovered_host_path(:id => host))
       ),
       button_group(

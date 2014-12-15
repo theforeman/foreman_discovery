@@ -1,8 +1,9 @@
 module Api
   module V2
     class DiscoveredHostsController < ::Api::V2::BaseController
+      include Foreman::Controller::DiscoveredExtensions
 
-      before_filter :find_resource, :except => %w{index create facts}
+      before_filter :find_resource, :except => %w{index create facts auto_provision_all}
       skip_before_filter :authorize, :only => :facts
 
       resource_description do
@@ -95,9 +96,59 @@ module Api
 
       def facts
         @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
+        if state && rule = find_discovery_rule(@discovered_host)
+          state = perform_auto_provision(@discovered_host.becomes(::Host::Managed), rule) if Setting['discovery_auto']
+        else
+          Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
+        end
         process_response state
       rescue ::Foreman::Exception => e
         render :json => {'message'=>e.to_s}, :status => :unprocessable_entity
+      end
+
+      api :POST, "/discovered_hosts/:id/auto_provision", N_("Execute rules against a discovered host")
+
+      def auto_provision
+        @discovered_host.transaction do
+          if rule = find_discovery_rule(@discovered_host)
+            msg = _("Host %s was provisioned with rule %s") % [@discovered_host.name, rule.name]
+            process_response perform_auto_provision(@discovered_host.becomes(::Host::Managed), rule), msg
+          else
+            process_success _("No rule found for host %s") % @discovered_host.name
+          end
+        end
+      rescue ::Foreman::Exception => e
+        render :json => {'message' => e.to_s}, :status => :unprocessable_entity
+      end
+
+      api :POST, "/discovered_hosts/auto_provision_all", N_("Execute rules against all currently discovered hosts")
+
+      def auto_provision_all
+        result = true
+        Host.transaction do
+          overall_errors = ""
+          Host::Discovered.all.each do |discovered_host|
+            if rule = find_discovery_rule(discovered_host)
+              result &= perform_auto_provision(discovered_host.becomes(::Host::Managed), rule)
+              unless discovered_host.errors.empty?
+                errors = discovered_host.errors.full_messages.join(' ')
+                logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors] 
+                overall_errors << "#{discovered_host.name}: #{errors} "
+              end
+            else
+              logger.warn "No rule found for host %s" % discovered_host.name
+            end
+          end
+          if result
+            process_success _("Discovered hosts are provisioning now")
+          else
+            render_error :custom_error,
+              :status => :unprocessable_entity,
+              :locals => {
+                :message => _("Errors during auto provisioning: %s") % overall_errors
+              }
+          end
+        end
       end
 
       private
@@ -108,6 +159,17 @@ module Api
 
       def forward_request_url
         @discovered_host.request_url = request.host_with_port if @discovered_host.respond_to?(:request_url)
+      end
+
+      def action_permission
+        case params[:action]
+          when 'auto_provision'
+            :auto_provision
+          when 'auto_provision_all'
+            :auto_provision_all
+          else
+            super
+        end
       end
 
     end
