@@ -43,6 +43,9 @@ Rails.application.routes.draw do
           post 'facts'
           post 'auto_provision_all'
         end
+        member do
+          put 'refresh_facts'
+        end
       end
       resources :discovery_rules, :except => [:new, :edit]
     end

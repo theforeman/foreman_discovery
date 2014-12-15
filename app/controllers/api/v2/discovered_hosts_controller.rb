@@ -132,7 +132,7 @@ module Api
               result &= perform_auto_provision(discovered_host.becomes(::Host::Managed), rule)
               unless discovered_host.errors.empty?
                 errors = discovered_host.errors.full_messages.join(' ')
-                logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors] 
+                logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
                 overall_errors << "#{discovered_host.name}: #{errors} "
               end
             else
@@ -151,6 +151,15 @@ module Api
         end
       end
 
+      api :PUT, "/discovered_hosts/:id/refresh_facts", N_("Refreshing the facts of a discovered host")
+      param :id, :identifier, :required => true
+
+      def refresh_facts
+        process_response @discovered_host.refresh_facts
+      rescue ::Foreman::Exception => e
+        render :json => { 'message' => e.to_s }
+      end
+
       private
 
       def resource_class
@@ -167,6 +176,8 @@ module Api
             :auto_provision
           when 'auto_provision_all'
             :auto_provision_all
+          when 'refresh_facts'
+            :edit
           else
             super
         end
