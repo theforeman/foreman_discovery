@@ -1,14 +1,19 @@
 require 'foreman_discovery/facts'
 
 class Host::Discovered < ::Host::Base
+  include ScopedSearchExtensions
 
   belongs_to :location
   belongs_to :organization
   belongs_to :subnet
   belongs_to :hostgroup
+  has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
 
   validates :mac, :uniqueness => true, :mac_address => true, :presence => true
   validates :ip, :format => {:with => Net::Validations::IP_REGEXP}, :uniqueness => true
+  validates :discovery_attribute_set, :presence => true
+
+  delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
 
   scoped_search :on => :name, :complete_value => true, :default_order => true
   scoped_search :on => :last_report, :complete_value => true
@@ -19,6 +24,10 @@ class Host::Discovered < ::Host::Base
   scoped_search :in => :location, :on => :name, :rename => :location, :complete_value => true         if SETTINGS[:locations_enabled]
   scoped_search :in => :organization, :on => :name, :rename => :organization, :complete_value => true if SETTINGS[:organizations_enabled]
   scoped_search :in => :subnet, :on => :network, :complete_value => true, :rename => :subnet
+  scoped_search :in => :discovery_attribute_set, :on => :cpu_count, :rename => :cpu_count, :complete_value => true, :only_explicit => true
+  scoped_search :in => :discovery_attribute_set, :on => :memory, :rename => :memory, :complete_value => true, :only_explicit => true
+  scoped_search :in => :discovery_attribute_set, :on => :disk_count, :rename => :disk_count, :complete_value => true, :only_explicit => true
+  scoped_search :in => :discovery_attribute_set, :on => :disks_size, :rename => :disks_size, :complete_value => true, :only_explicit => true
 
   default_scope lambda {
     org = Organization.current
@@ -86,7 +95,25 @@ class Host::Discovered < ::Host::Base
       importer = super(facts)
     end
     self.subnet = Subnet.subnet_for(importer.ip)
+    self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
+    self.discovery_attribute_set.update_attributes(import_from_facts)
     self.save
+  end
+
+  def import_from_facts(facts = self.facts_hash)
+    cpu_count  = facts['physicalprocessorcount'].to_i rescue 0
+    memory     = facts['memorysize_mb'].to_f.ceil rescue 0
+    disks      = facts.select { |key, value| key.to_s =~ /blockdevice.*_size/ }
+    disks_size = 0
+    disk_count = 0
+
+    if disks.any?
+      disks.values.each { |size| disks_size += (size.to_f rescue 0) }
+      disk_count = disks.size
+      disks_size = disks_size.ceil
+    end
+
+    {:cpu_count => cpu_count, :memory => memory, :disk_count => disk_count, :disks_size => disks_size}
   end
 
   # no need to store anything in the db if the password is our default

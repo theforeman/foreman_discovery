@@ -101,7 +101,7 @@ module ForemanDiscovery
           :after=> :hostgroups
 
         # add dashboard widget
-        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 4, :sizey =>1
+        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 7, :sizey =>1
 
         # add template helpers
         allowed_template_helpers :rand, :facts_hash

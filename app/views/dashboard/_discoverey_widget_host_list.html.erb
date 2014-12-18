@@ -1,0 +1,22 @@
+<table class="table table-striped ellipsis">
+  <thead>
+  <th>host</th>
+  <th>ip</th>
+  <th>cpu count</th>
+  <th>memory</th>
+  <th>disk count</th>
+  <th>disks size</th>
+  </thead>
+  <tbody>
+  <% hosts.each do |host| %>
+      <tr>
+        <td><%= link_to h(host.name), discovered_host_path(host) %></td>
+        <td><%= host.ip %></td>
+        <td><%= turn_zero_to_not_available(host.discovery_attribute_set.cpu_count) %></td>
+        <td><%= number_to_human_size(turn_zero_to_not_available(host.discovery_attribute_set.memory * 1024 * 1024)) %></td>
+        <td><%= turn_zero_to_not_available(host.discovery_attribute_set.disk_count) %></td>
+        <td><%= number_to_human_size(host.discovery_attribute_set.disks_size) %></td>
+      </tr>
+      </tbody>
+  <% end %>
+  </table>

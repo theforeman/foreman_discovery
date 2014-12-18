@@ -5,6 +5,10 @@
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class=''><%= sort :name, :as => _('Name') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :model, :as => _('Model') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :cpu_count, :as => _('CPU') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :memory, :as => _('Memory') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk count') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks size') %></th>
     <% if SETTINGS[:locations_enabled] -%>
       <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
     <% end -%>
@@ -22,6 +26,10 @@
       </td>
       <td><%= link_to("#{host}", discovered_host_path(host) ) %> </td>
       <td class="hidden-tablet hidden-xs"><%= model_name host %></td>
+      <td class="hidden-tablet hidden-xs"><%= turn_zero_to_not_available(host.discovery_attribute_set.cpu_count) %></td>
+      <td class="hidden-tablet hidden-xs"><%= number_to_human_size(turn_zero_to_not_available(host.discovery_attribute_set.memory * 1024 * 1024)) %></td>
+      <td class="hidden-tablet hidden-xs"><%= turn_zero_to_not_available(host.discovery_attribute_set.disk_count) %></td>
+      <td class="hidden-tablet hidden-xs"><%= number_to_human_size(host.discovery_attribute_set.disks_size) %></td>
       <% if SETTINGS[:locations_enabled] -%>
         <td class="hidden-tablet hidden-xs"><%= host.location.try(:name) %></td>
       <% end -%>

@@ -35,4 +35,8 @@ module DiscoveredHostsHelper
 
   end
 
+  def turn_zero_to_not_available(value)
+    value == 0 ? 'N/A' : value
+  end
+
 end
