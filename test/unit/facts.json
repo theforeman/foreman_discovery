@@ -88,6 +88,8 @@
     "lsbmajdistrelease": "6",
     "swapfree": "16.72 GB",
     "netmask": "255.255.255.192",
-    "discovery_bootif": "AA:BB:CC:DD:EE:FF"
+    "discovery_bootif": "AA:BB:CC:DD:EE:FF",
+    "memorysize_mb": "742.13",
+    "blockdevice_sda_size": "214749184"
   }
 }

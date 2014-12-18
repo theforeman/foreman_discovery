@@ -81,7 +81,13 @@ module Api
         @host.managed = true
         @host.build   = true
         forward_request_url
-        process_response @host.update_attributes(params[:discovered_host])
+        update_response = @host.update_attributes(params[:discovered_host])
+        Host.transaction do
+          if update_response
+            delete_discovery_attribute_set(@host.id)
+          end
+        end
+        process_response update_response
       end
 
       api :DELETE, "/discovered_hosts/:id/", N_("Delete a discovered host")
@@ -97,7 +103,7 @@ module Api
       def facts
         @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
         if state && rule = find_discovery_rule(@discovered_host)
-          state = perform_auto_provision(@discovered_host.becomes(::Host::Managed), rule) if Setting['discovery_auto']
+          state = perform_auto_provision(@discovered_host, rule) if Setting['discovery_auto']
         else
           Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
         end
@@ -112,7 +118,7 @@ module Api
         @discovered_host.transaction do
           if rule = find_discovery_rule(@discovered_host)
             msg = _("Host %s was provisioned with rule %s") % [@discovered_host.name, rule.name]
-            process_response perform_auto_provision(@discovered_host.becomes(::Host::Managed), rule), msg
+            process_response perform_auto_provision(@discovered_host, rule), msg
           else
             process_success _("No rule found for host %s") % @discovered_host.name
           end
@@ -129,7 +135,7 @@ module Api
           overall_errors = ""
           Host::Discovered.all.each do |discovered_host|
             if rule = find_discovery_rule(discovered_host)
-              result &= perform_auto_provision(discovered_host.becomes(::Host::Managed), rule)
+              result &= perform_auto_provision(discovered_host, rule)
               unless discovered_host.errors.empty?
                 errors = discovered_host.errors.full_messages.join(' ')
                 logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
