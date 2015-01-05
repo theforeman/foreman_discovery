@@ -52,8 +52,8 @@ module ForemanDiscovery
             :discovered_hosts          => [:edit, :update, :update_multiple_location,
                                            :select_multiple_organization,
                                            :update_multiple_organization,
-                                           :select_multiple_location, :refresh_facts],
-                                           :"api/v2/discovered_hosts" => [:update, :facts, :refresh_facts]
+                                           :select_multiple_location, :refresh_facts, :reboot],
+            :"api/v2/discovered_hosts" => [:update, :facts, :refresh_facts, :reboot]
           }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
             :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],

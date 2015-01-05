@@ -16,14 +16,7 @@ module Host::ManagedExtensions
   end
 
   def setReboot
-    logger.info "ForemanDiscovery: Rebooting #{name} as its being discovered and assigned"
-    if ::ProxyAPI::BMC.new(:url => "http://#{old.try(:ip) || ip}:8443").power :action => "cycle"
-      logger.info "ForemanDiscovery: reboot result: successful"
-    else
-      logger.info "ForemanDiscovery: reboot result: failed"
-    end
-  rescue => e
-    failure _("Failed to reboot: %s") % e.message
+    old.becomes(Host::Discovered).reboot
   end
 
   def delReboot

@@ -1,7 +1,6 @@
-require 'foreman_discovery/facts'
+require 'foreman_discovery/proxy_operations'
 
 class Host::Discovered < ::Host::Base
-
   belongs_to :location
   belongs_to :organization
   belongs_to :subnet
@@ -94,22 +93,43 @@ class Host::Discovered < ::Host::Base
     read_attribute(:root_pass).blank? ? (hostgroup.try(:root_pass) || Setting[:root_pass]) : read_attribute(:root_pass)
   end
 
+  def proxy_url
+    if subnet.present? && subnet.discovery.present?
+      { :url => subnet.discovery.url + "/discovery/#{self.ip}", :type => 'proxy'}
+    else
+      { :url => "http://#{self.ip}:8443", :type => 'foreman' }
+    end
+  end
+
   def refresh_facts
     # TODO: Can we rely on self.ip? The lease might expire/change....
     begin
-      proxy_url = if subnet.present? && subnet.discovery.present?
-                      subnet.discovery.url + "/discovery/#{self.ip}"
-                  else
-                      "http://#{self.ip}:8443"
-                  end
-
-      logger.debug "retrieving facts from proxy from url: #{proxy_url}"
-      facts = ForemanDiscovery::Facts.new(:url => proxy_url).facts
+      logger.debug "retrieving facts from proxy from url: #{proxy_url[:url]}"
+      facts = ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'facts').parse_get_operation
     rescue Exception => e
-      raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
+      raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url[:url], :error => e}
     end
 
     return self.class.import_host_and_facts facts
+  end
+
+  def reboot
+    logger.info "ForemanDiscovery: Rebooting #{name}"
+    proxy_url = self.proxy_url
+
+    if proxy_url[:type] == 'proxy'
+      status = ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'reboot').parse_put_operation
+    else
+      status = ::ProxyAPI::BMC.new(:url => "http://#{self.ip}:8443").power :action => "cycle"
+    end
+
+    msg = status ? 'successful' : 'failed'
+    logger.info "ForemanDiscovery: reboot result: #{msg}"
+    status
+    rescue => e
+      logger.info "ForemanDiscovery: reboot result: failed"
+      logger.warn e.backtrace.join('\n')
+      raise e
   end
 
   def self.model_name
