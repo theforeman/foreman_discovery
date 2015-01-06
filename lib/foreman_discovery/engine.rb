@@ -22,6 +22,16 @@ module ForemanDiscovery
       ActionView::Base.send :include, DiscoveredHostsHelper
     end
 
+    initializer "foreman_discovery.assets.precompile" do |app|
+      app.config.assets.precompile += %w(foreman_discovery/discovery-two-pane.js
+                                         foreman_discovery/discovery-two-pane.scss)
+    end
+
+    initializer 'foreman_discovery.configure_assets', :group => :assets do
+      SETTINGS[:foreman_discovery] =
+          { :assets => { :precompile => ['foreman_discovery/discovery-two-pane.js', 'foreman_discovery/discovery-two-pane.scss'] } }
+    end
+
     initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
       locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
       locale_domain = 'foreman_discovery'

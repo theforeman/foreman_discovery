@@ -1,16 +1,24 @@
-<% title(_("Discovered host: %s") % @host.to_label) %>
-
-<%= discovered_hosts_title_actions(@host) %>
-
-<h3><%= _('Facts discovered on this host') -%></h3>
-<table class="table table-bordered table-striped table-condensed">
-  <tr>
-    <th><%= _('Fact') -%></th>
-    <th><%= _('Value') -%></th>
-  <% @host.facts_hash.sort.each do |fact| -%>
-    <tr>
-      <td><%= fact[0] %></td>
-      <td><%= truncate(fact[1], :length => 100) %></td>
-    </tr>
-  <% end -%>
-</table>
+<%= form_for @host do |f| %>
+    <div class="tab-content">
+      <div class="display-tab-pane" id="primary">
+        <%= discovered_hosts_actions(@host) %>
+        <h3><%= _('Facts discovered on this host') -%></h3>
+        <table class="table table-bordered table-striped table-condensed">
+          <thead>
+            <tr>
+                <th><%= _('Fact') -%></th>
+                <th><%= _('Value') -%></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% f.object.facts_hash.sort.each do |fact| -%>
+              <tr>
+                <td><%= fact[0] %></td>
+                <td><%= trunc(fact[1], 80) %></td>
+              </tr>
+            <% end -%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<% end %>
