@@ -72,7 +72,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
-    perform_auto_provision host.becomes(Host::Managed), r1
+    perform_auto_provision host, r1
     assert_equal host.managed, true
     assert_equal host.build, true
     assert_equal host.hostgroup_id, r1.hostgroup_id
@@ -91,7 +91,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
-    perform_auto_provision host.becomes(Host::Managed), r1
+    perform_auto_provision host, r1
     assert_equal host.name, "macaabbccddeeff"
   end
 
@@ -99,7 +99,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostname => 'x<%= 1+1 %>')
-    perform_auto_provision host.becomes(Host::Managed), r1
+    perform_auto_provision host, r1
     assert_equal host.name, "x2"
   end
 

@@ -19,7 +19,7 @@ class DiscoveredHostsController < ::ApplicationController
     search = resource_base.search_for(params[:search], :order => params[:order])
     respond_to do |format|
       format.html do
-        @hosts = search.paginate(:page => params[:page])
+        @hosts = search.includes(:location, :organization, :subnet, :model, :discovery_attribute_set).paginate(:page => params[:page])
       end
       format.json { render :json => search }
     end
@@ -59,10 +59,12 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def edit
-    @host         = @host.becomes(::Host::Managed)
-    @host.type    = 'Host::Managed'
-    @host.managed = true
-    @host.build   = true
+    unless @host.nil?
+      @host         = @host.becomes(::Host::Managed)
+      @host.type    = 'Host::Managed'
+      @host.managed = true
+      @host.build   = true
+    end
 
     render :template => 'hosts/edit'
   end
@@ -72,13 +74,16 @@ class DiscoveredHostsController < ::ApplicationController
     @host.type    = 'Host::Managed'
     forward_url_options
     Taxonomy.no_taxonomy_scope do
-      if @host.update_attributes(params[:host])
-        process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
-      else
-        taxonomy_scope
-        load_vars_for_ajax
-        offer_to_overwrite_conflicts
-        process_error :object => @host, :render => 'hosts/edit'
+      Host.transaction do
+        if @host.update_attributes(params[:host])
+          delete_discovery_attribute_set(@host.id)
+          process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
+        else
+          taxonomy_scope
+          load_vars_for_ajax
+          offer_to_overwrite_conflicts
+          process_error :object => @host, :render => 'hosts/edit'
+        end
       end
     end
   end
@@ -125,7 +130,7 @@ class DiscoveredHostsController < ::ApplicationController
   def auto_provision
     @host.transaction do
       if rule = find_discovery_rule(@host)
-        if perform_auto_provision(@host.becomes(::Host::Managed), rule)
+        if perform_auto_provision(@host, rule)
           process_success :success_msg => _("Host %s was provisioned with rule %s") % [@host.name, rule.name], :success_redirect => :back
         else
           errors = @host.errors.full_messages.join(' ')
@@ -144,7 +149,7 @@ class DiscoveredHostsController < ::ApplicationController
       overall_errors = ""
       Host::Discovered.all.each do |discovered_host|
         if rule = find_discovery_rule(discovered_host)
-          result &= perform_auto_provision(discovered_host.becomes(::Host::Managed), rule)
+          result &= perform_auto_provision(discovered_host, rule)
           unless discovered_host.errors.empty?
             errors = discovered_host.errors.full_messages.join(' ')
             logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
