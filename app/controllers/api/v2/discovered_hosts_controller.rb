@@ -113,6 +113,7 @@ module Api
       end
 
       api :POST, "/discovered_hosts/:id/auto_provision", N_("Execute rules against a discovered host")
+      param :id, :identifier, :required => true
 
       def auto_provision
         @discovered_host.transaction do
