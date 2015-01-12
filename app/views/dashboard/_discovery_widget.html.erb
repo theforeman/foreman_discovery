@@ -4,7 +4,7 @@
 <% if hosts.empty? %>
    <p class="ca"><%= _("No discovered hosts available") %></p>
 <% else %>
-    <%= render :partial => 'discoverey_widget_host_list', :locals => { :hosts => hosts } %>
+    <%= render :partial => 'discovery_widget_host_list', :locals => { :hosts => hosts } %>
     <p class="ca"><%= link_to n_("Total pool size", "Total pool size", all_hosts.size), discovered_hosts_path %>
       - <%= all_hosts.size %> </p>
 <% end %>
