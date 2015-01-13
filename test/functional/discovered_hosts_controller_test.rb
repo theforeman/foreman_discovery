@@ -85,17 +85,26 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     Host::Discovered.import_host_and_facts(facts).first
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
-    post :auto_provision_all, {}, set_session_user
-    assert_response :redirect
-    assert_nil flash[:error]
+    get :auto_provision_all, {}, set_session_user
+    assert_response :success
   end
 
-  def test_auto_provision_all_no_rule_success
+  def test_submit_auto_provision_all_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     Host::Discovered.import_host_and_facts(facts).first
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
-    post :auto_provision_all, {}, set_session_user
+    post :submit_auto_provision_all, {}, set_session_user
+    assert_response :redirect
+    assert_nil flash[:error]
+  end
+
+  def test_submit_auto_provision_all_no_rule_success
+    disable_orchestration
+    facts = @facts.merge({"somefact" => "abc"})
+    Host::Discovered.import_host_and_facts(facts).first
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    post :submit_auto_provision_all, {}, set_session_user
     assert_response :redirect
     assert_nil flash[:error]
   end

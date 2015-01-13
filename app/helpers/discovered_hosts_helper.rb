@@ -40,4 +40,9 @@ module DiscoveredHostsHelper
     value == 0 ? 'N/A' : value
   end
 
+  def get_rule_attributes rule, attr, default_value = nil
+    return rule.last.try(attr) if rule.last # rule.last is a DiscoveryRule or false
+    default_value
+  end
+
 end

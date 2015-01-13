@@ -21,4 +21,8 @@ class DiscoveryRule < ActiveRecord::Base
 
   scoped_search :on => :name, :complete_value => :true
   scoped_search :on => :priority
+
+  def has_free_slots?
+    max_count == 0 || hosts.size < max_count
+  end
 end
