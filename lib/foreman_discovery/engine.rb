@@ -36,7 +36,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '> 1.7'
+        requires_foreman '>= 1.6'
 
         # discovered hosts permissions
         security_block :discovery do
@@ -107,7 +107,10 @@ module ForemanDiscovery
         allowed_template_helpers :rand, :facts_hash
 
         # apipie API documentation
-        apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
+        # Only available in 1.8, otherwise it has to be in the initializer below
+        if (SETTINGS[:version].to_s.include?('develop') or Gem::Version.new(SETTINGS[:version]) >= Gem::Version.new('1.8'))
+          apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
+        end
       end
     end
 
@@ -117,6 +120,12 @@ module ForemanDiscovery
 
     initializer "foreman_discovery.apipie" do
       # this condition is here for compatibility reason to work with Foreman 1.4.x
+      # Also need to handle the reverse of the 1.8 method above
+      unless (SETTINGS[:version].to_s.include?('develop') or Gem::Version.new(SETTINGS[:version]) >= Gem::Version.new('1.8'))
+        if Apipie.configuration.api_controllers_matcher.is_a?(Array)
+          Apipie.configuration.api_controllers_matcher << "#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"
+        end
+      end
       if Apipie.configuration.respond_to?(:checksum_path)
         Apipie.configuration.checksum_path += ['/discovered_hosts/']
       end
