@@ -131,6 +131,13 @@ module Api
 
       def auto_provision_all
         result = true
+        error_message = _("Errors during auto provisioning: %s")
+
+        if  Host::Discovered.count == 0
+          error_message = _("No discovered hosts to provision")
+          result = false
+        end
+
         Host.transaction do
           overall_errors = ""
           Host::Discovered.all.each do |discovered_host|
@@ -145,13 +152,14 @@ module Api
               logger.warn "No rule found for host %s" % discovered_host.name
             end
           end
+
           if result
             process_success _("Discovered hosts are provisioning now")
           else
             render_error :custom_error,
               :status => :unprocessable_entity,
               :locals => {
-                :message => _("Errors during auto provisioning: %s") % overall_errors
+                :message => error_message % overall_errors
               }
           end
         end
