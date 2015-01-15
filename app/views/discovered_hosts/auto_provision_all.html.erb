@@ -1,0 +1,33 @@
+<% title(_("Discovered hosts to provision")) %>
+<% stylesheet("provision") %>
+
+<%= form_tag submit_auto_provision_all_discovered_hosts_path do -%>
+
+    <div class="btn-toolbar pull-right row-button">
+      <%= link_to _("Cancel"), send("#{controller_name}_path"), :class => "btn btn-default" %>
+      <%= submit_tag _('Start'), :class => "btn btn-success" %>
+    </div>
+
+    <table class="table table-bordered table-striped table-condensed">
+      <thead>
+        <tr>
+          <th class=''><%= _('Name') %></th>
+          <th class=''><%= _('Rule') %></th>
+          <th class=''><%= _('Query') %></th>
+          <th class=''><%= _('Priority') %></th>
+          <th class=''><%= _('Hostgroup') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rules.each do |rule| -%>
+            <tr>
+                <td><%= rule.first %></td>
+                <td><%= get_rule_attributes(rule, :name) %></td>
+                <td><%= get_rule_attributes(rule, :search) %></td>
+                <td><%= get_rule_attributes(rule, :priority) %></td>
+                <td><%= label_with_link get_rule_attributes(rule, :hostgroup) %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% end %>

@@ -10,7 +10,7 @@ module Foreman::Controller::DiscoveredExtensions
       usage = rule.hosts.size
       Rails.logger.debug "Found rule #{rule.name} (#{rule.id}) [#{usage}/#{max}]"
       # if the rule has free slots
-      if max == 0 || usage < max
+      if rule.has_free_slots?
         # try to match the search
         begin
           if Host::Discovered.where(:id => host.id).search_for(rule.search).size > 0

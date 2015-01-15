@@ -10,6 +10,7 @@ class DiscoveredHostsController < ::ApplicationController
   before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert reboot auto_provision]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
   before_filter :taxonomy_scope, :only => [:edit]
+  before_filter :find_rules, :only => [:auto_provision_all, :submit_auto_provision_all]
 
   helper :hosts
 
@@ -159,11 +160,14 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def auto_provision_all
+  end
+
+  def submit_auto_provision_all
     result = true
     Host.transaction do
       overall_errors = ""
       Host::Discovered.all.each do |discovered_host|
-        if rule = find_discovery_rule(discovered_host)
+        if rule = @rules[discovered_host.name] && rule.has_free_slots?
           result &= perform_auto_provision(discovered_host, rule)
           unless discovered_host.errors.empty?
             errors = discovered_host.errors.full_messages.join(' ')
@@ -173,9 +177,9 @@ class DiscoveredHostsController < ::ApplicationController
         end
       end
       if result
-        process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => :back
+        process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => discovered_hosts_path
       else
-        process_error :error_msg => _("Errors during auto provisioning: %s") % overall_errors, :redirect => :back
+        process_error :error_msg => _("Errors during auto provisioning: %s") % overall_errors, :redirect => discovered_hosts_path
       end
     end
   end
@@ -223,7 +227,7 @@ class DiscoveredHostsController < ::ApplicationController
         :destroy
       when 'auto_provision'
         :auto_provision
-      when 'auto_provision_all'
+      when 'auto_provision_all', 'submit_auto_provision_all'
         :auto_provision_all
       else
         super
@@ -254,6 +258,14 @@ class DiscoveredHostsController < ::ApplicationController
   rescue => e
     error _("Something went wrong while selecting hosts - %s") % e
     redirect_to discovered_hosts_path
+  end
+
+  def find_rules
+    @rules = {}
+    Host::Discovered.all.each do |discovered_host|
+      @rules[discovered_host.name] = find_discovery_rule(discovered_host)
+    end
+    @rules
   end
 
   def get_ip_from_env

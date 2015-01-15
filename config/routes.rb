@@ -21,7 +21,8 @@ Rails.application.routes.draw do
         get  'select_multiple_location'
         post 'update_multiple_location'
         get  'auto_complete_search'
-        post 'auto_provision_all'
+        get 'auto_provision_all'
+        post 'submit_auto_provision_all'
       end
     end
   end
