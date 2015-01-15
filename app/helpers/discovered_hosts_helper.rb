@@ -40,4 +40,8 @@ module DiscoveredHostsHelper
     value == 0 ? 'N/A' : value
   end
 
+  def discovery_attribute(host, attr, default_value = _('N/A'))
+    host.try(:discovery_attribute_set).try(attr) || default_value
+  end
+
 end
