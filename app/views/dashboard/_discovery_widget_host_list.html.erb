@@ -1,0 +1,17 @@
+<table class="table table-striped ellipsis">
+  <thead>
+  <th>host</th>
+  <th>model</th>
+  <th>ip</th>
+  <th>cpu count</th>
+  <th>memory</th>
+  </thead>
+  <tbody>
+  <% hosts.each do |host| %>
+    <tr>
+      <%= render :partial => "discovered_hosts/discovered_host", :locals => {
+        :host => host, :hide_disk => true } %>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

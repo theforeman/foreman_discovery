@@ -1,0 +1,10 @@
+<td><%= link_to h(host.name), discovered_host_path(host) %></td>
+<td class="hidden-tablet hidden-xs"><%= model_name host %></td>
+<td class="hidden-tablet hidden-xs"><%= host.ip %></td>
+<td class="hidden-tablet hidden-xs"><%= discovery_attribute(host, :cpu_count) %></td>
+<td class="hidden-tablet hidden-xs"><%= number_to_human_size(discovery_attribute(host, :memory, 0) * 1024 * 1024) %></td>
+<% unless defined? hide_disk %>
+<td class="hidden-tablet hidden-xs"><%= discovery_attribute(host, :disk_count) %></td>
+<td class="hidden-tablet hidden-xs"><%= number_to_human_size(discovery_attribute(host, :disks_size, 0)) %></td>
+<% end %>
+

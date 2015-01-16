@@ -9,6 +9,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
       "ipaddress" => "192.168.100.42",
       "macaddress" => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
+      "memorysize_mb" => "42000.42",
     }
     FactoryGirl.create(:setting,
                        :name => 'discovery_auto',
@@ -16,9 +17,21 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :category => 'Setting::Discovered')
   end
 
-  test "should get index" do
+  def test_get_index
     get :index, { }
     assert_response :success
+  end
+
+  def test_show_host
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    get :show, { :id => host.id }
+    assert_response :success
+    show_response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "macaabbccddeeff", show_response["name"]
+    assert_equal 42001, show_response["memory"]
+    assert_equal 0, show_response["disk_count"]
+    assert_equal 0, show_response["disks_size"]
+    assert_equal "Empty Organization", show_response["organization_name"]
   end
 
   def test_auto_provision_success_via_upload
