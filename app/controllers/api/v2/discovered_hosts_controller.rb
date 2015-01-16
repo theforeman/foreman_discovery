@@ -101,11 +101,16 @@ module Api
       param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host")
 
       def facts
-        @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
-        if state && rule = find_discovery_rule(@discovered_host)
-          state = perform_auto_provision(@discovered_host, rule) if Setting['discovery_auto']
-        else
-          Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
+        state = true
+        Host.transaction do
+          @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
+        end
+        @discovered_host.transaction do
+          if state && rule = find_discovery_rule(@discovered_host)
+            state = perform_auto_provision(@discovered_host, rule) if Setting['discovery_auto']
+          else
+            Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning" if Setting['discovery_auto']
+          end
         end
         process_response state
       rescue ::Foreman::Exception => e
