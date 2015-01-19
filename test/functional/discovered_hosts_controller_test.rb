@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class DiscoveredHostsControllerTest < ActionController::TestCase
   setup :initialize_host
-  
+
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
@@ -14,6 +14,18 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_index
     get :index, {}, set_session_user
+    assert_response :success
+  end
+
+  def test_index_with_custom_column
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_fact_column',
+                       :value => "bios_vendor",
+                       :category => 'Setting::Discovered')
+    facts = @facts.merge({"bios_vendor" => "QEMU"})
+    Host::Discovered.import_host_and_facts(facts).first
+    get :index, {}, set_session_user
+    assert_select "td", /QEMU/
     assert_response :success
   end
 

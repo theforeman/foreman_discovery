@@ -1,6 +1,7 @@
 class Setting::Discovered < ::Setting
   BLANK_ATTRS << "discovery_location"
   BLANK_ATTRS << "discovery_organization"
+  BLANK_ATTRS << "discovery_fact_column"
 
   def self.load_defaults
     # Check the table exists
@@ -15,7 +16,13 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-          self.set('discovery_prefix', _("The default prefix to use for the host name, must start with a letter"), "mac"),
+        self.set('discovery_prefix', _("The default prefix to use for the host name, must start with a letter"), "mac"),
+      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+    end
+
+    Setting.transaction do
+      [
+        self.set('discovery_fact_column', _("Show fact as an extra column in the discovered hosts list"), ""),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 

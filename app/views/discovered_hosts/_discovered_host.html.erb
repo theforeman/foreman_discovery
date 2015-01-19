@@ -6,4 +6,7 @@
 <% unless defined? hide_disk %>
 <td><%= discovery_attribute(host, :disk_count) %></td>
 <td><%= number_to_human_size(discovery_attribute(host, :disks_size, 0)) %></td>
+<% if Setting['discovery_fact_column'].present? %>
+  <td><%= host.facts_hash[Setting['discovery_fact_column']] || 'N/A' %></td>
+<% end %>
 <% end %>
