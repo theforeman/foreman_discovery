@@ -12,6 +12,9 @@
     <th><%= sort :memory, :as => _('Memory') %></th>
     <th><%= sort :disk_count, :as => _('Disk count') %></th>
     <th><%= sort :disks_size, :as => _('Disks size') %></th>
+    <% if Setting['discovery_fact_column'].present? %>
+      <th><%= Setting['discovery_fact_column'].capitalize %></th>
+    <% end %>
     <% if SETTINGS[:locations_enabled] -%>
       <th><%= sort :location, :as => _('Location') %></th>
     <% end -%>
