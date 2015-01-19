@@ -1,6 +1,5 @@
 class DiscoveryRulesController < ApplicationController
-  # Two-pane searching must be disabled for rules otherwise query completion will not work
-  #include Foreman::Controller::AutoCompleteSearch
+  include Foreman::Controller::AutoCompleteSearch
 
   before_filter :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 

@@ -29,6 +29,15 @@ module ForemanDiscovery
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
+    initializer "foreman_discovery.assets.precompile" do |app|
+      app.config.assets.precompile += %w(foreman_discovery/discovery.js)
+    end
+
+    initializer 'foreman_discovery.configure_assets', :group => :assets do
+      SETTINGS[:foreman_discovery] =
+          { :assets => { :precompile => ['foreman_discovery/discovery.js'] } }
+    end
+
     # Add any db migrations
     initializer "foreman_discovery.load_app_instance_data" do |app|
       app.config.paths['db/migrate'] += ForemanDiscovery::Engine.paths['db/migrate'].existent
