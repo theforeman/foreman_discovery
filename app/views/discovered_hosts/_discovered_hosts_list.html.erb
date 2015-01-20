@@ -2,7 +2,7 @@
 <% title _('Discovered hosts') %>
 <% stylesheet("discovery-two-pane") %>
 
-<table class="table table-bordered table-striped table-condensed table-two-pane" >
+<table class="table table-bordered table-striped table-condensed" >
   <tr>
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class='hidden-tablet hidden-xs'><%= sort :name, :as => _('Name') %></th>
