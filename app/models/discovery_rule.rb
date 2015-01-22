@@ -21,4 +21,6 @@ class DiscoveryRule < ActiveRecord::Base
 
   scoped_search :on => :name, :complete_value => :true
   scoped_search :on => :priority
+  scoped_search :on => :search
+  scoped_search :on => :enabled
 end
