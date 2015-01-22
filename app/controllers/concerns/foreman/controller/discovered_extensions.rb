@@ -33,10 +33,14 @@ module Foreman::Controller::DiscoveredExtensions
     host.type = 'Host::Managed'
     host.managed = true
     host.build = true
-    host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
     host.hostgroup_id = rule.hostgroup_id
     host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
     host.discovery_rule = rule
+    # render hostname only when all other fields are set
+    original_name = host.name
+    host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
+    # fallback to the original if template did not expand
+    host.name = original_name if host.name.empty?
     Host.transaction do
       if host.save #save! does not work here
         delete_discovery_attribute_set(host.id)

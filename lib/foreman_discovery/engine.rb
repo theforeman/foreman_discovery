@@ -104,7 +104,7 @@ module ForemanDiscovery
         widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 7, :sizey =>1
 
         # add template helpers
-        allowed_template_helpers :rand, :facts_hash
+        allowed_template_helpers :rand
 
         # apipie API documentation
         # Only available in 1.8, otherwise it has to be in the initializer below

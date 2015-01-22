@@ -95,12 +95,81 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     assert_equal host.name, "macaabbccddeeff"
   end
 
-  test "hostname is rendered after auto provisioning" do
-    facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostname => 'x<%= 1+1 %>')
-    perform_auto_provision host, r1
-    assert_equal host.name, "x2"
+  def setup_normal_renderer
+    Setting[:safemode_render] = false
+    @facts.merge!({"somefact" => "abc"})
+  end
+
+  def setup_safemode_renderer
+    Setting[:safemode_render] = true
+    @facts.merge!({"somefact" => "abc"})
+  end
+
+  [:normal_renderer, :safemode_renderer].each do |renderer_name|
+    test "#{renderer_name} is properly configured" do
+      send "setup_#{renderer_name}"
+      if renderer_name == :normal_renderer
+        assert Setting[:safemode_render] == false
+      else
+        assert Setting[:safemode_render] == true
+      end
+    end
+
+    test "hostname falls back to original name on empty response via #{renderer_name}" do
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => '<%= "" %>')
+      perform_auto_provision host, r1
+      assert_equal "macaabbccddeeff", host.name
+    end
+
+    test "hostname is rendered after auto provisioning using #{renderer_name}" do
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => 'x<%= 1+1 %>')
+      perform_auto_provision host, r1
+      assert_equal "x2", host.name
+    end
+
+    test "function rand is renderer properly using #{renderer_name}" do
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => 'x<%= rand(4) %>')
+      perform_auto_provision host, r1
+      assert_match(/x[0123]/, host.name)
+    end
+
+    test "hostname attribute name is renderer properly using #{renderer_name}" do
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => 'x<%= @host.name %>')
+      perform_auto_provision host, r1
+      assert_equal "xmacaabbccddeeff", host.name
+    end
+
+    test "hostname attribute ip is renderer properly using #{renderer_name}" do
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => 'x<%= @host.ip.gsub(".","-") %>')
+      perform_auto_provision host, r1
+      assert_equal "x192-168-100-42", host.name
+    end
+
+    test "hostname attribute facts_hash is renderer properly using #{renderer_name}" do
+      skip "until http://projects.theforeman.org/issues/2948 is fixed"
+      host = Host::Discovered.import_host_and_facts(@facts).first
+      r1 = FactoryGirl.create(:discovery_rule,
+                              :search => "facts.somefact = abc",
+                              :hostname => 'x<%= @host.facts["somefact"] %>')
+      perform_auto_provision host, r1
+      assert_equal "xabc", host.name
+    end
+
   end
 
 end
