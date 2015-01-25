@@ -2,7 +2,8 @@ object @discovered_host
 
 extends "api/v2/discovered_hosts/base"
 
-attributes :ip, :mac, :last_report, :subnet_id, :subnet_name, :cpu, :memory, :disk_count, :disks_size
+attributes :ip, :mac, :last_report, :subnet_id, :subnet_name, :memory, :disk_count, :disks_size
+attribute :cpu_count => :cpus
 
 if SETTINGS[:organizations_enabled]
   attributes :organization_id, :organization_name
