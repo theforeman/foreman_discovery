@@ -54,7 +54,16 @@ class Host::Discovered < ::Host::Base
     h = ::Host::Discovered.find_by_name hostname
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-    h.mac = facts[fact_name].try(:downcase)
+
+    macfact = facts[fact_name].try(:downcase)
+    begin
+      macfact = Net::Validations.normalize_mac(macfact)
+    rescue ArgumentError => e
+      macfact = facts['discovery_bootif'].try(:downcase)
+      h.name = facts['discovery_bootif'].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
+    end
+    h.mac = macfact
+
 
     if SETTINGS[:locations_enabled]
       begin
