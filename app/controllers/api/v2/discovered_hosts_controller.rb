@@ -123,7 +123,7 @@ module Api
       def auto_provision
         @discovered_host.transaction do
           if rule = find_discovery_rule(@discovered_host)
-            msg = _("Host %s was provisioned with rule %s") % [@discovered_host.name, rule.name]
+            msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
             process_response perform_auto_provision(@discovered_host, rule), msg
           else
             process_success _("No rule found for host %s") % @discovered_host.name
@@ -139,7 +139,7 @@ module Api
         result = true
         error_message = _("Errors during auto provisioning: %s")
 
-        if  Host::Discovered.count == 0
+        if Host::Discovered.count == 0
           error_message = _("No discovered hosts to provision")
           result = false
         end
