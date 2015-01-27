@@ -146,7 +146,7 @@ class DiscoveredHostsController < ::ApplicationController
     @host.transaction do
       if rule = find_discovery_rule(@host)
         if perform_auto_provision(@host, rule)
-          process_success :success_msg => _("Host %s was provisioned with rule %s") % [@host.name, rule.name], :success_redirect => :back
+          process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => :back
         else
           errors = @host.errors.full_messages.join(' ')
           logger.warn "Failed to auto provision host %s: %s" % [@host.name, errors]
@@ -160,6 +160,13 @@ class DiscoveredHostsController < ::ApplicationController
 
   def auto_provision_all
     result = true
+    error_message = _("Errors during auto provisioning: %s")
+
+    if Host::Discovered.count == 0
+      error_message = _("No discovered hosts to provision")
+      result = false
+    end
+
     Host.transaction do
       overall_errors = ""
       Host::Discovered.all.each do |discovered_host|
@@ -175,7 +182,7 @@ class DiscoveredHostsController < ::ApplicationController
       if result
         process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => :back
       else
-        process_error :error_msg => _("Errors during auto provisioning: %s") % overall_errors, :redirect => :back
+        process_error :error_msg => error_message % overall_errors, :redirect => :back
       end
     end
   end
