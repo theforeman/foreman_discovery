@@ -48,6 +48,8 @@
     "timezone": "GMT",
     "fqdn": "a.server.b.domain",
     "ipaddress_br180": "10.35.27.2",
+    "ipaddress_eth0": "10.35.27.3",
+    "ipaddress_eth1": "10.35.27.4",
     "puppetversion": "2.6.12",
     "path": "/root/.gem/bin:/root/.gem/ruby/1.8/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/sbin:/usr/sbin:/root/scripts",
     "hardwaremodel": "x86_64",
@@ -88,7 +90,7 @@
     "lsbmajdistrelease": "6",
     "swapfree": "16.72 GB",
     "netmask": "255.255.255.192",
-    "discovery_bootif": "AA:BB:CC:DD:EE:F5",
+    "discovery_bootif": "E4:1F:13:CC:36:58",
     "memorysize_mb": "742.13",
     "blockdevice_sda_size": "214749184"
   }
