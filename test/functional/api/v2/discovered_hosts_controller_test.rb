@@ -6,10 +6,12 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
-      "ipaddress" => "192.168.100.42",
-      "macaddress" => "AA:BB:CC:DD:EE:FF",
+      "interfaces"       => "lo,eth0",
+      "ipaddress"        => "192.168.100.42",
+      "ipaddress_eth0"   => "192.168.100.42",
+      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
-      "memorysize_mb" => "42000.42",
+      "memorysize_mb"    => "42000.42",
     }
     FactoryGirl.create(:setting,
                        :name => 'discovery_auto',
@@ -31,7 +33,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal 42001, show_response["memory"]
     assert_equal 0, show_response["disk_count"]
     assert_equal 0, show_response["disks_size"]
-    assert_equal "Empty Organization", show_response["organization_name"]
+    assert_equal nil, show_response["organization_name"]
   end
 
   def test_auto_provision_success_via_upload
