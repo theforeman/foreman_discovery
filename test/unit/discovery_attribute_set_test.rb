@@ -31,9 +31,10 @@ class DiscoveryAttributeSetTest < ActiveSupport::TestCase
   test "can search discovered hosts by disks_size" do
     raw = parse_json_fixture('/facts.json')
     host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    results = Host::Discovered.search_for("disks_size = #{host.facts_hash['blockdevice_sda_size'].to_f.ceil}")
+    disks_size = (host.facts_hash['blockdevice_sda_size'].to_f / 1024 / 1024).ceil
+    results = Host::Discovered.search_for("disks_size = #{disks_size}")
     assert_equal 1, results.count
-    results = Host::Discovered.search_for("disks_size > #{host.facts_hash['blockdevice_sda_size'].to_f.ceil}")
+    results = Host::Discovered.search_for("disks_size > #{disks_size}")
     assert_equal 0, results.count
   end
 

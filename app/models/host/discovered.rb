@@ -119,7 +119,8 @@ class Host::Discovered < ::Host::Base
     if disks.any?
       disks.values.each { |size| disks_size += (size.to_f rescue 0) }
       disk_count = disks.size
-      disks_size = disks_size.ceil
+      # Turning disks_size to closest Mega for easier to read UI
+      disks_size = (disks_size / 1024 / 1024).ceil if disks_size > 0
     end
 
     {:cpu_count => cpu_count, :memory => memory, :disk_count => disk_count, :disks_size => disks_size}
