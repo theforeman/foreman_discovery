@@ -76,10 +76,11 @@ module Api
       end
 
       def update
-        @host         = @discovered_host.becomes(::Host::Managed)
-        @host.type    = 'Host::Managed'
-        @host.managed = true
-        @host.build   = true
+        @host                           = @discovered_host.becomes(::Host::Managed)
+        @host.type                      = 'Host::Managed'
+        @host.managed                   = true
+        @host.primary_interface.managed = true
+        @host.build                     = true
         forward_request_url
         update_response = @host.update_attributes(params[:discovered_host])
         Host.transaction do
