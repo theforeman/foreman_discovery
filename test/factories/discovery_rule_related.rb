@@ -10,6 +10,7 @@ FactoryGirl.define do
   end
 end
 
+# Not used yet, we need to refactor core first
 FactoryGirl.define do
   factory :discovered_host, class: 'Host::Discovered' do
     sequence(:name) { |n| "host#{n}" }
