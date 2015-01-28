@@ -21,7 +21,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should import facts from yaml as Host::Discovered" do
     raw = parse_json_fixture('/facts.json')
     assert Host::Discovered.import_host_and_facts(raw['facts'])
-    assert Host::Discovered.find_by_name('macaabbccddeef5')
+    assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
   test "should raise when fact_name setting isn't present" do
@@ -42,25 +42,25 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should create discovered host with fact_name as a name if it is a valid mac" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'somefact'
-    facts = raw['facts'].merge({"somefact" => "bb:aa:cc:dd:ee:ff"})
+    facts = raw['facts'].merge({"somefact" => "E4:1F:13:CC:36:5A"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    assert_equal 'macbbaaccddeeff', host.name
-    assert_equal 'bb:aa:cc:dd:ee:ff', host.mac
+    assert_equal 'mace41f13cc365a', host.name
+    assert_equal 'e4:1f:13:cc:36:5a', host.mac
   end
 
   test "should create discovered host with default name if fact_name isn't a valid mac" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'lsbdistcodename'
     host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert_equal 'macaabbccddeef5', host.name
-    assert_equal 'aa:bb:cc:dd:ee:f5', host.mac
+    assert_equal 'mace41f13cc3658', host.name
+    assert_equal 'e4:1f:13:cc:36:58', host.mac
   end
 
   test "should create discovered host with prefix" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = 'test'
     host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert_equal 'testaabbccddeef5', host.name
+    assert_equal 'teste41f13cc3658', host.name
   end
 
   test "should not name discovered host with prefix that starts with a number, fallback to 'mac'" do

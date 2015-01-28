@@ -5,26 +5,28 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
 
   setup do
     @facts = {
-      "ipaddress" => "192.168.100.42",
-      "macaddress" => "AA:BB:CC:DD:EE:FF",
+      "interfaces"       => "lo,eth0",
+      "ipaddress"        => "192.168.100.42",
+      "ipaddress_eth0"   => "192.168.100.42",
+      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
     }
   end
 
   test "no rule is found for empty rule set" do
-    host = FactoryGirl.create(:host)
+    host = Host::Discovered.import_host_and_facts(@facts).first
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with no facts" do
-    host = FactoryGirl.create(:host)
+    host = Host::Discovered.import_host_and_facts(@facts).first
     FactoryGirl.create(:discovery_rule, :search => "facts.foo = bar")
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with some facts" do
-    host = FactoryGirl.create(:host, :with_facts)
-    FactoryGirl.create(:discovery_rule, :search => "facts.foo = does not exist")
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    FactoryGirl.create(:discovery_rule, :search => "facts.foo = doesnotexist")
     refute find_discovery_rule(host)
   end
 
