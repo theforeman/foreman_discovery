@@ -49,6 +49,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should create discovered host with default name if fact_name isn't a valid mac" do
+    skip "until http://projects.theforeman.org/issues/9044 is fixed in 1.7.3"
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'lsbdistcodename'
     host = Host::Discovered.import_host_and_facts(raw['facts']).first
