@@ -240,7 +240,7 @@ class DiscoveredHostsController < ::ApplicationController
   def find_multiple
     # Lets search by name or id and make sure one of them exists first
     if params[:host_names].present? or params[:host_ids].present?
-      @hosts = Host::Discovered.where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
+      @hosts = Host::Discovered.includes(:model, :fact_values, :interfaces, :location, :organization).where("id IN (?) or name IN (?)", params[:host_ids], params[:host_names] )
       if @hosts.empty?
         error _('No hosts were found with that id or name')
         redirect_to(discovered_hosts_path) and return false
