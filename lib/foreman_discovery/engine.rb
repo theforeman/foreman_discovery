@@ -36,7 +36,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 1.6'
+        requires_foreman '~> 1.7.0'
 
         # discovered hosts permissions
         security_block :discovery do
@@ -105,12 +105,6 @@ module ForemanDiscovery
 
         # add template helpers
         allowed_template_helpers :rand
-
-        # apipie API documentation
-        # Only available in 1.8, otherwise it has to be in the initializer below
-        if (SETTINGS[:version].to_s.include?('develop') or Gem::Version.new(SETTINGS[:version]) >= Gem::Version.new('1.8'))
-          apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
-        end
       end
     end
 
