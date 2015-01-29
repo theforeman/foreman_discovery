@@ -105,11 +105,13 @@ module Api
         Host.transaction do
           @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
         end
-        @discovered_host.transaction do
-          if state && rule = find_discovery_rule(@discovered_host)
-            state = perform_auto_provision(@discovered_host, rule) if Setting['discovery_auto']
-          else
-            Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning" if Setting['discovery_auto']
+        if Setting['discovery_auto']
+          @discovered_host.transaction do
+            if state && rule = find_discovery_rule(@discovered_host)
+              state = perform_auto_provision(@discovered_host, rule)
+            else
+              Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
+            end
           end
         end
         process_response state
