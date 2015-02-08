@@ -9,6 +9,7 @@
   <tbody>
   <% hosts.each do |host| %>
     <tr>
+      <td class="hidden-tablet hidden-xs"><%= link_to h(host.name), discovered_host_path(host) %></td>
       <%= render :partial => "discovered_hosts/discovered_host", :locals => {
         :host => host, :hide_disk => true } %>
   </tr>

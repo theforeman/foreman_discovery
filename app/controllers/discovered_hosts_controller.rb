@@ -13,8 +13,6 @@ class DiscoveredHostsController < ::ApplicationController
 
   helper :hosts
 
-  layout 'layouts/application'
-
   def index
     search = resource_base.search_for(params[:search], :order => params[:order])
     respond_to do |format|
