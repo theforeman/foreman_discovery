@@ -9,8 +9,6 @@ class Host::Discovered < ::Host::Base
   belongs_to :hostgroup
   has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
 
-  validates :mac, :uniqueness => true, :mac_address => true, :presence => true
-  validates :ip, :format => {:with => Net::Validations::IP_REGEXP}, :uniqueness => true
   validates :discovery_attribute_set, :presence => true
 
   delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
@@ -92,8 +90,14 @@ class Host::Discovered < ::Host::Base
     super
   end
 
+  def setup_clone
+    # Nic::Managed needs this method but Discovered hosts shouldn't
+    # be doing orchestration anyway...
+    clone
+  end
+
   def attributes_to_import_from_facts
-    super + [:ip]
+    super
   end
 
   def populate_fields_from_facts facts = self.facts_hash, type = 'puppet'
@@ -103,7 +107,7 @@ class Host::Discovered < ::Host::Base
     else
       importer = super(facts)
     end
-    self.subnet = Subnet.subnet_for(importer.ip)
+    self.primary_interface.subnet = Subnet.subnet_for(self.primary_interface.ip)
     self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
     self.discovery_attribute_set.update_attributes(import_from_facts)
     self.save
@@ -176,6 +180,12 @@ class Host::Discovered < ::Host::Base
 
   def compute_resource
     false
+  end
+
+  def lookup_value_match
+    # We don't really expect lookup values to be used to match discovered hosts,
+    # so simply put a string that won't match anything here
+    "discovery-not-matched"
   end
 
 end

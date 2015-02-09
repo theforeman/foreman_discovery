@@ -60,10 +60,11 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     unless @host.nil?
-      @host         = @host.becomes(::Host::Managed)
-      @host.type    = 'Host::Managed'
-      @host.managed = true
-      @host.build   = true
+      @host                           = @host.becomes(::Host::Managed)
+      @host.type                      = 'Host::Managed'
+      @host.managed                   = true
+      @host.primary_interface.managed = true
+      @host.build                     = true
     end
 
     render :template => 'hosts/edit'
