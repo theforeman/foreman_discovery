@@ -16,7 +16,7 @@
       <td class='col-md-3 display-two-pane'><%= link_to_if_authorized(trunc_with_tooltip(rule.name), hash_for_edit_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer)) %></td>
       <td><%= rule.priority %></td>
       <td><%= trunc_with_tooltip(rule.search) %></td>
-      <td><%= rule.hostgroup.name %></td>
+      <td><%= label_with_link(rule.hostgroup, 26, authorizer) %></td>
       <td><%= rule.hosts.count %> / <%= rule.max_count %></td>
       <td><%= rule.enabled %></td>
       <td><%= action_buttons(*permitted_discovery_actions(rule)) %></td>
