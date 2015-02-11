@@ -42,8 +42,16 @@ class Host::Discovered < ::Host::Base
     prefix_from_settings = Setting[:discovery_prefix]
     hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
     hostname_prefix ||= 'mac'
-    hostname = facts[fact_name].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
-    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless hostname
+
+    macfact = facts[fact_name].try(:downcase)
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless macfact
+    begin
+      macfact = Net::Validations.normalize_mac(macfact)
+    rescue ArgumentError => e
+      macfact = facts['discovery_bootif'].try(:downcase)
+    end
+
+    hostname = macfact.try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
     raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain IP address"))) unless facts['ipaddress']
 
     # filter facts
@@ -52,14 +60,6 @@ class Host::Discovered < ::Host::Base
     h = ::Host::Discovered.find_by_name hostname
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-
-    macfact = facts[fact_name].try(:downcase)
-    begin
-      macfact = Net::Validations.normalize_mac(macfact)
-    rescue ArgumentError => e
-      macfact = facts['discovery_bootif'].try(:downcase)
-      h.name = facts['discovery_bootif'].try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
-    end
     h.mac = macfact
 
 
