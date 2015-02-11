@@ -105,6 +105,16 @@ class DiscoveredHostsController < ::ApplicationController
                     :redirect => :back
   end
 
+  def reboot_all
+    error_message = perform_reboot_all
+
+    if error_message
+      process_error :error_msg => error_message, :redirect => :back
+    else
+      process_success :success_msg => _("Discovered hosts are rebooting now"), :success_redirect => :back
+    end
+  end
+
   def multiple_destroy
   end
 
@@ -214,7 +224,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def action_permission
     case params[:action]
-      when 'refresh_facts', 'reboot'
+      when 'refresh_facts', 'reboot', 'reboot_all'
         :view
       when 'new', 'create'
         :provision

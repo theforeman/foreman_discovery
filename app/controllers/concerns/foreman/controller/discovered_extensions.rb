@@ -57,6 +57,36 @@ module Foreman::Controller::DiscoveredExtensions
       host.save
     end
   end
+  
+  def perform_reboot_all hosts = Host::Discovered.all
+    result = true
+    error_message = _("Errors during reboot: %s")
+    overall_errors = ""
 
+    if hosts.count > 0
+      Host.transaction do
+        hosts.each do |discovered_host|
+          begin
+            unless discovered_host.reboot
+              error =  "#{discovered_host.name}: failed to reboot "
+              overall_errors << error
+              logger.error error
+            end
+          rescue Exception => e
+            error = "#{discovered_host.name}: #{e.to_s} "
+            overall_errors << error
+            logger.error error
+          end
+        end
+      end
+    else
+      error_message = _("No discovered hosts to reboot")
+      result = false
+    end
+
+    if overall_errors.present? || !result
+      error_message % overall_errors.strip
+    end
+  end
 
 end
