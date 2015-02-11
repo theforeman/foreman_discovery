@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         post 'update_multiple_location'
         get  'auto_complete_search'
         post 'auto_provision_all'
+        put  'reboot_all'
       end
     end
   end
@@ -40,13 +41,12 @@ Rails.application.routes.draw do
         member do
           post 'auto_provision'
           put 'reboot'
+          put 'refresh_facts'
         end
         collection do
           post 'facts'
           post 'auto_provision_all'
-        end
-        member do
-          put 'refresh_facts'
+          put  'reboot_all'
         end
       end
       resources :discovery_rules, :except => [:new, :edit]
