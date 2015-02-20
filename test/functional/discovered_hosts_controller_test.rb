@@ -6,8 +6,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
-      "ipaddress" => "192.168.100.42",
-      "macaddress" => "AA:BB:CC:DD:EE:FF",
+      "interfaces"       => "lo,eth0",
+      "ipaddress"        => "192.168.100.42",
+      "ipaddress_eth0"   => "192.168.100.42",
+      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
     }
   end
