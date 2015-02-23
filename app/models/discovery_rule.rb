@@ -15,6 +15,7 @@ class DiscoveryRule < ActiveRecord::Base
   validates :max_count, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   validates :priority, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   validates_lengths_from_database
+  before_validation :default_int_attributes
 
   belongs_to :hostgroup
   has_many :hosts
@@ -23,4 +24,9 @@ class DiscoveryRule < ActiveRecord::Base
   scoped_search :on => :priority
   scoped_search :on => :search
   scoped_search :on => :enabled
+
+  def default_int_attributes
+   self.max_count ||= 0
+   self.priority  ||= 0
+  end
 end
