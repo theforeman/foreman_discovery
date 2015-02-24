@@ -29,6 +29,17 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_edit_form
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    get :edit, {:id => host.id}, set_session_user
+    assert_select "select" do |elements|
+      elements.each do |element|
+        assert_match(/^host_/, element.attributes['id'])
+        assert_match(/^host\[/, element.attributes['name'])
+      end
+    end
+  end
+
   def test_index_json
     get :index, {:format => "json"}, set_session_user
     assert_response :success
