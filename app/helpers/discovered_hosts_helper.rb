@@ -30,7 +30,7 @@ module DiscoveredHostsHelper
 
     select_action_button( _("Select Action"), {:id => 'submit_multiple'},
       actions.map do |action|
-        link_to(action[0] , action[1], :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0])
+        link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0])
       end.flatten
     )
 
