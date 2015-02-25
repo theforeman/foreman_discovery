@@ -76,18 +76,12 @@ module Api
       end
 
       def update
-        @host         = @discovered_host.becomes(::Host::Managed)
-        @host.type    = 'Host::Managed'
-        @host.managed = true
-        @host.build   = true
-        forward_request_url
-        update_response = @host.update_attributes(params[:discovered_host])
         Host.transaction do
-          if update_response
-            delete_discovery_attribute_set(@host.id)
-          end
+          @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host)
+          forward_request_url
+          update_response = @host.update_attributes(params[:discovered_host])
+          process_response update_response
         end
-        process_response update_response
       end
 
       api :DELETE, "/discovered_hosts/:id/", N_("Delete a discovered host")

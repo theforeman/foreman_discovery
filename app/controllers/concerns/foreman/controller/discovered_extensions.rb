@@ -28,32 +28,21 @@ module Foreman::Controller::DiscoveredExtensions
   end
 
   # trigger the provisioning
-  def perform_auto_provision host, rule
-    host = host.becomes(::Host::Managed)
-    host.type = 'Host::Managed'
-    host.managed = true
-    host.build = true
-    host.hostgroup_id = rule.hostgroup_id
-    host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
-    host.discovery_rule = rule
-    # render hostname only when all other fields are set
-    original_name = host.name
-    host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
-    # fallback to the original if template did not expand
-    host.name = original_name if host.name.empty?
+  def perform_auto_provision original_host, rule
     Host.transaction do
-      if host.save #save! does not work here
-        delete_discovery_attribute_set(host.id)
-      end
+      host = ::ForemanDiscovery::HostConverter.to_managed(original_host)
+      host.hostgroup_id = rule.hostgroup_id
+      host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
+      host.discovery_rule = rule
+      # render hostname only when all other fields are set
+      original_name = host.name
+      host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
+      # fallback to the original if template did not expand
+      host.name = original_name if host.name.empty?
+      # save! does not work here
+      host.save
     end
   end
 
-  # discovery_attribute_set should be deleted only after a host has been successfully provisioned
-  # (after discovered host becomes managed host)
-  # after this happens the host is a manged host so non of the callbacks in discovered hosts are relevant anymore
-  # for this reason the orphaned discovery_attribute_set needs to be searched for and deleted
-  def delete_discovery_attribute_set(host_id)
-    DiscoveryAttributeSet.delete_all(:host_id => host_id)
-  end
 
 end

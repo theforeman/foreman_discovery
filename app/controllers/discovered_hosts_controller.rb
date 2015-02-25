@@ -59,24 +59,18 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def edit
-    unless @host.nil?
-      @host         = @host.becomes(::Host::Managed)
-      @host.type    = 'Host::Managed'
-      @host.managed = true
-      @host.build   = true
+    Host.transaction do
+      @host = ::ForemanDiscovery::HostConverter.to_managed(@host) unless @host.nil?
+      render :template => 'hosts/edit'
     end
-
-    render :template => 'hosts/edit'
   end
 
   def update
-    @host         = @host.becomes(::Host::Managed)
-    @host.type    = 'Host::Managed'
-    forward_url_options
-    Taxonomy.no_taxonomy_scope do
-      Host.transaction do
+    Host.transaction do
+      @host = ::ForemanDiscovery::HostConverter.to_managed(@host, false, false)
+      forward_url_options
+      Taxonomy.no_taxonomy_scope do
         if @host.update_attributes(params[:host])
-          delete_discovery_attribute_set(@host.id)
           process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
         else
           taxonomy_scope
