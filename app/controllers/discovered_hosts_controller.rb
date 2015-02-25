@@ -147,7 +147,7 @@ class DiscoveredHostsController < ::ApplicationController
     @host.transaction do
       if rule = find_discovery_rule(@host)
         if perform_auto_provision(@host, rule)
-          process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => :back
+          process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => discovered_hosts_path
         else
           errors = @host.errors.full_messages.join(' ')
           logger.warn "Failed to auto provision host %s: %s" % [@host.name, errors]
