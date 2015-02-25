@@ -7,10 +7,11 @@ module ForemanDiscovery
   #Thus, inherits from ::Rails::Engine and not from Rails::Engine
   class Engine < ::Rails::Engine
 
-    # support for concerns for pre-4 Rails versions
+    # support pre-4 Rails versions
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
+    config.autoload_paths += Dir["#{config.root}/app/services"]
 
     # Load this before the Foreman config initializers, so that the Setting.descendants
     # list includes the plugin STI setting class

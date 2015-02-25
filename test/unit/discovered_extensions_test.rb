@@ -75,7 +75,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     host = Host::Discovered.import_host_and_facts(facts).first
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
     perform_auto_provision host, r1
-    assert_equal host.managed, true
+    assert_equal host.primary_interface.managed, true
     assert_equal host.build, true
     assert_equal host.hostgroup_id, r1.hostgroup_id
     assert_equal host.discovery_rule_id, r1.id
