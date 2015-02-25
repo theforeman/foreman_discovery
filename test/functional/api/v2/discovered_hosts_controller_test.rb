@@ -2,6 +2,13 @@ require 'test_helper'
 
 class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
+  def switch_controller(klass)
+    old_controller = @controller
+    @controller = klass.new
+    yield
+    @controller = old_controller
+  end
+
   setup do
     User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
@@ -49,6 +56,12 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal 'SomeLoc', show_response["location_name"]
   end
 
+  def test_delete_discovered_host
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    delete :destroy, { :id => host.id }
+    assert_response :success
+  end
+
   def test_auto_provision_success_via_upload
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
@@ -65,6 +78,20 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
     post :auto_provision, { :id => host.id }
     assert_response :success
+  end
+
+  def test_auto_provision_success_and_delete
+    disable_orchestration
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    post :auto_provision, { :id => host.id }
+    assert_response :success
+    # test deletion of a managed host
+    switch_controller(::Api::V2::HostsController) do
+      delete :destroy, { :id => host.id }
+      assert_response :success
+    end
   end
 
   def test_auto_provision_no_rule_success
