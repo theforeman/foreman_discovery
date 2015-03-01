@@ -80,6 +80,7 @@ class DiscoveredHostsController < ::ApplicationController
           delete_discovery_attribute_set(@host.id)
           process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
         else
+          @host.expire_token
           taxonomy_scope
           load_vars_for_ajax
           offer_to_overwrite_conflicts
