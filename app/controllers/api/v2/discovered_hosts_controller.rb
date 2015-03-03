@@ -36,7 +36,7 @@ module Api
         end
       end
 
-      api :POST, "/discovered_hosts/", N_("Create a discovered host")
+      api :POST, "/discovered_hosts/", N_("Create a discovered host for testing (use /facts to create new hosts)")
       param_group :discovered_host, :as => :create
 
       def create
@@ -92,7 +92,7 @@ module Api
       end
 
       api :POST, "/discovered_hosts/facts", N_("Upload facts for a host, creating the host if required")
-      param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host")
+      param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)")
 
       def facts
         state = true
