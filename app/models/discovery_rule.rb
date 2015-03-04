@@ -24,6 +24,7 @@ class DiscoveryRule < ActiveRecord::Base
   scoped_search :on => :priority
   scoped_search :on => :search
   scoped_search :on => :enabled
+  scoped_search :in => :hostgroup, :on => :name, :complete_value => true, :rename => :hostgroup
 
   def default_int_attributes
    self.max_count ||= 0
