@@ -1,16 +1,15 @@
-# Template file for strings which can be localized in the Foreman Application.
-# 
-# This file is distributed under the same license as the Foreman.
-# 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman package.
 # 
 # Translators:
 # Dominic Cleal <dcleal@redhat.com>, 2013-2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
+"Project-Id-Version: foreman_discovery 2.0.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:33+0100\n"
-"PO-Revision-Date: 2014-08-22 09:57+0000\n"
+"POT-Creation-Date: 2015-01-28 17:53+0100\n"
+"PO-Revision-Date: 2015-01-30 09:58+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/foreman/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -34,13 +33,30 @@ msgstr "Assign Location"
 msgid "Assign Organization"
 msgstr "Assign Organisation"
 
+msgid "Auto Provision"
+msgstr ""
+
+msgid "Auto Provision All"
+msgstr ""
+
+msgid ""
+"Automatically provision newly discovered hosts, according to the "
+"provisioning rules"
+msgstr ""
+
+msgid "CPUs"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancel"
 
-msgid "Could not get facts from proxy: %s"
-msgstr "Could not get facts from proxy: %s"
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr ""
 
 msgid "Create a discovered host"
+msgstr ""
+
+msgid "Create a discovery rule"
 msgstr ""
 
 msgid "Delete"
@@ -52,11 +68,20 @@ msgstr "Delete %s?"
 msgid "Delete a discovered host"
 msgstr ""
 
+msgid "Delete a rule"
+msgstr ""
+
 msgid "Delete hosts"
 msgstr "Delete hosts"
 
 msgid "Destroyed selected hosts"
 msgstr "Destroyed selected hosts"
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable rule?"
+msgstr ""
 
 msgid "Discovered Host Pool"
 msgstr ""
@@ -67,7 +92,58 @@ msgstr "Discovered host: %s"
 msgid "Discovered hosts"
 msgstr "Discovered hosts"
 
+msgid "Discovered hosts are provisioning now"
+msgstr ""
+
+msgid "Discovery Rules"
+msgstr ""
+
+msgid "Discovery rules"
+msgstr ""
+
 msgid "Discovery widget"
+msgstr ""
+
+msgid "DiscoveryRule|Enabled"
+msgstr ""
+
+msgid "DiscoveryRule|Name"
+msgstr ""
+
+msgid "DiscoveryRule|Priority"
+msgstr ""
+
+msgid "DiscoveryRule|Query"
+msgstr ""
+
+msgid "Disk count"
+msgstr ""
+
+msgid "Disks size"
+msgstr ""
+
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will "
+"be used when left blank. In addition to @host attribute function rand for "
+"random integers is available. Examples:"
+msgstr ""
+
+msgid "Edit Discovery Rule"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable rule?"
+msgstr ""
+
+msgid "Errors during auto provisioning: %s"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
 msgid "Fact"
@@ -79,20 +155,50 @@ msgstr "Facts discovered on this host"
 msgid "Facts refreshed for %s"
 msgstr "Facts refreshed for %s"
 
-msgid "Failed to import facts for Host::Discovered"
-msgstr "Failed to import facts for Host::Discovered"
+msgid "Failed to auto provision host %s: %s"
+msgstr ""
 
-msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "Failed to import facts for Host::Discovered: %s"
+msgid "Failed to import facts for discovered host"
+msgstr ""
 
-msgid "Failed to reboot: %s"
-msgstr "Failed to reboot: %s"
+msgid "Failed to import facts for discovered host: %s"
+msgstr ""
+
+msgid "Failed to reboot host %s"
+msgstr ""
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
 
 msgid "Failed to refresh facts for %s"
 msgstr "Failed to refresh facts for %s"
 
-msgid "Imported Host::Discovered"
-msgstr "Imported Host::Discovered"
+msgid "Host"
+msgstr ""
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr ""
+
+msgid "Host group"
+msgstr ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr ""
+
+msgid "Hostname for provisioned hosts"
+msgstr ""
+
+msgid "Hosts limit"
+msgstr ""
+
+msgid "Hosts/limit"
+msgstr ""
+
+msgid "IP Address"
+msgstr ""
+
+msgid "Imported discovered host"
+msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Invalid facts, must be a Hash"
@@ -109,16 +215,37 @@ msgstr "Last facts upload"
 msgid "List all discovered hosts"
 msgstr ""
 
+msgid "List all discovery rules"
+msgstr ""
+
 msgid "Location"
 msgstr "Location"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
 
 msgid "Model"
 msgstr "Model"
 
+msgid "N/A"
+msgstr ""
+
 msgid "Name"
 msgstr "Name"
 
+msgid "New Discovery Rule"
+msgstr ""
+
+msgid "New Rule"
+msgstr ""
+
 msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No discovered hosts to provision"
 msgstr ""
 
 msgid "No hosts selected"
@@ -126,6 +253,9 @@ msgstr "No hosts selected"
 
 msgid "No hosts were found with that id or name"
 msgstr "No hosts were found with that id or name"
+
+msgid "No rule found for host %s"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organisation"
@@ -139,11 +269,32 @@ msgstr "Provision"
 msgid "Provision a discovered host"
 msgstr ""
 
+msgid "Reboot"
+msgstr ""
+
 msgid "Rebooting %s"
 msgstr "Rebooting %s"
 
+msgid "Rebooting a discovered host"
+msgstr ""
+
+msgid "Rebooting host %s"
+msgstr ""
+
 msgid "Refresh facts"
 msgstr "Refresh facts"
+
+msgid "Refreshing the facts of a discovered host"
+msgstr ""
+
+msgid "Rule disabled"
+msgstr ""
+
+msgid "Rule enabled"
+msgstr ""
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
 
 msgid "Select Action"
 msgstr "Select Action"
@@ -160,14 +311,31 @@ msgstr "Select organisation"
 msgid "Show a discovered host"
 msgstr ""
 
+msgid "Show a discovery rule"
+msgstr ""
+
+msgid "Show fact as an extra column in the discovered hosts list"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Something went wrong while selecting hosts - %s"
+
+msgid ""
+"Specify target hostname template pattern in the same syntax as in "
+"Provisioning Templates (ERB)."
+msgstr ""
 
 msgid "Submit"
 msgstr "Submit"
 
 msgid "Subnet"
 msgstr "Subnet"
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "Template"
+msgstr ""
 
 msgid "The default fact name to use for the MAC of the system"
 msgstr "The default fact name to use for the MAC of the system"
@@ -177,6 +345,9 @@ msgstr "The default location to place discovered hosts in"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "The default organisation to place discovered hosts in"
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
 
 msgid "The following hosts were not deleted: %s"
 msgstr "The following hosts were not deleted: %s"
@@ -195,6 +366,9 @@ msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
+msgid "Update a rule"
+msgstr ""
+
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""
 
@@ -204,6 +378,15 @@ msgstr "Value"
 msgid "Warning"
 msgstr "Warning"
 
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are "
+"unique. Hostnames must not start with numbers. A good approach is to use "
+"unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr ""
+
 msgid "filter results"
 msgstr ""
 
@@ -212,6 +395,9 @@ msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "items selected. Uncheck to Clear"
+
+msgid "must start with a letter or ERB."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr ""
@@ -223,6 +409,11 @@ msgid "number of entries per request"
 msgstr ""
 
 msgid "paginate results"
+msgstr ""
+
+msgid ""
+"required if value is not inherited from host group or default password in "
+"settings"
 msgstr ""
 
 msgid "sort results"

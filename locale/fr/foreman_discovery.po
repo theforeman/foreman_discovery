@@ -1,17 +1,16 @@
-# Template file for strings which can be localized in the Foreman Application.
-# 
-# This file is distributed under the same license as the Foreman.
-# 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman package.
 # 
 # Translators:
-# Claer <transiblu@claer.hammock.fr>, 2013-2014
+# Claer <transiblu@claer.hammock.fr>, 2013-2015
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
+"Project-Id-Version: foreman_discovery 2.0.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:33+0100\n"
-"PO-Revision-Date: 2014-08-25 08:30+0000\n"
+"POT-Creation-Date: 2015-01-28 17:53+0100\n"
+"PO-Revision-Date: 2015-02-03 13:03+0000\n"
 "Last-Translator: Claer <transiblu@claer.hammock.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -35,14 +34,31 @@ msgstr "Assigner une Localisation"
 msgid "Assign Organization"
 msgstr "Assigner une Organisation"
 
+msgid "Auto Provision"
+msgstr "Auto provisionnement"
+
+msgid "Auto Provision All"
+msgstr "Tout auto provisionner"
+
+msgid ""
+"Automatically provision newly discovered hosts, according to the "
+"provisioning rules"
+msgstr "Provisionner automatiquement les nouveaux hôtes découverts, conformément aux règles de provisionnement"
+
+msgid "CPUs"
+msgstr "CPUs"
+
 msgid "Cancel"
 msgstr "Annuler"
 
-msgid "Could not get facts from proxy: %s"
-msgstr "Impossible de récupérer les facts depuis le proxy : %s"
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr "Impossible de récupérer les facts depuis le proxy %{url}: %{error}"
 
 msgid "Create a discovered host"
 msgstr "Créer un hôte détecté"
+
+msgid "Create a discovery rule"
+msgstr "Créer une règle de découverte"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -53,11 +69,20 @@ msgstr "Supprimer %s ?"
 msgid "Delete a discovered host"
 msgstr "Supprimer un hôte détecté"
 
+msgid "Delete a rule"
+msgstr "Supprimer une règle"
+
 msgid "Delete hosts"
 msgstr "Supprimer ces Hôtes"
 
 msgid "Destroyed selected hosts"
 msgstr "Hôtes sélectionnés détruits"
+
+msgid "Disable"
+msgstr "Désactiver"
+
+msgid "Disable rule?"
+msgstr "Désactiver la règle ?"
 
 msgid "Discovered Host Pool"
 msgstr "Pool d'hôtes détecté"
@@ -68,8 +93,59 @@ msgstr "Hôtes détectés : %s"
 msgid "Discovered hosts"
 msgstr "Hôtes détectés"
 
+msgid "Discovered hosts are provisioning now"
+msgstr "Les hôtes détectés sont en cours de provisionnement"
+
+msgid "Discovery Rules"
+msgstr "Règles de découverte"
+
+msgid "Discovery rules"
+msgstr "Règles de découverte"
+
 msgid "Discovery widget"
 msgstr "Widget de détection"
+
+msgid "DiscoveryRule|Enabled"
+msgstr "Activé"
+
+msgid "DiscoveryRule|Name"
+msgstr "Nom"
+
+msgid "DiscoveryRule|Priority"
+msgstr "Priorité"
+
+msgid "DiscoveryRule|Query"
+msgstr "Requête"
+
+msgid "Disk count"
+msgstr "Nombre de disques"
+
+msgid "Disks size"
+msgstr "Taille des disques"
+
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will "
+"be used when left blank. In addition to @host attribute function rand for "
+"random integers is available. Examples:"
+msgstr "Le nom de domaine va être ajouté automatiquement. Un nom d'hôte basé sur l'adresse MAC va être utilisé si ce champ reste vide. En complément de l'attribut @host, la fonction rand pour des entiers aléatoires est disponible. Ex :"
+
+msgid "Edit Discovery Rule"
+msgstr "Éditer la règle de découverte"
+
+msgid "Enable"
+msgstr "Activer"
+
+msgid "Enable rule?"
+msgstr "Activer la règle ?"
+
+msgid "Errors during auto provisioning: %s"
+msgstr "Erreurs pendant l'auto provisionnement : %s"
+
+msgid "Execute rules against a discovered host"
+msgstr "Exécuter les règles sur un hôte découvert"
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr "Exécuter les règles sur tous les hôtes découverts"
 
 msgid "Fact"
 msgstr "Fact"
@@ -80,20 +156,50 @@ msgstr "Facts détectés pour cet hôte"
 msgid "Facts refreshed for %s"
 msgstr "Facts rafraichis pour %s"
 
-msgid "Failed to import facts for Host::Discovered"
-msgstr "Échec d'import des facts pour Host::Discovered"
+msgid "Failed to auto provision host %s: %s"
+msgstr "Échec d'auto provisionnement de l'hôte %s: %s"
 
-msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "Échec d'import des facts pour Host::Discovered: %s"
+msgid "Failed to import facts for discovered host"
+msgstr "Échec d'import des facts pour l'hôte découvert"
 
-msgid "Failed to reboot: %s"
-msgstr "Erreur de redémarrage : %s"
+msgid "Failed to import facts for discovered host: %s"
+msgstr "Échec d'import des facts pour l'hôte découvert : %s"
+
+msgid "Failed to reboot host %s"
+msgstr "Erreur de redémarrage de l'hôte : %s"
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr "Échec de redémarrage de l'hôte %{hostname}. Erreur : %{error_message}"
 
 msgid "Failed to refresh facts for %s"
 msgstr "Échec de rafraichissement des facts pour %s"
 
-msgid "Imported Host::Discovered"
-msgstr "Host::Discovered importé"
+msgid "Host"
+msgstr "Hôte"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr "L'hôte %{host} a été  provisionné avec la règle %{rule}"
+
+msgid "Host group"
+msgstr "Groupe d'hôtes"
+
+msgid "Host of type %s can not be rebooted"
+msgstr "L'hôte du type %s ne peut pas être redémarré"
+
+msgid "Hostname for provisioned hosts"
+msgstr "Nom d'hôte pour les hôtes provisionnés"
+
+msgid "Hosts limit"
+msgstr "Limite d'hôtes"
+
+msgid "Hosts/limit"
+msgstr "Limite"
+
+msgid "IP Address"
+msgstr "Adresses IP"
+
+msgid "Imported discovered host"
+msgstr "Hôte découvert importé"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Facts invalides, doit être un hash"
@@ -110,23 +216,47 @@ msgstr "Derniers facts téléchargés"
 msgid "List all discovered hosts"
 msgstr "Lister tous les hôtes détectés"
 
+msgid "List all discovery rules"
+msgstr "Lister toutes les règles de découverte"
+
 msgid "Location"
 msgstr "Localisation"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "Nombre maximal d'hôtes provisionnés par cette règle (0 = illimité)"
+
+msgid "Memory"
+msgstr "Mémoire"
 
 msgid "Model"
 msgstr "Modèle"
 
+msgid "N/A"
+msgstr "N/A"
+
 msgid "Name"
 msgstr "Nom"
 
+msgid "New Discovery Rule"
+msgstr "Nouvelle règle de découverte"
+
+msgid "New Rule"
+msgstr "Nouvelle règle"
+
 msgid "No discovered hosts available"
 msgstr "Aucun hôte détecté disponible"
+
+msgid "No discovered hosts to provision"
+msgstr "Aucun hôte découvert disponible pour le provisionnement"
 
 msgid "No hosts selected"
 msgstr "Aucun hôte sélectionné"
 
 msgid "No hosts were found with that id or name"
 msgstr "Aucun Hôte trouvé avec cet id ou ce nom"
+
+msgid "No rule found for host %s"
+msgstr "Aucune règle trouvée pour l'hôte %s"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -140,11 +270,32 @@ msgstr "Provisionner"
 msgid "Provision a discovered host"
 msgstr "Provisionner les hôtes détectés"
 
+msgid "Reboot"
+msgstr "Redémarrer"
+
 msgid "Rebooting %s"
 msgstr "Redémarrage %s"
 
+msgid "Rebooting a discovered host"
+msgstr "Redémarrer un hôte découvert"
+
+msgid "Rebooting host %s"
+msgstr "Redémarrage de l'hôte %s"
+
 msgid "Refresh facts"
 msgstr "Rafraichir les facts"
+
+msgid "Refreshing the facts of a discovered host"
+msgstr "Rafraichir les facts d'un hôte découvert"
+
+msgid "Rule disabled"
+msgstr "Règle désactivée"
+
+msgid "Rule enabled"
+msgstr "Règle activée"
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr "Priorité de la règle (un entier plus petit a une priorité supérieure)"
 
 msgid "Select Action"
 msgstr "Choisir l'action"
@@ -161,14 +312,31 @@ msgstr "Choisir une organisation"
 msgid "Show a discovered host"
 msgstr "Affichier un hôte détecté"
 
+msgid "Show a discovery rule"
+msgstr "Voir une règle de découverte"
+
+msgid "Show fact as an extra column in the discovered hosts list"
+msgstr "Voir un fact comme colonne supplémentaire au tableau des hôtes découverts"
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Quelque chose s'est mal passé lors de la sélection des hôtes - %s"
+
+msgid ""
+"Specify target hostname template pattern in the same syntax as in "
+"Provisioning Templates (ERB)."
+msgstr "Spécifier un modèle de nom d'hôte cible en utilisant la même syntaxe que les modèles de provisionnement (en ERB)"
 
 msgid "Submit"
 msgstr "Soumettre"
 
 msgid "Subnet"
 msgstr "Sous-Réseau"
+
+msgid "Target host group for this rule with all properties set"
+msgstr "Groupe d'hôtes cible pour cette règle avec toutes ses propriétés définies"
+
+msgid "Template"
+msgstr "Modèle"
 
 msgid "The default fact name to use for the MAC of the system"
 msgstr "Le nom du fact par défaut pour obtenir l'adresse MAC du système"
@@ -178,6 +346,9 @@ msgstr "Attribution de la localisation par défaut pour les hôtes détectés"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "Attribution de l'organisation par défaut pour les hôtes détectés"
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr "Le préfixe par défaut à utiliser pour les noms d'hôtes. Le préfixe doit commencer par une lettre."
 
 msgid "The following hosts were not deleted: %s"
 msgstr "Les hôtes suivants n'ont pas été supprimés : %s"
@@ -196,6 +367,9 @@ msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID pour surveiller l'état des tâches d'orchestration : GET /api/orchestration/:UUID/tasks"
 
+msgid "Update a rule"
+msgstr "Mise à jour d'une règle"
+
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Télécharge les facts d'un hôte, créé l'hôte si besoin"
 
@@ -205,6 +379,15 @@ msgstr "Valeur"
 msgid "Warning"
 msgstr "Attention"
 
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are "
+"unique. Hostnames must not start with numbers. A good approach is to use "
+"unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr "Lors de la création des modèles de nom d'hôtes, soyez sûrs que les noms résultant soient uniques. Les nom d'hôtes ne doivent pas commencer par un chiffre. Une bonne approche est d'utiliser une information propre à une machine fournie par facter (Par ex: adresse MAC, BIOS, numéro de série)"
+
+msgid "can't contain white spaces."
+msgstr "ne peut pas contenir des espaces."
+
 msgid "filter results"
 msgstr "filtrer les résultats"
 
@@ -213,6 +396,9 @@ msgstr "hash contenant les facts de cet hôte"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "items sélectionnés. Décocher pour Effacer"
+
+msgid "must start with a letter or ERB."
+msgstr "doit commencer par une lettre ou être au format ERB"
 
 msgid "not required if it's a virtual machine"
 msgstr "n'est pas requis si il s'agit d'une machine virtuelle"
@@ -225,6 +411,11 @@ msgstr "nombre d'entier par requête"
 
 msgid "paginate results"
 msgstr "paginer les resultats"
+
+msgid ""
+"required if value is not inherited from host group or default password in "
+"settings"
+msgstr "requis si la valeur n'est pas héritée d'un groupe d'hôtes ou si le mot de passe par défaut n'est pas défini dans les paramètres généraux."
 
 msgid "sort results"
 msgstr "trier les resultats"

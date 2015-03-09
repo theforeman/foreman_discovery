@@ -1,16 +1,15 @@
-# Template file for strings which can be localized in the Foreman Application.
-# 
-# This file is distributed under the same license as the Foreman.
-# 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman package.
 # 
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 1.4.0.rc2\n"
+"Project-Id-Version: foreman_discovery 2.0.0.rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:33+0100\n"
-"PO-Revision-Date: 2014-09-16 13:21+0000\n"
-"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
+"POT-Creation-Date: 2015-01-28 17:53+0100\n"
+"PO-Revision-Date: 2015-01-30 11:12+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/foreman/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,13 +32,30 @@ msgstr "指定位置"
 msgid "Assign Organization"
 msgstr "指定組織"
 
+msgid "Auto Provision"
+msgstr ""
+
+msgid "Auto Provision All"
+msgstr ""
+
+msgid ""
+"Automatically provision newly discovered hosts, according to the "
+"provisioning rules"
+msgstr ""
+
+msgid "CPUs"
+msgstr "CPU"
+
 msgid "Cancel"
 msgstr "取消"
 
-msgid "Could not get facts from proxy: %s"
-msgstr "無法從協定取得詳情：%s"
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr ""
 
 msgid "Create a discovered host"
+msgstr ""
+
+msgid "Create a discovery rule"
 msgstr ""
 
 msgid "Delete"
@@ -51,11 +67,20 @@ msgstr "刪除 %s？"
 msgid "Delete a discovered host"
 msgstr ""
 
+msgid "Delete a rule"
+msgstr ""
+
 msgid "Delete hosts"
 msgstr "刪除主機"
 
 msgid "Destroyed selected hosts"
 msgstr "刪除選擇的主機"
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable rule?"
+msgstr ""
 
 msgid "Discovered Host Pool"
 msgstr ""
@@ -66,7 +91,58 @@ msgstr "發現的主機：%s"
 msgid "Discovered hosts"
 msgstr "發現的主機"
 
+msgid "Discovered hosts are provisioning now"
+msgstr ""
+
+msgid "Discovery Rules"
+msgstr ""
+
+msgid "Discovery rules"
+msgstr ""
+
 msgid "Discovery widget"
+msgstr ""
+
+msgid "DiscoveryRule|Enabled"
+msgstr ""
+
+msgid "DiscoveryRule|Name"
+msgstr ""
+
+msgid "DiscoveryRule|Priority"
+msgstr ""
+
+msgid "DiscoveryRule|Query"
+msgstr ""
+
+msgid "Disk count"
+msgstr ""
+
+msgid "Disks size"
+msgstr ""
+
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will "
+"be used when left blank. In addition to @host attribute function rand for "
+"random integers is available. Examples:"
+msgstr ""
+
+msgid "Edit Discovery Rule"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable rule?"
+msgstr ""
+
+msgid "Errors during auto provisioning: %s"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
 msgid "Fact"
@@ -78,20 +154,50 @@ msgstr "在這部主機上發現的詳情"
 msgid "Facts refreshed for %s"
 msgstr "%s 的詳情已刷新"
 
-msgid "Failed to import facts for Host::Discovered"
-msgstr "匯入 Host::Discovered 的詳情失敗"
+msgid "Failed to auto provision host %s: %s"
+msgstr ""
 
-msgid "Failed to import facts for Host::Discovered: %s"
-msgstr "匯入 Host::Discovered 的詳情失敗：%s"
+msgid "Failed to import facts for discovered host"
+msgstr ""
 
-msgid "Failed to reboot: %s"
-msgstr "重新啟動失敗：%s"
+msgid "Failed to import facts for discovered host: %s"
+msgstr ""
+
+msgid "Failed to reboot host %s"
+msgstr ""
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
 
 msgid "Failed to refresh facts for %s"
 msgstr "刷新 %s 的詳情失敗"
 
-msgid "Imported Host::Discovered"
-msgstr "已匯入 Host::Discovered"
+msgid "Host"
+msgstr "主機"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr ""
+
+msgid "Host group"
+msgstr "主機群組"
+
+msgid "Host of type %s can not be rebooted"
+msgstr ""
+
+msgid "Hostname for provisioned hosts"
+msgstr ""
+
+msgid "Hosts limit"
+msgstr ""
+
+msgid "Hosts/limit"
+msgstr ""
+
+msgid "IP Address"
+msgstr "IP 位址"
+
+msgid "Imported discovered host"
+msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr "詳情無效，必須是雜湊"
@@ -108,16 +214,37 @@ msgstr "最後上傳的詳情"
 msgid "List all discovered hosts"
 msgstr ""
 
+msgid "List all discovery rules"
+msgstr ""
+
 msgid "Location"
 msgstr "位置"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr ""
+
+msgid "Memory"
+msgstr "記憶體"
 
 msgid "Model"
 msgstr "型號"
 
+msgid "N/A"
+msgstr "N/A"
+
 msgid "Name"
 msgstr "名稱"
 
+msgid "New Discovery Rule"
+msgstr ""
+
+msgid "New Rule"
+msgstr ""
+
 msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No discovered hosts to provision"
 msgstr ""
 
 msgid "No hosts selected"
@@ -125,6 +252,9 @@ msgstr "未選擇主機"
 
 msgid "No hosts were found with that id or name"
 msgstr "沒有找到擁有此 ID 或名稱的主機"
+
+msgid "No rule found for host %s"
+msgstr ""
 
 msgid "Organization"
 msgstr "組織"
@@ -138,11 +268,32 @@ msgstr "佈建"
 msgid "Provision a discovered host"
 msgstr ""
 
+msgid "Reboot"
+msgstr ""
+
 msgid "Rebooting %s"
 msgstr "重新啟動 %s"
 
+msgid "Rebooting a discovered host"
+msgstr ""
+
+msgid "Rebooting host %s"
+msgstr ""
+
 msgid "Refresh facts"
 msgstr "刷新詳情"
+
+msgid "Refreshing the facts of a discovered host"
+msgstr ""
+
+msgid "Rule disabled"
+msgstr ""
+
+msgid "Rule enabled"
+msgstr ""
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
 
 msgid "Select Action"
 msgstr "選擇動作"
@@ -159,14 +310,31 @@ msgstr "選擇組織"
 msgid "Show a discovered host"
 msgstr ""
 
+msgid "Show a discovery rule"
+msgstr ""
+
+msgid "Show fact as an extra column in the discovered hosts list"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "選擇主機時發生了錯誤 - %s"
+
+msgid ""
+"Specify target hostname template pattern in the same syntax as in "
+"Provisioning Templates (ERB)."
+msgstr ""
 
 msgid "Submit"
 msgstr "提交"
 
 msgid "Subnet"
 msgstr "子網路"
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "Template"
+msgstr "範本"
 
 msgid "The default fact name to use for the MAC of the system"
 msgstr "系統之 MAC 所使用的預設詳情名稱"
@@ -176,6 +344,9 @@ msgstr "放置已發現之主機的預設位置"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "放置已發現之主機的預設組織"
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
 
 msgid "The following hosts were not deleted: %s"
 msgstr "下列主機尚未刪除：%s"
@@ -193,6 +364,9 @@ msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
+msgid "Update a rule"
+msgstr ""
+
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""
 
@@ -202,6 +376,15 @@ msgstr "值"
 msgid "Warning"
 msgstr "警告"
 
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are "
+"unique. Hostnames must not start with numbers. A good approach is to use "
+"unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr ""
+
 msgid "filter results"
 msgstr ""
 
@@ -210,6 +393,9 @@ msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "已選取項目。反選以清除"
+
+msgid "must start with a letter or ERB."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr ""
@@ -221,6 +407,11 @@ msgid "number of entries per request"
 msgstr ""
 
 msgid "paginate results"
+msgstr ""
+
+msgid ""
+"required if value is not inherited from host group or default password in "
+"settings"
 msgstr ""
 
 msgid "sort results"
