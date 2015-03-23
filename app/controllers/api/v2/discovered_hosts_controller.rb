@@ -122,7 +122,10 @@ module Api
             msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
             process_response perform_auto_provision(@discovered_host, rule), msg
           else
-            process_success _("No rule found for host %s") % @discovered_host.name
+            render_error :custom_error,
+                         :locals => {
+                             :message => _("No rule found for host %s") % @discovered_host.name
+                         }
           end
         end
       rescue ::Foreman::Exception => e
