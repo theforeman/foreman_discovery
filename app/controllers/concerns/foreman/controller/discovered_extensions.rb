@@ -14,8 +14,12 @@ module Foreman::Controller::DiscoveredExtensions
         # try to match the search
         begin
           if Host::Discovered.where(:id => host.id).search_for(rule.search).size > 0
-            Rails.logger.info "Match found for host #{host.name} (#{host.id}) rule #{rule.name} (#{rule.id})"
-            return rule
+            if rule.organizations.include?(host.organization) && rule.locations.include?(host.location)
+              Rails.logger.info "Match found for host #{host.name} (#{host.id}) rule #{rule.name} (#{rule.id})"
+              return rule
+            else
+              Rails.logger.warn "Rule #{rule.name} (#{rule.id}) can not be applied due to a difference in organization/location from host #{host.name} (#{host.id})"
+            end
           end
         rescue ScopedSearch::QueryNotSupported => e
           Rails.logger.warn "Invalid query for rule #{rule.name} (#{rule.id}): #{e.message}"

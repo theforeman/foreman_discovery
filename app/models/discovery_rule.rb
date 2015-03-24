@@ -3,8 +3,7 @@ class DiscoveryRule < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
   include Parameterizable::ByIdName
-
-  attr_accessible :name, :enabled, :hostgroup_id, :hostname, :max_count, :priority, :search
+  include Taxonomix
 
   validates :name, :presence => true, :uniqueness => true,
     :format => { :with => /\A(\S+)\Z/, :message => N_("can't contain white spaces.") }
@@ -25,6 +24,14 @@ class DiscoveryRule < ActiveRecord::Base
   scoped_search :on => :search
   scoped_search :on => :enabled
   scoped_search :in => :hostgroup, :on => :name, :complete_value => true, :rename => :hostgroup
+
+  # with proc support, default_scope can no longer be chained
+  # include all default scoping here
+  default_scope lambda {
+                  with_taxonomy_scope do
+                    order("discovery_rules.name")
+                  end
+                }
 
   def default_int_attributes
    self.max_count ||= 0

@@ -65,7 +65,9 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_success_via_upload
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    FactoryGirl.create(:discovery_rule, :priority => 1, :name => 'rule', :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    FactoryGirl.create(:discovery_rule, :priority => 1, :name => 'rule', :search => "facts.somefact = abc",
+                       :hostgroup => hostgroups(:common), :organizations => [Organization.first],
+                       :locations => [Location.first])
     post :facts, { :facts => facts }
     assert_response :success
     assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.first.comment
@@ -75,16 +77,27 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+                       :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
     assert_response :success
+  end
+
+  def test_auto_provision_with_wrong_org_or_loc_fail
+    disable_orchestration
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    post :auto_provision, { :id => host.id }
+    assert_response :success # after #9870 is merged this needs to change to find the error message
   end
 
   def test_auto_provision_success_and_delete
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+                       :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
     assert_response :success
     # test deletion of a managed host
@@ -105,8 +118,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    host = Host::Discovered.import_host_and_facts(facts).first
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => hostgroups(:common), :organizations => [host.organization],
+                       :locations => [host.location])
     post :auto_provision_all, {}
     assert_response :success
   end
