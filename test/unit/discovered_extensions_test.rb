@@ -41,31 +41,38 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
   test "rule out of one is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r1
   end
 
   test "first rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
-    FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc")
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
+    FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+                       :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r1
   end
 
   test "second rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x")
-    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc")
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
+                       :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r2
   end
 
   test "drained rule does not match for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :max_count => 1)
-    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc")
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :max_count => 1,
+                            :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     FactoryGirl.create(:host, :discovery_rule => r1)
     assert_equal find_discovery_rule(host), r2
   end
@@ -73,7 +80,8 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
   test "discovery rule is associated after auto provisioning" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
     assert_equal host.primary_interface.managed, true
     assert_equal host.build, true
@@ -84,15 +92,18 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
   test "rules with incorrect syntax are skipped" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => '=!^$#@?x')
-    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc")
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => '=!^$#@?x',
+                       :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r2
   end
 
   test "hostname is copied after auto provisioning" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc")
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
     assert_equal host.name, "macaabbccddeeff"
   end
@@ -121,7 +132,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => '<%= "" %>')
+                              :hostname => '<%= "" %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_equal "macaabbccddeeff", host.name
     end
@@ -130,7 +143,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => 'x<%= 1+1 %>')
+                              :hostname => 'x<%= 1+1 %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_equal "x2", host.name
     end
@@ -139,7 +154,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => 'x<%= rand(4) %>')
+                              :hostname => 'x<%= rand(4) %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_match(/x[0123]/, host.name)
     end
@@ -148,7 +165,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => 'x<%= @host.name %>')
+                              :hostname => 'x<%= @host.name %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_equal "xmacaabbccddeeff", host.name
     end
@@ -157,7 +176,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => 'x<%= @host.ip.gsub(".","-") %>')
+                              :hostname => 'x<%= @host.ip.gsub(".","-") %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_equal "x192-168-100-42", host.name
     end
@@ -167,7 +188,9 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       host = Host::Discovered.import_host_and_facts(@facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
-                              :hostname => 'x<%= @host.facts["somefact"] %>')
+                              :hostname => 'x<%= @host.facts["somefact"] %>',
+                              :organizations => [host.organization],
+                              :locations => [host.location])
       perform_auto_provision host, r1
       assert_equal "xabc", host.name
     end
