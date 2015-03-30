@@ -1,7 +1,6 @@
 <%= form_for @discovery_rule, :url => (@discovery_rule.new_record? ? discovery_rules_path : discovery_rule_path(:id => @discovery_rule.id)) do |f| %>
     <%= base_errors_for @discovery_rule %>
 
-    <% if show_taxonomy_tabs? %>
         <ul class="nav nav-tabs" data-tabs="tabs">
           <li class="active"><a href="#primary" data-toggle="tab"><%= _('Primary') %></a></li>
           <% if show_location_tab? %>
@@ -46,13 +45,9 @@
             <%= text_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)') %>
             <%= checkbox_f f, :enabled %>
           </div>
-
-          <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @discovery_rule %>
+          <% if show_taxonomy_tabs? %>
+            <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @discovery_rule %>
+          <% end %>
         </div>
-
-    <% else %>
-        <%= text_f f, :name %>
-    <% end %>
-
     <%= submit_or_cancel f %>
 <% end %>

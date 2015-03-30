@@ -89,7 +89,19 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     host = Host::Discovered.import_host_and_facts(facts).first
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
     post :auto_provision, { :id => host.id }
-    assert_response :success # after #9870 is merged this needs to change to find the error message
+    show_response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
+  end
+
+  def test_auto_provision_with_wrong_disabled_org_sucess
+    disable_orchestration
+    SETTINGS[:organizations_enabled] = false
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+                       :locations => [host.location])
+    post :auto_provision, { :id => host.id }
+    assert_response :success
   end
 
   def test_auto_provision_success_and_delete
