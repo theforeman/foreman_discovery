@@ -14,7 +14,7 @@ module Foreman::Controller::DiscoveredExtensions
         # try to match the search
         begin
           if Host::Discovered.where(:id => host.id).search_for(rule.search).size > 0
-            if rule.organizations.include?(host.organization) && rule.locations.include?(host.location)
+            if validate_rule_by_taxonomy(rule, host)
               Rails.logger.info "Match found for host #{host.name} (#{host.id}) rule #{rule.name} (#{rule.id})"
               return rule
             else
@@ -29,7 +29,17 @@ module Foreman::Controller::DiscoveredExtensions
       end
     end
     return false
-  end
+    end
+
+    def validate_rule_by_taxonomy rule, host
+      if SETTINGS[:organizations_enabled]
+        return false unless rule.organizations.include?(host.organization)
+      end
+      if SETTINGS[:locations_enabled]
+        return false unless rule.locations.include?(host.location)
+      end
+      true
+    end
 
   # trigger the provisioning
   def perform_auto_provision original_host, rule
