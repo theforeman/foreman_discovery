@@ -3,8 +3,6 @@ require 'foreman_discovery/proxy_operations'
 class Host::Discovered < ::Host::Base
   include ScopedSearchExtensions
 
-  belongs_to :location
-  belongs_to :organization
   belongs_to :subnet
   belongs_to :hostgroup
   has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
@@ -26,15 +24,6 @@ class Host::Discovered < ::Host::Base
   scoped_search :in => :discovery_attribute_set, :on => :memory, :rename => :memory, :complete_value => true, :only_explicit => true
   scoped_search :in => :discovery_attribute_set, :on => :disk_count, :rename => :disk_count, :complete_value => true, :only_explicit => true
   scoped_search :in => :discovery_attribute_set, :on => :disks_size, :rename => :disks_size, :complete_value => true, :only_explicit => true
-
-  default_scope lambda {
-    org = Organization.current
-    loc = Location.current
-    conditions = {}
-    conditions[:organization_id] = org.subtree_ids if org
-    conditions[:location_id]     = loc.subtree_ids if loc
-    where(conditions)
-  }
 
   def self.import_host_and_facts facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)

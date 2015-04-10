@@ -84,8 +84,33 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert host.name.start_with?('mac')
   end
 
+  test 'discovered host can be searched in multiple taxonomies' do
+    org1 = FactoryGirl.create(:organization)
+    org2 = FactoryGirl.create(:organization)
+    org3 = FactoryGirl.create(:organization)
+    user = FactoryGirl.create(:user, :organizations => [org1, org2])
+    host1 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org1)
+    host2 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org2)
+    host3 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org3)
+    hosts = nil
+
+    assert_nil Organization.current
+    as_user(user) do
+      hosts = Host::Discovered.all
+    end
+    assert_includes hosts, host1
+    assert_includes hosts, host2
+    refute_includes hosts, host3
+
+    as_user(:one) do
+      hosts = Host::Discovered.all
+    end
+    assert_includes hosts, host1
+    assert_includes hosts, host2
+    assert_includes hosts, host3
+  end
+
   def parse_json_fixture(relative_path)
     return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
-
 end
