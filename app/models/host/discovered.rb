@@ -2,8 +2,7 @@ require 'foreman_discovery/proxy_operations'
 
 class Host::Discovered < ::Host::Base
   include ScopedSearchExtensions
-
-  belongs_to :subnet
+  
   belongs_to :hostgroup
   has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
 
@@ -13,8 +12,8 @@ class Host::Discovered < ::Host::Base
 
   scoped_search :on => :name, :complete_value => true, :default_order => true
   scoped_search :on => :last_report, :complete_value => true
-  scoped_search :on => :ip, :complete_value => true
-  scoped_search :on => :mac, :complete_value => true
+  scoped_search :in => :primary_interface, :on => :ip, :complete_value => true
+  scoped_search :in => :primary_interface, :on => :mac, :complete_value => true
   scoped_search :in => :model, :on => :name, :complete_value => true, :rename => :model
   scoped_search :in => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
   scoped_search :in => :location, :on => :name, :rename => :location, :complete_value => true         if SETTINGS[:locations_enabled]
