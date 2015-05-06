@@ -4,6 +4,7 @@ module Host::ManagedExtensions
   included do
     # execute standard callbacks
     after_validation :queue_reboot
+    after_save :delete_discovery_attribute_set
 
     belongs_to :discovery_rule
   end
@@ -22,6 +23,11 @@ module Host::ManagedExtensions
   def delReboot
     # nothing to do here, in reality we should never hit this method since this should be the
     # last action in the queue.
+  end
+
+  def delete_discovery_attribute_set
+    return if new_record?
+    DiscoveryAttributeSet.destroy_all(:host_id => self.id) if type_changed?
   end
 
 end
