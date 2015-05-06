@@ -29,7 +29,7 @@ class DiscoveredHostsController < ::ApplicationController
   # as a parameter and use refresh_facts to get the rest
   def create
     Taxonomy.no_taxonomy_scope do
-      host, imported = Host::Discovered.new(:ip => get_ip_from_env).refresh_facts
+      _, imported = Host::Discovered.new(:ip => get_ip_from_env).refresh_facts
       respond_to do |format|
         format.yml {
           if imported
@@ -60,14 +60,14 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     Host.transaction do
-      @host = ::ForemanDiscovery::HostConverter.to_managed(@host) unless @host.nil?
+      @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
       render :template => 'hosts/edit'
     end
   end
 
   def update
     Host.transaction do
-      @host = ::ForemanDiscovery::HostConverter.to_managed(@host, false, false)
+      @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
       forward_url_options
       Taxonomy.no_taxonomy_scope do
         if @host.update_attributes(params[:host])
