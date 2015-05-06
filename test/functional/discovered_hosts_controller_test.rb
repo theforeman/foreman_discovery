@@ -6,11 +6,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
-      "interfaces"       => "lo,eth0",
-      "ipaddress"        => "192.168.100.42",
-      "ipaddress_eth0"   => "192.168.100.42",
-      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
-      "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
+      "interfaces"             => "lo,eth0",
+      "ipaddress"              => "192.168.100.42",
+      "ipaddress_eth0"         => "192.168.100.42",
+      "macaddress_eth0"        => "AA:BB:CC:DD:EE:FF",
+      "discovery_bootif"       => "AA:BB:CC:DD:EE:FF",
+      "physicalprocessorcount" => "42",
     }
   end
 
@@ -31,7 +32,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_edit_form
+  def test_edit_form_elements
     host = Host::Discovered.import_host_and_facts(@facts).first
     get :edit, {:id => host.id}, set_session_user
     assert_select "select" do |elements|
@@ -40,6 +41,14 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
         assert_match(/^host\[/, element.attributes['name'])
       end
     end
+  end
+
+  def test_edit_form_attributes
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    Host.transaction do
+      get :edit, {:id => host.id}, set_session_user
+    end
+    assert_not_nil host.cpu_count
   end
 
   def test_index_json
