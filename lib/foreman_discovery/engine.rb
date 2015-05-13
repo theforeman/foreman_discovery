@@ -67,23 +67,23 @@ module ForemanDiscovery
           permission :view_discovery_rules, {
             :discovery_rules => [:index, :show, :auto_complete_search],
             :"api/v2/discovery_rules" => [:index, :show]
-          }
+          }, :resource_type => 'DiscoveryRule'
           permission :new_discovery_rules, {
             :discovery_rules => [:new, :create],
             :"api/v2/discovery_rules" => [:create]
-          }
+          }, :resource_type => 'DiscoveryRule'
           permission :edit_discovery_rules, {
             :discovery_rules => [:edit, :update, :enable, :disable],
             :"api/v2/discovery_rules" => [:create, :update]
-          }
+          }, :resource_type => 'DiscoveryRule'
           permission :execute_discovery_rules, {
             :discovery_rules => [:auto_provision, :auto_provision_all],
             :"api/v2/discovery_rules" => [:auto_provision, :auto_provision_all]
-          }
+          }, :resource_type => 'DiscoveryRule'
           permission :delete_discovery_rules, {
             :discovery_rules => [:destroy],
             :"api/v2/discovery_rules" => [:destroy]
-          }
+          }, :resource_type => 'DiscoveryRule'
         end
 
         # roles (only added if they don't exist)
