@@ -110,6 +110,17 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_includes hosts, host3
   end
 
+  test "provisioning a discovered host without saving it doesn't create a token" do
+    Setting[:token_duration] = 30 #enable tokens so that we only test the CR
+    raw = parse_json_fixture('/facts.json')
+    Setting[:discovery_prefix] = '123'
+    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host.save
+    h = ::ForemanDiscovery::HostConverter.to_managed(host)
+    refute_valid h
+    assert Token.where(:host_id => h.id).empty?
+  end
+
   def parse_json_fixture(relative_path)
     return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
