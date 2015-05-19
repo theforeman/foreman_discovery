@@ -16,13 +16,10 @@ class DiscoveredHostsController < ::ApplicationController
   layout 'layouts/application'
 
   def index
-    search = resource_base.search_for(params[:search], :order => params[:order])
-    respond_to do |format|
-      format.html do
-        @hosts = search.includes(:location, :organization, :subnet, :model, :discovery_attribute_set).paginate(:page => params[:page])
-      end
-      format.json { render :json => search }
-    end
+    @hosts = resource_base.
+      search_for(params[:search], :order => params[:order]).
+      includes(:location, :organization, :subnet, :model, :discovery_attribute_set).
+      paginate(:page => params[:page])
   end
 
   # Importing yaml is restricted to puppetmasters, so instead we take the ip

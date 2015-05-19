@@ -51,11 +51,6 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_not_nil host.cpu_count
   end
 
-  def test_index_json
-    get :index, {:format => "json"}, set_session_user
-    assert_response :success
-  end
-
   def test_add_entry_to_nav_menu
     get :index, {}, set_session_user
     assert_tag :tag        => 'a',
