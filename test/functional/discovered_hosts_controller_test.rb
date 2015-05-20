@@ -13,6 +13,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       "discovery_bootif"       => "AA:BB:CC:DD:EE:FF",
       "physicalprocessorcount" => "42",
     }
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_reboot',
+                       :value => true,
+                       :category => 'Setting::Discovered')
   end
 
   def test_index
@@ -84,10 +88,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = FactoryGirl.create(:host,
                               :ip   => '1.2.3.4',
                               :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.expects(:power).raises("request must fail")
+    ::ProxyAPI::BMC.any_instance.expects(:power).raises("request failed")
     post "reboot", { :id => host.id }, set_session_user
     assert_redirected_to discovered_hosts_url
-    assert_equal "Failed to reboot host #{host.name} with error request must fail", flash[:error]
+    assert_match(/ERF50-6734/, flash[:error])
   end
 
   def test_auto_provision_success
@@ -153,13 +157,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
+    FactoryGirl.create(:host,
+                       :ip   => '1.2.3.4',
+                       :type => "Host::Discovered")
     ::ProxyAPI::BMC.any_instance.expects(:power).raises("request must fail")
     post "reboot_all", { }, set_session_user
     assert_redirected_to discovered_hosts_url
-    assert_equal "Errors during reboot: #{host.name}: request must fail", flash[:error]
+    assert_match(/ERF50-6734/, flash[:error])
   end
 
   private

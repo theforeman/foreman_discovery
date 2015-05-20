@@ -9,14 +9,15 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-        self.set('discovery_fact', _("Fact name to use for primary interface detection and hostname"), "discovery_bootif"),
-        self.set('discovery_auto', _("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
+        self.set('discovery_fact', N_("Fact name to use for primary interface detection and hostname"), "discovery_bootif"),
+        self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
+        self.set('discovery_reboot', N_("Automatically reboot discovered host during provisioning"), true),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
     Setting.transaction do
       [
-        self.set('discovery_prefix', _("The default prefix to use for the host name, must start with a letter"), "mac"),
+        self.set('discovery_prefix', N_("The default prefix to use for the host name, must start with a letter"), "mac"),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
@@ -29,14 +30,14 @@ class Setting::Discovered < ::Setting
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_location', _("The default location to place discovered hosts in"), ""),
+          self.set('discovery_location', N_("The default location to place discovered hosts in"), ""),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end
     if SETTINGS[:organizations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_organization', _("The default organization to place discovered hosts in"), "" ),
+          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "" ),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end

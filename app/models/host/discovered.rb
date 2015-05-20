@@ -146,18 +146,14 @@ class Host::Discovered < ::Host::Base
     proxy_url = self.proxy_url
 
     if proxy_url[:type] == 'proxy'
-      status = ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'reboot').parse_put_operation
+      ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'reboot').
+        parse_put_operation.try(:fetch, 'result')
     else
-      status = ::ProxyAPI::BMC.new(:url => "http://#{self.ip}:8443").power :action => "cycle"
+      ::ProxyAPI::BMC.new(:url => "http://#{self.ip}:8443").power :action => "cycle"
     end
-
-    msg = status ? 'successful' : 'failed'
-    logger.info "ForemanDiscovery: reboot result: #{msg}"
-    status
-    rescue => e
-      logger.info "ForemanDiscovery: reboot result: failed"
-      logger.warn e.backtrace.join('\n')
-      raise e
+  rescue => e
+    ::Foreman::Logging.exception("Unable to reboot #{name}", e)
+    raise ::Foreman::WrappedException.new(e, N_("Unable to reboot %{name}: %{msg}"), :name => name, :msg => e.to_s)
   end
 
   def self.model_name
