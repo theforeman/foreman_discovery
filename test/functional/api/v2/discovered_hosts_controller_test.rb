@@ -99,9 +99,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     post :auto_provision, { :id => host.id }
-    assert_response :success
-    show_response = ActiveSupport::JSON.decode(@response.body)
-    assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
+    assert_response :unprocessable_entity
+    assert_equal "No rule found for host #{host.name}",JSON.parse(response.body)['error']['message']
   end
 
   def test_auto_provision_all_success
