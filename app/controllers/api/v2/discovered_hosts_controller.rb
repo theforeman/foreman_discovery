@@ -122,7 +122,7 @@ module Api
             msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
             process_response perform_auto_provision(@discovered_host, rule), msg
           else
-            render_error :custom_error, :status => :unprocessable_entity,
+            render_error :custom_error, :status => :not_found,
                          :locals => {
                              :message => _("No rule found for host %s") % @discovered_host.name
                          }
