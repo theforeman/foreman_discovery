@@ -66,7 +66,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     FactoryGirl.create(:discovery_rule, :priority => 1, :name => 'rule', :search => "facts.somefact = abc",
-                       :hostgroup => hostgroups(:common), :organizations => [Organization.first],
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [Organization.first],
                        :locations => [Location.first])
     post :facts, { :facts => facts }
     assert_response :success
@@ -77,9 +77,11 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
+    assert_match host.name, @response.body
     assert_response :success
   end
 
@@ -87,7 +89,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass))
     post :auto_provision, { :id => host.id }
     show_response = ActiveSupport::JSON.decode(@response.body)
     assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
@@ -98,9 +101,11 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     SETTINGS[:organizations_enabled] = false
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :locations => [host.location])
     post :auto_provision, { :id => host.id }
+    assert_match host.name, @response.body
     assert_response :success
   end
 
@@ -108,24 +113,27 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common),
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
     assert_response :success
     # test deletion of a managed host
     switch_controller(::Api::V2::HostsController) do
       delete :destroy, { :id => host.id }
+      assert_match host.name, @response.body
       assert_response :success
     end
   end
 
-  def test_auto_provision_no_rule_success
+  def test_auto_provision_no_rule_error
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     post :auto_provision, { :id => host.id }
     assert_response :not_found
-    assert_equal "No rule found for host #{host.name}",JSON.parse(response.body)['error']['message']
+    show_response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
   end
 
   def test_auto_provision_all_success
@@ -133,9 +141,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
-                       :hostgroup => hostgroups(:common), :organizations => [host.organization],
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [host.organization],
                        :locations => [host.location])
     post :auto_provision_all, {}
+    assert_equal '{}', @response.body
     assert_response :success
   end
 
@@ -144,6 +153,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     Host::Discovered.import_host_and_facts(facts).first
     post :auto_provision_all, {}
+    assert_equal '{}', @response.body
     assert_response :success
   end
 
