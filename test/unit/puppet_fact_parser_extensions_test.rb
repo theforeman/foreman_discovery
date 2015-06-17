@@ -1,63 +1,78 @@
 require 'test_helper'
 
-class DummyPuppetFactParser
-  def ip
-    '192.168.0.30'
+class PuppetFactParserStub
+  attr_reader :interfaces, :facts
+
+  def initialize(interfaces, facts)
+    @interfaces = interfaces
+    @facts = facts
   end
 
-  def primary_interface
-    'eth1'
-  end
-
-  def interfaces
-    {
-      'eth0' => {'macaddress' => 'aa:00:00:00:00:01', 'ipaddress' => '192.168.0.2'},
-      'eth3' => {'ipaddress' => '192.168.2.2'},
-      'eth2' => {'macaddress' => 'bb:00:00:00:00:01', 'ipaddress' => '192.168.1.2'}
-    }.with_indifferent_access
-  end
-
-  def facts
-    {
-      :ipaddress => '192.168.0.2', :macaddress => 'bb:00:00:00:00:01', :interfaces => 'eth0,eth1,lo',
-      :macaddress_eth1 => 'bb:00:00:00:00:01', :ipaddress_eth1 => '192.168.1.2',
-      :macaddress_eth0 => 'aa:00:00:00:00:01', :ipaddress_eth0 => '192.168.0.2',
-      :macaddress_lo => '', :ipaddress_lo => '127.0.0.1',
-      :mac_fact => 'AA:00:00:00:00:01'
-    }.with_indifferent_access
-  end
+  def suggested_primary_interface(_); end
+  def parse_interfaces?; end
 
   include PuppetFactParserExtensions
 end
 
 class PuppetFactParserTest < ActiveSupport::TestCase
   setup do
-    @parser = DummyPuppetFactParser.new
+    interfaces = {
+      'eth0' => {'macaddress' => 'aa:bb:cc:dd:ee:f1', 'ipaddress' => '192.168.1.1'},
+      'eth1' => {'macaddress' => 'aa:bb:cc:dd:ee:f2', 'ipaddress' => '192.168.1.2'},
+      'eth2' => {'macaddress' => 'aa:bb:cc:dd:ee:f3', 'ipaddress' => '192.168.1.3'},
+    }.with_indifferent_access
+    facts = {
+      :macaddress_eth0 => 'aa:bb:cc:dd:ee:f1',
+      :macaddress_eth1 => 'aa:bb:cc:dd:ee:f2',
+      :macaddress_eth2 => 'aa:bb:cc:dd:ee:f3',
+      :ipaddress_eth0 => '192.168.1.1',
+      :ipaddress_eth1 => '192.168.1.2',
+      :ipaddress_eth2 => '192.168.1.3',
+      :ipaddress => '192.168.1.2',
+      :macaddress => 'aa:bb:cc:dd:ee:f2',
+      :discovery_bootif => 'aa:bb:cc:dd:ee:f3'
+    }.with_indifferent_access
+    @parser = PuppetFactParserStub.new(interfaces, facts)
+    @host = Host::Discovered.new(:name => 'dummy')
   end
 
-  test '#ip_with_discovery_fact ignores discovery part completely if discovery facts are not present' do
-    @parser.stubs(:discovery_mac_fact_name).returns('fact_that_does_not_exist')
-    assert_equal '192.168.0.30', @parser.ip
+  test "#suggested_primary_interface detects interface eth2" do
+    assert_equal 'eth2', @parser.suggested_primary_interface(@host).try(:first)
   end
 
-  test '#ip_with_discovery_fact finds primary interface based on discovery facts and returns it\'s ip' do
-    @parser.stubs(:discovery_mac_fact_name).returns('mac_fact')
-    assert_equal '192.168.0.2', @parser.ip
+  test "#suggested_primary_interface detects interface eth1" do
+    FacterUtils.stubs(:bootif_mac).returns('aa:bb:cc:dd:ee:f2')
+    assert_equal 'eth1', @parser.suggested_primary_interface(@host).try(:first)
   end
 
-  test '#primary_interface_with_discovery_fact finds primary interface based on discovery facts' do
-    @parser.stubs(:discovery_mac_fact_name).returns('mac_fact')
-    assert_equal 'eth0', @parser.primary_interface
+  test "#suggested_primary_interface detects interface with user defined bootif fact name" do
+    FacterUtils.stubs(:bootif_name).returns('my_primary')
+    @parser.facts[:my_primary] = 'aa:bb:cc:dd:ee:f1'
+    assert_equal 'eth0', @parser.suggested_primary_interface(@host).try(:first)
   end
 
-  test '#primary_interface_with_discovery_fact falls back if no interface can be found by discovery mac' do
-    @parser.facts[:mac_fact] = 'cc:00:00:00:00:01'
-    @parser.stubs(:discovery_mac_fact_name).returns('mac_fact')
-    assert_equal 'eth0', @parser.primary_interface
+  test "#suggested_primary_interface errors out when bootif fact defines unknown MAC" do
+    @parser.facts[:discovery_bootif] = 'aa:aa:aa:aa:aa:aa'
+    exception = assert_raises(::Foreman::Exception) do
+      @parser.suggested_primary_interface(@host)
+    end
+    assert_match(/Unable to detect primary interface using MAC/, exception.message)
   end
 
-  test '#primary_interface_with_discovery_fact uses macaddress fact if discovery facts not available' do
-    @parser.stubs(:discovery_mac_fact_name).returns('fact_that_does_not_exist')
-    assert_equal 'eth1', @parser.primary_interface
+  test "#suggested_primary_interface errors out when bootif fact is missing" do
+    @parser.facts.delete(:discovery_bootif)
+    exception = assert_raises(::Foreman::Exception) do
+      @parser.suggested_primary_interface(@host)
+    end
+    assert_match(/Unable to detect primary interface using MAC/, exception.message)
   end
+
+  test "#suggested_primary_interface detects interface even when 'ignore_puppet_facts_for_provisioning' is set" do
+    FactoryGirl.create(:setting,
+                       :name => 'ignore_puppet_facts_for_provisioning',
+                       :value => true,
+                       :category => 'Setting::Provisioning')
+    assert_equal 'eth2', @parser.suggested_primary_interface(@host).try(:first)
+  end
+
 end

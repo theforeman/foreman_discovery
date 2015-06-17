@@ -2,7 +2,6 @@ require 'test_helper'
 
 class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
-    User.current = User.find_by_login "admin"
     FactoryGirl.create(:setting,
                        :name => 'discovery_fact',
                        :value => 'discovery_bootif',
@@ -24,12 +23,39 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
+  test "should setup subnet" do
+    raw = parse_json_fixture('/facts.json')
+    subnet = FactoryGirl.create(:subnet, :organizations => [Organization.first], :locations => [Location.first])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    assert_equal subnet, host.primary_interface.subnet
+  end
+
+  test "should setup subnet with org and loc" do
+    org = FactoryGirl.create(:organization, :name => "subnet_org")
+    loc = FactoryGirl.create(:location, :name => "subnet_loc")
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_organization',
+                       :value => org.name,
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_location',
+                       :value => loc.name,
+                       :category => 'Setting::Discovered')
+    raw = parse_json_fixture('/facts.json')
+    subnet = FactoryGirl.create(:subnet, :organizations => [org], :locations => [loc])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    assert_equal subnet, host.primary_interface.subnet
+  end
+
   test "should raise when fact_name setting isn't present" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'macaddress_foo'
-    assert_raises Foreman::Exception do
+    exception = assert_raises(::Foreman::Exception) do
       Host::Discovered.import_host_and_facts(raw['facts'])
     end
+    assert_match(/Expected discovery_fact '\w+' is missing/, exception.message)
   end
 
   test "should be able to refresh facts" do
@@ -51,9 +77,10 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should create discovered host with default name if fact_name isn't a valid mac" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'lsbdistcodename'
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert_equal 'mace41f13cc3658', host.name
-    assert_equal 'e4:1f:13:cc:36:58', host.mac
+    exception = assert_raises(::Foreman::Exception) do
+      Host::Discovered.import_host_and_facts(raw['facts'])
+    end
+    assert_match(/Unable to detect primary interface using MAC/, exception.message)
   end
 
   test "should create discovered host with prefix" do

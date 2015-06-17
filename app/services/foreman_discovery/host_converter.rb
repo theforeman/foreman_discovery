@@ -14,6 +14,7 @@ class ForemanDiscovery::HostConverter
       host.managed = set_managed
       host.primary_interface.managed = set_managed
     end
+    # set build only and only on final save (otherwise interfaces are not being identified)
     host.build = set_build if set_build
     host
   end
