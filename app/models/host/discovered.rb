@@ -27,46 +27,25 @@ class Host::Discovered < ::Host::Base
 
   def self.import_host_and_facts facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
-    fact_name = Setting[:discovery_fact] || 'discovery_bootif'
-    prefix_from_settings = Setting[:discovery_prefix]
-    hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
-    hostname_prefix ||= 'mac'
-
-    macfact = facts[fact_name].try(:downcase)
-    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), fact_name)) unless macfact
-    begin
-      macfact = Net::Validations.normalize_mac(macfact)
-    rescue ArgumentError => e
-      macfact = facts['discovery_bootif'].try(:downcase)
-    end
-
-    hostname = macfact.try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
-    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain IP address"))) unless facts['ipaddress']
 
     # filter facts
     facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
 
+    raise ::Foreman::Exception.new(N_("Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname") % FacterUtils::bootif_name) unless FacterUtils::bootif_present(facts)
+
+    # construct hostname
+    prefix_from_settings = Setting[:discovery_prefix]
+    hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
+    hostname_prefix ||= 'mac'
+    hostname = FacterUtils::bootif_mac(facts).try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
+    binding.pry if hostname.nil?
+
+    # create new host record
     h = ::Host::Discovered.find_by_name hostname
     h ||= Host.new :name => hostname, :type => "Host::Discovered"
     h.type = "Host::Discovered"
-    h.mac = macfact
 
-
-    if SETTINGS[:locations_enabled]
-      begin
-        h.location = (Location.find_by_name Setting[:discovery_location]) || Location.first
-      rescue
-        h.location = Location.first
-      end
-    end
-    if SETTINGS[:organizations_enabled]
-      begin
-        h.organization = (Organization.find_by_name Setting[:discovery_organization]) || Organization.first
-      rescue
-        h.organization = Organization.first
-      end
-    end
-
+    # and save (interfaces are created via puppet parser extension)
     h.save(:validate => false) if h.new_record?
     state = h.import_facts(facts)
     return h, state
@@ -89,17 +68,35 @@ class Host::Discovered < ::Host::Base
     super
   end
 
-  def populate_fields_from_facts facts = self.facts_hash, type = 'puppet'
-    # type arg only added in 1.7
-    if Gem::Dependency.new('', '>= 1.7').match?('', SETTINGS[:version].notag)
-      importer = super
+  def populate_fields_from_facts(facts = self.facts_hash, type = 'puppet')
+    # detect interfaces and primary interface using extensions
+    parser = super(facts, type)
+
+    # set additional discovery attributes
+    primary_ip = self.primary_interface.ip
+    unless primary_ip.nil?
+      subnet = Subnet.subnet_for(primary_ip)
+      Rails.logger.warn "Subnet not detected for #{primary_ip}" if subnet.nil?
+      # set subnet
+      self.primary_interface.subnet = subnet
+      # set location and organization
+      if SETTINGS[:locations_enabled]
+        self.location = Location.find_by_name(Setting[:discovery_location]) ||
+          subnet.try(:locations).try(:first) ||
+          Location.first
+      end
+      if SETTINGS[:organizations_enabled]
+        self.organization = Organization.find_by_name(Setting[:discovery_organization]) ||
+          subnet.try(:organizations).try(:first) ||
+          Organization.first
+      end
     else
-      importer = super(facts)
+      raise(::Foreman::Exception.new(N_("Unable to assign subnet, primary interface is missing IP address")))
     end
-    self.primary_interface.subnet = Subnet.subnet_for(self.primary_interface.ip)
     self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
     self.discovery_attribute_set.update_attributes(import_from_facts)
-    self.save
+    self.save!
+    parser
   end
 
   def import_from_facts(facts = self.facts_hash)

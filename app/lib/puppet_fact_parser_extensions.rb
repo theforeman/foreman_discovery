@@ -2,42 +2,28 @@ module PuppetFactParserExtensions
   extend ActiveSupport::Concern
 
   included do
-    # In Foreman 1.8 these two methods have been removed, we could reuse discovery_mac_fact_name in suggested_primary_interface(host) if needed
-    if instance_methods.include?(:primary_interface)
-      alias_method_chain :primary_interface, :discovery_fact
-    end
-
-    if instance_methods.include?(:ip)
-      alias_method_chain :ip, :discovery_fact
+    begin
+      raise "method: suggested_primary_interface" unless instance_methods.include?(:suggested_primary_interface)
+      raise "method: parse_interfaces?" unless instance_methods.include?(:parse_interfaces?)
+      alias_method_chain :suggested_primary_interface, :bootif
+      alias_method_chain :parse_interfaces?, :bootif
+    rescue Exception => e
+      raise ::Foreman::WrappedException.new(e, N_("Incompatible version of puppet fact parser"))
     end
   end
 
-  # we prefer discovery_bootif fact to choose right primary interface (interface used to boot the image)
-  def primary_interface_with_discovery_fact
-    if facts.has_key?(discovery_mac_fact_name)
-      mac = facts[discovery_mac_fact_name]
-      interfaces.each do |int, values|
-        return int.to_s if (values[:macaddress].try(:downcase) == mac.try(:downcase))
-      end
-    end
-    primary_interface_without_discovery_fact # fallback if we didn't find interface with such macaddress
+  # discovery has its own method of finding primary iface
+  def suggested_primary_interface_with_bootif(host)
+    return suggested_primary_interface_without_bootif(host) if host.type != "Host::Discovered"
+    bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
+    detected = interfaces.detect { |_, values| values[:macaddress].try(:downcase) == bootif_mac }
+    Rails.logger.debug "Detected primary interface: #{detected}"
+    # return the detected interface as array [name, facts]
+    detected || raise(::Foreman::Exception.new(N_("Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'") % {:mac => bootif_mac, :fact => FacterUtils::bootif_name}))
   end
 
-  # search for IP of interface with primary interface macaddress (ipaddress fact does not have to be interface used for boot)
-  def ip_with_discovery_fact
-    if facts[:interfaces] && facts.has_key?(discovery_mac_fact_name)
-      facts[:interfaces].split(',').each do |interface|
-        if facts["macaddress_#{interface}"].try(:downcase) == facts[discovery_mac_fact_name].try(:downcase)
-          return facts["ipaddress_#{interface}"]
-        end
-      end
-    end
-    ip_without_discovery_fact # fallback if IP was not found
-  end
-
-  private
-
-  def discovery_mac_fact_name
-    Setting[:discovery_fact] || 'discovery_bootif'
+  # make 'ignore_puppet_facts_for_provisioning' setting non-effective
+  def parse_interfaces_with_bootif?
+    true
   end
 end
