@@ -8,15 +8,19 @@ class DiscoveredHostsController < ::ApplicationController
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
   before_filter :taxonomy_scope, :only => [:edit]
 
+  around_filter :skip_bullet, :only => [:edit]
+
   helper :hosts
 
   layout 'layouts/application'
 
   def index
-    @hosts = resource_base.
-      search_for(params[:search], :order => params[:order]).
-      includes(:location, :organization, :subnet, :model, :discovery_attribute_set).
-      paginate(:page => params[:page])
+    @hosts = resource_base.search_for(params[:search], :order => params[:order]).includes([
+      :location,
+      :organization,
+      :model,
+      :discovery_attribute_set
+    ], {:interfaces => :subnet}).paginate(:page => params[:page])
   end
 
   def show
@@ -255,4 +259,11 @@ class DiscoveredHostsController < ::ApplicationController
     end
   end
 
+  # particular actions will always raise N+1 queries
+  def skip_bullet
+    Bullet.enable = false if defined? Bullet
+    yield
+  ensure
+    Bullet.enable = true if defined? Bullet
+  end
 end
