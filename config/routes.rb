@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match 'medium_selected_discovered_hosts'       => 'hosts#medium_selected'
 
   constraints(:id => /[^\/]+/) do
-    resources :discovered_hosts do
+    resources :discovered_hosts, :except => [:new, :create] do
       member do
         get 'refresh_facts'
         put 'reboot'

@@ -46,7 +46,7 @@ module ForemanDiscovery
             :"api/v2/discovered_hosts" => [:index, :show]
           }, :resource_type => 'Host'
           permission :provision_discovered_hosts, {
-            :discovered_hosts          => [:new, :create, :auto_provision, :auto_provision_all],
+            :discovered_hosts          => [:auto_provision, :auto_provision_all],
             :"api/v2/discovered_hosts" => [:create, :auto_provision, :auto_provision_all]
           }, :resource_type => 'Host'
           permission :edit_discovered_hosts, {
