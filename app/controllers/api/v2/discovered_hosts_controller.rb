@@ -3,7 +3,7 @@ module Api
     class DiscoveredHostsController < ::Api::V2::BaseController
       include Foreman::Controller::DiscoveredExtensions
 
-      before_filter :find_resource, :except => %w{index create facts auto_provision_all}
+      before_filter :find_resource, :except => %w{index create facts auto_provision_all reboot_all}
       skip_before_filter :authorize, :only => :facts
 
       resource_description do
@@ -188,6 +188,21 @@ module Api
         render :json => {'message'=>e.to_s}
       end
 
+      api :PUT, "/discovered_hosts/reboot_all", N_("Rebooting all discovered hosts")
+
+      def reboot_all
+        error_message = perform_reboot_all
+        if error_message
+          render_error :custom_error,
+                       :status => :unprocessable_entity,
+                       :locals => {
+                           :message => error_message
+                       }
+        else
+          process_success _("Discovered hosts are rebooting now")
+        end
+      end
+
       private
 
       def resource_class
@@ -204,7 +219,7 @@ module Api
             :auto_provision
           when 'auto_provision_all'
             :auto_provision_all
-          when 'refresh_facts', 'reboot'
+          when 'refresh_facts', 'reboot', 'reboot_all'
             :edit
           else
             super
