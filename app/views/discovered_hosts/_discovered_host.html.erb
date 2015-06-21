@@ -6,7 +6,7 @@
 <% unless defined? hide_disk %>
 <td class="hidden-tablet hidden-xs"><%= discovery_attribute(host, :disk_count) %></td>
 <td class="hidden-tablet hidden-xs"><%= number_to_human_size(discovery_attribute(host, :disks_size, 0) * 1024 * 1024) %></td>
-<% if Setting['discovery_fact_column'].present? %>
-  <td class="hidden-tablet hidden-xs"><%= host.facts_hash[Setting['discovery_fact_column']] || 'N/A' %></td>
+<% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
+<td class="hidden-tablet hidden-xs"><%= host.facts_hash[fact_column.strip] || 'N/A' %></td>
 <% end %>
 <% end %>

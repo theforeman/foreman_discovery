@@ -45,4 +45,15 @@ class Setting::Discovered < ::Setting
 
   end
 
+  def self.discovery_fact_column_array
+    return [] if !Setting['discovery_fact_column'].present?
+    list = []
+    Setting['discovery_fact_column'].to_s.split(",").each do |value|
+      list << value.strip
+    end
+  rescue => error
+    logger.warn "Failed to parse comma delimited list [%s] into array. Error: %s" % [list,error]
+  ensure
+    list
+  end
 end

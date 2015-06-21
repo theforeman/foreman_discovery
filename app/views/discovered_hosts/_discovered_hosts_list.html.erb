@@ -10,8 +10,8 @@
     <th class="hidden-tablet hidden-xs"><%= sort :memory, :as => _('Memory') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk count') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks size') %></th>
-    <% if Setting['discovery_fact_column'].present? %>
-      <th class="hidden-tablet hidden-xs"><%= Setting['discovery_fact_column'].capitalize %></th>
+    <% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
+      <th class="hidden-tablet hidden-xs"><%= fact_column.strip.capitalize %></th>
     <% end %>
     <% if SETTINGS[:locations_enabled] -%>
       <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
