@@ -22,7 +22,7 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-        self.set('discovery_fact_column', _("Show fact as an extra column in the discovered hosts list"), ""),
+        self.set('discovery_fact_column', N_("Extra facter columns to show in host lists (separate by comma)"), ""),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
@@ -45,4 +45,15 @@ class Setting::Discovered < ::Setting
 
   end
 
+  def self.discovery_fact_column_array
+    return [] if !Setting['discovery_fact_column'].present?
+    list = []
+    Setting['discovery_fact_column'].to_s.split(",").each do |value|
+      list << value.strip
+    end
+  rescue => error
+    logger.warn "Failed to parse comma delimited list [%s] into array. Error: %s" % [list,error]
+  ensure
+    list
+  end
 end
