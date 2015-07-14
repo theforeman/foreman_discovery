@@ -1,26 +1,27 @@
 <%= javascript "jquery.cookie", "host_checkbox" %>
 <% title _('Discovered hosts') %>
-<table class="table table-bordered table-striped table-condensed" >
+<% stylesheet("discovery-two-pane") %>
+<table class="table table-bordered table-striped table-condensed table-two-pane" >
   <tr>
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
-    <th class=''><%= sort :name, :as => _('Name') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :model, :as => _('Model') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :ip, :as => _('IP Address') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :cpu_count, :as => _('CPUs') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :memory, :as => _('Memory') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk count') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks size') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :name, :as => _('Name') %></th>
+    <th><%= sort :model, :as => _('Model') %></th>
+    <th><%= sort :ip, :as => _('IP Address') %></th>
+    <th><%= sort :cpu_count, :as => _('CPUs') %></th>
+    <th><%= sort :memory, :as => _('Memory') %></th>
+    <th><%= sort :disk_count, :as => _('Disk count') %></th>
+    <th><%= sort :disks_size, :as => _('Disks size') %></th>
     <% if Setting['discovery_fact_column'].present? %>
-      <th class="hidden-tablet hidden-xs"><%= Setting['discovery_fact_column'].capitalize %></th>
+      <th><%= Setting['discovery_fact_column'].capitalize %></th>
     <% end %>
     <% if SETTINGS[:locations_enabled] -%>
-      <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
+      <th><%= sort :location, :as => _('Location') %></th>
     <% end -%>
     <% if SETTINGS[:organizations_enabled] -%>
-      <th class="hidden-tablet hidden-xs"><%= sort :organization, :as => _('Organization') %></th>
+      <th><%= sort :organization, :as => _('Organization') %></th>
     <% end -%>
-    <th class="hidden-tablet hidden-xs"><%= sort :subnet, :as => _("Subnet") %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last facts upload") %></th>
+    <th><%= sort :subnet, :as => _("Subnet") %></th>
+    <th><%= sort :last_report, :as => _("Last facts upload") %></th>
     <th></th>
   </tr>
   <% @hosts.each do |host| -%>
@@ -28,15 +29,16 @@
       <td class="ca">
         <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
       </td>
+      <td class="hidden-tablet hidden-xs display-two-pane"><%= link_to h(host.name), discovered_host_path(host) %></td>
       <%= render :partial => "discovered_host", :locals => {:host => host} %>
       <% if SETTINGS[:locations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.location.try(:name) %></td>
+        <td><%= host.location.try(:name) %></td>
       <% end -%>
       <% if SETTINGS[:organizations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.organization.try(:name) %></td>
+        <td><%= host.organization.try(:name) %></td>
       <% end -%>
-      <td class="hidden-tablet hidden-xs"><%= host.primary_interface.try(:subnet) %></td>
-      <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
+      <td><%= host.primary_interface.try(:subnet) %></td>
+      <td><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
           link_to(_("Provision"), hash_for_edit_discovered_host_path(:id => host)),
