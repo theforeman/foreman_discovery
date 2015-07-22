@@ -47,4 +47,23 @@ module DiscoveredHostsHelper
     authorized_for(:controller => :discovered_hosts, :action => :edit) or
         authorized_for(:controller => :discovered_hosts, :action => :destroy)
   end
+
+  def discovery_status_icon(host)
+    if host.created_at > 1.day.ago
+      status_glyph = 'glyphicon-plus-sign'
+      status_message = _('New in the last 24 hours')
+      status_color = '#89A54E'
+    elsif host.last_report < 7.days.ago
+      status_glyph = 'glyphicon-exclamation-sign'
+      status_message = _('Not reported in more than 7 days')
+      status_color = '#AA4643'
+    else
+      status_glyph = 'glyphicon-ok-sign'
+      status_message = _('Reported in the last 7 days')
+      status_color = '#4572A7'
+    end
+
+    "<span class='glyphicon #{status_glyph}' style='color: #{status_color}'
+      title='#{status_message}'/>".html_safe
+  end
 end

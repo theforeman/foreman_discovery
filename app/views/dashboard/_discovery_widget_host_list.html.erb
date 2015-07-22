@@ -2,15 +2,14 @@
   <thead>
   <th><%= _('Host') %></th>
   <th><%= _('Model') %></th>
-  <th><%= _('IP Address') %></th>
   <th><%= _('CPUs') %></th>
   <th><%= _('Memory') %></th>
   </thead>
   <tbody>
   <% hosts.each do |host| %>
     <tr>
-      <%= render :partial => "discovered_hosts/discovered_host", :locals => {
-        :host => host, :hide_disk => true } %>
+      <%= render :partial => "discovery_widget_host", :locals => {
+        :host => host } %>
   </tr>
   <% end %>
   </tbody>
