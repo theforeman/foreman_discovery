@@ -2,9 +2,11 @@ class DiscoveredHostsController < ::ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::TaxonomyMultiple
   include Foreman::Controller::DiscoveredExtensions
+  include ActionView::Helpers::NumberHelper
   unloadable
 
-  before_filter :find_by_name, :only => %w[show edit update destroy refresh_facts convert reboot auto_provision]
+  before_filter :find_by_name, :only => %w[edit update destroy refresh_facts convert reboot auto_provision]
+  before_filter :find_by_name_incl_subnet, :only => [:show]
   before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
   before_filter :taxonomy_scope, :only => [:edit]
 
@@ -26,9 +28,16 @@ class DiscoveredHostsController < ::ApplicationController
   def show
     # filter graph time range
     @range = nil
-
     # summary report text
     @report_summary = nil
+    init_regex_and_categories
+    @interfaces = []
+    get_interfaces
+    @host.facts_hash.each do |key, value|
+      value = number_to_human_size(value) if /size$/.match(key)
+      assign_fact_to_category(key, value) unless @interfaces.any? {|interface| key.include? interface[:identifier]}
+    end
+    add_custom_facts
   end
 
   def destroy
@@ -171,13 +180,35 @@ class DiscoveredHostsController < ::ApplicationController
 
   private
 
+  def init_regex_and_categories
+    hightlights = Setting[:discovery_facts_highlights].empty? ? /^(productname|memorysize|manufacturer|architecture|macaddress$|processorcount|physicalprocessorcount|discovery_subnet|discovery_boot|ipaddress$)/ : Regexp.new(eval(Setting[:discovery_facts_highlights]))
+    storage = Setting[:discovery_facts_storage].empty? ? /^blockdevice/ : Regexp.new(eval(Setting[:discovery_facts_storage]))
+    hardware = Setting[:discovery_facts_hardware].empty? ? /^(hardw|manufacturer|memo|process)/ : Regexp.new(eval(Setting[:discovery_facts__hardware]))
+    network = Setting[:discovery_facts_network].empty? ? /^(ipaddress|interfaces|dhcp|fqdn|hostname|link|mtu|net|macaddress|wol|port|speed)/ : Regexp.new(eval(Setting[:discovery_facts_network]))
+    software = Setting[:discovery_facts_software].empty? ? /^(bios|os|discovery)/ : Regexp.new(eval(Setting[:discovery_facts_software]))
+    ipmi = Setting[:discovery_facts_ipmi].empty? ? /^ipmi/ : Regexp.new(eval(Setting[:discovery_facts_ipmi]))
+    @regex_array = [hightlights, storage, hardware, network, software, ipmi, false]
+    @categories = Array.new(7) { Hash.new }
+    @categories_names = [:Hightlights, :Storage, :Hardware, :Network, :Software, :IPMI, :Misceleneous]
+  end
+
+  def assign_fact_to_category(key, value )
+    @regex_array.each_with_index do |regex, index|
+      if !regex
+        @categories[index][key] = value
+      elsif regex.match key
+        @categories[index][key] = value
+        break
+      end
+    end
+  end
+
   def resource_base
     @resource_base ||= ::Host::Discovered.authorized(current_permission, ::Host::Discovered)
   end
 
   def load_vars_for_ajax
     return unless @host
-
     @environment     = @host.environment
     @architecture    = @host.architecture
     @domain          = @host.domain
@@ -213,11 +244,15 @@ class DiscoveredHostsController < ::ApplicationController
     end
   end
 
-  def find_by_name
+  def find_by_name(*includes)
     params[:id].downcase! if params[:id].present?
-    @host = resource_base.find_by_id(params[:id])
-    @host ||= resource_base.find_by_name(params[:id])
+    @host = includes.empty? ? resource_base.find_by_id(params[:id]) : resource_base.includes(includes).find_by_id(params[:id])
+    @host ||= includes.empty? ? resource_base.find_by_name(params[:id]) : resource_base.includes(includes).find_by_name(params[:id])
     return false unless @host
+  end
+
+  def find_by_name_incl_subnet
+    find_by_name({:interfaces => :subnet})
   end
 
   def find_multiple
@@ -261,5 +296,18 @@ class DiscoveredHostsController < ::ApplicationController
     yield
   ensure
     Bullet.enable = true if defined? Bullet
+  end
+
+  def get_interfaces
+    @host.interfaces.each do |interface|
+      @interfaces << {:identifier => interface["identifier"], :type => interface["type"], :mac => interface["mac"], :ip => interface["ip"]? interface["ip"] : "N/A", :primary => interface["primary"], :provision => interface["provision"]}
+    end
+  end
+
+  def add_custom_facts
+    unless @host.primary_interface.subnet.nil?
+      discovery_subnet = "#{@host.primary_interface.subnet.name} (#{@host.primary_interface.subnet.network})"
+      assign_fact_to_category("discovery_subnet", discovery_subnet)
+    end
   end
 end
