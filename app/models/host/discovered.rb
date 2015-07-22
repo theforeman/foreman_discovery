@@ -10,7 +10,8 @@ class Host::Discovered < ::Host::Base
 
   delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
 
-  scoped_search :on => :name, :complete_value => true, :default_order => true
+  scoped_search :on => :name, :complete_value => true
+  scoped_search :on => :created_at, :default_order => :desc
   scoped_search :on => :last_report, :complete_value => true
   scoped_search :in => :primary_interface, :on => :ip, :complete_value => true
   scoped_search :in => :primary_interface, :on => :mac, :complete_value => true
@@ -24,6 +25,10 @@ class Host::Discovered < ::Host::Base
   scoped_search :in => :discovery_attribute_set, :on => :memory, :rename => :memory, :complete_value => true, :only_explicit => true
   scoped_search :in => :discovery_attribute_set, :on => :disk_count, :rename => :disk_count, :complete_value => true, :only_explicit => true
   scoped_search :in => :discovery_attribute_set, :on => :disks_size, :rename => :disks_size, :complete_value => true, :only_explicit => true
+
+  default_scope lambda {
+    where(taxonomy_conditions).order("hosts.created_at DESC")
+  }
 
   def self.import_host_and_facts facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)

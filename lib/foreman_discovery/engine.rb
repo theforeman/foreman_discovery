@@ -129,7 +129,7 @@ module ForemanDiscovery
           :after=> :hostgroups
 
         # add dashboard widget
-        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 7, :sizey =>1
+        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 6, :sizey =>1
 
         # add template helpers
         allowed_template_helpers :rand
@@ -166,6 +166,9 @@ module ForemanDiscovery
 
       # Include subnet extensions
       ::Subnet.send :include, DiscoverySubnet
+
+      # Include helper for dashboard
+      ::DashboardHelper.send(:include, DiscoveredHostsHelper)
     end
 
     rake_tasks do
