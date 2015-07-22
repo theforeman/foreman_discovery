@@ -2,15 +2,93 @@
 
 <%= discovered_hosts_title_actions(@host) %>
 
-<h3><%= _('Facts discovered on this host') -%></h3>
-<table class="table table-bordered table-striped table-condensed">
-  <tr>
-    <th><%= _('Fact') -%></th>
-    <th><%= _('Value') -%></th>
-  <% @host.facts_hash.sort.each do |fact| -%>
-    <tr>
-      <td><%= fact[0] %></td>
-      <td><%= truncate(fact[1], :length => 100) %></td>
-    </tr>
-  <% end -%>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" ><strong> <%= @categories_names[0] %></strong> </div>
+        <table class="table table-bordered table-condensed table-fixed">
+        <% @categories[0].sort.each do |keys, val| %>
+            <tr class="">
+            <td class="ellipsis" width="40%"> <strong> <%= keys %> </strong></td>  <td><%= val %></td>
+            </tr>
+        <% end -%>
+        </table>
+    </div>
+    <% unless @interfaces.empty? %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#interfaces-panel" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
+              <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+              Interfaces
+            </a>
+          </h4>
+        </div>
+        <div id="interfaces-panel" class="panel-collapse collapse facts-panel in" >
+          <table class="table table-bordered table-condensed table-fixed" id="interfaceList">
+            <tr>
+              <th class="hidden-xs " width="12%"></th>
+              <th class="hidden-xs "><%= _('Identifier') %></th>
+              <th class="hidden-xs "><%= _("MAC address") %></th>
+              <th class="hidden-xs "><%= _("IP address") %></th>
+            </tr>
+            <% @interfaces.each do |interface| %>
+              <tr>
+                <td class="<%= attach_flags(interface) %> ellipsis"></td>
+                <td class="ellipsis"><%= interface[:identifier] %></td>
+                <td class="ellipsis"><%= interface[:mac] %></td>
+                <td class="ellipsis"><%= interface[:ip] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="col-md-6">
+      <% @categories.each_with_index do |val, index| %>
+        <% next if index == 0 || val.empty? %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+              <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
+                <span class="glyphicon glyphicon<%= (@categories_names[index].to_s.include?("Storage")? "-minus-sign":"-plus-sign")%>" aria-hidden="true"></span>
+                <%= @categories_names[index] %>
+              </a>
+            </h4>
+          </div>
+          <div id="<%= @categories_names[index].to_s + "panel" %>" class="panel-collapse collapse facts-panel <%= "in" if @categories_names[index].to_s.include?"Storage"%>" role="tabpanel">
+            <table class="table table-bordered  table-condensed table-fixed">
+            <% val.sort.each do |key, value|  %>
+                <tr class="">
+                  <td width="40%" class="ellipsis"><strong> <%= key %> </strong> </td> <td class="ellipsis"> <%= value %> </td>
+                </tr>
+            <% end %>
+            </table>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('table tr:nth-child(even)').css('background-color','#f5f5f5');
+    $("table").css('padding', '0');
+    $("table").css("cssText", 'margin-bottom: 0 !important;');
+    $(".panel-default").css('margin-bottom', "10px")
+
+    provision_class = 'active'
+    primary_class = 'active'
+    var flag_primary = '<i class="glyphicon glyphicon glyphicon-tag primary-flag '+ primary_class +'" title="" data-original-title="'+ __('Primary') +'"></i>';
+    var flags_provision = '<i class="glyphicon glyphicon glyphicon-hdd provision-flag '+ provision_class +'" title="" data-original-title="'+ __('Provisioning') +'"></i>';
+
+    $('.flag-primary').html(flag_primary);
+    $('.flag-provision').append(flags_provision);
+    $('.primary-flag').tooltip();
+    $('.provision-flag').tooltip();
+  });
+</script>

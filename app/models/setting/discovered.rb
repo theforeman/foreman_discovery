@@ -2,6 +2,12 @@ class Setting::Discovered < ::Setting
   BLANK_ATTRS << "discovery_location"
   BLANK_ATTRS << "discovery_organization"
   BLANK_ATTRS << "discovery_fact_column"
+  BLANK_ATTRS << 'discovery_facts_highlights'
+  BLANK_ATTRS << 'discovery_facts_storage'
+  BLANK_ATTRS << 'discovery_facts_software'
+  BLANK_ATTRS << 'discovery_facts_hardware'
+  BLANK_ATTRS << 'discovery_facts_network'
+  BLANK_ATTRS << 'discovery_facts_ipmi'
 
   def self.load_defaults
     # Check the table exists
@@ -42,6 +48,16 @@ class Setting::Discovered < ::Setting
       end
     end
 
+    Setting.transaction do
+      [
+          self.set('discovery_facts_highlights', N_("Regex to organize facts for highlights section"), ""),
+          self.set('discovery_facts_storage', N_("Regex to organize facts for storage section"), ""),
+          self.set('discovery_facts_software', N_("Regex to organize facts for software section"), ""),
+          self.set('discovery_facts_hardware', N_("Regex to organize facts for hardware section"), ""),
+          self.set('discovery_facts_network', N_("Regex to organize facts for network section"), ""),
+          self.set('discovery_facts_ipmi', N_("Regex to organize facts for ipmi section"), ""),
+      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+    end
     true
 
   end

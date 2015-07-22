@@ -1,5 +1,12 @@
 module DiscoveredHostsHelper
 
+  def attach_flags(interface)
+    flags = ""
+    flags += "flag-primary " if interface[:primary]
+    flags += "flag-provision" if interface[:provision]
+    flags
+  end
+
   def disc_report_column(record)
     record.last_report? ? (_("%s ago") % time_ago_in_words(record.last_report.getlocal)) : ""
   end
@@ -10,12 +17,20 @@ module DiscoveredHostsHelper
     actions <<  [_('Refresh facts') ,hash_for_refresh_facts_discovered_host_path(:id => host)]
     actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host), :method => :put]
     title_actions(
+        button_group(
+            link_to(_("Back"), :back)
+        ),
         select_action_button( _("Select Action"), {},
                               actions.map do |action|
                                 method = action[2] if action.size > 1
                                 link_to(action[0] , action[1], method)
                               end.flatten
         ),
+      button_group(
+        link_to(_("Expand All"),"#",:class => "btn ",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
+                $('.facts-panel').addClass('collapse in').height('auto');"
+        )
+      ),
       button_group(
         link_to(_("Delete"), hash_for_discovered_host_path(:id => host),
                 :class => "btn btn-danger", :confirm => _('Are you sure?'), :method => :delete)
