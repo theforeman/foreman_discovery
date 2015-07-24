@@ -21,7 +21,3 @@ class ActiveSupport::TestCase
 
   set_fixture_class({ :hosts => Host::Base })
 end
-
-def set_session_user
-  SETTINGS[:login] ? {:user => User.admin.id, :expires_at => 5.minutes.from_now} : {}
-end
