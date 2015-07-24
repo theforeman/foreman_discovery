@@ -24,16 +24,15 @@ module DiscoveredHostsHelper
   end
 
   def multiple_discovered_hosts_actions_select
-    actions = [[_('Delete hosts'), multiple_destroy_discovered_hosts_path]]
-    actions <<  [_('Assign Organization'), select_multiple_organization_discovered_hosts_path] if SETTINGS[:organizations_enabled]
-    actions <<  [_('Assign Location'), select_multiple_location_discovered_hosts_path] if SETTINGS[:locations_enabled]
+    actions = [[_('Delete hosts'), multiple_destroy_discovered_hosts_path, hash_for_multiple_destroy_discovered_hosts_path]]
+    actions <<  [_('Assign Organization'), select_multiple_organization_discovered_hosts_path,  hash_for_select_multiple_organization_discovered_hosts_path] if SETTINGS[:organizations_enabled]
+    actions <<  [_('Assign Location'), select_multiple_location_discovered_hosts_path,  hash_for_select_multiple_location_discovered_hosts_path] if SETTINGS[:locations_enabled]
 
     select_action_button( _("Select Action"), {:id => 'submit_multiple'},
       actions.map do |action|
-        link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0])
+        link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0]) if authorized_for(action[2])
       end.flatten
     )
-
   end
 
   def turn_zero_to_not_available(value)
@@ -44,4 +43,8 @@ module DiscoveredHostsHelper
     host.try(:discovery_attribute_set).try(attr) || default_value
   end
 
+  def authorized_for_edit_destroy?
+    authorized_for(:controller => :discovered_hosts, :action => :edit) or
+        authorized_for(:controller => :discovered_hosts, :action => :destroy)
+  end
 end
