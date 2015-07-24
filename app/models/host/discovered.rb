@@ -38,7 +38,6 @@ class Host::Discovered < ::Host::Base
     hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
     hostname_prefix ||= 'mac'
     hostname = FacterUtils::bootif_mac(facts).try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
-    binding.pry if hostname.nil?
 
     # create new host record
     h = ::Host::Discovered.find_by_name hostname

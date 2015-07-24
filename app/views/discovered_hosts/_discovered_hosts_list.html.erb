@@ -26,7 +26,7 @@
   <% @hosts.each do |host| -%>
     <tr>
       <td class="ca">
-        <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
+        <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized_for_edit_destroy?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
       </td>
       <%= render :partial => "discovered_host", :locals => {:host => host} %>
       <% if SETTINGS[:locations_enabled] -%>
@@ -39,10 +39,10 @@
       <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
       <td>
         <%= action_buttons(
-          link_to(_("Provision"), hash_for_edit_discovered_host_path(:id => host)),
-          link_to(_("Auto Provision"), hash_for_auto_provision_discovered_host_path(:id => host), :method => :post),
-          link_to(_("Refresh facts"), hash_for_refresh_facts_discovered_host_path(:id => host)),
-          link_to(_("Reboot"), hash_for_reboot_discovered_host_path(:id => host), :method => :put),
+          display_link_if_authorized(_("Provision"), hash_for_edit_discovered_host_path(:id => host)),
+          display_link_if_authorized(_("Auto Provision"), hash_for_auto_provision_discovered_host_path(:id => host), :method => :post),
+          display_link_if_authorized(_("Refresh facts"), hash_for_refresh_facts_discovered_host_path(:id => host)),
+          display_link_if_authorized(_("Reboot"), hash_for_reboot_discovered_host_path(:id => host), :method => :put),
           display_delete_if_authorized(hash_for_discovered_host_path(:id => host), :confirm => _("Delete %s?") % host.name, :action => :destroy))%>
         </td>
       </tr>

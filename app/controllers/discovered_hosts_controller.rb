@@ -125,7 +125,7 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def auto_provision
-    @host.transaction do
+    Host.transaction do
       if rule = find_discovery_rule(@host)
         if perform_auto_provision(@host, rule)
           process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => discovered_hosts_path
@@ -202,16 +202,12 @@ class DiscoveredHostsController < ::ApplicationController
 
   def action_permission
     case params[:action]
-      when 'refresh_facts', 'reboot', 'reboot_all'
-        :view
-      when 'update_multiple_location', 'select_multiple_organization', 'update_multiple_organization', 'select_multiple_location'
+      when 'refresh_facts', 'reboot', 'reboot_all', 'update_multiple_location', 'select_multiple_organization', 'update_multiple_organization', 'select_multiple_location'
         :edit
       when 'submit_multiple_destroy', 'multiple_destroy'
         :destroy
-      when 'auto_provision'
+      when 'auto_provision', 'auto_provision_all'
         :auto_provision
-      when 'auto_provision_all'
-        :auto_provision_all
       else
         super
     end

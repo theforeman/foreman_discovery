@@ -100,7 +100,7 @@ module Api
           @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
         end
         if Setting['discovery_auto']
-          @discovered_host.transaction do
+          Host.transaction do
             if state && rule = find_discovery_rule(@discovered_host)
               state = perform_auto_provision(@discovered_host, rule)
             else
@@ -119,7 +119,7 @@ module Api
       param :id, :identifier, :required => true
 
       def auto_provision
-        @discovered_host.transaction do
+        Host.transaction do
           if rule = find_discovery_rule(@discovered_host)
             msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
             process_response perform_auto_provision(@discovered_host, rule), msg
@@ -217,12 +217,12 @@ module Api
 
       def action_permission
         case params[:action]
-          when 'auto_provision'
+          when 'auto_provision', 'auto_provision_all'
             :auto_provision
-          when 'auto_provision_all'
-            :auto_provision_all
           when 'refresh_facts', 'reboot', 'reboot_all'
             :edit
+          when 'facts', 'create'
+            :submit
           else
             super
         end

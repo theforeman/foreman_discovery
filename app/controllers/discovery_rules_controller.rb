@@ -53,10 +53,8 @@ class DiscoveryRulesController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'enable'
-      :enable
-    when 'disable'
-      :disable
+    when 'enable', 'disable'
+      :edit
     else
       super
     end

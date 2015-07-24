@@ -3,6 +3,7 @@ module Foreman::Controller::DiscoveredExtensions
 
   # return auto provision rule or false when not present
   def find_discovery_rule host
+    raise(::Foreman::Exception.new(N_("Unable to find a discovery rule, no host provided (check permissions)"))) if host.nil?
     Rails.logger.debug "Finding auto discovery rule for host #{host.name} (#{host.id})"
     # for each discovery rule ordered by priority
     DiscoveryRule.where(:enabled => true).order(:priority).each do |rule|
@@ -29,17 +30,17 @@ module Foreman::Controller::DiscoveredExtensions
       end
     end
     return false
-    end
+  end
 
-    def validate_rule_by_taxonomy rule, host
-      if SETTINGS[:organizations_enabled]
-        return false unless rule.organizations.include?(host.organization)
-      end
-      if SETTINGS[:locations_enabled]
-        return false unless rule.locations.include?(host.location)
-      end
-      true
+  def validate_rule_by_taxonomy rule, host
+    if SETTINGS[:organizations_enabled]
+      return false unless rule.organizations.include?(host.organization)
     end
+    if SETTINGS[:locations_enabled]
+      return false unless rule.locations.include?(host.location)
+    end
+    true
+  end
 
   # trigger the provisioning
   def perform_auto_provision original_host, rule

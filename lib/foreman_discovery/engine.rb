@@ -45,16 +45,23 @@ module ForemanDiscovery
             :discovered_hosts          => [:index, :show, :auto_complete_search],
             :"api/v2/discovered_hosts" => [:index, :show]
           }, :resource_type => 'Host'
-          permission :provision_discovered_hosts, {
+          permission :submit_discovered_hosts, {
+            :"api/v2/discovered_hosts" => [:facts, :create]
+          }, :resource_type => 'Host'
+          permission :auto_provision_discovered_hosts, {
             :discovered_hosts          => [:auto_provision, :auto_provision_all],
-            :"api/v2/discovered_hosts" => [:create, :auto_provision, :auto_provision_all]
+            :"api/v2/discovered_hosts" => [:auto_provision, :auto_provision_all]
+          }, :resource_type => 'Host'
+          permission :provision_discovered_hosts, {
+            :discovered_hosts          => [:edit, :update],
+            :"api/v2/discovered_hosts" => [:update]
           }, :resource_type => 'Host'
           permission :edit_discovered_hosts, {
-            :discovered_hosts          => [:edit, :update, :update_multiple_location,
+            :discovered_hosts          => [:update_multiple_location,
                                            :select_multiple_organization,
                                            :update_multiple_organization,
                                            :select_multiple_location, :refresh_facts, :reboot, :reboot_all],
-            :"api/v2/discovered_hosts" => [:update, :facts, :refresh_facts, :reboot, :reboot_all]
+            :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
           }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
             :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],
@@ -68,7 +75,7 @@ module ForemanDiscovery
             :discovery_rules => [:index, :show, :auto_complete_search],
             :"api/v2/discovery_rules" => [:index, :show]
           }, :resource_type => 'DiscoveryRule'
-          permission :new_discovery_rules, {
+          permission :create_discovery_rules, {
             :discovery_rules => [:new, :create],
             :"api/v2/discovery_rules" => [:create]
           }, :resource_type => 'DiscoveryRule'
@@ -80,15 +87,35 @@ module ForemanDiscovery
             :discovery_rules => [:auto_provision, :auto_provision_all],
             :"api/v2/discovery_rules" => [:auto_provision, :auto_provision_all]
           }, :resource_type => 'DiscoveryRule'
-          permission :delete_discovery_rules, {
+          permission :destroy_discovery_rules, {
             :discovery_rules => [:destroy],
             :"api/v2/discovery_rules" => [:destroy]
           }, :resource_type => 'DiscoveryRule'
         end
 
-        # roles (only added if they don't exist)
-        role "Discovery Manager", [:view_discovered_hosts, :provision_discovered_hosts, :edit_discovered_hosts, :destroy_discovered_hosts, :view_discovery_rules, :new_discovery_rules, :edit_discovery_rules, :execute_discovery_rules, :delete_discovery_rules]
-        role "Discovery Reader", [:view_discovered_hosts, :view_discovery_rules]
+        READER = [
+          :view_discovered_hosts,
+          :view_discovery_rules,
+          :view_organizations,
+          :view_locations,
+        ]
+        MANAGER = READER + [
+          :assign_organizations,
+          :assign_locations,
+          # discovered_hosts
+          :submit_discovered_hosts,
+          :provision_discovered_hosts,
+          :auto_provision_discovered_hosts,
+          :edit_discovered_hosts,
+          :destroy_discovered_hosts,
+          # discovered_rules
+          :create_discovery_rules,
+          :execute_discovery_rules,
+          :edit_discovery_rules,
+          :destroy_discovery_rules,
+        ]
+        role "Discovery Reader", READER
+        role "Discovery Manager", MANAGER
 
         # menu entries
         menu :top_menu, :discovered_hosts, :url_hash => {:controller => :discovered_hosts, :action => :index},
