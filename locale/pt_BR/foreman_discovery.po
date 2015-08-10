@@ -8,12 +8,12 @@
 # luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 2.0.0.rc1\n"
+"Project-Id-Version: foreman_discovery 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-28 17:53+0100\n"
-"PO-Revision-Date: 2015-01-30 11:12+0000\n"
+"PO-Revision-Date: 2015-03-28 23:01+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/foreman/language/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -390,7 +390,7 @@ msgid "can't contain white spaces."
 msgstr ""
 
 msgid "filter results"
-msgstr ""
+msgstr "filtrar resultados"
 
 msgid "hash containing facts for the host"
 msgstr ""
@@ -408,10 +408,10 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr ""
 
 msgid "number of entries per request"
-msgstr ""
+msgstr "número de entradas por requisições"
 
 msgid "paginate results"
-msgstr ""
+msgstr "paginar resultados"
 
 msgid ""
 "required if value is not inherited from host group or default password in "
@@ -419,4 +419,4 @@ msgid ""
 msgstr ""
 
 msgid "sort results"
-msgstr ""
+msgstr "ordenar resultados"

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the foreman package.
 # 
 # Translators:
+# Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 2.0.0.rc1\n"
+"Project-Id-Version: foreman_discovery 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-28 17:53+0100\n"
-"PO-Revision-Date: 2015-01-30 11:12+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/foreman/language/ja/)\n"
+"PO-Revision-Date: 2015-04-05 12:23+0000\n"
+"Last-Translator: Shuji Yamada <uzy.exe@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,15 +34,15 @@ msgid "Assign Organization"
 msgstr "組織の割り当て"
 
 msgid "Auto Provision"
-msgstr ""
+msgstr "自動プロビジョン"
 
 msgid "Auto Provision All"
-msgstr ""
+msgstr "全自動プロビジョン"
 
 msgid ""
 "Automatically provision newly discovered hosts, according to the "
 "provisioning rules"
-msgstr ""
+msgstr "プロビジョニングルールに従って、新しく発見されたホストを自動プロビジョニングする"
 
 msgid "CPUs"
 msgstr "CPU"
@@ -50,13 +51,13 @@ msgid "Cancel"
 msgstr "取り消し"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr ""
+msgstr "プロキシーからファクトを取得できませんでした: %{url}: %{error}"
 
 msgid "Create a discovered host"
-msgstr ""
+msgstr "検出されたホストを作成します"
 
 msgid "Create a discovery rule"
-msgstr ""
+msgstr "検出ルールを作成します"
 
 msgid "Delete"
 msgstr "削除"
@@ -65,10 +66,10 @@ msgid "Delete %s?"
 msgstr "%s を削除しますか?"
 
 msgid "Delete a discovered host"
-msgstr ""
+msgstr "検出されたホストの削除"
 
 msgid "Delete a rule"
-msgstr ""
+msgstr "ルールの削除"
 
 msgid "Delete hosts"
 msgstr "ホストの削除"
@@ -77,13 +78,13 @@ msgid "Destroyed selected hosts"
 msgstr "破棄された選択ホスト"
 
 msgid "Disable"
-msgstr ""
+msgstr "無効"
 
 msgid "Disable rule?"
-msgstr ""
+msgstr "ルールを無効にしますか？"
 
 msgid "Discovered Host Pool"
-msgstr ""
+msgstr "検出されたホストのプール"
 
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
@@ -92,34 +93,34 @@ msgid "Discovered hosts"
 msgstr "検出されたホスト"
 
 msgid "Discovered hosts are provisioning now"
-msgstr ""
+msgstr "現在、検出されたホストはプロビジョニング中です"
 
 msgid "Discovery Rules"
-msgstr ""
+msgstr "検出ルール"
 
 msgid "Discovery rules"
-msgstr ""
+msgstr "検出ルール"
 
 msgid "Discovery widget"
-msgstr ""
+msgstr "検出ウィジット"
 
 msgid "DiscoveryRule|Enabled"
-msgstr ""
+msgstr "有効"
 
 msgid "DiscoveryRule|Name"
-msgstr ""
+msgstr "名前"
 
 msgid "DiscoveryRule|Priority"
-msgstr ""
+msgstr "優先度"
 
 msgid "DiscoveryRule|Query"
-msgstr ""
+msgstr "クエリ"
 
 msgid "Disk count"
-msgstr ""
+msgstr "ディスク数"
 
 msgid "Disks size"
-msgstr ""
+msgstr "ディスク容量"
 
 msgid ""
 "Domain will be appended automatically. A hostname based on MAC address will "
@@ -128,22 +129,22 @@ msgid ""
 msgstr ""
 
 msgid "Edit Discovery Rule"
-msgstr ""
+msgstr "検出ルールの編集"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効化"
 
 msgid "Enable rule?"
-msgstr ""
+msgstr "ルールを有効化しますか?"
 
 msgid "Errors during auto provisioning: %s"
-msgstr ""
+msgstr "自動プロビジョニング中のエラー: %s"
 
 msgid "Execute rules against a discovered host"
-msgstr ""
+msgstr "検出されたホストに対してルールを実行"
 
 msgid "Execute rules against all currently discovered hosts"
-msgstr ""
+msgstr "すべての検出されているホストに対してルールを実行"
 
 msgid "Fact"
 msgstr "ファクト"
@@ -155,16 +156,16 @@ msgid "Facts refreshed for %s"
 msgstr "%s について更新されたファクト"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr ""
+msgstr "ホスト %s の自動プロビジョニングに失敗しました: %s"
 
 msgid "Failed to import facts for discovered host"
-msgstr ""
+msgstr "検出されたホストのファクトをインポートできませんでした"
 
 msgid "Failed to import facts for discovered host: %s"
 msgstr ""
 
 msgid "Failed to reboot host %s"
-msgstr ""
+msgstr "ホスト %s の再起動に失敗しました"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr ""
@@ -182,28 +183,28 @@ msgid "Host group"
 msgstr "ホストグループ"
 
 msgid "Host of type %s can not be rebooted"
-msgstr ""
+msgstr "タイプ %s のホストを再起動することができません"
 
 msgid "Hostname for provisioned hosts"
-msgstr ""
+msgstr "プロビジョニングホストのホスト名"
 
 msgid "Hosts limit"
-msgstr ""
+msgstr "ホストの制限"
 
 msgid "Hosts/limit"
-msgstr ""
+msgstr "ホスト/制限"
 
 msgid "IP Address"
 msgstr "IP アドレス"
 
 msgid "Imported discovered host"
-msgstr ""
+msgstr "検出されたホストのインポート"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "無効なファクトです。ハッシュにする必要があります"
 
 msgid "Invalid facts: hash does not contain IP address"
-msgstr ""
+msgstr "無効なファクト : ハッシュは IP アドレスが含まれていません"
 
 msgid "Invalid facts: hash does not contain the required fact '%s'"
 msgstr "無効なファクト: ハッシュには必要なファクト '%s' が含まれていません"
@@ -212,10 +213,10 @@ msgid "Last facts upload"
 msgstr "最終ファクトのアップロード"
 
 msgid "List all discovered hosts"
-msgstr ""
+msgstr "検出されたすべてのホストを一覧表示"
 
 msgid "List all discovery rules"
-msgstr ""
+msgstr "すべての検出ルールを一覧表示"
 
 msgid "Location"
 msgstr "ロケーション"
@@ -236,10 +237,10 @@ msgid "Name"
 msgstr "名前"
 
 msgid "New Discovery Rule"
-msgstr ""
+msgstr "新規検出ルール"
 
 msgid "New Rule"
-msgstr ""
+msgstr "新規ルール"
 
 msgid "No discovered hosts available"
 msgstr ""
@@ -254,7 +255,7 @@ msgid "No hosts were found with that id or name"
 msgstr "該当する ID または名前のホストが見つかりませんでした"
 
 msgid "No rule found for host %s"
-msgstr ""
+msgstr "ホスト %s のルールが見つかりません"
 
 msgid "Organization"
 msgstr "組織"
@@ -266,34 +267,34 @@ msgid "Provision"
 msgstr "プロビジョニング"
 
 msgid "Provision a discovered host"
-msgstr ""
+msgstr "検出されたホストのプロビジョン"
 
 msgid "Reboot"
-msgstr ""
+msgstr "再起動"
 
 msgid "Rebooting %s"
 msgstr "%s の再起動中"
 
 msgid "Rebooting a discovered host"
-msgstr ""
+msgstr "検出されたホストの再起動"
 
 msgid "Rebooting host %s"
-msgstr ""
+msgstr "ホスト %s の再起動中"
 
 msgid "Refresh facts"
 msgstr "ファクトの更新"
 
 msgid "Refreshing the facts of a discovered host"
-msgstr ""
+msgstr "検出されたホストのファクト更新"
 
 msgid "Rule disabled"
-msgstr ""
+msgstr "ルールの無効化"
 
 msgid "Rule enabled"
-msgstr ""
+msgstr "ルールを有効化"
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
+msgstr "ルール優先度 ( 小さい整数ほど、より高い優先順位を意味します )"
 
 msgid "Select Action"
 msgstr "アクションの選択"
@@ -308,10 +309,10 @@ msgid "Select organization"
 msgstr "組織の選択"
 
 msgid "Show a discovered host"
-msgstr ""
+msgstr "検出されたホストを表示"
 
 msgid "Show a discovery rule"
-msgstr ""
+msgstr "検出ルールを表示"
 
 msgid "Show fact as an extra column in the discovered hosts list"
 msgstr ""
@@ -346,7 +347,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトの組織"
 
 msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
+msgstr "ホスト名に使用するデフォルトの接頭辞は、文字で始まる必要があります"
 
 msgid "The following hosts were not deleted: %s"
 msgstr "以下のホストが削除されました: %s"
@@ -358,17 +359,17 @@ msgstr "ホスト、ファクトおよびレポートがすべて破棄される
 
 msgid "Total pool size"
 msgid_plural "Total pool size"
-msgstr[0] ""
+msgstr[0] "合計プールサイズ"
 
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
 msgid "Update a rule"
-msgstr ""
+msgstr "ルールの更新"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr ""
+msgstr "ホストのファクトをアップロードし、必要に応じてホストを作成する"
 
 msgid "Value"
 msgstr "値"
@@ -383,10 +384,10 @@ msgid ""
 msgstr ""
 
 msgid "can't contain white spaces."
-msgstr ""
+msgstr "空白を含めることはできません."
 
 msgid "filter results"
-msgstr ""
+msgstr "結果をフィルタ"
 
 msgid "hash containing facts for the host"
 msgstr ""
@@ -398,16 +399,16 @@ msgid "must start with a letter or ERB."
 msgstr ""
 
 msgid "not required if it's a virtual machine"
-msgstr ""
+msgstr "仮想マシンの場合は必要ありません"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr ""
+msgstr "DHCP プロキシとサブネットを使用している場合は必要ではありません"
 
 msgid "number of entries per request"
-msgstr ""
+msgstr "リクエストあたりのエントリ数"
 
 msgid "paginate results"
-msgstr ""
+msgstr "結果をページ分割"
 
 msgid ""
 "required if value is not inherited from host group or default password in "
@@ -415,4 +416,4 @@ msgid ""
 msgstr ""
 
 msgid "sort results"
-msgstr ""
+msgstr "結果をソート"
