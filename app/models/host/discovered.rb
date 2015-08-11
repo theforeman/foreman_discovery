@@ -1,5 +1,3 @@
-require 'foreman_discovery/proxy_operations'
-
 class Host::Discovered < ::Host::Base
   include ScopedSearchExtensions
 
@@ -125,39 +123,44 @@ class Host::Discovered < ::Host::Base
     read_attribute(:root_pass).blank? ? (hostgroup.try(:root_pass) || Setting[:root_pass]) : read_attribute(:root_pass)
   end
 
+  def proxied?
+    subnet.present? && subnet.discovery.present?
+  end
+
   def proxy_url
-    if subnet.present? && subnet.discovery.present?
-      { :url => subnet.discovery.url + "/discovery/#{self.ip}", :type => 'proxy'}
-    else
-      { :url => "http://#{self.ip}:8443", :type => 'foreman' }
-    end
+    proxied? ? subnet.discovery.url + "/discovery/#{self.ip}" : "https://#{self.ip}:8443"
   end
 
   def refresh_facts
-    # TODO: Can we rely on self.ip? The lease might expire/change....
-    begin
-      logger.debug "retrieving facts from proxy from url: #{proxy_url[:url]}"
-      facts = ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'facts').parse_get_operation
-    rescue Exception => e
-      raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url[:url], :error => e}
-    end
-
-    return self.class.import_host_and_facts facts
+    # TODO implement new-style service, get rid of old client (legacy_api? cannot be used!)
+    facts = ForemanDiscovery::ProxyOperations.new(:url => proxy_url, :operation => 'facts').parse_get_operation
+    self.class.import_host_and_facts facts
+  rescue Exception => e
+    raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
   end
 
-  def reboot
-    logger.info "ForemanDiscovery: Rebooting #{name}"
-    proxy_url = self.proxy_url
-
-    if proxy_url[:type] == 'proxy'
-      ForemanDiscovery::ProxyOperations.new(:url => proxy_url[:url], :operation => 'reboot').
-        parse_put_operation.try(:fetch, 'result')
+  def reboot legacy_api = ForemanDiscovery::HostConverter.legacy_host(self)
+    if legacy_api
+      if proxied?
+        resource = ::ForemanDiscovery::NodeAPI::Power.legacy_proxied_service(:url => proxy_url)
+      else
+        resource = ::ForemanDiscovery::NodeAPI::Power.legacy_direct_service(:url => proxy_url)
+      end
     else
-      ::ProxyAPI::BMC.new(:url => "http://#{self.ip}:8443").power :action => "cycle"
+      resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
     end
+    resource.reboot
   rescue => e
     ::Foreman::Logging.exception("Unable to reboot #{name}", e)
-    raise ::Foreman::WrappedException.new(e, N_("Unable to reboot %{name}: %{msg}"), :name => name, :msg => e.to_s)
+    raise ::Foreman::WrappedException.new(e, N_("Unable to reboot %{name} via %{url}: %{msg}"), :name => name, :url => proxy_url, :msg => e.to_s)
+  end
+
+  def kexec json
+    resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
+    resource.kexec json
+  rescue => e
+    ::Foreman::Logging.exception("Unable to perform kexec on #{name}", e)
+    raise ::Foreman::WrappedException.new(e, N_("Unable to perform kexec on %{name} via %{url}: %{msg}"), :name => name, :url => proxy_url, :msg => e.to_s)
   end
 
   def self.model_name
