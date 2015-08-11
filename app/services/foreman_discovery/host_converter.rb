@@ -14,9 +14,23 @@ class ForemanDiscovery::HostConverter
       host.managed = set_managed
       host.primary_interface.managed = set_managed
     end
-    # set build only and only on final save (otherwise interfaces are not being identified)
-    host.build = set_build if set_build
+    # set build only and only on final save (facts are deleted)
+    if set_build
+      # set legacy_api flag for post_queue actions
+      host.legacy_api = self.legacy_host(host)
+      # do not delete all facts (keep discovery ones)
+      host.define_singleton_method(:clearFacts) do
+        keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck(:id)
+        FactValue.where("host_id = #{host.id} and id not in (?)", keep_ids).delete_all
+      end
+      # set build flag (also deletes facts)
+      host.build = set_build
+    end
     host
+  end
+
+  def self.legacy_host(host)
+    Gem::Version.new(host.facts['discovery_version'] || '1.0.0') < Gem::Version.new('3.0.0')
   end
 
 end

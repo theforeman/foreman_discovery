@@ -13,17 +13,23 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
-      "interfaces"       => "lo,eth0",
-      "ipaddress"        => "192.168.100.42",
-      "ipaddress_eth0"   => "192.168.100.42",
-      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
-      "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
-      "memorysize_mb"    => "42000.42",
+      "interfaces"        => "lo,eth0",
+      "ipaddress"         => "192.168.100.42",
+      "ipaddress_eth0"    => "192.168.100.42",
+      "macaddress_eth0"   => "AA:BB:CC:DD:EE:FF",
+      "discovery_bootif"  => "AA:BB:CC:DD:EE:FF",
+      "memorysize_mb"     => "42000.42",
+      "discovery_version" => "3.0.0",
     }
     FactoryGirl.create(:setting,
                        :name => 'discovery_auto',
                        :value => true,
                        :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_reboot',
+                       :value => true,
+                       :category => 'Setting::Discovered')
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 
   def test_get_index
@@ -75,7 +81,20 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_auto_provision_success
     disable_orchestration
-    facts = @facts.merge({"somefact" => "abc"})
+    facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    rule = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
+                       :organizations => [host.organization], :locations => [host.location])
+    post :auto_provision, { :id => host.id }
+    assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
+    assert_response :success
+  end
+
+  def test_auto_provision_kexec_success
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:kexec).returns(true)
+    Host::Managed::any_instance.stubs(:provisioning_template).with(:kind => 'kexec').returns("")
+    facts = @facts.merge({"somefact" => "abc", "discovery_kexec" => "kexec-tools 2.0.8 released 15 February 2015"})
     host = Host::Discovered.import_host_and_facts(facts).first
     rule = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
