@@ -12,11 +12,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       "macaddress_eth0"        => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif"       => "AA:BB:CC:DD:EE:FF",
       "physicalprocessorcount" => "42",
+      "discovery_version"      => "3.0.0",
     }
     FactoryGirl.create(:setting,
                        :name => 'discovery_reboot',
                        :value => true,
                        :category => 'Setting::Discovered')
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 
   def test_index
@@ -63,21 +65,31 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(true)
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post "reboot", { :id => host.id }, set_session_user
     assert_redirected_to discovered_hosts_url
+    assert_nil flash[:error]
+    assert_equal "Rebooting host #{host.name}", flash[:notice]
+  end
+
+  def test_reboot_success_legacy
+    @request.env["HTTP_REFERER"] = discovered_hosts_url
+    facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    Host::Discovered::any_instance.stubs(:proxied?).returns(false)
+    Host::Discovered::any_instance.stubs(:proxy_url).returns("http://1.2.3.4:8443")
+    ::ForemanDiscovery::NodeAPI::PowerLegacyDirectService.any_instance.expects(:reboot).returns(true)
+    post "reboot", { :id => host.id }, set_session_user
+    assert_redirected_to discovered_hosts_url
+    assert_nil flash[:error]
     assert_equal "Rebooting host #{host.name}", flash[:notice]
   end
 
   def test_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(false)
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post "reboot", { :id => host.id }, set_session_user
     assert_redirected_to discovered_hosts_url
     assert_equal "Failed to reboot host #{host.name}", flash[:error]
@@ -85,13 +97,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.expects(:power).raises("request failed")
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post "reboot", { :id => host.id }, set_session_user
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-6734/, flash[:error])
+    assert_match(/ERF50-4973/, flash[:error])
   end
 
   def test_auto_provision_success
@@ -135,10 +145,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(true)
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post "reboot", { :id => host.id }, set_session_user
     assert_redirected_to discovered_hosts_url
     assert_equal "Rebooting host #{host.name}", flash[:notice]
@@ -146,10 +154,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = FactoryGirl.create(:host,
-                              :ip   => '1.2.3.4',
-                              :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.stubs(:power).returns(false)
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post "reboot_all", { }, set_session_user
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
@@ -157,13 +163,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    FactoryGirl.create(:host,
-                       :ip   => '1.2.3.4',
-                       :type => "Host::Discovered")
-    ::ProxyAPI::BMC.any_instance.expects(:power).raises("request must fail")
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post "reboot_all", { }, set_session_user
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-6734/, flash[:error])
+    assert_match(/ERF50-4973/, flash[:error])
   end
 
   private

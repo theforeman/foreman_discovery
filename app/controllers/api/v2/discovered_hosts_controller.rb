@@ -125,7 +125,7 @@ module Api
               msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
               render :json => {:message => msg}
             else
-              msg = _("Unable to provision %{host}: %{errors}") % {:host => @discovered_host.name, :rule => @discovered_host.errors.join(' ')}
+              msg = _("Unable to provision %{host}: %{errors}") % {:host => @discovered_host.name, :errors => @discovered_host.errors.full_messages.join(' ')}
               render :json => {:message => msg}, :status => :unprocessable_entity
             end
           else

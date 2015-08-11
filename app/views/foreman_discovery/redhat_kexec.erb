@@ -1,0 +1,44 @@
+<%#
+kind: kexec
+name: Red Hat kexec
+oses:
+- CentOS 4
+- CentOS 5
+- CentOS 6
+- CentOS 7
+- Fedora 19
+- Fedora 20
+- Fedora 21
+- Fedora 22
+- RedHat 4
+- RedHat 5
+- RedHat 6
+- RedHat 7
+-%>
+<%#
+This template is used to pass command line options to kexec when reloading
+kernel on a discovered host instead of rebooting. This is useful in PXE-less
+environments. The template must generate JSON format with three items:
+"kernel", "initram" and "append". Read kexec(8) man page for more
+information about semantics.
+-%>
+<%
+  mac = @host.facts['discovery_bootif']
+  bootif = '00-' + mac.gsub(':', '-')
+  ip_cidr = @host.facts['discovery_ip_cidr']
+  ip = @host.facts['discovery_ip']
+  mask = @host.facts['discovery_netmask']
+  gw = @host.facts['discovery_gateway']
+  dns = @host.facts['discovery_dns']
+  append = @host.facts['append']
+-%>
+{
+  "kernel": "<%= @kernel %>",
+  "initram": "<%= @initrd %>",
+<% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
+    (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} #{append}" %>"
+<% else -%>
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} #{append}" %>"
+<% end -%>
+}
