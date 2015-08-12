@@ -1,6 +1,7 @@
 require 'fast_gettext'
 require 'gettext_i18n_rails'
 require 'deface'
+require 'rabl'
 
 module ForemanDiscovery
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
@@ -17,6 +18,12 @@ module ForemanDiscovery
     # list includes the plugin STI setting class
     initializer 'foreman_discovery.load_default_settings', :before => :load_config_initializers do |app|
       require_dependency File.expand_path("../../../app/models/setting/discovered.rb", __FILE__) if (Setting.table_exists? rescue(false))
+    end
+
+    initializer "foreman_discovery.add_rabl_view_path" do |app|
+      Rabl.configure do |config|
+        config.view_paths << ForemanDiscovery::Engine.root.join('app', 'views')
+      end
     end
 
     initializer 'foreman_discovery.helper' do |app|
