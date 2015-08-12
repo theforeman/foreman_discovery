@@ -7,14 +7,14 @@ require "foreman_discovery/version"
 Gem::Specification.new do |s|
   s.name = %q{foreman_discovery}
   s.version     = ForemanDiscovery::VERSION
-  s.authors = ["Greg Sutcliffe"]
+  s.authors = ["Greg Sutcliffe", "Lukas Zapletal", "Ori Rabin"]
   s.email = %q{gsutclif@redhat.com}
   s.description = %q{MaaS Discovery Plugin engine for Foreman }
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
   ]
-  s.files = Dir["{app,extra,config,db,lib,locale}/**/*"] + ["LICENSE", "README.md"]
+  s.files = Dir["{app,extra,config,db,lib}/**/*"] + Dir["locale/**/*.{po,pot}"] + ["LICENSE", "README.md"]
   s.test_files = Dir["test/**/*"]
   s.homepage = %q{http://github.com/theforeman/foreman_discovery}
   s.licenses = ["GPL-3"]
