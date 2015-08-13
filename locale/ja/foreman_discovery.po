@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman package.
-# 
+#
 # Translators:
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 3.0.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 17:53+0100\n"
+"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
+"POT-Creation-Date: 2015-08-13 16:23+0200\n"
 "PO-Revision-Date: 2015-04-05 12:23+0000\n"
 "Last-Translator: Shuji Yamada <uzy.exe@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%s - The following hosts are about to be changed"
@@ -39,10 +39,11 @@ msgstr "自動プロビジョン"
 msgid "Auto Provision All"
 msgstr "全自動プロビジョン"
 
-msgid ""
-"Automatically provision newly discovered hosts, according to the "
-"provisioning rules"
+msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "プロビジョニングルールに従って、新しく発見されたホストを自動プロビジョニングする"
+
+msgid "Automatically reboot discovered host during provisioning"
+msgstr ""
 
 msgid "CPUs"
 msgstr "CPU"
@@ -53,8 +54,8 @@ msgstr "取り消し"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシーからファクトを取得できませんでした: %{url}: %{error}"
 
-msgid "Create a discovered host"
-msgstr "検出されたホストを作成します"
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
 
 msgid "Create a discovery rule"
 msgstr "検出ルールを作成します"
@@ -83,9 +84,6 @@ msgstr "無効"
 msgid "Disable rule?"
 msgstr "ルールを無効にしますか？"
 
-msgid "Discovered Host Pool"
-msgstr "検出されたホストのプール"
-
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
 
@@ -95,14 +93,11 @@ msgstr "検出されたホスト"
 msgid "Discovered hosts are provisioning now"
 msgstr "現在、検出されたホストはプロビジョニング中です"
 
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "検出ルール"
-
-msgid "Discovery rules"
-msgstr "検出ルール"
-
-msgid "Discovery widget"
-msgstr "検出ウィジット"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "有効"
@@ -122,10 +117,7 @@ msgstr "ディスク数"
 msgid "Disks size"
 msgstr "ディスク容量"
 
-msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will "
-"be used when left blank. In addition to @host attribute function rand for "
-"random integers is available. Examples:"
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
 msgid "Edit Discovery Rule"
@@ -140,14 +132,26 @@ msgstr "ルールを有効化しますか?"
 msgid "Errors during auto provisioning: %s"
 msgstr "自動プロビジョニング中のエラー: %s"
 
+msgid "Errors during reboot: %s"
+msgstr ""
+
 msgid "Execute rules against a discovered host"
 msgstr "検出されたホストに対してルールを実行"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "すべての検出されているホストに対してルールを実行"
 
+msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
 msgid "Fact"
 msgstr "ファクト"
+
+msgid "Fact name to use for primary interface detection and hostname"
+msgstr ""
 
 msgid "Facts discovered on this host"
 msgstr "このホストで検出されたファクト"
@@ -157,12 +161,6 @@ msgstr "%s について更新されたファクト"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "ホスト %s の自動プロビジョニングに失敗しました: %s"
-
-msgid "Failed to import facts for discovered host"
-msgstr "検出されたホストのファクトをインポートできませんでした"
-
-msgid "Failed to import facts for discovered host: %s"
-msgstr ""
 
 msgid "Failed to reboot host %s"
 msgstr "ホスト %s の再起動に失敗しました"
@@ -182,6 +180,14 @@ msgstr ""
 msgid "Host group"
 msgstr "ホストグループ"
 
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
 msgid "Host of type %s can not be rebooted"
 msgstr "タイプ %s のホストを再起動することができません"
 
@@ -197,17 +203,11 @@ msgstr "ホスト/制限"
 msgid "IP Address"
 msgstr "IP アドレス"
 
-msgid "Imported discovered host"
-msgstr "検出されたホストのインポート"
+msgid "Incompatible version of puppet fact parser"
+msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr "無効なファクトです。ハッシュにする必要があります"
-
-msgid "Invalid facts: hash does not contain IP address"
-msgstr "無効なファクト : ハッシュは IP アドレスが含まれていません"
-
-msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr "無効なファクト: ハッシュには必要なファクト '%s' が含まれていません"
 
 msgid "Last facts upload"
 msgstr "最終ファクトのアップロード"
@@ -220,6 +220,9 @@ msgstr "すべての検出ルールを一覧表示"
 
 msgid "Location"
 msgstr "ロケーション"
+
+msgid "Locations"
+msgstr ""
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
@@ -242,10 +245,16 @@ msgstr "新規検出ルール"
 msgid "New Rule"
 msgstr "新規ルール"
 
+msgid "New in the last 24 hours"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts to provision"
+msgstr ""
+
+msgid "No discovered hosts to reboot"
 msgstr ""
 
 msgid "No hosts selected"
@@ -257,11 +266,20 @@ msgstr "該当する ID または名前のホストが見つかりませんで�
 msgid "No rule found for host %s"
 msgstr "ホスト %s のルールが見つかりません"
 
+msgid "Not reported in more than 7 days"
+msgstr ""
+
 msgid "Organization"
 msgstr "組織"
 
+msgid "Organizations"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "確認してください"
+
+msgid "Primary"
+msgstr ""
 
 msgid "Provision"
 msgstr "プロビジョニング"
@@ -272,11 +290,17 @@ msgstr "検出されたホストのプロビジョン"
 msgid "Reboot"
 msgstr "再起動"
 
+msgid "Reboot All"
+msgstr ""
+
 msgid "Rebooting %s"
 msgstr "%s の再起動中"
 
 msgid "Rebooting a discovered host"
 msgstr "検出されたホストの再起動"
+
+msgid "Rebooting all discovered hosts"
+msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "ホスト %s の再起動中"
@@ -286,6 +310,9 @@ msgstr "ファクトの更新"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr "検出されたホストのファクト更新"
+
+msgid "Reported in the last 7 days"
+msgstr ""
 
 msgid "Rule disabled"
 msgstr "ルールの無効化"
@@ -314,15 +341,10 @@ msgstr "検出されたホストを表示"
 msgid "Show a discovery rule"
 msgstr "検出ルールを表示"
 
-msgid "Show fact as an extra column in the discovered hosts list"
-msgstr ""
-
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "ホストの選択中に問題が発生しました - %s"
 
-msgid ""
-"Specify target hostname template pattern in the same syntax as in "
-"Provisioning Templates (ERB)."
+msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr ""
 
 msgid "Submit"
@@ -337,9 +359,6 @@ msgstr ""
 msgid "Template"
 msgstr "テンプレート"
 
-msgid "The default fact name to use for the MAC of the system"
-msgstr "システムの MAC に使用するデフォルトのファクト名"
-
 msgid "The default location to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトのロケーション"
 
@@ -352,17 +371,22 @@ msgstr "ホスト名に使用するデフォルトの接頭辞は、文字で始
 msgid "The following hosts were not deleted: %s"
 msgstr "以下のホストが削除されました: %s"
 
-msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed "
-"as well"
+msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "ホスト、ファクトおよびレポートがすべて破棄されるため、時間がかかる場合があります。"
 
-msgid "Total pool size"
-msgid_plural "Total pool size"
-msgstr[0] "合計プールサイズ"
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
 
-msgid ""
-"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to reboot %{name}: %{msg}"
 msgstr ""
 
 msgid "Update a rule"
@@ -377,19 +401,25 @@ msgstr "値"
 msgid "Warning"
 msgstr "警告"
 
-msgid ""
-"When creating hostname patterns, make sure the resulting host names are "
-"unique. Hostnames must not start with numbers. A good approach is to use "
-"unique information provided by facter (MAC address, BIOS or serial ID)."
+msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
 msgid "can't contain white spaces."
 msgstr "空白を含めることはできません."
 
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
 msgid "filter results"
 msgstr "結果をフィルタ"
 
-msgid "hash containing facts for the host"
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
@@ -410,10 +440,51 @@ msgstr "リクエストあたりのエントリ数"
 msgid "paginate results"
 msgstr "結果をページ分割"
 
-msgid ""
-"required if value is not inherited from host group or default password in "
-"settings"
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "required if value is not inherited from host group or default password in settings"
 msgstr ""
 
 msgid "sort results"
 msgstr "結果をソート"
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
+
+#~ msgid "Create a discovered host"
+#~ msgstr "検出されたホストを作成します"
+
+#~ msgid "Discovered Host Pool"
+#~ msgstr "検出されたホストのプール"
+
+#~ msgid "Discovery rules"
+#~ msgstr "検出ルール"
+
+#~ msgid "Discovery widget"
+#~ msgstr "検出ウィジット"
+
+#~ msgid "Failed to import facts for discovered host"
+#~ msgstr "検出されたホストのファクトをインポートできませんでした"
+
+#~ msgid "Imported discovered host"
+#~ msgstr "検出されたホストのインポート"
+
+#~ msgid "Invalid facts: hash does not contain IP address"
+#~ msgstr "無効なファクト : ハッシュは IP アドレスが含まれていません"
+
+#~ msgid "Invalid facts: hash does not contain the required fact '%s'"
+#~ msgstr "無効なファクト: ハッシュには必要なファクト '%s' が含まれていません"
+
+#~ msgid "The default fact name to use for the MAC of the system"
+#~ msgstr "システムの MAC に使用するデフォルトのファクト名"
+
+#~ msgid "Total pool size"
+#~ msgid_plural "Total pool size"
+#~ msgstr[0] "合計プールサイズ"

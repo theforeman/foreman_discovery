@@ -7,7 +7,7 @@
 # make clean - clean everything
 #
 DOMAIN = foreman_discovery
-VERSION = $(shell ruby -e 'require "rubygems";spec = Gem::Specification::load(Dir.glob("../*.gemspec")[0]);puts spec.version')
+VERSION = $(shell git describe --abbrev=0 --tags)
 POTFILE = $(DOMAIN).pot
 MOFILE = $(DOMAIN).mo
 POFILES = $(shell find . -name '*.po')
@@ -35,7 +35,7 @@ check: $(POXFILES)
 # Merge PO files
 update-po:
 	for f in $(shell find ./ -name "*.po") ; do \
-		msgmerge -N --backup=none -U $$f ${POTFILE} ; \
+		msgmerge -sNU --backup=none --no-location --no-wrap $$f ${POTFILE} ; \
 	done
 
 # Unify duplicate translations
@@ -60,3 +60,17 @@ tx-update: tx-pull reset-po $(MOFILES)
 	git add ../locale/*/LC_MESSAGES
 	git commit -a --amend -m "i18n - pulling from tx"
 	-echo Changes commited!
+
+extract:
+	rxgettext \
+		--sort-output \
+		--sort-by-msgid \
+		--no-wrap \
+		--no-location \
+		-o ${DOMAIN}.pot \
+		--package-name=${DOMAIN} \
+		--package-version="${VERSION}" \
+		--msgid-bugs-address=foreman-dev@googlegroups.com \
+		--copyright-holder="Foreman developers" \
+		--copyright-year=$(shell date +%Y) \
+		$(shell find ../app -type f -name *.rb -o -name *.erb)
