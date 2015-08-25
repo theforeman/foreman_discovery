@@ -90,14 +90,18 @@ class Host::Discovered < ::Host::Base
       # set location and organization
       if SETTINGS[:locations_enabled]
         self.location = Location.find_by_name(Setting[:discovery_location]) ||
+          Location.find_by_name(facts[Setting[:location_fact]]) ||
           subnet.try(:locations).try(:first) ||
-          Location.first
+          Location.find_by_name(Setting[:default_location]) ||
+          Location.first rescue Location.first
         Rails.logger.info "Assigned location: #{self.location}"
       end
       if SETTINGS[:organizations_enabled]
         self.organization = Organization.find_by_name(Setting[:discovery_organization]) ||
+          Organization.find_by_name(facts[Setting[:organization_fact]]) ||
           subnet.try(:organizations).try(:first) ||
-          Organization.first
+          Organization.find_by_name(Setting[:default_organization]) ||
+          Organization.first rescue Organization.first
         Rails.logger.info "Assigned organization: #{self.organization}"
       end
     else

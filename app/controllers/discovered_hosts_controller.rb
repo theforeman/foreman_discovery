@@ -46,7 +46,10 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     Host.transaction do
-      @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
+      unless @host.nil?
+        @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false)
+        @host.taxonomy_edit_enabled = true
+      end
       render :template => 'hosts/edit'
     end
   end
