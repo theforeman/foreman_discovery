@@ -44,6 +44,7 @@ module Foreman::Controller::DiscoveredExtensions
 
   # trigger the provisioning
   def perform_auto_provision original_host, rule
+    raise(::Foreman::Exception.new(N_("No hostgroup associated with rule '%s'"), rule)) if rule.hostgroup.nil?
     Host.transaction do
       host = ::ForemanDiscovery::HostConverter.to_managed(original_host)
       host.hostgroup_id = rule.hostgroup_id
