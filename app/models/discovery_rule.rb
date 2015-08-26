@@ -20,7 +20,7 @@ class DiscoveryRule < ActiveRecord::Base
   before_validation :enforce_taxonomy
 
   belongs_to :hostgroup
-  has_many :hosts
+  has_many :hosts, :dependent => :nullify
 
   scoped_search :on => :name, :complete_value => :true
   scoped_search :on => :priority

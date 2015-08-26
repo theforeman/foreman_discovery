@@ -89,6 +89,28 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     assert_equal host.discovery_rule_id, r1.id
   end
 
+  test "auto provisioning fails for rule without a hostgroup" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
+    r1.hostgroup = nil
+    exception = assert_raises(::Foreman::Exception) do
+      perform_auto_provision host, r1
+    end
+    assert_match /No hostgroup associated with rule/, exception.message
+  end
+
+  test "existing rule revent from hostgroup deletion" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
+    assert_raises(ActiveRecord::RecordNotDestroyed) do
+      r1.hostgroup.destroy!
+    end
+  end
+
   test "rules with incorrect syntax are skipped" do
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
