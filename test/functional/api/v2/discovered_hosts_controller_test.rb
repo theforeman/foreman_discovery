@@ -77,11 +77,11 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host_and_facts(facts).first
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+    rule = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
-    assert_match host.name, @response.body
+    assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
     assert_response :success
   end
 
@@ -144,7 +144,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [host.organization],
                        :locations => [host.location])
     post :auto_provision_all, {}
-    assert_equal '{}', @response.body
+    assert_match /1 discovered hosts were provisioned/, @response.body
     assert_response :success
   end
 
@@ -153,7 +153,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     Host::Discovered.import_host_and_facts(facts).first
     post :auto_provision_all, {}
-    assert_equal '{}', @response.body
+    assert_match /0 discovered hosts were provisioned/, @response.body
     assert_response :success
   end
 
