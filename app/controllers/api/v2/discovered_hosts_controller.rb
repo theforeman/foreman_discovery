@@ -121,8 +121,13 @@ module Api
       def auto_provision
         Host.transaction do
           if rule = find_discovery_rule(@discovered_host)
-            msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
-            process_response perform_auto_provision(@discovered_host, rule), msg
+            if perform_auto_provision(@discovered_host, rule)
+              msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
+              render :json => {:message => msg}
+            else
+              msg = _("Unable to provision %{host}: %{errors}") % {:host => @discovered_host.name, :rule => @discovered_host.errors.join(' ')}
+              render :json => {:message => msg}, :status => :unprocessable_entity
+            end
           else
             render_error :custom_error, :status => :not_found,
                          :locals => {
@@ -145,6 +150,7 @@ module Api
           result = false
         end
 
+        total_count = 0
         Host.transaction do
           overall_errors = ""
           Host::Discovered.all.each do |discovered_host|
@@ -154,6 +160,8 @@ module Api
                 errors = discovered_host.errors.full_messages.join(' ')
                 logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
                 overall_errors << "#{discovered_host.name}: #{errors} "
+              else
+                total_count += 1
               end
             else
               logger.warn "No rule found for host %s" % discovered_host.name
@@ -161,7 +169,8 @@ module Api
           end
 
           if result
-            process_success _("Discovered hosts are provisioning now")
+            msg = _("%s discovered hosts were provisioned") % total_count
+            render :json => {:message => msg}
           else
             render_error :custom_error,
               :status => :unprocessable_entity,

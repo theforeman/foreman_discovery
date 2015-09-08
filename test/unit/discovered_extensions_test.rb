@@ -135,7 +135,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
                               :hostname => '<%= "" %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_equal "macaabbccddeeff", host.name
     end
 
@@ -146,7 +146,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
                               :hostname => 'x<%= 1+1 %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_equal "x2", host.name
     end
 
@@ -157,7 +157,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
                               :hostname => 'x<%= rand(4) %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_match(/x[0123]/, host.name)
     end
 
@@ -168,7 +168,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
                               :hostname => 'x<%= @host.name %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_equal "xmacaabbccddeeff", host.name
     end
 
@@ -179,19 +179,19 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
                               :hostname => 'x<%= @host.ip.gsub(".","-") %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_equal "x192-168-100-42", host.name
     end
 
     test "hostname attribute facts_hash is renderer properly using #{renderer_name}" do
-      skip "until http://projects.theforeman.org/issues/2948 is fixed"
-      host = Host::Discovered.import_host_and_facts(@facts).first
+      facts = @facts.merge({"somefact" => "abc"})
+      host = Host::Discovered.import_host_and_facts(facts).first
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= @host.facts["somefact"] %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
-      perform_auto_provision host, r1
+      refute perform_auto_provision host, r1
       assert_equal "xabc", host.name
     end
 
