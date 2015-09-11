@@ -6,16 +6,16 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 3.0.0\n"
-"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-08-13 16:23+0200\n"
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-28 17:53+0100\n"
 "PO-Revision-Date: 2015-03-21 22:54+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Italian (http://www.transifex.com/foreman/foreman/language/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
@@ -39,10 +39,9 @@ msgstr ""
 msgid "Auto Provision All"
 msgstr ""
 
-msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
-msgstr ""
-
-msgid "Automatically reboot discovered host during provisioning"
+msgid ""
+"Automatically provision newly discovered hosts, according to the "
+"provisioning rules"
 msgstr ""
 
 msgid "CPUs"
@@ -54,7 +53,7 @@ msgstr "Annulla"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgid "Create a discovered host"
 msgstr ""
 
 msgid "Create a discovery rule"
@@ -84,6 +83,9 @@ msgstr ""
 msgid "Disable rule?"
 msgstr ""
 
+msgid "Discovered Host Pool"
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr "Host trovati: %s"
 
@@ -93,10 +95,13 @@ msgstr "Host trovati"
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
-msgid "Discovered hosts are rebooting now"
+msgid "Discovery Rules"
 msgstr ""
 
-msgid "Discovery Rules"
+msgid "Discovery rules"
+msgstr ""
+
+msgid "Discovery widget"
 msgstr ""
 
 msgid "DiscoveryRule|Enabled"
@@ -117,7 +122,10 @@ msgstr ""
 msgid "Disks size"
 msgstr ""
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will "
+"be used when left blank. In addition to @host attribute function rand for "
+"random integers is available. Examples:"
 msgstr ""
 
 msgid "Edit Discovery Rule"
@@ -132,26 +140,14 @@ msgstr ""
 msgid "Errors during auto provisioning: %s"
 msgstr ""
 
-msgid "Errors during reboot: %s"
-msgstr ""
-
 msgid "Execute rules against a discovered host"
 msgstr ""
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
-msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
-
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
 msgid "Fact"
 msgstr "Evento"
-
-msgid "Fact name to use for primary interface detection and hostname"
-msgstr ""
 
 msgid "Facts discovered on this host"
 msgstr "Eventi trovati su questo host"
@@ -160,6 +156,12 @@ msgid "Facts refreshed for %s"
 msgstr "Eventi aggiornati per %s"
 
 msgid "Failed to auto provision host %s: %s"
+msgstr ""
+
+msgid "Failed to import facts for discovered host"
+msgstr ""
+
+msgid "Failed to import facts for discovered host: %s"
 msgstr ""
 
 msgid "Failed to reboot host %s"
@@ -180,16 +182,6 @@ msgstr ""
 msgid "Host group"
 msgstr "Gruppo di host"
 
-msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host group organization %s must also be associated to the discovery rule"
-msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
 msgid "Host of type %s can not be rebooted"
 msgstr ""
 
@@ -205,11 +197,17 @@ msgstr ""
 msgid "IP Address"
 msgstr "IP Address"
 
-msgid "Incompatible version of puppet fact parser"
+msgid "Imported discovered host"
 msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Eventi non validi, deve essere un Hash"
+
+msgid "Invalid facts: hash does not contain IP address"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain the required fact '%s'"
+msgstr "Eventi non validi: hash deve avere l'evento '%s' necessario"
 
 msgid "Last facts upload"
 msgstr "Ultimo caricamento eventi"
@@ -222,9 +220,6 @@ msgstr ""
 
 msgid "Location"
 msgstr "Posizione"
-
-msgid "Locations"
-msgstr ""
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
@@ -247,16 +242,10 @@ msgstr ""
 msgid "New Rule"
 msgstr ""
 
-msgid "New in the last 24 hours"
-msgstr ""
-
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts to provision"
-msgstr ""
-
-msgid "No discovered hosts to reboot"
 msgstr ""
 
 msgid "No hosts selected"
@@ -268,20 +257,11 @@ msgstr "Nessun host trovato con l'id o nome indicato"
 msgid "No rule found for host %s"
 msgstr ""
 
-msgid "Not reported in more than 7 days"
-msgstr ""
-
 msgid "Organization"
 msgstr "Organizzazione"
 
-msgid "Organizations"
-msgstr ""
-
 msgid "Please Confirm"
 msgstr "Conferma"
-
-msgid "Primary"
-msgstr ""
 
 msgid "Provision"
 msgstr "Provisioning"
@@ -292,16 +272,10 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-msgid "Reboot All"
-msgstr ""
-
 msgid "Rebooting %s"
 msgstr "Riavvio di %s"
 
 msgid "Rebooting a discovered host"
-msgstr ""
-
-msgid "Rebooting all discovered hosts"
 msgstr ""
 
 msgid "Rebooting host %s"
@@ -311,9 +285,6 @@ msgid "Refresh facts"
 msgstr "Aggiorna eventi"
 
 msgid "Refreshing the facts of a discovered host"
-msgstr ""
-
-msgid "Reported in the last 7 days"
 msgstr ""
 
 msgid "Rule disabled"
@@ -343,10 +314,15 @@ msgstr ""
 msgid "Show a discovery rule"
 msgstr ""
 
+msgid "Show fact as an extra column in the discovered hosts list"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Si è verificato un errore durante la selezione degli host - %s"
 
-msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
+msgid ""
+"Specify target hostname template pattern in the same syntax as in "
+"Provisioning Templates (ERB)."
 msgstr ""
 
 msgid "Submit"
@@ -361,6 +337,9 @@ msgstr ""
 msgid "Template"
 msgstr "Modello"
 
+msgid "The default fact name to use for the MAC of the system"
+msgstr "Il nome dell'evento predefinito da usare per il MAC del sistema"
+
 msgid "The default location to place discovered hosts in"
 msgstr "La posizione predefinita nella quale posizionare gli host trovati"
 
@@ -373,22 +352,18 @@ msgstr ""
 msgid "The following hosts were not deleted: %s"
 msgstr "I seguenti host non sono stati rilevati: %s"
 
-msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed "
+"as well"
 msgstr "Questa operazione potrebbe richiedere qualche istante poichè saranno annullati anche gli host, eventi e riporti"
 
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
+msgid "Total pool size"
+msgid_plural "Total pool size"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
-
-msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
-
-msgid "Unable to reboot %{name}: %{msg}"
+msgid ""
+"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
 msgid "Update a rule"
@@ -403,25 +378,19 @@ msgstr "Valore"
 msgid "Warning"
 msgstr "Avvertenza"
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are "
+"unique. Hostnames must not start with numbers. A good approach is to use "
+"unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
 msgid "can't contain white spaces."
 msgstr ""
 
-msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr ""
-
-msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr ""
-
 msgid "filter results"
 msgstr ""
 
-msgid "flag is used for temporary shutdown of rules"
-msgstr ""
-
-msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
+msgid "hash containing facts for the host"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
@@ -442,26 +411,10 @@ msgstr ""
 msgid "paginate results"
 msgstr ""
 
-msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr ""
-
-msgid "query to match discovered hosts for the particular rule"
-msgstr ""
-
-msgid "represents rule name shown to the users"
-msgstr ""
-
-msgid "required if value is not inherited from host group or default password in settings"
+msgid ""
+"required if value is not inherited from host group or default password in "
+"settings"
 msgstr ""
 
 msgid "sort results"
 msgstr ""
-
-msgid "the hostgroup that is used to auto provision a host"
-msgstr ""
-
-#~ msgid "Invalid facts: hash does not contain the required fact '%s'"
-#~ msgstr "Eventi non validi: hash deve avere l'evento '%s' necessario"
-
-#~ msgid "The default fact name to use for the MAC of the system"
-#~ msgstr "Il nome dell'evento predefinito da usare per il MAC del sistema"
