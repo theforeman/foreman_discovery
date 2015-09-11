@@ -1,21 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the foreman package.
+# Template file for strings which can be localized in the Foreman Application.
+#
+# This file is distributed under the same license as the Foreman.
+#
 #
 # Translators:
+# eukim <eukim@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 17:53+0100\n"
-"PO-Revision-Date: 2015-03-21 22:53+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
+"POT-Creation-Date: 2015-09-11 15:58-0400\n"
+"PO-Revision-Date: 2015-04-28 12:19+0000\n"
+"Last-Translator: eukim <eukim@redhat.com>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/foreman/language/"
+"ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.6.0\n"
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s - 다음 호스트는 즉시 변경됩니다 "
@@ -33,16 +37,21 @@ msgid "Assign Organization"
 msgstr "조직 지정 "
 
 msgid "Auto Provision"
-msgstr ""
+msgstr "자동 프로비저닝 "
 
 msgid "Auto Provision All"
-msgstr ""
+msgstr "전체 자동 프로비저닝 "
 
 msgid ""
 "Automatically provision newly discovered hosts, according to the "
 "provisioning rules"
-msgstr ""
+msgstr "프로비저닝 규칙에 따라 새로 검색된 호스트의 자동 프로비저닝 "
 
+#, fuzzy
+msgid "Automatically reboot discovered host during provisioning"
+msgstr "프로비저닝 규칙에 따라 새로 검색된 호스트의 자동 프로비저닝 "
+
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "CPUs"
 msgstr "CPU"
 
@@ -50,13 +59,13 @@ msgid "Cancel"
 msgstr "취소 "
 
 msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr ""
+msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
-msgid "Create a discovered host"
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
 msgid "Create a discovery rule"
-msgstr ""
+msgstr "검색 규칙 생성 "
 
 msgid "Delete"
 msgstr "삭제 "
@@ -65,10 +74,10 @@ msgid "Delete %s?"
 msgstr "%s 을(를) 삭제하시겠습니까?"
 
 msgid "Delete a discovered host"
-msgstr ""
+msgstr "검색된 호스트 삭제 "
 
 msgid "Delete a rule"
-msgstr ""
+msgstr "규칙 삭제 "
 
 msgid "Delete hosts"
 msgstr "호스트 삭제 "
@@ -76,14 +85,12 @@ msgstr "호스트 삭제 "
 msgid "Destroyed selected hosts"
 msgstr "선택된 호스트 삭제"
 
+# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author eukim
 msgid "Disable"
-msgstr ""
+msgstr "비활성화 "
 
 msgid "Disable rule?"
-msgstr ""
-
-msgid "Discovered Host Pool"
-msgstr ""
+msgstr "규칙을 비활성화하시겠습니까? "
 
 msgid "Discovered host: %s"
 msgstr "검색된 호스트: %s"
@@ -92,143 +99,169 @@ msgid "Discovered hosts"
 msgstr "검색된 호스트 "
 
 msgid "Discovered hosts are provisioning now"
-msgstr ""
+msgstr "현재 검색된 호스트를 프로비저닝하고 있습니다"
+
+#, fuzzy
+msgid "Discovered hosts are rebooting now"
+msgstr "현재 검색된 호스트를 프로비저닝하고 있습니다"
 
 msgid "Discovery Rules"
-msgstr ""
-
-msgid "Discovery rules"
-msgstr ""
-
-msgid "Discovery widget"
-msgstr ""
+msgstr "검색 규칙 "
 
 msgid "DiscoveryRule|Enabled"
-msgstr ""
+msgstr "활성화 "
 
 msgid "DiscoveryRule|Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "DiscoveryRule|Priority"
-msgstr ""
+msgstr "우선 순위 "
 
 msgid "DiscoveryRule|Query"
-msgstr ""
+msgstr "쿼리 "
 
 msgid "Disk count"
-msgstr ""
+msgstr "디스크 수 "
 
 msgid "Disks size"
-msgstr ""
+msgstr "디스크 크기 "
 
 msgid ""
 "Domain will be appended automatically. A hostname based on MAC address will "
 "be used when left blank. In addition to @host attribute function rand for "
 "random integers is available. Examples:"
 msgstr ""
+"도메인이 자동으로 추가됩니다. 빈 란으로 되어 있을 경우 MAC 주소를 기반으로 하"
+"는 호스트 이름이 사용됩니다. @host 속성 이외에 임의의 정수에 대해 rand 함수"
+"를 사용할 수 있습니다. 예:  "
 
 msgid "Edit Discovery Rule"
-msgstr ""
+msgstr "검색 규칙 편집 "
 
+# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author eukim
 msgid "Enable"
-msgstr ""
+msgstr "활성화 "
 
 msgid "Enable rule?"
-msgstr ""
+msgstr "규칙을 활성화하시겠습니까?"
 
 msgid "Errors during auto provisioning: %s"
-msgstr ""
+msgstr "자동 프로비저닝 도중 오류 발생: %s"
+
+#, fuzzy
+msgid "Errors during reboot: %s"
+msgstr "자동 프로비저닝 도중 오류 발생: %s"
 
 msgid "Execute rules against a discovered host"
-msgstr ""
+msgstr "검색된 호스트에 대해 규칙 실행 "
 
 msgid "Execute rules against all currently discovered hosts"
+msgstr "현재 검색된 모든 호스트에 대해 규칙 실행 "
+
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface "
+"and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
 msgid "Fact"
-msgstr "정보 "
+msgstr "팩트 "
+
+msgid "Fact name to use for primary interface detection and hostname"
+msgstr ""
 
 msgid "Facts discovered on this host"
-msgstr "이 호스트에서 검색된 정보 "
+msgstr "이 호스트에서 검색된 팩트"
 
 msgid "Facts refreshed for %s"
-msgstr "%s에 대해 업데이트된 정보 "
+msgstr "%s에 대해 업데이트된 팩트"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr ""
-
-msgid "Failed to import facts for discovered host"
-msgstr ""
-
-msgid "Failed to import facts for discovered host: %s"
-msgstr ""
+msgstr "호스트 %s의 자동 프로비저닝에 실패했습니다: %s"
 
 msgid "Failed to reboot host %s"
-msgstr ""
+msgstr "호스트 %s 재부팅에 실패했습니다 "
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr ""
+"오류 %{error_message}를 표시하는 호스트 %{hostname} 재부팅에 실패했습니다 "
 
 msgid "Failed to refresh facts for %s"
-msgstr "%s에 대한 정보를 새로고침하는데 실패했습니다 "
+msgstr "%s에 대한 팩트를 새로고침하는데 실패했습니다 "
 
+# translation auto-copied from project Satellite6 Katello, version 6.1, document katello
 msgid "Host"
 msgstr "호스트 "
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr ""
+msgstr "호스트 %{host}은/는 %{rule}으(로) 프로비저닝됩니다 "
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Host group"
 msgstr "호스트 그룹 "
 
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
+msgid ""
+"Host group organization %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
 msgid "Host of type %s can not be rebooted"
-msgstr ""
+msgstr "호스트 유형 %s은(는) 재부팅할 수 없습니다 "
 
 msgid "Hostname for provisioned hosts"
-msgstr ""
+msgstr "프로비저닝된 호스트의 호스트 이름 "
 
 msgid "Hosts limit"
-msgstr ""
+msgstr "호스트 제한 "
 
 msgid "Hosts/limit"
-msgstr ""
+msgstr "호스트/제한"
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "IP Address"
 msgstr "IP 주소"
 
-msgid "Imported discovered host"
+msgid "Incompatible version of puppet fact parser"
 msgstr ""
 
 msgid "Invalid facts, must be a Hash"
-msgstr "잘못된 정보, 해시여야 합니다 "
-
-msgid "Invalid facts: hash does not contain IP address"
-msgstr ""
-
-msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr "잘못된 정보:  해시에 필요한 정보 '%s'가 포함되어 있지 않습니다 "
+msgstr "잘못된 팩트, 해시여야 합니다 "
 
 msgid "Last facts upload"
-msgstr "마지막 정보 업로드 "
+msgstr "마지막 팩트 업로드 "
 
 msgid "List all discovered hosts"
-msgstr ""
+msgstr "검색된 모든 호스트를 나열 "
 
 msgid "List all discovery rules"
-msgstr ""
+msgstr "모든 검색 규칙을 나열 "
 
 msgid "Location"
 msgstr "위치 "
 
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr ""
+#, fuzzy
+msgid "Locations"
+msgstr "위치 "
 
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "이 규칙에서 프로비저닝되는 최대 호스트 수 (0 = 무제한)"
+
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Memory"
 msgstr "메모리 "
 
 msgid "Model"
 msgstr "모델 "
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "N/A"
 msgstr "해당 없음 "
 
@@ -236,16 +269,23 @@ msgid "Name"
 msgstr "이름 "
 
 msgid "New Discovery Rule"
-msgstr ""
+msgstr "새 검색 규칙 "
 
 msgid "New Rule"
+msgstr "새 규칙 "
+
+msgid "New in the last 24 hours"
 msgstr ""
 
 msgid "No discovered hosts available"
-msgstr ""
+msgstr "사용 가능한 검색된 호스트가 없습니다 "
 
 msgid "No discovered hosts to provision"
-msgstr ""
+msgstr "프로비저닝할 검색된 호스트가 없습니다 "
+
+#, fuzzy
+msgid "No discovered hosts to reboot"
+msgstr "프로비저닝할 검색된 호스트가 없습니다 "
 
 msgid "No hosts selected"
 msgstr "선택된 호스트가 없음 "
@@ -254,46 +294,69 @@ msgid "No hosts were found with that id or name"
 msgstr "해당 ID 또는 이름의 호스트를 찾을 수 없습니다 "
 
 msgid "No rule found for host %s"
+msgstr "호스트 %s에 대한 규칙을 찾을 수 없습니다 "
+
+msgid "Not reported in more than 7 days"
 msgstr ""
 
 msgid "Organization"
 msgstr "조직 "
 
+#, fuzzy
+msgid "Organizations"
+msgstr "조직 "
+
 msgid "Please Confirm"
 msgstr "확인해 주십시오 "
+
+msgid "Primary"
+msgstr ""
 
 msgid "Provision"
 msgstr "프로비저닝 "
 
 msgid "Provision a discovered host"
-msgstr ""
+msgstr "검색된 호스트 프로비저닝 "
 
+# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author eukim
 msgid "Reboot"
-msgstr ""
+msgstr "다시 시작"
+
+# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author eukim
+#, fuzzy
+msgid "Reboot All"
+msgstr "다시 시작"
 
 msgid "Rebooting %s"
 msgstr "%s 재부팅 중 "
 
 msgid "Rebooting a discovered host"
-msgstr ""
+msgstr "검색된 호스트를 재부팅 중 "
+
+#, fuzzy
+msgid "Rebooting all discovered hosts"
+msgstr "검색된 호스트를 재부팅 중 "
 
 msgid "Rebooting host %s"
-msgstr ""
+msgstr "호스트 %s 재부팅 중 "
 
 msgid "Refresh facts"
-msgstr "정보 새로 고침 "
+msgstr "팩트 새로고침 "
 
 msgid "Refreshing the facts of a discovered host"
+msgstr "검색된 호스트의 팩트를 새로고침 중 "
+
+msgid "Reported in the last 7 days"
 msgstr ""
 
 msgid "Rule disabled"
-msgstr ""
+msgstr "규칙 비활성화 "
 
 msgid "Rule enabled"
-msgstr ""
+msgstr "규칙 비활성화 "
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
+msgstr "규칙 우선 순위 (낮은 정수 값일수록 우선 순위가 높아짐)"
 
 msgid "Select Action"
 msgstr "작업 선택 "
@@ -308,13 +371,10 @@ msgid "Select organization"
 msgstr "조직 선택 "
 
 msgid "Show a discovered host"
-msgstr ""
+msgstr "검색된 호스트 표시 "
 
 msgid "Show a discovery rule"
-msgstr ""
-
-msgid "Show fact as an extra column in the discovered hosts list"
-msgstr ""
+msgstr "검색 규칙 표시 "
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "호스트를 선택하는 도중 문제가 발생했습니다 - %s"
@@ -323,6 +383,8 @@ msgid ""
 "Specify target hostname template pattern in the same syntax as in "
 "Provisioning Templates (ERB)."
 msgstr ""
+"프로비저닝 템플릿 (ERB)에 있는 것과 동일한 구문의 대상 호스트 이름 템플릿 패"
+"턴을 지정합니다. "
 
 msgid "Submit"
 msgstr "제출 "
@@ -331,13 +393,11 @@ msgid "Subnet"
 msgstr "서브넷 "
 
 msgid "Target host group for this rule with all properties set"
-msgstr ""
+msgstr "모든 속성 모음을 갖는 규칙의 대상 호스트 그룹 "
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Template"
 msgstr "템플릿"
-
-msgid "The default fact name to use for the MAC of the system"
-msgstr "시스템의 MAC에 사용할 기본 정보 이름 "
 
 msgid "The default location to place discovered hosts in"
 msgstr "검색된 호스트를 배치하기 위한 기본 위치 "
@@ -346,7 +406,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr "검색된 호스트를 배치하기 위한 기본 조직 "
 
 msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
+msgstr "호스트 이름에 사용할 기본 접두사는 문자로 시작해야 합니다 "
 
 msgid "The following hosts were not deleted: %s"
 msgstr "다음 호스트가 삭제되지 않았습니다: %s"
@@ -354,21 +414,35 @@ msgstr "다음 호스트가 삭제되지 않았습니다: %s"
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
 "as well"
-msgstr "모든 호스트, 정보, 보고서가 모두 삭제되기 때문에 시간이 걸릴 수 있습니다 "
-
-msgid "Total pool size"
-msgid_plural "Total pool size"
-msgstr[0] ""
+msgstr ""
+"모든 호스트, 팩트, 보고서가 모두 삭제되기 때문에 시간이 걸릴 수 있습니다 "
 
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
+"오케스트레이션 작업 상태를 추적하기 위한 UUID, GET /api/orchestration/:UUID/"
+"tasks"
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by "
+"discovery_fact '%{fact}'"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to reboot %{name}: %{msg}"
+msgstr "호스트 %s 재부팅에 실패했습니다 "
 
 msgid "Update a rule"
-msgstr ""
+msgstr "규칙 업데이트 "
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr ""
+msgstr "호스트의 팩트를 업로드하고 필요한 경우 호스트를 생성합니다 "
 
 msgid "Value"
 msgstr "값 "
@@ -381,38 +455,70 @@ msgid ""
 "unique. Hostnames must not start with numbers. A good approach is to use "
 "unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
+"호스트 이름 패턴을 생성할 때 생성된 호스트 이름이 고유한 이름인지 확인하십시"
+"오. 호스트 이름은 숫자로 시작할 수 없습니다. facter (MAC 주소, BIOS 또는 시리"
+"얼 ID)에서 제공하는 고유한 정보를 사용하는 것이 좋습니다. "
 
 msgid "can't contain white spaces."
-msgstr ""
+msgstr "공백을 포함할 수 없습니다. "
+
+msgid ""
+"defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr "해당 호스트에 읽기 좋은 호스트 이름을 할당하기 위해 패턴을 정의합니다"
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr "규칙 당 프로비저닝된 호스트의 최대 수량을 제한할 수 있게 합니다"
 
 msgid "filter results"
-msgstr ""
+msgstr "필터 결과 "
 
-msgid "hash containing facts for the host"
+msgid "flag is used for temporary shutdown of rules"
+msgstr "규칙의 일시 정지에 플래그를 사용합니다"
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: "
+"discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: "
+"eth0 (example in case primary interface is named eth0)"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "
 
 msgid "must start with a letter or ERB."
-msgstr ""
+msgstr "문자 또는 ERB로 시작해야 합니다. "
 
 msgid "not required if it's a virtual machine"
-msgstr ""
+msgstr "가상 머신의 경우 필요하지 않습니다 "
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr ""
+msgstr "DHCP 프록시를 갖는 서브넷을 사용할 필요가 없습니다 "
 
 msgid "number of entries per request"
-msgstr ""
+msgstr "요청 당 항목 수 "
 
 msgid "paginate results"
+msgstr "페이지네이션 결과 "
+
+msgid ""
+"puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr ""
+"규칙을 순서대로 배치합니다. 낮은 숫자를 먼저 배치합니다. 수치는 0 보다 커야 "
+"합니다"
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr "특정 규칙에 대해 검색된 호스트와 일치하는 쿼리"
+
+msgid "represents rule name shown to the users"
+msgstr "사용자에게 표시되는 규칙 이름을 표시합니다"
 
 msgid ""
 "required if value is not inherited from host group or default password in "
 "settings"
 msgstr ""
+"값이 호스트 그룹이나 설정의 기본값 암호에서 상속되지 않은 경우에 필요합니다 "
 
 msgid "sort results"
-msgstr ""
+msgstr "결과 정렬 "
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr "호스트를 자동 프로비저닝하기 위해 사용되는 호스트 그룹"

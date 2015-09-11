@@ -1,21 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the foreman package.
+# Template file for strings which can be localized in the Foreman Application.
+#
+# This file is distributed under the same license as the Foreman.
+#
 #
 # Translators:
+# Leah Liu <lliu@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 17:53+0100\n"
-"PO-Revision-Date: 2015-03-21 22:54+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/language/zh_CN/)\n"
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
+"POT-Creation-Date: 2015-09-11 15:58-0400\n"
+"PO-Revision-Date: 2015-04-27 01:15+0000\n"
+"Last-Translator: Leah Liu <lliu@redhat.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/foreman/"
+"language/zh_CN/)\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.6.0\n"
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s - 要更改以下主机"
@@ -33,16 +37,21 @@ msgid "Assign Organization"
 msgstr "指定机构"
 
 msgid "Auto Provision"
-msgstr ""
+msgstr "自动供应"
 
 msgid "Auto Provision All"
-msgstr ""
+msgstr "自动供应全部"
 
 msgid ""
 "Automatically provision newly discovered hosts, according to the "
 "provisioning rules"
-msgstr ""
+msgstr "根据供应规则自动供应新发现的主机"
 
+#, fuzzy
+msgid "Automatically reboot discovered host during provisioning"
+msgstr "根据供应规则自动供应新发现的主机"
+
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "CPUs"
 msgstr "处理器"
 
@@ -50,13 +59,13 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr ""
+msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
 
-msgid "Create a discovered host"
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
 msgid "Create a discovery rule"
-msgstr ""
+msgstr "常见发现规则"
 
 msgid "Delete"
 msgstr "删除"
@@ -65,10 +74,10 @@ msgid "Delete %s?"
 msgstr "删除 %s"
 
 msgid "Delete a discovered host"
-msgstr ""
+msgstr "删除已发现主机"
 
 msgid "Delete a rule"
-msgstr ""
+msgstr "删除规则"
 
 msgid "Delete hosts"
 msgstr "删除主机"
@@ -76,14 +85,12 @@ msgstr "删除主机"
 msgid "Destroyed selected hosts"
 msgstr "消除所选主机"
 
+# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author Leah Liu
 msgid "Disable"
-msgstr ""
+msgstr "禁用"
 
 msgid "Disable rule?"
-msgstr ""
-
-msgid "Discovered Host Pool"
-msgstr ""
+msgstr "禁用规则？"
 
 msgid "Discovered host: %s"
 msgstr "找到的主机：%s"
@@ -92,61 +99,77 @@ msgid "Discovered hosts"
 msgstr "找到的主机"
 
 msgid "Discovered hosts are provisioning now"
-msgstr ""
+msgstr "已发现主机限制正在供应"
+
+#, fuzzy
+msgid "Discovered hosts are rebooting now"
+msgstr "已发现主机限制正在供应"
 
 msgid "Discovery Rules"
-msgstr ""
-
-msgid "Discovery rules"
-msgstr ""
-
-msgid "Discovery widget"
-msgstr ""
+msgstr "发现规则"
 
 msgid "DiscoveryRule|Enabled"
-msgstr ""
+msgstr "已禁用"
 
 msgid "DiscoveryRule|Name"
-msgstr ""
+msgstr "名称"
 
 msgid "DiscoveryRule|Priority"
-msgstr ""
+msgstr "优先级"
 
 msgid "DiscoveryRule|Query"
-msgstr ""
+msgstr "查询"
 
 msgid "Disk count"
-msgstr ""
+msgstr "磁盘计数"
 
 msgid "Disks size"
-msgstr ""
+msgstr "磁盘大小"
 
 msgid ""
 "Domain will be appended automatically. A hostname based on MAC address will "
 "be used when left blank. In addition to @host attribute function rand for "
 "random integers is available. Examples:"
 msgstr ""
+"将自动附加域。如为空白则会使用基于 MAC 地址的主机名。除 @host 属性外，还有用"
+"于随机整数的 rand 函数可用。例如："
 
 msgid "Edit Discovery Rule"
-msgstr ""
+msgstr "编辑发现规则"
 
+# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author Leah Liu
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Enable rule?"
-msgstr ""
+msgstr "启用规则？"
 
 msgid "Errors during auto provisioning: %s"
-msgstr ""
+msgstr "自动供应时出错：%s"
+
+#, fuzzy
+msgid "Errors during reboot: %s"
+msgstr "自动供应时出错：%s"
 
 msgid "Execute rules against a discovered host"
-msgstr ""
+msgstr "根据发现的主机执行规则"
 
 msgid "Execute rules against all currently discovered hosts"
+msgstr "根据所有目前已发现主机执行规则"
+
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface "
+"and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
 msgid "Fact"
 msgstr "详情"
+
+msgid "Fact name to use for primary interface detection and hostname"
+msgstr ""
 
 msgid "Facts discovered on this host"
 msgstr "在这台主机中找到的详情"
@@ -155,80 +178,88 @@ msgid "Facts refreshed for %s"
 msgstr "为 %s 刷新详情"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr ""
-
-msgid "Failed to import facts for discovered host"
-msgstr ""
-
-msgid "Failed to import facts for discovered host: %s"
-msgstr ""
+msgstr "自动供应主机失败 %s：%s"
 
 msgid "Failed to reboot host %s"
-msgstr ""
+msgstr "重启主机 %s 失败"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr ""
+msgstr "重启主机 %{hostname} 失败，并给出出错信息 %{error_message}"
 
 msgid "Failed to refresh facts for %s"
 msgstr "为 %s 刷新详情失败"
 
+# translation auto-copied from project Satellite6 Katello, version 6.1, document katello
 msgid "Host"
 msgstr "主机"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr ""
+msgstr "根据规则 %{rule} 供应主机 %{host}"
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Host group"
 msgstr "主机组"
 
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
+msgid ""
+"Host group organization %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+
 msgid "Host of type %s can not be rebooted"
-msgstr ""
+msgstr "无法重启主机类型 %s"
 
 msgid "Hostname for provisioned hosts"
-msgstr ""
+msgstr "已供应主机的主机名"
 
 msgid "Hosts limit"
-msgstr ""
+msgstr "主机限制"
 
 msgid "Hosts/limit"
-msgstr ""
+msgstr "主机/限制"
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "IP Address"
 msgstr "IP地址"
 
-msgid "Imported discovered host"
+msgid "Incompatible version of puppet fact parser"
 msgstr ""
 
 msgid "Invalid facts, must be a Hash"
-msgstr "无效详情，必须是 hash"
-
-msgid "Invalid facts: hash does not contain IP address"
-msgstr ""
-
-msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr "无效详情：未含有所需详情 '%s'"
+msgstr "无效详情，必须是 Hash"
 
 msgid "Last facts upload"
 msgstr "最后一个上传的详情"
 
 msgid "List all discovered hosts"
-msgstr ""
+msgstr "列出所有发现的主机"
 
 msgid "List all discovery rules"
-msgstr ""
+msgstr "列出所有发现规则"
 
 msgid "Location"
 msgstr "位置"
 
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr ""
+#, fuzzy
+msgid "Locations"
+msgstr "位置"
 
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "根据此规则可供应的最大主机数（0 代表无限）"
+
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Memory"
 msgstr "内存"
 
 msgid "Model"
 msgstr "型号"
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "N/A"
 msgstr "无"
 
@@ -236,16 +267,23 @@ msgid "Name"
 msgstr "名称"
 
 msgid "New Discovery Rule"
-msgstr ""
+msgstr "新发现规则"
 
 msgid "New Rule"
+msgstr "新规则"
+
+msgid "New in the last 24 hours"
 msgstr ""
 
 msgid "No discovered hosts available"
-msgstr ""
+msgstr "没有发现的主机可用"
 
 msgid "No discovered hosts to provision"
-msgstr ""
+msgstr "没有发现的主机需要供应"
+
+#, fuzzy
+msgid "No discovered hosts to reboot"
+msgstr "没有发现的主机需要供应"
 
 msgid "No hosts selected"
 msgstr "未选择任何主机"
@@ -254,46 +292,69 @@ msgid "No hosts were found with that id or name"
 msgstr "未找到符合此 id 或者名称的主机"
 
 msgid "No rule found for host %s"
+msgstr "未找到主机 %s 的规则"
+
+msgid "Not reported in more than 7 days"
 msgstr ""
 
 msgid "Organization"
 msgstr "机构"
 
+#, fuzzy
+msgid "Organizations"
+msgstr "机构"
+
 msgid "Please Confirm"
 msgstr "请确认"
+
+msgid "Primary"
+msgstr ""
 
 msgid "Provision"
 msgstr "供应"
 
 msgid "Provision a discovered host"
-msgstr ""
+msgstr "供应已发现主机"
 
+# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author Leah Liu
 msgid "Reboot"
-msgstr ""
+msgstr "重启"
+
+# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author Leah Liu
+#, fuzzy
+msgid "Reboot All"
+msgstr "重启"
 
 msgid "Rebooting %s"
 msgstr "正在重启 %s"
 
 msgid "Rebooting a discovered host"
-msgstr ""
+msgstr "重启已发现主机"
+
+#, fuzzy
+msgid "Rebooting all discovered hosts"
+msgstr "重启已发现主机"
 
 msgid "Rebooting host %s"
-msgstr ""
+msgstr "正在重启主机 %s"
 
 msgid "Refresh facts"
 msgstr "刷新详情"
 
 msgid "Refreshing the facts of a discovered host"
+msgstr "刷新已发现主机的详情"
+
+msgid "Reported in the last 7 days"
 msgstr ""
 
 msgid "Rule disabled"
-msgstr ""
+msgstr "已禁用规则"
 
 msgid "Rule enabled"
-msgstr ""
+msgstr "已启用规则"
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
+msgstr "规则优先级（数字越小优先级越高）"
 
 msgid "Select Action"
 msgstr "选择动作"
@@ -308,13 +369,10 @@ msgid "Select organization"
 msgstr "选择机构"
 
 msgid "Show a discovered host"
-msgstr ""
+msgstr "显示已发现主机"
 
 msgid "Show a discovery rule"
-msgstr ""
-
-msgid "Show fact as an extra column in the discovered hosts list"
-msgstr ""
+msgstr "显示发现规则"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "选择主机时出错 - %s"
@@ -322,7 +380,7 @@ msgstr "选择主机时出错 - %s"
 msgid ""
 "Specify target hostname template pattern in the same syntax as in "
 "Provisioning Templates (ERB)."
-msgstr ""
+msgstr "以与供应模板（ERB）相同的语法指定目标主机名模板模式。"
 
 msgid "Submit"
 msgstr "提交"
@@ -331,13 +389,11 @@ msgid "Subnet"
 msgstr "子网"
 
 msgid "Target host group for this rule with all properties set"
-msgstr ""
+msgstr "根据所有属性设置标定主机组"
 
+# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Template"
 msgstr "模板"
-
-msgid "The default fact name to use for the MAC of the system"
-msgstr "该系统 MAC 的默认详情名称"
 
 msgid "The default location to place discovered hosts in"
 msgstr "找到主机的默认位置"
@@ -346,7 +402,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr "找到主机的默认机构"
 
 msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
+msgstr "主机名使用的默认前缀，必须以字母开头。"
 
 msgid "The following hosts were not deleted: %s"
 msgstr "未删除以下主机：%s"
@@ -356,19 +412,30 @@ msgid ""
 "as well"
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
 
-msgid "Total pool size"
-msgid_plural "Total pool size"
-msgstr[0] ""
-
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by "
+"discovery_fact '%{fact}'"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to reboot %{name}: %{msg}"
+msgstr "重启主机 %s 失败"
 
 msgid "Update a rule"
-msgstr ""
+msgstr "更新规则"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr ""
+msgstr "上传主机详情，如需要，请创建主机。"
 
 msgid "Value"
 msgstr "值"
@@ -381,38 +448,66 @@ msgid ""
 "unique. Hostnames must not start with numbers. A good approach is to use "
 "unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
+"创建主机名模式时，请确保得到的主机名是唯一的。主机名不得以数字开头。可选择 "
+"facter 提供的特别信息（比如 MAC 地址，BIOS 或序列 ID）。"
 
 msgid "can't contain white spaces."
-msgstr ""
+msgstr "不能包含空白字段。"
+
+msgid ""
+"defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr "定义为匹配的主机分配可读主机名的模式"
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr "启用以便限制每个规则可供应主机的最大数量"
 
 msgid "filter results"
-msgstr ""
+msgstr "过滤结果"
 
-msgid "hash containing facts for the host"
+msgid "flag is used for temporary shutdown of rules"
+msgstr "用于临时关闭规则的标签"
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: "
+"discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: "
+"eth0 (example in case primary interface is named eth0)"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "已选择项目。取消选择清除。"
 
 msgid "must start with a letter or ERB."
-msgstr ""
+msgstr "必须以字母或 ERB 开头。"
 
 msgid "not required if it's a virtual machine"
-msgstr ""
+msgstr "虚拟机不需要"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr ""
+msgstr "如果使用附带 DHCP 代理服务器的子网则不需要"
 
 msgid "number of entries per request"
-msgstr ""
+msgstr "每个请求中的条目数"
 
 msgid "paginate results"
-msgstr ""
+msgstr "页数"
+
+msgid ""
+"puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr "按顺序排列规则，从最小的数字开始。数字必须大于 0"
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr "查询以便将找到的主机与具体规则匹配"
+
+msgid "represents rule name shown to the users"
+msgstr "代表显示给用户的规则名称"
 
 msgid ""
 "required if value is not inherited from host group or default password in "
 "settings"
-msgstr ""
+msgstr "如果不是从主机组中集成或使用设置中的默认密码则需要"
 
 msgid "sort results"
-msgstr ""
+msgstr "结果排序"
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr "用来自动供应主机的主机组"
