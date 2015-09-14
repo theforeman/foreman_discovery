@@ -8,6 +8,8 @@ module Host::ManagedExtensions
 
     belongs_to :discovery_rule
 
+    scoped_search :in => :discovery_rule, :on => :name, :rename => :discovery_rule, :complete_value => true
+
     # extra flag for post_queue callbacks which has no access to facts
     attr_accessor :legacy_api
     attr_accessible :discovery_rule_id

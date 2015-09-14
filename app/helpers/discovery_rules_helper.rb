@@ -23,14 +23,13 @@ module DiscoveryRulesHelper
   end
 
   def permitted_discovery_actions(rule)
-    actions = [display_delete_if_authorized(hash_for_discovery_rule_path(:id => rule).
-       merge(:auth_object => rule, :authorizer => authorizer), :confirm => _("Delete %s?") % rule)]
+    actions = [display_link_if_authorized(_('Discovered Hosts'), hash_for_discovered_hosts_path.merge(:search => rule.search))]
+    actions << display_link_if_authorized(_('Associated Hosts'), hash_for_hosts_path.merge(:search => "discovery_rule = \"#{rule.name}\""))
     if rule.enabled?
-      actions << display_link_if_authorized(_('Disable'), hash_for_disable_discovery_rule_path(:id => rule),
-                                            {:confirm => _('Disable rule?')})
+      actions << display_link_if_authorized(_('Disable'), hash_for_disable_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer), :confirm => _("Disable rule '%s'?") % rule)
     else
-      actions << display_link_if_authorized(_('Enable'), hash_for_enable_discovery_rule_path(:id => rule),
-                                            {:confirm => _('Enable rule?')})
+      actions << display_link_if_authorized(_('Enable'), hash_for_enable_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer), :confirm => _("Enable rule '%s'?") % rule)
     end
+    actions << display_delete_if_authorized(hash_for_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer), :confirm => _("Delete rule '%s'?") % rule)
   end
 end
