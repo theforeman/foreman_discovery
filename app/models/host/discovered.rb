@@ -72,15 +72,31 @@ class Host::Discovered < ::Host::Base
     super
   end
 
+  def add_warning_to_comment comment
+    Rails.logger.warn comment
+    self.comment = "" if self.comment.nil?
+    self.comment += "\nDISCOVERY WARNING: #{comment}"
+  end
+
   def populate_fields_from_facts(facts = self.facts_hash, type = 'puppet')
     # detect interfaces and primary interface using extensions
     parser = super(facts, type)
 
+    # some interfaces can be invalid (IP/MAC address conflict), primary interface is a fatal error
+    raise(::Foreman::Exception.new(N_("Unable to discover, provision interface has errors: %s"), self.primary_interface.errors.full_messages.join(', '))) unless self.provision_interface.valid?
+
+    # other interfaces are not fatal - just remove them
+    self.interfaces.reject! do |iface|
+      unless iface.valid?
+        reason = iface.errors.full_messages.join(', ')
+        add_warning_to_comment "Ignoring NIC #{iface.identifier}/#{iface.mac}: #{reason}"
+      end
+    end
+
     # set additional discovery attributes
-    primary_ip = self.primary_interface.ip
-    unless primary_ip.nil?
+    if (primary_ip = self.primary_interface.ip)
       subnet = Subnet.subnet_for(primary_ip)
-      Rails.logger.warn "Subnet not detected for #{primary_ip}" if subnet.nil?
+      add_warning_to_comment "Subnet not detected for primary IP: #{primary_ip}" if subnet.nil?
       # set subnet
       self.primary_interface.subnet = subnet
       # set location and organization
@@ -95,7 +111,7 @@ class Host::Discovered < ::Host::Base
           Organization.first
       end
     else
-      raise(::Foreman::Exception.new(N_("Unable to assign subnet, primary interface is missing IP address")))
+      add_warning_to_comment "Subnet not detected, primary interface has no IP set"
     end
     self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
     self.discovery_attribute_set.update_attributes(import_from_facts)
