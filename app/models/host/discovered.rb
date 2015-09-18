@@ -48,14 +48,14 @@ class Host::Discovered < ::Host::Base
     Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match /^[a-z]/
 
     # create new host record
-    h = ::Host::Discovered.find_by_name hostname
-    h ||= Host.new :name => hostname, :type => "Host::Discovered"
-    h.type = "Host::Discovered"
+    host = ::Host::Discovered.includes(:interfaces).find_by_name hostname
+    host ||= Host.new :name => hostname, :type => "Host::Discovered"
+    host.type = "Host::Discovered"
 
     # and save (interfaces are created via puppet parser extension)
-    h.save(:validate => false) if h.new_record?
-    state = h.import_facts(facts)
-    return h, state
+    host.save(:validate => false) if host.new_record?
+    state = host.import_facts(facts)
+    return host, state
   end
 
   def import_facts facts

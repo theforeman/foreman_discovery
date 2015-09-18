@@ -11,7 +11,7 @@
     <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk count') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks size') %></th>
     <% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
-      <th class="hidden-tablet hidden-xs"><%= fact_column.strip.capitalize %></th>
+      <th class="hidden-tablet hidden-xs"><%= fact_column.capitalize %></th>
     <% end %>
     <% if SETTINGS[:locations_enabled] -%>
       <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
