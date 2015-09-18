@@ -61,27 +61,22 @@ class Setting::Discovered < ::Setting
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
     true
-
   end
 
   def self.discovery_fact_column_array
-    return [] if !Setting['discovery_fact_column'].present?
-    discovery_comma_to_array Setting['discovery_fact_column']
+    from_array(Setting['discovery_fact_column'])
   end
 
   def self.discovery_hostname_fact_array
     return [] if !Setting['discovery_hostname'].present?
-    discovery_comma_to_array Setting['discovery_hostname']
+    from_array Setting['discovery_hostname']
   end
 
-  def self.discovery_comma_to_array string
-    list = []
-    string.to_s.split(",").each do |value|
-      list << value.strip
-    end
-  rescue => error
-    logger.warn "Failed to parse comma delimited list [%s] into array. Error: %s" % [list,error]
-  ensure
-    list
+  def self.from_array(setting)
+    return [] unless setting.present?
+    setting.to_s.split(",").map(&:strip)
+  rescue Exception => e
+    logger.warn "Failed to parse discovery_fact_column, ignoring: #{e}"
+    []
   end
 end
