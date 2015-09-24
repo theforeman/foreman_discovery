@@ -20,7 +20,7 @@ class ForemanDiscovery::HostConverter
       host.legacy_api = self.legacy_host(host)
       # do not delete all facts (keep discovery ones)
       host.define_singleton_method(:clearFacts) do
-        keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck(:id)
+        keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck("fact_values.id")
         FactValue.where("host_id = #{host.id} and id not in (?)", keep_ids).delete_all
       end
       # set build flag (also deletes facts)
