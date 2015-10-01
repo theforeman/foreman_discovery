@@ -40,6 +40,7 @@ module Host::ManagedExtensions
 
   def setKexec
     template = provisioning_template(:kind => 'kexec')
+    @host = self
     @kernel = boot_url(:kernel)
     @initrd = boot_url(:initrd)
     json = unattended_render(template)
