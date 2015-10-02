@@ -115,7 +115,7 @@ msgid "Discovery Rules"
 msgstr "Regras de descobertos"
 
 msgid "DiscoveryRule|Enabled"
-msgstr Habilitado"
+msgstr "Habilitado"
 
 msgid "DiscoveryRule|Name"
 msgstr "Nome"
