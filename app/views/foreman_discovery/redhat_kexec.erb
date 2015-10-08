@@ -24,7 +24,7 @@ information about semantics.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
-  bootif = '00-' + mac.gsub(':', '-')
+  bootif = '00-' + mac.gsub(':', '-') rescue ''
   ip_cidr = @host.facts['discovery_ip_cidr']
   ip = @host.facts['discovery_ip']
   mask = @host.facts['discovery_netmask']
@@ -39,6 +39,6 @@ information about semantics.
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
   "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} #{append}" %>"
 <% else -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} #{append}" %>"
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} #{append}" %>"
 <% end -%>
 }
