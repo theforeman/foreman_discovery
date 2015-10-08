@@ -132,8 +132,7 @@ class Host::Discovered < ::Host::Base
   end
 
   def refresh_facts
-    # TODO implement new-style service, get rid of old client (legacy_api? cannot be used!)
-    facts = ForemanDiscovery::ProxyOperations.new(:url => proxy_url, :operation => 'facts').parse_get_operation
+    facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url).facter
     self.class.import_host_and_facts facts
   rescue Exception => e
     raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
