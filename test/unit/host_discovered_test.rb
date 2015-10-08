@@ -61,7 +61,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should be able to refresh facts" do
     host = Host.create :name => "mydiscoveredhost", :ip => "1.2.3.4", :type => "Host::Discovered"
     raw = parse_json_fixture('/facts.json')
-    ForemanDiscovery::ProxyOperations.any_instance.stubs(:parse_get_operation).returns(raw['facts'])
+    ::ForemanDiscovery::NodeAPI::Inventory.any_instance.stubs(:facter).returns(raw['facts'])
     assert host.refresh_facts
   end
 
