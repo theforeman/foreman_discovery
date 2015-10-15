@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 4.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-09-11 15:58-0400\n"
-"PO-Revision-Date: 2015-09-11 15:58-0400\n"
+"POT-Creation-Date: 2015-10-15 09:33+0200\n"
+"PO-Revision-Date: 2015-10-15 09:33+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -22,6 +22,9 @@ msgid "%s - The following hosts are about to be changed"
 msgstr ""
 
 msgid "%s ago"
+msgstr ""
+
+msgid "%s discovered hosts were provisioned"
 msgstr ""
 
 msgid "Are you sure?"
@@ -205,6 +208,12 @@ msgstr ""
 msgid "IP Address"
 msgstr ""
 
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
 msgid "Incompatible version of puppet fact parser"
 msgstr ""
 
@@ -313,6 +322,9 @@ msgstr ""
 msgid "Refreshing the facts of a discovered host"
 msgstr ""
 
+msgid "Reloading kernel on %s"
+msgstr ""
+
 msgid "Reported in the last 7 days"
 msgstr ""
 
@@ -388,7 +400,13 @@ msgstr ""
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr ""
 
-msgid "Unable to reboot %{name}: %{msg}"
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
 msgid "Update a rule"
