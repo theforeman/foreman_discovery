@@ -1,35 +1,36 @@
-# Template file for strings which can be localized in the Foreman Application.
-#
-# This file is distributed under the same license as the Foreman.
-#
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 Foreman developers
+# This file is distributed under the same license as the foreman_discovery package.
+# 
 # Translators:
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2014
-# Ettore Atalan <atalanttore@googlemail.com>, 2014
+# Christina Gurski <Gurski_christina@yahoo.de>, 2015
+# Ettore Atalan <atalanttore@googlemail.com>, 2014-2015
+# Lukáš Zapletal, 2015
 # simon11 <simon.stieger.98@live.de>, 2014
-# hpeters <hpeters@redhat.com>, 2015. #zanata
-# rgromans <rgromans@redhat.com>, 2015. #zanata
+# simon11 <simon.stieger.98@live.de>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: version 0.0.1\n"
+"Project-Id-Version: foreman_discovery 4.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-09-11 15:58-0400\n"
-"PO-Revision-Date: 2015-04-27 11:35+0000\n"
-"Last-Translator: hpeters <hpeters@redhat.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/foreman/language/"
-"de/)\n"
-"Language: de\n"
+"POT-Creation-Date: 2015-10-15 09:33+0200\n"
+"PO-Revision-Date: 2015-10-15 14:20+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.6.0\n"
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s - Die folgenden Hosts werden geändert"
 
 msgid "%s ago"
 msgstr "vor %s"
+
+msgid "%s discovered hosts were provisioned"
+msgstr ""
 
 msgid "Are you sure?"
 msgstr "Sind Sie sicher?"
@@ -49,15 +50,11 @@ msgstr "Alle automatisch bereitstellen"
 msgid ""
 "Automatically provision newly discovered hosts, according to the "
 "provisioning rules"
-msgstr ""
-"Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
+msgstr "Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
 
-#, fuzzy
 msgid "Automatically reboot discovered host during provisioning"
 msgstr ""
-"Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "CPUs"
 msgstr "CPUs"
 
@@ -91,7 +88,6 @@ msgstr "Hosts löschen"
 msgid "Destroyed selected hosts"
 msgstr "Ausgewählte Hosts gelöscht"
 
-# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author rgromans
 msgid "Disable"
 msgstr "Deaktivieren"
 
@@ -107,9 +103,8 @@ msgstr "Entdeckte Hosts"
 msgid "Discovered hosts are provisioning now"
 msgstr "Entdeckte Hosts, die jetzt bereitgestellt werden"
 
-#, fuzzy
 msgid "Discovered hosts are rebooting now"
-msgstr "Entdeckte Hosts, die jetzt bereitgestellt werden"
+msgstr ""
 
 msgid "Discovery Rules"
 msgstr "Entdeckungsregeln"
@@ -136,16 +131,11 @@ msgid ""
 "Domain will be appended automatically. A hostname based on MAC address will "
 "be used when left blank. In addition to @host attribute function rand for "
 "random integers is available. Examples:"
-msgstr ""
-"Domain wird automatisch angehängt. Falls leer gelassen, wird ein Hostname "
-"basierend auf der MAC-Adresse verwendet. Zusätzlich zum Attribut \"@host\" "
-"steht die Funktion \"rand\" für zufällige Ganzzahlwerte zur Verfügung. "
-"Beispiele:"
+msgstr "Domain wird automatisch angehängt. Falls leer gelassen, wird ein Hostname basierend auf der MAC-Adresse verwendet. Zusätzlich zum Attribut \"@host\" steht die Funktion \"rand\" für zufällige Ganzzahlwerte zur Verfügung. Beispiele:"
 
 msgid "Edit Discovery Rule"
 msgstr "Entdeckungsregel bearbeiten"
 
-# translation auto-copied from project policycoreutils, version 2.1.14, document policycoreutils, author rgromans
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -155,9 +145,8 @@ msgstr "Regel aktivieren?"
 msgid "Errors during auto provisioning: %s"
 msgstr "Fehler bei automatischer Bereitstellung: %s"
 
-#, fuzzy
 msgid "Errors during reboot: %s"
-msgstr "Fehler bei automatischer Bereitstellung: %s"
+msgstr ""
 
 msgid "Execute rules against a discovered host"
 msgstr "Regeln auf einem entdeckten Host anwenden"
@@ -192,20 +181,17 @@ msgid "Failed to reboot host %s"
 msgstr "Fehler beim Neustart von Host %s"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr ""
-"Fehler beim Neustart von Host %{hostname} mit Fehlermeldung %{error_message}"
+msgstr "Fehler beim Neustart von Host %{hostname} mit Fehlermeldung %{error_message}"
 
 msgid "Failed to refresh facts for %s"
 msgstr "Fehler beim Aktualisieren von Fakten für %s"
 
-# translation auto-copied from project Satellite6 Katello, version 6.1, document katello
 msgid "Host"
 msgstr "Host"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} wurde bereitgestellt mit Regel %{rule}"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Host group"
 msgstr "Hostgruppe"
 
@@ -234,9 +220,14 @@ msgstr "Hostgrenze"
 msgid "Hosts/limit"
 msgstr "Hosts/Grenze"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "IP Address"
 msgstr "IP-Adresse"
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
 
 msgid "Incompatible version of puppet fact parser"
 msgstr ""
@@ -256,23 +247,18 @@ msgstr "Alle Entdeckungsregeln auflisten"
 msgid "Location"
 msgstr "Standort"
 
-#, fuzzy
 msgid "Locations"
-msgstr "Standort"
+msgstr "Orte"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr ""
-"Höchstanzahl von Hosts, die mit dieser Regel bereitgestellt werden (0 = "
-"unbegrenzt)"
+msgstr "Höchstanzahl von Hosts, die mit dieser Regel bereitgestellt werden (0 = unbegrenzt)"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Memory"
 msgstr "Speicher"
 
 msgid "Model"
 msgstr "Modell"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "N/A"
 msgstr "Nicht verfügbar"
 
@@ -286,7 +272,7 @@ msgid "New Rule"
 msgstr "Neue Regel"
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "Neu in den letzten 24 Stunden"
 
 msgid "No discovered hosts available"
 msgstr "Keine entdeckten Hosts verfügbar"
@@ -294,9 +280,8 @@ msgstr "Keine entdeckten Hosts verfügbar"
 msgid "No discovered hosts to provision"
 msgstr "Keine entdeckten Hosts zur Bereitstellung"
 
-#, fuzzy
 msgid "No discovered hosts to reboot"
-msgstr "Keine entdeckten Hosts zur Bereitstellung"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "Keine Hosts ausgewählt"
@@ -308,20 +293,19 @@ msgid "No rule found for host %s"
 msgstr "Keine Regel gefunden für Host %s"
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "Nicht berichtet in mehr als 7 Tagen"
 
 msgid "Organization"
 msgstr "Organisation"
 
-#, fuzzy
 msgid "Organizations"
-msgstr "Organisation"
+msgstr "Organisationen"
 
 msgid "Please Confirm"
 msgstr "Bitte bestätigen"
 
 msgid "Primary"
-msgstr ""
+msgstr "Primär"
 
 msgid "Provision"
 msgstr "Bereitstellen"
@@ -329,14 +313,11 @@ msgstr "Bereitstellen"
 msgid "Provision a discovered host"
 msgstr "Entdeckten Host bereitstellen"
 
-# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author rgromans
 msgid "Reboot"
 msgstr "Neustart"
 
-# translation auto-copied from project system-config-kdump, version 2.0.13, document system-config-kdump, author rgromans
-#, fuzzy
 msgid "Reboot All"
-msgstr "Neustart"
+msgstr "Alle neu starten"
 
 msgid "Rebooting %s"
 msgstr "%s wird neu gestartet"
@@ -344,9 +325,8 @@ msgstr "%s wird neu gestartet"
 msgid "Rebooting a discovered host"
 msgstr "Entdeckten Host neu starten"
 
-#, fuzzy
 msgid "Rebooting all discovered hosts"
-msgstr "Entdeckten Host neu starten"
+msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "Host %s wird neu gestartet"
@@ -357,8 +337,11 @@ msgstr "Fakten aktualisieren"
 msgid "Refreshing the facts of a discovered host"
 msgstr "Fakten eines entdeckten Hosts werden aktualisiert"
 
+msgid "Reloading kernel on %s"
+msgstr "Kernel auf %s wird neu geladen"
+
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "Berichtet in den letzten 7 Tagen"
 
 msgid "Rule disabled"
 msgstr "Regel deaktiviert"
@@ -393,9 +376,7 @@ msgstr "Fehler beim Auswählen der Hosts – %s"
 msgid ""
 "Specify target hostname template pattern in the same syntax as in "
 "Provisioning Templates (ERB)."
-msgstr ""
-"Vorlagenmuster des Ziel-Hostnamens in derselben Syntax angeben wie in "
-"Bereitstellungsvorlagen (ERB)."
+msgstr "Vorlagenmuster des Ziel-Hostnamens in derselben Syntax angeben wie in Bereitstellungsvorlagen (ERB)."
 
 msgid "Submit"
 msgstr "Absenden"
@@ -406,7 +387,6 @@ msgstr "Subnetz"
 msgid "Target host group for this rule with all properties set"
 msgstr "Ziel-Hostgruppe für diese Regel mit allen Eigenschaften gesetzt"
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
 msgid "Template"
 msgstr "Vorlage"
 
@@ -417,9 +397,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr "Standard-Organisation, in die entdeckte Hosts platziert werden"
 
 msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
-"Das Standard-Präfix zum Verwenden für den Hostnamen, muss mit einem "
-"Buchstaben beginnen"
+msgstr "Das Standard-Präfix zum Verwenden für den Hostnamen, muss mit einem Buchstaben beginnen"
 
 msgid "The following hosts were not deleted: %s"
 msgstr "Die folgenden Hosts wurden nicht gelöscht: %s"
@@ -427,15 +405,11 @@ msgstr "Die folgenden Hosts wurden nicht gelöscht: %s"
 msgid ""
 "This might take a while, as all hosts, facts and reports will be destroyed "
 "as well"
-msgstr ""
-"Dieser Vorgang kann eine Weile dauern, da alle Hosts, Fakten und Berichte "
-"ebenfalls gelöscht werden"
+msgstr "Dieser Vorgang kann eine Weile dauern, da alle Hosts, Fakten und Berichte ebenfalls gelöscht werden"
 
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
-"UUID zur Nachverfolgung des Status von Orchestrierungs-Tasks, GET /api/"
-"orchestration/:UUID/tasks"
+msgstr "UUID zur Nachverfolgung des Status von Orchestrierungs-Tasks, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
@@ -448,9 +422,14 @@ msgstr ""
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr ""
 
-#, fuzzy
-msgid "Unable to reboot %{name}: %{msg}"
-msgstr "Fehler beim Neustart von Host %s"
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr ""
 
 msgid "Update a rule"
 msgstr "Regel aktualisieren"
@@ -468,12 +447,7 @@ msgid ""
 "When creating hostname patterns, make sure the resulting host names are "
 "unique. Hostnames must not start with numbers. A good approach is to use "
 "unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr ""
-"Stellen Sie beim Anlegen von Hostnamen-Mustern sicher, das die daraus "
-"resultierenden Hostnamen eindeutig sind. Hostnamen dürfen nicht mit Ziffern "
-"beginnen. Eine gute Methode ist die Verwendung der von Facter "
-"bereitgestellten eindeutigen Informationen (MAC-Adresse, BIOS oder "
-"Seriennummer)."
+msgstr "Stellen Sie beim Anlegen von Hostnamen-Mustern sicher, das die daraus resultierenden Hostnamen eindeutig sind. Hostnamen dürfen nicht mit Ziffern beginnen. Eine gute Methode ist die Verwendung der von Facter bereitgestellten eindeutigen Informationen (MAC-Adresse, BIOS oder Seriennummer)."
 
 msgid "can't contain white spaces."
 msgstr "darf keine Leerzeichen enthalten."
@@ -481,17 +455,15 @@ msgstr "darf keine Leerzeichen enthalten."
 msgid ""
 "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr ""
-"definiert ein Muster, nach dem einfach lesbare Hostnamen zu "
-"übereinstimmenden Hosts zugewiesen werden"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr "ermöglicht die Begrenzung der maximal bereitgestellten Hosts pro Regel"
+msgstr ""
 
 msgid "filter results"
 msgstr "Ergebnisse filtern"
 
 msgid "flag is used for temporary shutdown of rules"
-msgstr "Flag zur vorübergehenden Deaktivierung von Regeln"
+msgstr ""
 
 msgid ""
 "hash containing facts for the host with minimum set of facts: "
@@ -519,26 +491,21 @@ msgstr "Ergebnisse auf mehreren Seiten anzeigen"
 
 msgid ""
 "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr "ordnet die Regeln, niedrige Zahlen zuerst. Muss größer als Null sein"
+msgstr ""
 
 msgid "query to match discovered hosts for the particular rule"
 msgstr ""
-"Abfrage zur Übereinstimmung mit entdeckten Hosts für die angegebene Regel"
 
 msgid "represents rule name shown to the users"
-msgstr "repräsentiert den Regelnamen, der Benutzern angezeigt wird"
+msgstr ""
 
 msgid ""
 "required if value is not inherited from host group or default password in "
 "settings"
-msgstr ""
-"erforderlich, falls kein Wert von Hostgruppe geerbt wird oder es nicht das "
-"Standardpasswort in Einstellungen ist"
+msgstr "erforderlich, falls kein Wert von Hostgruppe geerbt wird oder es nicht das Standardpasswort in Einstellungen ist"
 
 msgid "sort results"
 msgstr "Ergebnisse sortieren"
 
 msgid "the hostgroup that is used to auto provision a host"
 msgstr ""
-"die Hostgruppe, die zur automatischen Bereitstellung eines Hosts verwendet "
-"wird"

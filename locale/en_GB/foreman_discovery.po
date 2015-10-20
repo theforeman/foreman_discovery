@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the foreman package.
-#
+# Copyright (C) 2015 Foreman developers
+# This file is distributed under the same license as the foreman_discovery package.
+# 
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2015
 # Dominic Cleal <dcleal@redhat.com>, 2013-2014
 # Lukáš Zapletal, 2015
+# Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 17:53+0100\n"
-"PO-Revision-Date: 2015-08-10 10:09+0000\n"
+"Project-Id-Version: foreman_discovery 4.0.0\n"
+"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
+"POT-Creation-Date: 2015-10-15 09:33+0200\n"
+"PO-Revision-Date: 2015-10-15 09:16+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/foreman/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +26,9 @@ msgstr "%s - The following hosts are about to be changed"
 
 msgid "%s ago"
 msgstr "%s ago"
+
+msgid "%s discovered hosts were provisioned"
+msgstr ""
 
 msgid "Are you sure?"
 msgstr "Are you sure?"
@@ -46,6 +50,9 @@ msgid ""
 "provisioning rules"
 msgstr "Automatically provision newly discovered hosts, according to the provisioning rules"
 
+msgid "Automatically reboot discovered host during provisioning"
+msgstr ""
+
 msgid "CPUs"
 msgstr "CPUs"
 
@@ -55,8 +62,8 @@ msgstr "Cancel"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
-msgid "Create a discovered host"
-msgstr "Create a discovered host"
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
 
 msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
@@ -85,9 +92,6 @@ msgstr "Disable"
 msgid "Disable rule?"
 msgstr "Disable rule?"
 
-msgid "Discovered Host Pool"
-msgstr "Discovered Host Pool"
-
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
 
@@ -97,14 +101,11 @@ msgstr "Discovered hosts"
 msgid "Discovered hosts are provisioning now"
 msgstr "Discovered hosts are provisioning now"
 
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "Discovery Rules"
-
-msgid "Discovery rules"
-msgstr "Discovery rules"
-
-msgid "Discovery widget"
-msgstr "Discovery widget"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Enabled"
@@ -142,14 +143,28 @@ msgstr "Enable rule?"
 msgid "Errors during auto provisioning: %s"
 msgstr "Errors during auto provisioning: %s"
 
+msgid "Errors during reboot: %s"
+msgstr ""
+
 msgid "Execute rules against a discovered host"
 msgstr "Execute rules against a discovered host"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "Execute rules against all currently discovered hosts"
 
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface "
+"and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
 msgid "Fact"
 msgstr "Fact"
+
+msgid "Fact name to use for primary interface detection and hostname"
+msgstr ""
 
 msgid "Facts discovered on this host"
 msgstr "Facts discovered on this host"
@@ -159,12 +174,6 @@ msgstr "Facts refreshed for %s"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "Failed to auto provision host %s: %s"
-
-msgid "Failed to import facts for discovered host"
-msgstr "Failed to import facts for discovered host"
-
-msgid "Failed to import facts for discovered host: %s"
-msgstr "Failed to import facts for discovered host: %s"
 
 msgid "Failed to reboot host %s"
 msgstr "Failed to reboot host %s"
@@ -184,6 +193,19 @@ msgstr "Host %{host} was provisioned with rule %{rule}"
 msgid "Host group"
 msgstr "Host group"
 
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Host group organization %s must also be associated to the discovery rule"
+msgid_plural ""
+"Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Host of type %s can not be rebooted"
 msgstr "Host of type %s can not be rebooted"
 
@@ -199,17 +221,17 @@ msgstr "Hosts/limit"
 msgid "IP Address"
 msgstr "IP Address"
 
-msgid "Imported discovered host"
-msgstr "Imported discovered host"
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Incompatible version of puppet fact parser"
+msgstr ""
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Invalid facts, must be a Hash"
-
-msgid "Invalid facts: hash does not contain IP address"
-msgstr "Invalid facts: hash does not contain IP address"
-
-msgid "Invalid facts: hash does not contain the required fact '%s'"
-msgstr "Invalid facts: hash does not contain the required fact '%s'"
 
 msgid "Last facts upload"
 msgstr "Last facts upload"
@@ -222,6 +244,9 @@ msgstr "List all discovery rules"
 
 msgid "Location"
 msgstr "Location"
+
+msgid "Locations"
+msgstr ""
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Maximum hosts provisioned with this rule (0 = unlimited)"
@@ -244,11 +269,17 @@ msgstr "New Discovery Rule"
 msgid "New Rule"
 msgstr "New Rule"
 
+msgid "New in the last 24 hours"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr "No discovered hosts available"
 
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"
+
+msgid "No discovered hosts to reboot"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "No hosts selected"
@@ -259,11 +290,20 @@ msgstr "No hosts were found with that id or name"
 msgid "No rule found for host %s"
 msgstr "No rule found for host %s"
 
+msgid "Not reported in more than 7 days"
+msgstr ""
+
 msgid "Organization"
 msgstr "Organisation"
 
+msgid "Organizations"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "Please Confirm"
+
+msgid "Primary"
+msgstr ""
 
 msgid "Provision"
 msgstr "Provision"
@@ -274,11 +314,17 @@ msgstr "Provision a discovered host"
 msgid "Reboot"
 msgstr "Reboot"
 
+msgid "Reboot All"
+msgstr ""
+
 msgid "Rebooting %s"
 msgstr "Rebooting %s"
 
 msgid "Rebooting a discovered host"
 msgstr "Rebooting a discovered host"
+
+msgid "Rebooting all discovered hosts"
+msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "Rebooting host %s"
@@ -288,6 +334,12 @@ msgstr "Refresh facts"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr "Refreshing the facts of a discovered host"
+
+msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Reported in the last 7 days"
+msgstr ""
 
 msgid "Rule disabled"
 msgstr "Rule disabled"
@@ -316,9 +368,6 @@ msgstr "Show a discovered host"
 msgid "Show a discovery rule"
 msgstr "Show a discovery rule"
 
-msgid "Show fact as an extra column in the discovered hosts list"
-msgstr "Show fact as an extra column in the discovered hosts list"
-
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Something went wrong while selecting hosts - %s"
 
@@ -339,9 +388,6 @@ msgstr "Target host group for this rule with all properties set"
 msgid "Template"
 msgstr "Template"
 
-msgid "The default fact name to use for the MAC of the system"
-msgstr "The default fact name to use for the MAC of the system"
-
 msgid "The default location to place discovered hosts in"
 msgstr "The default location to place discovered hosts in"
 
@@ -359,14 +405,29 @@ msgid ""
 "as well"
 msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
 
-msgid "Total pool size"
-msgid_plural "Total pool size"
-msgstr[0] "Total pool size"
-msgstr[1] "Total pool size"
-
 msgid ""
 "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by "
+"discovery_fact '%{fact}'"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr ""
 
 msgid "Update a rule"
 msgstr "Update a rule"
@@ -389,11 +450,24 @@ msgstr "When creating hostname patterns, make sure the resulting host names are 
 msgid "can't contain white spaces."
 msgstr "can't contain white spaces."
 
+msgid ""
+"defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
 msgid "filter results"
 msgstr "filter results"
 
-msgid "hash containing facts for the host"
-msgstr "hash containing facts for the host"
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: "
+"discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: "
+"eth0 (example in case primary interface is named eth0)"
+msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "items selected. Uncheck to Clear"
@@ -414,9 +488,22 @@ msgid "paginate results"
 msgstr "paginate results"
 
 msgid ""
+"puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid ""
 "required if value is not inherited from host group or default password in "
 "settings"
 msgstr "required if value is not inherited from host group or default password in settings"
 
 msgid "sort results"
 msgstr "sort results"
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
