@@ -24,7 +24,7 @@ information about semantics.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
-  bootif = '00-' + mac.gsub(':', '-') rescue ''
+  bootif = '00-' + mac.gsub(':', '-') if mac
   ip_cidr = @host.facts['discovery_ip_cidr']
   ip = @host.facts['discovery_ip']
   mask = @host.facts['discovery_netmask']
