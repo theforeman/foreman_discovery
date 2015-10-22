@@ -60,9 +60,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_edit_form_attributes
     host = Host::Discovered.import_host_and_facts(@facts).first
-    Host.transaction do
-      get :edit, {:id => host.id}, set_session_user_default_manager
-    end
+    get :edit, {:id => host.id}, set_session_user_default_reader
     assert_not_nil host.cpu_count
   end
 
