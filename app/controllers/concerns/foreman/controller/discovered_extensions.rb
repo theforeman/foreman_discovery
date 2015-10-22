@@ -45,19 +45,17 @@ module Foreman::Controller::DiscoveredExtensions
   # trigger the provisioning
   def perform_auto_provision original_host, rule
     raise(::Foreman::Exception.new(N_("No hostgroup associated with rule '%s'"), rule)) if rule.hostgroup.nil?
-    Host.transaction do
-      host = ::ForemanDiscovery::HostConverter.to_managed(original_host)
-      host.hostgroup_id = rule.hostgroup_id
-      host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
-      host.discovery_rule = rule
-      # render hostname only when all other fields are set
-      original_name = host.name
-      host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
-      # fallback to the original if template did not expand
-      host.name = original_name if host.name.empty?
-      # save! does not work here
-      host.save
-    end
+    host = ::ForemanDiscovery::HostConverter.to_managed(original_host)
+    host.hostgroup_id = rule.hostgroup_id
+    host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
+    host.discovery_rule = rule
+    # render hostname only when all other fields are set
+    original_name = host.name
+    host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
+    # fallback to the original if template did not expand
+    host.name = original_name if host.name.empty?
+    # save! does not work here
+    host.save
   end
 
   def perform_reboot_all hosts = Host::Discovered.all
@@ -66,19 +64,17 @@ module Foreman::Controller::DiscoveredExtensions
     overall_errors = ""
 
     if hosts.count > 0
-      Host.transaction do
-        hosts.each do |discovered_host|
-          begin
-            unless discovered_host.reboot
-              error =  "#{discovered_host.name}: failed to reboot "
-              overall_errors << error
-              logger.error error
-            end
-          rescue Exception => e
-            error = "#{discovered_host.name}: #{e.to_s} "
+      hosts.each do |discovered_host|
+        begin
+          unless discovered_host.reboot
+            error =  "#{discovered_host.name}: failed to reboot "
             overall_errors << error
             logger.error error
           end
+        rescue Exception => e
+          error = "#{discovered_host.name}: #{e.to_s} "
+          overall_errors << error
+          logger.error error
         end
       end
     else

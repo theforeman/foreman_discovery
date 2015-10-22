@@ -45,25 +45,21 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def edit
-    Host.transaction do
-      @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
-      render :template => 'hosts/edit'
-    end
+    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
+    render :template => 'hosts/edit'
   end
 
   def update
-    Host.transaction do
-      @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
-      forward_url_options
-      Taxonomy.no_taxonomy_scope do
-        if @host.update_attributes(params[:host])
-          process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
-        else
-          taxonomy_scope
-          load_vars_for_ajax
-          offer_to_overwrite_conflicts
-          process_error :object => @host, :render => 'hosts/edit'
-        end
+    @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
+    forward_url_options
+    Taxonomy.no_taxonomy_scope do
+      if @host.update_attributes(params[:host])
+        process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
+      else
+        taxonomy_scope
+        load_vars_for_ajax
+        offer_to_overwrite_conflicts
+        process_error :object => @host, :render => 'hosts/edit'
       end
     end
   end
@@ -133,18 +129,16 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def auto_provision
-    Host.transaction do
-      if rule = find_discovery_rule(@host)
-        if perform_auto_provision(@host, rule)
-          process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => discovered_hosts_path
-        else
-          errors = @host.errors.full_messages.join(' ')
-          logger.warn "Failed to auto provision host %s: %s" % [@host.name, errors]
-          process_error :error_msg => _("Failed to auto provision host %s: %s") % [@host.name, errors], :redirect => :back
-        end
+    if rule = find_discovery_rule(@host)
+      if perform_auto_provision(@host, rule)
+        process_success :success_msg => _("Host %{host} was provisioned with rule %{rule}") % {:host => @host.name, :rule => rule.name}, :success_redirect => discovered_hosts_path
       else
-        process_success :success_msg => _("No rule found for host %s") % @host.name, :success_redirect => :back
+        errors = @host.errors.full_messages.join(' ')
+        logger.warn "Failed to auto provision host %s: %s" % [@host.name, errors]
+        process_error :error_msg => _("Failed to auto provision host %s: %s") % [@host.name, errors], :redirect => :back
       end
+    else
+      process_success :success_msg => _("No rule found for host %s") % @host.name, :success_redirect => :back
     end
   end
 
@@ -157,23 +151,21 @@ class DiscoveredHostsController < ::ApplicationController
       result = false
     end
 
-    Host.transaction do
-      overall_errors = ""
-      Host::Discovered.all.each do |discovered_host|
-        if rule = find_discovery_rule(discovered_host)
-          result &= perform_auto_provision(discovered_host, rule)
-          unless discovered_host.errors.empty?
-            errors = discovered_host.errors.full_messages.join(' ')
-            logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
-            overall_errors << "#{discovered_host.name}: #{errors} "
-          end
+    overall_errors = ""
+    Host::Discovered.all.each do |discovered_host|
+      if rule = find_discovery_rule(discovered_host)
+        result &= perform_auto_provision(discovered_host, rule)
+        unless discovered_host.errors.empty?
+          errors = discovered_host.errors.full_messages.join(' ')
+          logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
+          overall_errors << "#{discovered_host.name}: #{errors} "
         end
       end
-      if result
-        process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => :back
-      else
-        process_error :error_msg => error_message % overall_errors, :redirect => :back
-      end
+    end
+    if result
+      process_success :success_msg => _("Discovered hosts are provisioning now"), :success_redirect => :back
+    else
+      process_error :error_msg => error_message % overall_errors, :redirect => :back
     end
   end
 

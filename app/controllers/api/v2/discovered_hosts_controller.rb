@@ -76,12 +76,10 @@ module Api
       end
 
       def update
-        Host.transaction do
-          @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host)
-          forward_request_url
-          update_response = @host.update_attributes(params[:discovered_host])
-          process_response update_response
-        end
+        @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host)
+        forward_request_url
+        update_response = @host.update_attributes(params[:discovered_host])
+        process_response update_response
       end
 
       api :DELETE, "/discovered_hosts/:id/", N_("Delete a discovered host")
@@ -96,16 +94,12 @@ module Api
 
       def facts
         state = true
-        Host.transaction do
-          @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
-        end
+        @discovered_host, state = Host::Discovered.import_host_and_facts(params[:facts])
         if Setting['discovery_auto']
-          Host.transaction do
-            if state && rule = find_discovery_rule(@discovered_host)
-              state = perform_auto_provision(@discovered_host, rule)
-            else
-              Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
-            end
+          if state && rule = find_discovery_rule(@discovered_host)
+            state = perform_auto_provision(@discovered_host, rule)
+          else
+            Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning"
           end
         end
         process_response state
@@ -119,21 +113,19 @@ module Api
       param :id, :identifier, :required => true
 
       def auto_provision
-        Host.transaction do
-          if rule = find_discovery_rule(@discovered_host)
-            if perform_auto_provision(@discovered_host, rule)
-              msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
-              render :json => {:message => msg}
-            else
-              msg = _("Unable to provision %{host}: %{errors}") % {:host => @discovered_host.name, :errors => @discovered_host.errors.full_messages.join(' ')}
-              render :json => {:message => msg}, :status => :unprocessable_entity
-            end
+        if rule = find_discovery_rule(@discovered_host)
+          if perform_auto_provision(@discovered_host, rule)
+            msg = _("Host %{host} was provisioned with rule %{rule}") % {:host => @discovered_host.name, :rule => rule.name}
+            render :json => {:message => msg}
           else
-            render_error :custom_error, :status => :not_found,
-                         :locals => {
-                             :message => _("No rule found for host %s") % @discovered_host.name
-                         }
+            msg = _("Unable to provision %{host}: %{errors}") % {:host => @discovered_host.name, :errors => @discovered_host.errors.full_messages.join(' ')}
+            render :json => {:message => msg}, :status => :unprocessable_entity
           end
+        else
+          render_error :custom_error, :status => :not_found,
+                       :locals => {
+                           :message => _("No rule found for host %s") % @discovered_host.name
+                       }
         end
       rescue ::Foreman::Exception => e
         render :json => {'message' => e.to_s}, :status => :unprocessable_entity
@@ -151,33 +143,31 @@ module Api
         end
 
         total_count = 0
-        Host.transaction do
-          overall_errors = ""
-          Host::Discovered.all.each do |discovered_host|
-            if rule = find_discovery_rule(discovered_host)
-              result &= perform_auto_provision(discovered_host, rule)
-              unless discovered_host.errors.empty?
-                errors = discovered_host.errors.full_messages.join(' ')
-                logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
-                overall_errors << "#{discovered_host.name}: #{errors} "
-              else
-                total_count += 1
-              end
+        overall_errors = ""
+        Host::Discovered.all.each do |discovered_host|
+          if rule = find_discovery_rule(discovered_host)
+            result &= perform_auto_provision(discovered_host, rule)
+            unless discovered_host.errors.empty?
+              errors = discovered_host.errors.full_messages.join(' ')
+              logger.warn "Failed to auto provision host %s: %s" % [discovered_host.name, errors]
+              overall_errors << "#{discovered_host.name}: #{errors} "
             else
-              logger.warn "No rule found for host %s" % discovered_host.name
+              total_count += 1
             end
-          end
-
-          if result
-            msg = _("%s discovered hosts were provisioned") % total_count
-            render :json => {:message => msg}
           else
-            render_error :custom_error,
-              :status => :unprocessable_entity,
-              :locals => {
-                :message => error_message % overall_errors
-              }
+            logger.warn "No rule found for host %s" % discovered_host.name
           end
+        end
+
+        if result
+          msg = _("%s discovered hosts were provisioned") % total_count
+          render :json => {:message => msg}
+        else
+          render_error :custom_error,
+            :status => :unprocessable_entity,
+            :locals => {
+              :message => error_message % overall_errors
+            }
         end
       end
 

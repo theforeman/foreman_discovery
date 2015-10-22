@@ -37,6 +37,10 @@ module Host::ManagedExtensions
     true
   end
 
+  def delReboot
+    # no reboot on orchestration rollback
+  end
+
   def boot_url pxe_file
     raise ::Foreman::Exception.new(N_("Operating system not set for host/hostgroup")) unless operatingsystem
     base = operatingsystem.medium_uri(self)
@@ -56,6 +60,10 @@ module Host::ManagedExtensions
     true
   rescue ::Foreman::Exception
     true
+  end
+
+  def delKexec
+    # no kexec on orchestration rollback
   end
 
   def delete_discovery_attribute_set
