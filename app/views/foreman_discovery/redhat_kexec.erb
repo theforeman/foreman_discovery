@@ -6,10 +6,10 @@ oses:
 - CentOS 5
 - CentOS 6
 - CentOS 7
-- Fedora 19
-- Fedora 20
 - Fedora 21
 - Fedora 22
+- Fedora 23
+- Fedora 24
 - RedHat 4
 - RedHat 5
 - RedHat 6
@@ -23,6 +23,7 @@ environments. The template must generate JSON format with three items:
 information about semantics.
 -%>
 <%
+  @kernel, @initrd = @host.operatingsystem.boot_files_uri(@host.medium, @host.architecture)
   mac = @host.facts['discovery_bootif']
   bootif = '00-' + mac.gsub(':', '-') if mac
   ip_cidr = @host.facts['discovery_ip_cidr']

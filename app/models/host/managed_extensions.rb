@@ -41,20 +41,12 @@ module Host::ManagedExtensions
     # no reboot on orchestration rollback
   end
 
-  def boot_url pxe_file
-    raise ::Foreman::Exception.new(N_("Operating system not set for host/hostgroup")) unless operatingsystem
-    base = operatingsystem.medium_uri(self)
-    raise ::Foreman::Exception.new(N_("Medium not set for host/hostgroup")) unless base
-    path = operatingsystem.url_for_boot(pxe_file)
-    operatingsystem.medium_vars_to_uri("#{base}/#{path}", architecture.name, operatingsystem).to_s
-  end
-
   def setKexec
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
     @host = self
-    @kernel = boot_url(:kernel)
-    @initrd = boot_url(:initrd)
+    # the following two attributes are overwritten by TFTP in preview mode (kept for compatibility)
+    @kernel, @initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture)
     json = unattended_render(template)
     old.becomes(Host::Discovered).kexec json
     true

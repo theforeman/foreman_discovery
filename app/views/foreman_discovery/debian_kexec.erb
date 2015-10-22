@@ -1,0 +1,34 @@
+<%#
+kind: kexec
+name: Debian kexec
+oses:
+- Debian
+- Ubuntu
+-%>
+<%#
+This template is used to pass command line options to kexec when reloading
+kernel on a discovered host instead of rebooting. This is useful in PXE-less
+environments. The template must generate JSON format with three items:
+"kernel", "initram" and "append". Read kexec(8) man page for more
+information about semantics.
+-%>
+<%
+  @kernel, @initrd = @host.operatingsystem.boot_files_uri(@host.medium, @host.architecture)
+  mac = @host.facts['discovery_bootif']
+  bootif = '00-' + mac.gsub(':', '-') rescue ''
+  ip_cidr = @host.facts['discovery_ip_cidr']
+  ip = @host.facts['discovery_ip']
+  mask = @host.facts['discovery_netmask']
+  gw = @host.facts['discovery_gateway']
+  dns = @host.facts['discovery_dns']
+  append = @host.facts['append']
+  options = ["auto=true"]
+  options << "domain=#{@host.domain}"
+  options << 'console-setup/ask_detect=false console-setup/layout=USA console-setup/variant=USA keyboard-configuration/layoutcode=us localechooser/translation/warn-light=true localechooser/translation/warn-severe=true'
+  options << "locale=#{@host.params['lang'] || 'en_US'}"
+-%>
+{
+  "kernel": "<%= @kernel %>",
+  "initram": "<%= @initrd %>",
+  "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.join(' ') %>"
+}
