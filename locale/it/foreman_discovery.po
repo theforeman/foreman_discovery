@@ -7,7 +7,7 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 4.0.0\n"
+"Project-Id-Version: foreman_discovery 4.1.1\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "POT-Creation-Date: 2015-10-15 09:33+0200\n"
 "PO-Revision-Date: 2015-10-15 09:16+0000\n"

@@ -7,13 +7,14 @@
 # Junior Alvim <alvin@intechne.com.br>, 2014
 # luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 # luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014-2015
+# Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 4.0.0\n"
+"Project-Id-Version: foreman_discovery 4.1.1\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "POT-Creation-Date: 2015-10-15 09:33+0200\n"
-"PO-Revision-Date: 2015-10-15 09:16+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2015-10-20 11:49+0000\n"
+"Last-Translator: Valeria S Silva <valeriassilva@live.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgid "%s ago"
 msgstr "%s atrás"
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "%s hosts descobertas foram provisionados"
 
 msgid "Are you sure?"
 msgstr "Você tem certeza?"
@@ -51,7 +52,7 @@ msgid ""
 msgstr "Provisão automática descobriu hosts recentemente, de acordo com as regras de provisionamento"
 
 msgid "Automatically reboot discovered host during provisioning"
-msgstr ""
+msgstr "Reiniciar automaticamente descoberto host durante o aprovisionamento"
 
 msgid "CPUs"
 msgstr "CPUs"
@@ -63,7 +64,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Não foi possível obter fatos do proxy %{url}: %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "Criar um host descoberto para o teste (uso / fatos para criar novos hospedeiros )"
 
 msgid "Create a discovery rule"
 msgstr "Criar uma regra de descoberta"
@@ -102,7 +103,7 @@ msgid "Discovered hosts are provisioning now"
 msgstr "Hosts descobertos estão provisionando agora"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "Hosts descobertos serão reiniciados agora"
 
 msgid "Discovery Rules"
 msgstr "Regras de descobertos"
@@ -144,7 +145,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "Erros durante o auto provisionamento: %s"
 
 msgid "Errors during reboot: %s"
-msgstr ""
+msgstr "Erros durante a reinicialização: %s"
 
 msgid "Execute rules against a discovered host"
 msgstr "Executar regras nos hosts descobertos"
