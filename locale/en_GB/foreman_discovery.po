@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2015
-# Dominic Cleal <dcleal@redhat.com>, 2013-2014
+# Dominic Cleal <dcleal@redhat.com>, 2013-2015
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 4.0.0\n"
+"Project-Id-Version: foreman_discovery 4.1.1\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "POT-Creation-Date: 2015-10-15 09:33+0200\n"
-"PO-Revision-Date: 2015-10-15 09:16+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2015-10-21 14:21+0000\n"
+"Last-Translator: Dominic Cleal <dcleal@redhat.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/foreman/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,8 +203,8 @@ msgid ""
 "Host group organization %s must also be associated to the discovery rule"
 msgid_plural ""
 "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Host group organisation %s must also be associated to the discovery rule"
+msgstr[1] "Host group organisations %s must also be associated to the discovery rule"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "Host of type %s can not be rebooted"
@@ -297,7 +297,7 @@ msgid "Organization"
 msgstr "Organisation"
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organisations"
 
 msgid "Please Confirm"
 msgstr "Please Confirm"
