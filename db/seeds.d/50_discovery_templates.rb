@@ -1,9 +1,8 @@
-kind = TemplateKind.find_or_create_by_name('kexec')
+kind = TemplateKind.where(:name => 'kexec').first_or_create
 
 ProvisioningTemplate.without_auditing do
   content = File.read(File.join(ForemanDiscovery::Engine.root, 'app', 'views', 'foreman_discovery', 'redhat_kexec.erb'))
-  tmpl = ProvisioningTemplate.find_or_create_by_name(
-    :name => 'Discovery Red Hat kexec',
+  tmpl = ProvisioningTemplate.where(:name => 'Discovery Red Hat kexec').first_or_create(
     :template_kind_id => kind.id,
     :snippet => false,
     :template => content

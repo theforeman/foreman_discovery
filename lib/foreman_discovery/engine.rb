@@ -39,12 +39,14 @@ module ForemanDiscovery
 
     # Add any db migrations
     initializer "foreman_discovery.load_app_instance_data" do |app|
-      app.config.paths['db/migrate'] += ForemanDiscovery::Engine.paths['db/migrate'].existent
+      ForemanDiscovery::Engine.paths['db/migrate'].existent.each do |path|
+        app.config.paths['db/migrate'] << path
+      end
     end
 
     initializer 'foreman_discovery.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 1.9.0'
+        requires_foreman '>= 1.11.0'
 
         # discovered hosts permissions
         security_block :discovery do
@@ -145,10 +147,6 @@ module ForemanDiscovery
         # Only available in 1.8, otherwise it has to be in the initializer below
         apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
       end
-    end
-
-    initializer "foreman_discovery.load_app_instance_data" do |app|
-      app.config.paths['db/migrate'] += ForemanDiscovery::Engine.paths['db/migrate'].existent
     end
 
     initializer "foreman_discovery.apipie" do
