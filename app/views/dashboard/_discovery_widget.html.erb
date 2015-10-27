@@ -1,4 +1,4 @@
-<% all_hosts = Host::Discovered.includes(:model).includes(:discovery_attribute_set).scoped %>
+<% all_hosts = Host::Discovered.includes(:model).includes(:discovery_attribute_set).all %>
 <% hosts = all_hosts.limit(6) %>
 
 <h4 class="header">
