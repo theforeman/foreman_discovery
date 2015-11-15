@@ -1,0 +1,24 @@
+<%= _("Foreman discovered hosts summary") %>
+=================================
+<%= _("Discovered hosts from Foreman server at %{foreman_url}") % {:foreman_url => Setting[:foreman_url]} %>
+
+<%= _("Summary from %{time} ago to %{now}") % { :time => @time.in_time_zone, :now => Time.zone.now } %>
+<% if @discovered_hosts.any? %>
+
+  <% @discovered_hosts.each do |host| %>
+    <%= _('Name') %>: <%= host.to_label %>
+    <%= _('Model') %>: <%= host.model_name %>
+    <%= _('IP Address') %>: <%= host.ip %>
+    <%= _('CPUs') %>: <%= discovery_attribute(host, :cpu_count) %>
+    <%= _('Memory') %>: <%= number_to_human_size(discovery_attribute(host, :memory, 0) * 1024 * 1024) %>
+    <%= _('Disk count') %> <%= discovery_attribute(host, :disk_count) %>
+    <%= _('Disks size') %> <%= number_to_human_size(discovery_attribute(host, :disks_size, 0) * 1024 * 1024) %>
+
+    (<%= discovered_host_path(:id => host, :host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme) %>)
+    -
+  <% end %>
+<% else %>
+  <%= _('No new discovered hosts for this period') %>
+<% end %>
+
+<%= discovered_hosts_path(:host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme, :search => @query) %>

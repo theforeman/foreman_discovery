@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%# this view contains style as some email clients ignore css files %>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <title><%= _('Summary report for discovered hosts from Foreman') %></title>
+</head>
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #3f3f3f; background-color: #f1f1f1; padding: 10px 24px">
+<h2 style="font-weight: normal; text-transform: uppercase; font-size: 120%;"><%= _("<b>Foreman</b> Discovered hosts summary").html_safe %></h2>
+<h2 style="margin: 5px 0px;"><%= _("Summary from %{time} ago to %{now}") % { :time => @time.in_time_zone, :now => Time.zone.now } %></h2>
+<h3 style="margin: 0px;"><%= _("Discovered hosts from Foreman server at %{foreman_url}") % {:foreman_url => Setting[:foreman_url]} %></h3>
+<div style="background: #fff; padding: 10px 20px; border: 1px solid #e1e2e3">
+  <% if @discovered_hosts.any? %>
+    <% table_style = "min-width: 400px; border: 1px solid #cccccc; padding: 5px; background-color: #ffffff; border-collapse: collapse; text-align: justify; width: 100%;" %>
+    <% th_style = "text-align: left; border-collapse: collapse;  background: #f5f5f5; background: linear-gradient(#f5f5f5, #e8e8e8); padding: 4px; border: 1px solid #cccccc;" %>
+    <table style="<%= table_style %>">
+      <th style="<%= th_style %>"><%= _('Name') %></th>
+      <th style="<%= th_style %>"><%= _('Model') %></th>
+      <th style="<%= th_style %>"><%= _('IP Address') %></th>
+      <th style="<%= th_style %>"><%= _('CPUs') %></th>
+      <th style="<%= th_style %>"><%= _('Memory') %></th>
+      <th style="<%= th_style %>"><%= _('Disk count') %></th>
+      <th style="<%= th_style %>"><%= _('Disks size') %></th>
+      <% @discovered_hosts.each do |host| %>
+        <tr>
+          <%= render :partial => "discovered_host", :locals => {:host => host} %>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p><%= _('No discovered hosts for the selected period') %>
+  <% end %>
+</div>
+</body>
+</html>
