@@ -9,7 +9,8 @@
         <table class="table table-bordered table-condensed table-fixed">
         <% @categories[0].sort.each do |keys, val| %>
             <tr class="">
-            <td class="ellipsis" width="40%"> <strong> <%= keys %> </strong></td>  <td><%= val %></td>
+              <th class="ellipsis" width="40%"> <strong> <%= keys %> </strong></th>
+              <td><%= val %></td>
             </tr>
         <% end -%>
         </table>
@@ -63,7 +64,8 @@
             <table class="table table-bordered  table-condensed table-fixed">
             <% val.sort.each do |key, value|  %>
                 <tr class="">
-                  <td width="40%" class="ellipsis"><strong> <%= key %> </strong> </td> <td class="ellipsis"> <%= value %> </td>
+                  <th width="40%" class="ellipsis"><strong> <%= key %> </strong> </th>
+                  <td class="ellipsis"> <%= value %> </td>
                 </tr>
             <% end %>
             </table>
@@ -76,7 +78,6 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $('table tr:nth-child(even)').css('background-color','#f5f5f5');
     $("table").css('padding', '0');
     $("table").css("cssText", 'margin-bottom: 0 !important;');
     $(".panel-default").css('margin-bottom', "10px")
