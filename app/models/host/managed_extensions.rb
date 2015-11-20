@@ -10,6 +10,7 @@ module Host::ManagedExtensions
 
     # extra flag for post_queue callbacks which has no access to facts
     attr_accessor :legacy_api
+    attr_accessible :discovery_rule_id
   end
 
   def queue_reboot
