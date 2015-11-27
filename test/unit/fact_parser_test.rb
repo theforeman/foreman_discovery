@@ -1,20 +1,6 @@
 require 'test_helper'
 
-class PuppetFactParserStub
-  attr_reader :interfaces, :facts
-
-  def initialize(interfaces, facts)
-    @interfaces = interfaces
-    @facts = facts
-  end
-
-  def suggested_primary_interface(_); end
-  def parse_interfaces?; end
-
-  include PuppetFactParserExtensions
-end
-
-class PuppetFactParserTest < ActiveSupport::TestCase
+class FactParserTest < ActiveSupport::TestCase
   setup do
     interfaces = {
       'eth0' => {'macaddress' => 'aa:bb:cc:dd:ee:f1', 'ipaddress' => '192.168.1.1'},
@@ -32,7 +18,8 @@ class PuppetFactParserTest < ActiveSupport::TestCase
       :macaddress => 'aa:bb:cc:dd:ee:f2',
       :discovery_bootif => 'aa:bb:cc:dd:ee:f3'
     }.with_indifferent_access
-    @parser = PuppetFactParserStub.new(interfaces, facts)
+    @parser = ::ForemanDiscovery::FactParser.new(facts)
+    @parser.stubs(:interfaces).returns(interfaces)
     @host = Host::Discovered.new(:name => 'dummy')
   end
 

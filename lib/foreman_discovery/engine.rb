@@ -158,12 +158,8 @@ module ForemanDiscovery
     # Include extensions to models in this config.to_prepare block
     config.to_prepare do
 
-      begin
-        require_dependency 'puppet_fact_parser'
-        ::PuppetFactParser.send :include, PuppetFactParserExtensions
-      rescue LoadError
-        Rails.logger.warn 'PuppetFactParser not found, not loading Parser extensions'
-      end
+      # Fact parsing
+      ::FactParser.register_fact_parser(:foreman_discovery, ForemanDiscovery::FactParser)
 
       # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
