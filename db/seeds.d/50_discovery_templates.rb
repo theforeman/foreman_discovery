@@ -11,8 +11,8 @@ ProvisioningTemplate.without_auditing do
   tmpl.attributes = {
     :template => content,
     :default  => true,
-    :vendor   => "Foreman Discovery",
-    :locked   => false
+    :vendor   => "Foreman Discovery"
   }
+  tmpl.locked = false
   tmpl.save!(:validate => false) if tmpl.changes.present?
 end
