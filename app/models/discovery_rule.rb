@@ -5,6 +5,8 @@ class DiscoveryRule < ActiveRecord::Base
   include Parameterizable::ByIdName
   include Taxonomix
 
+  attr_accessible :name, :search, :hostgroup_id, :hostname, :priority, :max_count
+
   validates :name, :presence => true, :uniqueness => true,
     :format => { :with => /\A(\S+)\Z/, :message => N_("can't contain white spaces.") }
   validates :search, :presence => true
