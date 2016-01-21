@@ -2,9 +2,9 @@
 Rails.application.routes.draw do
 
   # Needed to make the hosts/edit form render
-  get 'architecture_selected_discovered_hosts' => 'hosts#architecture_selected'
-  get 'os_selected_discovered_hosts'           => 'hosts#os_selected'
-  get 'medium_selected_discovered_hosts'       => 'hosts#medium_selected'
+  post 'architecture_selected_discovered_hosts' => 'hosts#architecture_selected'
+  post 'os_selected_discovered_hosts'           => 'hosts#os_selected'
+  post 'medium_selected_discovered_hosts'       => 'hosts#medium_selected'
 
   constraints(:id => /[^\/]+/) do
     resources :discovered_hosts, :except => [:new, :create] do
