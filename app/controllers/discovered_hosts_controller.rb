@@ -3,7 +3,6 @@ class DiscoveredHostsController < ::ApplicationController
   include Foreman::Controller::TaxonomyMultiple
   include Foreman::Controller::DiscoveredExtensions
   include ActionView::Helpers::NumberHelper
-  unloadable
 
   before_filter :find_by_name, :only => %w[edit update destroy refresh_facts convert reboot auto_provision]
   before_filter :find_by_name_incl_subnet, :only => [:show]
