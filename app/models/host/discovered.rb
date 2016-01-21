@@ -80,7 +80,11 @@ class Host::Discovered < ::Host::Base
     primary_ip = self.primary_interface.ip
     unless primary_ip.nil?
       subnet = Subnet.subnet_for(primary_ip)
-      Rails.logger.warn "Subnet not detected for #{primary_ip}" if subnet.nil?
+      if subnet
+        Rails.logger.info "Detected subnet: #{subnet} with taxonomy #{subnet.organizations.collect(&:name)}/#{subnet.locations.collect(&:name)}"
+      else
+        Rails.logger.warn "Subnet could not be detected for #{primary_ip}"
+      end
       # set subnet
       self.primary_interface.subnet = subnet
       # set location and organization
@@ -88,11 +92,13 @@ class Host::Discovered < ::Host::Base
         self.location = Location.find_by_name(Setting[:discovery_location]) ||
           subnet.try(:locations).try(:first) ||
           Location.first
+        Rails.logger.info "Assigned location: #{self.location}"
       end
       if SETTINGS[:organizations_enabled]
         self.organization = Organization.find_by_name(Setting[:discovery_organization]) ||
           subnet.try(:organizations).try(:first) ||
           Organization.first
+        Rails.logger.info "Assigned organization: #{self.organization}"
       end
     else
       raise(::Foreman::Exception.new(N_("Unable to assign subnet, primary interface is missing IP address")))
