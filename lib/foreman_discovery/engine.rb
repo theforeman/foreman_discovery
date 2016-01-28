@@ -146,6 +146,9 @@ module ForemanDiscovery
         # apipie API documentation
         # Only available in 1.8, otherwise it has to be in the initializer below
         apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
+
+        # disable turbolinks
+        disable_turbolinks_leading_to ["discovered_hosts/index"]
       end
     end
 
