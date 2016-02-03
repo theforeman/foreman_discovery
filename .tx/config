@@ -2,7 +2,7 @@
 host = https://www.transifex.com
 
 [foreman.discovery]
-file_filter = locale/<lang>/foreman_discovery.po
+file_filter = locale/<lang>/foreman_discovery.edit.po
 source_file = locale/foreman_discovery.pot
 source_lang = en
 type = PO
