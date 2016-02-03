@@ -8,6 +8,7 @@ class Setting::Discovered < ::Setting
   BLANK_ATTRS << 'discovery_facts_hardware'
   BLANK_ATTRS << 'discovery_facts_network'
   BLANK_ATTRS << 'discovery_facts_ipmi'
+  BLANK_ATTRS << 'discovery_prefix'
 
   def self.load_defaults
     # Check the table exists
@@ -15,7 +16,8 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-        self.set('discovery_fact', N_("Fact name to use for primary interface detection and hostname"), "discovery_bootif"),
+        self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif"),
+        self.set('discovery_hostname', N_("List of facts to use for the hostname (separated by comma, first wins)"), "discovery_bootif"),
         self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
         self.set('discovery_reboot', N_("Automatically reboot discovered host during provisioning"), true),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
@@ -64,8 +66,17 @@ class Setting::Discovered < ::Setting
 
   def self.discovery_fact_column_array
     return [] if !Setting['discovery_fact_column'].present?
+    discovery_comma_to_array Setting['discovery_fact_column']
+  end
+
+  def self.discovery_hostname_fact_array
+    return [] if !Setting['discovery_hostname'].present?
+    discovery_comma_to_array Setting['discovery_hostname']
+  end
+
+  def self.discovery_comma_to_array string
     list = []
-    Setting['discovery_fact_column'].to_s.split(",").each do |value|
+    string.to_s.split(",").each do |value|
       list << value.strip
     end
   rescue => error

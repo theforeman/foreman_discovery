@@ -7,6 +7,10 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                        :value => 'discovery_bootif',
                        :category => 'Setting::Discovered')
     FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
@@ -65,9 +69,19 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert host.refresh_facts
   end
 
+  test "should create discovered host with hostname if a fact was supplied" do
+    raw = parse_json_fixture('/facts.json')
+    Setting[:discovery_hostname] = 'somefact'
+    facts = raw['facts'].merge({"somefact" => "somename"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    assert_equal 'macsomename', host.name
+    refute_equal 'e4:1f:13:cc:36:5a', host.mac
+  end
+
   test "should create discovered host with fact_name as a name if it is a valid mac" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'somefact'
+    Setting[:discovery_hostname] = 'somefact'
     facts = raw['facts'].merge({"somefact" => "E4:1F:13:CC:36:5A"})
     host = Host::Discovered.import_host_and_facts(facts).first
     assert_equal 'mace41f13cc365a', host.name
@@ -90,25 +104,31 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal 'teste41f13cc3658', host.name
   end
 
-  test "should not name discovered host with prefix that starts with a number, fallback to 'mac'" do
+  test "should create discovered host without prefix" do
     raw = parse_json_fixture('/facts.json')
-    Setting[:discovery_prefix] = '123'
+    Setting[:discovery_prefix] = ''
     host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert host.name.start_with?('mac')
+    assert_equal 'e41f13cc3658',host.name
   end
 
-  test "should not name discovered host with prefix that starts with a special character, fallback to 'mac'" do
+  test "should raise when hostname fact cannot be found" do
     raw = parse_json_fixture('/facts.json')
-    Setting[:discovery_prefix] = '^abc'
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert host.name.start_with?('mac')
+    Setting[:discovery_hostname] = 'macaddress_foo'
+    exception = assert_raises(::Foreman::Exception) do
+      Host::Discovered.import_host_and_facts(raw['facts'])
+    end
+    assert_match(/Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting:/, exception.message)
   end
 
-  test "should not name discovered host with prefix that starts with a _, fallback to 'mac'" do
+  test "should raise when hostname cannot be computed due to normlization and no prefix" do
     raw = parse_json_fixture('/facts.json')
-    Setting[:discovery_prefix] = '_abc'
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
-    assert host.name.start_with?('mac')
+    raw['facts']['invalidhostnamefact'] = '...'
+    Setting[:discovery_hostname] = 'invalidhostnamefact'
+    Setting[:discovery_prefix] = ''
+    exception = assert_raises(::Foreman::Exception) do
+      Host::Discovered.import_host_and_facts(raw['facts'])
+    end
+    assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
   end
 
   test 'discovered host can be searched in multiple taxonomies' do
@@ -146,6 +166,31 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     h = ::ForemanDiscovery::HostConverter.to_managed(host)
     refute_valid h
     assert Token.where(:host_id => h.id).empty?
+  end
+
+  test "normalization of MAC into a discovered host hostname" do
+    assert_equal Host::Discovered.normalize_string_for_hostname("90:B1:1C:54:D5:82"),"90b11c54d582"
+  end
+
+  test "normalization of a string containing multiple non-alphabetical characters" do
+    assert_equal Host::Discovered.normalize_string_for_hostname(".-_Test::Host.name_-."),"testhostname"
+  end
+
+  test "normalization of a valid hostname" do
+    assert_equal Host::Discovered.normalize_string_for_hostname("testhostname"),"testhostname"
+  end
+
+  test "empty string after hostname normalization should raise an error" do
+    exception = assert_raises(::Foreman::Exception) do
+      Host::Discovered.normalize_string_for_hostname(".-_")
+    end
+    assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
+  end
+
+  test "chooshing the first valid fact from array of fact names" do
+    facts = {"custom_hostname" => "testhostname","notmyfact" => "notusedfactvalue"}
+    discovery_hostname_fact_array = ['macaddress','custom_hostname','someotherfact']
+    assert_equal Host::Discovered.return_first_valid_fact(discovery_hostname_fact_array,facts),"testhostname"
   end
 
   def parse_json_fixture(relative_path)

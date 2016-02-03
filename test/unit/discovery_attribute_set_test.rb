@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class DiscoveryAttributeSetTest < ActiveSupport::TestCase
+
+  setup do
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_prefix',
+                       :value => 'mac',
+                       :category => 'Setting::Discovered')
+  end
+
   test "can search discovered hosts by cpu" do
     raw = parse_json_fixture('/facts.json')
     host = Host::Discovered.import_host_and_facts(raw['facts']).first

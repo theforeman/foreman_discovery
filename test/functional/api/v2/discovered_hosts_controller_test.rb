@@ -29,6 +29,14 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :name => 'discovery_reboot',
                        :value => true,
                        :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_prefix',
+                       :value => 'mac',
+                       :category => 'Setting::Discovered')
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 

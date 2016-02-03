@@ -11,6 +11,15 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
     }
+
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_prefix',
+                       :value => 'mac',
+                       :category => 'Setting::Discovered')
   end
 
   test "no rule is found for empty rule set" do
