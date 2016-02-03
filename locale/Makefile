@@ -73,3 +73,4 @@ extract:
 		--copyright-holder="Foreman developers" \
 		--copyright-year=$(shell date +%Y) \
 		$(shell find ../app -type f -name *.rb -o -name *.erb)
+
