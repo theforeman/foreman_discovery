@@ -4,6 +4,15 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
 
   setup do
     User.current = User.find_by_login "admin"
+
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_prefix',
+                       :value => 'mac',
+                       :category => 'Setting::Discovered')
   end
 
   test "should get index" do

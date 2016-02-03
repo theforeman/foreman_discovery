@@ -41,8 +41,11 @@ class Host::Discovered < ::Host::Base
     # construct hostname
     prefix_from_settings = Setting[:discovery_prefix]
     hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
-    hostname_prefix ||= 'mac'
-    hostname = FacterUtils::bootif_mac(facts).try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
+
+    name_fact = return_first_valid_fact(Setting::Discovered.discovery_hostname_fact_array, facts)
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"), Setting::Discovered.discovery_hostname_fact_array.join(', '))) unless name_fact && name_fact.present?
+    hostname = normalize_string_for_hostname("#{hostname_prefix}#{name_fact}")
+    Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match /^[a-z]/
 
     # create new host record
     h = ::Host::Discovered.find_by_name hostname
@@ -184,4 +187,17 @@ class Host::Discovered < ::Host::Base
     "discovery-not-matched"
   end
 
+  def self.normalize_string_for_hostname(hostname)
+    hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9\-]|[^a-z0-9]*$)/,'')
+    raise(::Foreman::Exception.new(N_("Invalid hostname: Could not normalize the hostname"))) unless hostname && hostname.present?
+    hostname
+  end
+
+  def self.return_first_valid_fact(facts_array, facts)
+    return facts[facts_array] if !facts_array.is_a?(Array)
+    facts_array.each do |value|
+      return facts[value] if !facts[value].nil?
+    end
+    return nil
+  end
 end
