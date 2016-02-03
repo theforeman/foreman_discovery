@@ -49,15 +49,15 @@ tx-pull: $(EDITFILES)
 
 tx-update: tx-pull
 	@echo
-    @echo Run rake plugin:gettext[$(DOMAIN)] from the Foreman installation, then make -C locale mo-files to finish
-    @echo
+	@echo Run rake plugin:gettext[$(DOMAIN)] from the Foreman installation, then make -C locale mo-files to finish
+	@echo
 
 mo-files: $(MOFILES)
 	git add $(POFILES) $(POTFILE) ../locale/*/LC_MESSAGES
-    git commit -m "i18n - pulling from tx"
-    @echo
-    @echo Changes commited!
-    @echo
+	git commit -m "i18n - pulling from tx"
+	@echo
+	@echo Changes commited!
+	@echo
 
 # To use when rake task fails
 extract:
