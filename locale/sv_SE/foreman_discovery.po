@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2015 Foreman developers
 # This file is distributed under the same license as the foreman_discovery package.
-# 
+#
 # Translators:
-# Dominic Cleal <dcleal@redhat.com>, 2014
+# Dominic Cleal <dominic@cleal.org>, 2014
 # johnny.westerlund <johnny.westerlund@gmail.com>, 2014
 # johnny.westerlund <johnny.westerlund@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 4.1.1\n"
+"Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-10-15 09:33+0200\n"
 "PO-Revision-Date: 2015-10-15 09:16+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/foreman/foreman/language/sv_SE/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/foreman/foreman/lang"
+"uage/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,8 +45,8 @@ msgid "Auto Provision All"
 msgstr ""
 
 msgid ""
-"Automatically provision newly discovered hosts, according to the "
-"provisioning rules"
+"Automatically provision newly discovered hosts, according to the provisioning "
+"rules"
 msgstr ""
 
 msgid "Automatically reboot discovered host during provisioning"
@@ -125,9 +125,9 @@ msgid "Disks size"
 msgstr ""
 
 msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will "
-"be used when left blank. In addition to @host attribute function rand for "
-"random integers is available. Examples:"
+"Domain will be appended automatically. A hostname based on MAC address will be"
+" used when left blank. In addition to @host attribute function rand for random"
+" integers is available. Examples:"
 msgstr ""
 
 msgid "Edit Discovery Rule"
@@ -152,8 +152,8 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
 msgid ""
-"Expected discovery_fact '%s' is missing, unable to detect primary interface "
-"and set hostname"
+"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
+"d set hostname"
 msgstr ""
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
@@ -193,15 +193,12 @@ msgid "Host group"
 msgstr "Värdgrupp"
 
 msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural ""
-"Host group locations %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"Host group organization %s must also be associated to the discovery rule"
-msgid_plural ""
-"Host group organizations %s must also be associated to the discovery rule"
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -371,8 +368,8 @@ msgid "Something went wrong while selecting hosts - %s"
 msgstr "Något blev fel vid markering av värdar - %s"
 
 msgid ""
-"Specify target hostname template pattern in the same syntax as in "
-"Provisioning Templates (ERB)."
+"Specify target hostname template pattern in the same syntax as in Provisioning"
+" Templates (ERB)."
 msgstr ""
 
 msgid "Submit"
@@ -400,20 +397,19 @@ msgid "The following hosts were not deleted: %s"
 msgstr "Följande värdar raderades inte: %s"
 
 msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed "
-"as well"
+"This might take a while, as all hosts, facts and reports will be destroyed as "
+"well"
 msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
 
-msgid ""
-"UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
 
 msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by "
-"discovery_fact '%{fact}'"
+"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
+"act '%{fact}'"
 msgstr ""
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
@@ -441,16 +437,15 @@ msgid "Warning"
 msgstr "Varning"
 
 msgid ""
-"When creating hostname patterns, make sure the resulting host names are "
-"unique. Hostnames must not start with numbers. A good approach is to use "
-"unique information provided by facter (MAC address, BIOS or serial ID)."
+"When creating hostname patterns, make sure the resulting host names are unique"
+". Hostnames must not start with numbers. A good approach is to use unique info"
+"rmation provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
 msgid "can't contain white spaces."
 msgstr ""
 
-msgid ""
-"defines a pattern to assign human-readable hostnames to the matching hosts"
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
@@ -463,9 +458,9 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr ""
 
 msgid ""
-"hash containing facts for the host with minimum set of facts: "
-"discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: "
-"eth0 (example in case primary interface is named eth0)"
+"hash containing facts for the host with minimum set of facts: discovery_bootif"
+", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
+"e primary interface is named eth0)"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
@@ -486,8 +481,7 @@ msgstr ""
 msgid "paginate results"
 msgstr ""
 
-msgid ""
-"puts the rules in order, low numbers go first. Must be greater then zero"
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr ""
 
 msgid "query to match discovered hosts for the particular rule"
@@ -497,8 +491,8 @@ msgid "represents rule name shown to the users"
 msgstr ""
 
 msgid ""
-"required if value is not inherited from host group or default password in "
-"settings"
+"required if value is not inherited from host group or default password in sett"
+"ings"
 msgstr ""
 
 msgid "sort results"
