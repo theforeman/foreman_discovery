@@ -7,6 +7,10 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                        :value => 'discovery_bootif',
                        :category => 'Setting::Discovered')
     FactoryGirl.create(:setting,
+                       :name => 'discovery_hostname',
+                       :value => 'discovery_bootif',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
@@ -65,9 +69,19 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert host.refresh_facts
   end
 
+  test "should create discovered host with hostname if a fact was supplied" do
+    raw = parse_json_fixture('/facts.json')
+    Setting[:discovery_hostname] = 'somefact'
+    facts = raw['facts'].merge({"somefact" => "somename"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    assert_equal 'macsomename', host.name
+    refute_equal 'e4:1f:13:cc:36:5a', host.mac
+  end
+
   test "should create discovered host with fact_name as a name if it is a valid mac" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'somefact'
+    Setting[:discovery_hostname] = 'somefact'
     facts = raw['facts'].merge({"somefact" => "E4:1F:13:CC:36:5A"})
     host = Host::Discovered.import_host_and_facts(facts).first
     assert_equal 'mace41f13cc365a', host.name

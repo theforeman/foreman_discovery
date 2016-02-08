@@ -16,6 +16,7 @@ class Setting::Discovered < ::Setting
     Setting.transaction do
       [
         self.set('discovery_fact', N_("Fact name to use for primary interface detection and hostname"), "discovery_bootif"),
+        self.set('discovery_hostname', N_("The default ERB to evaluate for the discovered host name"), "discovery_bootif"),
         self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
         self.set('discovery_reboot', N_("Automatically reboot discovered host during provisioning"), true),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}

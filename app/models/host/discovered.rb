@@ -39,10 +39,22 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::Exception.new(N_("Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname") % FacterUtils::bootif_name) unless FacterUtils::bootif_present(facts)
 
     # construct hostname
+    discovery_fact = Setting[:discovery_fact] || 'discovery_bootif'
     prefix_from_settings = Setting[:discovery_prefix]
     hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
     hostname_prefix ||= 'mac'
-    hostname = FacterUtils::bootif_mac(facts).try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
+
+    macfact = facts[discovery_fact].try(:downcase)
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), discovery_fact)) unless macfact
+    begin
+      macfact = Net::Validations.normalize_mac(macfact)
+    rescue ArgumentError => e
+      macfact = facts['discovery_bootif'].try(:downcase)
+    end
+
+    name_fact = facts[Setting[:discovery_hostname]] || macfact
+    hostname = name_fact.try(:downcase).try(:gsub,/:/,'').try(:sub,/^/, hostname_prefix)
+    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain the required fact '%s'"), name_fact)) unless hostname
 
     # create new host record
     h = ::Host::Discovered.find_by_name hostname
