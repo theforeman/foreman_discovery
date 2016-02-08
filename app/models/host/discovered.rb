@@ -72,9 +72,9 @@ class Host::Discovered < ::Host::Base
     super
   end
 
-  def populate_fields_from_facts(facts = self.facts_hash, type = 'puppet')
+  def populate_fields_from_facts(facts = self.facts_hash, ignored_type)
     # detect interfaces and primary interface using extensions
-    parser = super(facts, type)
+    parser = super(facts, :foreman_discovery)
 
     # set additional discovery attributes
     primary_ip = self.primary_interface.ip
