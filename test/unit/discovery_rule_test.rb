@@ -35,6 +35,26 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     assert_equal "can't be blank", rule.errors[:hostgroup_id].first
   end
 
+  test "should not be able to create a rule with priority bigger than 2^31" do
+    rule = DiscoveryRule.new :name => "myrule",
+      :search => "cpu_count > 1",
+      :priority => 2**31 + 1,
+      :hostgroup_id => @hostgroup.id,
+      :organization_ids => [@hg_org.id]
+    refute_valid rule
+    assert_equal "must be less than 2147483648", rule.errors[:priority].first
+  end
+
+  test "should not be able to create a rule with max count bigger than 2^31" do
+    rule = DiscoveryRule.new :name => "myrule",
+      :search => "cpu_count > 1",
+      :max_count => 2**31 + 1,
+      :hostgroup_id => @hostgroup.id,
+      :organization_ids => [@hg_org.id]
+    refute_valid rule
+    assert_equal "must be less than 2147483648", rule.errors[:max_count].first
+  end
+
   test "should enforce hostgroup organizations" do
     skip unless SETTINGS[:organizations_enabled]
     rule = DiscoveryRule.new :name => "myrule",
