@@ -74,6 +74,10 @@ class DiscoveredHostsController < ::ApplicationController
     else
       process_error :error_msg => _("Failed to refresh facts for %s") % @host.name, :redirect => :back
     end
+  rescue => e
+    exception = Foreman::WrappedException.new(e, N_("Failed to refresh facts for %{hostname} with error %{error_message}"), :hostname => @host.name, :error_message => e.message)
+    Foreman::Logging.exception exception.message, e
+    process_error :error_msg => exception.message, :redirect => :back
   end
 
   def reboot
@@ -86,9 +90,10 @@ class DiscoveredHostsController < ::ApplicationController
     else
       process_error :error_msg => _("Failed to reboot host %s") % @host.name, :redirect => :back
     end
-    rescue  => e
-      process_error :error_msg => _("Failed to reboot host %{hostname} with error %{error_message}") % {:hostname => @host.name, :error_message => e.message},
-                    :redirect => :back
+  rescue => e
+    exception = Foreman::WrappedException.new(e, N_("Failed to reboot host %{hostname} with error %{error_message}"), :hostname => @host.name, :error_message => e.message)
+    Foreman::Logging.exception exception.message, e
+    process_error :error_msg => exception.message, :redirect => :back
   end
 
   def reboot_all
@@ -99,6 +104,10 @@ class DiscoveredHostsController < ::ApplicationController
     else
       process_success :success_msg => _("Discovered hosts are rebooting now"), :success_redirect => :back
     end
+  rescue => e
+    exception = Foreman::WrappedException.new(e, N_("Failed to reboot hosts with error %s"), e.message)
+    Foreman::Logging.exception exception.message, e
+    process_error :error_msg => exception.message, :redirect => :back
   end
 
   def multiple_destroy
