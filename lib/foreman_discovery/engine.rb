@@ -103,12 +103,17 @@ module ForemanDiscovery
         end
 
         READER = [
-          :view_discovered_hosts,
-          :view_discovery_rules,
+          # core permissions
           :view_organizations,
           :view_locations,
+          :view_hosts,
+          # discovered_hosts
+          :view_discovered_hosts,
+          # discovered_rules
+          :view_discovery_rules,
         ]
         MANAGER = READER + [
+          # core permissions
           :assign_organizations,
           :assign_locations,
           # discovered_hosts
