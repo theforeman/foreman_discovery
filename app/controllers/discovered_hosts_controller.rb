@@ -115,7 +115,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def submit_multiple_destroy
     # keep all the ones that were not deleted for notification.
-    @hosts.delete_if {|host| host.destroy}
+    @hosts.to_a.delete_if {|host| host.destroy}
 
     missed_hosts = @hosts.map(&:name).join('<br/>')
     if @hosts.empty?
