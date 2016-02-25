@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 12:54+0200\n"
-"PO-Revision-Date: 2016-02-03 12:54+0200\n"
+"POT-Creation-Date: 2016-02-25 10:58+0100\n"
+"PO-Revision-Date: 2016-02-25 10:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -72,71 +72,71 @@ msgid ""
 "ings"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:87
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:85
 msgid "Delete a discovered host"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:94
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:92
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:95
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:93
 msgid ""
 "hash containing facts for the host with minimum set of facts: discovery_bootif"
 ", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
 "e primary interface is named eth0)"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:118
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:112
 msgid "Execute rules against a discovered host"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:125
-#: ../app/controllers/discovered_hosts_controller.rb:140
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:118
+#: ../app/controllers/discovered_hosts_controller.rb:147
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:128
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:121
 msgid "Unable to provision %{host}: %{errors}"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:134
-#: ../app/controllers/discovered_hosts_controller.rb:147
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:127
+#: ../app/controllers/discovered_hosts_controller.rb:154
 msgid "No rule found for host %s"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:142
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:134
 msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:146
-#: ../app/controllers/discovered_hosts_controller.rb:154
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:138
+#: ../app/controllers/discovered_hosts_controller.rb:160
 msgid "Errors during auto provisioning: %s"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:149
-#: ../app/controllers/discovered_hosts_controller.rb:157
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:141
+#: ../app/controllers/discovered_hosts_controller.rb:163
 msgid "No discovered hosts to provision"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:172
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:163
 msgid "%s discovered hosts were provisioned"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:184
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:174
 msgid "Refreshing the facts of a discovered host"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:193
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:183
 msgid "Rebooting a discovered host"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:202
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:192
 msgid "Rebooting all discovered hosts"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovered_hosts_controller.rb:213
-#: ../app/controllers/discovered_hosts_controller.rb:101
+#: ../app/controllers/api/v2/discovered_hosts_controller.rb:203
+#: ../app/controllers/discovered_hosts_controller.rb:105
 msgid "Discovered hosts are rebooting now"
 msgstr ""
 
@@ -192,72 +192,84 @@ msgstr ""
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr ""
 
-#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:64
+#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:47
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:63
 msgid "Errors during reboot: %s"
 msgstr ""
 
-#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:84
+#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:81
 msgid "No discovered hosts to reboot"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:74
+#: ../app/controllers/discovered_hosts_controller.rb:73
 msgid "Facts refreshed for %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:76
+#: ../app/controllers/discovered_hosts_controller.rb:75
 msgid "Failed to refresh facts for %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:82
+#: ../app/controllers/discovered_hosts_controller.rb:78
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:85
 msgid "Host of type %s can not be rebooted"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:86
+#: ../app/controllers/discovered_hosts_controller.rb:89
 msgid "Rebooting host %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:88
+#: ../app/controllers/discovered_hosts_controller.rb:91
 msgid "Failed to reboot host %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:91
+#: ../app/controllers/discovered_hosts_controller.rb:94
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:114
+#: ../app/controllers/discovered_hosts_controller.rb:108
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:122
 msgid "Destroyed selected hosts"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:116
+#: ../app/controllers/discovered_hosts_controller.rb:124
 msgid "The following hosts were not deleted: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:144
+#: ../app/controllers/discovered_hosts_controller.rb:151
 msgid "Failed to auto provision host %s: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:174
+#: ../app/controllers/discovered_hosts_controller.rb:179
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:263
+#: ../app/controllers/discovered_hosts_controller.rb:267
 msgid "No hosts were found with that id or name"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:267
+#: ../app/controllers/discovered_hosts_controller.rb:271
 msgid "No hosts selected"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:273
+#: ../app/controllers/discovered_hosts_controller.rb:277
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
 #: ../app/controllers/discovery_rules_controller.rb:66
-msgid "Rule enabled"
+msgid "Rule disabled"
 msgstr ""
 
 #: ../app/controllers/discovery_rules_controller.rb:66
-msgid "Rule disabled"
+msgid "Rule enabled"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:11
@@ -337,35 +349,40 @@ msgstr ""
 msgid "Reported in the last 7 days"
 msgstr ""
 
+#: ../app/helpers/discovery_rules_helper.rb:26
+msgid "Discovered Hosts"
+msgstr ""
+
 #: ../app/helpers/discovery_rules_helper.rb:27
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:46
-msgid "Delete %s?"
+msgid "Associated Hosts"
+msgstr ""
+
+#: ../app/helpers/discovery_rules_helper.rb:29
+msgid "Disable rule '%s'?"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:29
 msgid "Disable"
 msgstr ""
 
-#: ../app/helpers/discovery_rules_helper.rb:30
-msgid "Disable rule?"
-msgstr ""
-
-#: ../app/helpers/discovery_rules_helper.rb:32
+#: ../app/helpers/discovery_rules_helper.rb:31
 msgid "Enable"
 msgstr ""
 
+#: ../app/helpers/discovery_rules_helper.rb:31
+msgid "Enable rule '%s'?"
+msgstr ""
+
 #: ../app/helpers/discovery_rules_helper.rb:33
-msgid "Enable rule?"
+msgid "Delete rule '%s'?"
 msgstr ""
 
-#: ../app/lib/puppet_fact_parser_extensions.rb:11
-msgid "Incompatible version of puppet fact parser"
+#: ../app/mailers/discovered_mailer.rb:4
+msgid "Must specify a user with email enabled"
 msgstr ""
 
-#: ../app/lib/puppet_fact_parser_extensions.rb:22
-msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
-"act '%{fact}'"
+#: ../app/mailers/discovered_mailer.rb:15
+msgid "Discovered hosts summary"
 msgstr ""
 
 #: ../app/models/discovery_rule.rb:11
@@ -398,94 +415,114 @@ msgid ""
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:98
+#: ../app/models/host/discovered.rb:46
+msgid ""
+"Invalid facts: hash does not contain a valid value for any of the facts in the"
+" discovery_hostname setting: %s"
+msgstr ""
+
+#: ../app/models/host/discovered.rb:107
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:140
+#: ../app/models/host/discovered.rb:149
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:156
+#: ../app/models/host/discovered.rb:165
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:164
+#: ../app/models/host/discovered.rb:173
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:22
-msgid "Reloading kernel on %s"
+#: ../app/models/host/discovered.rb:192
+msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
 #: ../app/models/host/managed_extensions.rb:24
+msgid "Reloading kernel on %s"
+msgstr ""
+
+#: ../app/models/host/managed_extensions.rb:26
 msgid "Rebooting %s"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:39
+#: ../app/models/host/managed_extensions.rb:45
 msgid "Operating system not set for host/hostgroup"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:41
+#: ../app/models/host/managed_extensions.rb:47
 msgid "Medium not set for host/hostgroup"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:48
+#: ../app/models/host/managed_extensions.rb:54
 msgid "Kexec template not associated with operating system"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:18
-msgid "Fact name to use for primary interface detection and hostname"
+#: ../app/models/setting/discovered.rb:19
+msgid "Fact name to use for primary interface detection"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:19
+#: ../app/models/setting/discovered.rb:20
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
+
+#: ../app/models/setting/discovered.rb:21
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
 "rules"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:20
+#: ../app/models/setting/discovered.rb:22
 msgid "Automatically reboot discovered host during provisioning"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:26
+#: ../app/models/setting/discovered.rb:28
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:32
+#: ../app/models/setting/discovered.rb:34
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:39
+#: ../app/models/setting/discovered.rb:41
 msgid "The default location to place discovered hosts in"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:46
+#: ../app/models/setting/discovered.rb:48
 msgid "The default organization to place discovered hosts in"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:53
+#: ../app/models/setting/discovered.rb:55
 msgid "Regex to organize facts for highlights section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:54
+#: ../app/models/setting/discovered.rb:56
 msgid "Regex to organize facts for storage section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:55
+#: ../app/models/setting/discovered.rb:57
 msgid "Regex to organize facts for software section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:56
+#: ../app/models/setting/discovered.rb:58
 msgid "Regex to organize facts for hardware section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:57
+#: ../app/models/setting/discovered.rb:59
 msgid "Regex to organize facts for network section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:58
+#: ../app/models/setting/discovered.rb:60
 msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+#: ../app/services/foreman_discovery/fact_parser.rb:9
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
+"act '%{fact}'"
 msgstr ""
 
 #: ../app/services/foreman_discovery/node_api/node_resource.rb:75
@@ -507,46 +544,60 @@ msgstr ""
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:4
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:7
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:8
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:18
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:10
 msgid "Model"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:5
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:9
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:20
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:12
 msgid "CPUs"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:6
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:10
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:21
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:13
 msgid "Memory"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:2
-#: ../lib/foreman_discovery/engine.rb:131
+#: ../lib/foreman_discovery/engine.rb:136
 msgid "Discovered hosts"
-msgstr ""
-
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
-msgid "Select all items in this page"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
+msgid "Select all items in this page"
+msgstr ""
+
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:6
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:7
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:17
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:9
 msgid "Name"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:8
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:19
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:11
 msgid "IP Address"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:11
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:22
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:14
 msgid "Disk count"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:12
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:23
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:15
 msgid "Disks size"
 msgstr ""
 
@@ -566,6 +617,10 @@ msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:23
 msgid "Last facts upload"
+msgstr ""
+
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:46
+msgid "Delete %s?"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:57
@@ -620,6 +675,36 @@ msgstr ""
 
 #: ../app/views/discovered_hosts/show.html.erb:34
 msgid "IP address"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:6
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:9
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:10
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:5
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:11
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:3
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.html.erb:31
+msgid "No discovered hosts for the selected period"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:1
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+#: ../app/views/discovered_mailer/discovered_summary.text.erb:21
+msgid "No new discovered hosts for this period"
 msgstr ""
 
 #: ../app/views/discovery_rules/_form.html.erb:5
@@ -718,10 +803,14 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:136
-msgid "Discovery rules"
+#: ../db/seeds.d/70_discovery_mail_notification.rb:3
+msgid "A summary of discovered hosts"
 msgstr ""
 
 #: ../lib/foreman_discovery/engine.rb:141
+msgid "Discovery rules"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:146
 msgid "Discovery widget"
 msgstr ""
