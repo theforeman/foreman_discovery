@@ -3,13 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 # Maintain your gem's version:
 require "foreman_discovery/version"
 
-# Check MO file timestamps
 GEM_NAME = "foreman_discovery"
-Dir["locale/**/*.po"].each do |po|
-  mo = po.sub(/#{GEM_NAME}\.po$/, "LC_MESSAGES/#{GEM_NAME}.mo")
-  puts "WARNING: File #{mo} does not exist, generate with 'make all-mo'!" unless File.exist?(mo)
-  puts "WARNING: Fie #{mo} outdated, regenerate with 'make all-mo'" if File.mtime(po) > File.mtime(mo)
-end
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|

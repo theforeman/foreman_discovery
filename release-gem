@@ -1,0 +1,60 @@
+#!/bin/env ruby
+
+PLUGIN_NAME = "foreman_discovery"
+GIT_VERSION = `git describe --abbrev=0 --tags`.chomp
+GEM_FILENAME = "#{PLUGIN_NAME}-#{GIT_VERSION}.gem"
+RUBY_VERSION_FILE = "lib/#{PLUGIN_NAME}/version.rb"
+
+def die(msg)
+  STDERR.puts msg; exit 1
+end
+
+def action(question)
+  puts "#{question} ? [Y/n]"
+  die("Aborted.") if STDIN.gets.chomp.match(/^(n|no|nope)$/i)
+  die("Check failed, exiting.") if block_given? && ! yield
+end
+
+action "Extracted strings with: rake plugin:gettext[#{PLUGIN_NAME}]"
+
+action "Announced incoming strings on Transifex days before the release"
+
+action "Tested #{PLUGIN_NAME} plugin against stable Foreman core"
+
+action "Pulled updates with: make -C locale tx-update"
+
+action "Merged the updates with: rake plugin:gettext[#{PLUGIN_NAME}] (Foreman dir)"
+
+action "Rebuilt the MO files with: make -C locale mo-files" do
+  Dir["locale/**/*.po"].each do |po|
+    mo = po.sub(/#{PLUGIN_NAME}\.po$/, "LC_MESSAGES/#{PLUGIN_NAME}.mo")
+    puts("Warning, file #{mo} does not exist!") unless File.exist?(mo)
+    puts("Warning, file #{mo} outdated!") if File.mtime(po) > File.mtime(mo)
+  end
+end
+
+action "Pushed all commits to origin"
+
+action "Is version #{GIT_VERSION} the one to be released"
+
+action "Modified #{RUBY_VERSION_FILE} accordingly" do
+  GIT_VERSION == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
+end
+
+action "Shall I build the #{GEM_FILENAME} now" do
+  puts `gem build #{PLUGIN_NAME}.gemspec`
+end
+
+action "Investigated the #{GEM_FILENAME}" do
+  puts `tar -xOf #{GEM_FILENAME} data.tar.gz | tar -z -list | sort`
+end
+
+action "Created and built OS distribution packages"
+
+action "Shell I push the #{GEM_FILENAME} to rubygems.org now" do
+  puts `gem push #{GEM_FILENAME}`
+end
+
+action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
+
+action "Pushed the version.rb and tag to origin"
