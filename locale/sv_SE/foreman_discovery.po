@@ -20,28 +20,335 @@ msgstr ""
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Följande värdar kommer att ändras"
+msgid "List all discovered hosts"
+msgstr ""
 
-msgid "%s ago"
-msgstr "%s sedan"
+msgid "filter results"
+msgstr "filtrera resultat"
+
+msgid "sort results"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid ""
+"required if value is not inherited from host group or default password in sett"
+"ings"
+msgstr ""
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: discovery_bootif"
+", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
+"e primary interface is named eth0)"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr ""
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "No rule found for host %s"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr ""
+
+msgid "Errors during auto provisioning: %s"
+msgstr ""
+
+msgid "No discovered hosts to provision"
+msgstr ""
 
 msgid "%s discovered hosts were provisioned"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "Är du säker?"
+msgid "Refreshing the facts of a discovered host"
+msgstr ""
 
-msgid "Assign Location"
-msgstr "Tilldela Plats"
+msgid "Rebooting a discovered host"
+msgstr ""
 
-msgid "Assign Organization"
-msgstr "Tilldela Organisation"
+msgid "Rebooting all discovered hosts"
+msgstr ""
+
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
+msgid "List all discovery rules"
+msgstr ""
+
+msgid "Show a discovery rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "Create a discovery rule"
+msgstr ""
+
+msgid "Update a rule"
+msgstr ""
+
+msgid "Delete a rule"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "Errors during reboot: %s"
+msgstr ""
+
+msgid "No discovered hosts to reboot"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr "Fakta uppdaterade för %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Misslyckades med att uppdatera fakta för %s"
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr ""
+
+msgid "Rebooting host %s"
+msgstr ""
+
+msgid "Failed to reboot host %s"
+msgstr ""
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+msgid "Destroyed selected hosts"
+msgstr "Förstör markerade värdar"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "Följande värdar raderades inte: %s"
+
+msgid "Failed to auto provision host %s: %s"
+msgstr ""
+
+msgid "Discovered hosts are provisioning now"
+msgstr ""
+
+msgid "No hosts were found with that id or name"
+msgstr "Inga värdar med det idt eller namnet hittades"
+
+msgid "No hosts selected"
+msgstr "Inga värdar markerade"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Något blev fel vid markering av värdar - %s"
+
+msgid "Rule disabled"
+msgstr ""
+
+msgid "Rule enabled"
+msgstr ""
+
+msgid "%s ago"
+msgstr "%s sedan"
+
+msgid "Provision"
+msgstr "Provisionera"
 
 msgid "Auto Provision"
 msgstr ""
 
-msgid "Auto Provision All"
+msgid "Refresh facts"
+msgstr "Uppdatera fakta"
+
+msgid "Reboot"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Select Action"
+msgstr "Välj Åtgärd"
+
+msgid "Expand All"
+msgstr ""
+
+msgid "Delete"
+msgstr "Radera"
+
+msgid "Are you sure?"
+msgstr "Är du säker?"
+
+msgid "Delete hosts"
+msgstr "Radera värdar"
+
+msgid "Assign Organization"
+msgstr "Tilldela Organisation"
+
+msgid "Assign Location"
+msgstr "Tilldela Plats"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - Följande värdar kommer att ändras"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "New in the last 24 hours"
+msgstr ""
+
+msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "Reported in the last 7 days"
+msgstr ""
+
+msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Associated Hosts"
+msgstr ""
+
+msgid "Disable rule '%s'?"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Delete rule '%s'?"
+msgstr ""
+
+msgid "Must specify a user with email enabled"
+msgstr ""
+
+msgid "Discovered hosts summary"
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr ""
+
+msgid "must start with a letter or ERB."
+msgstr ""
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
+"d set hostname"
+msgstr ""
+
+msgid ""
+"Invalid facts: hash does not contain a valid value for any of the facts in the"
+" discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr ""
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "Startar om %s"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
 msgid ""
@@ -52,61 +359,211 @@ msgstr ""
 msgid "Automatically reboot discovered host during provisioning"
 msgstr ""
 
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr "Standardplatsen att placera värdar i"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "Standardorganisationen att placera hittade värdar i"
+
+msgid "Regex to organize facts for highlights section"
+msgstr ""
+
+msgid "Regex to organize facts for storage section"
+msgstr ""
+
+msgid "Regex to organize facts for software section"
+msgstr ""
+
+msgid "Regex to organize facts for hardware section"
+msgstr ""
+
+msgid "Regex to organize facts for network section"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
+"act '%{fact}'"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "Host"
+msgstr "Värd"
+
+msgid "Model"
+msgstr "Modell"
+
 msgid "CPUs"
 msgstr "CPUer"
 
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr ""
-
-msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
-
-msgid "Create a discovery rule"
-msgstr ""
-
-msgid "Delete"
-msgstr "Radera"
-
-msgid "Delete %s?"
-msgstr "Radera %s?"
-
-msgid "Delete a discovered host"
-msgstr ""
-
-msgid "Delete a rule"
-msgstr ""
-
-msgid "Delete hosts"
-msgstr "Radera värdar"
-
-msgid "Destroyed selected hosts"
-msgstr "Förstör markerade värdar"
-
-msgid "Disable"
-msgstr ""
-
-msgid "Disable rule?"
-msgstr ""
-
-msgid "Discovered host: %s"
-msgstr "Hittade värdar: %s"
+msgid "Memory"
+msgstr "Minne"
 
 msgid "Discovered hosts"
 msgstr "Hittade värdar"
 
-msgid "Discovered hosts are provisioning now"
+msgid "items selected. Uncheck to Clear"
+msgstr "poster markerade. Avmarkera för att rensa"
+
+msgid "Select all items in this page"
+msgstr "Markera alla valbara på denna sida"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "IP Address"
+msgstr "IPadress"
+
+msgid "Disk count"
 msgstr ""
 
-msgid "Discovered hosts are rebooting now"
+msgid "Disks size"
+msgstr ""
+
+msgid "Location"
+msgstr "Lokation"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Subnet"
+msgstr "Subnät"
+
+msgid "Last facts upload"
+msgstr "Sista faktauppladdning"
+
+msgid "Delete %s?"
+msgstr "Radera %s?"
+
+msgid "Please Confirm"
+msgstr "Var god, bekräfta"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Submit"
+msgstr "Sänd"
+
+msgid "Reboot All"
+msgstr ""
+
+msgid "Auto Provision All"
+msgstr ""
+
+msgid "Warning"
+msgstr "Varning"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed as "
+"well"
+msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
+
+msgid "Select location"
+msgstr "Välj lokation"
+
+msgid "Select organization"
+msgstr "Välj organisation"
+
+msgid "Discovered host: %s"
+msgstr "Hittade värdar: %s"
+
+msgid "Identifier"
+msgstr ""
+
+msgid "MAC address"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr ""
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+msgid "No new discovered hosts for this period"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "Template"
+msgstr "Mall"
+
+msgid ""
+"Specify target hostname template pattern in the same syntax as in Provisioning"
+" Templates (ERB)."
+msgstr ""
+
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will be"
+" used when left blank. In addition to @host attribute function rand for random"
+" integers is available. Examples:"
+msgstr ""
+
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are unique"
+". Hostnames must not start with numbers. A good approach is to use unique info"
+"rmation provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "Hostname for provisioned hosts"
+msgstr ""
+
+msgid "Hosts limit"
+msgstr ""
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr ""
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
+
+msgid "Edit Discovery Rule"
 msgstr ""
 
 msgid "Discovery Rules"
 msgstr ""
 
-msgid "DiscoveryRule|Enabled"
+msgid "New Rule"
 msgstr ""
 
 msgid "DiscoveryRule|Name"
@@ -118,385 +575,23 @@ msgstr ""
 msgid "DiscoveryRule|Query"
 msgstr ""
 
-msgid "Disk count"
-msgstr ""
-
-msgid "Disks size"
-msgstr ""
-
-msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will be"
-" used when left blank. In addition to @host attribute function rand for random"
-" integers is available. Examples:"
-msgstr ""
-
-msgid "Edit Discovery Rule"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-msgid "Enable rule?"
-msgstr ""
-
-msgid "Errors during auto provisioning: %s"
-msgstr ""
-
-msgid "Errors during reboot: %s"
-msgstr ""
-
-msgid "Execute rules against a discovered host"
-msgstr ""
-
-msgid "Execute rules against all currently discovered hosts"
-msgstr ""
-
-msgid ""
-"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
-"d set hostname"
-msgstr ""
-
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
-msgid "Fact"
-msgstr "Fakta"
-
-msgid "Fact name to use for primary interface detection and hostname"
-msgstr ""
-
-msgid "Facts discovered on this host"
-msgstr "Fakta hittade för denna värd"
-
-msgid "Facts refreshed for %s"
-msgstr "Fakta uppdaterade för %s"
-
-msgid "Failed to auto provision host %s: %s"
-msgstr ""
-
-msgid "Failed to reboot host %s"
-msgstr ""
-
-msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Failed to refresh facts for %s"
-msgstr "Misslyckades med att uppdatera fakta för %s"
-
-msgid "Host"
-msgstr "Värd"
-
-msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr ""
-
 msgid "Host group"
 msgstr "Värdgrupp"
-
-msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host group organization %s must also be associated to the discovery rule"
-msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host of type %s can not be rebooted"
-msgstr ""
-
-msgid "Hostname for provisioned hosts"
-msgstr ""
-
-msgid "Hosts limit"
-msgstr ""
 
 msgid "Hosts/limit"
 msgstr ""
 
-msgid "IP Address"
-msgstr "IPadress"
-
-msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgid "DiscoveryRule|Enabled"
 msgstr ""
-
-msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
-
-msgid "Incompatible version of puppet fact parser"
-msgstr ""
-
-msgid "Invalid facts, must be a Hash"
-msgstr ""
-
-msgid "Last facts upload"
-msgstr "Sista faktauppladdning"
-
-msgid "List all discovered hosts"
-msgstr ""
-
-msgid "List all discovery rules"
-msgstr ""
-
-msgid "Location"
-msgstr "Lokation"
-
-msgid "Locations"
-msgstr ""
-
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr ""
-
-msgid "Memory"
-msgstr "Minne"
-
-msgid "Model"
-msgstr "Modell"
-
-msgid "N/A"
-msgstr "N/A"
-
-msgid "Name"
-msgstr "Namn"
 
 msgid "New Discovery Rule"
 msgstr ""
 
-msgid "New Rule"
+msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "New in the last 24 hours"
+msgid "Discovery rules"
 msgstr ""
 
-msgid "No discovered hosts available"
-msgstr ""
-
-msgid "No discovered hosts to provision"
-msgstr ""
-
-msgid "No discovered hosts to reboot"
-msgstr ""
-
-msgid "No hosts selected"
-msgstr "Inga värdar markerade"
-
-msgid "No hosts were found with that id or name"
-msgstr "Inga värdar med det idt eller namnet hittades"
-
-msgid "No rule found for host %s"
-msgstr ""
-
-msgid "Not reported in more than 7 days"
-msgstr ""
-
-msgid "Organization"
-msgstr "Organisation"
-
-msgid "Organizations"
-msgstr ""
-
-msgid "Please Confirm"
-msgstr "Var god, bekräfta"
-
-msgid "Primary"
-msgstr ""
-
-msgid "Provision"
-msgstr "Provisionera"
-
-msgid "Provision a discovered host"
-msgstr ""
-
-msgid "Reboot"
-msgstr ""
-
-msgid "Reboot All"
-msgstr ""
-
-msgid "Rebooting %s"
-msgstr "Startar om %s"
-
-msgid "Rebooting a discovered host"
-msgstr ""
-
-msgid "Rebooting all discovered hosts"
-msgstr ""
-
-msgid "Rebooting host %s"
-msgstr ""
-
-msgid "Refresh facts"
-msgstr "Uppdatera fakta"
-
-msgid "Refreshing the facts of a discovered host"
-msgstr ""
-
-msgid "Reloading kernel on %s"
-msgstr ""
-
-msgid "Reported in the last 7 days"
-msgstr ""
-
-msgid "Rule disabled"
-msgstr ""
-
-msgid "Rule enabled"
-msgstr ""
-
-msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
-
-msgid "Select Action"
-msgstr "Välj Åtgärd"
-
-msgid "Select all items in this page"
-msgstr "Markera alla valbara på denna sida"
-
-msgid "Select location"
-msgstr "Välj lokation"
-
-msgid "Select organization"
-msgstr "Välj organisation"
-
-msgid "Show a discovered host"
-msgstr ""
-
-msgid "Show a discovery rule"
-msgstr ""
-
-msgid "Something went wrong while selecting hosts - %s"
-msgstr "Något blev fel vid markering av värdar - %s"
-
-msgid ""
-"Specify target hostname template pattern in the same syntax as in Provisioning"
-" Templates (ERB)."
-msgstr ""
-
-msgid "Submit"
-msgstr "Sänd"
-
-msgid "Subnet"
-msgstr "Subnät"
-
-msgid "Target host group for this rule with all properties set"
-msgstr ""
-
-msgid "Template"
-msgstr "Mall"
-
-msgid "The default location to place discovered hosts in"
-msgstr "Standardplatsen att placera värdar i"
-
-msgid "The default organization to place discovered hosts in"
-msgstr "Standardorganisationen att placera hittade värdar i"
-
-msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
-
-msgid "The following hosts were not deleted: %s"
-msgstr "Följande värdar raderades inte: %s"
-
-msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed as "
-"well"
-msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
-
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
-
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
-"act '%{fact}'"
-msgstr ""
-
-msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
-
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Update a rule"
-msgstr ""
-
-msgid "Upload facts for a host, creating the host if required"
-msgstr ""
-
-msgid "Value"
-msgstr "Värde"
-
-msgid "Warning"
-msgstr "Varning"
-
-msgid ""
-"When creating hostname patterns, make sure the resulting host names are unique"
-". Hostnames must not start with numbers. A good approach is to use unique info"
-"rmation provided by facter (MAC address, BIOS or serial ID)."
-msgstr ""
-
-msgid "can't contain white spaces."
-msgstr ""
-
-msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr ""
-
-msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr ""
-
-msgid "filter results"
-msgstr "filtrera resultat"
-
-msgid "flag is used for temporary shutdown of rules"
-msgstr ""
-
-msgid ""
-"hash containing facts for the host with minimum set of facts: discovery_bootif"
-", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
-"e primary interface is named eth0)"
-msgstr ""
-
-msgid "items selected. Uncheck to Clear"
-msgstr "poster markerade. Avmarkera för att rensa"
-
-msgid "must start with a letter or ERB."
-msgstr ""
-
-msgid "not required if it's a virtual machine"
-msgstr ""
-
-msgid "not required if using a subnet with DHCP proxy"
-msgstr ""
-
-msgid "number of entries per request"
-msgstr ""
-
-msgid "paginate results"
-msgstr ""
-
-msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr ""
-
-msgid "query to match discovered hosts for the particular rule"
-msgstr ""
-
-msgid "represents rule name shown to the users"
-msgstr ""
-
-msgid ""
-"required if value is not inherited from host group or default password in sett"
-"ings"
-msgstr ""
-
-msgid "sort results"
-msgstr ""
-
-msgid "the hostgroup that is used to auto provision a host"
+msgid "Discovery widget"
 msgstr ""

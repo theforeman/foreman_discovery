@@ -17,29 +17,336 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "%s - The following hosts are about to be changed"
-msgstr "%s - 要更改以下主机"
+msgid "List all discovered hosts"
+msgstr "列出所有发现的主机"
 
-msgid "%s ago"
-msgstr "%s 前"
+msgid "filter results"
+msgstr "过滤结果"
+
+msgid "sort results"
+msgstr "结果排序"
+
+msgid "paginate results"
+msgstr "页数"
+
+msgid "number of entries per request"
+msgstr "每个请求中的条目数"
+
+msgid "Show a discovered host"
+msgstr "显示已发现主机"
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
+
+msgid "Provision a discovered host"
+msgstr "供应已发现主机"
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr "如果使用附带 DHCP 代理服务器的子网则不需要"
+
+msgid "not required if it's a virtual machine"
+msgstr "虚拟机不需要"
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
+
+msgid ""
+"required if value is not inherited from host group or default password in sett"
+"ings"
+msgstr "如果不是从主机组中集成或使用设置中的默认密码则需要"
+
+msgid "Delete a discovered host"
+msgstr "删除已发现主机"
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr "上传主机详情，如需要，请创建主机。"
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: discovery_bootif"
+", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
+"e primary interface is named eth0)"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr "根据发现的主机执行规则"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr "根据规则 %{rule} 供应主机 %{host}"
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "No rule found for host %s"
+msgstr "未找到主机 %s 的规则"
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr "根据所有目前已发现主机执行规则"
+
+msgid "Errors during auto provisioning: %s"
+msgstr "自动供应时出错：%s"
+
+msgid "No discovered hosts to provision"
+msgstr "没有发现的主机需要供应"
 
 msgid "%s discovered hosts were provisioned"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "您确定吗？"
+msgid "Refreshing the facts of a discovered host"
+msgstr "刷新已发现主机的详情"
 
-msgid "Assign Location"
-msgstr "指定位置"
+msgid "Rebooting a discovered host"
+msgstr "重启已发现主机"
 
-msgid "Assign Organization"
-msgstr "指定机构"
+msgid "Rebooting all discovered hosts"
+msgstr ""
+
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
+msgid "List all discovery rules"
+msgstr "列出所有发现规则"
+
+msgid "Show a discovery rule"
+msgstr "显示发现规则"
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "Create a discovery rule"
+msgstr "常见发现规则"
+
+msgid "Update a rule"
+msgstr "更新规则"
+
+msgid "Delete a rule"
+msgstr "删除规则"
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "Errors during reboot: %s"
+msgstr ""
+
+msgid "No discovered hosts to reboot"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr "为 %s 刷新详情"
+
+msgid "Failed to refresh facts for %s"
+msgstr "为 %s 刷新详情失败"
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr "无法重启主机类型 %s"
+
+msgid "Rebooting host %s"
+msgstr "正在重启主机 %s"
+
+msgid "Failed to reboot host %s"
+msgstr "重启主机 %s 失败"
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr "重启主机 %{hostname} 失败，并给出出错信息 %{error_message}"
+
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+msgid "Destroyed selected hosts"
+msgstr "消除所选主机"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "未删除以下主机：%s"
+
+msgid "Failed to auto provision host %s: %s"
+msgstr "自动供应主机失败 %s：%s"
+
+msgid "Discovered hosts are provisioning now"
+msgstr "已发现主机限制正在供应"
+
+msgid "No hosts were found with that id or name"
+msgstr "未找到符合此 id 或者名称的主机"
+
+msgid "No hosts selected"
+msgstr "未选择任何主机"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "选择主机时出错 - %s"
+
+msgid "Rule disabled"
+msgstr "已禁用规则"
+
+msgid "Rule enabled"
+msgstr "已启用规则"
+
+msgid "%s ago"
+msgstr "%s 前"
+
+msgid "Provision"
+msgstr "供应"
 
 msgid "Auto Provision"
 msgstr "自动供应"
 
-msgid "Auto Provision All"
-msgstr "自动供应全部"
+msgid "Refresh facts"
+msgstr "刷新详情"
+
+msgid "Reboot"
+msgstr "重启"
+
+msgid "Back"
+msgstr ""
+
+msgid "Select Action"
+msgstr "选择动作"
+
+msgid "Expand All"
+msgstr ""
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Are you sure?"
+msgstr "您确定吗？"
+
+msgid "Delete hosts"
+msgstr "删除主机"
+
+msgid "Assign Organization"
+msgstr "指定机构"
+
+msgid "Assign Location"
+msgstr "指定位置"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - 要更改以下主机"
+
+msgid "N/A"
+msgstr "无"
+
+msgid "New in the last 24 hours"
+msgstr ""
+
+msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "Reported in the last 7 days"
+msgstr ""
+
+msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Associated Hosts"
+msgstr ""
+
+msgid "Disable rule '%s'?"
+msgstr ""
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Delete rule '%s'?"
+msgstr ""
+
+msgid "Must specify a user with email enabled"
+msgstr ""
+
+msgid "Discovered hosts summary"
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr "不能包含空白字段。"
+
+msgid "must start with a letter or ERB."
+msgstr "必须以字母或 ERB 开头。"
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Invalid facts, must be a Hash"
+msgstr "无效详情，必须是 Hash"
+
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
+"d set hostname"
+msgstr ""
+
+msgid ""
+"Invalid facts: hash does not contain a valid value for any of the facts in the"
+" discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "正在重启 %s"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
 
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
@@ -49,62 +356,212 @@ msgstr "根据供应规则自动供应新发现的主机"
 msgid "Automatically reboot discovered host during provisioning"
 msgstr ""
 
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr "主机名使用的默认前缀，必须以字母开头。"
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr "找到主机的默认位置"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "找到主机的默认机构"
+
+msgid "Regex to organize facts for highlights section"
+msgstr ""
+
+msgid "Regex to organize facts for storage section"
+msgstr ""
+
+msgid "Regex to organize facts for software section"
+msgstr ""
+
+msgid "Regex to organize facts for hardware section"
+msgstr ""
+
+msgid "Regex to organize facts for network section"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
+"act '%{fact}'"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "No discovered hosts available"
+msgstr "没有发现的主机可用"
+
+msgid "Host"
+msgstr "主机"
+
+msgid "Model"
+msgstr "型号"
+
 msgid "CPUs"
 msgstr "处理器"
 
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
-
-msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
-
-msgid "Create a discovery rule"
-msgstr "常见发现规则"
-
-msgid "Delete"
-msgstr "删除"
-
-msgid "Delete %s?"
-msgstr "删除 %s"
-
-msgid "Delete a discovered host"
-msgstr "删除已发现主机"
-
-msgid "Delete a rule"
-msgstr "删除规则"
-
-msgid "Delete hosts"
-msgstr "删除主机"
-
-msgid "Destroyed selected hosts"
-msgstr "消除所选主机"
-
-msgid "Disable"
-msgstr "禁用"
-
-msgid "Disable rule?"
-msgstr "禁用规则？"
-
-msgid "Discovered host: %s"
-msgstr "找到的主机：%s"
+msgid "Memory"
+msgstr "内存"
 
 msgid "Discovered hosts"
 msgstr "找到的主机"
 
-msgid "Discovered hosts are provisioning now"
-msgstr "已发现主机限制正在供应"
+msgid "items selected. Uncheck to Clear"
+msgstr "已选择项目。取消选择清除。"
 
-msgid "Discovered hosts are rebooting now"
+msgid "Select all items in this page"
+msgstr "选择本页中的所有项目"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "IP Address"
+msgstr "IP地址"
+
+msgid "Disk count"
+msgstr "磁盘计数"
+
+msgid "Disks size"
+msgstr "磁盘大小"
+
+msgid "Location"
+msgstr "位置"
+
+msgid "Organization"
+msgstr "机构"
+
+msgid "Subnet"
+msgstr "子网"
+
+msgid "Last facts upload"
+msgstr "最后一个上传的详情"
+
+msgid "Delete %s?"
+msgstr "删除 %s"
+
+msgid "Please Confirm"
+msgstr "请确认"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Reboot All"
 msgstr ""
+
+msgid "Auto Provision All"
+msgstr "自动供应全部"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed as "
+"well"
+msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
+
+msgid "Select location"
+msgstr "选择位置"
+
+msgid "Select organization"
+msgstr "选择机构"
+
+msgid "Discovered host: %s"
+msgstr "找到的主机：%s"
+
+msgid "Identifier"
+msgstr ""
+
+msgid "MAC address"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr ""
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+msgid "No new discovered hosts for this period"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
+
+msgid "Target host group for this rule with all properties set"
+msgstr "根据所有属性设置标定主机组"
+
+msgid "Template"
+msgstr "模板"
+
+msgid ""
+"Specify target hostname template pattern in the same syntax as in Provisioning"
+" Templates (ERB)."
+msgstr "以与供应模板（ERB）相同的语法指定目标主机名模板模式。"
+
+msgid ""
+"Domain will be appended automatically. A hostname based on MAC address will be"
+" used when left blank. In addition to @host attribute function rand for random"
+" integers is available. Examples:"
+msgstr "将自动附加域。如为空白则会使用基于 MAC 地址的主机名。除 @host 属性外，还有用于随机整数的 rand 函数可用。例如："
+
+msgid ""
+"When creating hostname patterns, make sure the resulting host names are unique"
+". Hostnames must not start with numbers. A good approach is to use unique info"
+"rmation provided by facter (MAC address, BIOS or serial ID)."
+msgstr "创建主机名模式时，请确保得到的主机名是唯一的。主机名不得以数字开头。可选择 facter 提供的特别信息（比如 MAC 地址，BIOS 或序列 ID）。"
+
+msgid "Hostname for provisioned hosts"
+msgstr "已供应主机的主机名"
+
+msgid "Hosts limit"
+msgstr "主机限制"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "根据此规则可供应的最大主机数（0 代表无限）"
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr "规则优先级（数字越小优先级越高）"
+
+msgid "Edit Discovery Rule"
+msgstr "编辑发现规则"
 
 msgid "Discovery Rules"
 msgstr "发现规则"
 
-msgid "DiscoveryRule|Enabled"
-msgstr "已禁用"
+msgid "New Rule"
+msgstr "新规则"
 
 msgid "DiscoveryRule|Name"
 msgstr "名称"
@@ -115,385 +572,23 @@ msgstr "优先级"
 msgid "DiscoveryRule|Query"
 msgstr "查询"
 
-msgid "Disk count"
-msgstr "磁盘计数"
-
-msgid "Disks size"
-msgstr "磁盘大小"
-
-msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will be"
-" used when left blank. In addition to @host attribute function rand for random"
-" integers is available. Examples:"
-msgstr "将自动附加域。如为空白则会使用基于 MAC 地址的主机名。除 @host 属性外，还有用于随机整数的 rand 函数可用。例如："
-
-msgid "Edit Discovery Rule"
-msgstr "编辑发现规则"
-
-msgid "Enable"
-msgstr "启用"
-
-msgid "Enable rule?"
-msgstr "启用规则？"
-
-msgid "Errors during auto provisioning: %s"
-msgstr "自动供应时出错：%s"
-
-msgid "Errors during reboot: %s"
-msgstr ""
-
-msgid "Execute rules against a discovered host"
-msgstr "根据发现的主机执行规则"
-
-msgid "Execute rules against all currently discovered hosts"
-msgstr "根据所有目前已发现主机执行规则"
-
-msgid ""
-"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
-"d set hostname"
-msgstr ""
-
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
-msgid "Fact"
-msgstr "详情"
-
-msgid "Fact name to use for primary interface detection and hostname"
-msgstr ""
-
-msgid "Facts discovered on this host"
-msgstr "在这台主机中找到的详情"
-
-msgid "Facts refreshed for %s"
-msgstr "为 %s 刷新详情"
-
-msgid "Failed to auto provision host %s: %s"
-msgstr "自动供应主机失败 %s：%s"
-
-msgid "Failed to reboot host %s"
-msgstr "重启主机 %s 失败"
-
-msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "重启主机 %{hostname} 失败，并给出出错信息 %{error_message}"
-
-msgid "Failed to refresh facts for %s"
-msgstr "为 %s 刷新详情失败"
-
-msgid "Host"
-msgstr "主机"
-
-msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "根据规则 %{rule} 供应主机 %{host}"
-
 msgid "Host group"
 msgstr "主机组"
-
-msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host group organization %s must also be associated to the discovery rule"
-msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host of type %s can not be rebooted"
-msgstr "无法重启主机类型 %s"
-
-msgid "Hostname for provisioned hosts"
-msgstr "已供应主机的主机名"
-
-msgid "Hosts limit"
-msgstr "主机限制"
 
 msgid "Hosts/limit"
 msgstr "主机/限制"
 
-msgid "IP Address"
-msgstr "IP地址"
-
-msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
-
-msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
-
-msgid "Incompatible version of puppet fact parser"
-msgstr ""
-
-msgid "Invalid facts, must be a Hash"
-msgstr "无效详情，必须是 Hash"
-
-msgid "Last facts upload"
-msgstr "最后一个上传的详情"
-
-msgid "List all discovered hosts"
-msgstr "列出所有发现的主机"
-
-msgid "List all discovery rules"
-msgstr "列出所有发现规则"
-
-msgid "Location"
-msgstr "位置"
-
-msgid "Locations"
-msgstr ""
-
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr "根据此规则可供应的最大主机数（0 代表无限）"
-
-msgid "Memory"
-msgstr "内存"
-
-msgid "Model"
-msgstr "型号"
-
-msgid "N/A"
-msgstr "无"
-
-msgid "Name"
-msgstr "名称"
+msgid "DiscoveryRule|Enabled"
+msgstr "已禁用"
 
 msgid "New Discovery Rule"
 msgstr "新发现规则"
 
-msgid "New Rule"
-msgstr "新规则"
-
-msgid "New in the last 24 hours"
+msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "No discovered hosts available"
-msgstr "没有发现的主机可用"
-
-msgid "No discovered hosts to provision"
-msgstr "没有发现的主机需要供应"
-
-msgid "No discovered hosts to reboot"
+msgid "Discovery rules"
 msgstr ""
 
-msgid "No hosts selected"
-msgstr "未选择任何主机"
-
-msgid "No hosts were found with that id or name"
-msgstr "未找到符合此 id 或者名称的主机"
-
-msgid "No rule found for host %s"
-msgstr "未找到主机 %s 的规则"
-
-msgid "Not reported in more than 7 days"
-msgstr ""
-
-msgid "Organization"
-msgstr "机构"
-
-msgid "Organizations"
-msgstr ""
-
-msgid "Please Confirm"
-msgstr "请确认"
-
-msgid "Primary"
-msgstr ""
-
-msgid "Provision"
-msgstr "供应"
-
-msgid "Provision a discovered host"
-msgstr "供应已发现主机"
-
-msgid "Reboot"
-msgstr "重启"
-
-msgid "Reboot All"
-msgstr ""
-
-msgid "Rebooting %s"
-msgstr "正在重启 %s"
-
-msgid "Rebooting a discovered host"
-msgstr "重启已发现主机"
-
-msgid "Rebooting all discovered hosts"
-msgstr ""
-
-msgid "Rebooting host %s"
-msgstr "正在重启主机 %s"
-
-msgid "Refresh facts"
-msgstr "刷新详情"
-
-msgid "Refreshing the facts of a discovered host"
-msgstr "刷新已发现主机的详情"
-
-msgid "Reloading kernel on %s"
-msgstr ""
-
-msgid "Reported in the last 7 days"
-msgstr ""
-
-msgid "Rule disabled"
-msgstr "已禁用规则"
-
-msgid "Rule enabled"
-msgstr "已启用规则"
-
-msgid "Rule priority (lower integer means higher priority)"
-msgstr "规则优先级（数字越小优先级越高）"
-
-msgid "Select Action"
-msgstr "选择动作"
-
-msgid "Select all items in this page"
-msgstr "选择本页中的所有项目"
-
-msgid "Select location"
-msgstr "选择位置"
-
-msgid "Select organization"
-msgstr "选择机构"
-
-msgid "Show a discovered host"
-msgstr "显示已发现主机"
-
-msgid "Show a discovery rule"
-msgstr "显示发现规则"
-
-msgid "Something went wrong while selecting hosts - %s"
-msgstr "选择主机时出错 - %s"
-
-msgid ""
-"Specify target hostname template pattern in the same syntax as in Provisioning"
-" Templates (ERB)."
-msgstr "以与供应模板（ERB）相同的语法指定目标主机名模板模式。"
-
-msgid "Submit"
-msgstr "提交"
-
-msgid "Subnet"
-msgstr "子网"
-
-msgid "Target host group for this rule with all properties set"
-msgstr "根据所有属性设置标定主机组"
-
-msgid "Template"
-msgstr "模板"
-
-msgid "The default location to place discovered hosts in"
-msgstr "找到主机的默认位置"
-
-msgid "The default organization to place discovered hosts in"
-msgstr "找到主机的默认机构"
-
-msgid "The default prefix to use for the host name, must start with a letter"
-msgstr "主机名使用的默认前缀，必须以字母开头。"
-
-msgid "The following hosts were not deleted: %s"
-msgstr "未删除以下主机：%s"
-
-msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed as "
-"well"
-msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
-
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
-
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
-"act '%{fact}'"
-msgstr ""
-
-msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
-
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Update a rule"
-msgstr "更新规则"
-
-msgid "Upload facts for a host, creating the host if required"
-msgstr "上传主机详情，如需要，请创建主机。"
-
-msgid "Value"
-msgstr "值"
-
-msgid "Warning"
-msgstr "警告"
-
-msgid ""
-"When creating hostname patterns, make sure the resulting host names are unique"
-". Hostnames must not start with numbers. A good approach is to use unique info"
-"rmation provided by facter (MAC address, BIOS or serial ID)."
-msgstr "创建主机名模式时，请确保得到的主机名是唯一的。主机名不得以数字开头。可选择 facter 提供的特别信息（比如 MAC 地址，BIOS 或序列 ID）。"
-
-msgid "can't contain white spaces."
-msgstr "不能包含空白字段。"
-
-msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr ""
-
-msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr ""
-
-msgid "filter results"
-msgstr "过滤结果"
-
-msgid "flag is used for temporary shutdown of rules"
-msgstr ""
-
-msgid ""
-"hash containing facts for the host with minimum set of facts: discovery_bootif"
-", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
-"e primary interface is named eth0)"
-msgstr ""
-
-msgid "items selected. Uncheck to Clear"
-msgstr "已选择项目。取消选择清除。"
-
-msgid "must start with a letter or ERB."
-msgstr "必须以字母或 ERB 开头。"
-
-msgid "not required if it's a virtual machine"
-msgstr "虚拟机不需要"
-
-msgid "not required if using a subnet with DHCP proxy"
-msgstr "如果使用附带 DHCP 代理服务器的子网则不需要"
-
-msgid "number of entries per request"
-msgstr "每个请求中的条目数"
-
-msgid "paginate results"
-msgstr "页数"
-
-msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr ""
-
-msgid "query to match discovered hosts for the particular rule"
-msgstr ""
-
-msgid "represents rule name shown to the users"
-msgstr ""
-
-msgid ""
-"required if value is not inherited from host group or default password in sett"
-"ings"
-msgstr "如果不是从主机组中集成或使用设置中的默认密码则需要"
-
-msgid "sort results"
-msgstr "结果排序"
-
-msgid "the hostgroup that is used to auto provision a host"
+msgid "Discovery widget"
 msgstr ""

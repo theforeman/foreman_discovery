@@ -19,29 +19,342 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "%s - The following hosts are about to be changed"
-msgstr "%s - I seguenti host stanno per essere modificati"
+msgid "List all discovered hosts"
+msgstr "Elenca tutti gli host rilevati"
 
-msgid "%s ago"
-msgstr "%s fa"
+msgid "filter results"
+msgstr "filtra i risultati"
+
+msgid "sort results"
+msgstr "ordina risultati"
+
+msgid "paginate results"
+msgstr "paginazione risultati"
+
+msgid "number of entries per request"
+msgstr "numero di voci per richiesta"
+
+msgid "Show a discovered host"
+msgstr "Visualizza un host rilevato"
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
+
+msgid "Provision a discovered host"
+msgstr "Esegui il provisioning di un host rilevato"
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr "non necessario se si utilizza una sottorete con DHCP proxy"
+
+msgid "not required if it's a virtual machine"
+msgstr "non necessario se è una macchina virtuale"
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+"UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestr"
+"ation/:UUID/tasks"
+
+msgid ""
+"required if value is not inherited from host group or default password in sett"
+"ings"
+msgstr ""
+"necessario se il valore non è ereditato da un gruppo di host o password predef"
+"inita nelle impostazione"
+
+msgid "Delete a discovered host"
+msgstr "Rimuovi un host rilevato"
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr "Carica gli eventi per un host creando, se necessario, un host"
+
+msgid ""
+"hash containing facts for the host with minimum set of facts: discovery_bootif"
+", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
+"e primary interface is named eth0)"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr "Esegui le regole nei confronti di un host rilevato"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr "È stato eseguito il provisioning dell'host %{host} con la regola %{rule}"
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "No rule found for host %s"
+msgstr "Nessuna regola trovata per l'host %s"
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr "Esegui le regole nei confronti degli host attualemente rilevati"
+
+msgid "Errors during auto provisioning: %s"
+msgstr "Errore durante auto provisioning: %s"
+
+msgid "No discovered hosts to provision"
+msgstr "Nessun host rilevato per il provisioning"
 
 msgid "%s discovered hosts were provisioned"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "Sei sicuro?"
+msgid "Refreshing the facts of a discovered host"
+msgstr "Aggiornamento eventi di un host rilevato"
 
-msgid "Assign Location"
-msgstr "Assegna posizione"
+msgid "Rebooting a discovered host"
+msgstr "Riavvio di un host rilevato"
 
-msgid "Assign Organization"
-msgstr "Assegna organizzazione"
+msgid "Rebooting all discovered hosts"
+msgstr ""
+
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
+msgid "List all discovery rules"
+msgstr "Elenca tutte le regole per la scoperta"
+
+msgid "Show a discovery rule"
+msgstr "Visualizza una regola per la scoperta"
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "Create a discovery rule"
+msgstr "Crea una regola per la scoperta"
+
+msgid "Update a rule"
+msgstr "Aggiorna una regola"
+
+msgid "Delete a rule"
+msgstr "Cancella una regola"
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "Errors during reboot: %s"
+msgstr ""
+
+msgid "No discovered hosts to reboot"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr "Eventi aggiornati per %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "Impossibile aggiornare gli eventi per %s"
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr "Impossibile eseguire il riavvio sul tipo di host %s "
+
+msgid "Rebooting host %s"
+msgstr "Riavvio host %s"
+
+msgid "Failed to reboot host %s"
+msgstr "Impossibile eseguire il riavvio dell'host: %s"
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
+"Impossibile eseguire il riavvio dell'host %{hostname} con errore %{error_messa"
+"ge}"
+
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+msgid "Destroyed selected hosts"
+msgstr "Host selezionati annullati"
+
+msgid "The following hosts were not deleted: %s"
+msgstr "I seguenti host non sono stati rilevati: %s"
+
+msgid "Failed to auto provision host %s: %s"
+msgstr "Impossibile eseguire auto provision dell'host %s: %s"
+
+msgid "Discovered hosts are provisioning now"
+msgstr "Gli host rilevati stanno eseguendo ora il provisioning"
+
+msgid "No hosts were found with that id or name"
+msgstr "Nessun host trovato con l'id o nome indicato"
+
+msgid "No hosts selected"
+msgstr "Nessun host selezionato"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Si è verificato un errore durante la selezione degli host - %s"
+
+msgid "Rule disabled"
+msgstr "Regola disabilitata"
+
+msgid "Rule enabled"
+msgstr "Regola abilitata"
+
+msgid "%s ago"
+msgstr "%s fa"
+
+msgid "Provision"
+msgstr "Provisioning"
 
 msgid "Auto Provision"
 msgstr "Auto Provision"
 
-msgid "Auto Provision All"
-msgstr "Esegui Auto Provision su tutti"
+msgid "Refresh facts"
+msgstr "Aggiorna eventi"
+
+msgid "Reboot"
+msgstr "Riavvia"
+
+msgid "Back"
+msgstr ""
+
+msgid "Select Action"
+msgstr "Seleziona azione"
+
+msgid "Expand All"
+msgstr ""
+
+msgid "Delete"
+msgstr "Cancella"
+
+msgid "Are you sure?"
+msgstr "Sei sicuro?"
+
+msgid "Delete hosts"
+msgstr "Cancella gli host"
+
+msgid "Assign Organization"
+msgstr "Assegna organizzazione"
+
+msgid "Assign Location"
+msgstr "Assegna posizione"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - I seguenti host stanno per essere modificati"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "New in the last 24 hours"
+msgstr ""
+
+msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "Reported in the last 7 days"
+msgstr ""
+
+msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Associated Hosts"
+msgstr ""
+
+msgid "Disable rule '%s'?"
+msgstr ""
+
+msgid "Disable"
+msgstr "Disabilita"
+
+msgid "Enable"
+msgstr "Abilita"
+
+msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Delete rule '%s'?"
+msgstr ""
+
+msgid "Must specify a user with email enabled"
+msgstr ""
+
+msgid "Discovered hosts summary"
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr "non può avere spazi."
+
+msgid "must start with a letter or ERB."
+msgstr "deve iniziare con una lettera o ERB."
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Invalid facts, must be a Hash"
+msgstr "Eventi non validi, deve essere un Hash"
+
+msgid ""
+"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
+"d set hostname"
+msgstr ""
+
+msgid ""
+"Invalid facts: hash does not contain a valid value for any of the facts in the"
+" discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr "Impossibile ottenere gli eventi dal proxy %{url}: %{error}"
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr "Riavvio di %s"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
 
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
@@ -53,71 +366,76 @@ msgstr ""
 msgid "Automatically reboot discovered host during provisioning"
 msgstr ""
 
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr "Il prefisso predefinito da usare per l'hostname, deve iniziare con una lettera"
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr "La posizione predefinita nella quale posizionare gli host trovati"
+
+msgid "The default organization to place discovered hosts in"
+msgstr "L'organizzazione predefinita nella quale posizionare gli host trovati"
+
+msgid "Regex to organize facts for highlights section"
+msgstr ""
+
+msgid "Regex to organize facts for storage section"
+msgstr ""
+
+msgid "Regex to organize facts for software section"
+msgstr ""
+
+msgid "Regex to organize facts for hardware section"
+msgstr ""
+
+msgid "Regex to organize facts for network section"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+msgid ""
+"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
+"act '%{fact}'"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "No discovered hosts available"
+msgstr "Nessun host rilevato disponibile"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Model"
+msgstr "Modello"
+
 msgid "CPUs"
 msgstr "CPU"
 
-msgid "Cancel"
-msgstr "Annulla"
-
-msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr "Impossibile ottenere gli eventi dal proxy %{url}: %{error}"
-
-msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
-
-msgid "Create a discovery rule"
-msgstr "Crea una regola per la scoperta"
-
-msgid "Delete"
-msgstr "Cancella"
-
-msgid "Delete %s?"
-msgstr "Cancella %s?"
-
-msgid "Delete a discovered host"
-msgstr "Rimuovi un host rilevato"
-
-msgid "Delete a rule"
-msgstr "Cancella una regola"
-
-msgid "Delete hosts"
-msgstr "Cancella gli host"
-
-msgid "Destroyed selected hosts"
-msgstr "Host selezionati annullati"
-
-msgid "Disable"
-msgstr "Disabilita"
-
-msgid "Disable rule?"
-msgstr "Disabilita la regola?"
-
-msgid "Discovered host: %s"
-msgstr "Host trovati: %s"
+msgid "Memory"
+msgstr "Memoria"
 
 msgid "Discovered hosts"
 msgstr "Host trovati"
 
-msgid "Discovered hosts are provisioning now"
-msgstr "Gli host rilevati stanno eseguendo ora il provisioning"
+msgid "items selected. Uncheck to Clear"
+msgstr "oggetti selezionati. Deselezionare per annullare"
 
-msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgid "Select all items in this page"
+msgstr "Seleziona tutti gli oggetti in questa pagina"
 
-msgid "Discovery Rules"
-msgstr "Regola per la scoperta"
-
-msgid "DiscoveryRule|Enabled"
-msgstr "Abilitata"
-
-msgid "DiscoveryRule|Name"
+msgid "Name"
 msgstr "Nome"
 
-msgid "DiscoveryRule|Priority"
-msgstr "Priorità"
-
-msgid "DiscoveryRule|Query"
-msgstr "Interrogazione"
+msgid "IP Address"
+msgstr "Indirizzo IP"
 
 msgid "Disk count"
 msgstr "Conteggio disco"
@@ -125,238 +443,45 @@ msgstr "Conteggio disco"
 msgid "Disks size"
 msgstr "Dimensione dischi"
 
-msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will be"
-" used when left blank. In addition to @host attribute function rand for random"
-" integers is available. Examples:"
-msgstr ""
-"Il dominio verrà aggiunto automaticamente. Se lasciato vuoto verrà utilizzato "
-"un hostname basato su un indirizzo MAC. In aggiunta all'attributo @host è disp"
-"onibile anche la funzione 'rand' per i valori interi randomici. Esempi:"
-
-msgid "Edit Discovery Rule"
-msgstr "Modifica la regola per la scoperta"
-
-msgid "Enable"
-msgstr "Abilita"
-
-msgid "Enable rule?"
-msgstr "Abilita la regola?"
-
-msgid "Errors during auto provisioning: %s"
-msgstr "Errore durante auto provisioning: %s"
-
-msgid "Errors during reboot: %s"
-msgstr ""
-
-msgid "Execute rules against a discovered host"
-msgstr "Esegui le regole nei confronti di un host rilevato"
-
-msgid "Execute rules against all currently discovered hosts"
-msgstr "Esegui le regole nei confronti degli host attualemente rilevati"
-
-msgid ""
-"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
-"d set hostname"
-msgstr ""
-
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
-msgid "Fact"
-msgstr "Evento"
-
-msgid "Fact name to use for primary interface detection and hostname"
-msgstr ""
-
-msgid "Facts discovered on this host"
-msgstr "Eventi trovati su questo host"
-
-msgid "Facts refreshed for %s"
-msgstr "Eventi aggiornati per %s"
-
-msgid "Failed to auto provision host %s: %s"
-msgstr "Impossibile eseguire auto provision dell'host %s: %s"
-
-msgid "Failed to reboot host %s"
-msgstr "Impossibile eseguire il riavvio dell'host: %s"
-
-msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr ""
-"Impossibile eseguire il riavvio dell'host %{hostname} con errore %{error_messa"
-"ge}"
-
-msgid "Failed to refresh facts for %s"
-msgstr "Impossibile aggiornare gli eventi per %s"
-
-msgid "Host"
-msgstr "Host"
-
-msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "È stato eseguito il provisioning dell'host %{host} con la regola %{rule}"
-
-msgid "Host group"
-msgstr "Gruppo di host"
-
-msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host group organization %s must also be associated to the discovery rule"
-msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host of type %s can not be rebooted"
-msgstr "Impossibile eseguire il riavvio sul tipo di host %s "
-
-msgid "Hostname for provisioned hosts"
-msgstr "Hostname per gli host con provisioning"
-
-msgid "Hosts limit"
-msgstr "Limite host"
-
-msgid "Hosts/limit"
-msgstr "Host/limite"
-
-msgid "IP Address"
-msgstr "Indirizzo IP"
-
-msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
-
-msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
-
-msgid "Incompatible version of puppet fact parser"
-msgstr ""
-
-msgid "Invalid facts, must be a Hash"
-msgstr "Eventi non validi, deve essere un Hash"
-
-msgid "Last facts upload"
-msgstr "Ultimo caricamento eventi"
-
-msgid "List all discovered hosts"
-msgstr "Elenca tutti gli host rilevati"
-
-msgid "List all discovery rules"
-msgstr "Elenca tutte le regole per la scoperta"
-
 msgid "Location"
 msgstr "Posizione"
-
-msgid "Locations"
-msgstr ""
-
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr "Numero di host massimo con provisioning con questa regola (0 = unlimited)"
-
-msgid "Memory"
-msgstr "Memoria"
-
-msgid "Model"
-msgstr "Modello"
-
-msgid "N/A"
-msgstr "N/A"
-
-msgid "Name"
-msgstr "Nome"
-
-msgid "New Discovery Rule"
-msgstr "Nuova regola per la scoperta"
-
-msgid "New Rule"
-msgstr "Nuova regola"
-
-msgid "New in the last 24 hours"
-msgstr ""
-
-msgid "No discovered hosts available"
-msgstr "Nessun host rilevato disponibile"
-
-msgid "No discovered hosts to provision"
-msgstr "Nessun host rilevato per il provisioning"
-
-msgid "No discovered hosts to reboot"
-msgstr ""
-
-msgid "No hosts selected"
-msgstr "Nessun host selezionato"
-
-msgid "No hosts were found with that id or name"
-msgstr "Nessun host trovato con l'id o nome indicato"
-
-msgid "No rule found for host %s"
-msgstr "Nessuna regola trovata per l'host %s"
-
-msgid "Not reported in more than 7 days"
-msgstr ""
 
 msgid "Organization"
 msgstr "Organizzazione"
 
-msgid "Organizations"
-msgstr ""
+msgid "Subnet"
+msgstr "Sottorete"
+
+msgid "Last facts upload"
+msgstr "Ultimo caricamento eventi"
+
+msgid "Delete %s?"
+msgstr "Cancella %s?"
 
 msgid "Please Confirm"
 msgstr "Conferma"
 
-msgid "Primary"
-msgstr ""
+msgid "Cancel"
+msgstr "Annulla"
 
-msgid "Provision"
-msgstr "Provisioning"
-
-msgid "Provision a discovered host"
-msgstr "Esegui il provisioning di un host rilevato"
-
-msgid "Reboot"
-msgstr "Riavvia"
+msgid "Submit"
+msgstr "Invia"
 
 msgid "Reboot All"
 msgstr ""
 
-msgid "Rebooting %s"
-msgstr "Riavvio di %s"
+msgid "Auto Provision All"
+msgstr "Esegui Auto Provision su tutti"
 
-msgid "Rebooting a discovered host"
-msgstr "Riavvio di un host rilevato"
+msgid "Warning"
+msgstr "Avvertenza"
 
-msgid "Rebooting all discovered hosts"
+msgid ""
+"This might take a while, as all hosts, facts and reports will be destroyed as "
+"well"
 msgstr ""
-
-msgid "Rebooting host %s"
-msgstr "Riavvio host %s"
-
-msgid "Refresh facts"
-msgstr "Aggiorna eventi"
-
-msgid "Refreshing the facts of a discovered host"
-msgstr "Aggiornamento eventi di un host rilevato"
-
-msgid "Reloading kernel on %s"
-msgstr ""
-
-msgid "Reported in the last 7 days"
-msgstr ""
-
-msgid "Rule disabled"
-msgstr "Regola disabilitata"
-
-msgid "Rule enabled"
-msgstr "Regola abilitata"
-
-msgid "Rule priority (lower integer means higher priority)"
-msgstr "Priorità regola (valore intero più basso, priorità più alta)"
-
-msgid "Select Action"
-msgstr "Seleziona azione"
-
-msgid "Select all items in this page"
-msgstr "Seleziona tutti gli oggetti in questa pagina"
+"Questa operazione potrebbe richiedere qualche istante poichè saranno annullati"
+" anche gli host, eventi e riporti"
 
 msgid "Select location"
 msgstr "Seleziona posizione"
@@ -364,27 +489,47 @@ msgstr "Seleziona posizione"
 msgid "Select organization"
 msgstr "Seleziona organizzazione"
 
-msgid "Show a discovered host"
-msgstr "Visualizza un host rilevato"
+msgid "Discovered host: %s"
+msgstr "Host trovati: %s"
 
-msgid "Show a discovery rule"
-msgstr "Visualizza una regola per la scoperta"
-
-msgid "Something went wrong while selecting hosts - %s"
-msgstr "Si è verificato un errore durante la selezione degli host - %s"
-
-msgid ""
-"Specify target hostname template pattern in the same syntax as in Provisioning"
-" Templates (ERB)."
+msgid "Identifier"
 msgstr ""
-"Specifica il pattern del template per l'hostname di destinazione con la stessa"
-" sintassi dei template di provisioning (ERB)."
 
-msgid "Submit"
-msgstr "Invia"
+msgid "MAC address"
+msgstr ""
 
-msgid "Subnet"
-msgstr "Sottorete"
+msgid "IP address"
+msgstr ""
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr ""
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+msgid "No new discovered hosts for this period"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr ""
@@ -394,61 +539,21 @@ msgstr ""
 msgid "Template"
 msgstr "Template"
 
-msgid "The default location to place discovered hosts in"
-msgstr "La posizione predefinita nella quale posizionare gli host trovati"
-
-msgid "The default organization to place discovered hosts in"
-msgstr "L'organizzazione predefinita nella quale posizionare gli host trovati"
-
-msgid "The default prefix to use for the host name, must start with a letter"
-msgstr "Il prefisso predefinito da usare per l'hostname, deve iniziare con una lettera"
-
-msgid "The following hosts were not deleted: %s"
-msgstr "I seguenti host non sono stati rilevati: %s"
+msgid ""
+"Specify target hostname template pattern in the same syntax as in Provisioning"
+" Templates (ERB)."
+msgstr ""
+"Specifica il pattern del template per l'hostname di destinazione con la stessa"
+" sintassi dei template di provisioning (ERB)."
 
 msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed as "
-"well"
+"Domain will be appended automatically. A hostname based on MAC address will be"
+" used when left blank. In addition to @host attribute function rand for random"
+" integers is available. Examples:"
 msgstr ""
-"Questa operazione potrebbe richiedere qualche istante poichè saranno annullati"
-" anche gli host, eventi e riporti"
-
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
-"UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestr"
-"ation/:UUID/tasks"
-
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
-"act '%{fact}'"
-msgstr ""
-
-msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
-
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Update a rule"
-msgstr "Aggiorna una regola"
-
-msgid "Upload facts for a host, creating the host if required"
-msgstr "Carica gli eventi per un host creando, se necessario, un host"
-
-msgid "Value"
-msgstr "Valore"
-
-msgid "Warning"
-msgstr "Avvertenza"
+"Il dominio verrà aggiunto automaticamente. Se lasciato vuoto verrà utilizzato "
+"un hostname basato su un indirizzo MAC. In aggiunta all'attributo @host è disp"
+"onibile anche la funzione 'rand' per i valori interi randomici. Esempi:"
 
 msgid ""
 "When creating hostname patterns, make sure the resulting host names are unique"
@@ -460,63 +565,53 @@ msgstr ""
 "iato è quello di utilizzare informazioni uniche (Indirizzo MAC, BIOS o ID seri"
 "ali)."
 
-msgid "can't contain white spaces."
-msgstr "non può avere spazi."
+msgid "Hostname for provisioned hosts"
+msgstr "Hostname per gli host con provisioning"
 
-msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgid "Hosts limit"
+msgstr "Limite host"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "Numero di host massimo con provisioning con questa regola (0 = unlimited)"
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr "Priorità regola (valore intero più basso, priorità più alta)"
+
+msgid "Edit Discovery Rule"
+msgstr "Modifica la regola per la scoperta"
+
+msgid "Discovery Rules"
+msgstr "Regola per la scoperta"
+
+msgid "New Rule"
+msgstr "Nuova regola"
+
+msgid "DiscoveryRule|Name"
+msgstr "Nome"
+
+msgid "DiscoveryRule|Priority"
+msgstr "Priorità"
+
+msgid "DiscoveryRule|Query"
+msgstr "Interrogazione"
+
+msgid "Host group"
+msgstr "Gruppo di host"
+
+msgid "Hosts/limit"
+msgstr "Host/limite"
+
+msgid "DiscoveryRule|Enabled"
+msgstr "Abilitata"
+
+msgid "New Discovery Rule"
+msgstr "Nuova regola per la scoperta"
+
+msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgid "Discovery rules"
 msgstr ""
 
-msgid "filter results"
-msgstr "filtra i risultati"
-
-msgid "flag is used for temporary shutdown of rules"
-msgstr ""
-
-msgid ""
-"hash containing facts for the host with minimum set of facts: discovery_bootif"
-", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
-"e primary interface is named eth0)"
-msgstr ""
-
-msgid "items selected. Uncheck to Clear"
-msgstr "oggetti selezionati. Deselezionare per annullare"
-
-msgid "must start with a letter or ERB."
-msgstr "deve iniziare con una lettera o ERB."
-
-msgid "not required if it's a virtual machine"
-msgstr "non necessario se è una macchina virtuale"
-
-msgid "not required if using a subnet with DHCP proxy"
-msgstr "non necessario se si utilizza una sottorete con DHCP proxy"
-
-msgid "number of entries per request"
-msgstr "numero di voci per richiesta"
-
-msgid "paginate results"
-msgstr "paginazione risultati"
-
-msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr ""
-
-msgid "query to match discovered hosts for the particular rule"
-msgstr ""
-
-msgid "represents rule name shown to the users"
-msgstr ""
-
-msgid ""
-"required if value is not inherited from host group or default password in sett"
-"ings"
-msgstr ""
-"necessario se il valore non è ereditato da un gruppo di host o password predef"
-"inita nelle impostazione"
-
-msgid "sort results"
-msgstr "ordina risultati"
-
-msgid "the hostgroup that is used to auto provision a host"
+msgid "Discovery widget"
 msgstr ""
