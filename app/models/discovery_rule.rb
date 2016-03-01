@@ -28,13 +28,11 @@ class DiscoveryRule < ActiveRecord::Base
   scoped_search :on => :enabled
   scoped_search :in => :hostgroup, :on => :name, :complete_value => true, :rename => :hostgroup
 
-  # with proc support, default_scope can no longer be chained
-  # include all default scoping here
   default_scope lambda {
-                  with_taxonomy_scope do
-                    order("discovery_rules.name")
-                  end
-                }
+    with_taxonomy_scope do
+      order('discovery_rules.priority, discovery_rules.created_at')
+    end
+  }
 
   def default_int_attributes
    self.max_count ||= 0

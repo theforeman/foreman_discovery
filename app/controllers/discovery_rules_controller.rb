@@ -5,7 +5,7 @@ class DiscoveryRulesController < ApplicationController
   before_filter :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 
   def index
-    base = resource_base.search_for(params[:search], :order => (params[:order] || 'priority ASC'))
+    base = resource_base.search_for(params[:search], :order => (params[:order]))
     @discovery_rules = base.paginate(:page => params[:page]).includes(:hostgroup)
   end
 
