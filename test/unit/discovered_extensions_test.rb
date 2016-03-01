@@ -60,7 +60,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     host = Host::Discovered.import_host_and_facts(facts).first
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
-    FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r1
   end
@@ -70,9 +70,40 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     host = Host::Discovered.import_host_and_facts(facts).first
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
-    r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
+    r2 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r2
+  end
+
+  test "first rule out of two with different priorities is found for a discovered host" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 2, :search => "facts.somefact = abc",
+                       :organizations => [host.organization], :locations => [host.location])
+    assert_equal find_discovery_rule(host), r1
+  end
+
+  test "second rule out of two with different priorities is found for a discovered host" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 2, :search => "facts.somefact = abc",
+                       :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location])
+    assert_equal find_discovery_rule(host), r2
+  end
+
+  test "older rule out of two is found for a discovered host" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host_and_facts(facts).first
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                       :organizations => [host.organization], :locations => [host.location])
+    r2 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location],
+                            :created_at => Time.now + 1.day)
+    assert_equal find_discovery_rule(host), r1
   end
 
   test "drained rule does not match for a discovered host" do
