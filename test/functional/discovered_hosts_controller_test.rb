@@ -47,6 +47,17 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_show_page_categories
+    host = Host::Discovered.import_host_and_facts(@facts).first
+    get :show, {:id => host.id}, set_session_user_default_reader
+    assert_select "#category-highlights" do
+      assert_select "#fact-ipaddress" do
+        assert_select "td", /192.168.100.42/
+      end
+    end
+    assert_response :success
+  end
+
   def test_edit_form_elements
     host = Host::Discovered.import_host_and_facts(@facts).first
     get :edit, {:id => host.id}, set_session_user_default_manager
