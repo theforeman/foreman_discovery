@@ -4,12 +4,12 @@
 
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-default">
+    <div id="category-highlights" class="panel panel-default">
       <div class="panel-heading" ><strong> <%= _(@categories_names[0]) %></strong> </div>
         <table class="table table-bordered table-condensed table-fixed">
-        <% @categories[0].sort.each do |keys, val| %>
-            <tr class="">
-              <th class="ellipsis" width="40%"> <strong> <%= keys %> </strong></th>
+        <% @categories[0].sort.each do |key, val| %>
+            <tr id="fact-<%= key.try(:downcase) %>" class="">
+              <th class="ellipsis" width="40%"> <strong> <%= key %> </strong></th>
               <td><%= val %></td>
             </tr>
         <% end -%>
@@ -51,7 +51,7 @@
     <div class="col-md-6">
       <% @categories.each_with_index do |val, index| %>
         <% next if index == 0 || val.empty? %>
-        <div class="panel panel-default">
+        <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default">
           <div class="panel-heading" role="tab">
             <h4 class="panel-title">
               <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
