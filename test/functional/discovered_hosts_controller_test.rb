@@ -41,14 +41,14 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
                        :value => "bios_vendor",
                        :category => 'Setting::Discovered')
     facts = @facts.merge({"bios_vendor" => "QEMU"})
-    Host::Discovered.import_host_and_facts(facts).first
+    Host::Discovered.import_host(facts)
     get :index, {}, set_session_user_default_reader
     assert_select "td", /QEMU/
     assert_response :success
   end
 
   def test_edit_form_elements
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     get :edit, {:id => host.id}, set_session_user_default_manager
     assert_select "select" do |elements|
       elements.each do |element|
@@ -59,7 +59,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_edit_form_attributes
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     get :edit, {:id => host.id}, set_session_user_default_reader
     assert_not_nil host.cpu_count
   end
@@ -72,7 +72,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post "reboot", { :id => host.id }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -83,7 +83,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_reboot_success_legacy
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     Host::Discovered::any_instance.stubs(:proxied?).returns(false)
     Host::Discovered::any_instance.stubs(:proxy_url).returns("http://1.2.3.4:8443")
     ::ForemanDiscovery::NodeAPI::PowerLegacyDirectService.any_instance.expects(:reboot).returns(true)
@@ -97,7 +97,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post "reboot", { :id => host.id }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -106,7 +106,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post "reboot", { :id => host.id }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -116,7 +116,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
     post :auto_provision, { :id => host.id }, set_session_user_default_manager
     assert_response :redirect
@@ -126,7 +126,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_no_rule_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     post :auto_provision, { :id => host.id }, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
@@ -135,7 +135,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host_and_facts(facts).first
+    Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
@@ -145,7 +145,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_no_rule_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host_and_facts(facts).first
+    Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
@@ -154,7 +154,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post "reboot", { :id => host.id }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -163,7 +163,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post "reboot_all", { }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -172,7 +172,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post "reboot_all", { }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
