@@ -30,7 +30,7 @@ class Host::Discovered < ::Host::Base
     where(taxonomy_conditions).order("hosts.created_at DESC")
   }
 
-  def self.import_host_and_facts facts
+  def self.import_host facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
 
     # filter facts
@@ -54,8 +54,8 @@ class Host::Discovered < ::Host::Base
 
     # and save (interfaces are created via puppet parser extension)
     host.save(:validate => false) if host.new_record?
-    state = host.import_facts(facts)
-    return host, state
+    raise ::Foreman::Exception.new(N_("Facts could not be imported")) unless host.import_facts(facts)
+    host
   end
 
   def import_facts facts
@@ -144,7 +144,8 @@ class Host::Discovered < ::Host::Base
 
   def refresh_facts
     facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url).facter
-    self.class.import_host_and_facts facts
+    self.class.import_host facts
+    import_facts facts
   rescue Exception => e
     raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
   end

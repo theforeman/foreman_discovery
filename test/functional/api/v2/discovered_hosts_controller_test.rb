@@ -58,7 +58,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :name => 'discovery_location',
                        :value => 'SomeLoc',
                        :category => 'Setting::Discovered')
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     get :show, { :id => host.id }
     assert_response :success
     show_response = ActiveSupport::JSON.decode(@response.body)
@@ -71,7 +71,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_delete_discovered_host
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     delete :destroy, { :id => host.id }
     assert_response :success
   end
@@ -90,7 +90,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     rule = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
@@ -103,7 +103,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:kexec).returns(true)
     Host::Managed::any_instance.stubs(:provisioning_template).with(:kind => 'kexec').returns("")
     facts = @facts.merge({"somefact" => "abc", "discovery_kexec" => "kexec-tools 2.0.8 released 15 February 2015"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     rule = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
@@ -115,7 +115,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_with_wrong_org_or_loc_fail
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass))
     post :auto_provision, { :id => host.id }
@@ -127,7 +127,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     SETTINGS[:organizations_enabled] = false
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :locations => [host.location])
@@ -139,7 +139,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_success_and_delete
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass),
                        :organizations => [host.organization], :locations => [host.location])
@@ -156,7 +156,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_no_rule_error
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     post :auto_provision, { :id => host.id }
     assert_response :not_found
     show_response = ActiveSupport::JSON.decode(@response.body)
@@ -166,7 +166,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [host.organization],
                        :locations => [host.location])
@@ -178,7 +178,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_no_rule_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host_and_facts(facts).first
+    Host::Discovered.import_host(facts)
     post :auto_provision_all, {}
     assert_match /0 discovered hosts were provisioned/, @response.body
     assert_response :success

@@ -23,7 +23,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should import facts from yaml as Host::Discovered" do
     raw = parse_json_fixture('/facts.json')
-    assert Host::Discovered.import_host_and_facts(raw['facts'])
+    assert Host::Discovered.import_host(raw['facts'])
     assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
@@ -31,7 +31,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet, :organizations => [Organization.first], :locations => [Location.first])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host = Host::Discovered.import_host(raw['facts'])
     assert_equal subnet, host.primary_interface.subnet
   end
 
@@ -49,7 +49,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet, :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host = Host::Discovered.import_host(raw['facts'])
     assert_equal subnet, host.primary_interface.subnet
   end
 
@@ -57,7 +57,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'macaddress_foo'
     exception = assert_raises(::Foreman::Exception) do
-      Host::Discovered.import_host_and_facts(raw['facts'])
+      Host::Discovered.import_host(raw['facts'])
     end
     assert_match(/Expected discovery_fact '\w+' is missing/, exception.message)
   end
@@ -73,7 +73,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_hostname] = 'somefact'
     facts = raw['facts'].merge({"somefact" => "somename"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     assert_equal 'macsomename', host.name
     refute_equal 'e4:1f:13:cc:36:5a', host.mac
   end
@@ -83,7 +83,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_fact] = 'somefact'
     Setting[:discovery_hostname] = 'somefact'
     facts = raw['facts'].merge({"somefact" => "E4:1F:13:CC:36:5A"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     assert_equal 'mace41f13cc365a', host.name
     assert_equal 'e4:1f:13:cc:36:5a', host.mac
   end
@@ -92,7 +92,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'lsbdistcodename'
     exception = assert_raises(::Foreman::Exception) do
-      Host::Discovered.import_host_and_facts(raw['facts'])
+      Host::Discovered.import_host(raw['facts'])
     end
     assert_match(/Unable to detect primary interface using MAC/, exception.message)
   end
@@ -100,14 +100,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should create discovered host with prefix" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = 'test'
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host = Host::Discovered.import_host(raw['facts'])
     assert_equal 'teste41f13cc3658', host.name
   end
 
   test "should create discovered host without prefix" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = ''
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host = Host::Discovered.import_host(raw['facts'])
     assert_equal 'e41f13cc3658',host.name
   end
 
@@ -115,7 +115,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_hostname] = 'macaddress_foo'
     exception = assert_raises(::Foreman::Exception) do
-      Host::Discovered.import_host_and_facts(raw['facts'])
+      Host::Discovered.import_host(raw['facts'])
     end
     assert_match(/Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting:/, exception.message)
   end
@@ -126,7 +126,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_hostname] = 'invalidhostnamefact'
     Setting[:discovery_prefix] = ''
     exception = assert_raises(::Foreman::Exception) do
-      Host::Discovered.import_host_and_facts(raw['facts'])
+      Host::Discovered.import_host(raw['facts'])
     end
     assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
   end
@@ -161,7 +161,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:token_duration] = 30 #enable tokens so that we only test the CR
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = '123'
-    host = Host::Discovered.import_host_and_facts(raw['facts']).first
+    host = Host::Discovered.import_host(raw['facts'])
     host.save
     h = ::ForemanDiscovery::HostConverter.to_managed(host)
     refute_valid h
