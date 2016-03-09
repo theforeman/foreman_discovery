@@ -173,6 +173,10 @@ module ForemanDiscovery
       # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
       ::Hostgroup.send :include, HostgroupExtensions
+      ::FactValue.send :include, FactValueExtensions
+
+      # Controller extensions
+      ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
 
       # Include subnet extensions
       ::Subnet.send :include, DiscoverySubnet
