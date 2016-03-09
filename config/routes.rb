@@ -48,6 +48,10 @@ Rails.application.routes.draw do
           post 'auto_provision_all'
           put  'reboot_all'
         end
+
+        constraints(:discovered_host_id => /[^\/]+/) do
+          resources :facts, :only => :index, :controller => :fact_values
+        end
       end
       resources :discovery_rules, :except => [:new, :edit]
     end
