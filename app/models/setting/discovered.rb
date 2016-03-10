@@ -52,7 +52,7 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-          self.set('discovery_facts_highlights', N_("Regex to organize facts for highlights section"), ""),
+          self.set('discovery_facts_highlights', N_("Regex to organize facts for highlights section - e.g. ^(abc|cde)$"), ""),
           self.set('discovery_facts_storage', N_("Regex to organize facts for storage section"), ""),
           self.set('discovery_facts_software', N_("Regex to organize facts for software section"), ""),
           self.set('discovery_facts_hardware', N_("Regex to organize facts for hardware section"), ""),

@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading" ><strong> <%= @categories_names[0] %></strong> </div>
+      <div class="panel-heading" ><strong> <%= _(@categories_names[0]) %></strong> </div>
         <table class="table table-bordered table-condensed table-fixed">
         <% @categories[0].sort.each do |keys, val| %>
             <tr class="">
@@ -21,7 +21,7 @@
           <h4 class="panel-title">
             <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#interfaces-panel" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
               <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
-              Interfaces
+              <%= _("Interfaces") %>
             </a>
           </h4>
         </div>
@@ -56,7 +56,7 @@
             <h4 class="panel-title">
               <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
                 <span class="glyphicon glyphicon<%= (@categories_names[index].to_s.include?("Storage")? "-minus-sign":"-plus-sign")%>" aria-hidden="true"></span>
-                <%= @categories_names[index] %>
+                <%= _(@categories_names[index]) %>
               </a>
             </h4>
           </div>
