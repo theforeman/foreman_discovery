@@ -168,6 +168,20 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Token.where(:host_id => h.id).empty?
   end
 
+  test "discovery facts are preserved after provisioning" do
+    raw = parse_json_fixture('/facts.json')['facts']
+    raw.merge!({
+      'delete_me' => "content",
+      'discovery_dont_delete_me' => "content",
+      })
+    host = Host::Discovered.import_host_and_facts(raw).first
+    host.save
+    managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+    managed.clear_facts
+    assert_nil managed.facts_hash['delete_me']
+    assert_equal "content", managed.facts_hash['discovery_dont_delete_me']
+  end
+
   test "normalization of MAC into a discovered host hostname" do
     assert_equal Host::Discovered.normalize_string_for_hostname("90:B1:1C:54:D5:82"),"90b11c54d582"
   end
