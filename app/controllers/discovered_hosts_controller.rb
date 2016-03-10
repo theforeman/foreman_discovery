@@ -185,15 +185,15 @@ class DiscoveredHostsController < ::ApplicationController
   private
 
   def init_regex_and_categories
-    hightlights = Setting[:discovery_facts_highlights].empty? ? /^(productname|memorysize|manufacturer|architecture|macaddress$|processorcount|physicalprocessorcount|discovery_subnet|discovery_boot|ipaddress$)/ : Regexp.new(eval(Setting[:discovery_facts_highlights]))
-    storage = Setting[:discovery_facts_storage].empty? ? /^blockdevice/ : Regexp.new(eval(Setting[:discovery_facts_storage]))
-    hardware = Setting[:discovery_facts_hardware].empty? ? /^(hardw|manufacturer|memo|process)/ : Regexp.new(eval(Setting[:discovery_facts__hardware]))
-    network = Setting[:discovery_facts_network].empty? ? /^(ipaddress|interfaces|dhcp|fqdn|hostname|link|mtu|net|macaddress|wol|port|speed)/ : Regexp.new(eval(Setting[:discovery_facts_network]))
-    software = Setting[:discovery_facts_software].empty? ? /^(bios|os|discovery)/ : Regexp.new(eval(Setting[:discovery_facts_software]))
-    ipmi = Setting[:discovery_facts_ipmi].empty? ? /^ipmi/ : Regexp.new(eval(Setting[:discovery_facts_ipmi]))
+    hightlights = Setting[:discovery_facts_highlights].empty? ? /^(productname|memorysize|manufacturer|architecture|macaddress$|processorcount|physicalprocessorcount|discovery_subnet|discovery_boot|ipaddress$)/ : Regexp.new(Setting[:discovery_facts_highlights])
+    storage = Setting[:discovery_facts_storage].empty? ? /^blockdevice/ : Regexp.new(Setting[:discovery_facts_storage])
+    hardware = Setting[:discovery_facts_hardware].empty? ? /^(hardw|manufacturer|memo|process)/ : Regexp.new(Setting[:discovery_facts__hardware])
+    network = Setting[:discovery_facts_network].empty? ? /^(ipaddress|interfaces|dhcp|fqdn|hostname|link|mtu|net|macaddress|wol|port|speed)/ : Regexp.new(Setting[:discovery_facts_network])
+    software = Setting[:discovery_facts_software].empty? ? /^(bios|os|discovery)/ : Regexp.new(Setting[:discovery_facts_software])
+    ipmi = Setting[:discovery_facts_ipmi].empty? ? /^ipmi/ : Regexp.new(Setting[:discovery_facts_ipmi])
     @regex_array = [hightlights, storage, hardware, network, software, ipmi, false]
     @categories = Array.new(7) { Hash.new }
-    @categories_names = [:Hightlights, :Storage, :Hardware, :Network, :Software, :IPMI, :Misceleneous]
+    @categories_names = [N_("Highlights"), N_("Storage"), N_("Hardware"), N_("Network"), N_("Software"), N_("IPMI"), N_("Miscellaneous")]
   end
 
   def assign_fact_to_category(key, value )
