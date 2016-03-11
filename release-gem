@@ -9,6 +9,12 @@ def die(msg)
   STDERR.puts msg; exit 1
 end
 
+def run(cmd)
+  puts `#{cmd}`
+  die("Command #{cmd} failed with #{$?}!") if $?.to_i != 0
+  true
+end
+
 def action(question)
   puts "#{question} ? [Y/n]"
   die("Aborted.") if STDIN.gets.chomp.match(/^(n|no|nope)$/i)
@@ -42,17 +48,17 @@ action "Pushed all commits and tags to origin"
 action "Is version #{GIT_VERSION} the one to be released"
 
 action "Shall I build the #{GEM_FILENAME} now" do
-  puts `gem build #{PLUGIN_NAME}.gemspec`
+  run "gem build #{PLUGIN_NAME}.gemspec"
 end
 
 action "Investigated the #{GEM_FILENAME}" do
-  puts `tar -xOf #{GEM_FILENAME} data.tar.gz | tar -z -list | sort`
+  run "tar -xOf #{GEM_FILENAME} data.tar.gz | tar -z -list | sort"
 end
 
 action "Created and built OS distribution packages"
 
 action "Shell I push the #{GEM_FILENAME} to rubygems.org now" do
-  puts `gem push #{GEM_FILENAME}`
+  run "gem push #{GEM_FILENAME}"
 end
 
 action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
