@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 10:58+0100\n"
-"PO-Revision-Date: 2016-02-25 10:58+0100\n"
+"POT-Creation-Date: 2016-03-11 08:13+0100\n"
+"PO-Revision-Date: 2016-03-11 08:13+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -252,6 +252,34 @@ msgstr ""
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Hardware"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Highlights"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Storage"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Network"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "IPMI"
+msgstr ""
+
+#: ../app/controllers/discovered_hosts_controller.rb:196
+msgid "Software"
+msgstr ""
+
 #: ../app/controllers/discovered_hosts_controller.rb:267
 msgid "No hosts were found with that id or name"
 msgstr ""
@@ -358,19 +386,19 @@ msgid "Associated Hosts"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:29
-msgid "Disable rule '%s'?"
-msgstr ""
-
-#: ../app/helpers/discovery_rules_helper.rb:29
 msgid "Disable"
 msgstr ""
 
-#: ../app/helpers/discovery_rules_helper.rb:31
-msgid "Enable"
+#: ../app/helpers/discovery_rules_helper.rb:29
+msgid "Disable rule '%s'?"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:31
 msgid "Enable rule '%s'?"
+msgstr ""
+
+#: ../app/helpers/discovery_rules_helper.rb:31
+msgid "Enable"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:33
@@ -496,7 +524,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr ""
 
 #: ../app/models/setting/discovered.rb:55
-msgid "Regex to organize facts for highlights section"
+msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 #: ../app/models/setting/discovered.rb:56
@@ -665,6 +693,10 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr ""
 
+#: ../app/views/discovered_hosts/show.html.erb:24
+msgid "Interfaces"
+msgstr ""
+
 #: ../app/views/discovered_hosts/show.html.erb:32
 msgid "Identifier"
 msgstr ""
@@ -752,11 +784,11 @@ msgid "Hostname for provisioned hosts"
 msgstr ""
 
 #: ../app/views/discovery_rules/_form.html.erb:44
-msgid "Hosts limit"
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
 
 #: ../app/views/discovery_rules/_form.html.erb:44
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgid "Hosts limit"
 msgstr ""
 
 #: ../app/views/discovery_rules/_form.html.erb:45
