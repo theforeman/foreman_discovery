@@ -15,7 +15,7 @@ def action(question)
   die("Check failed, exiting.") if block_given? && ! yield
 end
 
-action "Extracted strings with: rake plugin:gettext[#{PLUGIN_NAME}]"
+action "Extracted strings with: rake plugin:gettext[#{PLUGIN_NAME}] (Foreman dir)"
 
 action "Announced incoming strings on Transifex days before the release"
 
@@ -33,13 +33,13 @@ action "Rebuilt the MO files with: make -C locale mo-files" do
   end
 end
 
-action "Pushed all commits to origin"
-
-action "Is version #{GIT_VERSION} the one to be released"
-
-action "Modified #{RUBY_VERSION_FILE} accordingly" do
+action "Modified #{RUBY_VERSION_FILE} to match desired version" do
   GIT_VERSION == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
 end
+
+action "Pushed all commits and tags to origin"
+
+action "Is version #{GIT_VERSION} the one to be released"
 
 action "Shall I build the #{GEM_FILENAME} now" do
   puts `gem build #{PLUGIN_NAME}.gemspec`
