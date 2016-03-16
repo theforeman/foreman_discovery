@@ -7,7 +7,7 @@
 
   <% @discovered_hosts.each do |host| %>
     <%= _('Name') %>: <%= host.to_label %>
-    <%= _('Model') %>: <%= host.model_name %>
+    <%= _('Model') %>: <%= host.try(:hardware_model_name) || 'N/A' %>
     <%= _('IP Address') %>: <%= host.ip %>
     <%= _('CPUs') %>: <%= discovery_attribute(host, :cpu_count) %>
     <%= _('Memory') %>: <%= number_to_human_size(discovery_attribute(host, :memory, 0) * 1024 * 1024) %>
