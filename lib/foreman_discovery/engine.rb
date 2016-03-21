@@ -166,6 +166,10 @@ module ForemanDiscovery
       # Fact parsing
       ::FactParser.register_fact_parser(:foreman_discovery, ForemanDiscovery::FactParser)
 
+      # Taxonomy extensions
+      ::Location.send :include, DiscoveryTaxonomyExtensions
+      ::Organization.send :include, DiscoveryTaxonomyExtensions
+
       # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
       ::Hostgroup.send :include, HostgroupExtensions
