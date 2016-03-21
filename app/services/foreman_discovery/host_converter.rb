@@ -9,6 +9,10 @@ class ForemanDiscovery::HostConverter
     if set_managed
       host.managed = set_managed
       host.primary_interface.managed = set_managed
+      # render all inherit buttons as selected on Edit Host form
+      #host.define_singleton_method(:force_inherited) do |_|
+        #true
+      #end
     end
     # set build only and only on final save (facts are deleted)
     if set_build
