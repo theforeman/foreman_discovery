@@ -18,7 +18,7 @@ module DiscoveredHostsHelper
     actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host), :method => :put]
     title_actions(
         button_group(
-            link_to(_("Back"), :back)
+            link_to(_("Back"), :back, :class => "btn btn-default")
         ),
         select_action_button( _("Select Action"), {},
                               actions.map do |action|
@@ -27,7 +27,7 @@ module DiscoveredHostsHelper
                               end.flatten
         ),
       button_group(
-        link_to(_("Expand All"),"#",:class => "btn ",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
+        link_to(_("Expand All"),"#",:class => "btn btn-default",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
                 $('.facts-panel').addClass('collapse in').height('auto');"
         )
       ),
