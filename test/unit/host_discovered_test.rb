@@ -14,6 +14,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_lock',
+                       :value => 'false',
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_lock_template',
+                       :value => 'pxelinux_discovery',
+                       :category => 'Setting::Discovered')
   end
 
   test "should be able to create Host::Discovered objects" do
@@ -76,6 +84,31 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host = Host::Discovered.import_host(facts)
     assert_equal 'macsomename', host.name
     refute_equal 'e4:1f:13:cc:36:5a', host.mac
+  end
+
+  test "should lock host into discovery via PXE configuration" do
+    Host::Discovered.delete('mace41f13cc3658')
+    Setting[:discovery_lock] = "true"
+    Setting[:discovery_lock_template] = 'discovery_lock_template'
+    raw = parse_json_fixture('/facts.json')
+    subnet = FactoryGirl.create(:subnet,
+                                :tftp,
+                                :network => '10.35.27.0',
+                                :cidr    => '24',
+                                :mask    => '255.255.255.0',
+                                :organizations => [Organization.first],
+                                :locations => [Location.first]
+    )
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    ProxyAPI::TFTP.any_instance.expects(:set).with('e4:1f:13:cc:36:58', anything).returns(true)
+    ProvisioningTemplate.where(:name => 'discovery_lock_template').first_or_create(
+        :template_kind_id => template_kinds(:ipxe),
+        :snippet => true,
+        :template => "test"
+    )
+    assert Host::Discovered.import_host(raw['facts'])
+    assert Host::Discovered.find_by_name('mace41f13cc3658')
+    refute Host::Managed.find_by_name('mace41f13cc3658')
   end
 
   test "should create discovered host with fact_name as a name if it is a valid mac" do

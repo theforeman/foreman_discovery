@@ -28,6 +28,8 @@ class Setting::Discovered < ::Setting
         self.set('discovery_facts_hardware', N_("Regex to organize facts for hardware section"), "", N_("Hardware facts")),
         self.set('discovery_facts_network', N_("Regex to organize facts for network section"), "", N_("Network facts")),
         self.set('discovery_facts_ipmi', N_("Regex to organize facts for ipmi section"), "", N_("IPMI facts")),
+        self.set('discovery_lock', N_("Automatically generate PXE configuration to pin a newly discovered host to discovery"), false, N_("Lock PXE")),
+        self.set('discovery_lock_template', N_("PXE template to be used when pinning a host to discovery"), 'pxelinux_discovery', N_("Locked template name"),nil,{ :collection => Proc.new {Hash[ProvisioningTemplate.all.map{|template| [template[:name], template[:name]]}]} }),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
@@ -57,6 +59,10 @@ class Setting::Discovered < ::Setting
   def self.discovery_hostname_fact_array
     return [] if !Setting['discovery_hostname'].present?
     from_array Setting['discovery_hostname']
+  end
+
+  def self.discovery_lock?
+    Foreman::Cast.to_bool(Setting['discovery_lock']) && !Setting['discovery_lock_template'].blank? && ProvisioningTemplate.exists?(:name => Setting['discovery_lock_template'])
   end
 
   def self.from_array(setting)

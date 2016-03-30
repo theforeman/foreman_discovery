@@ -1,5 +1,6 @@
 class Host::Discovered < ::Host::Base
   include ScopedSearchExtensions
+  include Foreman::Renderer
 
   attr_accessible :discovery_rule_id
 
@@ -108,6 +109,17 @@ class Host::Discovered < ::Host::Base
     end
     self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
     self.discovery_attribute_set.update_attributes(import_from_facts)
+    # lock the host into discovery via PXE, if feature is enabled in settings
+    if Setting::Discovered.discovery_lock? && self.subnet.tftp?
+      begin
+        @host = self
+        Rails.logger.info "Locking discovered host #{self.mac} in subnet #{subnet}"
+        template = unattended_render(::ProvisioningTemplate.find_by_name(Setting['discovery_lock_template']).template)
+        subnet.tftp_proxy.set mac, :pxeconfig => template
+      rescue ::Foreman::Exception => e
+        ::Foreman::Logging.exception("Could not set tftp_proxy from proxy", e)
+      end
+    end
     self.save!
     parser
   end
