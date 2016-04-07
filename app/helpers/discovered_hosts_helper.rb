@@ -12,28 +12,22 @@ module DiscoveredHostsHelper
   end
 
   def discovered_hosts_title_actions(host)
-    actions = [[_('Provision'),  hash_for_edit_discovered_host_path(:id => host)]]
-    actions <<  [_('Auto Provision'), hash_for_auto_provision_discovered_host_path(:id => host), :method => :post]
-    actions <<  [_('Refresh facts') ,hash_for_refresh_facts_discovered_host_path(:id => host)]
-    actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host), :method => :put]
+    actions = [[_('Provision'), hash_for_edit_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :provision_discovered_hosts)]]
+    actions <<  [_('Auto Provision'), hash_for_auto_provision_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :auto_provision_discovered_hosts), :method => :post]
+    actions <<  [_('Refresh facts') ,hash_for_refresh_facts_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts)]
+    actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts), :method => :put]
     title_actions(
         button_group(
             link_to(_("Back"), :back, :class => "btn btn-default")
         ),
-        select_action_button( _("Select Action"), {},
-                              actions.map do |action|
-                                method = action[2] if action.size > 1
-                                link_to(action[0] , action[1], method)
-                              end.flatten
-        ),
+        select_action_button( _("Select Action"), {}, actions.map { |action| display_link_if_authorized(action[0] , action[1], action[2] || {}) }.flatten ),
       button_group(
         link_to(_("Expand All"),"#",:class => "btn btn-default",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
                 $('.facts-panel').addClass('collapse in').height('auto');"
         )
       ),
       button_group(
-        link_to(_("Delete"), hash_for_discovered_host_path(:id => host),
-                :class => "btn btn-danger", :confirm => _('Are you sure?'), :method => :delete)
+        display_delete_if_authorized(hash_for_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :destroy_discovered_hosts), :class => "btn btn-danger", :data => { :confirm => _('Delete %s?') % host.name })
       )
     )
   end
