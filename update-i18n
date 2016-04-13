@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FOREMAN_DIR="../foreman"
+
+make -C locale tx-update
+pushd $FOREMAN_DIR
+bundle exec rake plugin:gettext[foreman_discovery]
+popd
+make -C locale mo-files

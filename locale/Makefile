@@ -18,6 +18,7 @@ EDITFILES = $(patsubst %.po,%.edit.po,$(POFILES))
 %.mo: %.po
 	mkdir -p $(shell dirname $@)/LC_MESSAGES
 	msgfmt -o $(shell dirname $@)/LC_MESSAGES/$(MOFILE) $<
+	touch $(shell dirname $@)/LC_MESSAGES/$(MOFILE)
 
 # Generate MO files from PO files
 all-mo: $(MOFILES)

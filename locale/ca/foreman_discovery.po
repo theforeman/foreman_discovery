@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015 Foreman developers
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
-"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"PO-Revision-Date: 2015-12-11 09:29+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2016-03-11 08:18+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -18,559 +18,122 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "List all discovered hosts"
-msgstr "Llista tots els amfitrions descoberts"
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - Els següents amfitrions estan a punt de ser canviats"
 
-msgid "filter results"
-msgstr "filtra els resultats"
-
-msgid "sort results"
-msgstr "ordena els resultats"
-
-msgid "paginate results"
-msgstr "pagina els resultats"
-
-msgid "number of entries per request"
-msgstr "Nombre d'entrades per petició"
-
-msgid "Show a discovered host"
-msgstr "Mostra un amfitrió descobert"
-
-msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
-"Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear nous a"
-"mfitrions)"
-
-msgid "Provision a discovered host"
-msgstr ""
-
-msgid "not required if using a subnet with DHCP proxy"
-msgstr ""
-"no es requereix si s'està utilitzant una subxarxa amb servidor intermediari de"
-" DHCP"
-
-msgid "not required if it's a virtual machine"
-msgstr ""
-
-msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr ""
-
-msgid ""
-"required if value is not inherited from host group or default password in sett"
-"ings"
-msgstr ""
-
-msgid "Delete a discovered host"
-msgstr "Suprimeix un amfitrió descobert"
-
-msgid "Upload facts for a host, creating the host if required"
-msgstr ""
-"Puja els objectes d'interès per a un amfitrió, creant el nou amfitrió si fos n"
-"ecessari"
-
-msgid ""
-"hash containing facts for the host with minimum set of facts: discovery_bootif"
-", macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in cas"
-"e primary interface is named eth0)"
-msgstr ""
-
-msgid "Execute rules against a discovered host"
-msgstr ""
-
-msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr ""
-
-msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
-
-msgid "No rule found for host %s"
-msgstr ""
-
-msgid "Execute rules against all currently discovered hosts"
-msgstr ""
-
-msgid "Errors during auto provisioning: %s"
-msgstr ""
-
-msgid "No discovered hosts to provision"
-msgstr ""
+msgid "%s ago"
+msgstr "fa %s"
 
 msgid "%s discovered hosts were provisioned"
 msgstr "%s amfitrions descoberts van ser aprovisionats"
 
-msgid "Refreshing the facts of a discovered host"
-msgstr "S'estan refrescant els objectes d'interès d'un amfitrió descobert"
-
-msgid "Rebooting a discovered host"
-msgstr "S'està reiniciant un amfitrió descobert"
-
-msgid "Rebooting all discovered hosts"
-msgstr "S'estan reiniciant tots els amfitrions descoberts"
-
-msgid "Discovered hosts are rebooting now"
+msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
-msgid "List all discovery rules"
-msgstr "Llista totes les regles de descobriment"
-
-msgid "Show a discovery rule"
-msgstr "Mostra una regla de descobriment"
-
-msgid "represents rule name shown to the users"
+msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "query to match discovered hosts for the particular rule"
+msgid "Are you sure?"
+msgstr "Esteu segur?"
+
+msgid "Assign Location"
+msgstr "Assigna la ubicació"
+
+msgid "Assign Organization"
+msgstr "Assigna l'organització"
+
+msgid "Associated Hosts"
 msgstr ""
 
-msgid "the hostgroup that is used to auto provision a host"
+msgid "Auto Provision"
+msgstr "Auto aprovisiona"
+
+msgid "Auto Provision All"
+msgstr "Auto aprovisiona-ho tot"
+
+msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr ""
 
-msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr ""
+msgid "Automatically reboot discovered host during provisioning"
+msgstr "Reinicia automàticament els amfitrions descoberts durant  l'aprovisionament"
 
-msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr ""
+msgid "Back"
+msgstr "Enrere"
 
-msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr ""
+msgid "CPUs"
+msgstr "Les CPU"
 
-msgid "flag is used for temporary shutdown of rules"
-msgstr ""
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr "No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}: %{error}"
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr "Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear nous amfitrions)"
 
 msgid "Create a discovery rule"
 msgstr "Crea una regla de descobriment"
 
-msgid "Update a rule"
-msgstr "Actualitza una regla"
+msgid "Delete"
+msgstr "Suprimeix"
+
+msgid "Delete %s?"
+msgstr "Voleu suprimir %s?"
+
+msgid "Delete a discovered host"
+msgstr "Suprimeix un amfitrió descobert"
 
 msgid "Delete a rule"
 msgstr "Suprimeix una regla"
 
-msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgid "Delete hosts"
+msgstr "Suprimeix els amfitrions"
 
-msgid "No hostgroup associated with rule '%s'"
-msgstr ""
-
-msgid "Errors during reboot: %s"
-msgstr ""
-
-msgid "No discovered hosts to reboot"
-msgstr ""
-
-msgid "Facts refreshed for %s"
-msgstr "Els objectes d'interès que s'han refrescat per a %s"
-
-msgid "Failed to refresh facts for %s"
-msgstr "No s'ha pogut refrescar els objectes d'interès per a %s"
-
-msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Host of type %s can not be rebooted"
-msgstr ""
-
-msgid "Rebooting host %s"
-msgstr "S'està reiniciant l'amfitrió %s"
-
-msgid "Failed to reboot host %s"
-msgstr ""
-
-msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Failed to reboot hosts with error %s"
+msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr ""
 
-msgid "The following hosts were not deleted: %s"
-msgstr ""
-
-msgid "Failed to auto provision host %s: %s"
-msgstr ""
-
-msgid "Discovered hosts are provisioning now"
-msgstr ""
-
-msgid "No hosts were found with that id or name"
-msgstr ""
-
-msgid "No hosts selected"
-msgstr "Cap amfitrió seleccionat"
-
-msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
-
-msgid "Rule disabled"
-msgstr ""
-
-msgid "Rule enabled"
-msgstr ""
-
-msgid "%s ago"
-msgstr "fa %s"
-
-msgid "Provision"
-msgstr ""
-
-msgid "Auto Provision"
-msgstr ""
-
-msgid "Refresh facts"
-msgstr "Refresca els objectes d'interès"
-
-msgid "Reboot"
-msgstr "Reinicia"
-
-msgid "Back"
-msgstr ""
-
-msgid "Select Action"
-msgstr "Selecciona l'acció"
-
-msgid "Expand All"
-msgstr ""
-
-msgid "Delete"
-msgstr "Suprimeix"
-
-msgid "Are you sure?"
-msgstr "Esteu segur?"
-
-msgid "Delete hosts"
-msgstr "Suprimeix els amfitrions"
-
-msgid "Assign Organization"
-msgstr "Assigna l'organització"
-
-msgid "Assign Location"
-msgstr "Assigna la ubicació"
-
-msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Els següents amfitrions estan a punt de ser canviats"
-
-msgid "N/A"
-msgstr "N/D"
-
-msgid "New in the last 24 hours"
-msgstr "Nou en les últimes 24 hores"
-
-msgid "Not reported in more than 7 days"
-msgstr "No es va informar en més de 7 dies"
-
-msgid "Reported in the last 7 days"
-msgstr "Es va informar en els últims 7 dies"
-
-msgid "Discovered Hosts"
-msgstr ""
-
-msgid "Associated Hosts"
-msgstr ""
+msgid "Disable"
+msgstr "Inhabilita"
 
 msgid "Disable rule '%s'?"
 msgstr ""
 
-msgid "Disable"
-msgstr "Inhabilita"
-
-msgid "Enable"
-msgstr "Habilita"
-
-msgid "Enable rule '%s'?"
+msgid "Discovered Hosts"
 msgstr ""
 
-msgid "Delete rule '%s'?"
-msgstr ""
+msgid "Discovered host: %s"
+msgstr "Amfitrions descoberts: %s"
 
-msgid "Must specify a user with email enabled"
+msgid "Discovered hosts"
+msgstr "Amfitrions descoberts"
+
+msgid "Discovered hosts are provisioning now"
+msgstr "Els amfitrions descoberts ara tenen aprovisionament"
+
+msgid "Discovered hosts are rebooting now"
+msgstr "Ara s'estan reiniciant els amfitrions descoberts"
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
 
 msgid "Discovered hosts summary"
 msgstr ""
 
-msgid "can't contain white spaces."
-msgstr ""
-
-msgid "must start with a letter or ERB."
-msgstr ""
-
-msgid "Host group organization %s must also be associated to the discovery rule"
-msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Host group location %s must also be associated to the discovery rule"
-msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Invalid facts, must be a Hash"
-msgstr "Objectes d'interès no vàlids, han de tenir un Hash"
-
-msgid ""
-"Expected discovery_fact '%s' is missing, unable to detect primary interface an"
-"d set hostname"
-msgstr ""
-
-msgid ""
-"Invalid facts: hash does not contain a valid value for any of the facts in the"
-" discovery_hostname setting: %s"
-msgstr ""
-
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr ""
-"No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}"
-": %{error}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
-
-msgid "Invalid hostname: Could not normalize the hostname"
-msgstr ""
-
-msgid "Reloading kernel on %s"
-msgstr "S'està tornant a carregar el kernel a %s"
-
-msgid "Rebooting %s"
-msgstr "S'està reiniciant %s"
-
-msgid "Operating system not set for host/hostgroup"
-msgstr ""
-
-msgid "Medium not set for host/hostgroup"
-msgstr ""
-
-msgid "Kexec template not associated with operating system"
-msgstr ""
-
-msgid "Fact name to use for primary interface detection"
-msgstr ""
-
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr ""
-
-msgid ""
-"Automatically provision newly discovered hosts, according to the provisioning "
-"rules"
-msgstr ""
-
-msgid "Automatically reboot discovered host during provisioning"
-msgstr ""
-
-msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
-
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
-msgid "The default location to place discovered hosts in"
-msgstr ""
-
-msgid "The default organization to place discovered hosts in"
-msgstr ""
-
-msgid "Regex to organize facts for highlights section"
-msgstr ""
-
-msgid "Regex to organize facts for storage section"
-msgstr ""
-
-msgid "Regex to organize facts for software section"
-msgstr ""
-
-msgid "Regex to organize facts for hardware section"
-msgstr ""
-
-msgid "Regex to organize facts for network section"
-msgstr ""
-
-msgid "Regex to organize facts for ipmi section"
-msgstr ""
-
-msgid ""
-"Unable to detect primary interface using MAC '%{mac}' specified by discovery_f"
-"act '%{fact}'"
-msgstr ""
-
-msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
-
-msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
-
-msgid "No discovered hosts available"
-msgstr ""
-
-msgid "Host"
-msgstr "Amfitrió"
-
-msgid "Model"
-msgstr "Model"
-
-msgid "CPUs"
-msgstr "Les CPU"
-
-msgid "Memory"
-msgstr "Memòria"
-
-msgid "Discovered hosts"
-msgstr "Amfitrions descoberts"
-
-msgid "items selected. Uncheck to Clear"
-msgstr "ítems seleccionats. Desmarca per netejar"
-
-msgid "Select all items in this page"
-msgstr "Selecciona tots els ítems en aquesta pàgina"
-
-msgid "Name"
-msgstr "Nom"
-
-msgid "IP Address"
-msgstr "Adreça IP"
-
-msgid "Disk count"
-msgstr "Nombre de discs"
-
-msgid "Disks size"
-msgstr "Mida de disc"
-
-msgid "Location"
-msgstr "Ubicació"
-
-msgid "Organization"
-msgstr "Organització"
-
-msgid "Subnet"
-msgstr "Subxarxa"
-
-msgid "Last facts upload"
-msgstr "Última pujada dels objectes d'interès"
-
-msgid "Delete %s?"
-msgstr "Voleu suprimir %s?"
-
-msgid "Please Confirm"
-msgstr "Si us plau, confirmeu"
-
-msgid "Cancel"
-msgstr "Cancel·la"
-
-msgid "Submit"
-msgstr "Envia"
-
-msgid "Reboot All"
-msgstr "Reinicia-ho tot"
-
-msgid "Auto Provision All"
-msgstr ""
-
-msgid "Warning"
-msgstr "Advertència"
-
-msgid ""
-"This might take a while, as all hosts, facts and reports will be destroyed as "
-"well"
-msgstr ""
-
-msgid "Select location"
-msgstr "Selecciona la ubicació"
-
-msgid "Select organization"
-msgstr "Selecciona l'organització"
-
-msgid "Discovered host: %s"
-msgstr "Amfitrions descoberts: %s"
-
-msgid "Identifier"
-msgstr ""
-
-msgid "MAC address"
-msgstr ""
-
-msgid "IP address"
-msgstr ""
-
-msgid "Summary report for discovered hosts from Foreman"
-msgstr ""
-
-msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr ""
-
-msgid "Summary from %{time} ago to %{now}"
-msgstr ""
-
-msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr ""
-
-msgid "No discovered hosts for the selected period"
-msgstr ""
-
-msgid "Foreman discovered hosts summary"
-msgstr ""
-
-msgid "No new discovered hosts for this period"
-msgstr ""
-
-msgid "Primary"
-msgstr "Primària"
-
-msgid "Locations"
-msgstr "Ubicacions"
-
-msgid "Organizations"
-msgstr "Organitzacions"
-
-msgid "Target host group for this rule with all properties set"
-msgstr ""
-
-msgid "Template"
-msgstr "Plantilla"
-
-msgid ""
-"Specify target hostname template pattern in the same syntax as in Provisioning"
-" Templates (ERB)."
-msgstr ""
-
-msgid ""
-"Domain will be appended automatically. A hostname based on MAC address will be"
-" used when left blank. In addition to @host attribute function rand for random"
-" integers is available. Examples:"
-msgstr ""
-
-msgid ""
-"When creating hostname patterns, make sure the resulting host names are unique"
-". Hostnames must not start with numbers. A good approach is to use unique info"
-"rmation provided by facter (MAC address, BIOS or serial ID)."
-msgstr ""
-
-msgid "Hostname for provisioned hosts"
-msgstr "Nom d'amfitrió per als amfitrions aprovisionats"
-
-msgid "Hosts limit"
-msgstr ""
-
-msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr ""
-
-msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
-
-msgid "Edit Discovery Rule"
-msgstr "Edita la regla de descobriment"
-
 msgid "Discovery Rules"
 msgstr "Regles de descobriment"
 
-msgid "New Rule"
-msgstr "Nova regla"
+msgid "Discovery rules"
+msgstr "Regles de descobriment"
+
+msgid "Discovery widget"
+msgstr "Estri de descobriment"
+
+msgid "DiscoveryRule|Enabled"
+msgstr "Habilitada"
 
 msgid "DiscoveryRule|Name"
 msgstr "Nom"
@@ -581,23 +144,453 @@ msgstr "Prioritat"
 msgid "DiscoveryRule|Query"
 msgstr "Consulta"
 
+msgid "Disk count"
+msgstr "Nombre de discs"
+
+msgid "Disks size"
+msgstr "Mida de disc"
+
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Edit Discovery Rule"
+msgstr "Edita la regla de descobriment"
+
+msgid "Enable"
+msgstr "Habilita"
+
+msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Errors during auto provisioning: %s"
+msgstr "Erros durant l'auto aprovisionament: %s"
+
+msgid "Errors during reboot: %s"
+msgstr "Errors durant el reinici: %s"
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr "Executa les regles contra tots els amfitrions detectats actualment"
+
+msgid "Expand All"
+msgstr "Expandeix-ho tot"
+
+msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr "Els objectes d'interès que s'han refrescat per a %s"
+
+msgid "Failed to auto provision host %s: %s"
+msgstr "No s'ha pogut auto aprovisionar l'amfitrió %s: %s"
+
+msgid "Failed to reboot host %s"
+msgstr "No s'ha pogut reiniciar l'amfitrió %s."
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+msgid "Failed to refresh facts for %s"
+msgstr "No s'ha pogut refrescar els objectes d'interès per a %s"
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+msgid "Hardware"
+msgstr ""
+
+msgid "Highlights"
+msgstr ""
+
+msgid "Host"
+msgstr "Amfitrió"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr "L'amfitrió %{host} va ser aprovisionat amb la regla %{rule}"
+
 msgid "Host group"
 msgstr "Grup d'amfitrions"
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr ""
+
+msgid "Hostname for provisioned hosts"
+msgstr "Nom d'amfitrió per als amfitrions aprovisionats"
+
+msgid "Hosts limit"
+msgstr "Límit d'amfitrions"
 
 msgid "Hosts/limit"
 msgstr "Amfitrions/límit"
 
-msgid "DiscoveryRule|Enabled"
-msgstr "Habilitada"
+msgid "IP Address"
+msgstr "Adreça IP"
+
+msgid "IP address"
+msgstr "Adreça IP"
+
+msgid "IPMI"
+msgstr ""
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Interfaces"
+msgstr ""
+
+msgid "Invalid facts, must be a Hash"
+msgstr "Objectes d'interès no vàlids, han de tenir un Hash"
+
+msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Last facts upload"
+msgstr "Última pujada dels objectes d'interès"
+
+msgid "List all discovered hosts"
+msgstr "Llista tots els amfitrions descoberts"
+
+msgid "List all discovery rules"
+msgstr "Llista totes les regles de descobriment"
+
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
+
+msgid "Location"
+msgstr "Ubicació"
+
+msgid "Locations"
+msgstr "Ubicacions"
+
+msgid "MAC address"
+msgstr "Adreça MAC"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr "Nombre màxim d'amfitrions aprovisionats amb aquesta regla (0 = il·limitat)"
+
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
+msgid "Memory"
+msgstr "Memòria"
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Must specify a user with email enabled"
+msgstr ""
+
+msgid "N/A"
+msgstr "N/D"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Network"
+msgstr ""
 
 msgid "New Discovery Rule"
 msgstr "Nova regla de descobriment"
 
-msgid "A summary of discovered hosts"
+msgid "New Rule"
+msgstr "Nova regla"
+
+msgid "New in the last 24 hours"
+msgstr "Nou en les últimes 24 hores"
+
+msgid "No discovered hosts available"
 msgstr ""
 
-msgid "Discovery rules"
+msgid "No discovered hosts for the selected period"
 msgstr ""
 
-msgid "Discovery widget"
+msgid "No discovered hosts to provision"
+msgstr "Sense amfitrions descoberts per aprovisionar"
+
+msgid "No discovered hosts to reboot"
 msgstr ""
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "Cap amfitrió seleccionat"
+
+msgid "No hosts were found with that id or name"
+msgstr "No s'ha trobat cap amfitrió amb aquest id. o nom"
+
+msgid "No new discovered hosts for this period"
+msgstr ""
+
+msgid "No rule found for host %s"
+msgstr "No s'ha trobat cap regla per a l'amfitrió %s"
+
+msgid "Not reported in more than 7 days"
+msgstr "No es va informar en més de 7 dies"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
+msgid "Organization"
+msgstr "Organització"
+
+msgid "Organizations"
+msgstr "Organitzacions"
+
+msgid "Please Confirm"
+msgstr "Si us plau, confirmeu"
+
+msgid "Primary"
+msgstr "Primària"
+
+msgid "Provision"
+msgstr "Aprovisiona"
+
+msgid "Provision a discovered host"
+msgstr "Aprovisiona un amfitrió descobert"
+
+msgid "Reboot"
+msgstr "Reinicia"
+
+msgid "Reboot All"
+msgstr "Reinicia-ho tot"
+
+msgid "Rebooting %s"
+msgstr "S'està reiniciant %s"
+
+msgid "Rebooting a discovered host"
+msgstr "S'està reiniciant un amfitrió descobert"
+
+msgid "Rebooting all discovered hosts"
+msgstr "S'estan reiniciant tots els amfitrions descoberts"
+
+msgid "Rebooting host %s"
+msgstr "S'està reiniciant l'amfitrió %s"
+
+msgid "Refresh facts"
+msgstr "Refresca els objectes d'interès"
+
+msgid "Refreshing the facts of a discovered host"
+msgstr "S'estan refrescant els objectes d'interès d'un amfitrió descobert"
+
+msgid "Regex to organize facts for hardware section"
+msgstr "Expressió regular per a organitzar els objectes d'interès per a la secció de programari"
+
+msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr "Expressió regular per a organitzar els objectes d'interès per a la secció ipmi"
+
+msgid "Regex to organize facts for network section"
+msgstr "Expressió regular per a organitzar els objectes d'interès per a la secció de xarxa"
+
+msgid "Regex to organize facts for software section"
+msgstr "Expressió regular per a organitzar els objectes d'interès per a la secció de programari"
+
+msgid "Regex to organize facts for storage section"
+msgstr "Expressió regular per a organitzar els objectes d'interès per a la secció d'emmagatzematge"
+
+msgid "Reloading kernel on %s"
+msgstr "S'està tornant a carregar el kernel a %s"
+
+msgid "Reported in the last 7 days"
+msgstr "Es va informar en els últims 7 dies"
+
+msgid "Rule disabled"
+msgstr "Regla inhabilitada"
+
+msgid "Rule enabled"
+msgstr "Regla habilitada"
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
+
+msgid "Select Action"
+msgstr "Selecciona l'acció"
+
+msgid "Select all items in this page"
+msgstr "Selecciona tots els ítems en aquesta pàgina"
+
+msgid "Select location"
+msgstr "Selecciona la ubicació"
+
+msgid "Select organization"
+msgstr "Selecciona l'organització"
+
+msgid "Show a discovered host"
+msgstr "Mostra un amfitrió descobert"
+
+msgid "Show a discovery rule"
+msgstr "Mostra una regla de descobriment"
+
+msgid "Software"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "Alguna cosa va anar malament mentre se seleccionaven els amfitrions - %s"
+
+msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
+msgstr ""
+
+msgid "Storage"
+msgstr ""
+
+msgid "Submit"
+msgstr "Envia"
+
+msgid "Subnet"
+msgstr "Subxarxa"
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "Template"
+msgstr "Plantilla"
+
+msgid "The default location to place discovered hosts in"
+msgstr ""
+
+msgid "The default organization to place discovered hosts in"
+msgstr ""
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
+
+msgid "The following hosts were not deleted: %s"
+msgstr ""
+
+msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgstr ""
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Unable to assign subnet, primary interface is missing IP address"
+msgstr ""
+
+msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgstr "No es pot realitzar kexec a %{name} a través de %{url}: %{msg}"
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr "No es pot aprovisionar a %{host}: %{errors}"
+
+msgid "Unable to reboot %{name} via %{url}: %{msg}"
+msgstr "No es pot reiniciar %{name} a través de %{url}: %{msg}"
+
+msgid "Update a rule"
+msgstr "Actualitza una regla"
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr "Puja els objectes d'interès per a un amfitrió, creant el nou amfitrió si fos necessari"
+
+msgid "Warning"
+msgstr "Advertència"
+
+msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr "no pot contenir espais en blanc."
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr "permet la limitació del nombre total màxim dels amfitrions aprovisionats per cada regla"
+
+msgid "filter results"
+msgstr "filtra els resultats"
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "ítems seleccionats. Desmarca per netejar"
+
+msgid "must start with a letter or ERB."
+msgstr "ha de començar amb una lletra o ERB."
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr "no es requereix si s'està utilitzant una subxarxa amb servidor intermediari de DHCP"
+
+msgid "number of entries per request"
+msgstr "Nombre d'entrades per petició"
+
+msgid "paginate results"
+msgstr "pagina els resultats"
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr "representa el nom de la regla que es mostra als usuaris"
+
+msgid "required if value is not inherited from host group or default password in settings"
+msgstr ""
+
+msgid "sort results"
+msgstr "ordena els resultats"
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr "el grup d'amfitrions que s'utilitza per a l'auto aprovisionament d'un amfitrió"
