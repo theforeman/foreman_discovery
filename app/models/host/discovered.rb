@@ -76,7 +76,7 @@ class Host::Discovered < ::Host::Base
     super
   end
 
-  def populate_fields_from_facts(facts = self.facts_hash, ignored_type)
+  def populate_fields_from_facts(facts = self.facts_hash, ignored_type = nil)
     # detect interfaces and primary interface using extensions
     parser = super(facts, :foreman_discovery)
 
