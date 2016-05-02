@@ -77,7 +77,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
 
   test "first rule out of two with different priorities is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 2, :search => "facts.somefact = abc",
@@ -87,7 +87,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
 
   test "second rule out of two with different priorities is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 2, :search => "facts.somefact = abc",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 1, :search => "facts.somefact = abc",
@@ -97,7 +97,7 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
 
   test "older rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host_and_facts(facts).first
+    host = Host::Discovered.import_host(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",

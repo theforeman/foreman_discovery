@@ -10,6 +10,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   setup do
+    SETTINGS[:organizations_enabled] = true
+    SETTINGS[:locations_enabled] = true
     User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
@@ -37,6 +39,14 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_organization',
+                       :value => Organization.first.name,
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_location',
+                       :value => Location.first.name,
+                       :category => 'Setting::Discovered')
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 
@@ -46,18 +56,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_show_host
-    SETTINGS[:organizations_enabled] = true
-    SETTINGS[:locations_enabled] = true
     FactoryGirl.create(:organization, :name => 'SomeOrg')
     FactoryGirl.create(:location, :name => 'SomeLoc')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_organization',
-                       :value => 'SomeOrg',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_location',
-                       :value => 'SomeLoc',
-                       :category => 'Setting::Discovered')
     host = Host::Discovered.import_host(@facts)
     get :show, { :id => host.id }
     assert_response :success
@@ -66,8 +66,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal 42001, show_response["memory"]
     assert_equal 0, show_response["disk_count"]
     assert_equal 0, show_response["disks_size"]
-    assert_equal 'SomeOrg', show_response["organization_name"]
-    assert_equal 'SomeLoc', show_response["location_name"]
+    assert_equal Setting[:discovery_organization], show_response["organization_name"]
+    assert_equal Setting[:discovery_location], show_response["location_name"]
   end
 
   def test_delete_discovered_host

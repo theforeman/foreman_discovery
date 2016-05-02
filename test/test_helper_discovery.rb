@@ -12,7 +12,7 @@ def set_session_user_with_perms perms
   user = FactoryGirl.create :user, :with_mail, :admin => false
   user.roles << role
   user.save!
-  SETTINGS[:login] ? {:user => user, :expires_at => 5.minutes.from_now} : {}
+  SETTINGS[:login] ? {:user => user.id, :expires_at => 5.minutes.from_now} : {}
 end
 
 def set_session_user_default_reader
