@@ -29,7 +29,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should setup subnet" do
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet, :organizations => [Organization.first], :locations => [Location.first])
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '192.168.99.0', :ipam => Subnet::IPAM_MODES[:db], :organizations => [Organization.first], :locations => [Location.first])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = Host::Discovered.import_host(raw['facts'])
     assert_equal subnet, host.primary_interface.subnet
@@ -47,7 +47,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                        :value => loc.name,
                        :category => 'Setting::Discovered')
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet, :organizations => [org], :locations => [loc])
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '192.168.99.0', :ipam => Subnet::IPAM_MODES[:db], :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = Host::Discovered.import_host(raw['facts'])
     assert_equal subnet, host.primary_interface.subnet
@@ -174,7 +174,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       'delete_me' => "content",
       'discovery_dont_delete_me' => "content",
       })
-    host = Host::Discovered.import_host_and_facts(raw).first
+    host = Host::Discovered.import_host(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
     managed.clear_facts

@@ -21,4 +21,4 @@
   <%= _('No new discovered hosts for this period') %>
 <% end %>
 
-<%= discovered_hosts_path(:host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme, :search => @query) %>
+<%= discovered_hosts_url(:host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme, :search => @query) %>

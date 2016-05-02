@@ -48,7 +48,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_show_page_categories
-    host = Host::Discovered.import_host_and_facts(@facts).first
+    host = Host::Discovered.import_host(@facts)
     get :show, {:id => host.id}, set_session_user_default_reader
     assert_select "#category-highlights" do
       assert_select "#fact-ipaddress" do
@@ -77,8 +77,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_add_entry_to_nav_menu
     get :index, {}, set_session_user
-    assert_tag :tag        => 'a',
-               :attributes => { :href => '/discovered_hosts' }
+    assert_select "a[href=?]", "/discovered_hosts"
   end
 
   def test_reboot_success

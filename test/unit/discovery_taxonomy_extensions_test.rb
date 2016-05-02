@@ -16,7 +16,7 @@ class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
     location = FactoryGirl.create(:location)
 
     raw = parse_json_fixture('/facts.json')
-    assert (host = Host::Discovered.import_host_and_facts(raw['facts']).first)
+    assert (host = Host::Discovered.import_host(raw['facts']))
     host.location = location
     assert host.save
 

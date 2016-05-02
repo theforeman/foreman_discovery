@@ -6,7 +6,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
 
   test "should add a link to navigation" do
     get :index, {}, set_session_user
-    assert_tag :tag => 'a', :attributes => {:href => '/discovery_rules'}
+    assert_select "a[href=?]", "/discovery_rules"
   end
 
   test "reader role should get index" do
