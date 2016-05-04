@@ -134,6 +134,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision, { :id => host.id }
     assert_match host.name, @response.body
     assert_response :success
+  ensure
+    SETTINGS[:organizations_enabled] = true
   end
 
   def test_auto_provision_success_and_delete
