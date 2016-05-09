@@ -183,8 +183,6 @@ module ForemanDiscovery
 
       # Include helper for dashboard
       ::DashboardHelper.send(:include, DiscoveredHostsHelper)
-
-      ::SettingsHelper.send :include, ForemanDiscovery::SettingsHelperExtensions
     end
 
     rake_tasks do
