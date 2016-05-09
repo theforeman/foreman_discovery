@@ -16,50 +16,37 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
-        self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif"),
-        self.set('discovery_hostname', N_("List of facts to use for the hostname (separated by comma, first wins)"), "discovery_bootif"),
-        self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false),
-        self.set('discovery_reboot', N_("Automatically reboot discovered host during provisioning"), true),
-      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-    end
-
-    Setting.transaction do
-      [
-        self.set('discovery_prefix', N_("The default prefix to use for the host name, must start with a letter"), "mac"),
-      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-    end
-
-    Setting.transaction do
-      [
-        self.set('discovery_fact_column', N_("Extra facter columns to show in host lists (separate by comma)"), ""),
+        self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif", N_("Interface fact")),
+        self.set('discovery_hostname', N_("List of facts to use for the hostname (separated by comma, first wins)"), "discovery_bootif", N_("Hostname facts")),
+        self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false, N_("Auto provisioning")),
+        self.set('discovery_reboot', N_("Automatically reboot or kexec discovered host during provisioning"), true, N_("Reboot")),
+        self.set('discovery_prefix', N_("The default prefix to use for the host name, must start with a letter"), "mac", N_("Hostname prefix")),
+        self.set('discovery_fact_column', N_("Extra facter columns to show in host lists (separate by comma)"), "", N_("Fact columns")),
+        self.set('discovery_facts_highlights', N_("Regex to organize facts for highlights section - e.g. ^(abc|cde)$"), "", N_("Highlighted facts")),
+        self.set('discovery_facts_storage', N_("Regex to organize facts for storage section"), "", N_("Storage facts")),
+        self.set('discovery_facts_software', N_("Regex to organize facts for software section"), "", N_("Software facts")),
+        self.set('discovery_facts_hardware', N_("Regex to organize facts for hardware section"), "", N_("Hardware facts")),
+        self.set('discovery_facts_network', N_("Regex to organize facts for network section"), "", N_("Network facts")),
+        self.set('discovery_facts_ipmi', N_("Regex to organize facts for ipmi section"), "", N_("IPMI facts")),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_location', N_("The default location to place discovered hosts in"), ""),
-        ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-      end
-    end
-    if SETTINGS[:organizations_enabled]
-      Setting.transaction do
-        [
-          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "" ),
+          self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}] }),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end
 
-    Setting.transaction do
-      [
-          self.set('discovery_facts_highlights', N_("Regex to organize facts for highlights section - e.g. ^(abc|cde)$"), ""),
-          self.set('discovery_facts_storage', N_("Regex to organize facts for storage section"), ""),
-          self.set('discovery_facts_software', N_("Regex to organize facts for software section"), ""),
-          self.set('discovery_facts_hardware', N_("Regex to organize facts for hardware section"), ""),
-          self.set('discovery_facts_network', N_("Regex to organize facts for network section"), ""),
-          self.set('discovery_facts_ipmi', N_("Regex to organize facts for ipmi section"), ""),
-      ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+    if SETTINGS[:organizations_enabled]
+      Setting.transaction do
+        [
+          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Hash[Organization.all.map{|org| [org[:title], org[:title]]}] }),
+        ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
+      end
     end
+
     true
   end
 
