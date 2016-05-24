@@ -37,8 +37,8 @@ information about semantics.
   "initram": "<%= @initrd %>",
 <% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} #{append}" %>"
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset #{append}" %>"
 <% else -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} #{append}" %>"
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} nomodeset #{append}" %>"
 <% end -%>
 }
