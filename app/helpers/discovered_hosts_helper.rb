@@ -75,4 +75,28 @@ module DiscoveredHostsHelper
     "<span class='glyphicon #{status_glyph}' style='color: #{status_color}'
       title='#{status_message}'/>".html_safe
   end
+
+  def host_taxonomy_select(f, taxonomy)
+    # Add hidden field with taxonomy value to be updated by the form on submit
+    tax_html = super
+    tax_id = "#{taxonomy.to_s.downcase}_id"
+    selected_taxonomy = params[:host][tax_id]
+    if @override_taxonomy && selected_taxonomy
+      hidden_tax = f.hidden_field tax_id.to_sym, :value => selected_taxonomy
+      tax_html += hidden_tax
+    end
+    tax_html
+  end
+
+  def provision_button(host, authorization_options)
+    return '' unless authorized_for(authorization_options)
+
+    button_tag(
+      _('Provision'),
+      :type => :button,
+      :class => 'btn btn-sm btn-default',
+      :data => {
+        :toggle => 'modal',
+        :target => "#fixedPropertiesSelector-#{host.id}"})
+  end
 end

@@ -75,6 +75,42 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_not_nil host.cpu_count
   end
 
+  def test_edit_form_quick_submit
+    disable_taxonomies do
+      host = Host::Discovered.import_host(@facts)
+      domain = FactoryGirl.create(:domain)
+      hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+      get :edit, {
+        :id => host.id,
+        :quick_submit => true,
+        :host => {
+          :hostgroup_id => hostgroup.id
+        } }, set_session_user_default_manager
+
+      actual_host = Host.find(host.id)
+      assert_redirected_to host_url(actual_host)
+      assert_equal hostgroup.id, actual_host.hostgroup_id
+      assert_match /Successfully/, flash[:notice]
+    end
+  end
+
+  def test_edit_form_submit_parameters
+    disable_taxonomies do
+      host = Host::Discovered.import_host(@facts)
+      domain = FactoryGirl.create(:domain)
+      hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+      get :edit, {
+        :id => host.id,
+        :host => {
+          :hostgroup_id => hostgroup.id
+        } }, set_session_user_default_manager
+
+      assert_select '#host_operatingsystem_id [selected]' do |elements|
+        assert_equal hostgroup.operatingsystem.id.to_s, elements.first[:value]
+      end
+    end
+  end
+
   def test_add_entry_to_nav_menu
     get :index, {}, set_session_user
     assert_select "a[href=?]", "/discovered_hosts"
