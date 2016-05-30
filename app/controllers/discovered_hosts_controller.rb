@@ -50,20 +50,36 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
-    render :template => 'hosts/edit'
+    @host.attributes = @host.apply_inherited_attributes(params[:host]) unless params[:host].empty?
+    @host.set_hostgroup_defaults
+    setup_host_class_variables(@host)
+    @override_taxonomy = true
+    if params[:quick_submit]
+      perform_update(@host, _('Successfully provisioned %s') % @host.name)
+    else
+      render :template => 'hosts/edit'
+    end
   end
 
   def update
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
     forward_url_options
+    @host.attributes = params[:host]
+
+    perform_update(@host)
+  end
+
+  def perform_update(host, success_message = nil)
     Taxonomy.no_taxonomy_scope do
-      if @host.update_attributes(params[:host])
-        process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
+      if host.save
+        success_options = { :success_redirect => host_path(host), :redirect_xhr => request.xhr? }
+        success_options[:success_msg] = success_message if success_message
+        process_success success_options
       else
         taxonomy_scope
         load_vars_for_ajax
         offer_to_overwrite_conflicts
-        process_error :object => @host, :render => 'hosts/edit'
+        process_error :object => host, :render => 'hosts/edit'
       end
     end
   end
@@ -183,6 +199,18 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   private
+
+  def setup_host_class_variables(host)
+    if host.hostgroup
+      @architecture    = host.hostgroup.architecture
+      @operatingsystem = host.hostgroup.operatingsystem
+      @environment     = host.hostgroup.environment
+      @domain          = host.hostgroup.domain
+      @subnet          = host.hostgroup.subnet
+      @compute_profile = host.hostgroup.compute_profile
+      @realm           = host.hostgroup.realm
+    end
+  end
 
   def init_regex_and_categories
     hightlights = Setting[:discovery_facts_highlights].empty? ? /^(productname|memorysize|manufacturer|architecture|macaddress$|processorcount|physicalprocessorcount|discovery_subnet|discovery_boot|ipaddress$)/ : Regexp.new(Setting[:discovery_facts_highlights])
