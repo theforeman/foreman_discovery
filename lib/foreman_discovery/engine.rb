@@ -114,13 +114,6 @@ module ForemanDiscovery
     end
 
     initializer "foreman_discovery.apipie" do
-      # this condition is here for compatibility reason to work with Foreman 1.4.x
-      # Also need to handle the reverse of the 1.8 method above
-      unless (SETTINGS[:version].to_s.include?('develop') or Gem::Version.new(SETTINGS[:version]) >= Gem::Version.new('1.8'))
-        if Apipie.configuration.api_controllers_matcher.is_a?(Array)
-          Apipie.configuration.api_controllers_matcher << "#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"
-        end
-      end
       if Apipie.configuration.respond_to?(:checksum_path)
         Apipie.configuration.checksum_path += ['/discovered_hosts/']
       end
