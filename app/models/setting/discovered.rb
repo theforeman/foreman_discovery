@@ -36,7 +36,7 @@ class Setting::Discovered < ::Setting
     if SETTINGS[:locations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}] }),
+          self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Proc.new {Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}]} }),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end
@@ -44,7 +44,7 @@ class Setting::Discovered < ::Setting
     if SETTINGS[:organizations_enabled]
       Setting.transaction do
         [
-          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Hash[Organization.all.map{|org| [org[:title], org[:title]]}] }),
+          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Proc.new {Hash[Organization.all.map{|org| [org[:title], org[:title]]}]} }),
         ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
       end
     end
