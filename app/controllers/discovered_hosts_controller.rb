@@ -50,6 +50,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
+    @force_inherited_params = true
     render :template => 'hosts/edit'
   end
 
@@ -57,7 +58,7 @@ class DiscoveredHostsController < ::ApplicationController
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
     forward_url_options
     Taxonomy.no_taxonomy_scope do
-      if @host.update_attributes(params[:host])
+      if @host.update_attributes(@host.apply_inherited_attributes(params[:host]))
         process_success :success_redirect => host_path(@host), :redirect_xhr => request.xhr?
       else
         taxonomy_scope
