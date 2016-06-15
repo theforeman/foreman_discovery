@@ -253,10 +253,12 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def find_by_name(*includes)
-    params[:id].downcase! if params[:id].present?
-    @host = includes.empty? ? resource_base.find_by_id(params[:id]) : resource_base.includes(includes).find_by_id(params[:id])
-    @host ||= includes.empty? ? resource_base.find_by_name(params[:id]) : resource_base.includes(includes).find_by_name(params[:id])
-    return false unless @host
+    not_found and return false if (id = params[:id]).blank?
+    id.downcase!
+    @host = includes.empty? ? resource_base.find_by_id(id) : resource_base.includes(includes).find_by_id(id)
+    @host ||= includes.empty? ? resource_base.find_by_name(id) : resource_base.includes(includes).find_by_name(id)
+    not_found and return(false) unless @host
+    @host
   end
 
   def find_by_name_incl_subnet

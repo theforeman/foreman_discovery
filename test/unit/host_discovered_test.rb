@@ -144,6 +144,15 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal 'e41f13cc3658',host.name
   end
 
+  test "should refresh existing discovered" do
+    raw = parse_json_fixture('/facts.json')
+    interface = mock()
+    interface.stubs(:host).returns(Host.create(:name => "xyz", :type => "Host::Discovered"))
+    ::Nic::Managed.stubs(:where).with(:mac => raw['facts']['discovery_bootif'].downcase, :primary => true).returns([interface])
+    host = Host::Discovered.import_host(raw['facts'])
+    assert_equal 'xyz', host.name
+  end
+
   test "should raise when hostname fact cannot be found" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_hostname] = 'macaddress_foo'
