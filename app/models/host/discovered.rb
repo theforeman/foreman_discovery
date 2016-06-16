@@ -48,9 +48,15 @@ class Host::Discovered < ::Host::Base
     hostname = normalize_string_for_hostname("#{hostname_prefix}#{name_fact}")
     Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match /^[a-z]/
 
-    # create new host record
-    host = ::Host::Discovered.includes(:interfaces).find_by_name hostname
-    host ||= Host.new :name => hostname, :type => "Host::Discovered"
+    # find existing or create new host record
+    bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
+    hosts = ::Nic::Managed.where(:mac => bootif_mac, :primary => true)
+    if hosts.size == 0
+      host = Host.new(:name => hostname, :type => "Host::Discovered")
+    else
+      Rails.logger.warn "Multiple discovered hosts found with MAC address #{name_fact}, choosing one" if hosts.size > 1
+      host = hosts.first.host
+    end
     host.type = "Host::Discovered"
 
     # and save (interfaces are created via puppet parser extension)
