@@ -170,6 +170,19 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     assert_equal host.name, "macaabbccddeeff"
   end
 
+  test "attributes from hostgroup are copied after auto provisioning" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host(facts)
+    domain = FactoryGirl.create(:domain)
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [host.organization], :locations => [host.location])
+    hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_os, :subnet => subnet, :domain => domain)
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
+                            :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    assert managed_host = perform_auto_provision(host, r1)
+    assert_empty managed_host.errors
+    assert_equal hostgroup.environment, managed_host.environment
+  end
+
   def setup_normal_renderer
     Setting[:safemode_render] = false
     @facts.merge!({"somefact" => "abc"})
