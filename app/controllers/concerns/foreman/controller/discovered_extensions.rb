@@ -54,8 +54,11 @@ module Foreman::Controller::DiscoveredExtensions
     host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
     # fallback to the original if template did not expand
     host.name = original_name if host.name.empty?
+    # explicitly set all inheritable attributes from hostgroup
+    host.attributes = host.apply_inherited_attributes(hostgroup_id: rule.hostgroup_id)
+    host.set_hostgroup_defaults
     # save! does not work here
-    host.save
+    host.save ? host : false
   end
 
   def perform_reboot_all hosts = Host::Discovered.all
