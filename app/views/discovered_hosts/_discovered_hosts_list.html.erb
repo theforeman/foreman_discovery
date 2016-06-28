@@ -48,7 +48,7 @@
                 <h4 class="modal-title" id="fixedPropertiesSelectorLabel"><%= _('Select initial host properties') %></h4>
               </div>
               <div class="modal-body">
-                  <%= select_f f, :hostgroup_id, accessible_hostgroups, :id, :to_label,
+                  <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label,
                     { :include_blank => true },
                     { :help_inline => :indicator, :size => 'col-md-10' } %>
 
