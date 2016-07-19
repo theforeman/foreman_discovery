@@ -95,19 +95,16 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_edit_form_submit_parameters
-    disable_taxonomies do
-      host = Host::Discovered.import_host(@facts)
-      domain = FactoryGirl.create(:domain)
-      hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
-      get :edit, {
-        :id => host.id,
-        :host => {
-          :hostgroup_id => hostgroup.id
-        } }, set_session_user_default_manager
-
-      assert_select '#host_operatingsystem_id [selected]' do |elements|
-        assert_equal hostgroup.operatingsystem.id.to_s, elements.first[:value]
-      end
+    host = Host::Discovered.import_host(@facts)
+    domain = FactoryGirl.create(:domain)
+    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+    get :edit, {
+      :id => host.id,
+      :host => {
+        :hostgroup_id => hostgroup.id
+      } }, set_session_user_default_manager
+    assert_select '#host_operatingsystem_id [selected]' do |elements|
+      assert_equal hostgroup.operatingsystem.id.to_s, elements.first[:value]
     end
   end
 

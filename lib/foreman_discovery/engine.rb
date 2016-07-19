@@ -26,10 +26,6 @@ module ForemanDiscovery
       end
     end
 
-    initializer 'foreman_discovery.helper' do |app|
-      ActionView::Base.send :include, DiscoveredHostsHelper
-    end
-
     initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
       locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
       locale_domain = 'foreman_discovery'
@@ -107,6 +103,7 @@ module ForemanDiscovery
           :view_organizations,
           :view_locations,
           :view_hosts,
+          :view_operatingsystems,
           # discovered_hosts
           :view_discovered_hosts,
           # discovered_rules
@@ -180,9 +177,6 @@ module ForemanDiscovery
 
       # Include subnet extensions
       ::Subnet.send :include, DiscoverySubnet
-
-      # Include helper for dashboard
-      ::DashboardHelper.send(:include, DiscoveredHostsHelper)
     end
 
     rake_tasks do
