@@ -1,5 +1,4 @@
 module DiscoveredHostsHelper
-
   def attach_flags(interface)
     flags = ""
     flags += "flag-primary " if interface[:primary]
