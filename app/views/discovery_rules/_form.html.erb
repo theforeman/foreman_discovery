@@ -22,25 +22,8 @@
                          { :help_inline => _('Target host group for this rule with all properties set') } %>
             <%= text_f f, :hostname, :help_inline => popover(
                                 _("Template"),
-                                "<div>" +
-                                        _("Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB).") +
-                                        "</div>"+
-                                        "<div>" +
-                                        _("Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:") +
-                                        "</div>"+
-                                        "<pre>"+
-                                        "myhost-&lt;%= rand(99999) %&gt;" + "\n\n" +
-                                        "abc-&lt;%= @host.facts['bios_vendor'] + " + "\n" +
-                                        " '-' + rand(99999) %&gt;" + "\n\n" +
-                                        "xyz-&lt;%= @host.hostgroup.name %&gt;" + "\n\n" +
-                                        "srv-&lt;%= @host.discovery_rule.name %&gt;" + "\n\n" +
-                                        "server-&lt;%= @host.ip.gsub('.','-') + " + "\n" +
-                                        " '-' + @host.hostgroup.subnet.name %&gt;" + "\n" +
-                                        "</pre>"+
-                                        "</div>"+
-                                        "<div>"+
-                                        _("When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).") +
-                                        "</div>", :title => _("Hostname for provisioned hosts")).html_safe %>
+                                render('discovery_rules/template_inline'),
+                                :title => _("Hostname for provisioned hosts"), :'data-placement' => 'bottom').html_safe %>
             <%= text_f f, :max_count, :label => _('Hosts limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)') %>
             <%= text_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)') %>
             <%= checkbox_f f, :enabled %>
