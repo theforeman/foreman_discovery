@@ -103,7 +103,6 @@ module ForemanDiscovery
           :view_organizations,
           :view_locations,
           :view_hosts,
-          :view_operatingsystems,
           # discovered_hosts
           :view_discovered_hosts,
           # discovered_rules
@@ -111,8 +110,23 @@ module ForemanDiscovery
         ]
         MANAGER = READER + [
           # core permissions
+          :create_hosts,
+          :build_hosts,
           :assign_organizations,
           :assign_locations,
+          :view_architectures,
+          :view_domains,
+          :view_environments,
+          :view_hostgroups,
+          :view_media,
+          :view_models,
+          :view_operatingsystems,
+          :view_provisioning_templates,
+          :view_ptables,
+          :view_puppetclasses,
+          :view_realms,
+          :view_smart_proxies,
+          :view_subnets,
           # discovered_hosts
           :submit_discovered_hosts,
           :provision_discovered_hosts,

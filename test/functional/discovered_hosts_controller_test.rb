@@ -98,13 +98,42 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = Host::Discovered.import_host(@facts)
     domain = FactoryGirl.create(:domain)
     hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+    hostgroup.medium.organizations << host.organization
+    hostgroup.medium.locations << host.location
+    hostgroup.ptable.organizations << host.organization
+    hostgroup.ptable.locations << host.location
+    hostgroup.domain.organizations << host.organization
+    hostgroup.domain.locations << host.location
+    hostgroup.subnet.organizations << host.organization
+    hostgroup.subnet.locations << host.location
+    domain.subnets << hostgroup.subnet
     get :edit, {
       :id => host.id,
       :host => {
         :hostgroup_id => hostgroup.id
       } }, set_session_user_default_manager
-    assert_select '#host_operatingsystem_id [selected]' do |elements|
-      assert_equal hostgroup.operatingsystem.id.to_s, elements.first[:value]
+    # all inherit buttons are pressed
+    assert_select('button[name=is_overridden_btn]') do |e|
+      e.attribute("class") =~ /active/
+    end
+    # particular fields are set
+    assert_select '#host_hostgroup_id [selected]' do |e|
+      assert_equal hostgroup.id.to_s, e.first[:value]
+    end
+    assert_select '#host_architecture_id [selected]' do |e|
+      assert_equal hostgroup.architecture_id.to_s, e.first[:value]
+    end
+    assert_select '#host_operatingsystem_id [selected]' do |e|
+      assert_equal hostgroup.operatingsystem_id.to_s, e.first[:value]
+    end
+    assert_select '#host_medium_id [selected]' do |e|
+      assert_equal hostgroup.medium_id.to_s, e.first[:value]
+    end
+    assert_select '#host_ptable_id [selected]' do |e|
+      assert_equal hostgroup.ptable_id.to_s, e.first[:value]
+    end
+    assert_select '#host_interfaces_attributes_0_domain_id [selected]' do |e|
+      assert_equal hostgroup.domain_id.to_s, e.first[:value]
     end
   end
 
