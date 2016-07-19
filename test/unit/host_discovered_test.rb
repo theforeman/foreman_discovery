@@ -22,6 +22,10 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                        :name => 'discovery_lock_template',
                        :value => 'pxelinux_discovery',
                        :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_clean_facts',
+                       :value => false,
+                       :category => 'Setting::Discovered')
   end
 
   test "should be able to create Host::Discovered objects" do
@@ -208,6 +212,21 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     h = ::ForemanDiscovery::HostConverter.to_managed(host)
     refute_valid h
     assert Token.where(:host_id => h.id).empty?
+  end
+
+  test "discovery facts are deleted after provisioning when set by user" do
+    Setting[:discovery_clean_facts] = true
+    raw = parse_json_fixture('/facts.json')['facts']
+    raw.merge!({
+      'delete_me' => "content",
+      'discovery_delete_me_as_well' => "content",
+      })
+    host = Host::Discovered.import_host(raw)
+    host.save
+    managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+    managed.clear_facts
+    assert_nil managed.facts_hash['delete_me']
+    assert_nil managed.facts_hash['discovery_delete_me_as_well']
   end
 
   test "discovery facts are preserved after provisioning" do
