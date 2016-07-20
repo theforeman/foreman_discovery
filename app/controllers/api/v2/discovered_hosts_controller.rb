@@ -1,6 +1,7 @@
 module Api
   module V2
     class DiscoveredHostsController < ::Api::V2::BaseController
+      include Foreman::Controller::Parameters::DiscoveredHost
       include Foreman::Controller::DiscoveredExtensions
 
       before_filter :find_resource, :except => %w{index create facts auto_provision_all reboot_all}
@@ -40,7 +41,7 @@ module Api
       param_group :discovered_host, :as => :create
 
       def create
-        @discovered_host = Host::Discovered.new(params[:discovered_host])
+        @discovered_host = Host::Discovered.new(discovered_host_params)
         process_response @discovered_host.save
       end
 
@@ -78,7 +79,7 @@ module Api
       def update
         @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host)
         forward_request_url
-        update_response = @host.update_attributes(params[:discovered_host])
+        update_response = @host.update_attributes(discovered_host_params)
         process_response update_response
       end
 
@@ -93,15 +94,16 @@ module Api
       param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)")
 
       def facts
+        facts = params['facts']
         state = true
-        @discovered_host = Host::Discovered.import_host(params[:facts])
+        @discovered_host = Host::Discovered.import_host(facts)
         Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning" unless @discovered_host
         if Setting['discovery_auto'] && @discovered_host && rule = find_discovery_rule(@discovered_host)
           state = perform_auto_provision(@discovered_host, rule)
         end
         process_response state
       rescue Exception => e
-        logger.warn "Host discovery failed, facts: #{params[:facts]}"
+        logger.warn "Host discovery failed, facts: #{facts}"
         logger.debug e.message + "\n" + e.backtrace.join("\n")
         render :json => {'message'=>e.to_s}, :status => :unprocessable_entity
       end
