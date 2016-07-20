@@ -95,8 +95,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     end
   end
 
-  def test_edit_form_submit_parameters
-    host = Host::Discovered.import_host(@facts)
+  def setup_hostgroup(host)
     domain = FactoryGirl.create(:domain)
     hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
     hostgroup.medium.organizations << host.organization
@@ -108,6 +107,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup.subnet.organizations << host.organization
     hostgroup.subnet.locations << host.location
     domain.subnets << hostgroup.subnet
+    hostgroup
+  end
+
+  def test_edit_form_submit_parameters
+    host = Host::Discovered.import_host(@facts)
+    hostgroup = setup_hostgroup(host)
     get :edit, {
       :id => host.id,
       :host => {
@@ -190,10 +195,14 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = Host::Discovered.import_host(facts)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    hostgroup = setup_hostgroup(host)
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
+    assert_match /^Host macaabbccddeeff.* was provisioned/, flash[:notice]
+    managed_host = Host.find(host.id)
+    assert managed_host.build
   end
 
   def test_auto_provision_no_rule_success
@@ -203,6 +212,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision, { :id => host.id }, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
+    assert_equal "No rule found for host macaabbccddeeff", flash[:notice]
   end
 
   def test_auto_provision_all_success
@@ -213,6 +223,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
+    assert_equal "Discovered hosts are provisioning now", flash[:notice]
   end
 
   def test_auto_provision_all_no_rule_success
@@ -223,6 +234,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
+    assert_equal "Discovered hosts are provisioning now", flash[:notice]
   end
 
   def test_reboot_all_success
@@ -232,6 +244,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post "reboot", { :id => host.id }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Rebooting host #{host.name}", flash[:notice]
+    assert_nil flash[:error]
+    assert_equal "Rebooting host macaabbccddeeff", flash[:notice]
   end
 
   def test_reboot_all_failure
@@ -241,6 +255,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post "reboot_all", { }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
+    assert_nil flash[:notice]
   end
 
   def test_reboot_all_error
@@ -250,6 +265,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post "reboot_all", { }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF50-4973/, flash[:error])
+    assert_nil flash[:notice]
   end
 
   private

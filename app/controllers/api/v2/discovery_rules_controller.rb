@@ -1,6 +1,7 @@
 module Api
   module V2
     class DiscoveryRulesController < ::Api::V2::BaseController
+      include Foreman::Controller::Parameters::DiscoveryRule
 
       before_filter :find_resource, :except => %w{index create facts}
 
@@ -43,7 +44,7 @@ module Api
       param_group :discovery_rule, :as => :create
 
       def create
-        @discovery_rule = DiscoveryRule.new(params[:discovery_rule])
+        @discovery_rule = DiscoveryRule.new(discovery_rule_params)
         process_response @discovery_rule.save
       end
 
@@ -52,7 +53,7 @@ module Api
       param_group :discovery_rule, :as => :update
 
       def update
-        process_response @discovery_rule.update_attributes(params[:discovery_rule])
+        process_response @discovery_rule.update_attributes(discovery_rule_params)
       end
 
       api :DELETE, "/discovery_rules/:id/", N_("Delete a rule")

@@ -2,6 +2,8 @@ class DiscoveryRulesController < ApplicationController
   # Two-pane searching must be disabled for rules otherwise query completion will not work
   #include Foreman::Controller::AutoCompleteSearch
 
+  include Foreman::Controller::Parameters::DiscoveryRule
+
   before_filter :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 
   def index
@@ -14,7 +16,7 @@ class DiscoveryRulesController < ApplicationController
   end
 
   def create
-    @discovery_rule = DiscoveryRule.new(params[:discovery_rule])
+    @discovery_rule = DiscoveryRule.new(discovery_rule_params)
     if @discovery_rule.save
       process_success
     else
@@ -26,7 +28,7 @@ class DiscoveryRulesController < ApplicationController
   end
 
   def update
-    if @discovery_rule.update_attributes(params[:discovery_rule])
+    if @discovery_rule.update_attributes(discovery_rule_params)
       process_success
     else
       process_error

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
-
   setup do
     User.current = User.find_by_login "admin"
 
@@ -22,6 +21,14 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:discovery_rules)
     discovery_rules = ActiveSupport::JSON.decode(@response.body)
     assert !discovery_rules.empty?
+  end
+
+  test "should search discovery rule" do
+    FactoryGirl.create(:discovery_rule, :name => "test")
+    get :index, { :search => "name = test"}
+    assert_response :success
+    discovery_rules = ActiveSupport::JSON.decode(@response.body)
+    assert_equal 1, discovery_rules['total']
   end
 
   test "should show discovery rule" do
@@ -62,6 +69,4 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
-
 end
-

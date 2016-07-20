@@ -24,33 +24,34 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
     assert_difference('DiscoveryRule.count') do
       post :create, {:discovery_rule => {
         :name => "foo",
-        :search => "bar",
+        :search => "cpu_count = 42",
         :hostgroup_id => 1,
         :hostname => "",
         :priority => 1}}, set_session_user_default_manager
+      assert_empty(extract_form_errors(response))
     end
-
     assert_redirected_to discovery_rules_path
   end
 
   test "should get edit" do
     rule = FactoryGirl.create(:discovery_rule)
-    get :edit, {:id => rule.to_param}, set_session_user_default_manager
+    get :edit, {:id => rule.id}, set_session_user_default_manager
     assert_response :success
   end
 
   test "should update discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
-    put :update, {:id => rule.to_param, :discovery_rule => {}}, set_session_user_default_manager
+    put :update, {:id => rule.id, :discovery_rule => {:name => "new_name"}}, set_session_user_default_manager
+    assert_nil flash[:error]
     assert_redirected_to discovery_rules_path
   end
 
   test "should destroy discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
     assert_difference('DiscoveryRule.count', -1) do
-      delete :destroy, {:id => rule.to_param}, set_session_user_default_manager
+      delete :destroy, {:id => rule.id}, set_session_user_default_manager
     end
-
+    assert_nil flash[:error]
     assert_redirected_to discovery_rules_path
   end
 

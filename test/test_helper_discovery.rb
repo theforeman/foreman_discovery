@@ -22,3 +22,7 @@ end
 def set_session_user_default_manager
   set_session_user_with_perms Foreman::Plugin.find('foreman_discovery').default_roles['Discovery Manager']
 end
+
+def extract_form_errors(response)
+  response.body.scan(/error-message[^<]*</)
+end

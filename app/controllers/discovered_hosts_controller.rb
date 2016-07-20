@@ -1,4 +1,5 @@
 class DiscoveredHostsController < ::ApplicationController
+  include Foreman::Controller::Parameters::DiscoveredHost
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::TaxonomyMultiple
   include Foreman::Controller::DiscoveredExtensions
@@ -50,7 +51,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
-    @host.attributes = @host.apply_inherited_attributes(params[:host]) unless params[:host].empty?
+    @host.attributes = @host.apply_inherited_attributes(discovered_host_params_host) unless discovered_host_params_host.empty?
     @host.set_hostgroup_defaults
     setup_host_class_variables(@host)
     @override_taxonomy = true
@@ -64,7 +65,7 @@ class DiscoveredHostsController < ::ApplicationController
   def update
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
     forward_url_options
-    @host.attributes = params[:host]
+    @host.attributes = discovered_host_params_host
 
     perform_update(@host)
   end

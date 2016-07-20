@@ -153,6 +153,11 @@ module ForemanDiscovery
           :parent => :configure_menu,
           :after=> :hostgroups
 
+        # strong parameters
+        parameter_filter Subnet, :discovery_id
+        parameter_filter Host::Managed, :discovery_rule_id
+        parameter_filter Hostgroup, :type, :discovery_rules => [], :discovery_rule_ids => [], :discovery_rule_names => []
+
         # add dashboard widget
         widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 6, :sizey =>1
 

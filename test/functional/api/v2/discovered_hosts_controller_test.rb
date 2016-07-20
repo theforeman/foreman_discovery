@@ -83,6 +83,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [Organization.first],
                        :locations => [Location.first])
     post :facts, { :facts => facts }
+    assert_match /created_at/, response.body
     assert_response :success
     assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.first.comment
   end
