@@ -48,6 +48,13 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should update taxonomy for discovery rule" do
+    rule = FactoryGirl.create(:discovery_rule)
+    organization = FactoryGirl.create(:organization)
+    put :update, { :id => rule.to_param, :discovery_rule => { :organization_ids => [organization.id] } }
+    assert_response :success
+  end
+
   test "should destroy discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
     assert_difference('DiscoveryRule.count', -1) do
