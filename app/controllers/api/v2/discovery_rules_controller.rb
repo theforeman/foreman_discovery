@@ -35,6 +35,7 @@ module Api
           param :max_count, Integer, :desc => N_("enables to limit maximum amount of provisioned hosts per rule")
           param :priority, Integer, :desc => N_("puts the rules in order, low numbers go first. Must be greater then zero")
           param :enabled, :bool, :desc => N_("flag is used for temporary shutdown of rules")
+          param_group :taxonomies, ::Api::V2::BaseController
         end
       end
 
