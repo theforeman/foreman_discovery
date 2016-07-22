@@ -61,7 +61,7 @@ module DiscoveredHostsHelper
       status_glyph = 'glyphicon-plus-sign'
       status_message = _('New in the last 24 hours')
       status_color = '#89A54E'
-    elsif host.last_report < 7.days.ago
+    elsif host.last_report.present? && host.last_report < 7.days.ago
       status_glyph = 'glyphicon-exclamation-sign'
       status_message = _('Not reported in more than 7 days')
       status_color = '#AA4643'
