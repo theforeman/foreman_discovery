@@ -65,6 +65,27 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal subnet, host.primary_interface.subnet
   end
 
+  test "should set nested org and loc" do
+    org_parent = FactoryGirl.create(:organization, :name => "org")
+    org = FactoryGirl.create(:organization, :name => "suborg", :parent_id => org_parent.id)
+    loc_parent = FactoryGirl.create(:location, :name => "loc")
+    loc = FactoryGirl.create(:location, :name => "subloc", :parent_id => loc_parent.id)
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_organization',
+                       :value => org.name,
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
+                       :name => 'discovery_location',
+                       :value => loc.name,
+                       :category => 'Setting::Discovered')
+    raw = parse_json_fixture('/facts.json')
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '192.168.99.0', :organizations => [org], :locations => [loc])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = Host::Discovered.import_host(raw['facts'])
+    assert_equal org, host.organization
+    assert_equal loc, host.location
+  end
+
   test "should raise when fact_name setting isn't present" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'macaddress_foo'
