@@ -71,6 +71,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   def perform_update(host, success_message = nil)
     Taxonomy.no_taxonomy_scope do
+      ::ForemanDiscovery::HostConverter.set_build_clean_facts(host)
       if host.save
         success_options = { :success_redirect => host_path(host), :redirect_xhr => request.xhr? }
         success_options[:success_msg] = success_message if success_message

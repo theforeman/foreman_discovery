@@ -12,20 +12,26 @@ class ForemanDiscovery::HostConverter
       host.primary_interface.managed = set_managed
     end
     # set build only and only on final save (facts are deleted)
-    if set_build
-      # set legacy_api flag for post_queue actions
-      host.legacy_api = self.legacy_host(host)
-      # do not delete all facts (keep all facts or discovery ones when configured)
-      unless Setting['discovery_clean_facts']
-        host.define_singleton_method(:clear_facts) do
-            keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck("fact_values.id")
-            FactValue.where("host_id = #{host.id} and id not in (?)", keep_ids).delete_all
-        end
-      end
-      # set build flag (also deletes facts)
-      host.build = set_build
-    end
+    set_build_clean_facts(host) if set_build
     host
+  end
+
+  def self.set_build_clean_facts(host)
+    # set legacy_api flag for post_queue actions
+    host.legacy_api = self.legacy_host(host)
+    # fact cleaning
+    if Setting['discovery_clean_facts']
+      # clean all facts except those starting with "discovery_"
+      host.define_singleton_method(:clear_facts) do
+          keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck("fact_values.id")
+          FactValue.where("host_id = #{host.id} and id not in (?)", keep_ids).delete_all
+      end
+    else
+      # clean no facts (default behavior)
+      host.define_singleton_method(:clear_facts) {}
+    end
+    # set build flag
+    host.build = true
   end
 
   def self.legacy_host(host)
