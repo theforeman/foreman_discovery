@@ -87,9 +87,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
           :hostgroup_id => hostgroup.id
         } }, set_session_user_default_manager
 
-      actual_host = Host.find(host.id)
-      assert_redirected_to host_url(actual_host)
-      assert_equal hostgroup.id, actual_host.hostgroup_id
+      managed_host = Host.find(host.id)
+      assert managed_host.build
+      assert_redirected_to host_url(managed_host)
+      assert_equal hostgroup.id, managed_host.hostgroup_id
       assert_match /Successfully/, flash[:notice]
     end
   end

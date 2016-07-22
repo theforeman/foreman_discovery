@@ -235,33 +235,33 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Token.where(:host_id => h.id).empty?
   end
 
-  test "discovery facts are deleted after provisioning when set by user" do
+  test "all non-discovery facts are deleted after provisioning" do
     Setting[:discovery_clean_facts] = true
     raw = parse_json_fixture('/facts.json')['facts']
     raw.merge!({
       'delete_me' => "content",
-      'discovery_delete_me_as_well' => "content",
+      'discovery_keep_me' => "content",
       })
     host = Host::Discovered.import_host(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
     managed.clear_facts
     assert_nil managed.facts_hash['delete_me']
-    assert_nil managed.facts_hash['discovery_delete_me_as_well']
+    assert_equal "content", managed.facts_hash['discovery_keep_me']
   end
 
-  test "discovery facts are preserved after provisioning" do
+  test "all facts are preserved after provisioning" do
     raw = parse_json_fixture('/facts.json')['facts']
     raw.merge!({
-      'delete_me' => "content",
-      'discovery_dont_delete_me' => "content",
+      'keep_me' => "content",
+      'discovery_keep_me' => "content",
       })
     host = Host::Discovered.import_host(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
     managed.clear_facts
-    assert_nil managed.facts_hash['delete_me']
-    assert_equal "content", managed.facts_hash['discovery_dont_delete_me']
+    assert_equal "content", managed.facts_hash['keep_me']
+    assert_equal "content", managed.facts_hash['discovery_keep_me']
   end
 
   test "normalization of MAC into a discovered host hostname" do

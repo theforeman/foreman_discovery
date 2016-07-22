@@ -96,6 +96,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
     assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
+    managed_host = Host.find(host.id)
+    assert managed_host.build
     assert_response :success
   end
 
@@ -109,6 +111,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }
     assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
+    managed_host = Host.find(host.id)
+    assert managed_host.build
     assert_response :success
   end
 
@@ -174,6 +178,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :locations => [host.location])
     post :auto_provision_all, {}
     assert_match /1 discovered hosts were provisioned/, @response.body
+    managed_host = Host.find(host.id)
+    assert managed_host.build
     assert_response :success
   end
 
