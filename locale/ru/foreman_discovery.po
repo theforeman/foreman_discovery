@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Evgrafov Denis <stereodenis@gmail.com>, 2014
+# Denis Denis <stereodenis@gmail.com>, 2014
 # Dominic Cleal <dominic@cleal.org>, 2014
-# Evgrafov Denis <stereodenis@gmail.com>, 2014
+# Denis Denis <stereodenis@gmail.com>, 2014
 # Vladimir Pavlov <v.pavlov@i-teco.ru>, 2015
+# Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 5.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-23 18:49+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2016-05-20 00:55+0000\n"
+"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -30,37 +31,37 @@ msgid "%s ago"
 msgstr "%s назад"
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "Подготовлено узлов: %s"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr ""
+msgstr "Сводка обнаруженных узлов от <b>Foreman</b>"
 
 msgid "A summary of discovered hosts"
-msgstr ""
+msgstr "Сводка состояния обнаруженных узлов"
 
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
 msgid "Assign Location"
-msgstr "Выбрать расположение"
+msgstr "Выбрать местоположение"
 
 msgid "Assign Organization"
 msgstr "Назначить организацию"
 
 msgid "Associated Hosts"
-msgstr ""
+msgstr "Сопоставленные узлы"
 
 msgid "Auto Provision"
-msgstr "Автоматически инициализировать"
+msgstr "Автоматическая подготовка"
 
 msgid "Auto Provision All"
-msgstr "Автоматически инициализировать все"
+msgstr "Автоматически подготовить все"
 
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
-msgstr "Автоматически инициализировать обнаруженные узлы в соответствии с заранее определенными правилами"
+msgstr "Автоматически подготовить обнаруженные узлы в соответствии с заранее определенными правилами"
 
 msgid "Automatically reboot discovered host during provisioning"
-msgstr ""
+msgstr "Автоматически перезагружать узел в ходе подготовки"
 
 msgid "Back"
 msgstr "Назад"
@@ -75,7 +76,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Не удалось получить факты с %{url}: %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "Создать узел на базе обнаруженного для тестирования (используйте /facts для создания новых узлов)"
 
 msgid "Create a discovery rule"
 msgstr "Создать правило"
@@ -96,7 +97,7 @@ msgid "Delete hosts"
 msgstr "Удалить узлы"
 
 msgid "Delete rule '%s'?"
-msgstr ""
+msgstr "Удалить правило «%s»?"
 
 msgid "Destroyed selected hosts"
 msgstr "Узлы удалены"
@@ -105,10 +106,10 @@ msgid "Disable"
 msgstr "Отключить"
 
 msgid "Disable rule '%s'?"
-msgstr ""
+msgstr "Отключить правило «%s»?"
 
 msgid "Discovered Hosts"
-msgstr ""
+msgstr "Обнаруженные узлы"
 
 msgid "Discovered host: %s"
 msgstr "Обнаружен узел: %s"
@@ -117,25 +118,25 @@ msgid "Discovered hosts"
 msgstr "Обнаруженные узлы"
 
 msgid "Discovered hosts are provisioning now"
-msgstr "Выполняется инициализация обнаруженных узлов"
+msgstr "Выполняется подготовка обнаруженных узлов"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "Выполняется перезагрузка обнаруженных узлов"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr ""
+msgstr "Узлы, обнаруженные сервером Foreman %{foreman_url}"
 
 msgid "Discovered hosts summary"
-msgstr ""
+msgstr "Сводка обнаруженных узлов"
 
 msgid "Discovery Rules"
-msgstr "Правила поиска"
+msgstr "Правила обнаружения"
 
 msgid "Discovery rules"
-msgstr "Правила поиска"
+msgstr "Правила обнаружения"
 
 msgid "Discovery widget"
-msgstr "Виджет поиска"
+msgstr "Виджет обнаружения узлов"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Включено"
@@ -156,7 +157,7 @@ msgid "Disks size"
 msgstr "Размер дисков"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "Домен будет добавлен автоматически. Если имя узла не задано, будет использоваться MAC-адрес. Помимо атрибута @host, доступна функция rand для генерации случайных чисел. Примеры: "
+msgstr "Домен будет добавлен автоматически. Если имя узла не задано, будет использоваться MAC-адрес. Помимо атрибута @host, можно использовать функцию rand для генерации случайных чисел. Примеры: "
 
 msgid "Edit Discovery Rule"
 msgstr "Изменить правило"
@@ -165,13 +166,13 @@ msgid "Enable"
 msgstr "Включить"
 
 msgid "Enable rule '%s'?"
-msgstr ""
+msgstr "Включить правило «%s»?"
 
 msgid "Errors during auto provisioning: %s"
-msgstr "Ошибки при автоматической инициализации: %s"
+msgstr "Ошибки при автоматической подготовке: %s"
 
 msgid "Errors during reboot: %s"
-msgstr ""
+msgstr "Ошибки при перезагрузке: %s"
 
 msgid "Execute rules against a discovered host"
 msgstr "Применить правила к обнаруженному узлу"
@@ -183,19 +184,19 @@ msgid "Expand All"
 msgstr "Развернуть все"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
+msgstr "Отсутствует факт «%s»: невозможно определить основной интерфейс и имя узла"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
+msgstr "Дополнительные столбцы Facter в списке узлов (через запятую)"
 
 msgid "Fact name to use for primary interface detection"
-msgstr ""
+msgstr "Имя факта, определяющего основной сетевой интерфейс и имя узла"
 
 msgid "Facts refreshed for %s"
-msgstr "Факты %s обновлены"
+msgstr "Факты %s были обновлены"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr "Не удалось автоматически инициализировать узел %s: %s"
+msgstr "Не удалось автоматически подготовить узел %s: %s"
 
 msgid "Failed to reboot host %s"
 msgstr "Не удалось перезагрузить %s"
@@ -204,41 +205,45 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "Не удалось перезагрузить %{hostname}. Ошибка: %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr "Не удалось перезагрузить узлы. Ошибка: %s"
 
 msgid "Failed to refresh facts for %s"
 msgstr "Не удалось обновить факты %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
+msgstr "Не удалось обновить факты %{hostname}. Ошибка: %{error_message}"
 
 msgid "Foreman discovered hosts summary"
-msgstr ""
+msgstr "Сводка обнаруженных узлов Foreman"
 
 msgid "Hardware"
-msgstr ""
+msgstr "Оборудование"
 
 msgid "Highlights"
-msgstr ""
+msgstr "Основные"
 
 msgid "Host"
 msgstr "Узел"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "%{host} инициализирован в соответствии с правилом %{rule}"
+msgstr "%{host} был подготовлен в соответствии с правилом %{rule}"
 
 msgid "Host group"
 msgstr "Группа узлов"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "С правилом также необходимо связать местоположение группы узлов, %s"
+msgstr[1] "С правилом также необходимо связать местоположения групп узлов: %s"
+msgstr[2] "С правилом также необходимо связать местоположения групп узлов: %s"
+msgstr[3] "С правилом также необходимо связать местоположения групп узлов: %s"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "С правилом также необходимо связать организацию группы узлов, %s"
+msgstr[1] "С правилом также необходимо связать организации группы узлов: %s"
+msgstr[2] "С правилом также необходимо связать организации группы узлов: %s"
+msgstr[3] "С правилом также необходимо связать организации группы узлов: %s"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "Узел типа %s не может быть перезагружен"
@@ -256,37 +261,37 @@ msgid "IP Address"
 msgstr "IP"
 
 msgid "IP address"
-msgstr "IP-адрес"
+msgstr "IP"
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "Identifier"
 msgstr "Идентификатор"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "API образа вернул ошибку HTTP/%{code}: %{msg} (body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "API образа вернул HTTP/%{code}: '%{body}"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Интерфейсы"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Недопустимый формат фактов: ожидаются переменные и их значения"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
-msgstr ""
+msgstr "Недействительные факты: строка не содержит ни одного действительного значения фактов в соответствии с заданным в discovery_hostname: %s"
 
 msgid "Invalid hostname: Could not normalize the hostname"
-msgstr ""
+msgstr "Не удалось нормализовать имя узла"
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Шаблон kexec не привязан к операционной системе"
 
 msgid "Last facts upload"
-msgstr "Обновление фактов"
+msgstr "Последнее обновление фактов"
 
 msgid "List all discovered hosts"
 msgstr "Показать все обнаруженные узлы"
@@ -295,28 +300,28 @@ msgid "List all discovery rules"
 msgstr "Показать все правила обнаружения"
 
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr ""
+msgstr "Список фактов для узла с указанным именем (через запятую, до первого совпадения)"
 
 msgid "Location"
-msgstr "Расположение"
+msgstr "Местоположение"
 
 msgid "Locations"
-msgstr "Адреса"
+msgstr "Местоположение"
 
 msgid "MAC address"
-msgstr "MAC-адрес"
+msgstr "MAC"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr "Максимальное число инициализируемых узлов в соответствии с правилом (0 снимает ограничения)"
+msgstr "Максимальное число подготавливаемых узлов в соответствии с этим правилом (0 снимает ограничения)"
 
 msgid "Medium not set for host/hostgroup"
-msgstr ""
+msgstr "Не определен носитель для узла/группы узлов"
 
 msgid "Memory"
 msgstr "Память"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Прочее"
 
 msgid "Model"
 msgstr "Модель"
@@ -331,7 +336,7 @@ msgid "Name"
 msgstr "Имя"
 
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 msgid "New Discovery Rule"
 msgstr "Новое правило"
@@ -340,40 +345,40 @@ msgid "New Rule"
 msgstr "Добавить"
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "Новое за последние 24 часа"
 
 msgid "No discovered hosts available"
 msgstr "Нет обнаруженных узлов"
 
 msgid "No discovered hosts for the selected period"
-msgstr ""
+msgstr "За указанный период времени новых узлов не обнаружено"
 
 msgid "No discovered hosts to provision"
 msgstr "Нет обнаруженных узлов"
 
 msgid "No discovered hosts to reboot"
-msgstr ""
+msgstr "Нет узлов для перезагрузки"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "Правило «%s» не связано ни с одной группой узлов"
 
 msgid "No hosts selected"
-msgstr "Хост не выбран"
+msgstr "Не выбран узел"
 
 msgid "No hosts were found with that id or name"
-msgstr "Нет хоста с таким идентификатором или именем"
+msgstr "Нет узла с таким идентификатором или именем"
 
 msgid "No new discovered hosts for this period"
-msgstr ""
+msgstr "За это время новых узлов не обнаружено"
 
 msgid "No rule found for host %s"
 msgstr "Нет правил для %s"
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "Не было данных за последние 7 дней"
 
 msgid "Operating system not set for host/hostgroup"
-msgstr ""
+msgstr "Не определена операционная система для узла/группы узлов"
 
 msgid "Organization"
 msgstr "Организация"
@@ -388,16 +393,16 @@ msgid "Primary"
 msgstr "Основной"
 
 msgid "Provision"
-msgstr "Подготовка"
+msgstr "Подготовить"
 
 msgid "Provision a discovered host"
-msgstr "Инициализация обнаруженного узла"
+msgstr "Подготовить обнаруженный узел"
 
 msgid "Reboot"
 msgstr "Перезагрузить"
 
 msgid "Reboot All"
-msgstr ""
+msgstr "Перезагрузить все"
 
 msgid "Rebooting %s"
 msgstr "Перезагрузка %s"
@@ -406,7 +411,7 @@ msgid "Rebooting a discovered host"
 msgstr "Перезагрузка обнаруженного узла"
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "Перезагрузка всех обнаруженных узлов"
 
 msgid "Rebooting host %s"
 msgstr "Перезагрузка %s"
@@ -415,31 +420,31 @@ msgid "Refresh facts"
 msgstr "Обновить факты"
 
 msgid "Refreshing the facts of a discovered host"
-msgstr "Обновление фактов обнаруженного узла"
+msgstr "Обновление фактов узла"
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в секции «Оборудование»"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в списке «Основные», например: ^(abc|cde)$"
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в секции «IPMI»"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в секции «Сеть»"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в секции «Программное обеспечение»"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "Регулярное выражение для организации фактов в секции «Хранилище»"
 
 msgid "Reloading kernel on %s"
-msgstr ""
+msgstr "Перезагрузка ядра на %s"
 
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "Были данные за последние 7 дней"
 
 msgid "Rule disabled"
 msgstr "Правило отключено"
@@ -451,10 +456,10 @@ msgid "Rule priority (lower integer means higher priority)"
 msgstr "Приоритет (чем ниже число, тем выше приоритет)"
 
 msgid "Select Action"
-msgstr "Выберите действие"
+msgstr "Действия"
 
 msgid "Select all items in this page"
-msgstr "Выберите все элементы на этой странице"
+msgstr "Выбрать все элементы на странице"
 
 msgid "Select location"
 msgstr "Выберите расположение"
@@ -469,37 +474,37 @@ msgid "Show a discovery rule"
 msgstr "Показать правило"
 
 msgid "Software"
-msgstr ""
+msgstr "Программное обеспечение"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Непредвиденное поведение при выборе узлов: %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
-msgstr "Определите шаблон целевого узла, используя синтаксис шаблонов инициализации (ERB)."
+msgstr "Определите шаблон для узла, используя синтаксис, аналогичный используемому в подготовительных шаблонах (ERB)."
 
 msgid "Storage"
-msgstr ""
+msgstr "Хранилище"
 
 msgid "Submit"
-msgstr "Отправить"
+msgstr "Подтвердить"
 
 msgid "Subnet"
 msgstr "Подсеть"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr ""
+msgstr "Сводка за %{time} — %{now}"
 
 msgid "Summary report for discovered hosts from Foreman"
-msgstr ""
+msgstr "Сводный отчет Foreman по обнаруженным узлам"
 
 msgid "Target host group for this rule with all properties set"
-msgstr "Целевая группа узлов для этого правила с настроенными параметрами"
+msgstr "Группа узлов для этого правила с настроенными параметрами"
 
 msgid "Template"
 msgstr "Шаблон"
 
 msgid "The default location to place discovered hosts in"
-msgstr "Рабочий участок для размещения обнаруженных узлов"
+msgstr "Организация для обнаруженных узлов по умолчанию"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "Организация, в которую по умолчанию  будут добавляться обнаруженные узлы"
@@ -508,37 +513,37 @@ msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "Префикс имени узла (должен начинаться с буквы)"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Хосты не были удалены: %s"
+msgstr "Узлы не были удалены: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Это может занять некоторое время, так как в ходе выполнения будут удалены узлы, статистика и все отчеты"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "UUID для отслеживания статуса задач оркестрации: GET /api/orchestration/:UUID/tasks"
+msgstr "UUID для отслеживания состояния задач оркестрации: GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "Не удалось выбрать подсеть: не определен IP-адрес основного интерфейса"
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "Не удалось обнаружить основной интерфейс с MAC-адресом %{mac}, полученным из факта «%{fact}»"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "Не удалось найти правило: необходимо указать узел. Проверьте разрешения."
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "Не удалось выполнить kexec на %{name} с %{url}: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "Не удалось подготовить %{host}: %{errors}"
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "Не удалось перезагрузить %{name} с %{url}: %{msg}"
 
 msgid "Update a rule"
 msgstr "Обновить правило"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Обновить статистику и, если необходимо, создать узел"
+msgstr "Загрузить факты узла и, если необходимо, создать узел"
 
 msgid "Warning"
 msgstr "Предупреждение"
@@ -547,22 +552,22 @@ msgid "When creating hostname patterns, make sure the resulting host names are u
 msgstr "Имя узла, полученное в результате преобразования шаблона, должно быть уникальным и не может начинаться с числа. Для этой цели можно использовать индивидуальные данные (MAC-адрес, серийный номер и пр.)"
 
 msgid "can't contain white spaces."
-msgstr "не может содержать пробелы."
+msgstr "не может содержать пробелов"
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr "определяет шаблон для присвоения понятных имен узлам"
+msgstr "шаблон для присвоения узлам понятных имен"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr "ограничивает максимальное число узлов для правила"
+msgstr "максимальное число узлов для указанного правила"
 
 msgid "filter results"
-msgstr "результаты фильтрации"
+msgstr "отфильтровать результаты"
 
 msgid "flag is used for temporary shutdown of rules"
 msgstr "этот флаг временно отключает правила"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "хэш с минимальным набором фактов узла: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (в этих примерах подразумевается, что основной интерфейс имеет имя  eth0)"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "выбрано. Чтобы очистить, снимите флажок"
@@ -577,25 +582,25 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr "не требуется, если используется подсеть с DHCP-прокси"
 
 msgid "number of entries per request"
-msgstr "число записей в запросе"
+msgstr "количество записей на запрос"
 
 msgid "paginate results"
 msgstr "постранично"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr "упорядочивает правила по возрастанию. Должно быть больше нуля."
+msgstr "приоритет правила (должен быть больше 0). Правила выбираются по возрастанию приоритета"
 
 msgid "query to match discovered hosts for the particular rule"
-msgstr "запрос, которому должны удовлетворять узлы, обнаруженные этим правилом"
+msgstr "запрос для поиска соответствий среди узлов для этого правила"
 
 msgid "represents rule name shown to the users"
 msgstr "название правила, которое увидят пользователи"
 
 msgid "required if value is not inherited from host group or default password in settings"
-msgstr "обязательно, если пароль не наследуется от группы узлов или из стандартного значения в параметрах"
+msgstr "обязательно, если пароль не унаследован от группы узлов или заданного по умолчанию пароля"
 
 msgid "sort results"
-msgstr "сортировка"
+msgstr "отсортировать результаты"
 
 msgid "the hostgroup that is used to auto provision a host"
-msgstr "группа узлов, которая будет выбрана при автоматической установке"
+msgstr "группа узлов, которая будет выбрана при автоматической подготовке узлов"
