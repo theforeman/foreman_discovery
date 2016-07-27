@@ -36,9 +36,6 @@ msgstr "<b>Foreman</b> Discovered hosts summary"
 msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
 
-msgid "Are you sure?"
-msgstr "Are you sure?"
-
 msgid "Assign Location"
 msgstr "Assign Location"
 
@@ -54,11 +51,17 @@ msgstr "Auto Provision"
 msgid "Auto Provision All"
 msgstr "Auto Provision All"
 
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "Automatically provision newly discovered hosts, according to the provisioning rules"
 
-msgid "Automatically reboot discovered host during provisioning"
-msgstr "Automatically reboot discovered host during provisioning"
+msgid "Automatically reboot or kexec discovered host during provisioning"
+msgstr ""
 
 msgid "Back"
 msgstr "Back"
@@ -69,6 +72,12 @@ msgstr "CPUs"
 msgid "Cancel"
 msgstr "Cancel"
 
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
@@ -78,8 +87,8 @@ msgstr "Create a discovered host for testing (use /facts to create new hosts)"
 msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
 
-msgid "Delete"
-msgstr "Delete"
+msgid "Create host"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -129,6 +138,12 @@ msgstr "Discovered hosts summary"
 msgid "Discovery Rules"
 msgstr "Discovery Rules"
 
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
 msgid "Discovery rules"
 msgstr "Discovery rules"
 
@@ -153,8 +168,8 @@ msgstr "Disk count"
 msgid "Disks size"
 msgstr "Disks size"
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
 
 msgid "Edit Discovery Rule"
 msgstr "Edit Discovery Rule"
@@ -186,8 +201,14 @@ msgstr "Expected discovery_fact '%s' is missing, unable to detect primary interf
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Extra facter columns to show in host lists (separate by comma)"
 
+msgid "Fact columns"
+msgstr ""
+
 msgid "Fact name to use for primary interface detection"
 msgstr "Fact name to use for primary interface detection"
+
+msgid "Facts could not be imported"
+msgstr ""
 
 msgid "Facts refreshed for %s"
 msgstr "Facts refreshed for %s"
@@ -216,6 +237,12 @@ msgstr "Foreman discovered hosts summary"
 msgid "Hardware"
 msgstr "Hardware"
 
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
 msgid "Highlights"
 msgstr "Highlights"
 
@@ -241,8 +268,17 @@ msgstr[1] "Host group organisations %s must also be associated to the discovery 
 msgid "Host of type %s can not be rebooted"
 msgstr "Host of type %s can not be rebooted"
 
+msgid "Hostname facts"
+msgstr ""
+
 msgid "Hostname for provisioned hosts"
 msgstr "Hostname for provisioned hosts"
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
 
 msgid "Hosts limit"
 msgstr "Hosts limit"
@@ -259,6 +295,9 @@ msgstr "IP address"
 msgid "IPMI"
 msgstr "IPMI"
 
+msgid "IPMI facts"
+msgstr ""
+
 msgid "Identifier"
 msgstr "Identifier"
 
@@ -267,6 +306,12 @@ msgstr "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Interface fact"
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -292,6 +337,9 @@ msgstr "List all discovered hosts"
 msgid "List all discovery rules"
 msgstr "List all discovery rules"
 
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr "List of facts to use for the hostname (separated by comma, first wins)"
 
@@ -300,6 +348,12 @@ msgstr "Location"
 
 msgid "Locations"
 msgstr "Locations"
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "MAC address"
@@ -330,6 +384,9 @@ msgstr "Name"
 
 msgid "Network"
 msgstr "Network"
+
+msgid "Network facts"
+msgstr ""
 
 msgid "New Discovery Rule"
 msgstr "New Discovery Rule"
@@ -379,6 +436,9 @@ msgstr "Organisation"
 msgid "Organizations"
 msgstr "Organisations"
 
+msgid "PXE template to be used when pinning a host to discovery"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "Please Confirm"
 
@@ -390,6 +450,9 @@ msgstr "Provision"
 
 msgid "Provision a discovered host"
 msgstr "Provision a discovered host"
+
+msgid "Quick create"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -454,6 +517,9 @@ msgstr "Select Action"
 msgid "Select all items in this page"
 msgstr "Select all items in this page"
 
+msgid "Select initial host properties"
+msgstr ""
+
 msgid "Select location"
 msgstr "Select location"
 
@@ -469,6 +535,9 @@ msgstr "Show a discovery rule"
 msgid "Software"
 msgstr "Software"
 
+msgid "Software facts"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Something went wrong while selecting hosts - %s"
 
@@ -478,11 +547,17 @@ msgstr "Specify target hostname template pattern in the same syntax as in Provis
 msgid "Storage"
 msgstr "Storage"
 
+msgid "Storage facts"
+msgstr ""
+
 msgid "Submit"
 msgstr "Submit"
 
 msgid "Subnet"
 msgstr "Subnet"
+
+msgid "Successfully provisioned %s"
+msgstr ""
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr "Summary from %{time} ago to %{now}"
@@ -541,8 +616,8 @@ msgstr "Upload facts for a host, creating the host if required"
 msgid "Warning"
 msgstr "Warning"
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
 
 msgid "can't contain white spaces."
 msgstr "can't contain white spaces."

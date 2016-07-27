@@ -32,9 +32,6 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "您确定吗？"
-
 msgid "Assign Location"
 msgstr "指定位置"
 
@@ -50,10 +47,16 @@ msgstr "自动供应"
 msgid "Auto Provision All"
 msgstr "自动供应全部"
 
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "根据供应规则自动供应新发现的主机"
 
-msgid "Automatically reboot discovered host during provisioning"
+msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
@@ -65,6 +68,12 @@ msgstr "处理器"
 msgid "Cancel"
 msgstr "取消"
 
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
 
@@ -74,8 +83,8 @@ msgstr ""
 msgid "Create a discovery rule"
 msgstr "常见发现规则"
 
-msgid "Delete"
-msgstr "删除"
+msgid "Create host"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "删除 %s"
@@ -125,6 +134,12 @@ msgstr ""
 msgid "Discovery Rules"
 msgstr "发现规则"
 
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
 msgid "Discovery rules"
 msgstr "发现规则"
 
@@ -149,8 +164,8 @@ msgstr "磁盘计数"
 msgid "Disks size"
 msgstr "磁盘大小"
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "将自动附加域。如为空白则会使用基于 MAC 地址的主机名。除 @host 属性外，还有用于随机整数的 rand 函数可用。例如："
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
 
 msgid "Edit Discovery Rule"
 msgstr "编辑发现规则"
@@ -182,7 +197,13 @@ msgstr ""
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
+msgid "Fact columns"
+msgstr ""
+
 msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
 msgstr ""
 
 msgid "Facts refreshed for %s"
@@ -212,6 +233,12 @@ msgstr ""
 msgid "Hardware"
 msgstr ""
 
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
 msgid "Highlights"
 msgstr ""
 
@@ -237,8 +264,17 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "无法重启主机类型 %s"
 
+msgid "Hostname facts"
+msgstr ""
+
 msgid "Hostname for provisioned hosts"
 msgstr "已供应主机的主机名"
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
 
 msgid "Hosts limit"
 msgstr "主机限制"
@@ -255,6 +291,9 @@ msgstr "IP 地址"
 msgid "IPMI"
 msgstr ""
 
+msgid "IPMI facts"
+msgstr ""
+
 msgid "Identifier"
 msgstr "标示符"
 
@@ -262,6 +301,12 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
@@ -288,6 +333,9 @@ msgstr "列出所有发现的主机"
 msgid "List all discovery rules"
 msgstr "列出所有发现规则"
 
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
@@ -296,6 +344,12 @@ msgstr "位置"
 
 msgid "Locations"
 msgstr "位置"
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "MAC 地址"
@@ -325,6 +379,9 @@ msgid "Name"
 msgstr "名称"
 
 msgid "Network"
+msgstr ""
+
+msgid "Network facts"
 msgstr ""
 
 msgid "New Discovery Rule"
@@ -375,6 +432,9 @@ msgstr "机构"
 msgid "Organizations"
 msgstr "机构"
 
+msgid "PXE template to be used when pinning a host to discovery"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "请确认"
 
@@ -386,6 +446,9 @@ msgstr "供应"
 
 msgid "Provision a discovered host"
 msgstr "供应已发现主机"
+
+msgid "Quick create"
+msgstr ""
 
 msgid "Reboot"
 msgstr "重启"
@@ -450,6 +513,9 @@ msgstr "选择动作"
 msgid "Select all items in this page"
 msgstr "选择本页中的所有项目"
 
+msgid "Select initial host properties"
+msgstr ""
+
 msgid "Select location"
 msgstr "选择位置"
 
@@ -465,6 +531,9 @@ msgstr "显示发现规则"
 msgid "Software"
 msgstr ""
 
+msgid "Software facts"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "选择主机时出错 - %s"
 
@@ -474,11 +543,17 @@ msgstr "以与供应模板（ERB）相同的语法指定目标主机名模板模
 msgid "Storage"
 msgstr ""
 
+msgid "Storage facts"
+msgstr ""
+
 msgid "Submit"
 msgstr "提交"
 
 msgid "Subnet"
 msgstr "子网"
+
+msgid "Successfully provisioned %s"
+msgstr ""
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr ""
@@ -537,8 +612,8 @@ msgstr "上传主机详情，如需要，请创建主机。"
 msgid "Warning"
 msgstr "警告"
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr "创建主机名模式时，请确保得到的主机名是唯一的。主机名不得以数字开头。可选择 facter 提供的特别信息（比如 MAC 地址，BIOS 或序列 ID）。"
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
 
 msgid "can't contain white spaces."
 msgstr "不能包含空白字段。"

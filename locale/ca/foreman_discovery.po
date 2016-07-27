@@ -33,9 +33,6 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "Esteu segur?"
-
 msgid "Assign Location"
 msgstr "Assigna la ubicació"
 
@@ -51,11 +48,17 @@ msgstr "Auto aprovisiona"
 msgid "Auto Provision All"
 msgstr "Auto aprovisiona-ho tot"
 
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr ""
 
-msgid "Automatically reboot discovered host during provisioning"
-msgstr "Reinicia automàticament els amfitrions descoberts durant  l'aprovisionament"
+msgid "Automatically reboot or kexec discovered host during provisioning"
+msgstr ""
 
 msgid "Back"
 msgstr "Enrere"
@@ -66,6 +69,12 @@ msgstr "Les CPU"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}: %{error}"
 
@@ -75,8 +84,8 @@ msgstr "Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear
 msgid "Create a discovery rule"
 msgstr "Crea una regla de descobriment"
 
-msgid "Delete"
-msgstr "Suprimeix"
+msgid "Create host"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "Voleu suprimir %s?"
@@ -126,6 +135,12 @@ msgstr ""
 msgid "Discovery Rules"
 msgstr "Regles de descobriment"
 
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
 msgid "Discovery rules"
 msgstr "Regles de descobriment"
 
@@ -150,7 +165,7 @@ msgstr "Nombre de discs"
 msgid "Disks size"
 msgstr "Mida de disc"
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr ""
 
 msgid "Edit Discovery Rule"
@@ -183,7 +198,13 @@ msgstr ""
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
+msgid "Fact columns"
+msgstr ""
+
 msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
 msgstr ""
 
 msgid "Facts refreshed for %s"
@@ -213,6 +234,12 @@ msgstr ""
 msgid "Hardware"
 msgstr ""
 
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
 msgid "Highlights"
 msgstr ""
 
@@ -238,8 +265,17 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr ""
 
+msgid "Hostname facts"
+msgstr ""
+
 msgid "Hostname for provisioned hosts"
 msgstr "Nom d'amfitrió per als amfitrions aprovisionats"
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
 
 msgid "Hosts limit"
 msgstr "Límit d'amfitrions"
@@ -256,6 +292,9 @@ msgstr "Adreça IP"
 msgid "IPMI"
 msgstr ""
 
+msgid "IPMI facts"
+msgstr ""
+
 msgid "Identifier"
 msgstr "Identificador"
 
@@ -263,6 +302,12 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
@@ -289,6 +334,9 @@ msgstr "Llista tots els amfitrions descoberts"
 msgid "List all discovery rules"
 msgstr "Llista totes les regles de descobriment"
 
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
@@ -297,6 +345,12 @@ msgstr "Ubicació"
 
 msgid "Locations"
 msgstr "Ubicacions"
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "Adreça MAC"
@@ -326,6 +380,9 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Network"
+msgstr ""
+
+msgid "Network facts"
 msgstr ""
 
 msgid "New Discovery Rule"
@@ -376,6 +433,9 @@ msgstr "Organització"
 msgid "Organizations"
 msgstr "Organitzacions"
 
+msgid "PXE template to be used when pinning a host to discovery"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "Si us plau, confirmeu"
 
@@ -387,6 +447,9 @@ msgstr "Aprovisiona"
 
 msgid "Provision a discovered host"
 msgstr "Aprovisiona un amfitrió descobert"
+
+msgid "Quick create"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reinicia"
@@ -451,6 +514,9 @@ msgstr "Selecciona l'acció"
 msgid "Select all items in this page"
 msgstr "Selecciona tots els ítems en aquesta pàgina"
 
+msgid "Select initial host properties"
+msgstr ""
+
 msgid "Select location"
 msgstr "Selecciona la ubicació"
 
@@ -466,6 +532,9 @@ msgstr "Mostra una regla de descobriment"
 msgid "Software"
 msgstr ""
 
+msgid "Software facts"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Alguna cosa va anar malament mentre se seleccionaven els amfitrions - %s"
 
@@ -475,11 +544,17 @@ msgstr ""
 msgid "Storage"
 msgstr ""
 
+msgid "Storage facts"
+msgstr ""
+
 msgid "Submit"
 msgstr "Envia"
 
 msgid "Subnet"
 msgstr "Subxarxa"
+
+msgid "Successfully provisioned %s"
+msgstr ""
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr ""
@@ -538,7 +613,7 @@ msgstr "Puja els objectes d'interès per a un amfitrió, creant el nou amfitrió
 msgid "Warning"
 msgstr "Advertència"
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""
 
 msgid "can't contain white spaces."

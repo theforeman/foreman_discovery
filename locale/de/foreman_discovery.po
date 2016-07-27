@@ -38,9 +38,6 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "Sind Sie sicher?"
-
 msgid "Assign Location"
 msgstr "Standort zuweisen"
 
@@ -56,10 +53,16 @@ msgstr "Automatisch bereitstellen"
 msgid "Auto Provision All"
 msgstr "Alle automatisch bereitstellen"
 
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
 
-msgid "Automatically reboot discovered host during provisioning"
+msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
@@ -71,6 +74,12 @@ msgstr "CPUs"
 msgid "Cancel"
 msgstr "Abbrechen"
 
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
 
@@ -80,8 +89,8 @@ msgstr ""
 msgid "Create a discovery rule"
 msgstr "Entdeckungsregel erstellen"
 
-msgid "Delete"
-msgstr "Löschen"
+msgid "Create host"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "%s löschen?"
@@ -131,6 +140,12 @@ msgstr ""
 msgid "Discovery Rules"
 msgstr "Entdeckungsregeln"
 
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
 msgid "Discovery rules"
 msgstr "Entdeckungsregeln"
 
@@ -155,8 +170,8 @@ msgstr "Festplattenanzahl"
 msgid "Disks size"
 msgstr "Festplattengröße"
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "Domain wird automatisch angehängt. Falls leer gelassen, wird ein Hostname basierend auf der MAC-Adresse verwendet. Zusätzlich zum Attribut \"@host\" steht die Funktion \"rand\" für zufällige Ganzzahlwerte zur Verfügung. Beispiele:"
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
 
 msgid "Edit Discovery Rule"
 msgstr "Entdeckungsregel bearbeiten"
@@ -188,7 +203,13 @@ msgstr ""
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
+msgid "Fact columns"
+msgstr ""
+
 msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
 msgstr ""
 
 msgid "Facts refreshed for %s"
@@ -218,6 +239,12 @@ msgstr ""
 msgid "Hardware"
 msgstr "Hardware"
 
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
 msgid "Highlights"
 msgstr ""
 
@@ -243,8 +270,17 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "Host vom Typ %s kann nicht neu gestartet werden"
 
+msgid "Hostname facts"
+msgstr ""
+
 msgid "Hostname for provisioned hosts"
 msgstr "Hostname für bereitgestellte Hosts"
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
 
 msgid "Hosts limit"
 msgstr "Hostgrenze"
@@ -261,6 +297,9 @@ msgstr "IP-Adresse"
 msgid "IPMI"
 msgstr "IPMI"
 
+msgid "IPMI facts"
+msgstr ""
+
 msgid "Identifier"
 msgstr "Bezeichner"
 
@@ -268,6 +307,12 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
@@ -294,6 +339,9 @@ msgstr "Alle entdeckten Hosts auflisten"
 msgid "List all discovery rules"
 msgstr "Alle Entdeckungsregeln auflisten"
 
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
@@ -302,6 +350,12 @@ msgstr "Standort"
 
 msgid "Locations"
 msgstr "Orte"
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "MAC-Adresse"
@@ -332,6 +386,9 @@ msgstr "Name"
 
 msgid "Network"
 msgstr "Netzwerk"
+
+msgid "Network facts"
+msgstr ""
 
 msgid "New Discovery Rule"
 msgstr "Neue Entdeckungsregel"
@@ -381,6 +438,9 @@ msgstr "Organisation"
 msgid "Organizations"
 msgstr "Organisationen"
 
+msgid "PXE template to be used when pinning a host to discovery"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "Bitte bestätigen"
 
@@ -392,6 +452,9 @@ msgstr "Bereitstellen"
 
 msgid "Provision a discovered host"
 msgstr "Entdeckten Host bereitstellen"
+
+msgid "Quick create"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Neustart"
@@ -456,6 +519,9 @@ msgstr "Aktion auswählen"
 msgid "Select all items in this page"
 msgstr "Alle Elemente auf dieser Seite auswählen"
 
+msgid "Select initial host properties"
+msgstr ""
+
 msgid "Select location"
 msgstr "Standort auswählen"
 
@@ -471,6 +537,9 @@ msgstr "Entdeckungsregel anzeigen"
 msgid "Software"
 msgstr "Software"
 
+msgid "Software facts"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Fehler beim Auswählen der Hosts – %s"
 
@@ -480,11 +549,17 @@ msgstr "Vorlagenmuster des Ziel-Hostnamens in derselben Syntax angeben wie in Be
 msgid "Storage"
 msgstr "Speicher"
 
+msgid "Storage facts"
+msgstr ""
+
 msgid "Submit"
 msgstr "Absenden"
 
 msgid "Subnet"
 msgstr "Subnetz"
+
+msgid "Successfully provisioned %s"
+msgstr ""
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr ""
@@ -543,8 +618,8 @@ msgstr "Fakten für Host aktualisiert, Host wird erstellt falls erforderlich"
 msgid "Warning"
 msgstr "Warnung"
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr "Stellen Sie beim Anlegen von Hostnamen-Mustern sicher, das die daraus resultierenden Hostnamen eindeutig sind. Hostnamen dürfen nicht mit Ziffern beginnen. Eine gute Methode ist die Verwendung der von Facter bereitgestellten eindeutigen Informationen (MAC-Adresse, BIOS oder Seriennummer)."
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
 
 msgid "can't contain white spaces."
 msgstr "darf keine Leerzeichen enthalten."

@@ -31,9 +31,6 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Are you sure?"
-msgstr "정말로 삭제하시겠습니까? "
-
 msgid "Assign Location"
 msgstr "위치 지정 "
 
@@ -49,10 +46,16 @@ msgstr "자동 프로비저닝 "
 msgid "Auto Provision All"
 msgstr "전체 자동 프로비저닝 "
 
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "프로비저닝 규칙에 따라 새로 검색된 호스트의 자동 프로비저닝 "
 
-msgid "Automatically reboot discovered host during provisioning"
+msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
@@ -64,6 +67,12 @@ msgstr "CPU"
 msgid "Cancel"
 msgstr "취소 "
 
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
@@ -73,8 +82,8 @@ msgstr ""
 msgid "Create a discovery rule"
 msgstr "검색 규칙 생성 "
 
-msgid "Delete"
-msgstr "삭제 "
+msgid "Create host"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "%s 을(를) 삭제하시겠습니까?"
@@ -124,6 +133,12 @@ msgstr ""
 msgid "Discovery Rules"
 msgstr "검색 규칙 "
 
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
 msgid "Discovery rules"
 msgstr "검색 규칙 "
 
@@ -148,8 +163,8 @@ msgstr "디스크 수 "
 msgid "Disks size"
 msgstr "디스크 크기 "
 
-msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank. In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "도메인이 자동으로 추가됩니다. 빈 란으로 되어 있을 경우 MAC 주소를 기반으로 하는 호스트 이름이 사용됩니다. @host 속성 이외에 임의의 정수에 대해 rand 함수를 사용할 수 있습니다. 예:  "
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
 
 msgid "Edit Discovery Rule"
 msgstr "검색 규칙 편집 "
@@ -181,7 +196,13 @@ msgstr ""
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
+msgid "Fact columns"
+msgstr ""
+
 msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
 msgstr ""
 
 msgid "Facts refreshed for %s"
@@ -211,6 +232,12 @@ msgstr ""
 msgid "Hardware"
 msgstr ""
 
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
 msgid "Highlights"
 msgstr ""
 
@@ -236,8 +263,17 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "호스트 유형 %s은(는) 재부팅할 수 없습니다 "
 
+msgid "Hostname facts"
+msgstr ""
+
 msgid "Hostname for provisioned hosts"
 msgstr "프로비저닝된 호스트의 호스트 이름 "
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
 
 msgid "Hosts limit"
 msgstr "호스트 제한 "
@@ -254,6 +290,9 @@ msgstr "IP 주소 "
 msgid "IPMI"
 msgstr ""
 
+msgid "IPMI facts"
+msgstr ""
+
 msgid "Identifier"
 msgstr "식별자 "
 
@@ -261,6 +300,12 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
@@ -287,6 +332,9 @@ msgstr "검색된 모든 호스트를 나열 "
 msgid "List all discovery rules"
 msgstr "모든 검색 규칙을 나열 "
 
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
@@ -295,6 +343,12 @@ msgstr "위치 "
 
 msgid "Locations"
 msgstr "위치"
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "MAC 주소"
@@ -324,6 +378,9 @@ msgid "Name"
 msgstr "이름 "
 
 msgid "Network"
+msgstr ""
+
+msgid "Network facts"
 msgstr ""
 
 msgid "New Discovery Rule"
@@ -374,6 +431,9 @@ msgstr "조직 "
 msgid "Organizations"
 msgstr "조직 "
 
+msgid "PXE template to be used when pinning a host to discovery"
+msgstr ""
+
 msgid "Please Confirm"
 msgstr "확인해 주십시오 "
 
@@ -385,6 +445,9 @@ msgstr "프로비저닝 "
 
 msgid "Provision a discovered host"
 msgstr "검색된 호스트 프로비저닝 "
+
+msgid "Quick create"
+msgstr ""
 
 msgid "Reboot"
 msgstr "다시 시작"
@@ -449,6 +512,9 @@ msgstr "작업 선택 "
 msgid "Select all items in this page"
 msgstr "이 페이지에 있는 모든 항목을 선택 "
 
+msgid "Select initial host properties"
+msgstr ""
+
 msgid "Select location"
 msgstr "위치 선택 "
 
@@ -464,6 +530,9 @@ msgstr "검색 규칙 표시 "
 msgid "Software"
 msgstr ""
 
+msgid "Software facts"
+msgstr ""
+
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "호스트를 선택하는 도중 문제가 발생했습니다 - %s"
 
@@ -473,11 +542,17 @@ msgstr "프로비저닝 템플릿 (ERB)에 있는 것과 동일한 구문의 대
 msgid "Storage"
 msgstr ""
 
+msgid "Storage facts"
+msgstr ""
+
 msgid "Submit"
 msgstr "제출 "
 
 msgid "Subnet"
 msgstr "서브넷 "
+
+msgid "Successfully provisioned %s"
+msgstr ""
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr ""
@@ -536,8 +611,8 @@ msgstr "호스트의 팩트를 업로드하고 필요한 경우 호스트를 생
 msgid "Warning"
 msgstr "경고 "
 
-msgid "When creating hostname patterns, make sure the resulting host names are unique. Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr "호스트 이름 패턴을 생성할 때 생성된 호스트 이름이 고유한 이름인지 확인하십시오. 호스트 이름은 숫자로 시작할 수 없습니다. facter (MAC 주소, BIOS 또는 시리얼 ID)에서 제공하는 고유한 정보를 사용하는 것이 좋습니다. "
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
 
 msgid "can't contain white spaces."
 msgstr "공백을 포함할 수 없습니다. "
