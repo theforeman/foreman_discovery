@@ -98,7 +98,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_edit_form_submit_parameters
     host = Host::Discovered.import_host(@facts)
     domain = FactoryGirl.create(:domain)
-    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
     hostgroup.medium.organizations << host.organization
     hostgroup.medium.locations << host.location
     hostgroup.ptable.organizations << host.organization
