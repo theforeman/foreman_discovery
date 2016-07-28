@@ -18,7 +18,7 @@
             <%= autocomplete_f f, :search,
                                :path             => "discovered_hosts",
                                :control_group_id => 'search_group', :size => 'col-md-9' %>
-            <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label, { :include_blank => false },
+            <%= select_f f, :hostgroup_id, accessible_hostgroups, :id, :to_label, { :include_blank => false },
                          { :help_inline => _('Target host group for this rule with all properties set') } %>
             <%= text_f f, :hostname, :help_inline => popover(
                                 _("Template"),
