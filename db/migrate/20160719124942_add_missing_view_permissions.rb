@@ -6,8 +6,10 @@ class AddMissingViewPermissions < ActiveRecord::Migration
       "view_provisioning_templates", "view_ptables", "view_puppetclasses",
       "view_realms", "view_smart_proxies", "view_subnets"
     ]
-    Role.find_by_name("Discovery Reader").add_permissions!(permissions)
-    Role.find_by_name("Discovery Manager").add_permissions!(permissions + ["create_hosts"])
+    role = Role.find_by_name("Discovery Reader")
+    role.add_permissions!(permissions) if role
+    role = Role.find_by_name("Discovery Manager")
+    role.add_permissions!(permissions + ["create_hosts"]) if role
   end
 
   def down
