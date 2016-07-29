@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,extra,config,db,lib}/**/*"] + Dir["locale/**/*.{po,pot,mo}"] + ["LICENSE", "README.md"]
   s.test_files = Dir["test/**/*"]
   s.homepage = %q{http://github.com/theforeman/foreman_discovery}
-  s.licenses = ["GPL-3"]
+  s.licenses = ["GPL-3.0"]
   s.summary = %q{MaaS Discovery Plugin for Foreman}
 
   s.add_dependency 'deface', '< 2.0'
