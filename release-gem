@@ -39,6 +39,8 @@ action "Rebuilt the MO files with: make -C locale mo-files" do
   end
 end
 
+action "Modified engine.rb to match minimum Foreman core version"
+
 action "Modified #{RUBY_VERSION_FILE} to match desired version" do
   GIT_VERSION == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
 end
