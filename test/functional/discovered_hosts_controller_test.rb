@@ -15,22 +15,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       "physicalprocessorcount" => "42",
       "discovery_version"      => "3.0.0",
     }
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_always_rebuild_dns',
-                       :value => true,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_reboot',
-                       :value => true,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_hostname',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_prefix',
-                       :value => 'mac',
-                       :category => 'Setting::Discovered')
+    set_default_settings
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 

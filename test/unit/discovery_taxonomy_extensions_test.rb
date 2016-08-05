@@ -2,14 +2,7 @@ require 'test_helper'
 
 class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
   setup do
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_hostname',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_prefix',
-                       :value => 'mac',
-                       :category => 'Setting::Discovered')
+    set_default_settings
   end
 
   test 'deleting location does not hard fail if there is associated discovered host' do

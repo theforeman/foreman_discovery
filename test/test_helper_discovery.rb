@@ -26,3 +26,20 @@ end
 def extract_form_errors(response)
   response.body.scan(/error-message[^<]*</)
 end
+
+def set_default_settings
+  FactoryGirl.create(:setting, :name => 'discovery_fact', :value => 'discovery_bootif', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_organization', :value => Organization.first.name, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_location', :value => Location.first.name, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_lock', :value => 'false', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
+end
