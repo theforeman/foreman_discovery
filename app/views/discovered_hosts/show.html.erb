@@ -8,22 +8,29 @@
 <div class="row">
   <div class="col-md-6">
     <div id="category-highlights" class="panel panel-default">
-      <div class="panel-heading" ><strong> <%= _(@categories_names[0]) %></strong> </div>
+      <div class="panel-heading" role="tab">
+        <h4 class="panel-title">
+          <a role="button" class="expendable-link" data-toggle="collapse" href="#highlights-panel" aria-expanded="true">
+            <%= _(@categories_names[0]) %>
+          </a>
+        </h4>
+      </div>
+      <div id="highlights-panel" class="panel-collapse collapse facts-panel in" >
         <table class="table table-bordered table-condensed table-fixed">
-        <% @categories[0].sort.each do |key, val| %>
-            <tr id="fact-<%= key.try(:downcase) %>" class="">
-              <th class="ellipsis" width="40%"> <strong> <%= key %> </strong></th>
-              <td><%= val %></td>
-            </tr>
+          <% @categories[0].sort.each do |key, val| %>
+          <tr id="fact-<%= key.try(:downcase) %>" class="">
+            <th class="ellipsis" width="40%"> <strong> <%= key %> </strong></th>
+            <td><%= val %></td>
+          </tr>
         <% end -%>
         </table>
+      </div>
     </div>
     <% unless @interfaces.empty? %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab">
           <h4 class="panel-title">
-            <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#interfaces-panel" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
-              <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+            <a role="button" class="expendable-link" data-toggle="collapse" href="#interfaces-panel" aria-expanded="true">
               <%= _("Interfaces") %>
             </a>
           </h4>
@@ -31,7 +38,7 @@
         <div id="interfaces-panel" class="panel-collapse collapse facts-panel in" >
           <table class="table table-bordered table-condensed table-fixed" id="interfaceList">
             <tr>
-              <th class="hidden-xs " width="12%"></th>
+              <th class="hidden-xs " width="12%"><%= _('Type') %></th>
               <th class="hidden-xs "><%= _('Identifier') %></th>
               <th class="hidden-xs "><%= _("MAC address") %></th>
               <th class="hidden-xs "><%= _("IP address") %></th>
@@ -57,8 +64,7 @@
         <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default">
           <div class="panel-heading" role="tab">
             <h4 class="panel-title">
-              <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true" onclick="$(this).find(':first-child').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign')">
-                <span class="glyphicon glyphicon<%= (@categories_names[index].to_s.include?("Storage")? "-minus-sign":"-plus-sign")%>" aria-hidden="true"></span>
+              <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true">
                 <%= _(@categories_names[index]) %>
               </a>
             </h4>
@@ -83,7 +89,6 @@
   $(document).ready(function(){
     $("table").css('padding', '0');
     $("table").css("cssText", 'margin-bottom: 0 !important;');
-    $(".panel-default").css('margin-bottom', "10px")
 
     provision_class = 'active'
     primary_class = 'active'
