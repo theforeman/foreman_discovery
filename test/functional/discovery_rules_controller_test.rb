@@ -20,12 +20,28 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create discovery rule" do
+  test "should create discovery rule without taxonomy" do
     assert_difference('DiscoveryRule.count') do
       post :create, {:discovery_rule => {
         :name => "foo",
         :search => "cpu_count = 42",
         :hostgroup_id => 1,
+        :hostname => "",
+        :priority => 1}}, set_session_user_default_manager
+      assert_empty(extract_form_errors(response))
+    end
+    assert_redirected_to discovery_rules_path
+  end
+
+  test "should create discovery rule with taxonomy" do
+    assert_difference('DiscoveryRule.count') do
+      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [Organization.first], :locations => [Location.first])
+      post :create, {:discovery_rule => {
+        :name => "foo",
+        :search => "cpu_count = 42",
+        :hostgroup_id => hostgroup.id,
+        :organization_ids => [Organization.first],
+        :location_ids => [Location.first.id],
         :hostname => "",
         :priority => 1}}, set_session_user_default_manager
       assert_empty(extract_form_errors(response))
