@@ -31,6 +31,7 @@ class Setting::Discovered < ::Setting
         self.set('discovery_facts_ipmi', N_("Regex to organize facts for ipmi section"), "", N_("IPMI facts")),
         self.set('discovery_lock', N_("Automatically generate PXE configuration to pin a newly discovered host to discovery"), false, N_("Lock PXE")),
         self.set('discovery_lock_template', N_("PXE template to be used when pinning a host to discovery"), 'pxelinux_discovery', N_("Locked template name"),nil,{ :collection => Proc.new {Hash[ProvisioningTemplate.all.map{|template| [template[:name], template[:name]]}]} }),
+        self.set('discovery_always_rebuild_dns', N_("Force DNS entries creation when provisioning discovered host"), true, N_("Force DNS")),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
     end
 

@@ -16,6 +16,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       "discovery_version"      => "3.0.0",
     }
     FactoryGirl.create(:setting,
+                       :name => 'discovery_always_rebuild_dns',
+                       :value => true,
+                       :category => 'Setting::Discovered')
+    FactoryGirl.create(:setting,
                        :name => 'discovery_reboot',
                        :value => true,
                        :category => 'Setting::Discovered')
@@ -268,9 +272,57 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_nil flash[:notice]
   end
 
+  def test_no_dns_rebuild_if_dns_pending
+    host = Host::Discovered.import_host(@facts)
+    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+    Nic::Managed.any_instance.expects(:rebuild_dns).never
+    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+    put :update, {:commit => "Update", :id => host.id,
+                  :host => {
+                      :name => 'mytest',
+                      :hostgroup_id => hostgroup.id,
+                  }
+    }, set_session_user_default_manager
+  end
+
+  def test_dns_rebuild
+    host = prepare_host_for_dns_rebuild
+    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+    Nic::Managed.any_instance.expects(:rebuild_dns)
+    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+    put :update, {:commit => "Update", :id => host.id,
+                  :host => {
+                      :name => 'mytest',
+                      :hostgroup_id => hostgroup.id,
+                  }
+    }, set_session_user_default_manager
+  end
+
+  def test_dns_rebuild_with_auto_provision
+    host = prepare_host_for_dns_rebuild
+    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+    Nic::Managed.any_instance.expects(:rebuild_dns)
+    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
+    post :auto_provision, { :id => host.id }, set_session_user_default_manager
+  end
+
   private
 
   def initialize_host
     User.current = users(:admin)
+  end
+
+  def prepare_host_for_dns_rebuild
+    host = Host::Discovered.import_host(@facts)
+    host.name = 'mytest.myorchdomain.net'
+    host.save
+    host
+  end
+
+  def prepare_hostgroup_for_dns_rebuild(host)
+    hostgroup = setup_hostgroup(host)
+    hostgroup.domain = FactoryGirl.create(:domain, :name => 'myorchdomain.net', :dns => FactoryGirl.create(:smart_proxy, :features => [FactoryGirl.create(:feature, :dns)]))
+    hostgroup
   end
 end
