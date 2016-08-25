@@ -11,7 +11,7 @@ The main documentation can be found in the [Foreman Discovery manual] (http://th
 If a source-based install of Foreman is in use, the develop
 branch of the plugin can be obtained by updating the Gemfile in this way:
 
-    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git"
+    gem 'foreman_discovery', :git => "https://github.com/theforeman/foreman_discovery.git", :branch => 'develop'
 
 # API
 
