@@ -44,8 +44,7 @@ module Host::ManagedExtensions
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
     @host = self
-    # the following two attributes are overwritten by TFTP in preview mode (kept for compatibility)
-    @kernel, @initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture)
+    @kexec_kernel, @kexec_initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture)
     json = unattended_render(template)
     old.becomes(Host::Discovered).kexec json
     true

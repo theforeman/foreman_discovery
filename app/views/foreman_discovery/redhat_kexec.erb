@@ -23,7 +23,6 @@ environments. The template must generate JSON format with three items:
 information about semantics.
 -%>
 <%
-  @kernel, @initrd = @host.operatingsystem.boot_files_uri(@host.medium, @host.architecture)
   mac = @host.facts['discovery_bootif']
   bootif = '00-' + mac.gsub(':', '-') if mac
   ip_cidr = @host.facts['discovery_ip_cidr']
@@ -34,8 +33,8 @@ information about semantics.
   append = @host.facts['append']
 -%>
 {
-  "kernel": "<%= @kernel %>",
-  "initram": "<%= @initrd %>",
+  "kernel": "<%= @kexec_kernel %>",
+  "initram": "<%= @kexec_initrd %>",
 <% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
   "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset #{append}" %>"
