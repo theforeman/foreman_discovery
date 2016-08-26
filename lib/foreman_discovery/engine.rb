@@ -163,6 +163,7 @@ module ForemanDiscovery
 
         # add template helpers
         allowed_template_helpers :rand
+        allowed_template_variables :kexec_kernel, :kexec_initrd
 
         # apipie API documentation
         # Only available in 1.8, otherwise it has to be in the initializer below

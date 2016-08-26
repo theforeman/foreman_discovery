@@ -13,7 +13,6 @@ environments. The template must generate JSON format with three items:
 information about semantics.
 -%>
 <%
-  @kernel, @initrd = @host.operatingsystem.boot_files_uri(@host.medium, @host.architecture)
   mac = @host.facts['discovery_bootif']
   bootif = '00-' + mac.gsub(':', '-') rescue ''
   ip_cidr = @host.facts['discovery_ip_cidr']
@@ -28,7 +27,7 @@ information about semantics.
   options << "locale=#{@host.params['lang'] || 'en_US'}"
 -%>
 {
-  "kernel": "<%= @kernel %>",
-  "initram": "<%= @initrd %>",
+  "kernel": "<%= @kexec_kernel %>",
+  "initram": "<%= @kexec_initrd %>",
   "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.join(' ') %>"
 }
