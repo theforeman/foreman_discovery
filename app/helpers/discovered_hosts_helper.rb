@@ -11,15 +11,14 @@ module DiscoveredHostsHelper
   end
 
   def discovered_hosts_title_actions(host)
-    actions = [[_('Provision'), hash_for_edit_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :provision_discovered_hosts)]]
-    actions <<  [_('Auto Provision'), hash_for_auto_provision_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :auto_provision_discovered_hosts), :method => :post]
+    actions =  [[_('Auto Provision'), hash_for_auto_provision_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :auto_provision_discovered_hosts), :method => :post]]
     actions <<  [_('Refresh facts') ,hash_for_refresh_facts_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts)]
     actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts), :method => :put]
     title_actions(
         button_group(
             link_to(_("Back"), :back, :class => "btn btn-default")
         ),
-        select_action_button( _("Select Action"), {}, actions.map { |action| display_link_if_authorized(action[0] , action[1], action[2] || {}) }.flatten ),
+        select_action_button( _("Select Action"), {}, provision_button(host, hash_for_edit_discovered_host_path(:id => host)), actions.map { |action| display_link_if_authorized(action[0] , action[1], action[2] || {}) }.flatten ),
       button_group(
         link_to(_("Expand All"),"#",:class => "btn btn-default",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
                 $('.facts-panel').addClass('collapse in').height('auto');"
@@ -90,12 +89,10 @@ module DiscoveredHostsHelper
   def provision_button(host, authorization_options)
     return '' unless authorized_for(authorization_options)
 
-    button_tag(
-      _('Provision'),
-      :type => :button,
-      :class => 'btn btn-sm btn-default',
-      :data => {
-        :toggle => 'modal',
-        :target => "#fixedPropertiesSelector-#{host.id}"})
+    link_to(
+        _('Provision'), "#",
+        :data => {
+            :toggle => 'modal',
+            :target => "#fixedPropertiesSelector-#{host.id}"})
   end
 end
