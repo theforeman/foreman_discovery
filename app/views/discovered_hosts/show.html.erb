@@ -2,6 +2,9 @@
 
 <%= discovered_hosts_title_actions(@host) %>
 
+<!-- Modal -->
+<%= render :partial => "discovered_host_modal", :locals => {:host => @host} %>
+
 <div class="row">
   <div class="col-md-6">
     <div id="category-highlights" class="panel panel-default">
