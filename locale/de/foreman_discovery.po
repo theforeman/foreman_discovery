@@ -12,10 +12,10 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-05-06 22:45+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2016-08-22 15:07+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,10 +33,10 @@ msgid "%s discovered hosts were provisioned"
 msgstr "%s entdeckte Hosts wurden bereitgestellt"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr ""
+msgstr "<b>Foreman</b> Zusammenfassung entdeckter Hosts"
 
 msgid "A summary of discovered hosts"
-msgstr ""
+msgstr "Eine Zusammenfassung der entdeckten Hosts"
 
 msgid "Assign Location"
 msgstr "Standort zuweisen"
@@ -54,10 +54,10 @@ msgid "Auto Provision All"
 msgstr "Alle automatisch bereitstellen"
 
 msgid "Auto provisioning"
-msgstr ""
+msgstr "Automatische Bereitstellung"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
-msgstr ""
+msgstr "PXE-Konfiguration automatisch erzeugen, um einen neu entdeckten Host zu einer Entdeckung anzuheften"
 
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
@@ -75,22 +75,22 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid "Clean all facts"
-msgstr ""
+msgstr "Alle Fakten löschen"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
-msgstr ""
+msgstr "Alle berichteten Fakten während der Bereitstellung löschen (ausgenommen Entdeckungsfakten)"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "Entdeckten Host zum Testen erstellen (verwenden Sie /Fakten zur Erstellung neuer Hosts)"
 
 msgid "Create a discovery rule"
 msgstr "Entdeckungsregel erstellen"
 
 msgid "Create host"
-msgstr ""
+msgstr "Host erstellen"
 
 msgid "Delete %s?"
 msgstr "%s löschen?"
@@ -117,7 +117,7 @@ msgid "Disable rule '%s'?"
 msgstr "Regel '%s' deaktivieren?"
 
 msgid "Discovered Hosts"
-msgstr ""
+msgstr "Entdeckte Hosts"
 
 msgid "Discovered host: %s"
 msgstr "Entdeckter Host: %s"
@@ -129,22 +129,22 @@ msgid "Discovered hosts are provisioning now"
 msgstr "Entdeckte Hosts, die jetzt bereitgestellt werden"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "Entdeckte Hosts werden jetzt neu gestartet"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr ""
+msgstr "Vom Foreman-Server unter %{foreman_url} entdeckte Hosts"
 
 msgid "Discovered hosts summary"
-msgstr ""
+msgstr "Zusammenfassung entdeckter Hosts"
 
 msgid "Discovery Rules"
 msgstr "Entdeckungsregeln"
 
 msgid "Discovery location"
-msgstr ""
+msgstr "Entdeckungsort"
 
 msgid "Discovery organization"
-msgstr ""
+msgstr "Entdeckungsorganisation"
 
 msgid "Discovery rules"
 msgstr "Entdeckungsregeln"
@@ -186,7 +186,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "Fehler bei automatischer Bereitstellung: %s"
 
 msgid "Errors during reboot: %s"
-msgstr "Fehler während Neustart: %s"
+msgstr "Fehler bei Neustart: %s"
 
 msgid "Execute rules against a discovered host"
 msgstr "Regeln auf einem entdeckten Host anwenden"
@@ -198,19 +198,19 @@ msgid "Expand All"
 msgstr "Alle ausklappen"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
+msgstr "Erwartetes discovery_fact '%s' fehlt, primäre Schnittstelle kann nicht gefunden und Hostname nicht eingestellt werden"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
+msgstr "Zusätzliche Facter-Spalten zum Anzeigen in Hostlisten (mit Komma getrennt)"
 
 msgid "Fact columns"
-msgstr ""
+msgstr "Faktspalten"
 
 msgid "Fact name to use for primary interface detection"
 msgstr ""
 
 msgid "Facts could not be imported"
-msgstr ""
+msgstr "Fakten konnten nicht importiert werden"
 
 msgid "Facts refreshed for %s"
 msgstr "Fakten für %s erneuert"
@@ -225,34 +225,28 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "Fehler beim Neustart von Host %{hostname} mit Fehlermeldung %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr "Neustart von Hosts fehlgeschlagen mit Fehler %s"
 
 msgid "Failed to refresh facts for %s"
 msgstr "Fehler beim Aktualisieren von Fakten für %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "Fehler beim Aktualisieren der Fakten für %{hostname} mit Fehlermeldung %{error_message}"
 
 msgid "Foreman discovered hosts summary"
-msgstr ""
+msgstr "Foreman Zusammenfassung entdeckter Hosts"
 
 msgid "Hardware"
 msgstr "Hardware"
 
 msgid "Hardware facts"
-msgstr ""
+msgstr "Hardwarefakten"
 
 msgid "Highlighted facts"
-msgstr ""
+msgstr "Hervorgehobene Fakten"
 
 msgid "Highlights"
-msgstr ""
+msgstr "Hervorhebungen"
 
 msgid "Host"
 msgstr "Host"
@@ -277,13 +271,13 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Host vom Typ %s kann nicht neu gestartet werden"
 
 msgid "Hostname facts"
-msgstr ""
+msgstr "Hostnamenfakten"
 
 msgid "Hostname for provisioned hosts"
 msgstr "Hostname für bereitgestellte Hosts"
 
 msgid "Hostname prefix"
-msgstr ""
+msgstr "Hostnamenpräfix"
 
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
@@ -304,22 +298,22 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPMI facts"
-msgstr ""
+msgstr "IPMI-Fakten"
 
 msgid "Identifier"
 msgstr "Bezeichner"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "Image API Verarbeitungsfehler: %{msg} (HTTP/%{code}, Text: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "Image API gibt HTTP/%{code} mit '%{body} zurück"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
 msgid "Interface fact"
-msgstr ""
+msgstr "Schnittstellenfakt"
 
 msgid "Interfaces"
 msgstr "Schnittstellen"
@@ -331,10 +325,10 @@ msgid "Invalid facts: hash does not contain a valid value for any of the facts i
 msgstr ""
 
 msgid "Invalid hostname: Could not normalize the hostname"
-msgstr ""
+msgstr "Ungültiger Hostname: Konnte den Hostnamen nicht normalisieren"
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Kexec Vorlage ist nicht dem Betriebssystem zugeordnet"
 
 msgid "Last facts upload"
 msgstr "Letzter Fakten-Upload"
@@ -346,7 +340,7 @@ msgid "List all discovery rules"
 msgstr "Alle Entdeckungsregeln auflisten"
 
 msgid "List all fact values of a given discovered host"
-msgstr ""
+msgstr "Alle Faktwerte eines angegebenen entdeckten Hosts auflisten"
 
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
@@ -355,19 +349,22 @@ msgid "Location"
 msgstr "Standort"
 
 msgid "Locations"
-msgstr "Orte"
+msgstr "Standorte"
 
 msgid "Lock PXE"
-msgstr ""
+msgstr "PXE sperren"
 
 msgid "Locked template name"
-msgstr ""
+msgstr "Gesperrter Vorlagenname"
 
 msgid "MAC address"
 msgstr "MAC-Adresse"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Höchstanzahl von Hosts, die mit dieser Regel bereitgestellt werden (0 = unbegrenzt)"
+
+msgid "Medium not set for host/hostgroup"
+msgstr "Medium für Host/Hostgruppe nicht eingestellt"
 
 msgid "Memory"
 msgstr "Speicher"
@@ -391,7 +388,7 @@ msgid "Network"
 msgstr "Netzwerk"
 
 msgid "Network facts"
-msgstr ""
+msgstr "Netzwerkfakten"
 
 msgid "New Discovery Rule"
 msgstr "Neue Entdeckungsregel"
@@ -406,16 +403,16 @@ msgid "No discovered hosts available"
 msgstr "Keine entdeckten Hosts verfügbar"
 
 msgid "No discovered hosts for the selected period"
-msgstr ""
+msgstr "Keine entdeckten Hosts für den ausgewählten Zeitraum"
 
 msgid "No discovered hosts to provision"
 msgstr "Keine entdeckten Hosts zur Bereitstellung"
 
 msgid "No discovered hosts to reboot"
-msgstr ""
+msgstr "Keine entdeckten Hosts zum Neustarten"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr " Der Regel '%s' ist keine Hostgruppe zugewiesen"
 
 msgid "No hosts selected"
 msgstr "Keine Hosts ausgewählt"
@@ -424,13 +421,16 @@ msgid "No hosts were found with that id or name"
 msgstr "Keine Systeme mit dieser ID oder diesem Namen gefunden"
 
 msgid "No new discovered hosts for this period"
-msgstr ""
+msgstr "Keine neu entdeckten Hosts für diesen Zeitraum"
 
 msgid "No rule found for host %s"
 msgstr "Keine Regel gefunden für Host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "Nicht berichtet in mehr als 7 Tagen"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr "Betriebssystem für Host/Hostgruppe nicht eingestellt"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -454,7 +454,7 @@ msgid "Provision a discovered host"
 msgstr "Entdeckten Host bereitstellen"
 
 msgid "Quick create"
-msgstr ""
+msgstr "Schnell erstellen"
 
 msgid "Reboot"
 msgstr "Neustart"
@@ -469,13 +469,10 @@ msgid "Rebooting a discovered host"
 msgstr "Entdeckten Host neu starten"
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "Alle entdeckten Hosts neu starten"
 
 msgid "Rebooting host %s"
 msgstr "Host %s wird neu gestartet"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "Fakten aktualisieren"
@@ -484,22 +481,22 @@ msgid "Refreshing the facts of a discovered host"
 msgstr "Fakten eines entdeckten Hosts werden aktualisiert"
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "Regex zur Faktensortierung im Hardware-Bereich"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "Regex zur Faktensortierung im IMPI-Bereich"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "Regex zur Faktensortierung im Netzwerk-Bereich"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "Regex zur Faktensortierung im Software-Bereich"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "Regex zur Faktensortierung im Speicher-Bereich"
 
 msgid "Reloading kernel on %s"
 msgstr "Kernel auf %s wird neu geladen"
@@ -523,7 +520,7 @@ msgid "Select all items in this page"
 msgstr "Alle Elemente auf dieser Seite auswählen"
 
 msgid "Select initial host properties"
-msgstr ""
+msgstr "Initiale Hosteigenschaften auswählen"
 
 msgid "Select location"
 msgstr "Standort auswählen"
@@ -541,7 +538,7 @@ msgid "Software"
 msgstr "Software"
 
 msgid "Software facts"
-msgstr ""
+msgstr "Softwarefakten"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Fehler beim Auswählen der Hosts – %s"
@@ -553,7 +550,7 @@ msgid "Storage"
 msgstr "Speicher"
 
 msgid "Storage facts"
-msgstr ""
+msgstr "Speicherfakten"
 
 msgid "Submit"
 msgstr "Absenden"
@@ -562,13 +559,13 @@ msgid "Subnet"
 msgstr "Subnetz"
 
 msgid "Successfully provisioned %s"
-msgstr ""
+msgstr "%s erfolgreich bereitgestellt"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr ""
+msgstr "Zusammenfassung von %{time} bis %{now}"
 
 msgid "Summary report for discovered hosts from Foreman"
-msgstr ""
+msgstr "Zusammenfassungsbericht für entdeckte Hosts von Foreman"
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Ziel-Hostgruppe für diese Regel mit allen Eigenschaften gesetzt"
@@ -591,29 +588,26 @@ msgstr "Die folgenden Hosts wurden nicht gelöscht: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Dieser Vorgang kann eine Weile dauern, da alle Hosts, Fakten und Berichte ebenfalls gelöscht werden"
 
-msgid "Type"
-msgstr ""
-
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID zur Nachverfolgung des Status von Orchestrierungs-Tasks, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "Subnetz kann nicht zugewiesen werden, IP-Adresse der primären Schnittstelle fehlt"
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "Entdeckung der primären Schnittstelle mittels MAC '%{mac}', festgelegt durch discovery_fact '%{fact}', nicht möglich"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "Keine Entdeckungsregel gefunden, kein Host bereitgestellt (Berechtigungen prüfen)"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "kexec kann nicht auf  %{name} über %{url} ausgeführt werden: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "%{host} kann nicht bereitgestellt werden: %{errors} "
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "%{name} kann nicht über %{url} neu gestartet werden: %{msg}"
 
 msgid "Update a rule"
 msgstr "Regel aktualisieren"
@@ -643,7 +637,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "Flag zur vorübergehenden Deaktivierung von Regeln"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "Hash, der Fakten für den Host mit minimaler Anzahl an Fakten enthält: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (Beispiel für primäre Schnittstelle mit dem Namen eth0) "
 
 msgid "items selected. Uncheck to Clear"
 msgstr "Elemente ausgewählt. Zum Leeren abwählen"

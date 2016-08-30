@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-23 18:49+0000\n"
+"PO-Revision-Date: 2016-08-22 15:09+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -24,7 +24,7 @@ msgid "%s ago"
 msgstr "%s 前"
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "预配 %s 已发现的主机"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
@@ -78,7 +78,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "创建发现的主机以进行测试（使用 /facts 创建新主机）"
 
 msgid "Create a discovery rule"
 msgstr "常见发现规则"
@@ -123,7 +123,7 @@ msgid "Discovered hosts are provisioning now"
 msgstr "已发现主机限制正在供应"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "正在重启已发现主机"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
@@ -180,7 +180,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "自动供应时出错：%s"
 
 msgid "Errors during reboot: %s"
-msgstr ""
+msgstr "重启过程出错：%s"
 
 msgid "Execute rules against a discovered host"
 msgstr "根据发现的主机执行规则"
@@ -192,10 +192,10 @@ msgid "Expand All"
 msgstr "展开全部"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
+msgstr "缺少预期的 discovery_fact '%s'，无法探测主接口及设置主机名。"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
+msgstr "以主机列表（使用逗号分开）形式显示的额外 facter 列"
 
 msgid "Fact columns"
 msgstr ""
@@ -219,19 +219,13 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "重启主机 %{hostname} 失败，并给出出错信息 %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr "重启主机失败并给出出错信息 %s"
 
 msgid "Failed to refresh facts for %s"
 msgstr "为 %s 刷新详情失败"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "刷新 %{hostname} 系统信息失败，并给出出错信息 %{error_message}。"
 
 msgid "Foreman discovered hosts summary"
 msgstr ""
@@ -301,13 +295,13 @@ msgid "IPMI facts"
 msgstr ""
 
 msgid "Identifier"
-msgstr "标示符"
+msgstr "标识符"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "映像 API 处理出错：%{msg} (HTTP/%{code}，主体：%{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "返回 HTTP/%{code} 的映像 API，主体为 '%{body} 。"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -328,7 +322,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Kexec 模板没有与操作系统关联"
 
 msgid "Last facts upload"
 msgstr "最后一个上传的详情"
@@ -363,6 +357,9 @@ msgstr "MAC 地址"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "根据此规则可供应的最大主机数（0 代表无限）"
 
+msgid "Medium not set for host/hostgroup"
+msgstr "没有为主机/主机组设置媒体"
+
 msgid "Memory"
 msgstr "内存"
 
@@ -394,7 +391,7 @@ msgid "New Rule"
 msgstr "新规则"
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "在过去 24 小时内新建"
 
 msgid "No discovered hosts available"
 msgstr "没有发现的主机可用"
@@ -406,10 +403,10 @@ msgid "No discovered hosts to provision"
 msgstr "没有发现的主机需要供应"
 
 msgid "No discovered hosts to reboot"
-msgstr ""
+msgstr "没有要重启的已发现主机"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "没有与规则 '%s' 关联的主机组"
 
 msgid "No hosts selected"
 msgstr "未选择任何主机"
@@ -424,7 +421,10 @@ msgid "No rule found for host %s"
 msgstr "未找到主机 %s 的规则"
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "超过 7 天没有报告的"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr "没有为主机/主机组设置操作系统"
 
 msgid "Organization"
 msgstr "机构"
@@ -454,7 +454,7 @@ msgid "Reboot"
 msgstr "重启"
 
 msgid "Reboot All"
-msgstr ""
+msgstr "重启全部"
 
 msgid "Rebooting %s"
 msgstr "正在重启 %s"
@@ -463,13 +463,10 @@ msgid "Rebooting a discovered host"
 msgstr "重启已发现主机"
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "重启已发现主机"
 
 msgid "Rebooting host %s"
 msgstr "正在重启主机 %s"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "刷新详情"
@@ -478,28 +475,28 @@ msgid "Refreshing the facts of a discovered host"
 msgstr "刷新已发现主机的详情"
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "用于组织硬件部分系统信息的正则表达式"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "用于组织 ipmi 部分组织系统信息的正则表达式"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "用于组织网络部分系统信息的正则表达式"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "用于组织软件部分系统信息的正则表达式"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "用于组织存储部分系统信息的正则表达式"
 
 msgid "Reloading kernel on %s"
-msgstr ""
+msgstr "在 %s 重新载入内核"
 
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "过去 7 天内报告的"
 
 msgid "Rule disabled"
 msgstr "已禁用规则"
@@ -585,29 +582,26 @@ msgstr "未删除以下主机：%s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
 
-msgid "Type"
-msgstr ""
-
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "无法分配子网，主接口缺少 IP 地址。"
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "无法使用 discovery_fact '%{fact}' 定义的 MAC '%{mac}' 探测主接口"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "无法找到发现规则，未提供任何主机（检查权限）"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "无法通过 %{url} 在 %{name} 中执行 kexec：%{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "无法预配 %{host}: %{errors}"
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "无法在 %{url} 重启 %{name}：%{msg}"
 
 msgid "Update a rule"
 msgstr "更新规则"
@@ -637,7 +631,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "用于临时关闭规则的标签"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "包含使用最小信息系统集主机的信息系统哈希：discovery_bootif、macaddress_eth0、ipaddress, ipaddress_eth0、interfaces: eth0（例如：主接口名称为 eth0）"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "已选择项目。取消选择清除。"

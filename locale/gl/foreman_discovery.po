@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-11 08:18+0000\n"
+"PO-Revision-Date: 2016-07-28 09:01+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
@@ -227,12 +227,6 @@ msgstr ""
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
-
 msgid "Foreman discovered hosts summary"
 msgstr ""
 
@@ -363,6 +357,9 @@ msgstr ""
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
 
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
 msgid "Memory"
 msgstr "Memoria"
 
@@ -426,6 +423,9 @@ msgstr ""
 msgid "Not reported in more than 7 days"
 msgstr ""
 
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
 msgid "Organization"
 msgstr "Organización"
 
@@ -466,9 +466,6 @@ msgid "Rebooting all discovered hosts"
 msgstr ""
 
 msgid "Rebooting host %s"
-msgstr ""
-
-msgid "Rebuild DNS for %s"
 msgstr ""
 
 msgid "Refresh facts"
@@ -584,9 +581,6 @@ msgstr "Os seguintes equipos non foron eliminados: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
-
-msgid "Type"
-msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""

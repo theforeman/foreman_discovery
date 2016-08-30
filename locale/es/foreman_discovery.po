@@ -9,10 +9,10 @@
 # Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-11 08:18+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2016-08-22 15:03+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid "%s ago"
 msgstr "Hace %s"
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "%s hosts descubiertos para aprovisionar"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
@@ -37,10 +37,10 @@ msgid "A summary of discovered hosts"
 msgstr ""
 
 msgid "Assign Location"
-msgstr "Asignar ubicación"
+msgstr "Asignar Lugar"
 
 msgid "Assign Organization"
-msgstr "Asignar organización"
+msgstr "Asignar Organización"
 
 msgid "Associated Hosts"
 msgstr ""
@@ -64,10 +64,10 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 msgid "CPUs"
-msgstr "CPU"
+msgstr "Procesadores"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -106,7 +106,7 @@ msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr "Hosts seleccionados han sido destruidos "
+msgstr "Se eliminó los hosts seleccionados "
 
 msgid "Disable"
 msgstr "Inhabilitar"
@@ -145,7 +145,7 @@ msgid "Discovery organization"
 msgstr ""
 
 msgid "Discovery rules"
-msgstr "Asistente de descubrimiento"
+msgstr "Reglas de descubrimiento"
 
 msgid "Discovery widget"
 msgstr "Asistente de descubrimiento"
@@ -193,7 +193,7 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "Ejecutar  todas las reglas en todos los hosts descubiertos actualmente"
 
 msgid "Expand All"
-msgstr ""
+msgstr "Expandir todos"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "No se encontró discovery_fact '%s', ha sido imposible detectar el interfaz primario y asignar el nombre de host"
@@ -223,19 +223,13 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "No se pudo reiniciar host %{hostname}  con error %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr "No se pudieron reiniciar los hosts con error %s."
 
 msgid "Failed to refresh facts for %s"
 msgstr "No se pudieron actualizar datos para %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "No se pudieron reiniciar los eventos para %{hostname} con error %{error_message}."
 
 msgid "Foreman discovered hosts summary"
 msgstr ""
@@ -253,7 +247,7 @@ msgid "Highlights"
 msgstr ""
 
 msgid "Host"
-msgstr "Host"
+msgstr "host"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Se aprovisionó host %{host} con regla %{rule}"
@@ -296,7 +290,7 @@ msgid "IP Address"
 msgstr "Dirección IP"
 
 msgid "IP address"
-msgstr ""
+msgstr "Dirección IP"
 
 msgid "IPMI"
 msgstr ""
@@ -305,13 +299,13 @@ msgid "IPMI facts"
 msgstr ""
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "Error de procesamiento de la API de la imagen: %{msg} (HTTP/%{code}, cuerpo: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "La API de la imagen mostró HTTP/%{code} con '%{body}."
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -332,7 +326,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "La plantilla Kexec no está asociada al sistema operativo."
 
 msgid "Last facts upload"
 msgstr "Últimos datos cargados"
@@ -362,10 +356,13 @@ msgid "Locked template name"
 msgstr ""
 
 msgid "MAC address"
-msgstr ""
+msgstr "Dirección MAC"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Número máximo de hosts aprovisionados con esta regla (0 = ilimitado)"
+
+msgid "Medium not set for host/hostgroup"
+msgstr "El medio no está configurado para el host/grupo de hosts."
 
 msgid "Memory"
 msgstr "Memoria"
@@ -380,7 +377,7 @@ msgid "Must specify a user with email enabled"
 msgstr "Debe especificar un usuario si habilita el email"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr "N/D"
 
 msgid "Name"
 msgstr "Nombre"
@@ -413,10 +410,10 @@ msgid "No discovered hosts to reboot"
 msgstr "No hay hosts descubiertos para reiniciar"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "No hay ningún grupo de hosts asociado a la regla '%s'."
 
 msgid "No hosts selected"
-msgstr "No se ha seleccionado ningún equipo"
+msgstr "Ningún host seleccionado"
 
 msgid "No hosts were found with that id or name"
 msgstr "No se han encontrado hosts con ese ID o nombre"
@@ -428,7 +425,10 @@ msgid "No rule found for host %s"
 msgstr "No se encontró regla para host %s"
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "No se informó en más de 7 días."
+
+msgid "Operating system not set for host/hostgroup"
+msgstr "El sistema operativo no está configurado para el host/grupo de hosts."
 
 msgid "Organization"
 msgstr "Organización"
@@ -440,10 +440,10 @@ msgid "PXE template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Please Confirm"
-msgstr "Confirme, por favor"
+msgstr "Confirmar"
 
 msgid "Primary"
-msgstr "Primary"
+msgstr "Primaria"
 
 msgid "Provision"
 msgstr "Aprovisionamiento"
@@ -455,7 +455,7 @@ msgid "Quick create"
 msgstr ""
 
 msgid "Reboot"
-msgstr "Reiniciar"
+msgstr "reiniciar"
 
 msgid "Reboot All"
 msgstr "Reiniciar todo"
@@ -467,13 +467,10 @@ msgid "Rebooting a discovered host"
 msgstr "Reinicio de un host descubierto"
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "Reinicio de todos los hosts descubiertos"
 
 msgid "Rebooting host %s"
 msgstr "Reiniciando host %s"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "Actualizar datos"
@@ -482,28 +479,28 @@ msgid "Refreshing the facts of a discovered host"
 msgstr "Actualizar eventos de un host descubierto"
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "Regex para organizar eventos para la sección de hardware"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "Regex para organizar eventos para la sección ipmi"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "Regex para organizar eventos para la sección de red"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "Regex para organizar eventos para la sección de software"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "Regex para organizar eventos para la sección de almacenamiento"
 
 msgid "Reloading kernel on %s"
-msgstr ""
+msgstr "Volviendo a cargar núcleo en %s"
 
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "Se informó en los últimos 7 días."
 
 msgid "Rule disabled"
 msgstr "Regla inhabilitada"
@@ -518,7 +515,7 @@ msgid "Select Action"
 msgstr "Seleccionar una acción"
 
 msgid "Select all items in this page"
-msgstr "Seleccionar todos los elementos de esta página"
+msgstr "Seleccionar todos los objetos de esta página"
 
 msgid "Select initial host properties"
 msgstr ""
@@ -587,37 +584,34 @@ msgid "The following hosts were not deleted: %s"
 msgstr "Los siguientes hosts no han sido eliminados: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "Esta acción puede tardar un poco, ya que se eliminarán todos los hosts, datos e informes."
-
-msgid "Type"
-msgstr ""
+msgstr "Esta acción puede tardar un rato, ya que se destruirán todos los hosts, eventos e informes."
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "UUID para seguir el estatus de tareas de orquestación, GET /api/orchestration/:UUID/tasks"
+msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "No se puede asignar la subred, a la interfaz principal le falta la dirección IP."
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "No se puede detectar la interfaz principal con MAC '%{mac}' especificada por discovery_fact '%{fact}'."
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "No se puede encontrar una regla de descubrimiento, no se proporcionó ningún host (verificar permisos)"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "No se puede realizar kexec en %{name} a través de %{url}: %{msg}."
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "No se puede aprovisionar %{host}: %{errors}."
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "No se puede reiniciar %{name} a través de %{url}: %{msg}."
 
 msgid "Update a rule"
 msgstr "Actualizar una regla"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Cargar eventos para un host, cree el host si es necesario."
+msgstr "Subir eventos para un host, si es necesario cree el host."
 
 msgid "Warning"
 msgstr "Advertencia"
@@ -641,10 +635,10 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "Indicador utilizado para cierres temporales de reglas "
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "hash con eventos para el host con conjunto mínimo de eventos: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (ejemplo, en el caso de la interfaz principal, se llama eth0)"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "elementos seleccionados. Desactivar para limpiar"
+msgstr "objetos seleccionados. Desactivar para limpiar"
 
 msgid "must start with a letter or ERB."
 msgstr "debe iniciar por una letra o ERB."
@@ -653,7 +647,7 @@ msgid "not required if it's a virtual machine"
 msgstr "no se requiere,  si es una máquina virtual"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "no es necesario si está usando una subred con un proxy DHCP"
+msgstr "no es necesario si se usa una subred con un proxy DHCP"
 
 msgid "number of entries per request"
 msgstr "número de entradas por solicitud"
@@ -674,7 +668,7 @@ msgid "required if value is not inherited from host group or default password in
 msgstr "obligatorio si el valor no se hereda del grupo de host o de contraseña predeterminada en parámetros"
 
 msgid "sort results"
-msgstr "ordenar resultados"
+msgstr "organizar resultados"
 
 msgid "the hostgroup that is used to auto provision a host"
 msgstr "El grupo de hosts utilizado  para autoaprovisionar un host"

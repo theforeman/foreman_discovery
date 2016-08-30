@@ -7,10 +7,10 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-11 08:18+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2016-08-22 14:21+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/foreman/foreman/language/it/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 msgid "CPUs"
 msgstr "CPU"
@@ -191,7 +191,7 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "Esegui le regole nei confronti degli host attualemente rilevati"
 
 msgid "Expand All"
-msgstr ""
+msgstr "Espandi tutti"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr ""
@@ -227,12 +227,6 @@ msgid "Failed to refresh facts for %s"
 msgstr "Impossibile aggiornare gli eventi per %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"
@@ -365,6 +359,9 @@ msgstr "Indirizzo MAC"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Numero di host massimo con provisioning con questa regola (0 = unlimited)"
 
+msgid "Medium not set for host/hostgroup"
+msgstr ""
+
 msgid "Memory"
 msgstr "Memoria"
 
@@ -428,6 +425,9 @@ msgstr "Nessuna regola trovata per l'host %s"
 msgid "Not reported in more than 7 days"
 msgstr ""
 
+msgid "Operating system not set for host/hostgroup"
+msgstr ""
+
 msgid "Organization"
 msgstr "Organizzazione"
 
@@ -469,9 +469,6 @@ msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "Riavvio host %s"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "Aggiorna eventi"
@@ -586,9 +583,6 @@ msgstr "I seguenti host non sono stati rilevati: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Questa operazione potrebbe richiedere qualche istante poichè saranno annullati anche gli host, eventi e riporti"
-
-msgid "Type"
-msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestration/:UUID/tasks"

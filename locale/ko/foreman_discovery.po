@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-23 18:49+0000\n"
+"PO-Revision-Date: 2016-08-22 15:05+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "%s ago"
 msgstr "%s 전 "
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "%s개의 검색된 호스트를 프로비저닝했습니다."
 
 msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
@@ -77,7 +77,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "검색된 호스트를 테스트용으로 생성(/facts를 사용하여 새 호스트 생성)"
 
 msgid "Create a discovery rule"
 msgstr "검색 규칙 생성 "
@@ -122,7 +122,7 @@ msgid "Discovered hosts are provisioning now"
 msgstr "현재 검색된 호스트를 프로비저닝하고 있습니다"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "현재 검색된 호스트를 재부팅하고 있습니다."
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
@@ -179,7 +179,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "자동 프로비저닝 도중 오류 발생: %s"
 
 msgid "Errors during reboot: %s"
-msgstr ""
+msgstr "재부팅 도중 오류가 발생했습니다: %s"
 
 msgid "Execute rules against a discovered host"
 msgstr "검색된 호스트에 대해 규칙 실행 "
@@ -191,10 +191,10 @@ msgid "Expand All"
 msgstr "모두 확장 "
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
+msgstr "필요한 discovery_fact '%s'이(가) 누락되었습니다. 기본 인터페이스와 설정된 호스트 이름을 감지할 수 없습니다."
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
+msgstr "호스트 목록에 표시할 추가 팩트 열(쉼표로 구분)"
 
 msgid "Fact columns"
 msgstr ""
@@ -218,19 +218,13 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "오류 %{error_message}를 표시하는 호스트 %{hostname} 재부팅에 실패했습니다 "
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr "%s 오류가 발생하여 호스트를 재부팅하지 못했습니다."
 
 msgid "Failed to refresh facts for %s"
 msgstr "%s에 대한 팩트를 새로고침하는데 실패했습니다 "
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "%{error_message} 오류가 발생하여 %{hostname}의 팩트를 새로 고치지 못했습니다."
 
 msgid "Foreman discovered hosts summary"
 msgstr ""
@@ -303,10 +297,10 @@ msgid "Identifier"
 msgstr "식별자 "
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "이미지 API 처리 오류: %{msg}(HTTP/%{code}, 본문: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "이미지 API에서 '%{body}'이(가) 포함된 HTTP/%{code}을(를) 반환했습니다."
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -327,7 +321,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Kexec 템플릿이 운영 체제에 연결되어 있지 않습니다."
 
 msgid "Last facts upload"
 msgstr "마지막 팩트 업로드 "
@@ -362,6 +356,9 @@ msgstr "MAC 주소"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "이 규칙에서 프로비저닝되는 최대 호스트 수 (0 = 무제한)"
 
+msgid "Medium not set for host/hostgroup"
+msgstr "호스트/호스트 그룹의 미디어가 설정되어 있지 않습니다."
+
 msgid "Memory"
 msgstr "메모리 "
 
@@ -393,7 +390,7 @@ msgid "New Rule"
 msgstr "새 규칙 "
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "지난 24시간 이내의 신규 항목"
 
 msgid "No discovered hosts available"
 msgstr "사용 가능한 검색된 호스트가 없습니다 "
@@ -405,10 +402,10 @@ msgid "No discovered hosts to provision"
 msgstr "프로비저닝할 검색된 호스트가 없습니다 "
 
 msgid "No discovered hosts to reboot"
-msgstr ""
+msgstr "재부팅할 검색된 호스트가 없습니다."
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "'%s' 규칙에 연결된 호스트 그룹이 없습니다."
 
 msgid "No hosts selected"
 msgstr "선택된 호스트가 없음 "
@@ -423,7 +420,10 @@ msgid "No rule found for host %s"
 msgstr "호스트 %s에 대한 규칙을 찾을 수 없습니다 "
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "7일 넘게 보고되지 않음"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr "호스트/호스트 그룹의 운영 체제가 설정되어 있지 않습니다."
 
 msgid "Organization"
 msgstr "조직 "
@@ -453,7 +453,7 @@ msgid "Reboot"
 msgstr "다시 시작"
 
 msgid "Reboot All"
-msgstr ""
+msgstr "모두 재부팅"
 
 msgid "Rebooting %s"
 msgstr "%s 재부팅 중 "
@@ -462,13 +462,10 @@ msgid "Rebooting a discovered host"
 msgstr "검색된 호스트를 재부팅 중 "
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "검색된 모든 호스트를 재부팅 중"
 
 msgid "Rebooting host %s"
 msgstr "호스트 %s 재부팅 중 "
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "팩트 새로고침 "
@@ -477,28 +474,28 @@ msgid "Refreshing the facts of a discovered host"
 msgstr "검색된 호스트의 팩트를 새로고침 중 "
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "하드웨어 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "ipmi 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "네트워크 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "소프트웨어 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "스토리지 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Reloading kernel on %s"
-msgstr ""
+msgstr "%s에서 커널을 다시 로드하는 중"
 
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "지난 7일 이내에 보고됨"
 
 msgid "Rule disabled"
 msgstr "규칙 비활성화 "
@@ -584,29 +581,26 @@ msgstr "다음 호스트가 삭제되지 않았습니다: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "모든 호스트, 팩트, 보고서가 모두 삭제되기 때문에 시간이 걸릴 수 있습니다 "
 
-msgid "Type"
-msgstr ""
-
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "오케스트레이션 작업 상태를 추적하기 위한 UUID, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "서브넷을 할당할 수 없습니다. 기본 인터페이스의 IP 주소가 누락되었습니다."
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "discovery_fact '%{fact}'에 지정된 MAC '%{mac}'을(를) 사용하여 기본 인터페이스를 감지할 수 없습니다."
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "검색 규칙을 찾을 수 없습니다. 호스트가 제공되지 않았습니다(권한 확인)."
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "%{url}을(를) 통해 %{name}에 대해 kexec을 수행할 수 없습니다: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "%{host}을(를) 프로비저닝할 수 없습니다: %{errors}"
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "%{url}을(를) 통해 %{name}을(를) 재부팅할 수 없습니다: %{msg}"
 
 msgid "Update a rule"
 msgstr "규칙 업데이트 "
@@ -636,7 +630,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "규칙의 일시 정지에 플래그를 사용합니다"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "최소 세트의 팩트가 있는 호스트의 팩트가 포함된 해시: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, 인터페이스: eth0(기본 인터페이스의 이름이 eth0인 경우의 예)"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "

@@ -5,13 +5,14 @@
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2015-2016
 # Dominic Cleal <dominic@cleal.org>, 2013-2015
+# Dominic Cleal <dominic@cleal.org>, 2016
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-03-12 10:51+0000\n"
+"PO-Revision-Date: 2016-08-24 10:30+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -52,16 +53,16 @@ msgid "Auto Provision All"
 msgstr "Auto Provision All"
 
 msgid "Auto provisioning"
-msgstr ""
+msgstr "Auto provisioning"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
-msgstr ""
+msgstr "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "Automatically provision newly discovered hosts, according to the provisioning rules"
 
 msgid "Automatically reboot or kexec discovered host during provisioning"
-msgstr ""
+msgstr "Automatically reboot or kexec discovered host during provisioning"
 
 msgid "Back"
 msgstr "Back"
@@ -73,10 +74,10 @@ msgid "Cancel"
 msgstr "Cancel"
 
 msgid "Clean all facts"
-msgstr ""
+msgstr "Clean all facts"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
-msgstr ""
+msgstr "Clean all reported facts during provisioning (except discovery facts)"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
@@ -88,7 +89,7 @@ msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
 
 msgid "Create host"
-msgstr ""
+msgstr "Create host"
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -139,10 +140,10 @@ msgid "Discovery Rules"
 msgstr "Discovery Rules"
 
 msgid "Discovery location"
-msgstr ""
+msgstr "Discovery location"
 
 msgid "Discovery organization"
-msgstr ""
+msgstr "Discovery organisation"
 
 msgid "Discovery rules"
 msgstr "Discovery rules"
@@ -169,7 +170,7 @@ msgid "Disks size"
 msgstr "Disks size"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
-msgstr ""
+msgstr "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 
 msgid "Edit Discovery Rule"
 msgstr "Edit Discovery Rule"
@@ -202,13 +203,13 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Extra facter columns to show in host lists (separate by comma)"
 
 msgid "Fact columns"
-msgstr ""
+msgstr "Fact columns"
 
 msgid "Fact name to use for primary interface detection"
 msgstr "Fact name to use for primary interface detection"
 
 msgid "Facts could not be imported"
-msgstr ""
+msgstr "Facts could not be imported"
 
 msgid "Facts refreshed for %s"
 msgstr "Facts refreshed for %s"
@@ -231,12 +232,6 @@ msgstr "Failed to refresh facts for %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Failed to refresh facts for %{hostname} with error %{error_message}"
 
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
-
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman discovered hosts summary"
 
@@ -244,10 +239,10 @@ msgid "Hardware"
 msgstr "Hardware"
 
 msgid "Hardware facts"
-msgstr ""
+msgstr "Hardware facts"
 
 msgid "Highlighted facts"
-msgstr ""
+msgstr "Highlighted facts"
 
 msgid "Highlights"
 msgstr "Highlights"
@@ -275,16 +270,16 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Host of type %s can not be rebooted"
 
 msgid "Hostname facts"
-msgstr ""
+msgstr "Hostname facts"
 
 msgid "Hostname for provisioned hosts"
 msgstr "Hostname for provisioned hosts"
 
 msgid "Hostname prefix"
-msgstr ""
+msgstr "Hostname prefix"
 
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr ""
+msgstr "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 
 msgid "Hosts limit"
 msgstr "Hosts limit"
@@ -302,7 +297,7 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPMI facts"
-msgstr ""
+msgstr "IPMI facts"
 
 msgid "Identifier"
 msgstr "Identifier"
@@ -314,10 +309,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr ""
+msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
 
 msgid "Interface fact"
-msgstr ""
+msgstr "Interface fact"
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -344,7 +339,7 @@ msgid "List all discovery rules"
 msgstr "List all discovery rules"
 
 msgid "List all fact values of a given discovered host"
-msgstr ""
+msgstr "List all fact values of a given discovered host"
 
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr "List of facts to use for the hostname (separated by comma, first wins)"
@@ -356,16 +351,19 @@ msgid "Locations"
 msgstr "Locations"
 
 msgid "Lock PXE"
-msgstr ""
+msgstr "Lock PXE"
 
 msgid "Locked template name"
-msgstr ""
+msgstr "Locked template name"
 
 msgid "MAC address"
 msgstr "MAC address"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Maximum hosts provisioned with this rule (0 = unlimited)"
+
+msgid "Medium not set for host/hostgroup"
+msgstr "Medium not set for host/hostgroup"
 
 msgid "Memory"
 msgstr "Memory"
@@ -389,7 +387,7 @@ msgid "Network"
 msgstr "Network"
 
 msgid "Network facts"
-msgstr ""
+msgstr "Network facts"
 
 msgid "New Discovery Rule"
 msgstr "New Discovery Rule"
@@ -430,6 +428,9 @@ msgstr "No rule found for host %s"
 msgid "Not reported in more than 7 days"
 msgstr "Not reported in more than 7 days"
 
+msgid "Operating system not set for host/hostgroup"
+msgstr "Operating system not set for host/hostgroup"
+
 msgid "Organization"
 msgstr "Organisation"
 
@@ -437,7 +438,7 @@ msgid "Organizations"
 msgstr "Organisations"
 
 msgid "PXE template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "PXE template to be used when pinning a host to discovery"
 
 msgid "Please Confirm"
 msgstr "Please Confirm"
@@ -452,7 +453,7 @@ msgid "Provision a discovered host"
 msgstr "Provision a discovered host"
 
 msgid "Quick create"
-msgstr ""
+msgstr "Quick create"
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -471,9 +472,6 @@ msgstr "Rebooting all discovered hosts"
 
 msgid "Rebooting host %s"
 msgstr "Rebooting host %s"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "Refresh facts"
@@ -521,7 +519,7 @@ msgid "Select all items in this page"
 msgstr "Select all items in this page"
 
 msgid "Select initial host properties"
-msgstr ""
+msgstr "Select initial host properties"
 
 msgid "Select location"
 msgstr "Select location"
@@ -539,7 +537,7 @@ msgid "Software"
 msgstr "Software"
 
 msgid "Software facts"
-msgstr ""
+msgstr "Software facts"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "Something went wrong while selecting hosts - %s"
@@ -551,7 +549,7 @@ msgid "Storage"
 msgstr "Storage"
 
 msgid "Storage facts"
-msgstr ""
+msgstr "Storage facts"
 
 msgid "Submit"
 msgstr "Submit"
@@ -560,7 +558,7 @@ msgid "Subnet"
 msgstr "Subnet"
 
 msgid "Successfully provisioned %s"
-msgstr ""
+msgstr "Successfully provisioned %s"
 
 msgid "Summary from %{time} ago to %{now}"
 msgstr "Summary from %{time} ago to %{now}"
@@ -588,9 +586,6 @@ msgstr "The following hosts were not deleted: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
-
-msgid "Type"
-msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -623,7 +618,7 @@ msgid "Warning"
 msgstr "Warning"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
-msgstr ""
+msgstr "When creating hostname patterns, make sure the resulting host names are unique."
 
 msgid "can't contain white spaces."
 msgstr "can't contain white spaces."

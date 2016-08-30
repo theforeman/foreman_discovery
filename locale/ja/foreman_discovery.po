@@ -6,9 +6,9 @@
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 5.0.2\n"
+"Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-04-14 12:06+0000\n"
+"PO-Revision-Date: 2016-08-22 15:08+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
@@ -25,7 +25,7 @@ msgid "%s ago"
 msgstr "%s 前"
 
 msgid "%s discovered hosts were provisioned"
-msgstr ""
+msgstr "%s 検出済みホストがプロビジョニングされました"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
@@ -79,7 +79,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr ""
+msgstr "テストのために検出済みホストを作成 (新規ホストを作成する場合は /facts を使用)"
 
 msgid "Create a discovery rule"
 msgstr "検出ルールの作成"
@@ -124,7 +124,7 @@ msgid "Discovered hosts are provisioning now"
 msgstr "現在、検出されたホストのプロビジョニングが実行されています"
 
 msgid "Discovered hosts are rebooting now"
-msgstr ""
+msgstr "現在、検出されたホストを再起動中です"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
@@ -181,7 +181,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "自動プロビジョニング時のエラー: %s"
 
 msgid "Errors during reboot: %s"
-msgstr ""
+msgstr "再起動中のエラー: %s"
 
 msgid "Execute rules against a discovered host"
 msgstr "検出されたホストに対してルールを実行"
@@ -193,10 +193,10 @@ msgid "Expand All"
 msgstr "すべて展開"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr ""
+msgstr "期待される discovery_fact '%s' が不明です。プライマリーインターフェースを検出し、ホスト名を設定できません"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
+msgstr "ホスト一覧に表示する追加の facter 列 (コンマで区切られる)"
 
 msgid "Fact columns"
 msgstr ""
@@ -220,19 +220,13 @@ msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "エラー %{error_message} を出してホスト %{hostname} の再起動に失敗しました。"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr ""
+msgstr " エラー %s のため、ホストの再起動に失敗しました"
 
 msgid "Failed to refresh facts for %s"
 msgstr "%s のファクトの更新に失敗しました"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr ""
-
-msgid "Force DNS"
-msgstr ""
-
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "エラー %{error_message} のため、%{hostname} のファクトの更新に失敗しました"
 
 msgid "Foreman discovered hosts summary"
 msgstr ""
@@ -305,10 +299,10 @@ msgid "Identifier"
 msgstr "識別子"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr ""
+msgstr "イメージ API 処理エラー: %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
+msgstr "イメージ API が '%{body} とともに HTTP/%{code} を返しました"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -317,7 +311,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "インターフェース"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "無効なファクトです。ハッシュにする必要があります"
@@ -329,7 +323,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Kexec テンプレートがオペレーティングシステムに関連付けられていません"
 
 msgid "Last facts upload"
 msgstr "最終ファクトのアップロード"
@@ -364,6 +358,9 @@ msgstr "MAC アドレス"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "このルールでプロビジョニングされる最大ホスト数 (0 = 無制限)"
 
+msgid "Medium not set for host/hostgroup"
+msgstr "ホスト/ホストグループのメディアが設定されていません"
+
 msgid "Memory"
 msgstr "メモリー"
 
@@ -395,7 +392,7 @@ msgid "New Rule"
 msgstr "新規ルール"
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "過去 24 時間で新規"
 
 msgid "No discovered hosts available"
 msgstr "利用可能な検出されたホストがありません"
@@ -407,10 +404,10 @@ msgid "No discovered hosts to provision"
 msgstr "プロビジョニングする検出されたホストがありません"
 
 msgid "No discovered hosts to reboot"
-msgstr ""
+msgstr "再起動する検出済みホストがありません"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "ルール '%s' に関連付けられたホストグループがありません"
 
 msgid "No hosts selected"
 msgstr "ホストが選択されていません"
@@ -425,7 +422,10 @@ msgid "No rule found for host %s"
 msgstr "ホスト %s のルールが見つかりませんでした"
 
 msgid "Not reported in more than 7 days"
-msgstr ""
+msgstr "7 日間を超えて報告されていません"
+
+msgid "Operating system not set for host/hostgroup"
+msgstr "ホスト/ホストグループのオペレーティングシステムが設定されていません"
 
 msgid "Organization"
 msgstr "組織"
@@ -455,7 +455,7 @@ msgid "Reboot"
 msgstr "再起動"
 
 msgid "Reboot All"
-msgstr ""
+msgstr "すべてを再起動"
 
 msgid "Rebooting %s"
 msgstr "%s を再起動中"
@@ -464,13 +464,10 @@ msgid "Rebooting a discovered host"
 msgstr "検出されたホストを再起動中"
 
 msgid "Rebooting all discovered hosts"
-msgstr ""
+msgstr "検出されたすべてのホストを再起動中"
 
 msgid "Rebooting host %s"
 msgstr "ホスト %s を再起動中"
-
-msgid "Rebuild DNS for %s"
-msgstr ""
 
 msgid "Refresh facts"
 msgstr "ファクトの更新"
@@ -479,28 +476,28 @@ msgid "Refreshing the facts of a discovered host"
 msgstr "検出されたホストのファクトを更新中"
 
 msgid "Regex to organize facts for hardware section"
-msgstr ""
+msgstr "ハードウェアセクションのファクトを整理する正規表現"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr ""
+msgstr "ipmi セクションのファクトを整理する正規表現"
 
 msgid "Regex to organize facts for network section"
-msgstr ""
+msgstr "ネットワークセクションのファクトを整理する正規表現"
 
 msgid "Regex to organize facts for software section"
-msgstr ""
+msgstr "ソフトウェアセクションのファクトを整理する正規表現"
 
 msgid "Regex to organize facts for storage section"
-msgstr ""
+msgstr "ストレージセクションのファクトを整理する正規表現"
 
 msgid "Reloading kernel on %s"
-msgstr ""
+msgstr "%s でカーネルをリロード中"
 
 msgid "Reported in the last 7 days"
-msgstr ""
+msgstr "過去 7 日間以内に報告済み"
 
 msgid "Rule disabled"
 msgstr "ルールの無効化"
@@ -586,29 +583,26 @@ msgstr "以下のホストが削除されました: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "ホスト、ファクトおよびレポートがすべて破棄されるため、時間がかかる場合があります。"
 
-msgid "Type"
-msgstr ""
-
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
+msgstr "サブネットを割り当てることができません。プライマリーインターフェースに IP アドレスがありません"
 
 msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
+msgstr "discovery_fact '%{fact}' で指定された MAC '%{mac}' を使用してプライマリーインターフェースを検出できません"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr ""
+msgstr "検出ルールを見つけることができません。ホストが提供されていません (パーミッションの確認)"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "%{url} から %{name} で kexec を実行できません: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
+msgstr "%{host} をプロビジョニングできません: %{errors}"
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr ""
+msgstr "%{url} から %{name} を再起動できません: %{msg}"
 
 msgid "Update a rule"
 msgstr "ルールの更新"
@@ -638,7 +632,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "フラグはルールの一時停止に使用されます"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "ファクトの最小セットがあるホスト向けファクトを含むハッシュ: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (プライマリーインターフェースの名前が eth0 の場合の例)"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "項目が選択されています。クリアするにはチェックを解除してください"
