@@ -234,6 +234,12 @@ msgstr "Не удалось обновить факты %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Не удалось обновить факты %{hostname}. Ошибка: %{error_message}"
 
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
 msgid "Foreman discovered hosts summary"
 msgstr "Сводка обнаруженных узлов Foreman"
 
@@ -368,9 +374,6 @@ msgstr "MAC"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Максимальное число подготавливаемых узлов в соответствии с этим правилом (0 снимает ограничения)"
 
-msgid "Medium not set for host/hostgroup"
-msgstr "Не определен носитель для узла/группы узлов"
-
 msgid "Memory"
 msgstr "Память"
 
@@ -434,9 +437,6 @@ msgstr "Нет правил для %s"
 msgid "Not reported in more than 7 days"
 msgstr "Не было данных за последние 7 дней"
 
-msgid "Operating system not set for host/hostgroup"
-msgstr "Не определена операционная система для узла/группы узлов"
-
 msgid "Organization"
 msgstr "Организация"
 
@@ -478,6 +478,9 @@ msgstr "Перезагрузка всех обнаруженных узлов"
 
 msgid "Rebooting host %s"
 msgstr "Перезагрузка %s"
+
+msgid "Rebuild DNS for %s"
+msgstr ""
 
 msgid "Refresh facts"
 msgstr "Обновить факты"
@@ -592,6 +595,9 @@ msgstr "Узлы не были удалены: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Это может занять некоторое время, так как в ходе выполнения будут удалены узлы, статистика и все отчеты"
+
+msgid "Type"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID для отслеживания состояния задач оркестрации: GET /api/orchestration/:UUID/tasks"

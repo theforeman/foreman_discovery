@@ -228,6 +228,12 @@ msgstr "No s'ha pogut refrescar els objectes d'interès per a %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
 msgid "Foreman discovered hosts summary"
 msgstr ""
 
@@ -358,9 +364,6 @@ msgstr "Adreça MAC"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Nombre màxim d'amfitrions aprovisionats amb aquesta regla (0 = il·limitat)"
 
-msgid "Medium not set for host/hostgroup"
-msgstr ""
-
 msgid "Memory"
 msgstr "Memòria"
 
@@ -424,9 +427,6 @@ msgstr "No s'ha trobat cap regla per a l'amfitrió %s"
 msgid "Not reported in more than 7 days"
 msgstr "No es va informar en més de 7 dies"
 
-msgid "Operating system not set for host/hostgroup"
-msgstr ""
-
 msgid "Organization"
 msgstr "Organització"
 
@@ -468,6 +468,9 @@ msgstr "S'estan reiniciant tots els amfitrions descoberts"
 
 msgid "Rebooting host %s"
 msgstr "S'està reiniciant l'amfitrió %s"
+
+msgid "Rebuild DNS for %s"
+msgstr ""
 
 msgid "Refresh facts"
 msgstr "Refresca els objectes d'interès"
@@ -581,6 +584,9 @@ msgid "The following hosts were not deleted: %s"
 msgstr ""
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgstr ""
+
+msgid "Type"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"

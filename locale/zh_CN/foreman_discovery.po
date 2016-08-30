@@ -227,6 +227,12 @@ msgstr "为 %s 刷新详情失败"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
 msgid "Foreman discovered hosts summary"
 msgstr ""
 
@@ -357,9 +363,6 @@ msgstr "MAC 地址"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "根据此规则可供应的最大主机数（0 代表无限）"
 
-msgid "Medium not set for host/hostgroup"
-msgstr ""
-
 msgid "Memory"
 msgstr "内存"
 
@@ -423,9 +426,6 @@ msgstr "未找到主机 %s 的规则"
 msgid "Not reported in more than 7 days"
 msgstr ""
 
-msgid "Operating system not set for host/hostgroup"
-msgstr ""
-
 msgid "Organization"
 msgstr "机构"
 
@@ -467,6 +467,9 @@ msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "正在重启主机 %s"
+
+msgid "Rebuild DNS for %s"
+msgstr ""
 
 msgid "Refresh facts"
 msgstr "刷新详情"
@@ -581,6 +584,9 @@ msgstr "未删除以下主机：%s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
+
+msgid "Type"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
