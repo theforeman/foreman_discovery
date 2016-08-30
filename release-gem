@@ -51,7 +51,7 @@ action "Shall I build the #{GEM_FILENAME} now" do
   run "gem build #{PLUGIN_NAME}.gemspec"
 end
 
-action "Investigated the #{GEM_FILENAME} via gem compare -b foreman_discovery OLD #{GIT_VERSION} -k" do
+action "Investigated the #{GEM_FILENAME} via gem compare -k -b foreman_discovery OLD #{GIT_VERSION} -k" do
   run "tar -xOf #{GEM_FILENAME} data.tar.gz | tar -z -list | sort"
 end
 
