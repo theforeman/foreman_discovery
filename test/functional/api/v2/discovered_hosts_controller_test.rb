@@ -23,30 +23,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
       "memorysize_mb"     => "42000.42",
       "discovery_version" => "3.0.0",
     }
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_auto',
-                       :value => true,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_reboot',
-                       :value => true,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_hostname',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_prefix',
-                       :value => 'mac',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_organization',
-                       :value => Organization.first.name,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_location',
-                       :value => Location.first.name,
-                       :category => 'Setting::Discovered')
+    set_default_settings
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 

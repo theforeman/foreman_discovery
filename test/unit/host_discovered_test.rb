@@ -2,30 +2,7 @@ require 'test_helper'
 
 class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_fact',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_hostname',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_prefix',
-                       :value => 'mac',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_lock',
-                       :value => 'false',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_lock_template',
-                       :value => 'pxelinux_discovery',
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_clean_facts',
-                       :value => false,
-                       :category => 'Setting::Discovered')
+    set_default_settings
   end
 
   test "should be able to create Host::Discovered objects" do
@@ -50,14 +27,8 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should setup subnet with org and loc" do
     org = FactoryGirl.create(:organization, :name => "subnet_org")
     loc = FactoryGirl.create(:location, :name => "subnet_loc")
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_organization',
-                       :value => org.name,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_location',
-                       :value => loc.name,
-                       :category => 'Setting::Discovered')
+    Setting['discovery_organization'] = org.name
+    Setting['discovery_location'] = loc.name
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '192.168.99.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
@@ -70,14 +41,8 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     org = FactoryGirl.create(:organization, :name => "suborg", :parent_id => org_parent.id)
     loc_parent = FactoryGirl.create(:location, :name => "loc")
     loc = FactoryGirl.create(:location, :name => "subloc", :parent_id => loc_parent.id)
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_organization',
-                       :value => org.name,
-                       :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
-                       :name => 'discovery_location',
-                       :value => loc.name,
-                       :category => 'Setting::Discovered')
+    Setting['discovery_organization'] = org.name
+    Setting['discovery_location'] = loc.name
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '192.168.99.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
@@ -114,7 +79,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should lock host into discovery via PXE configuration" do
     Host::Discovered.delete('mace41f13cc3658')
     Setting[:discovery_lock] = "true"
-    Setting[:discovery_lock_template] = 'discovery_lock_template'
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet,
                                 :tftp,
@@ -125,12 +89,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                                 :locations => [Location.first]
     )
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
-    ProxyAPI::TFTP.any_instance.expects(:set).with('e4:1f:13:cc:36:58', anything).returns(true)
-    ProvisioningTemplate.where(:name => 'discovery_lock_template').first_or_create(
-        :template_kind_id => template_kinds(:ipxe),
-        :snippet => true,
-        :template => "test"
-    )
+    ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
+    TemplateKind::PXE.each do |kind|
+      ProvisioningTemplate.where(:name => "#{kind.downcase}_discovery").first_or_create(
+          :template_kind_id => template_kinds(kind.downcase.to_sym),
+          :snippet => true,
+          :template => "test"
+      )
+    end
     assert Host::Discovered.import_host(raw['facts'])
     assert Host::Discovered.find_by_name('mace41f13cc3658')
     refute Host::Managed.find_by_name('mace41f13cc3658')
