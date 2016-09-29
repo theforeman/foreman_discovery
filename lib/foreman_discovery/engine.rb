@@ -1,6 +1,5 @@
 require 'fast_gettext'
 require 'gettext_i18n_rails'
-require 'deface'
 require 'rabl'
 
 module ForemanDiscovery
@@ -168,6 +167,13 @@ module ForemanDiscovery
         # apipie API documentation
         # Only available in 1.8, otherwise it has to be in the initializer below
         apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]
+
+        # add discovery smart proxy to subnet
+        smart_proxy_for Subnet, :discovery,
+          :feature => 'Discovery',
+          :label => N_('Discovery Proxy'),
+          :description => N_('Discovery Proxy to use within this subnet for managing connection to discovered hosts'),
+          :api_description => N_('ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts')
       end
     end
 
@@ -195,9 +201,6 @@ module ForemanDiscovery
 
       # Controller extensions
       ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
-
-      # Include subnet extensions
-      ::Subnet.send :include, DiscoverySubnet
     end
 
     rake_tasks do

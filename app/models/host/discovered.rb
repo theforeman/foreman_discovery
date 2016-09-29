@@ -1,6 +1,7 @@
 class Host::Discovered < ::Host::Base
   include ScopedSearchExtensions
   include Foreman::Renderer
+  include BelongsToProxies
 
   belongs_to :hostgroup
   has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
