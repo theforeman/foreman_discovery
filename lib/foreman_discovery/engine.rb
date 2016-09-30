@@ -8,6 +8,7 @@ module ForemanDiscovery
   class Engine < ::Rails::Engine
 
     # support pre-4 Rails versions
+    config.autoload_paths += Dir["#{config.root}/app/controllers/foreman_discovery/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
@@ -200,6 +201,7 @@ module ForemanDiscovery
       ::Nic::Managed.send :include, Nic::ManagedExtensions
 
       # Controller extensions
+      ::HostsController.send :include, ForemanDiscovery::Concerns::HostsControllerExtensions
       ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
     end
 
