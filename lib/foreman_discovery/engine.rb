@@ -159,7 +159,7 @@ module ForemanDiscovery
         parameter_filter Hostgroup, :type, :discovery_rules => [], :discovery_rule_ids => [], :discovery_rule_names => []
 
         # add dashboard widget
-        widget 'discovery_widget', :name=>N_('Discovery widget'), :sizex => 6, :sizey =>1
+        widget 'discovery_widget', :name=>N_('Discovered Hosts'), :sizex => 6, :sizey =>1
 
         # add template helpers
         allowed_template_helpers :rand
