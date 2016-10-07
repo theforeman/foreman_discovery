@@ -3,11 +3,9 @@ $:.push File.expand_path("../lib", __FILE__)
 # Maintain your gem's version:
 require "foreman_discovery/version"
 
-GEM_NAME = "foreman_discovery"
-
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = GEM_NAME
+  s.name = "foreman_discovery"
   s.version = ForemanDiscovery::VERSION
   s.authors = IO.readlines("AUTHORS").map(&:strip)
   s.email = "gsutclif@redhat.com"
