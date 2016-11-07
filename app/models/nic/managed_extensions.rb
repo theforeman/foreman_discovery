@@ -7,7 +7,7 @@ module Nic::ManagedExtensions
 
   def discovery_queue_rebuild_dns
     return unless (dns? || dns6? || reverse_dns? || reverse_dns6?) && errors.empty? && Setting[:discovery_always_rebuild_dns]
-    return if self.host.new_record? # Discovered Hosts already exist, and new_records will break `find`
+    return if self.host.new_record? || old.nil? # Discovered Hosts already exist, and new_records will break `find`
     return unless self.host.type_changed? and ::Host::Base.find(self.host.id).type == "Host::Discovered"
     return if self.pending_dns_record_changes?
     logger.debug "Queuing DNS rebuild for #{self}"
