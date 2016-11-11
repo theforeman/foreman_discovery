@@ -30,6 +30,10 @@ class Host::Discovered < ::Host::Base
     where(taxonomy_conditions).order("hosts.created_at DESC")
   }
 
+  before_destroy { |record|
+    record.update_attribute(:managed, false)
+  }
+
   def self.import_host facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
 
