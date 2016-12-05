@@ -30,10 +30,10 @@
       </td>
       <%= render :partial => "discovered_host", :locals => {:host => host} %>
       <% if SETTINGS[:locations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.location.try(:name) %></td>
+        <td class="hidden-tablet hidden-xs"><%= host.location.try(:title) %></td>
       <% end -%>
       <% if SETTINGS[:organizations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.organization.try(:name) %></td>
+        <td class="hidden-tablet hidden-xs"><%= host.organization.try(:title) %></td>
       <% end -%>
       <td class="hidden-tablet hidden-xs"><%= host.primary_interface.try(:subnet) %></td>
       <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
