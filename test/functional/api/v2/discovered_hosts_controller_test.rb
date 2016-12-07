@@ -12,6 +12,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   setup do
     SETTINGS[:organizations_enabled] = true
     SETTINGS[:locations_enabled] = true
+    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [Location.first], :organizations => [Organization.first])
     User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {

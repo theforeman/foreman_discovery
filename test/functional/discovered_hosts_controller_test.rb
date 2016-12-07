@@ -6,6 +6,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
+    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [Location.first], :organizations => [Organization.first])
     @facts = {
       "interfaces"             => "lo,eth0",
       "ipaddress"              => "192.168.100.42",
