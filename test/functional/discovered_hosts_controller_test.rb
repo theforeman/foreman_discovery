@@ -87,7 +87,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def setup_hostgroup(host)
     domain = FactoryGirl.create(:domain)
-    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
+    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
     hostgroup.medium.organizations << host.organization
     hostgroup.medium.locations << host.location
     hostgroup.ptable.organizations << host.organization
@@ -96,6 +96,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup.domain.locations << host.location
     hostgroup.subnet.organizations << host.organization
     hostgroup.subnet.locations << host.location
+    hostgroup.environment.organizations << host.organization
+    hostgroup.environment.locations << host.location
+    hostgroup.puppet_proxy.organizations << host.organization
+    hostgroup.puppet_proxy.locations << host.location
+    hostgroup.puppet_ca_proxy.organizations << host.organization
+    hostgroup.puppet_ca_proxy.locations << host.location
     domain.subnets << hostgroup.subnet
     hostgroup
   end
@@ -131,6 +137,32 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_select '#host_interfaces_attributes_0_domain_id [selected]' do |e|
       assert_equal hostgroup.domain_id.to_s, e.first[:value]
     end
+  end
+
+  def test_update_inheritance
+    host = Host::Discovered.import_host(@facts)
+    hostgroup = setup_hostgroup(host)
+    put :update, {
+      commit: 'Update',
+      id: host.id,
+      host: {
+        name: 'mytest',
+        hostgroup_id: hostgroup.id
+      }
+    }, set_session_user_default_manager
+
+    # Get the managed host instance from the DB
+    actual = Host.find(host.id)
+
+    assert_equal hostgroup.id, actual.hostgroup_id
+    assert_equal hostgroup.architecture_id, actual.architecture_id
+    assert_equal hostgroup.operatingsystem_id, actual.operatingsystem_id
+    assert_equal hostgroup.medium_id, actual.medium_id
+    assert_equal hostgroup.ptable_id, actual.ptable_id
+    assert_equal hostgroup.domain_id, actual.domain_id
+    assert_equal hostgroup.environment_id, actual.environment_id
+    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
   end
 
   def test_add_entry_to_nav_menu

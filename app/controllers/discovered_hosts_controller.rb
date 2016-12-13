@@ -50,9 +50,7 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def edit
-    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false) unless @host.nil?
-    @host.attributes = @host.apply_inherited_attributes(discovered_host_params_host) unless discovered_host_params_host.empty?
-    @host.set_hostgroup_defaults
+    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false, discovered_host_params_host) unless @host.nil?
     setup_host_class_variables(@host)
     @override_taxonomy = true
     if params[:quick_submit]
@@ -63,9 +61,8 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def update
-    @host = ::ForemanDiscovery::HostConverter.to_managed(@host)
+    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, true, discovered_host_params_host)
     forward_url_options
-    @host.attributes = discovered_host_params_host
 
     perform_update(@host)
   end
