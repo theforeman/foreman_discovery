@@ -32,6 +32,12 @@ Rails.application.routes.draw do
       get :enable
       get :disable
     end
+    collection do
+      get  'auto_complete_search'
+    end
+    resources :discovered_hosts do
+      get  'auto_complete_search', :on => :collection
+    end
   end
 
   ## API
