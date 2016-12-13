@@ -77,9 +77,9 @@ module Api
       end
 
       def update
-        @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host)
+        @host = ::ForemanDiscovery::HostConverter.to_managed(@discovered_host, true, true, discovered_host_params)
         forward_request_url
-        update_response = @host.update_attributes(discovered_host_params)
+        update_response = @host.save
         process_response update_response
       end
 

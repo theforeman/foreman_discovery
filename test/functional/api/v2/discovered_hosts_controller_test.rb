@@ -28,6 +28,27 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
   end
 
+  def setup_hostgroup(host)
+    domain = FactoryGirl.create(:domain)
+    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
+    hostgroup.medium.organizations << host.organization
+    hostgroup.medium.locations << host.location
+    hostgroup.ptable.organizations << host.organization
+    hostgroup.ptable.locations << host.location
+    hostgroup.domain.organizations << host.organization
+    hostgroup.domain.locations << host.location
+    hostgroup.subnet.organizations << host.organization
+    hostgroup.subnet.locations << host.location
+    hostgroup.environment.organizations << host.organization
+    hostgroup.environment.locations << host.location
+    hostgroup.puppet_proxy.organizations << host.organization
+    hostgroup.puppet_proxy.locations << host.location
+    hostgroup.puppet_ca_proxy.organizations << host.organization
+    hostgroup.puppet_ca_proxy.locations << host.location
+    domain.subnets << hostgroup.subnet
+    hostgroup
+  end
+
   def test_get_index
     get :index, { }
     assert_response :success
@@ -54,6 +75,33 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_provision_host
+    FactoryGirl.create(:organization, :name => 'SomeOrg')
+    FactoryGirl.create(:location, :name => 'SomeLoc')
+    host = Host::Discovered.import_host(@facts)
+    hostgroup = setup_hostgroup(host)
+    put :update,
+        id: host.id,
+        discovered_host: {
+          hostgroup_id: hostgroup.id
+        }
+
+    assert_response :success
+
+    # Get the managed host instance from the DB
+    actual = Host.find(host.id)
+
+    assert_equal hostgroup.id, actual.hostgroup_id
+    assert_equal hostgroup.architecture_id, actual.architecture_id
+    assert_equal hostgroup.operatingsystem_id, actual.operatingsystem_id
+    assert_equal hostgroup.medium_id, actual.medium_id
+    assert_equal hostgroup.ptable_id, actual.ptable_id
+    assert_equal hostgroup.domain_id, actual.domain_id
+    assert_equal hostgroup.environment_id, actual.environment_id
+    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+  end
+
   def test_auto_provision_success_via_upload
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
@@ -61,9 +109,11 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
                        :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass), :organizations => [Organization.first],
                        :locations => [Location.first])
     post :facts, { :facts => facts }
-    assert_match /created_at/, response.body
+
     assert_response :success
-    assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.first.comment
+    actual = JSON.parse(response.body)
+    assert_not_nil actual['created_at']
+    assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.find(actual['id']).comment
   end
 
   def test_auto_provision_success
@@ -172,4 +222,3 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
 end
-
