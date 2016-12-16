@@ -28,9 +28,7 @@
             <%= number_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)'), :min => 0, :max => (2**31 - 1) %>
             <%= checkbox_f f, :enabled %>
           </div>
-          <% if show_taxonomy_tabs? %>
-            <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @discovery_rule %>
-          <% end %>
+          <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @discovery_rule %>
         </div>
     <%= submit_or_cancel f %>
 <% end %>
