@@ -1,7 +1,6 @@
 module Foreman::Controller::Parameters::DiscoveredHost
   extend ActiveSupport::Concern
   include Foreman::Controller::Parameters::HostBase
-  include Foreman::Controller::Parameters::HostCommon
 
   class_methods do
     def discovered_host_params_filter
@@ -9,7 +8,6 @@ module Foreman::Controller::Parameters::DiscoveredHost
         filter.permit :discovery_rule_id
 
         add_host_base_params_filter(filter)
-        add_host_common_params_filter(filter)
       end
     end
   end
