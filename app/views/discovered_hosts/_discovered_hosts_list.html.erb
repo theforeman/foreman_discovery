@@ -35,7 +35,7 @@
       <% if SETTINGS[:organizations_enabled] -%>
         <td class="hidden-tablet hidden-xs"><%= host.organization.try(:title) %></td>
       <% end -%>
-      <td class="hidden-tablet hidden-xs"><%= host.primary_interface.try(:subnet) %></td>
+      <td class="hidden-tablet hidden-xs"><%= host.primary_interface.try(:subnet).try(:to_label) %></td>
       <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
       <td>
         <!-- Modal -->
