@@ -5,6 +5,7 @@ class ForemanDiscovery::HostConverter
   # Creates shallow copy.
   def self.to_managed(original_host, set_managed = true, set_build = true)
     host = original_host.becomes(::Host::Managed)
+    host.clear_association_cache
     host.type = 'Host::Managed'
     # the following flags can be skipped when parameters are set to false
     if set_managed
