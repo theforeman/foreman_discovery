@@ -229,6 +229,12 @@ msgstr "Impossibile aggiornare gli eventi per %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
 msgid "Foreman discovered hosts summary"
 msgstr ""
 
@@ -359,9 +365,6 @@ msgstr "Indirizzo MAC"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Numero di host massimo con provisioning con questa regola (0 = unlimited)"
 
-msgid "Medium not set for host/hostgroup"
-msgstr ""
-
 msgid "Memory"
 msgstr "Memoria"
 
@@ -425,9 +428,6 @@ msgstr "Nessuna regola trovata per l'host %s"
 msgid "Not reported in more than 7 days"
 msgstr ""
 
-msgid "Operating system not set for host/hostgroup"
-msgstr ""
-
 msgid "Organization"
 msgstr "Organizzazione"
 
@@ -469,6 +469,9 @@ msgstr ""
 
 msgid "Rebooting host %s"
 msgstr "Riavvio host %s"
+
+msgid "Rebuild DNS for %s"
+msgstr ""
 
 msgid "Refresh facts"
 msgstr "Aggiorna eventi"
@@ -583,6 +586,9 @@ msgstr "I seguenti host non sono stati rilevati: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Questa operazione potrebbe richiedere qualche istante poichè saranno annullati anche gli host, eventi e riporti"
+
+msgid "Type"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestration/:UUID/tasks"

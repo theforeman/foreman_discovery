@@ -60,7 +60,7 @@ mo-files: $(MOFILES)
 	@echo Changes commited!
 	@echo
 
-# To use when rake task fails
+# Workaround when rake task fails (https://github.com/ruby/rake/pull/182)
 extract:
 	rxgettext \
 		--sort-output \
@@ -73,4 +73,4 @@ extract:
 		--msgid-bugs-address=foreman-dev@googlegroups.com \
 		--copyright-holder="Foreman developers" \
 		--copyright-year=$(shell date +%Y) \
-		$(shell find ../app -type f -name *.rb -o -name *.erb)
+		$(shell find ../app -type f -name \*.rb -o -name \*.erb)

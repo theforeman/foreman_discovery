@@ -228,6 +228,12 @@ msgstr "%s のファクトの更新に失敗しました"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "エラー %{error_message} のため、%{hostname} のファクトの更新に失敗しました"
 
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
 msgid "Foreman discovered hosts summary"
 msgstr ""
 
@@ -358,9 +364,6 @@ msgstr "MAC アドレス"
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "このルールでプロビジョニングされる最大ホスト数 (0 = 無制限)"
 
-msgid "Medium not set for host/hostgroup"
-msgstr "ホスト/ホストグループのメディアが設定されていません"
-
 msgid "Memory"
 msgstr "メモリー"
 
@@ -424,9 +427,6 @@ msgstr "ホスト %s のルールが見つかりませんでした"
 msgid "Not reported in more than 7 days"
 msgstr "7 日間を超えて報告されていません"
 
-msgid "Operating system not set for host/hostgroup"
-msgstr "ホスト/ホストグループのオペレーティングシステムが設定されていません"
-
 msgid "Organization"
 msgstr "組織"
 
@@ -468,6 +468,9 @@ msgstr "検出されたすべてのホストを再起動中"
 
 msgid "Rebooting host %s"
 msgstr "ホスト %s を再起動中"
+
+msgid "Rebuild DNS for %s"
+msgstr ""
 
 msgid "Refresh facts"
 msgstr "ファクトの更新"
@@ -582,6 +585,9 @@ msgstr "以下のホストが削除されました: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "ホスト、ファクトおよびレポートがすべて破棄されるため、時間がかかる場合があります。"
+
+msgid "Type"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"

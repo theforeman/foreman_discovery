@@ -41,7 +41,9 @@ end
 
 action "Modified engine.rb to match minimum Foreman core version"
 
-action "Modified #{RUBY_VERSION_FILE} to match desired version" do
+action "Modified #{RUBY_VERSION_FILE} to match desired version"
+
+action "Created git tag" do
   GIT_VERSION == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
 end
 
@@ -57,10 +59,11 @@ end
 
 action "Created and built OS distribution packages"
 
+action "All commits and *tags* pushed to origin"
+
 action "Shell I push the #{GEM_FILENAME} to rubygems.org now" do
   run "gem push #{GEM_FILENAME}"
 end
 
 action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
 
-action "Pushed the version.rb and tag to origin"
