@@ -13,18 +13,18 @@ class Host::Discovered < ::Host::Base
   scoped_search :on => :name, :complete_value => true
   scoped_search :on => :created_at, :default_order => :desc
   scoped_search :on => :last_report, :complete_value => true
-  scoped_search :in => :primary_interface, :on => :ip, :complete_value => true
-  scoped_search :in => :primary_interface, :on => :mac, :complete_value => true
-  scoped_search :in => :model, :on => :name, :complete_value => true, :rename => :model
-  scoped_search :in => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
-  scoped_search :in => :location, :on => :name, :rename => :location, :complete_value => true         if SETTINGS[:locations_enabled]
-  scoped_search :in => :organization, :on => :name, :rename => :organization, :complete_value => true if SETTINGS[:organizations_enabled]
-  scoped_search :in => :subnet, :on => :network, :complete_value => true, :rename => :subnet
-  scoped_search :in => :subnet, :on => :name, :complete_value => true, :rename => 'subnet.name'
-  scoped_search :in => :discovery_attribute_set, :on => :cpu_count, :rename => :cpu_count, :complete_value => true, :only_explicit => true
-  scoped_search :in => :discovery_attribute_set, :on => :memory, :rename => :memory, :complete_value => true, :only_explicit => true
-  scoped_search :in => :discovery_attribute_set, :on => :disk_count, :rename => :disk_count, :complete_value => true, :only_explicit => true
-  scoped_search :in => :discovery_attribute_set, :on => :disks_size, :rename => :disks_size, :complete_value => true, :only_explicit => true
+  scoped_search :relation => :primary_interface, :on => :ip, :complete_value => true
+  scoped_search :relation => :primary_interface, :on => :mac, :complete_value => true
+  scoped_search :relation => :model, :on => :name, :complete_value => true, :rename => :model
+  scoped_search :relation => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
+  scoped_search :relation => :location, :on => :name, :rename => :location, :complete_value => true         if SETTINGS[:locations_enabled]
+  scoped_search :relation => :organization, :on => :name, :rename => :organization, :complete_value => true if SETTINGS[:organizations_enabled]
+  scoped_search :relation => :subnet, :on => :network, :complete_value => true, :rename => :subnet
+  scoped_search :relation => :subnet, :on => :name, :complete_value => true, :rename => 'subnet.name'
+  scoped_search :relation => :discovery_attribute_set, :on => :cpu_count, :rename => :cpu_count, :complete_value => true, :only_explicit => true
+  scoped_search :relation => :discovery_attribute_set, :on => :memory, :rename => :memory, :complete_value => true, :only_explicit => true
+  scoped_search :relation => :discovery_attribute_set, :on => :disk_count, :rename => :disk_count, :complete_value => true, :only_explicit => true
+  scoped_search :relation => :discovery_attribute_set, :on => :disks_size, :rename => :disks_size, :complete_value => true, :only_explicit => true
 
   default_scope lambda {
     where(taxonomy_conditions).order("hosts.created_at DESC")
