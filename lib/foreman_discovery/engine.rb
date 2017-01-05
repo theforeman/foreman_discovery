@@ -66,6 +66,7 @@ module ForemanDiscovery
                                            :select_multiple_organization,
                                            :update_multiple_organization,
                                            :select_multiple_location, :refresh_facts, :reboot, :reboot_all],
+            :hosts                     => [:process_hostgroup],
             :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
           }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
