@@ -67,3 +67,5 @@ end
 
 action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
 
+action "Updated jenkins_job_builder http://bit.ly/2iZKR3B branch"
+
