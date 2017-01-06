@@ -39,6 +39,10 @@ action "Rebuilt the MO files with: make -C locale mo-files" do
   end
 end
 
+action "Want me to update AUTHORS file" do
+  run "git log --pretty=format:'%an' | sort -u > AUTHORS"
+end
+
 action "Modified engine.rb to match minimum Foreman core version"
 
 action "Modified #{RUBY_VERSION_FILE} to match desired version"
@@ -69,3 +73,6 @@ action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
 
 action "Updated jenkins_job_builder http://bit.ly/2iZKR3B branch"
 
+puts "Well done! Go ahead and create documentation and changelog:"
+puts "  git log --pretty=format:'%s' develop...X.Y.Z"
+puts "  git log --pretty=format:'%an' develop...X.Y.Z | sort -u"
