@@ -126,6 +126,12 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr ""
 
@@ -136,9 +142,6 @@ msgid "Discovery organization"
 msgstr ""
 
 msgid "Discovery rules"
-msgstr ""
-
-msgid "Discovery widget"
 msgstr ""
 
 msgid "DiscoveryRule|Enabled"
@@ -283,6 +286,9 @@ msgstr ""
 msgid "Hosts/limit"
 msgstr ""
 
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "IP Address"
 msgstr ""
 
@@ -349,7 +355,13 @@ msgstr ""
 msgid "Lock PXE"
 msgstr ""
 
-msgid "Locked template name"
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
 msgstr ""
 
 msgid "MAC address"
@@ -427,7 +439,13 @@ msgstr ""
 msgid "Organizations"
 msgstr ""
 
-msgid "PXE template to be used when pinning a host to discovery"
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Please Confirm"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-08-24 10:30+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2016-08-31 08:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,12 @@ msgstr "Discovered hosts from Foreman server at %{foreman_url}"
 msgid "Discovered hosts summary"
 msgstr "Discovered hosts summary"
 
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "Discovery Rules"
 
@@ -147,9 +153,6 @@ msgstr "Discovery organisation"
 
 msgid "Discovery rules"
 msgstr "Discovery rules"
-
-msgid "Discovery widget"
-msgstr "Discovery widget"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Enabled"
@@ -293,6 +296,9 @@ msgstr "Hosts limit"
 msgid "Hosts/limit"
 msgstr "Hosts/limit"
 
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "IP Address"
 msgstr "IP Address"
 
@@ -359,8 +365,14 @@ msgstr "Locations"
 msgid "Lock PXE"
 msgstr "Lock PXE"
 
-msgid "Locked template name"
-msgstr "Locked template name"
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "MAC address"
@@ -437,8 +449,14 @@ msgstr "Organisation"
 msgid "Organizations"
 msgstr "Organisations"
 
-msgid "PXE template to be used when pinning a host to discovery"
-msgstr "PXE template to be used when pinning a host to discovery"
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Please Confirm"

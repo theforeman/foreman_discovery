@@ -5,15 +5,15 @@
 # Translators:
 # Dominic Cleal <dominic@cleal.org>, 2014
 # Junior Alvim <alvin@intechne.com.br>, 2014
-# luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014
-# luizvasconcelos <luizvasconceloss@yahoo.com.br>, 2014-2015
+# Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2014
+# Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2014-2015
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-08-22 15:06+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2016-08-31 08:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,12 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "Regras de descobertos"
 
@@ -147,9 +153,6 @@ msgstr ""
 
 msgid "Discovery rules"
 msgstr "Regras de descobertas"
-
-msgid "Discovery widget"
-msgstr "Widget de descoberta"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Habilitado"
@@ -293,6 +296,9 @@ msgstr "Limite de Hosts"
 msgid "Hosts/limit"
 msgstr "Hosts/limite"
 
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "IP Address"
 msgstr "Endereço IP"
 
@@ -359,7 +365,13 @@ msgstr "Locais"
 msgid "Lock PXE"
 msgstr ""
 
-msgid "Locked template name"
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
 msgstr ""
 
 msgid "MAC address"
@@ -437,7 +449,13 @@ msgstr "Organização"
 msgid "Organizations"
 msgstr "Organizações"
 
-msgid "PXE template to be used when pinning a host to discovery"
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Please Confirm"

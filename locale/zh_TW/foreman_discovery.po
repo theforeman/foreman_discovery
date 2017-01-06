@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-08-12 16:28+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2016-08-31 08:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -131,6 +131,12 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "搜尋規則"
 
@@ -142,9 +148,6 @@ msgstr ""
 
 msgid "Discovery rules"
 msgstr "搜尋規則"
-
-msgid "Discovery widget"
-msgstr "搜尋工具組"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "已啟用"
@@ -288,6 +291,9 @@ msgstr "主機限制"
 msgid "Hosts/limit"
 msgstr "主機/限制"
 
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "IP Address"
 msgstr "IP 位址"
 
@@ -354,7 +360,13 @@ msgstr "位置"
 msgid "Lock PXE"
 msgstr ""
 
-msgid "Locked template name"
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
 msgstr ""
 
 msgid "MAC address"
@@ -432,7 +444,13 @@ msgstr "組織"
 msgid "Organizations"
 msgstr "組織"
 
-msgid "PXE template to be used when pinning a host to discovery"
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Please Confirm"

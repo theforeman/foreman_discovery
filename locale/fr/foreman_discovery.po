@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-07-28 15:30+0000\n"
-"Last-Translator: Claer <transiblu@claer.hammock.fr>\n"
+"PO-Revision-Date: 2016-09-06 10:35+0000\n"
+"Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,6 +132,12 @@ msgstr "Hôtes détectés depuis le serveur Foreman en %{foreman_url}"
 msgid "Discovered hosts summary"
 msgstr "Synthèse des hôtes détectés"
 
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
 msgid "Discovery Rules"
 msgstr "Règles de détection"
 
@@ -143,9 +149,6 @@ msgstr "Organisation des hôtes détectés"
 
 msgid "Discovery rules"
 msgstr "Règles de détection"
-
-msgid "Discovery widget"
-msgstr "Widget de détection"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Activé"
@@ -229,10 +232,10 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Échec d'actualisation des facts pour %{hostname} avec l'erreur %{error_message}"
 
 msgid "Force DNS"
-msgstr ""
+msgstr "Focer le DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "Forcer la création des entrées DNS lors de la découvert d'hôtes"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Synthèse des hôtes détectés par Foreman"
@@ -288,6 +291,9 @@ msgstr "Limite d'hôtes"
 
 msgid "Hosts/limit"
 msgstr "Hôtes/Limite"
+
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
 
 msgid "IP Address"
 msgstr "Adresses IP"
@@ -355,8 +361,14 @@ msgstr "Emplacements"
 msgid "Lock PXE"
 msgstr "Verrouiller PXE"
 
-msgid "Locked template name"
-msgstr "Nom du modèle verrouillé"
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
+msgstr ""
 
 msgid "MAC address"
 msgstr "Adresse MAC"
@@ -433,8 +445,14 @@ msgstr "Organisation"
 msgid "Organizations"
 msgstr "Organisations"
 
-msgid "PXE template to be used when pinning a host to discovery"
-msgstr "Modèle PXE à appliquer pour qu'un hôte reste en mode détecté"
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
@@ -470,7 +488,7 @@ msgid "Rebooting host %s"
 msgstr "Redémarrage de l'hôte %s"
 
 msgid "Rebuild DNS for %s"
-msgstr ""
+msgstr "Reconstruire le DNS pour %s"
 
 msgid "Refresh facts"
 msgstr "Actualiser les facts"
@@ -587,7 +605,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "Cette action peut prendre un certain temps, car tous les hôtes, rapports et facts vont également être supprimés."
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID pour surveiller l'état des tâches d'orchestration : GET /api/orchestration/:UUID/tasks"
