@@ -30,10 +30,6 @@ class Host::Discovered < ::Host::Base
     where(taxonomy_conditions).order("hosts.created_at DESC")
   }
 
-  before_destroy { |record|
-    record.update_attribute(:managed, false)
-  }
-
   def self.import_host facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
 
@@ -54,13 +50,13 @@ class Host::Discovered < ::Host::Base
     # find existing or create new host record
     bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
     hosts = ::Nic::Managed.where(:mac => bootif_mac, :primary => true)
-    if hosts.size == 0
+    if hosts.empty?
       host = Host.new(:name => hostname, :type => "Host::Discovered")
     else
       Rails.logger.warn "Multiple discovered hosts found with MAC address #{name_fact}, choosing one" if hosts.size > 1
       host = hosts.first.host
     end
-    host.type = "Host::Discovered"
+    raise ::Foreman::Exception.new(N_("Host already exists as managed: #{host.name}/#{bootif_mac}")) if host.type != "Host::Discovered"
 
     # and save (interfaces are created via puppet parser extension)
     host.save(:validate => false) if host.new_record?

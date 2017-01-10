@@ -121,6 +121,15 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_match(/Unable to detect primary interface using MAC/, exception.message)
   end
 
+  test "should not create discovered host when managed host exists" do
+    FactoryGirl.create(:host, :mac => 'E4:1F:13:CC:36:58')
+    raw = parse_json_fixture('/facts.json')
+    exception = assert_raises(::Foreman::Exception) do
+      Host::Discovered.import_host(raw['facts'])
+    end
+    assert_match(/Host already exists as managed/, exception.message)
+  end
+
   test "should create discovered host with prefix" do
     raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = 'test'
