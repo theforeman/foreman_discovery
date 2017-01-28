@@ -71,7 +71,7 @@ module DiscoveredHostsHelper
     end
 
     "<span class='glyphicon #{status_glyph}' style='color: #{status_color}'
-      title='#{status_message}'/>".html_safe
+      title='#{status_message}'></span>".html_safe
   end
 
   def host_taxonomy_select(f, taxonomy)

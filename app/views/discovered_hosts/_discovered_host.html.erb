@@ -1,4 +1,4 @@
-<td><%= discovery_status_icon(host) %>&#8239;<%= link_to trunc_with_tooltip(h(host.name)), discovered_host_path(host) %></td>
+<td class="ellipsis"><%= link_to (discovery_status_icon(host) + '&nbsp;'.html_safe + trunc_with_tooltip(h(host.name))), discovered_host_path(host) %></td>
 <td class="hidden-tablet hidden-xs"><%= host.try(:hardware_model_name) || 'N/A' %></td>
 <td class="hidden-tablet hidden-xs"><%= host.ip %></td>
 <td class="hidden-tablet hidden-xs"><%= discovery_attribute(host, :cpu_count) %></td>
