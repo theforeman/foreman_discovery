@@ -6,7 +6,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
-    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [Location.first], :organizations => [Organization.first])
+    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
     @facts = {
       "interfaces"             => "lo,eth0",
       "ipaddress"              => "192.168.100.42",
@@ -83,27 +83,6 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       assert_equal hostgroup.id, managed_host.hostgroup_id
       assert_match /Successfully/, flash[:notice]
     end
-  end
-
-  def setup_hostgroup(host)
-    domain = FactoryGirl.create(:domain)
-    hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :domain => domain, :organizations => [host.organization], :locations => [host.location])
-    hostgroup.medium.organizations << host.organization
-    hostgroup.medium.locations << host.location
-    hostgroup.ptable.organizations << host.organization
-    hostgroup.ptable.locations << host.location
-    hostgroup.domain.organizations << host.organization
-    hostgroup.domain.locations << host.location
-    hostgroup.subnet.organizations << host.organization
-    hostgroup.subnet.locations << host.location
-    hostgroup.environment.organizations << host.organization
-    hostgroup.environment.locations << host.location
-    hostgroup.puppet_proxy.organizations << host.organization
-    hostgroup.puppet_proxy.locations << host.location
-    hostgroup.puppet_ca_proxy.organizations << host.organization
-    hostgroup.puppet_ca_proxy.locations << host.location
-    domain.subnets << hostgroup.subnet
-    hostgroup
   end
 
   def test_edit_form_submit_parameters
@@ -240,8 +219,9 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host(facts)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    host = Host::Discovered.import_host(facts)
+    taxonomy = { :organizations => [host.organization], :locations => [host.location] }
+    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]
@@ -251,8 +231,9 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_auto_provision_all_no_rule_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
-    Host::Discovered.import_host(facts)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroups(:common))
+    host = Host::Discovered.import_host(facts)
+    taxonomy = { :organizations => [host.organization], :locations => [host.location] }
+    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision_all, {}, set_session_user_default_manager
     assert_response :redirect
     assert_nil flash[:error]

@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'test_helper_discovery'
 
 class DiscoveryRulesControllerTest < ActionController::TestCase
   setup :initialize_host
@@ -21,7 +20,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should create discovery rule without taxonomy" do
-    assert_difference('DiscoveryRule.count') do
+    assert_difference('DiscoveryRule.unscoped.count') do
       post :create, {:discovery_rule => {
         :name => "foo",
         :search => "cpu_count = 42",
@@ -34,14 +33,14 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should create discovery rule with taxonomy" do
-    assert_difference('DiscoveryRule.count') do
-      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [Organization.first], :locations => [Location.first])
+    assert_difference('DiscoveryRule.unscoped.count') do
+      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
       post :create, {:discovery_rule => {
         :name => "foo",
         :search => "cpu_count = 42",
         :hostgroup_id => hostgroup.id,
-        :organization_ids => [Organization.first],
-        :location_ids => [Location.first.id],
+        :organization_ids => [organization_one],
+        :location_ids => [location_one.id],
         :hostname => "",
         :priority => 1}}, set_session_user_default_manager
       assert_empty(extract_form_errors(response))
@@ -64,7 +63,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
 
   test "should destroy discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
-    assert_difference('DiscoveryRule.count', -1) do
+    assert_difference('DiscoveryRule.unscoped.count', -1) do
       delete :destroy, {:id => rule.id}, set_session_user_default_manager
     end
     assert_nil flash[:error]

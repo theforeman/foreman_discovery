@@ -2,21 +2,13 @@ require 'test_helper'
 
 class DiscoveryRuleTest < ActiveSupport::TestCase
   setup do
-    @hg_org = FactoryGirl.create(:organization, :name => 'hgorg')
-    @hg_org.save!
     @hostgroup = FactoryGirl.create(:hostgroup)
-    @hostgroup.organizations << @hg_org
-    @hostgroup.save!
   end
 
   context "#validates attribute" do
     setup do
       @huge_name = "x" * 256
-      @rule = DiscoveryRule.new :name => "myrule",
-                               :search => "cpu_count > 1",
-                               :priority => "1",
-                               :hostgroup_id => @hostgroup.id,
-                               :organization_ids => [@hg_org.id]
+      @rule = DiscoveryRule.new :name => "myrule", :search => "cpu_count > 1", :priority => "1", :hostgroup_id => @hostgroup.id, :organization_ids => [organization_one.id], :location_ids => [location_one.id]
     end
 
     context "name" do
@@ -65,7 +57,8 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :priority => "1",
       :hostgroup_id => @hostgroup.id,
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     assert_valid rule
   end
 
@@ -74,14 +67,16 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :max_count => "1",
       :hostgroup_id => @hostgroup.id,
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     assert_valid rule
   end
 
   test "should not be able to create a rule without a hostgroup" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "can't be blank", rule.errors[:hostgroup_id].first
   end
@@ -91,7 +86,8 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :priority => 2**31 + 1,
       :hostgroup_id => @hostgroup.id,
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "must be less than 2147483648", rule.errors[:priority].first
   end
@@ -101,7 +97,8 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :max_count => 2**31 + 1,
       :hostgroup_id => @hostgroup.id,
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "must be less than 2147483648", rule.errors[:max_count].first
   end
@@ -112,7 +109,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :hostgroup_id => @hostgroup.id
     refute_valid rule
-    assert_equal "Host group organization #{@hg_org.name} must also be associated to the discovery rule", rule.errors[:organizations].first
+    assert_equal "Host group organization #{organization_one.name} must also be associated to the discovery rule", rule.errors[:organizations].first
   end
 
   test "should enforce hostgroup organizations and locations" do
@@ -123,7 +120,8 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
       :hostgroup_id => @hostgroup.id,
-      :organization_ids => [@hg_org.id]
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "Host group location #{loc.name} must also be associated to the discovery rule", rule.errors[:locations].first
   end

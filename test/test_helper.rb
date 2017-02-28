@@ -21,3 +21,5 @@ class ActiveSupport::TestCase
 
   set_fixture_class({ :hosts => Host::Base })
 end
+
+require 'test_helper_discovery'

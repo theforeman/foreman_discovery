@@ -4,7 +4,11 @@ namespace :test do
   Rake::TestTask.new(:discovery) do |t|
     test_dir = File.join(File.dirname(__FILE__), '..', 'test')
     t.libs << ["test",test_dir]
-    t.pattern = "#{test_dir}/**/*_test.rb"
+    if ENV['FILE'] || ENV['TEST']
+      t.pattern = ENV['FILE'] || ENV['TEST']
+    else
+      t.pattern = "#{test_dir}/**/*_test.rb"
+    end
     t.verbose = true
     t.warning = false
   end

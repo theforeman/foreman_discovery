@@ -7,6 +7,8 @@ FactoryGirl.define do
     hostgroup
     max_count 0
     enabled true
+    organizations { [organization_one] } if SETTINGS[:organizations_enabled]
+    locations { [location_one] } if SETTINGS[:locations_enabled]
   end
 end
 

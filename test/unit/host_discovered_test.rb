@@ -18,7 +18,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should setup subnet" do
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [Organization.first], :locations => [Location.first])
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = Host::Discovered.import_host(raw['facts'])
     assert_equal subnet, host.primary_interface.subnet
@@ -85,8 +85,8 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                                 :network => '10.35.27.0',
                                 :cidr    => '24',
                                 :mask    => '255.255.255.0',
-                                :organizations => [Organization.first],
-                                :locations => [Location.first]
+                                :organizations => [organization_one],
+                                :locations => [location_one]
     )
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
@@ -177,21 +177,22 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     org1 = FactoryGirl.create(:organization)
     org2 = FactoryGirl.create(:organization)
     org3 = FactoryGirl.create(:organization)
-    user = FactoryGirl.create(:user, :organizations => [org1, org2])
+    user_subset = FactoryGirl.create(:user, :organizations => [org1, org2])
+    user_all = FactoryGirl.create(:user, :organizations => [org1, org2, org3])
     host1 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org1)
     host2 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org2)
     host3 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org3)
     hosts = nil
 
     assert_nil Organization.current
-    as_user(user) do
+    as_user(user_subset) do
       hosts = Host::Discovered.all
     end
     assert_includes hosts, host1
     assert_includes hosts, host2
     refute_includes hosts, host3
 
-    as_user(:one) do
+    as_user(user_all) do
       hosts = Host::Discovered.all
     end
     assert_includes hosts, host1
