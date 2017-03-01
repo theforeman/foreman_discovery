@@ -30,14 +30,14 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should create discovery rule with taxonomy" do
-    assert_difference('DiscoveryRule.count') do
-      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [Organization.first], :locations => [Location.first])
+    assert_difference('DiscoveryRule.unscoped.count') do
+      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
       post :create, {:discovery_rule => {
         :name => "foo",
         :search => "bar",
         :hostgroup_id => hostgroup.id,
-        :organization_ids => [Organization.first],
-        :location_ids => [Location.first.id],
+        :organization_ids => [organization_one],
+        :location_ids => [location_one.id],
         :hostname => "",
         :priority => 1}}
     end
@@ -53,13 +53,13 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   test "should update taxonomy for discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
     organization = FactoryGirl.create(:organization)
-    put :update, { :id => rule.to_param, :discovery_rule => { :organization_ids => [organization.id] } }
+    put :update, { :id => rule.to_param, :discovery_rule => { :organization_ids => [rule.organizations.first.id] } }
     assert_response :success
   end
 
   test "should destroy discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
-    assert_difference('DiscoveryRule.count', -1) do
+    assert_difference('DiscoveryRule.unscoped.count', -1) do
       delete :destroy, { :id => rule.to_param }
     end
     assert_response :success

@@ -32,8 +32,8 @@ def set_default_settings
   FactoryGirl.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_organization', :value => Organization.first.name, :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_location', :value => Location.first.name, :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_organization', :value => "Organization 1", :category => 'Setting::Discovered')
+  FactoryGirl.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_lock', :value => 'false', :category => 'Setting::Discovered')
@@ -42,4 +42,34 @@ def set_default_settings
   FactoryGirl.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
   FactoryGirl.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
+end
+
+def setup_hostgroup(host)
+  domain = FactoryGirl.create(:domain)
+  subnet = FactoryGirl.create(:subnet_ipv4, :network => "192.168.100.0")
+  hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :subnet => subnet, :domain => domain, :organizations => [host.organization], :locations => [host.location])
+  domain.subnets << hostgroup.subnet
+  hostgroup.medium.organizations |= [host.organization]
+  hostgroup.medium.locations |= [host.location]
+  hostgroup.ptable.organizations |= [host.organization]
+  hostgroup.ptable.locations |= [host.location]
+  hostgroup.domain.organizations |= [host.organization]
+  hostgroup.domain.locations |= [host.location]
+  hostgroup.subnet.organizations |= [host.organization]
+  hostgroup.subnet.locations |= [host.location]
+  hostgroup.environment.organizations |= [host.organization]
+  hostgroup.environment.locations |= [host.location]
+  hostgroup.puppet_proxy.organizations |= [host.organization]
+  hostgroup.puppet_proxy.locations |= [host.location]
+  hostgroup.puppet_ca_proxy.organizations |= [host.organization]
+  hostgroup.puppet_ca_proxy.locations |= [host.location]
+  hostgroup
+end
+
+def organization_one
+  Organization.find_by_name('Organization 1')
+end
+
+def location_one
+  Location.find_by_name('Location 1')
 end
