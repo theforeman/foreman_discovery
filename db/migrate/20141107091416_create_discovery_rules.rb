@@ -9,7 +9,7 @@ class CreateDiscoveryRules < ActiveRecord::Migration
       t.integer :priority, :default => 0
       t.boolean :enabled, :default => true, :null => false
 
-      t.timestamps
+      t.timestamps :null => false
     end
   end
 end
