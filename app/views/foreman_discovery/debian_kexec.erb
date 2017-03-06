@@ -8,9 +8,13 @@ oses:
 <%#
 This template is used to pass command line options to kexec when reloading
 kernel on a discovered host instead of rebooting. This is useful in PXE-less
-environments. The template must generate JSON format with three items:
-"kernel", "initram" and "append". Read kexec(8) man page for more
-information about semantics.
+environments. The template must generate JSON format with the following items
+"kernel", "initram", "append" and "extra". The kexec command is composed in
+the following way:
+
+kexec --force --reset-vga --append=$append --initrd=$initram $extra $kernel
+
+Please read kexec(8) man page for more information about semantics.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
@@ -29,5 +33,6 @@ information about semantics.
 {
   "kernel": "<%= @kexec_kernel %>",
   "initram": "<%= @kexec_initrd %>",
-  "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.join(' ') %>"
+  "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.join(' ') %>",
+  "extra": ["--args-linux"]
 }
