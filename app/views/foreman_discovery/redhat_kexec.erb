@@ -18,9 +18,13 @@ oses:
 <%#
 This template is used to pass command line options to kexec when reloading
 kernel on a discovered host instead of rebooting. This is useful in PXE-less
-environments. The template must generate JSON format with three items:
-"kernel", "initram" and "append". Read kexec(8) man page for more
-information about semantics.
+environments. The template must generate JSON format with the following items
+"kernel", "initram", "append" and "extra". The kexec command is composed in
+the following way:
+
+kexec --force --reset-vga --append=$append --initrd=$initram $extra $kernel
+
+Please read kexec(8) man page for more information about semantics.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
@@ -37,8 +41,9 @@ information about semantics.
   "initram": "<%= @kexec_initrd %>",
 <% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset #{append}" %>"
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset #{append}" %>",
 <% else -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} nomodeset #{append}" %>"
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} nomodeset #{append}" %>",
 <% end -%>
+  "extra": ["--args-linux"]
 }
