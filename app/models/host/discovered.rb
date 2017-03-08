@@ -10,6 +10,8 @@ class Host::Discovered < ::Host::Base
   validates :discovery_attribute_set, :presence => true
 
   delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
+  after_create :create_notification
+  after_destroy :delete_notification
 
   scoped_search :on => :name, :complete_value => true
   scoped_search :on => :created_at, :default_order => :desc
@@ -221,5 +223,13 @@ class Host::Discovered < ::Host::Base
       return facts[value] if !facts[value].nil?
     end
     return nil
+  end
+
+  def create_notification
+    ForemanDiscovery::UINotifications::NewHost.deliver!(self)
+  end
+
+  def delete_notification
+    ForemanDiscovery::UINotifications::DestroyHost.deliver!(self)
   end
 end
