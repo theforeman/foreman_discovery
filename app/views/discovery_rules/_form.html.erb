@@ -20,10 +20,9 @@
                                :control_group_id => 'search_group', :size => 'col-md-9' %>
             <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label, { :include_blank => false },
                          { :help_inline => _('Target host group for this rule with all properties set') } %>
-            <%= text_f f, :hostname, :help_inline => popover(
-                                _("Template"),
-                                render('discovery_rules/template_inline'),
-                                :title => _("Hostname for provisioned hosts"), :'data-placement' => 'bottom').html_safe %>
+            <%= text_f f, :hostname,
+                       :label_help => render('discovery_rules/template_inline').html_safe,
+                       :label_help_options => {:title => _("Hostname for provisioned hosts"), :'data-placement' => 'bottom' } %>
             <%= number_f f, :max_count, :label => _('Hosts limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)'), :min => 0, :max => (2**31 - 1) %>
             <%= number_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)'), :min => 0, :max => (2**31 - 1) %>
             <%= checkbox_f f, :enabled %>
