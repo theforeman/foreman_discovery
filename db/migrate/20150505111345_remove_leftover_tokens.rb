@@ -1,6 +1,6 @@
 class RemoveLeftoverTokens < ActiveRecord::Migration
   def up
-    existing_tokens = Host::Managed.all.map(&:token).compact
+    existing_tokens = Host::Managed.joins(:token).map(&:token).compact
     if existing_tokens.empty?
       Token.delete_all
     else
