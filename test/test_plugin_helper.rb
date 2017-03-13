@@ -4,3 +4,7 @@ require 'test_helper'
 # Add plugin to FactoryGirl's paths
 FactoryGirl.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
 FactoryGirl.reload
+# load notification seeds.
+require File.join(
+  File.dirname(__FILE__), '..', 'db', 'seeds.d', '80_discovery_ui_notification'
+)

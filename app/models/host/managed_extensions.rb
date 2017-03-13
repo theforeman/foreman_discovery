@@ -4,7 +4,7 @@ module Host::ManagedExtensions
   included do
     # execute standard callbacks
     after_validation :queue_reboot
-    after_save :delete_discovery_attribute_set
+    after_save :delete_discovery_attribute_set, :update_notifications
 
     belongs_to :discovery_rule
 
@@ -61,4 +61,9 @@ module Host::ManagedExtensions
     DiscoveryAttributeSet.destroy_all(:host_id => self.id) if type_changed?
   end
 
+  def update_notifications
+    return if new_record?
+    return unless type_changed?
+    ForemanDiscovery::UINotifications::DestroyHost.deliver!(self)
+  end
 end
