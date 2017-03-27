@@ -143,6 +143,8 @@ module ForemanDiscovery
         role "Discovery Reader", READER
         role "Discovery Manager", MANAGER
 
+        add_all_permissions_to_default_roles
+
         # menu entries
         menu :top_menu, :discovered_hosts, :url_hash => {:controller => :discovered_hosts, :action => :index},
           :caption=> N_('Discovered hosts'),
