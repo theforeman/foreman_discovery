@@ -1,9 +1,9 @@
-<table class="table table-striped ellipsis">
+<table class="table table-striped table-fixed">
   <thead>
-  <th><%= _('Host') %></th>
-  <th><%= _('Model') %></th>
-  <th><%= _('CPUs') %></th>
-  <th><%= _('Memory') %></th>
+  <th width="30%"><%= _('Host') %></th>
+  <th class="hidden-tablet hidden-xs"><%= _('Model') %></th>
+  <th class="hidden-tablet hidden-xs"><%= _('CPUs') %></th>
+  <th class="hidden-tablet hidden-xs"><%= _('Memory') %></th>
   </thead>
   <tbody>
   <% hosts.each do |host| %>
