@@ -1,9 +1,7 @@
 #!/bin/env ruby
 
-PLUGIN_NAME = "foreman_discovery"
-GIT_VERSION = `git describe --abbrev=0 --tags`.chomp
-GEM_FILENAME = "#{PLUGIN_NAME}-#{GIT_VERSION}.gem"
-RUBY_VERSION_FILE = "lib/#{PLUGIN_NAME}/version.rb"
+$plugin_name = "foreman_discovery"
+RUBY_VERSION_FILE = "lib/#{$plugin_name}/version.rb"
 
 def die(msg)
   STDERR.puts msg; exit 1
@@ -21,19 +19,19 @@ def action(question)
   die("Check failed, exiting.") if block_given? && ! yield
 end
 
-action "Extracted strings with: rake plugin:gettext[#{PLUGIN_NAME}] (Foreman dir)"
+action "Extracted strings with: rake plugin:gettext[#{$plugin_name}] (Foreman dir)"
 
 action "Announced incoming strings on Transifex days before the release"
 
-action "Tested #{PLUGIN_NAME} plugin against stable Foreman core"
+action "Tested #{$plugin_name} plugin against stable Foreman core"
 
 action "Pulled updates with: make -C locale tx-update"
 
-action "Merged the updates with: rake plugin:gettext[#{PLUGIN_NAME}] (Foreman dir)"
+action "Merged the updates with: rake plugin:gettext[#{$plugin_name}] (Foreman dir)"
 
 action "Rebuilt the MO files with: make -C locale mo-files" do
   Dir["locale/**/*.po"].each do |po|
-    mo = po.sub(/#{PLUGIN_NAME}\.po$/, "LC_MESSAGES/#{PLUGIN_NAME}.mo")
+    mo = po.sub(/#{$plugin_name}\.po$/, "LC_MESSAGES/#{$plugin_name}.mo")
     puts("Warning, file #{mo} does not exist!") unless File.exist?(mo)
     puts("Warning, file #{mo} outdated!") if File.mtime(po) > File.mtime(mo)
   end
@@ -48,28 +46,32 @@ action "Modified engine.rb to match minimum Foreman core version"
 action "Modified #{RUBY_VERSION_FILE} to match desired version"
 
 action "Created git tag" do
-  GIT_VERSION == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
+  $git_version = `git describe --abbrev=0 --tags`.chomp
+  $git_version == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
 end
 
-action "Is version #{GIT_VERSION} the one to be released"
+action "Is version #{$git_version} the one to be released"
 
-action "Shall I build the #{GEM_FILENAME} now" do
-  run "gem build #{PLUGIN_NAME}.gemspec"
+$gem_filename = "#{$plugin_name}-#{$git_version}.gem"
+action "Shall I build the #{$gem_filename} now" do
+  run "gem build #{$plugin_name}.gemspec"
 end
 
-action "Investigated the #{GEM_FILENAME} via gem compare -k -b foreman_discovery OLD #{GIT_VERSION} -k" do
-  run "tar -xOf #{GEM_FILENAME} data.tar.gz | tar -z -list | sort"
+action "Investigated the #{$gem_filename} via gem compare -k -b foreman_discovery OLD #{$git_version} -k" do
+  run "tar -xOf #{$gem_filename} data.tar.gz | tar -z -list | sort"
 end
 
 action "Created and built OS distribution packages"
 
 action "All commits and *tags* pushed to origin"
 
-action "Shell I push the #{GEM_FILENAME} to rubygems.org now" do
-  run "gem push #{GEM_FILENAME}"
+action "Shell I push the #{$gem_filename} to rubygems.org now" do
+  run "gem push #{$gem_filename}"
 end
 
-action "Is https://rubygems.org/gems/#{PLUGIN_NAME} looking good"
+action "Is https://rubygems.org/gems/#{$plugin_name} looking good"
+
+action "Created new stable branch and pushed to origin"
 
 action "Updated jenkins_job_builder http://bit.ly/2iZKR3B branch"
 
