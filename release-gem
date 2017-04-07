@@ -63,6 +63,8 @@ end
 
 action "Created and built OS distribution packages"
 
+action "Updated dependencies in both RPM and DEB spec files"
+
 action "All commits and *tags* pushed to origin"
 
 action "Shell I push the #{$gem_filename} to rubygems.org now" do
