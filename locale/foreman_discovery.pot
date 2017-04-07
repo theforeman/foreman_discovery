@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-06 08:26+0100\n"
-"PO-Revision-Date: 2017-01-06 08:26+0100\n"
+"POT-Creation-Date: 2017-04-07 13:02+0200\n"
+"PO-Revision-Date: 2017-04-07 13:02+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -363,6 +363,7 @@ msgid "%s - The following hosts are about to be changed"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:49
+#: ../app/views/dashboard/_discovery_widget_host.html.erb:2
 msgid "N/A"
 msgstr ""
 
@@ -383,7 +384,7 @@ msgid "Provision"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:26
-#: ../lib/foreman_discovery/engine.rb:163
+#: ../lib/foreman_discovery/engine.rb:165
 msgid "Discovered Hosts"
 msgstr ""
 
@@ -439,43 +440,43 @@ msgid_plural "Host group locations %s must also be associated to the discovery r
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/models/host/discovered.rb:38
+#: ../app/models/host/discovered.rb:37
 msgid "Invalid facts, must be a Hash"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:43
+#: ../app/models/host/discovered.rb:42
 msgid ""
 "Expected discovery_fact '%s' is missing, unable to detect primary interface an"
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:50
+#: ../app/models/host/discovered.rb:49
 msgid ""
 "Invalid facts: hash does not contain a valid value for any of the facts in the"
 " discovery_hostname setting: %s"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:67
+#: ../app/models/host/discovered.rb:66
 msgid "Facts could not be imported"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:117
+#: ../app/models/host/discovered.rb:116
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:174
+#: ../app/models/host/discovered.rb:173
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:190
+#: ../app/models/host/discovered.rb:189
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:198
+#: ../app/models/host/discovered.rb:197
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:217
+#: ../app/models/host/discovered.rb:216
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
@@ -712,7 +713,7 @@ msgid "Create host"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:2
-#: ../lib/foreman_discovery/engine.rb:148
+#: ../lib/foreman_discovery/engine.rb:150
 msgid "Discovered hosts"
 msgstr ""
 
@@ -875,23 +876,19 @@ msgstr ""
 msgid "Target host group for this rule with all properties set"
 msgstr ""
 
-#: ../app/views/discovery_rules/_form.html.erb:24
-msgid "Template"
-msgstr ""
-
-#: ../app/views/discovery_rules/_form.html.erb:26
+#: ../app/views/discovery_rules/_form.html.erb:25
 msgid "Hostname for provisioned hosts"
 msgstr ""
 
-#: ../app/views/discovery_rules/_form.html.erb:27
+#: ../app/views/discovery_rules/_form.html.erb:26
 msgid "Hosts limit"
 msgstr ""
 
-#: ../app/views/discovery_rules/_form.html.erb:27
+#: ../app/views/discovery_rules/_form.html.erb:26
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
 
-#: ../app/views/discovery_rules/_form.html.erb:28
+#: ../app/views/discovery_rules/_form.html.erb:27
 msgid "Rule priority (lower integer means higher priority)"
 msgstr ""
 
@@ -934,7 +931,7 @@ msgid "Discovery Rules"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:2
-msgid "New Rule"
+msgid "Create Rule"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:6
@@ -969,21 +966,33 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:153
+#: ../db/seeds.d/80_discovery_ui_notification.rb:4
+msgid "Hosts"
+msgstr ""
+
+#: ../db/seeds.d/80_discovery_ui_notification.rb:6
+msgid "One or more hosts have been discovered"
+msgstr ""
+
+#: ../db/seeds.d/80_discovery_ui_notification.rb:13
+msgid "Details"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:155
 msgid "Discovery rules"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:176
+#: ../lib/foreman_discovery/engine.rb:178
 msgid "Discovery Proxy"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:177
+#: ../lib/foreman_discovery/engine.rb:179
 msgid ""
 "Discovery Proxy to use within this subnet for managing connection to discovere"
 "d hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:178
+#: ../lib/foreman_discovery/engine.rb:180
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"

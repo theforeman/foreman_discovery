@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 7.0.0\n"
+"Project-Id-Version: foreman_discovery 8.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -72,6 +72,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
@@ -97,6 +100,9 @@ msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "Disable"
@@ -280,6 +286,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr ""
 
@@ -397,9 +406,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr ""
 
-msgid "New Rule"
-msgstr ""
-
 msgid "New in the last 24 hours"
 msgstr ""
 
@@ -431,6 +437,9 @@ msgid "No rule found for host %s"
 msgstr ""
 
 msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "One or more hosts have been discovered"
 msgstr ""
 
 msgid "Organization"
@@ -578,9 +587,6 @@ msgid "Summary report for discovered hosts from Foreman"
 msgstr ""
 
 msgid "Target host group for this rule with all properties set"
-msgstr ""
-
-msgid "Template"
 msgstr ""
 
 msgid "The default location to place discovered hosts in"

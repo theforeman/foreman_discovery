@@ -4,12 +4,12 @@
 #
 # Translators:
 # Claer <transiblu@claer.hammock.fr>, 2013-2016
-# Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016
+# Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 7.0.0\n"
+"Project-Id-Version: foreman_discovery 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-09-06 10:35+0000\n"
+"PO-Revision-Date: 2017-03-15 12:38+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -133,10 +133,10 @@ msgid "Discovered hosts summary"
 msgstr "Synthèse des hôtes détectés"
 
 msgid "Discovery Proxy"
-msgstr ""
+msgstr "Proxy de dévouverte"
 
 msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "Proxy de découverte à utilisé à l'interieur de ce sous-reseaux pour  gérer les connexion des hôtes découverts."
 
 msgid "Discovery Rules"
 msgstr "Règles de détection"
@@ -293,7 +293,7 @@ msgid "Hosts/limit"
 msgstr "Hôtes/Limite"
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "ID du proxy de découverte à utiliser à l'interieur de ce sous-reseaux pour gérer les connexion des hôtes découverts."
 
 msgid "IP Address"
 msgstr "Adresses IP"
@@ -362,13 +362,13 @@ msgid "Lock PXE"
 msgstr "Verrouiller PXE"
 
 msgid "Locked PXEGrub template name"
-msgstr ""
+msgstr "Nom du modèle PXEGrub verrouillé"
 
 msgid "Locked PXEGrub2 template name"
-msgstr ""
+msgstr "Nom du modèle PXEGrub2 verrouillé"
 
 msgid "Locked PXELinux template name"
-msgstr ""
+msgstr "Nom du modèle PXELinux verrouillé"
 
 msgid "MAC address"
 msgstr "Adresse MAC"
@@ -446,13 +446,13 @@ msgid "Organizations"
 msgstr "Organisations"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "Modèle PXEGrub à appliquer pour qu'un hôte reste en mode détecté"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "Modèle PXEGrub2 à appliquer pour qu'un hôte reste en mode détecté"
 
 msgid "PXELinux template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "Modèle PXELinux à appliquer pour qu'un hôte reste en mode détecté"
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
