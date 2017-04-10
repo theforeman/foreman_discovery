@@ -169,8 +169,9 @@ class Host::Discovered < ::Host::Base
     facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url).facter
     self.class.import_host facts
     import_facts facts
-  rescue Exception => e
-    raise _("Could not get facts from proxy %{url}: %{error}") % {:url => proxy_url, :error => e}
+  rescue => e
+    ::Foreman::Logging.exception("Unable to get facts from proxy", e)
+    raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
   end
 
   def reboot legacy_api = ForemanDiscovery::HostConverter.legacy_host(self)
