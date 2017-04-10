@@ -200,7 +200,6 @@ module ForemanDiscovery
       # Model extensions
       ::Host::Managed.send :include, Host::ManagedExtensions
       ::Hostgroup.send :include, HostgroupExtensions
-      ::FactValue.send :include, FactValueExtensions
       ::Nic::Managed.send :include, Nic::ManagedExtensions
 
       # Controller extensions

@@ -16,6 +16,12 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
+  test 'fact value association is set accordingly' do
+    discovered_host = FactoryGirl.create(:discovered_host, :with_facts, :fact_count => 1)
+    fact_value = discovered_host.fact_values.first
+    assert_equal discovered_host.id, fact_value.host.id
+  end
+
   test "should setup subnet" do
     raw = parse_json_fixture('/facts.json')
     subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
