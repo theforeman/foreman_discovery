@@ -95,4 +95,9 @@ module DiscoveredHostsHelper
             :toggle => 'modal',
             :target => "#fixedPropertiesSelector-#{host.id}"})
   end
+
+  def host_path(host)
+    return super unless controller_name == 'discovered_hosts'
+    discovered_host_path(host)
+  end
 end
