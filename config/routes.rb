@@ -14,11 +14,11 @@ Rails.application.routes.draw do
         post 'auto_provision'
       end
       collection do
-        get 'multiple_destroy'
+        post 'multiple_destroy'
         post 'submit_multiple_destroy'
-        get  'select_multiple_organization'
+        post  'select_multiple_organization'
         post 'update_multiple_organization'
-        get  'select_multiple_location'
+        post  'select_multiple_location'
         post 'update_multiple_location'
         get  'auto_complete_search'
         post 'auto_provision_all'
