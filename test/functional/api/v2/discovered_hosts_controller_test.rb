@@ -1,4 +1,5 @@
-require 'test_helper'
+require 'test_plugin_helper'
+require 'test_helper_discovery'
 
 class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
@@ -13,7 +14,6 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     SETTINGS[:organizations_enabled] = true
     SETTINGS[:locations_enabled] = true
     FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
-    User.current = User.find_by_login "admin"
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
       "interfaces"        => "lo,eth0",
@@ -83,18 +83,21 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_auto_provision_success_via_upload
+    reset_api_credentials
+    User.current = nil
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     taxonomy = { :organizations => [organization_one], :locations => [location_one] }
     DiscoveryRule.create({:priority => 1, :name => 'rule', :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
-    as_user(:one) do
-      post :facts, { :facts => facts }
-    end
+    post :facts, { :facts => facts }
 
     assert_response :success
     actual = JSON.parse(response.body)
+    assert_not_nil id = actual['id']
+    assert !Host::Discovered.unscoped.where(id: id).exists?, 'discovered host still exists!'
+    assert Host.unscoped.where(id: id).exists?, 'host was not auto provisioned!'
     assert_not_nil actual['created_at']
-    assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.unscoped.find(actual['id']).comment
+    assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.unscoped.find(id).comment
   end
 
   def test_auto_provision_success
