@@ -96,10 +96,12 @@ module Api
       def facts
         facts = params['facts']
         state = true
-        @discovered_host = Host::Discovered.import_host(facts)
-        Rails.logger.warn "Discovered facts import unsuccessful, skipping auto provisioning" unless @discovered_host
-        if Setting['discovery_auto'] && @discovered_host && rule = find_discovery_rule(@discovered_host)
-          state = perform_auto_provision(@discovered_host, rule)
+        User.as_anonymous_admin do
+          @discovered_host = Host::Discovered.import_host(facts)
+          Rails.logger.warn 'Discovered facts import unsuccessful, skipping auto provisioning' unless @discovered_host
+          if Setting['discovery_auto'] && @discovered_host && (rule = find_discovery_rule(@discovered_host))
+            state = perform_auto_provision(@discovered_host, rule)
+          end
         end
         process_response state
       rescue Exception => e
