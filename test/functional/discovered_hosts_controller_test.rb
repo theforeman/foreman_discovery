@@ -37,6 +37,15 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_show_multiple_actions
+    host = Host::Discovered.import_host(@facts)
+    [:multiple_destroy, :select_multiple_organization, :select_multiple_location].each do |path|
+      xhr :post, path, {:host_ids => [host.id]}, set_session_user
+      assert_response :success
+      assert response.body =~ /#{host.name}/
+    end
+  end
+
   def test_show_page_categories
     host = Host::Discovered.import_host(@facts)
     get :show, {:id => host.id}, set_session_user_default_reader
