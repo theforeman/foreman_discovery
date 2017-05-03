@@ -56,7 +56,7 @@ class DiscoveredHostsController < ::ApplicationController
     if params[:quick_submit]
       perform_update(@host, _('Successfully provisioned %s') % @host.name)
     else
-      render :template => 'hosts/edit'
+      render :template => 'discovered_hosts/edit'
     end
   end
 
@@ -78,7 +78,7 @@ class DiscoveredHostsController < ::ApplicationController
         taxonomy_scope
         load_vars_for_ajax
         offer_to_overwrite_conflicts
-        process_error :object => host, :render => 'hosts/edit'
+        process_error :object => host, :render => 'discovered_hosts/edit'
       end
     end
   end
