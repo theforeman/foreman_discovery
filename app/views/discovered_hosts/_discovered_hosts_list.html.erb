@@ -1,5 +1,5 @@
 <%= javascript "host_checkbox" %>
-<% title _('Discovered hosts') %>
+<% title _('Discovered Hosts') %>
 <table class="table table-bordered table-striped table-condensed" >
   <tr>
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
@@ -8,8 +8,8 @@
     <th class="hidden-tablet hidden-xs"><%= sort :ip, :as => _('IP Address') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :cpu_count, :as => _('CPUs') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :memory, :as => _('Memory') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk count') %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks size') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk Count') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks Size') %></th>
     <% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
       <th class="hidden-tablet hidden-xs"><%= fact_column.capitalize %></th>
     <% end %>
@@ -20,7 +20,7 @@
       <th class="hidden-tablet hidden-xs"><%= sort :organization, :as => _('Organization') %></th>
     <% end -%>
     <th class="hidden-tablet hidden-xs"><%= sort :subnet, :as => _("Subnet") %></th>
-    <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last facts upload") %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last Facts Upload") %></th>
     <th></th>
   </tr>
   <% @hosts.each do |host| -%>

@@ -23,7 +23,7 @@
             <%= text_f f, :hostname,
                        :label_help => render('discovery_rules/template_inline').html_safe,
                        :label_help_options => {:title => _("Hostname for provisioned hosts"), :'data-placement' => 'bottom' } %>
-            <%= number_f f, :max_count, :label => _('Hosts limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)'), :min => 0, :max => (2**31 - 1) %>
+            <%= number_f f, :max_count, :label => _('Hosts Limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)'), :min => 0, :max => (2**31 - 1) %>
             <%= number_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)'), :min => 0, :max => (2**31 - 1) %>
             <%= checkbox_f f, :enabled %>
           </div>
