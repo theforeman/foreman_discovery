@@ -173,8 +173,10 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     assert managed_host = perform_auto_provision(host, r1)
     assert_empty managed_host.errors
     assert_equal hostgroup.environment, managed_host.environment
-    assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
-    assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+    assert_nil hostgroup.puppet_proxy
+    assert_nil managed_host.puppet_proxy
+    assert_nil hostgroup.puppet_ca_proxy
+    assert_nil managed_host.puppet_ca_proxy
   end
 
   def setup_normal_renderer
