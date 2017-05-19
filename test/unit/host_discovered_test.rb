@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_plugin_helper'
 
 class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
@@ -217,7 +217,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Token.where(:host_id => h.id).empty?
   end
 
-  test "all non-discovery facts are deleted after provisioning" do
+  test "all non-discovery facts are deleted after managed conversion" do
     Setting[:discovery_clean_facts] = true
     raw = parse_json_fixture('/facts.json')['facts']
     raw.merge!({
@@ -232,7 +232,46 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal "content", managed.facts_hash['discovery_keep_me']
   end
 
-  test "all facts are preserved after provisioning" do
+  test "primary interface is preserved after managed conversion" do
+    raw = parse_json_fixture('/facts.json')['facts']
+    raw.merge!({
+      'keep_me' => "content",
+      'discovery_keep_me' => "content",
+      })
+    host = Host::Discovered.import_host(raw)
+    host.save
+    managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+    refute_nil managed.primary_interface
+    assert_equal "e4:1f:13:cc:36:58", managed.primary_interface.mac
+  end
+
+  test "provision interface is preserved after managed conversion" do
+    raw = parse_json_fixture('/facts.json')['facts']
+    raw.merge!({
+      'keep_me' => "content",
+      'discovery_keep_me' => "content",
+      })
+    host = Host::Discovered.import_host(raw)
+    host.save
+    managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+    refute_nil managed.provision_interface
+    assert_equal "e4:1f:13:cc:36:58", managed.provision_interface.mac
+  end
+
+  test "provision interface host association is preserved after managed conversion" do
+    raw = parse_json_fixture('/facts.json')['facts']
+    raw.merge!({
+      'keep_me' => "content",
+      'discovery_keep_me' => "content",
+      })
+    host = Host::Discovered.import_host(raw)
+    host.save
+    managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+    refute_nil managed.provision_interface
+    assert_equal host, managed.provision_interface.host
+  end
+
+  test "all facts are preserved after managed conversion" do
     raw = parse_json_fixture('/facts.json')['facts']
     raw.merge!({
       'keep_me' => "content",

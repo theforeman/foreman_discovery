@@ -1,14 +1,16 @@
-require 'test_helper'
+require 'test_plugin_helper'
 
 class FindDiscoveryRulesTest < ActiveSupport::TestCase
   include Foreman::Controller::DiscoveredExtensions
 
   setup do
     @facts = {
-      "interfaces"       => "lo,eth0",
+      "interfaces"       => "lo,eth0,eth1",
       "ipaddress"        => "192.168.100.42",
       "ipaddress_eth0"   => "192.168.100.42",
+      "ipaddress_eth1"   => "192.168.100.15",
       "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
+      "macaddress_eth1"  => "AA:BB:CC:DD:EE:F1",
       "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
     }
     set_default_settings
@@ -162,18 +164,63 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
     assert_equal host.name, "macaabbccddeeff"
   end
 
-  test "attributes from hostgroup are copied after auto provisioning" do
+  test "attributes from hostgroup are copied after auto provisioning for host with subnet detected" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
     domain = FactoryGirl.create(:domain)
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [host.organization], :locations => [host.location])
-    hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_os, :subnet => subnet, :domain => domain)
-    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
-                            :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    subnet = FactoryGirl.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    host = Host::Discovered.import_host(facts)
+    assert_equal subnet, host.subnet
+    hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet, :domain => domain)
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    host.primary_interface.expects(:queue_tftp).at_least(1)
+    host.primary_interface.expects(:queue_dhcp).at_least(1)
     assert managed_host = perform_auto_provision(host, r1)
     assert_empty managed_host.errors
+    refute_nil hostgroup.pxe_loader, managed_host.pxe_loader
+    assert_equal hostgroup.pxe_loader, managed_host.pxe_loader
+    refute_nil hostgroup.subnet, managed_host.subnet
+    assert_equal hostgroup.subnet, managed_host.subnet
+    refute_nil hostgroup.subnet, managed_host.primary_interface.subnet
+    assert_equal hostgroup.subnet, managed_host.primary_interface.subnet
+    refute_nil hostgroup.subnet, managed_host.provision_interface.subnet
+    assert_equal hostgroup.subnet, managed_host.provision_interface.subnet
+    refute_nil hostgroup.domain, managed_host.domain
+    assert_equal hostgroup.domain, managed_host.domain
+    refute_nil hostgroup.environment, managed_host.environment
     assert_equal hostgroup.environment, managed_host.environment
+    refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
     assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
+    refute_nil hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+    assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+  end
+
+  test "attributes from hostgroup are copied after auto provisioning for host without subnet detected" do
+    facts = @facts.merge({"somefact" => "abc"})
+    host = Host::Discovered.import_host(facts)
+    refute host.subnet
+    domain = FactoryGirl.create(:domain)
+    subnet = FactoryGirl.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet, :domain => domain)
+    r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    host.primary_interface.expects(:queue_tftp).at_least(1)
+    host.primary_interface.expects(:queue_dhcp).at_least(1)
+    assert managed_host = perform_auto_provision(host, r1)
+    assert_empty managed_host.errors
+    refute_nil hostgroup.pxe_loader, managed_host.pxe_loader
+    assert_equal hostgroup.pxe_loader, managed_host.pxe_loader
+    refute_nil hostgroup.subnet, managed_host.subnet
+    assert_equal hostgroup.subnet, managed_host.subnet
+    refute_nil hostgroup.subnet, managed_host.primary_interface.subnet
+    assert_equal hostgroup.subnet, managed_host.primary_interface.subnet
+    refute_nil hostgroup.subnet, managed_host.provision_interface.subnet
+    assert_equal hostgroup.subnet, managed_host.provision_interface.subnet
+    refute_nil hostgroup.domain, managed_host.domain
+    assert_equal hostgroup.domain, managed_host.domain
+    refute_nil hostgroup.environment, managed_host.environment
+    assert_equal hostgroup.environment, managed_host.environment
+    refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
+    assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
+    refute_nil hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
     assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
   end
 
@@ -263,7 +310,5 @@ class FindDiscoveryRulesTest < ActiveSupport::TestCase
       refute perform_auto_provision host, r1
       assert_equal "xabc", host.name
     end
-
   end
-
 end

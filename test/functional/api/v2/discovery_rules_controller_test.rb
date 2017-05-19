@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_plugin_helper'
 
 class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   setup do

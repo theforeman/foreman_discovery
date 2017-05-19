@@ -1,5 +1,4 @@
 require 'test_plugin_helper'
-require 'test_helper_discovery'
 
 class DestroyHostNotificationTest < ActiveSupport::TestCase
   test 'destorying discovered host should remove notification' do
