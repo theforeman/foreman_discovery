@@ -8,7 +8,7 @@ class ForemanDiscovery::HostConverter
     host.clear_association_cache
     host.type = 'Host::Managed'
 
-    host.attributes = host.apply_inherited_attributes(added_attributes)
+    host.attributes = host.apply_inherited_attributes(added_attributes.to_h)
     host.set_hostgroup_defaults if host.hostgroup_id.present?
 
     # the following flags can be skipped when parameters are set to false
