@@ -1,5 +1,4 @@
 require 'test_plugin_helper'
-require 'test_helper_discovery'
 
 class DiscoveredHostsControllerTest < ActionController::TestCase
   setup :initialize_host

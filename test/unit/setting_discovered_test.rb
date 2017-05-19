@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_plugin_helper'
 
 class SettingDiscoveredTest < ActiveSupport::TestCase
   test "can create setting of discovered type" do

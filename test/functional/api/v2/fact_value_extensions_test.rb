@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_plugin_helper'
 
 module Api
   module V2

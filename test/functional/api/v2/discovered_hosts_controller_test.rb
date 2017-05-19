@@ -1,5 +1,4 @@
 require 'test_plugin_helper'
-require 'test_helper_discovery'
 
 class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
