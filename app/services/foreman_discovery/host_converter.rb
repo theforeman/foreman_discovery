@@ -5,9 +5,7 @@ class ForemanDiscovery::HostConverter
   # Creates shallow copy.
   def self.to_managed(original_host, set_managed = true, set_build = true, added_attributes = {})
     host = original_host.becomes(::Host::Managed)
-    host.clear_association_cache
     host.type = 'Host::Managed'
-
     host.attributes = host.apply_inherited_attributes(added_attributes)
     host.set_hostgroup_defaults if host.hostgroup_id.present?
 
