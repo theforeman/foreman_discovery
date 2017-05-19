@@ -58,7 +58,12 @@ module Foreman::Controller::DiscoveredExtensions
     host.attributes = host.apply_inherited_attributes(hostgroup_id: rule.hostgroup_id)
     host.set_hostgroup_defaults
     # save! does not work here
-    host.save ? host : false
+    if host.save
+      host
+    else
+      Rails.logger.error "Auto provisioning failed: #{host.errors.full_messages.to_sentence}"
+      false
+    end
   end
 
   def perform_reboot_all hosts = Host::Discovered.all
