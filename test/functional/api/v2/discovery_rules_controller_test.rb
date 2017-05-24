@@ -23,10 +23,13 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal 1, discovery_rules['total']
   end
 
-  test "should show discovery rule" do
+  test "should show discovery rule with taxonomy" do
     rule = FactoryGirl.create(:discovery_rule)
     get :show, { :id => rule.to_param }
     assert_response :success
+    discovery_rule = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "Organization 1", discovery_rule['organizations'].first['name']
+    assert_equal "Location 1", discovery_rule['locations'].first['name']
   end
 
   test "should create discovery rule with taxonomy" do
