@@ -32,7 +32,8 @@ module Host::ManagedExtensions
     # continue. If flash is implemented for new hosts (http://projects.theforeman.org/issues/10559)
     # we can report the error to the user perhaps.
     true
-  rescue ::Foreman::Exception
+  rescue ::Foreman::Exception => e
+    Foreman::Logging.exception("Unable to reboot", e)
     true
   end
 
@@ -44,11 +45,15 @@ module Host::ManagedExtensions
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
     @host = self
-    @kexec_kernel, @kexec_initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture)
-    json = unattended_render(template)
-    old.becomes(Host::Discovered).kexec json
+    @kexec_kernel, @kexec_initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture, @host)
+    # try to parse JSON and error out early
+    json = JSON.parse(unattended_render(template))
+    ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
+    ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initrd']) unless json['initrd'] =~ /\Ahttp.+\Z/
+    old.becomes(Host::Discovered).kexec json.to_s
     true
-  rescue ::Foreman::Exception
+  rescue ::Foreman::Exception => e
+    Foreman::Logging.exception("Unable to kexec", e)
     true
   end
 
