@@ -83,6 +83,17 @@ module Api
         process_response update_response
       end
 
+      api :PUT, "/discovered_hosts/:id/rename", N_("Rename hostname of a discovered host")
+      param :id, :identifier, :required => true
+      param :discovered_host, Hash, :action_aware => true do
+        param :name, String
+      end
+
+      def rename
+        @host.update_attributes(:name => params[:discovered_host][:name])
+        render :json => {discovered_host: {name: params[:discovered_host][:name]}
+      end
+
       api :DELETE, "/discovered_hosts/:id/", N_("Delete a discovered host")
       param :id, :identifier, :required => true
 

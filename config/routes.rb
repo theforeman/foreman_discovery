@@ -42,6 +42,7 @@ Rails.application.routes.draw do
           post 'auto_provision'
           put 'reboot'
           put 'refresh_facts'
+          put 'rename'
         end
         collection do
           post 'facts'
