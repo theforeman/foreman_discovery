@@ -127,29 +127,31 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_update_inheritance
-    host = Host::Discovered.import_host(@facts)
-    hostgroup = setup_hostgroup(host)
-    put :update, {
-      commit: 'Update',
-      id: host.id,
-      host: {
-        name: 'mytest',
-        hostgroup_id: hostgroup.id
-      }
-    }, set_session_user_default_manager
+    as_default_manager do
+      host = Host::Discovered.import_host(@facts)
+      hostgroup = setup_hostgroup(host)
+      put :update, {
+        commit: 'Update',
+        id: host.id,
+        host: {
+          name: 'mytest',
+          hostgroup_id: hostgroup.id
+        }
+      }, set_session_user(User.current)
 
-    # Get the managed host instance from the DB
-    actual = Host.find(host.id)
+      # Get the managed host instance from the DB
+      actual = Host.find(host.id)
 
-    assert_equal hostgroup.id, actual.hostgroup_id
-    assert_equal hostgroup.architecture_id, actual.architecture_id
-    assert_equal hostgroup.operatingsystem_id, actual.operatingsystem_id
-    assert_equal hostgroup.medium_id, actual.medium_id
-    assert_equal hostgroup.ptable_id, actual.ptable_id
-    assert_equal hostgroup.domain_id, actual.domain_id
-    assert_equal hostgroup.environment_id, actual.environment_id
-    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
-    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+      assert_equal hostgroup.id, actual.hostgroup_id
+      assert_equal hostgroup.architecture_id, actual.architecture_id
+      assert_equal hostgroup.operatingsystem_id, actual.operatingsystem_id
+      assert_equal hostgroup.medium_id, actual.medium_id
+      assert_equal hostgroup.ptable_id, actual.ptable_id
+      assert_equal hostgroup.domain_id, actual.domain_id
+      assert_equal hostgroup.environment_id, actual.environment_id
+      assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+      assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    end
   end
 
   def test_add_entry_to_nav_menu
@@ -201,48 +203,68 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_auto_provision_success
-    disable_orchestration
-    facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
-    hostgroup = setup_hostgroup(host)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
-    post :auto_provision, { :id => host.id }, set_session_user_default_manager
-    assert_response :redirect
-    assert_nil flash[:error]
-    assert_match /^Host macaabbccddeeff.* was provisioned/, flash[:notice]
-    managed_host = Host.find(host.id)
-    assert managed_host.build
+    as_default_manager do
+      disable_orchestration
+      facts = @facts.merge({"somefact" => "abc"})
+      host = Host::Discovered.import_host(facts)
+      hostgroup = setup_hostgroup(host)
+      FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
+      post :auto_provision, { :id => host.id }, set_session_user(User.current)
+      assert_response :redirect
+      assert_nil flash[:error]
+      assert_match(/^Host macaabbccddeeff.* was provisioned/, flash[:notice])
+      managed_host = Host.find(host.id)
+      assert managed_host.build
+    end
   end
 
   def test_auto_provision_no_rule_success
-    disable_orchestration
-    facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
-    post :auto_provision, { :id => host.id }, set_session_user_default_manager
+    as_default_manager do
+      disable_orchestration
+      facts = @facts.merge({"somefact" => "abc"})
+      host = Host::Discovered.import_host(facts)
+      post :auto_provision, { :id => host.id }, set_session_user(User.current)
+    end
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "No rule found for host macaabbccddeeff", flash[:notice]
   end
 
   def test_auto_provision_all_success
-    disable_orchestration
-    facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
-    taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
-    post :auto_provision_all, {}, set_session_user_default_manager
+    as_default_manager do
+      disable_orchestration
+      facts = @facts.merge({"somefact" => "abc"})
+      host = Host::Discovered.import_host(facts)
+      hostgroup = setup_hostgroup(host)
+      FactoryGirl.create(
+        :discovery_rule,
+        :priority => 1,
+        :search => "facts.somefact = abc",
+        :hostgroup => hostgroup,
+        :organizations => [host.organization], :locations => [host.location]
+      )
+      post :auto_provision_all, {}, set_session_user(User.current)
+    end
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:notice]
   end
 
   def test_auto_provision_all_no_rule_success
-    disable_orchestration
-    facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
-    taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
-    post :auto_provision_all, {}, set_session_user_default_manager
+    as_default_manager do
+      disable_orchestration
+      facts = @facts.merge({"somefact" => "abc"})
+      host = Host::Discovered.import_host(facts)
+      hostgroup = setup_hostgroup(host)
+      FactoryGirl.create(
+        :discovery_rule,
+        :priority => 1,
+        :search => "facts.somefact = abc",
+        :hostgroup => hostgroup,
+        :organizations => [host.organization], :locations => [host.location]
+      )
+      post :auto_provision_all, {}, set_session_user(User.current)
+    end
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:notice]
@@ -271,7 +293,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_reboot_all_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    host = Host::Discovered.import_host(@facts)
+    Host::Discovered.import_host(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post "reboot_all", { }, set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
@@ -280,38 +302,44 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_no_dns_rebuild_if_dns_pending
-    host = Host::Discovered.import_host(@facts)
-    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
-    Nic::Managed.any_instance.expects(:rebuild_dns).never
-    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    put :update, {:commit => "Update", :id => host.id,
-                  :host => {
-                      :name => 'mytest',
-                      :hostgroup_id => hostgroup.id,
-                  }
-    }, set_session_user_default_manager
+    as_default_manager do
+      host = Host::Discovered.import_host(@facts)
+      hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+      Nic::Managed.any_instance.expects(:rebuild_dns).never
+      Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+      put :update, {:commit => "Update", :id => host.id,
+                    :host => {
+        :name => 'mytest',
+        :hostgroup_id => hostgroup.id,
+      }
+      }, set_session_user(User.current)
+    end
   end
 
   def test_dns_rebuild
-    host = prepare_host_for_dns_rebuild
-    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
-    Nic::Managed.any_instance.expects(:rebuild_dns)
-    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    put :update, {:commit => "Update", :id => host.id,
-                  :host => {
-                      :name => 'mytest',
-                      :hostgroup_id => hostgroup.id,
-                  }
-    }, set_session_user_default_manager
+    as_default_manager do
+      host = prepare_host_for_dns_rebuild
+      hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+      Nic::Managed.any_instance.expects(:rebuild_dns)
+      Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+      put :update, {:commit => "Update", :id => host.id,
+                    :host => {
+        :name => 'mytest',
+        :hostgroup_id => hostgroup.id,
+      }
+      }, set_session_user(User.current)
+    end
   end
 
   def test_dns_rebuild_with_auto_provision
-    host = prepare_host_for_dns_rebuild
-    hostgroup = prepare_hostgroup_for_dns_rebuild(host)
-    Nic::Managed.any_instance.expects(:rebuild_dns)
-    Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
-    post :auto_provision, { :id => host.id }, set_session_user_default_manager
+    as_default_manager do
+      host = prepare_host_for_dns_rebuild
+      hostgroup = prepare_hostgroup_for_dns_rebuild(host)
+      Nic::Managed.any_instance.expects(:rebuild_dns)
+      Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+      FactoryGirl.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
+      post :auto_provision, { :id => host.id }, set_session_user(User.current)
+    end
   end
 
   private
