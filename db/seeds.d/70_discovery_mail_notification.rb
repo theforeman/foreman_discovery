@@ -6,4 +6,4 @@ discovery_mail_notification = {
     :subscription_type => 'report',
 }
 
-MailNotification.where(discovery_mail_notification).first_or_create
+MailNotification.unscoped.where(discovery_mail_notification).first_or_create

@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class FindDiscoveryRulesTest < ActiveSupport::TestCase
+class DiscoveredExtensionsTest < ActiveSupport::TestCase
   include Foreman::Controller::DiscoveredExtensions
 
   setup do

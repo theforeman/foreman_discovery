@@ -37,6 +37,7 @@ Please read kexec(8) man page for more information about semantics.
   append = @host.facts['append']
 -%>
 {
+  "comment": "WARNING: Both kernel and initram are not set in preview mode due to http://projects.theforeman.org/issues/19737",
   "kernel": "<%= @kexec_kernel %>",
   "initram": "<%= @kexec_initrd %>",
 <% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
