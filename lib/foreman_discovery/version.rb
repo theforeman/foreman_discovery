@@ -1,3 +1,3 @@
 module ForemanDiscovery
-  VERSION = "9.0.0"
+  VERSION = "9.1.0"
 end
