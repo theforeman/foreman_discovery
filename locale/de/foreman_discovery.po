@@ -12,10 +12,10 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-01-30 18:11+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,6 +83,9 @@ msgstr "Alle berichteten Fakten während der Bereitstellung löschen (ausgenomme
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Entdeckten Host zum Testen erstellen (verwenden Sie /Fakten zur Erstellung neuer Hosts)"
 
@@ -109,6 +112,9 @@ msgstr "Regel '%s' löschen?"
 
 msgid "Destroyed selected hosts"
 msgstr "Ausgewählte Hosts gelöscht"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Deaktivieren"
@@ -291,6 +297,9 @@ msgstr "Hostnamenpräfix"
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Hostgrenze"
 
@@ -408,9 +417,6 @@ msgstr "Netzwerkfakten"
 msgid "New Discovery Rule"
 msgstr "Neue Entdeckungsregel"
 
-msgid "New Rule"
-msgstr "Neue Regel"
-
 msgid "New in the last 24 hours"
 msgstr "Neu in den letzten 24 Stunden"
 
@@ -443,6 +449,9 @@ msgstr "Keine Regel gefunden für Host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "Nicht berichtet in mehr als 7 Tagen"
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organisation"
@@ -590,9 +599,6 @@ msgstr "Zusammenfassungsbericht für entdeckte Hosts von Foreman"
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Ziel-Hostgruppe für diese Regel mit allen Eigenschaften gesetzt"
-
-msgid "Template"
-msgstr "Vorlage"
 
 msgid "The default location to place discovered hosts in"
 msgstr "Standard-Standort, in den entdeckte Hosts platziert werden"

@@ -6,9 +6,9 @@
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:38+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
@@ -78,6 +78,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "テストのために検出済みホストを作成 (新規ホストを作成する場合は /facts を使用)"
 
@@ -104,6 +107,9 @@ msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr "破棄された選択ホスト"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "無効にする"
@@ -286,6 +292,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "ホストの制限"
 
@@ -403,9 +412,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "新規検出ルール"
 
-msgid "New Rule"
-msgstr "新規ルール"
-
 msgid "New in the last 24 hours"
 msgstr "過去 24 時間で新規"
 
@@ -438,6 +444,9 @@ msgstr "ホスト %s のルールが見つかりませんでした"
 
 msgid "Not reported in more than 7 days"
 msgstr "7 日間を超えて報告されていません"
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "組織"
@@ -585,9 +594,6 @@ msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr "すべてのプロパティーセットを持つこのルールのターゲットホストグループ"
-
-msgid "Template"
-msgstr "テンプレート"
 
 msgid "The default location to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトのロケーション"

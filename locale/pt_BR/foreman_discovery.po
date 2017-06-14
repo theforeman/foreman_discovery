@@ -10,9 +10,9 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:38+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
@@ -82,6 +82,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Não foi possível obter fatos do proxy %{url}: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Criar um host descoberto para o teste (uso / fatos para criar novos hospedeiros )"
 
@@ -108,6 +111,9 @@ msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr "Hosts selecionados foram destruídos"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Desabilitar"
@@ -290,6 +296,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Limite de Hosts"
 
@@ -407,9 +416,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "Nova Regra de Descoberta"
 
-msgid "New Rule"
-msgstr "Nova Regra"
-
 msgid "New in the last 24 hours"
 msgstr "Novo(a) nas últimas 24 horas "
 
@@ -442,6 +448,9 @@ msgstr "Nenhuma regra encontrada para o host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "Não relatado(a) por mais de 7 dias "
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organização"
@@ -589,9 +598,6 @@ msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Grupo de host alvo para esta regra com todos os conjuntos de propriedades."
-
-msgid "Template"
-msgstr "Modelo"
 
 msgid "The default location to place discovered hosts in"
 msgstr "O local padrão onde colocar hosts descobertos"

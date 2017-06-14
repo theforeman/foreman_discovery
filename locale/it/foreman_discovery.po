@@ -7,9 +7,9 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:38+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Italian (http://www.transifex.com/foreman/foreman/language/it/)"
 "\n"
@@ -79,6 +79,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossibile ottenere gli eventi dal proxy %{url}: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
@@ -105,6 +108,9 @@ msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr "Host selezionati annullati"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Disabilita"
@@ -287,6 +293,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Limite host"
 
@@ -404,9 +413,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "Nuova regola per la scoperta"
 
-msgid "New Rule"
-msgstr "Nuova regola"
-
 msgid "New in the last 24 hours"
 msgstr ""
 
@@ -438,6 +444,9 @@ msgid "No rule found for host %s"
 msgstr "Nessuna regola trovata per l'host %s"
 
 msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "One or more hosts have been discovered"
 msgstr ""
 
 msgid "Organization"
@@ -586,9 +595,6 @@ msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Gruppo di host di destinazione per questa regola con tutte le proprietà impostate"
-
-msgid "Template"
-msgstr "Template"
 
 msgid "The default location to place discovered hosts in"
 msgstr "La posizione predefinita nella quale posizionare gli host trovati"

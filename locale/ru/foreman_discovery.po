@@ -10,9 +10,9 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:38+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
@@ -84,6 +84,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Не удалось получить факты с %{url}: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Создать узел на базе обнаруженного для тестирования (используйте /facts для создания новых узлов)"
 
@@ -110,6 +113,9 @@ msgstr "Удалить правило «%s»?"
 
 msgid "Destroyed selected hosts"
 msgstr "Узлы удалены"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Отключить"
@@ -296,6 +302,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Число узлов"
 
@@ -413,9 +422,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "Новое правило"
 
-msgid "New Rule"
-msgstr "Добавить"
-
 msgid "New in the last 24 hours"
 msgstr "Новое за последние 24 часа"
 
@@ -448,6 +454,9 @@ msgstr "Нет правил для %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "Не было данных за последние 7 дней"
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "Организация"
@@ -595,9 +604,6 @@ msgstr "Сводный отчет Foreman по обнаруженным узла
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Группа узлов для этого правила с настроенными параметрами"
-
-msgid "Template"
-msgstr "Шаблон"
 
 msgid "The default location to place discovered hosts in"
 msgstr "Местоположение для обнаруженных узлов по умолчанию"

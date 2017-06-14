@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -72,6 +72,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -79,9 +82,6 @@ msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
 msgid "Create a discovery rule"
-msgstr ""
-
-msgid "Create host"
 msgstr ""
 
 msgid "Delete %s?"
@@ -132,6 +132,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -162,7 +165,13 @@ msgstr ""
 msgid "DiscoveryRule|Query"
 msgstr ""
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
+msgstr ""
+
+msgid "Disks Size"
 msgstr ""
 
 msgid "Disks size"
@@ -258,7 +267,7 @@ msgstr ""
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
-msgid "Host group"
+msgid "Host Group"
 msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
@@ -289,10 +298,10 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
+msgid "Hosts Limit"
 msgstr ""
 
-msgid "Hosts/limit"
+msgid "Hosts/Limit"
 msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
@@ -322,6 +331,9 @@ msgstr ""
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -337,10 +349,13 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr ""
 
-msgid "Last facts upload"
+msgid "Last Facts Upload"
 msgstr ""
 
 msgid "List all discovered hosts"
@@ -466,10 +481,13 @@ msgstr ""
 msgid "Provision"
 msgstr ""
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr ""
 
-msgid "Quick create"
+msgid "Quick Create"
 msgstr ""
 
 msgid "Reboot"

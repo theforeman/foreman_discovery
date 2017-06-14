@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:38+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -77,6 +77,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "创建发现的主机以进行测试（使用 /facts 创建新主机）"
 
@@ -103,6 +106,9 @@ msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr "消除所选主机"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "禁用"
@@ -285,6 +291,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "主机限制"
 
@@ -402,9 +411,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "新发现规则"
 
-msgid "New Rule"
-msgstr "新规则"
-
 msgid "New in the last 24 hours"
 msgstr "在过去 24 小时内新建"
 
@@ -437,6 +443,9 @@ msgstr "未找到主机 %s 的规则"
 
 msgid "Not reported in more than 7 days"
 msgstr "超过 7 天没有报告的"
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "机构"
@@ -584,9 +593,6 @@ msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr "根据所有属性设置标定主机组"
-
-msgid "Template"
-msgstr "模板"
 
 msgid "The default location to place discovered hosts in"
 msgstr "找到主机的默认位置"

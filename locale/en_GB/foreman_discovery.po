@@ -10,9 +10,9 @@
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-01-06 08:44+0000\n"
+"PO-Revision-Date: 2017-04-08 10:07+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -82,6 +82,9 @@ msgstr "Clean all reported facts during provisioning (except discovery facts)"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Create a discovered host for testing (use /facts to create new hosts)"
 
@@ -108,6 +111,9 @@ msgstr "Delete rule '%s'?"
 
 msgid "Destroyed selected hosts"
 msgstr "Destroyed selected hosts"
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Disable"
@@ -290,6 +296,9 @@ msgstr "Hostname prefix"
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Hosts limit"
 
@@ -407,9 +416,6 @@ msgstr "Network facts"
 msgid "New Discovery Rule"
 msgstr "New Discovery Rule"
 
-msgid "New Rule"
-msgstr "New Rule"
-
 msgid "New in the last 24 hours"
 msgstr "New in the last 24 hours"
 
@@ -442,6 +448,9 @@ msgstr "No rule found for host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "Not reported in more than 7 days"
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organisation"
@@ -589,9 +598,6 @@ msgstr "Summary report for discovered hosts from Foreman"
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Target host group for this rule with all properties set"
-
-msgid "Template"
-msgstr "Template"
 
 msgid "The default location to place discovered hosts in"
 msgstr "The default location to place discovered hosts in"

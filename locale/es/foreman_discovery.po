@@ -9,9 +9,9 @@
 # Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 8.0.0\n"
+"Project-Id-Version: foreman_discovery 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-03-15 12:37+0000\n"
+"PO-Revision-Date: 2017-05-27 13:12+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
@@ -81,6 +81,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No se pueden obtener eventos del proxy %{url}: %{error}"
 
+msgid "Create Rule"
+msgstr ""
+
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Crear un host descubierto para pruebas (use /facts para crear hosts nuevos)"
 
@@ -107,6 +110,9 @@ msgstr ""
 
 msgid "Destroyed selected hosts"
 msgstr "Se eliminó los hosts seleccionados "
+
+msgid "Details"
+msgstr ""
 
 msgid "Disable"
 msgstr "Inhabilitar"
@@ -289,6 +295,9 @@ msgstr ""
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
+msgid "Hosts"
+msgstr ""
+
 msgid "Hosts limit"
 msgstr "Límite de hosts"
 
@@ -406,9 +415,6 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr "Nuevo asistente de descubrimiento"
 
-msgid "New Rule"
-msgstr "Nueva regla"
-
 msgid "New in the last 24 hours"
 msgstr "Nuevo en las últimas 24 horas"
 
@@ -441,6 +447,9 @@ msgstr "No se encontró regla para host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "No se informó en más de 7 días."
+
+msgid "One or more hosts have been discovered"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organización"
@@ -588,9 +597,6 @@ msgstr ""
 
 msgid "Target host group for this rule with all properties set"
 msgstr "Grupo de hosts de destino para esta regla con todas las propiedades establecidas"
-
-msgid "Template"
-msgstr "Plantilla"
 
 msgid "The default location to place discovered hosts in"
 msgstr "La ubicación predeterminada en la cual se sitúan los hosts descubiertos "
