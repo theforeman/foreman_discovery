@@ -1,4 +1,4 @@
-class DiscoveryRule < ApplicationRecord
+class DiscoveryRule < ActiveRecord::Base
   include Authorizable
   extend FriendlyId
   friendly_id :name

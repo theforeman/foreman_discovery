@@ -1,4 +1,4 @@
-class FakeDiscoveredHost < ApplicationRecord
+class FakeDiscoveredHost < ActiveRecord::Base
   self.table_name = 'hosts'
 end
 
