@@ -25,7 +25,7 @@ module DiscoveredHostsHelper
         )
       ),
       button_group(
-        display_delete_if_authorized(hash_for_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :destroy_discovered_hosts), :class => "btn btn-danger", :data => { :confirm => _('Delete %s?') % host.name })
+        display_delete_if_authorized(hash_for_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :destroy_discovered_hosts), :class => "btn btn-default", :data => { :confirm => _('Delete %s?') % host.name })
       )
     )
   end
