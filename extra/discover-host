@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'json'
+require 'rest-client'
+
+def find_base name="default"
+  return name if File.exists?(name)
+  file = File.absolute_path(File.dirname(__FILE__) + "/discovery/#{name}.json")
+  raise "Unable to find file #{file}" unless File.exists?(file)
+  file
+end
+
+base = find_base
+version = "3.4.0"
+interfaces = []
+primary = nil
+bootif = nil
+url = "http://admin:changeme@localhost:3000"
+organization = nil
+location = nil
+OptionParser.new do |opts|
+  opts.banner = "Usage: discover-host [options]"
+
+  opts.on("-jFILE", "--json=FILE", "Base JSON filename") do |v|
+    base = find_base(v)
+  end
+
+  opts.on("-vVERSION", "--version=VERSION", "Version of the discovery image (defaults to #{version})") do |v|
+    version = v
+  end
+
+  opts.on("-iARRAY", "--interface=ARRAY", Array, "Comma separated array: name,subnet (can be used multiple times, default: eth0,122") do |v|
+    interfaces << v
+  end
+
+  opts.on("-pNAME", "--primary=NAME", "Interface to use as primary (defaults to the first one)") do |v|
+    primary = v
+  end
+
+  opts.on("-bNAME", "--boot=NAME", "Interface it was booted from (defaults to the first one)") do |v|
+    bootif = v
+  end
+
+  opts.on("-uURL", "--url=URL", "URL to foreman (#{url} by default)") do |v|
+    url = v
+  end
+
+  opts.on("-oORGANIZATION", "--organization=ORGANIZATION", "Organization override to discover in (defaults to subnet)") do |v|
+    organization = v
+  end
+
+  opts.on("-lLOCATION", "--location=LOCATION", "Location override to discover in (defaults to subnet)") do |v|
+    location = v
+  end
+end.parse!
+
+interfaces << ["eth0", "122"] if interfaces.empty?
+primary ||= interfaces.first.first
+bootif ||= interfaces.first.first
+json = JSON.parse(File.read(base))
+json["foreman_organization"] = organization if organization
+json["foreman_location"] = location if location
+json["discovery_version"] = version
+json["interfaces"] = interfaces.map{|i| i.first}.join(',')
+interfaces.each do |iface|
+  name, subnet = iface
+  mac = (["52"] + 5.times.map { '%02x' % rand(0..255) }).join(':')
+  ip = "192.168.#{subnet}.#{rand(1..253)}"
+  json["macaddress_#{name}"] = mac
+  json["ipaddress_#{name}"] = ip
+  if name == primary
+    json["macaddress"] = mac
+    json["ipaddress"] = ip
+  end
+  json["discovery_bootif"] = mac if name == bootif
+end
+puts JSON.pretty_generate(json)
+response = RestClient.post url + "/api/v2/discovered_hosts/facts", {"facts" => json}.to_json, {content_type: :json, accept: :json}
+puts response.code
+puts response.body

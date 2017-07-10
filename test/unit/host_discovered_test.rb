@@ -30,12 +30,24 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal subnet, host.primary_interface.subnet
   end
 
-  test "should setup subnet with org and loc" do
+  test "should setup subnet with org and loc set via settings" do
     org = FactoryGirl.create(:organization, :name => "subnet_org")
     loc = FactoryGirl.create(:location, :name => "subnet_loc")
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     raw = parse_json_fixture('/facts.json')
+    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = Host::Discovered.import_host(raw['facts'])
+    assert_equal subnet, host.primary_interface.subnet
+  end
+
+  test "should setup subnet with org and loc set via facts" do
+    org = FactoryGirl.create(:organization, :name => "subnet_org_via_fact")
+    loc = FactoryGirl.create(:location, :name => "subnet_loc_via_fact")
+    raw = parse_json_fixture('/facts.json')
+    raw['facts']['foreman_organization'] = org.name
+    raw['facts']['foreman_location'] = loc.name
     subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = Host::Discovered.import_host(raw['facts'])
