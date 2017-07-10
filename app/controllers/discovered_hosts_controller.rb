@@ -16,6 +16,10 @@ class DiscoveredHostsController < ::ApplicationController
 
   layout 'layouts/application'
 
+  def model_of_controller
+    Host::Discovered
+  end
+
   def index
     @hosts = resource_base.search_for(params[:search], :order => params[:order]).includes([
       :location,

@@ -1,0 +1,10 @@
+<% content_for(:title, _("Discovered Hosts")) %>
+<div class="blank-slate-pf">
+  <div class="blank-slate-pf-icon">
+    <%= icon_text("gears", "", :kind => "fa") %>
+  </div>
+  <h1><%= _('Discovered Hosts') %></h1>
+  <p><%= _("No discovered hosts found in this context.") %>
+  <%= _("This page shows discovered bare-metal or virtual nodes waiting to be provisioned.") %></p>
+  <p><%= link_to _('Learn more about this in the documentation.'), documentation_url("#{ForemanDiscovery::VERSION.scan(/\d+\.\d+/).first}/index.html", {:root_url => 'https://theforeman.org/plugins/foreman_discovery/'})%></p>
+</div>
