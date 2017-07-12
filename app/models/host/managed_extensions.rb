@@ -50,7 +50,7 @@ module Host::ManagedExtensions
     json = JSON.parse(unattended_render(template))
     ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
     ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initrd']) unless json['initrd'] =~ /\Ahttp.+\Z/
-    old.becomes(Host::Discovered).kexec json.to_s
+    old.becomes(Host::Discovered).kexec json.to_json
     true
   rescue ::Foreman::Exception => e
     Foreman::Logging.exception("Unable to kexec", e)
