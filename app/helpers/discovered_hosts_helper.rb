@@ -30,9 +30,11 @@ module DiscoveredHostsHelper
   end
 
   def multiple_discovered_hosts_actions_select
-    actions = [[_('Delete hosts'), multiple_destroy_discovered_hosts_path, hash_for_multiple_destroy_discovered_hosts_path]]
+    actions = [[_('Auto Provision'), multiple_auto_provision_discovered_hosts_path, hash_for_multiple_auto_provision_discovered_hosts_path]]
+    actions <<  [_('Reboot'), multiple_reboot_discovered_hosts_path, hash_for_multiple_reboot_discovered_hosts_path]
     actions <<  [_('Assign Organization'), select_multiple_organization_discovered_hosts_path,  hash_for_select_multiple_organization_discovered_hosts_path] if SETTINGS[:organizations_enabled]
     actions <<  [_('Assign Location'), select_multiple_location_discovered_hosts_path,  hash_for_select_multiple_location_discovered_hosts_path] if SETTINGS[:locations_enabled]
+    actions <<  [_('Delete'), multiple_destroy_discovered_hosts_path, hash_for_multiple_destroy_discovered_hosts_path]
 
     select_action_button( _("Select Action"), {:id => 'submit_multiple'},
       actions.map do |action|

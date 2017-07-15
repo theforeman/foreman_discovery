@@ -15,20 +15,28 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
     Host::Discovered.destroy_all
   end
 
-  describe 'Reboot all' do
+  describe 'Multiple host Reboot' do
     test 'triggers reboot on all discovered_hosts' do
       Host::Discovered.any_instance
                       .expects(:reboot)
                       .at_least(discovered_hosts.count)
-      select_all_hosts
-      page.find_link('Reboot All').click
+      select_host_checkbox(discovered_host.id)
+      page.find_link('Select Action').click
+      page.find_link('Reboot').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
     end
   end
 
-  describe 'Autoprovision all' do
+  describe 'Multiple host Autoprovision' do
     test 'converts all discovered to managed hosts' do
-      select_all_hosts
-      page.find_link('Auto Provision All').click
+      select_host_checkbox(discovered_host.id)
+      page.find_link('Select Action').click
+      page.find_link('Auto Provision').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
       wait_for_ajax
       assert page.has_text?('Discovered hosts are provisioning now')
     end
@@ -36,9 +44,9 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   describe 'Delete hosts' do
     test 'it removes all hosts' do
-      select_all_hosts
+      select_host_checkbox(discovered_host.id)
       page.find_link('Select Action').click
-      page.find_link('Delete hosts').click
+      page.find_link('Delete').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
@@ -133,6 +141,10 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   def select_all_hosts
     page.find('#check_all').click
+  end
+
+  def select_host_checkbox(id)
+    page.find("#host_ids_#{id}").click
   end
 
   def select_from(element_id, id)
