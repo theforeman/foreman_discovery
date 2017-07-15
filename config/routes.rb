@@ -14,15 +14,17 @@ Rails.application.routes.draw do
         post 'auto_provision'
       end
       collection do
+        get  'auto_complete_search'
+        put  'submit_multiple_reboot'
+        put  'submit_multiple_auto_provision'
         post 'multiple_destroy'
         post 'submit_multiple_destroy'
-        post  'select_multiple_organization'
+        post 'select_multiple_organization'
         post 'update_multiple_organization'
-        post  'select_multiple_location'
+        post 'select_multiple_location'
         post 'update_multiple_location'
-        get  'auto_complete_search'
-        post 'auto_provision_all'
-        put  'reboot_all'
+        post 'multiple_reboot'
+        post 'multiple_auto_provision'
       end
     end
   end

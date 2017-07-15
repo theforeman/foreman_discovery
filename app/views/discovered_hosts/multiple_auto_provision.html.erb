@@ -1,0 +1,4 @@
+<%= render 'selected_hosts', :hosts => @hosts %>
+
+<%= form_tag(submit_multiple_auto_provision_discovered_hosts_path(:host_ids => params[:host_ids]), {:method => :put}) do -%>
+<% end %><br />

@@ -7,7 +7,7 @@ class DiscoveredHostsController < ::ApplicationController
 
   before_action :find_by_name, :only => %w[edit update destroy refresh_facts convert reboot auto_provision]
   before_action :find_by_name_incl_subnet, :only => [:show]
-  before_action :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
+  before_action :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy, :multiple_reboot, :submit_multiple_reboot, :multiple_auto_provision, :submit_multiple_auto_provision]
   before_action :taxonomy_scope, :only => [:edit]
 
   around_action :skip_bullet, :only => [:edit]
@@ -118,8 +118,8 @@ class DiscoveredHostsController < ::ApplicationController
     process_error :error_msg => exception.message, :redirect => :back
   end
 
-  def reboot_all
-    error_message = perform_reboot_all
+  def submit_multiple_reboot
+    error_message = perform_reboot_all(@hosts)
 
     if error_message
       process_error :error_msg => error_message, :redirect => :back
@@ -133,6 +133,12 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def multiple_destroy
+  end
+
+  def multiple_reboot
+  end
+
+  def multiple_auto_provision
   end
 
   def submit_multiple_destroy
@@ -160,7 +166,7 @@ class DiscoveredHostsController < ::ApplicationController
     end
   end
 
-  def auto_provision_all
+  def submit_multiple_auto_provision
     result = true
     error_message = _("Errors during auto provisioning: %s")
 
@@ -170,7 +176,7 @@ class DiscoveredHostsController < ::ApplicationController
     end
 
     overall_errors = ""
-    Host::Discovered.all.each do |discovered_host|
+    @hosts.each do |discovered_host|
       if rule = find_discovery_rule(discovered_host)
         result &= perform_auto_provision(discovered_host, rule)
         unless discovered_host.errors.empty?
@@ -261,11 +267,12 @@ class DiscoveredHostsController < ::ApplicationController
 
   def action_permission
     case params[:action]
-      when 'refresh_facts', 'reboot', 'reboot_all', 'update_multiple_location', 'select_multiple_organization', 'update_multiple_organization', 'select_multiple_location'
+      when 'refresh_facts', 'reboot', 'multiple_reboot', 'update_multiple_location',
+        'select_multiple_organization', 'update_multiple_organization', 'select_multiple_location', 'submit_multiple_reboot'
         :edit
       when 'submit_multiple_destroy', 'multiple_destroy'
         :destroy
-      when 'auto_provision', 'auto_provision_all'
+      when 'auto_provision', 'multiple_auto_provision', 'submit_multiple_auto_provision'
         :auto_provision
       else
         super

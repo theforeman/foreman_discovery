@@ -1,6 +1,8 @@
 require 'test_plugin_helper'
 
 class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
 
   def switch_controller(klass)
     old_controller = @controller

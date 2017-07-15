@@ -223,7 +223,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal "No rule found for host macaabbccddeeff", flash[:success]
   end
 
-  def test_auto_provision_all_success
+  def test_multiple_auto_provision_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
@@ -235,13 +235,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :hostgroup => hostgroup,
       :organizations => [host.organization], :locations => [host.location]
     )
-    post :auto_provision_all, params: {}, session: set_session_user(User.current)
+    post :submit_multiple_auto_provision, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:success]
   end
 
-  def test_auto_provision_all_no_rule_success
+  def test_multiple_auto_provision_no_rule_success
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
@@ -253,37 +253,37 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :hostgroup => hostgroup,
       :organizations => [host.organization], :locations => [host.location]
     )
-    post :auto_provision_all, params: {}, session: set_session_user(User.current)
+    post :submit_multiple_auto_provision, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:success]
   end
 
-  def test_reboot_all_success
+  def test_multiple_reboot_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
-    post :reboot_all, params: { }, session: set_session_user_default_manager
+    post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
     assert_nil flash[:error]
     assert_equal "Discovered hosts are rebooting now", flash[:success]
   end
 
-  def test_reboot_all_failure
+  def test_multiple_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
-    post :reboot_all, params: { }, session: set_session_user_default_manager
+    post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
     assert_nil flash[:success]
   end
 
-  def test_reboot_all_error
+  def test_multiple_reboot_error
     @request.env["HTTP_REFERER"] = discovered_hosts_url
-    discover_host_from_facts(@facts)
+    host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
-    post :reboot_all, params: { }, session: set_session_user_default_manager
+    post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF50-4973/, flash[:error])
     assert_nil flash[:success]
