@@ -101,13 +101,15 @@ class Host::Discovered < ::Host::Base
       self.primary_interface.subnet = subnet
       # set location and organization
       if SETTINGS[:locations_enabled]
-        self.location = Location.find_by_title(Setting[:discovery_location]) ||
+        self.location = Location.find_by_title(facts["foreman_location"] || facts["discovery_location"]) ||
+          Location.find_by_title(Setting[:discovery_location]) ||
           subnet.try(:locations).try(:first) ||
           Location.first
         Rails.logger.info "Assigned location: #{self.location}"
       end
       if SETTINGS[:organizations_enabled]
-        self.organization = Organization.find_by_title(Setting[:discovery_organization]) ||
+        self.organization = Organization.find_by_title(facts["foreman_organization"] || facts["discovery_organization"]) ||
+          Organization.find_by_title(Setting[:discovery_organization]) ||
           subnet.try(:organizations).try(:first) ||
           Organization.first
         Rails.logger.info "Assigned organization: #{self.organization}"
