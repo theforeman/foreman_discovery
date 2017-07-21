@@ -12,7 +12,10 @@ module Host::ManagedExtensions
   end
 
   def queue_reboot
-    return unless errors.empty? && Setting[:discovery_reboot]
+    unless errors.empty? && Setting[:discovery_reboot]
+      logger.warn("Not queueing Discovery reboot: #{errors.full_messages.to_sentence}")
+      return
+    end
     return if new_record? # Discovered Hosts already exist, and new_records will break `find`
     return unless type_changed? and ::Host::Base.find(self.id).type == "Host::Discovered"
     # reboot task must be high priority and there is no compensation action apparently
