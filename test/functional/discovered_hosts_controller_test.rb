@@ -3,6 +3,10 @@ require 'test_plugin_helper'
 class DiscoveredHostsControllerTest < ActionController::TestCase
   setup :initialize_host
 
+  basic_index_test('discovered_hosts')
+  basic_pagination_per_page_test
+  basic_pagination_rendered_test
+
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     FactoryBot.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])

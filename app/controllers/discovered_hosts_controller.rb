@@ -187,6 +187,10 @@ class DiscoveredHostsController < ::ApplicationController
     end
   end
 
+  def resource_class
+    Host::Discovered
+  end
+
   private
 
   def setup_host_class_variables(host)

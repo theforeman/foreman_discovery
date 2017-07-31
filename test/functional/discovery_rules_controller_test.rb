@@ -3,6 +3,12 @@ require 'test_plugin_helper'
 class DiscoveryRulesControllerTest < ActionController::TestCase
   setup :initialize_host
 
+  basic_index_test('discovery_rules')
+  basic_new_test
+  basic_edit_test
+  basic_pagination_per_page_test
+  basic_pagination_rendered_test
+
   test "should add a link to navigation" do
     get :index, {}, set_session_user
     assert_select "a[href=?]", "/discovery_rules"
