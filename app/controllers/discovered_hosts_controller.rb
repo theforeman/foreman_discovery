@@ -56,6 +56,7 @@ class DiscoveredHostsController < ::ApplicationController
     if params[:quick_submit]
       perform_update(@host, _('Successfully provisioned %s') % @host.name)
     else
+      @host.build = true
       render :template => 'discovered_hosts/edit'
     end
   end

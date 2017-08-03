@@ -73,6 +73,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_not_nil host.cpu_count
   end
 
+  def test_edit_form_build_mode_enabled
+    host = discover_host_from_facts(@facts)
+    get :edit, {:id => host.id}, set_session_user_default_manager
+    assert_response :success
+    assert_select 'input[type=checkbox][checked=checked]#host_build'
+  end
+
   def test_edit_form_quick_submit
     disable_taxonomies do
       host = Host::Discovered.import_host(@facts)
