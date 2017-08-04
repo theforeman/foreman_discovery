@@ -109,3 +109,21 @@ end
 def location_one
   Location.find_by_name('Location 1')
 end
+
+def facts_simple_network100_42
+  {
+    "interfaces"       => "lo,eth0,eth1",
+    "ipaddress"        => "192.168.100.42",
+    "ipaddress_eth0"   => "192.168.100.42",
+    "ipaddress_eth1"   => "192.168.100.15",
+    "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
+    "macaddress_eth1"  => "AA:BB:CC:DD:EE:F1",
+    "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
+  }
+end
+
+def discover_host_from_facts(facts)
+  User.as_anonymous_admin do
+    Host::Discovered.import_host(facts)
+  end
+end

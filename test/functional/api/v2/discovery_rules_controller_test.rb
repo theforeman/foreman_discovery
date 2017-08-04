@@ -2,7 +2,6 @@ require 'test_plugin_helper'
 
 class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   setup do
-    User.current = User.find_by_login "admin"
     set_default_settings
   end
 

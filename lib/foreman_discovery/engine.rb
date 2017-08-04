@@ -112,6 +112,7 @@ module ForemanDiscovery
         MANAGER = READER + [
           # core permissions
           :create_hosts,
+          :edit_hosts,
           :build_hosts,
           :assign_organizations,
           :assign_locations,
