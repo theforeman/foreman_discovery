@@ -26,7 +26,7 @@ module Api
       test 'list discovered host facts' do
         disable_orchestration
         facts = @facts.merge({ "somefact" => "abc" })
-        host = Host::Discovered.import_host(facts)
+        host = discover_host_from_facts(facts)
         get :index, { :host_id => host.id }
         assert_response :success
         show_response = ActiveSupport::JSON.decode(@response.body)

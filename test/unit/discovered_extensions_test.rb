@@ -4,38 +4,30 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
   include Foreman::Controller::DiscoveredExtensions
 
   setup do
-    @facts = {
-      "interfaces"       => "lo,eth0,eth1",
-      "ipaddress"        => "192.168.100.42",
-      "ipaddress_eth0"   => "192.168.100.42",
-      "ipaddress_eth1"   => "192.168.100.15",
-      "macaddress_eth0"  => "AA:BB:CC:DD:EE:FF",
-      "macaddress_eth1"  => "AA:BB:CC:DD:EE:F1",
-      "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
-    }
+    @facts = facts_simple_network100_42
     set_default_settings
   end
 
   test "no rule is found for empty rule set" do
-    host = Host::Discovered.import_host(@facts)
+    host = discover_host_from_facts(@facts)
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with no facts" do
-    host = Host::Discovered.import_host(@facts)
+    host = discover_host_from_facts(@facts)
     FactoryGirl.create(:discovery_rule, :search => "facts.foo = bar")
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with some facts" do
-    host = Host::Discovered.import_host(@facts)
+    host = discover_host_from_facts(@facts)
     FactoryGirl.create(:discovery_rule, :search => "facts.foo = doesnotexist")
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of two for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = xxx")
     FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = zzz")
     refute find_discovery_rule(host)
@@ -43,7 +35,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "rule out of one is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r1
@@ -51,7 +43,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "first rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
@@ -61,7 +53,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "second rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
@@ -71,7 +63,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "first rule out of two with different priorities is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 2, :search => "facts.somefact = abc",
@@ -81,7 +73,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "second rule out of two with different priorities is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :name => "A", :priority => 2, :search => "facts.somefact = abc",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :name => "B", :priority => 1, :search => "facts.somefact = abc",
@@ -91,7 +83,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "older rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
@@ -102,7 +94,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "drained rule does not match for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :max_count => 1,
                             :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
@@ -113,7 +105,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "discovery rule is associated after auto provisioning" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
@@ -125,7 +117,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "auto provisioning fails for rule without a hostgroup" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     r1.hostgroup = nil
@@ -137,7 +129,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "existing rule revent from hostgroup deletion" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     assert_raises(ActiveRecord::RecordNotDestroyed) do
@@ -147,7 +139,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "rules with incorrect syntax are skipped" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     FactoryGirl.create(:discovery_rule, :priority => 1, :search => '=!^$#@?x',
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryGirl.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
@@ -157,7 +149,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "hostname is copied after auto provisioning" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
@@ -168,7 +160,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     domain = FactoryGirl.create(:domain)
     subnet = FactoryGirl.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     assert_equal subnet, host.subnet
     hostgroup = FactoryGirl.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet, :domain => domain)
     r1 = FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
@@ -196,7 +188,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "attributes from hostgroup are copied after auto provisioning for host without subnet detected" do
     facts = @facts.merge({"somefact" => "abc"})
-    host = Host::Discovered.import_host(facts)
+    host = discover_host_from_facts(facts)
     refute host.subnet
     domain = FactoryGirl.create(:domain)
     subnet = FactoryGirl.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
@@ -245,7 +237,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     end
 
     test "hostname falls back to original name on empty response via #{renderer_name}" do
-      host = Host::Discovered.import_host(@facts)
+      host = discover_host_from_facts(@facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => '<%= "" %>',
@@ -256,7 +248,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     end
 
     test "hostname is rendered after auto provisioning using #{renderer_name}" do
-      host = Host::Discovered.import_host(@facts)
+      host = discover_host_from_facts(@facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= 1+1 %>',
@@ -267,7 +259,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     end
 
     test "function rand is renderer properly using #{renderer_name}" do
-      host = Host::Discovered.import_host(@facts)
+      host = discover_host_from_facts(@facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= rand(4) %>',
@@ -278,7 +270,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     end
 
     test "hostname attribute name is renderer properly using #{renderer_name}" do
-      host = Host::Discovered.import_host(@facts)
+      host = discover_host_from_facts(@facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= @host.name %>',
@@ -289,7 +281,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     end
 
     test "hostname attribute ip is renderer properly using #{renderer_name}" do
-      host = Host::Discovered.import_host(@facts)
+      host = discover_host_from_facts(@facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= @host.ip.gsub(".","-") %>',
@@ -301,7 +293,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
     test "hostname attribute facts_hash is renderer properly using #{renderer_name}" do
       facts = @facts.merge({"somefact" => "abc"})
-      host = Host::Discovered.import_host(facts)
+      host = discover_host_from_facts(facts)
       r1 = FactoryGirl.create(:discovery_rule,
                               :search => "facts.somefact = abc",
                               :hostname => 'x<%= @host.facts["somefact"] %>',
