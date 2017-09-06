@@ -34,6 +34,7 @@ module Api
           param :name, String, :required => true
           param :ip, String, :required => true
           param :mac, String, :required => true
+          param :pxe_loader, Operatingsystem.all_loaders, :desc => N_("DHCP filename option (Grub2 or PXELinux by default)")
         end
       end
 
@@ -42,6 +43,7 @@ module Api
 
       def create
         @discovered_host = Host::Discovered.new(discovered_host_params)
+        @discovered_host.suggest_default_pxe_loader if params[:discovered_host] && params[:discovered_host][:pxe_loader].nil?
         process_response @discovered_host.save
       end
 
@@ -74,6 +76,7 @@ module Api
         param :progress_report_id, String, :desc => N_("UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks")
         param :capabilities, String
         param :root_pass, String, :desc => N_("required if value is not inherited from host group or default password in settings")
+        param :pxe_loader, Operatingsystem.all_loaders, :desc => N_("DHCP filename option (Grub2 or PXELinux by default)")
       end
 
       def update
