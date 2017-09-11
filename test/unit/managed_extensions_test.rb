@@ -14,7 +14,6 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     set_default_settings
 
     @host = StubHost.new
-    @host.legacy_api = false
     @host.type = "Host::Discovered"
     @host.stubs(:old).returns(@host)
     @facts = {}

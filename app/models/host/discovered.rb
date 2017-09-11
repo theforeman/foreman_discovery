@@ -190,16 +190,8 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
   end
 
-  def reboot legacy_api = ForemanDiscovery::HostConverter.legacy_host(self)
-    if legacy_api
-      if proxied?
-        resource = ::ForemanDiscovery::NodeAPI::Power.legacy_proxied_service(:url => proxy_url)
-      else
-        resource = ::ForemanDiscovery::NodeAPI::Power.legacy_direct_service(:url => proxy_url)
-      end
-    else
-      resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
-    end
+  def reboot 
+    resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
     resource.reboot
   rescue => e
     ::Foreman::Logging.exception("Unable to reboot #{name}", e)

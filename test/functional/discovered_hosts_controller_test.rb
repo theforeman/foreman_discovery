@@ -174,21 +174,6 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal "Rebooting host #{host.name}", flash[:notice]
   end
 
-  def test_reboot_success_legacy
-    @request.env["HTTP_REFERER"] = discovered_hosts_url
-    facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
-    host = discover_host_from_facts(facts)
-    Host::Discovered::any_instance.stubs(:proxied?).returns(false)
-    Host::Discovered::any_instance.stubs(:proxy_url).returns("http://1.2.3.4:8443")
-    ::ForemanDiscovery::NodeAPI::PowerLegacyDirectService.any_instance.expects(:reboot).returns(true)
-    ActiveSupport::Deprecation.silence do
-      post "reboot", { :id => host.id }, set_session_user
-    end
-    assert_redirected_to discovered_hosts_url
-    assert_nil flash[:error]
-    assert_equal "Rebooting host #{host.name}", flash[:notice]
-  end
-
   def test_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)

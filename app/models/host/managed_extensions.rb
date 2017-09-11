@@ -9,9 +9,6 @@ module Host::ManagedExtensions
     belongs_to :discovery_rule
 
     scoped_search :relation => :discovery_rule, :on => :name, :rename => :discovery_rule, :complete_value => true
-
-    # extra flag for post_queue callbacks which has no access to facts
-    attr_accessor :legacy_api
   end
 
   def queue_reboot
@@ -27,7 +24,7 @@ module Host::ManagedExtensions
   end
 
   def setReboot
-    old.becomes(Host::Discovered).reboot legacy_api
+    old.becomes(Host::Discovered).reboot
     # It is too late to report error in the post_queue, we catch them and
     # continue. If flash is implemented for new hosts (http://projects.theforeman.org/issues/10559)
     # we can report the error to the user perhaps.
