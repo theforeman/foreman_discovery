@@ -20,8 +20,6 @@ class ForemanDiscovery::HostConverter
   end
 
   def self.set_build_clean_facts(host)
-    # set legacy_api flag for post_queue actions
-    host.legacy_api = self.legacy_host(host)
     # fact cleaning
     if Setting['discovery_clean_facts']
       # clean all facts except those starting with "discovery_"
@@ -35,10 +33,6 @@ class ForemanDiscovery::HostConverter
     end
     # set build flag
     host.build = true
-  end
-
-  def self.legacy_host(host)
-    Gem::Version.new(host.facts['discovery_version'] || '1.0.0') < Gem::Version.new('3.0.0')
   end
 
 end
