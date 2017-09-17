@@ -7,11 +7,14 @@ module ForemanDiscovery
       private
 
       def create
-        add_notification if update_notifications.zero?
+        User.as_anonymous_admin do
+          blueprint.notifications.any? ? update_notifications : add_notification
+        end
       end
 
       def update_notifications
         blueprint.mass_update_expiry
+        blueprint.mass_set_seen(false)
       end
 
       def add_notification
