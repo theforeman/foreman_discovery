@@ -3,7 +3,7 @@ module Api
     class DiscoveryRulesController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::DiscoveryRule
 
-      before_filter :find_resource, :except => %w{index create facts}
+      before_action :find_resource, :except => %w{index create facts}
 
       resource_description do
         resource_id 'discovery_rules'

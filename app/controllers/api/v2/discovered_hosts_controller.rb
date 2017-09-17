@@ -4,8 +4,8 @@ module Api
       include Foreman::Controller::Parameters::DiscoveredHost
       include Foreman::Controller::DiscoveredExtensions
 
-      before_filter :find_resource, :except => %w{index create facts auto_provision_all reboot_all}
-      skip_before_filter :authorize, :only => :facts
+      before_action :find_resource, :except => %w{index create facts auto_provision_all reboot_all}
+      skip_before_action :authorize, :only => :facts
 
       resource_description do
         resource_id 'discovered_hosts'

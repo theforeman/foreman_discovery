@@ -4,7 +4,7 @@ class DiscoveryRulesController < ApplicationController
 
   include Foreman::Controller::Parameters::DiscoveryRule
 
-  before_filter :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
+  before_action :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 
   def index
     base = resource_base.search_for(params[:search], :order => (params[:order]))
