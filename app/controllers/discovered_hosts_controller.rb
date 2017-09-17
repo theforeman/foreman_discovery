@@ -5,12 +5,12 @@ class DiscoveredHostsController < ::ApplicationController
   include Foreman::Controller::DiscoveredExtensions
   include ActionView::Helpers::NumberHelper
 
-  before_filter :find_by_name, :only => %w[edit update destroy refresh_facts convert reboot auto_provision]
-  before_filter :find_by_name_incl_subnet, :only => [:show]
-  before_filter :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
-  before_filter :taxonomy_scope, :only => [:edit]
+  before_action:find_by_name, :only => %w[edit update destroy refresh_facts convert reboot auto_provision]
+  before_action :find_by_name_incl_subnet, :only => [:show]
+  before_action :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy]
+  before_action :taxonomy_scope, :only => [:edit]
 
-  around_filter :skip_bullet, :only => [:edit]
+  around_action :skip_bullet, :only => [:edit]
 
   helper :hosts
 
