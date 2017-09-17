@@ -34,7 +34,7 @@ class Host::Discovered < ::Host::Base
   }
 
   def self.import_host facts
-    raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash)
+    raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash) || facts.is_a?(ActionController::Parameters)
 
     # filter facts
     facts.reject!{|k,v| k =~ /kernel|operatingsystem|osfamily|ruby|path|time|swap|free|filesystem/i }
