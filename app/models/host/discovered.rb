@@ -93,6 +93,8 @@ class Host::Discovered < ::Host::Base
     unless primary_ip.nil?
       subnet = Subnet.subnet_for(primary_ip)
       if subnet
+        # reload subnet to fetch all references
+        subnet.reload
         Rails.logger.info "Detected subnet: #{subnet} with taxonomy #{subnet.organizations.collect(&:name)}/#{subnet.locations.collect(&:name)}"
       else
         Rails.logger.warn "Subnet could not be detected for #{primary_ip}"
