@@ -20,8 +20,7 @@ module DiscoveredHostsHelper
         ),
         select_action_button( _("Select Action"), {}, provision_button(host, hash_for_edit_discovered_host_path(:id => host)), actions.map { |action| display_link_if_authorized(action[0] , action[1], action[2] || {}) }.flatten ),
       button_group(
-        link_to(_("Expand All"),"#",:class => "btn btn-default",:onclick => "$('.glyphicon-plus-sign').toggleClass('glyphicon glyphicon-minus-sign glyphicon glyphicon-plus-sign');
-                $('.facts-panel').addClass('collapse in').height('auto');"
+        link_to(_("Expand All"),"#", :id => "expand_all", :class => "btn btn-default"
         )
       ),
       button_group(
