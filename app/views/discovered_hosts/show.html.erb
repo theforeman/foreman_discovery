@@ -69,7 +69,7 @@
               </a>
             </h4>
           </div>
-          <div id="<%= @categories_names[index].to_s + "panel" %>" class="panel-collapse collapse facts-panel <%= "in" if @categories_names[index].to_s.include?"Storage"%>" role="tabpanel">
+          <div id="<%= @categories_names[index].to_s + "panel" %>" class="panel-collapse collapse facts-panel" role="tabpanel">
             <table class="table table-bordered  table-condensed table-fixed">
             <% val.sort.each do |key, value|  %>
                 <tr class="">
@@ -99,5 +99,13 @@
     $('.flag-provision').append(flags_provision);
     $('.primary-flag').tooltip();
     $('.provision-flag').tooltip();
+
+    $('#expand_all').on('click', function () {
+      $('#accordion .panel-collapse').collapse('toggle');
+      $(this).text(function(i, text){
+          return text === "Expand All" ? "Collapse All" : "Expand All";
+      })
+    });
+
   });
 </script>
