@@ -201,4 +201,14 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_reboot_all_failure
+    disable_orchestration
+    host = discover_host_from_facts(@facts)
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
+    post :reboot_all, params: { }
+    show_response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "Errors during reboot: #{host.name}: failed to reboot", show_response["error"]["message"]
+    assert_equal "macaabbccddeeff: failed to reboot ", show_response["error"]["host_details"][0]["error"]
+  end
+
 end

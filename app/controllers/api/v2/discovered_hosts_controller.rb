@@ -198,11 +198,9 @@ module Api
       def reboot_all
         error_message = perform_reboot_all
         if error_message
-          render_error :custom_error,
+          render_error :custom_error_reboot_all,
                        :status => :unprocessable_entity,
-                       :locals => {
-                           :message => error_message
-                       }
+                       :locals => error_message
         else
           process_success _("Discovered hosts are rebooting now")
         end
