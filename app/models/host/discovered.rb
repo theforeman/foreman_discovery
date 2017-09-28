@@ -67,11 +67,13 @@ class Host::Discovered < ::Host::Base
     host
   end
 
-  def import_facts facts
+  def import_facts(facts)
     # Discovered Hosts won't report in via puppet, so we can use that field to
     # record the last time it sent facts...
     self.last_report = Time.now
-    super
+    # Set the correct facts type for new foreman facts importing code.
+    facts[:_type] = :foreman_discovery if SETTINGS[:version].short > '1.16'
+    super(facts)
   end
 
   def setup_clone
@@ -84,10 +86,23 @@ class Host::Discovered < ::Host::Base
     super
   end
 
-  def populate_fields_from_facts(facts = self.facts_hash, ignored_type = nil)
-    # detect interfaces and primary interface using extensions
-    parser = super(facts, :foreman_discovery)
+  def populate_fields_from_facts(*params)
+    if SETTINGS[:version].short > '1.16'
+      parser, type, source_proxy = params
+      facts = parser.facts
+      # detect interfaces and primary interface using extensions
+      super(parser, type, source_proxy)
+    else
+      # backwards compatibility
+      facts = params[0] || self.facts_hash
+      parser = super(facts, :foreman_discovery)
+    end
 
+    populate_discovery_fields_from_facts(facts)
+    parser
+  end
+
+  def populate_discovery_fields_from_facts(facts)
     # set additional discovery attributes
     primary_ip = self.primary_interface.ip
     unless primary_ip.nil?
@@ -122,7 +137,6 @@ class Host::Discovered < ::Host::Base
     # lock the host into discovery via PXE, if feature is enabled in settings
     lock_templates if Setting::Discovered.discovery_lock? && self.subnet.tftp?
     self.save!
-    parser
   end
 
   def lock_templates
