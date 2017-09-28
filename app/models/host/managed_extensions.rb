@@ -63,7 +63,7 @@ module Host::ManagedExtensions
 
   def delete_discovery_attribute_set
     return if new_record?
-    DiscoveryAttributeSet.destroy_all(:host_id => self.id) if type_changed?
+    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if type_changed?
   end
 
   def update_notifications
