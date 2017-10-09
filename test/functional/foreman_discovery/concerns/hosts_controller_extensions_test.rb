@@ -7,16 +7,15 @@ module ForemanDiscovery
 
       context 'hosts controller requests from discovered_hosts url' do
         test 'get "host" params from "discovered_hosts" params' do
-          architecture = FactoryGirl.create(:architecture)
+          os = FactoryGirl.create(:operatingsystem, :with_associations)
+          arch_id = os.architectures.first.id
           discovered_host_params = {
-            'discovered_host' => { 'architecture_id' => architecture.id }
+            'discovered_host' => { 'architecture_id' => arch_id }
           }
 
-          @request.stubs(:path).
-            returns(architecture_selected_discovered_hosts_path)
-
+          @request.stubs(:path).returns(architecture_selected_discovered_hosts_path)
           post :architecture_selected, discovered_host_params, set_session_user
-          assert assigns('architecture'), architecture
+          assert_match(/"#{os.id}"/, response.body)
         end
       end
     end

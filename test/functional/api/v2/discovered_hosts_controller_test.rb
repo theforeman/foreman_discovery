@@ -64,7 +64,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
           hostgroup_id: hostgroup.id
         }
 
-    assert_match /#{host.name}/, @response.body
+    assert_match(/#{host.name}/, @response.body)
     assert_response :success
 
     # Get the managed host instance from the DB
@@ -105,7 +105,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     rule = FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
-    assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
+    assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
     assert managed_host.build
     assert_response :success
@@ -119,7 +119,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     rule = FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
-    assert_match /Host #{host.name} was provisioned with rule #{rule.name}/, @response.body
+    assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
     assert managed_host.build
     assert_response :success
@@ -183,7 +183,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision_all, {}
-    assert_match /1 discovered hosts were provisioned/, @response.body
+    assert_match(/1 discovered hosts were provisioned/, @response.body)
     managed_host = Host.unscoped.find(host.id)
     assert managed_host.build
     assert_response :success
@@ -194,7 +194,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     discover_host_from_facts(facts)
     post :auto_provision_all, {}
-    assert_match /0 discovered hosts were provisioned/, @response.body
+    assert_match(/0 discovered hosts were provisioned/, @response.body)
     assert_response :success
   end
 
