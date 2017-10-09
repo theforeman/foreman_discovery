@@ -38,10 +38,11 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
         :name => "foo",
         :search => "bar",
         :hostgroup_id => hostgroup.id,
-        :organization_ids => [organization_one],
+        :organization_ids => [organization_one.id],
         :location_ids => [location_one.id],
         :hostname => "",
         :priority => 1}}
+      refute_match /error/, response.body
     end
     assert_response :success
   end
@@ -54,7 +55,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
 
   test "should update taxonomy for discovery rule" do
     rule = FactoryGirl.create(:discovery_rule)
-    organization = FactoryGirl.create(:organization)
     put :update, { :id => rule.to_param, :discovery_rule => { :organization_ids => [rule.organizations.first.id] } }
     assert_response :success
   end

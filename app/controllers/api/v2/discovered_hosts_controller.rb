@@ -97,7 +97,8 @@ module Api
       param :facts, Hash, :required => true, :desc => N_("hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)")
 
       def facts
-        facts = params['facts']
+        # creating a host from facts is not a mass assignment - we store them individually
+        facts = params['facts'].to_unsafe_h
         state = true
         User.as_anonymous_admin do
           @discovered_host = Host::Discovered.import_host(facts)
