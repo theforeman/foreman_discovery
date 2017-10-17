@@ -82,6 +82,9 @@ msgstr "Clean all reported facts during provisioning (except discovery facts)"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -91,8 +94,11 @@ msgstr "Create a discovered host for testing (use /facts to create new hosts)"
 msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
 
-msgid "Create host"
-msgstr "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -142,6 +148,9 @@ msgstr "Discovered hosts from Foreman server at %{foreman_url}"
 msgid "Discovered hosts summary"
 msgstr "Discovered hosts summary"
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -172,8 +181,14 @@ msgstr "Priority"
 msgid "DiscoveryRule|Query"
 msgstr "Query"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "Disk count"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "Disks size"
@@ -268,8 +283,8 @@ msgstr "Host"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} was provisioned with rule %{rule}"
 
-msgid "Host group"
-msgstr "Host group"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -299,11 +314,11 @@ msgstr "Hostnames must not start with numbers. A good approach is to use unique 
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "Hosts limit"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "Hosts/limit"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -332,6 +347,9 @@ msgstr "Image API returned HTTP/%{code} with '%{body}"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr "Interface fact"
 
@@ -347,11 +365,17 @@ msgstr "Invalid facts: hash does not contain a valid value for any of the facts 
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Invalid hostname: Could not normalise the hostname"
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec template not associated with operating system"
 
-msgid "Last facts upload"
-msgstr "Last facts upload"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "List all discovered hosts"
@@ -425,6 +449,9 @@ msgstr "No discovered hosts available"
 msgid "No discovered hosts for the selected period"
 msgstr "No discovered hosts for the selected period"
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"
 
@@ -476,11 +503,11 @@ msgstr "Primary"
 msgid "Provision"
 msgstr "Provision"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "Provision a discovered host"
-
-msgid "Quick create"
-msgstr "Quick create"
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -548,9 +575,6 @@ msgstr "Select Action"
 msgid "Select all items in this page"
 msgstr "Select all items in this page"
 
-msgid "Select initial host properties"
-msgstr "Select initial host properties"
-
 msgid "Select location"
 msgstr "Select location"
 
@@ -614,6 +638,9 @@ msgstr "The following hosts were not deleted: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -643,9 +670,6 @@ msgstr "Update a rule"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Upload facts for a host, creating the host if required"
-
-msgid "Warning"
-msgstr "Warning"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "When creating hostname patterns, make sure the resulting host names are unique."

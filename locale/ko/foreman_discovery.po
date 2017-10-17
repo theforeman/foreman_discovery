@@ -76,6 +76,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -85,7 +88,10 @@ msgstr "검색된 호스트를 테스트용으로 생성(/facts를 사용하여 
 msgid "Create a discovery rule"
 msgstr "검색 규칙 생성 "
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -136,6 +142,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -166,8 +175,14 @@ msgstr "우선 순위 "
 msgid "DiscoveryRule|Query"
 msgstr "쿼리 "
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "디스크 수 "
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "디스크 크기 "
@@ -262,8 +277,8 @@ msgstr "호스트 "
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "호스트 %{host}은/는 %{rule}으(로) 프로비저닝됩니다 "
 
-msgid "Host group"
-msgstr "호스트 그룹 "
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -293,11 +308,11 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "호스트 제한 "
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "호스트/제한"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -326,6 +341,9 @@ msgstr "이미지 API에서 '%{body}'이(가) 포함된 HTTP/%{code}을(를) 반
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -341,11 +359,17 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec 템플릿이 운영 체제에 연결되어 있지 않습니다."
 
-msgid "Last facts upload"
-msgstr "마지막 팩트 업로드 "
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "검색된 모든 호스트를 나열 "
@@ -419,6 +443,9 @@ msgstr "사용 가능한 검색된 호스트가 없습니다 "
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "프로비저닝할 검색된 호스트가 없습니다 "
 
@@ -470,11 +497,11 @@ msgstr "주요"
 msgid "Provision"
 msgstr "프로비저닝 "
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "검색된 호스트 프로비저닝 "
-
-msgid "Quick create"
-msgstr ""
 
 msgid "Reboot"
 msgstr "다시 시작"
@@ -542,9 +569,6 @@ msgstr "작업 선택 "
 msgid "Select all items in this page"
 msgstr "이 페이지에 있는 모든 항목을 선택 "
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
 msgstr "위치 선택 "
 
@@ -608,6 +632,9 @@ msgstr "다음 호스트가 삭제되지 않았습니다: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "모든 호스트, 팩트, 보고서가 모두 삭제되기 때문에 시간이 걸릴 수 있습니다 "
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -637,9 +664,6 @@ msgstr "규칙 업데이트 "
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "호스트의 팩트를 업로드하고 필요한 경우 호스트를 생성합니다 "
-
-msgid "Warning"
-msgstr "경고 "
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""

@@ -77,6 +77,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "無法由協定 %{url} 取得詳細資料：%{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -86,7 +89,10 @@ msgstr "建立測試用的搜尋主機（使用 /facts 來建立新主機）"
 msgid "Create a discovery rule"
 msgstr "建立一項搜尋規則"
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -137,6 +143,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -167,8 +176,14 @@ msgstr "優先順序"
 msgid "DiscoveryRule|Query"
 msgstr "查詢"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "磁碟計數"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "磁碟大小"
@@ -263,8 +278,8 @@ msgstr "主機"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "主機 %{host} 已透過規則 %{rule} 佈建"
 
-msgid "Host group"
-msgstr "主機群組"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -294,11 +309,11 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "主機限制"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "主機/限制"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -327,6 +342,9 @@ msgstr "映像檔 API 傳回 HTTP/%{code} 與 '%{body}"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -342,11 +360,17 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "kexec 範本並不與作業系統相關連"
 
-msgid "Last facts upload"
-msgstr "最後上傳的詳情"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "列出所有發現的主機"
@@ -420,6 +444,9 @@ msgstr "未發現可用的主機"
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "未發現可佈建的主機"
 
@@ -471,11 +498,11 @@ msgstr "主要"
 msgid "Provision"
 msgstr "佈建"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "佈建一部已發現的主機"
-
-msgid "Quick create"
-msgstr ""
 
 msgid "Reboot"
 msgstr "重新開機"
@@ -543,9 +570,6 @@ msgstr "選擇動作"
 msgid "Select all items in this page"
 msgstr "選擇這頁中的所有項目"
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
 msgstr "選擇位置"
 
@@ -609,6 +633,9 @@ msgstr "下列主機尚未刪除：%s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -638,9 +665,6 @@ msgstr "更新規則"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "上傳主機的詳情，並視需求建立主機"
-
-msgid "Warning"
-msgstr "警告"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""

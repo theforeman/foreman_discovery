@@ -77,6 +77,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -86,7 +89,10 @@ msgstr ""
 msgid "Create a discovery rule"
 msgstr ""
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -137,6 +143,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -167,7 +176,13 @@ msgstr ""
 msgid "DiscoveryRule|Query"
 msgstr ""
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
+msgstr ""
+
+msgid "Disks Size"
 msgstr ""
 
 msgid "Disks size"
@@ -263,8 +278,8 @@ msgstr "Equipo"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
-msgid "Host group"
-msgstr "Grupo de Equipos"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -294,10 +309,10 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
+msgid "Hosts Limit"
 msgstr ""
 
-msgid "Hosts/limit"
+msgid "Hosts/Limit"
 msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
@@ -327,6 +342,9 @@ msgstr ""
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -342,10 +360,16 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr ""
 
-msgid "Last facts upload"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
 msgstr ""
 
 msgid "List all discovered hosts"
@@ -420,6 +444,9 @@ msgstr ""
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr ""
 
@@ -471,10 +498,10 @@ msgstr ""
 msgid "Provision"
 msgstr "Aprovisionamento"
 
-msgid "Provision a discovered host"
+msgid "Provision %s"
 msgstr ""
 
-msgid "Quick create"
+msgid "Provision a discovered host"
 msgstr ""
 
 msgid "Reboot"
@@ -543,9 +570,6 @@ msgstr "Selecciona unha Acción"
 msgid "Select all items in this page"
 msgstr "Seleccionar tódolos obxetos desta páxina"
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
 msgstr ""
 
@@ -609,6 +633,9 @@ msgstr "Os seguintes equipos non foron eliminados: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -638,9 +665,6 @@ msgstr ""
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""
-
-msgid "Warning"
-msgstr "Aviso"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""

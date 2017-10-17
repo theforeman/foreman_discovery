@@ -82,6 +82,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Não foi possível obter fatos do proxy %{url}: %{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -91,7 +94,10 @@ msgstr "Criar um host descoberto para o teste (uso / fatos para criar novos hosp
 msgid "Create a discovery rule"
 msgstr "Criar uma regra de descoberta"
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -142,6 +148,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -172,8 +181,14 @@ msgstr "Prioridade"
 msgid "DiscoveryRule|Query"
 msgstr "Pesquisa"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "Contagem de Disco"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "Tamanho do disco"
@@ -268,8 +283,8 @@ msgstr "Host"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} recebeu a regra %{rule}"
 
-msgid "Host group"
-msgstr "Grupo de Host"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -299,11 +314,11 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "Limite de Hosts"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "Hosts/limite"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -332,6 +347,9 @@ msgstr "Image API retornou HTTP/%{code} com '%{body}"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -347,11 +365,17 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "Modelo kexec não associado ao sistema operacional "
 
-msgid "Last facts upload"
-msgstr "Últimos fatos carregados"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "Listar de todos os hosts descobertos"
@@ -425,6 +449,9 @@ msgstr "Nenhum host descobertos"
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "Nenhum host descoberto para fornecer"
 
@@ -476,11 +503,11 @@ msgstr "Primário"
 msgid "Provision"
 msgstr "Configuração"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "Provisão de um host descoberto"
-
-msgid "Quick create"
-msgstr ""
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -548,9 +575,6 @@ msgstr "Selecionar Ação"
 msgid "Select all items in this page"
 msgstr "Selecionar todos os itens desta página"
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
 msgstr "Selecionar local"
 
@@ -614,6 +638,9 @@ msgstr "Os hosts a seguir não foram removidos: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Isto pode demorar um pouco, pois todos os hosts, fatos e relatórios também serão destruídos"
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -643,9 +670,6 @@ msgstr "Atualizar uma regra"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Carregar fatos para um host, criando o host se necessário"
-
-msgid "Warning"
-msgstr "Aviso"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""

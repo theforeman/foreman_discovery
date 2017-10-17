@@ -77,6 +77,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理服务器  %{url} 获取详情： %{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -86,7 +89,10 @@ msgstr "创建发现的主机以进行测试（使用 /facts 创建新主机）"
 msgid "Create a discovery rule"
 msgstr "常见发现规则"
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -137,6 +143,9 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr ""
 
@@ -167,8 +176,14 @@ msgstr "优先级"
 msgid "DiscoveryRule|Query"
 msgstr "查询"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "磁盘计数"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "磁盘大小"
@@ -263,8 +278,8 @@ msgstr "主机"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "根据规则 %{rule} 供应主机 %{host}"
 
-msgid "Host group"
-msgstr "主机组"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -294,11 +309,11 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "主机限制"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "主机/限制"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -327,6 +342,9 @@ msgstr "返回 HTTP/%{code} 的映像 API，主体为 '%{body} 。"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -342,11 +360,17 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec 模板没有与操作系统关联"
 
-msgid "Last facts upload"
-msgstr "最后一个上传的详情"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "列出所有发现的主机"
@@ -420,6 +444,9 @@ msgstr "没有发现的主机可用"
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "没有发现的主机需要供应"
 
@@ -471,11 +498,11 @@ msgstr "主"
 msgid "Provision"
 msgstr "供应"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "供应已发现主机"
-
-msgid "Quick create"
-msgstr ""
 
 msgid "Reboot"
 msgstr "重启"
@@ -543,9 +570,6 @@ msgstr "选择动作"
 msgid "Select all items in this page"
 msgstr "选择本页中的所有项目"
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
 msgstr "选择位置"
 
@@ -609,6 +633,9 @@ msgstr "未删除以下主机：%s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr ""
 
@@ -638,9 +665,6 @@ msgstr "更新规则"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "上传主机详情，如需要，请创建主机。"
-
-msgid "Warning"
-msgstr "警告"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""
