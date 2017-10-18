@@ -10,9 +10,9 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"

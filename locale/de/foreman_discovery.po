@@ -12,9 +12,9 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgid "Create Host"
 msgstr ""
 
 msgid "Create Rule"
-msgstr ""
+msgstr "Regel erstellen"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Entdeckten Host zum Testen erstellen (verwenden Sie /Fakten zur Erstellung neuer Hosts)"
@@ -120,7 +120,7 @@ msgid "Destroyed selected hosts"
 msgstr "Ausgewählte Hosts gelöscht"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Disable"
 msgstr "Deaktivieren"

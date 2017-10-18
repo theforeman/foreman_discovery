@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -594,7 +594,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "프로비저닝 템플릿 (ERB)에 있는 것과 동일한 구문의 대상 호스트 이름 템플릿 패턴을 지정합니다. "
 
 msgid "Storage"
-msgstr ""
+msgstr "스토리지"
 
 msgid "Storage facts"
 msgstr ""
@@ -636,7 +636,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "유형"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "오케스트레이션 작업 상태를 추적하기 위한 UUID, GET /api/orchestration/:UUID/tasks"

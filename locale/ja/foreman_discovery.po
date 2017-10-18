@@ -6,9 +6,9 @@
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
@@ -34,7 +34,7 @@ msgid "A summary of discovered hosts"
 msgstr ""
 
 msgid "Assign Location"
-msgstr "ロケーションの割り当て"
+msgstr "場所の割り当て"
 
 msgid "Assign Organization"
 msgstr "組織の割り当て"
@@ -67,7 +67,7 @@ msgid "CPUs"
 msgstr "CPU"
 
 msgid "Cancel"
-msgstr "取り消し"
+msgstr "キャンセル"
 
 msgid "Clean all facts"
 msgstr ""
@@ -112,7 +112,7 @@ msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr "破棄された選択ホスト"
+msgstr "破棄された選択済みホスト"
 
 msgid "Details"
 msgstr ""
@@ -386,7 +386,7 @@ msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
 msgid "Location"
-msgstr "ロケーション"
+msgstr "場所"
 
 msgid "Locations"
 msgstr "公開する場所"
@@ -572,7 +572,7 @@ msgid "Select all items in this page"
 msgstr "このページのすべての項目を選択"
 
 msgid "Select location"
-msgstr "ロケーションの選択"
+msgstr "場所の選択"
 
 msgid "Select organization"
 msgstr "組織の選択"
@@ -620,7 +620,7 @@ msgid "Target host group for this rule with all properties set"
 msgstr "すべてのプロパティーセットを持つこのルールのターゲットホストグループ"
 
 msgid "The default location to place discovered hosts in"
-msgstr "検出されたホストを配置するデフォルトのロケーション"
+msgstr "検出されたホストを配置するデフォルトの場所"
 
 msgid "The default organization to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトの組織"
@@ -629,16 +629,16 @@ msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "ホスト名に使用するデフォルトのプレフィックスは文字で始める必要があります"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "以下のホストが削除されました: %s"
+msgstr "次のホストが削除されました: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "ホスト、ファクトおよびレポートがすべて破棄されるため、時間がかかる場合があります。"
+msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります。"
 
 msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"

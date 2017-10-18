@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
@@ -114,7 +114,7 @@ msgid "Destroyed selected hosts"
 msgstr "刪除選擇的主機"
 
 msgid "Details"
-msgstr ""
+msgstr "詳細資料"
 
 msgid "Disable"
 msgstr "停用"
@@ -595,7 +595,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "以在佈建範本（ERB）中的相同語法，指定目標主機名稱範本格式。"
 
 msgid "Storage"
-msgstr ""
+msgstr "儲存裝置"
 
 msgid "Storage facts"
 msgstr ""
