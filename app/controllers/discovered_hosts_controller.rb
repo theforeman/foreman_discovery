@@ -66,7 +66,7 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def update
-    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, true, discovered_host_params_host)
+    @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, true, managed_host_params_host)
     forward_url_options
 
     perform_update(@host)
