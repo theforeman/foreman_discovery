@@ -1,7 +1,6 @@
 module Foreman::Controller::Parameters::DiscoveredHost
   extend ActiveSupport::Concern
-  include Foreman::Controller::Parameters::HostBase
-  include Foreman::Controller::Parameters::HostCommon
+  include Foreman::Controller::Parameters::Host
 
   class_methods do
     def discovered_host_params_filter
@@ -20,5 +19,13 @@ module Foreman::Controller::Parameters::DiscoveredHost
 
   def discovered_host_params_host
     self.class.discovered_host_params_filter.filter_params(params, parameter_filter_context, :host)
+  end
+
+  def managed_host_params_host
+    self.class.host_params_filter.filter_params(params, parameter_filter_context, :host)
+  end
+
+  def managed_host_params
+    self.class.host_params_filter.filter_params(params, parameter_filter_context)
   end
 end
