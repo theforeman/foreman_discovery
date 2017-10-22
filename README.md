@@ -4,7 +4,7 @@ This plugin enables MaaS hardware discovery in Foreman.
 
 # Documentation
 
-The main documentation can be found in the [Foreman Discovery manual] (http://theforeman.org/plugins/foreman_discovery/).
+The main documentation can be found in the [Foreman Discovery manual](http://theforeman.org/plugins/foreman_discovery/).
 
 ## Latest code
 
