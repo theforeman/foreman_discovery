@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.4\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -82,6 +82,9 @@ msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
 msgid "Create a discovery rule"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"

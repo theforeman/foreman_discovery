@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2015-2016
+# Andi Chandler <andi@gowling.com>, 2015-2017
 # Dominic Cleal <dominic@cleal.org>, 2013-2015
 # Dominic Cleal <dominic@cleal.org>, 2016
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-17 23:23+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -82,8 +82,11 @@ msgstr "Clean all reported facts during provisioning (except discovery facts)"
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
+msgid "Create Host"
+msgstr "Create Host"
+
 msgid "Create Rule"
-msgstr ""
+msgstr "Create Rule"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Create a discovered host for testing (use /facts to create new hosts)"
@@ -91,8 +94,11 @@ msgstr "Create a discovered host for testing (use /facts to create new hosts)"
 msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
 
-msgid "Create host"
-msgstr "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -113,7 +119,7 @@ msgid "Destroyed selected hosts"
 msgstr "Destroyed selected hosts"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Disable"
 msgstr "Disable"
@@ -142,11 +148,14 @@ msgstr "Discovered hosts from Foreman server at %{foreman_url}"
 msgid "Discovered hosts summary"
 msgstr "Discovered hosts summary"
 
+msgid "Discovery Kexec template"
+msgstr "Discovery Kexec template"
+
 msgid "Discovery Proxy"
-msgstr ""
+msgstr "Discovery Proxy"
 
 msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 
 msgid "Discovery Rules"
 msgstr "Discovery Rules"
@@ -172,8 +181,14 @@ msgstr "Priority"
 msgid "DiscoveryRule|Query"
 msgstr "Query"
 
+msgid "Disk Count"
+msgstr "Disk Count"
+
 msgid "Disk count"
 msgstr "Disk count"
+
+msgid "Disks Size"
+msgstr "Disks Size"
 
 msgid "Disks size"
 msgstr "Disks size"
@@ -242,10 +257,10 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Failed to refresh facts for %{hostname} with error %{error_message}"
 
 msgid "Force DNS"
-msgstr ""
+msgstr "Force DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "Force DNS entries creation when provisioning discovered host"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman discovered hosts summary"
@@ -268,8 +283,8 @@ msgstr "Host"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} was provisioned with rule %{rule}"
 
-msgid "Host group"
-msgstr "Host group"
+msgid "Host Group"
+msgstr "Host Group"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -297,16 +312,16 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
-msgid "Hosts limit"
-msgstr "Hosts limit"
+msgid "Hosts Limit"
+msgstr "Hosts Limit"
 
-msgid "Hosts/limit"
-msgstr "Hosts/limit"
+msgid "Hosts/Limit"
+msgstr "Hosts/Limit"
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 
 msgid "IP Address"
 msgstr "IP Address"
@@ -332,6 +347,9 @@ msgstr "Image API returned HTTP/%{code} with '%{body}"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr "Init RAM kexec URL is invalid: '%s'"
+
 msgid "Interface fact"
 msgstr "Interface fact"
 
@@ -347,11 +365,17 @@ msgstr "Invalid facts: hash does not contain a valid value for any of the facts 
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Invalid hostname: Could not normalise the hostname"
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr "Kernel kexec URL is invalid: '%s'"
+
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec template not associated with operating system"
 
-msgid "Last facts upload"
-msgstr "Last facts upload"
+msgid "Last Facts Upload"
+msgstr "Last Facts Upload"
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "List all discovered hosts"
@@ -375,13 +399,13 @@ msgid "Lock PXE"
 msgstr "Lock PXE"
 
 msgid "Locked PXEGrub template name"
-msgstr ""
+msgstr "Locked PXEGrub template name"
 
 msgid "Locked PXEGrub2 template name"
-msgstr ""
+msgstr "Locked PXEGrub2 template name"
 
 msgid "Locked PXELinux template name"
-msgstr ""
+msgstr "Locked PXELinux template name"
 
 msgid "MAC address"
 msgstr "MAC address"
@@ -425,6 +449,9 @@ msgstr "No discovered hosts available"
 msgid "No discovered hosts for the selected period"
 msgstr "No discovered hosts for the selected period"
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"
 
@@ -450,7 +477,7 @@ msgid "Not reported in more than 7 days"
 msgstr "Not reported in more than 7 days"
 
 msgid "One or more hosts have been discovered"
-msgstr ""
+msgstr "One or more hosts have been discovered"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -459,13 +486,13 @@ msgid "Organizations"
 msgstr "Organisations"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "PXEGrub template to be used when pinning a host to discovery"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "PXEGrub2 template to be used when pinning a host to discovery"
 
 msgid "PXELinux template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "PXELinux template to be used when pinning a host to discovery"
 
 msgid "Please Confirm"
 msgstr "Please Confirm"
@@ -476,11 +503,11 @@ msgstr "Primary"
 msgid "Provision"
 msgstr "Provision"
 
+msgid "Provision %s"
+msgstr "Provision %s"
+
 msgid "Provision a discovered host"
 msgstr "Provision a discovered host"
-
-msgid "Quick create"
-msgstr "Quick create"
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -501,7 +528,7 @@ msgid "Rebooting host %s"
 msgstr "Rebooting host %s"
 
 msgid "Rebuild DNS for %s"
-msgstr ""
+msgstr "Rebuild DNS for %s"
 
 msgid "Refresh facts"
 msgstr "Refresh facts"
@@ -547,9 +574,6 @@ msgstr "Select Action"
 
 msgid "Select all items in this page"
 msgstr "Select all items in this page"
-
-msgid "Select initial host properties"
-msgstr "Select initial host properties"
 
 msgid "Select location"
 msgstr "Select location"
@@ -614,8 +638,11 @@ msgstr "The following hosts were not deleted: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
 
-msgid "Type"
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
+
+msgid "Type"
+msgstr "Type"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -643,9 +670,6 @@ msgstr "Update a rule"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Upload facts for a host, creating the host if required"
-
-msgid "Warning"
-msgstr "Warning"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "When creating hostname patterns, make sure the resulting host names are unique."

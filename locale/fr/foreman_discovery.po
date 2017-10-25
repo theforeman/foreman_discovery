@@ -7,9 +7,9 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-04-08 10:07+0000\n"
+"PO-Revision-Date: 2017-10-20 17:20+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,9 @@ msgstr "Supprimer tous les facts reçus pendant le provisionning (à l'exception
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossible de récupérer les facts depuis le proxy %{url} : %{error}"
 
+msgid "Create Host"
+msgstr ""
+
 msgid "Create Rule"
 msgstr ""
 
@@ -87,8 +90,11 @@ msgstr "Créer un hôte détecté à des fins de test (utiliser /facts pour cré
 msgid "Create a discovery rule"
 msgstr "Créer une règle de détection"
 
-msgid "Create host"
-msgstr "Création de l'hôte"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
+msgstr ""
 
 msgid "Delete %s?"
 msgstr "Supprimer %s ?"
@@ -138,6 +144,9 @@ msgstr "Hôtes détectés depuis le serveur Foreman en %{foreman_url}"
 msgid "Discovered hosts summary"
 msgstr "Synthèse des hôtes détectés"
 
+msgid "Discovery Kexec template"
+msgstr ""
+
 msgid "Discovery Proxy"
 msgstr "Proxy de dévouverte"
 
@@ -168,8 +177,14 @@ msgstr "Priorité"
 msgid "DiscoveryRule|Query"
 msgstr "Requête"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "Nombre de disques"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "Taille des disques"
@@ -264,8 +279,8 @@ msgstr "Hôte"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "L'hôte %{host} a été provisionné avec la règle %{rule}"
 
-msgid "Host group"
-msgstr "Groupe d'hôtes"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -295,11 +310,11 @@ msgstr "Les noms d'hôtes ne peuvent pas commencer par un chiffre. Il est consei
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "Limite d'hôtes"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "Hôtes/Limite"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr "ID du proxy de découverte à utiliser à l'interieur de ce sous-reseaux pour gérer les connexion des hôtes découverts."
@@ -328,6 +343,9 @@ msgstr "L'API Image a renvoyé HTTP/%{code} avec %{body}"
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Outre l'attribut @host, la fonction « rand » pour des nombres entiers aléatoires est disponible. Ex. :"
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr "Interface pour les facts"
 
@@ -343,11 +361,17 @@ msgstr "Facts invalides : le hash ne contient de valeur valide pour aucun des fa
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nom d'hôte invalide : impossible de normaliser le nom de l'hôte"
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "Le modèle Kexec n'est pas associé à un système d'exploitation"
 
-msgid "Last facts upload"
-msgstr "Derniers facts téléchargés"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "Lister tous les hôtes détectés"
@@ -421,6 +445,9 @@ msgstr "Aucun hôte détecté disponible"
 msgid "No discovered hosts for the selected period"
 msgstr "Aucun hôte détecté pendant la période choisie"
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "Aucun hôte détecté à provisionner"
 
@@ -472,11 +499,11 @@ msgstr "Primaire"
 msgid "Provision"
 msgstr "Provisionner"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "Provisionner un hôte détecté"
-
-msgid "Quick create"
-msgstr "Création rapide"
 
 msgid "Reboot"
 msgstr "Redémarrer"
@@ -544,9 +571,6 @@ msgstr "Choisir l'action"
 msgid "Select all items in this page"
 msgstr "Sélectionner tous les éléments de cette page"
 
-msgid "Select initial host properties"
-msgstr "Choisir les propriétés initiales des hôtes"
-
 msgid "Select location"
 msgstr "Sélectionner un emplacement"
 
@@ -610,6 +634,9 @@ msgstr "Les hôtes suivants n'ont pas été supprimés : %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Cette action peut prendre un certain temps, car tous les hôtes, rapports et facts vont également être supprimés."
 
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
 msgid "Type"
 msgstr "Type"
 
@@ -639,9 +666,6 @@ msgstr "Mettez une règle à jour"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Télécharge les facts d'un hôte, créé l'hôte si besoin"
-
-msgid "Warning"
-msgstr "Attention"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "Lors de la création de modèles de noms d'hôtes, veuillez vous assurer que les noms d'hôtes générés sont uniques."

@@ -9,9 +9,9 @@
 # Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.0.0\n"
+"Project-Id-Version: foreman_discovery 9.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-05-27 13:12+0000\n"
+"PO-Revision-Date: 2017-10-20 17:19+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Los siguientes hosts están a punto de ser modificados"
+msgstr "%s - Los siguientes equipos están a punto de ser modificados"
 
 msgid "%s ago"
 msgstr "Hace %s"
@@ -81,6 +81,9 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No se pueden obtener eventos del proxy %{url}: %{error}"
 
+msgid "Create Host"
+msgstr "Crear Host"
+
 msgid "Create Rule"
 msgstr ""
 
@@ -90,7 +93,10 @@ msgstr "Crear un host descubierto para pruebas (use /facts para crear hosts nuev
 msgid "Create a discovery rule"
 msgstr "Crear una regla de descubrimiento"
 
-msgid "Create host"
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete %s?"
@@ -103,13 +109,13 @@ msgid "Delete a rule"
 msgstr "Borrar una regla"
 
 msgid "Delete hosts"
-msgstr "Borrar hosts"
+msgstr "Borrar Equipos"
 
 msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr "Se eliminó los hosts seleccionados "
+msgstr "Eliminados equipos seleccionados"
 
 msgid "Details"
 msgstr ""
@@ -124,10 +130,10 @@ msgid "Discovered Hosts"
 msgstr "Equipos descubiertos"
 
 msgid "Discovered host: %s"
-msgstr "Host descubierto: %s"
+msgstr "Equipo descubierto: %s"
 
 msgid "Discovered hosts"
-msgstr "Hosts descubiertos"
+msgstr "Equipos descubiertos"
 
 msgid "Discovered hosts are provisioning now"
 msgstr "Hosts descubiertos se están aprovisionando"
@@ -139,6 +145,9 @@ msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
 
 msgid "Discovered hosts summary"
+msgstr ""
+
+msgid "Discovery Kexec template"
 msgstr ""
 
 msgid "Discovery Proxy"
@@ -171,8 +180,14 @@ msgstr "Prioridad"
 msgid "DiscoveryRule|Query"
 msgstr "Solicitud"
 
+msgid "Disk Count"
+msgstr ""
+
 msgid "Disk count"
 msgstr "Conteo de discos"
+
+msgid "Disks Size"
+msgstr ""
 
 msgid "Disks size"
 msgstr "Tamaño de discos"
@@ -220,7 +235,7 @@ msgid "Facts could not be imported"
 msgstr ""
 
 msgid "Facts refreshed for %s"
-msgstr "Eventos actualizados para %s"
+msgstr "Datos actualizados para %s"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "Falló aprovisionamiento de host %s: %s"
@@ -235,7 +250,7 @@ msgid "Failed to reboot hosts with error %s"
 msgstr "No se pudieron reiniciar los hosts con error %s."
 
 msgid "Failed to refresh facts for %s"
-msgstr "No se pudieron actualizar datos para %s"
+msgstr "Fallo al refrescar datos para %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "No se pudieron reiniciar los eventos para %{hostname} con error %{error_message}."
@@ -267,8 +282,8 @@ msgstr "host"
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Se aprovisionó host %{host} con regla %{rule}"
 
-msgid "Host group"
-msgstr "Grupo de hosts"
+msgid "Host Group"
+msgstr ""
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -298,11 +313,11 @@ msgstr ""
 msgid "Hosts"
 msgstr ""
 
-msgid "Hosts limit"
-msgstr "Límite de hosts"
+msgid "Hosts Limit"
+msgstr ""
 
-msgid "Hosts/limit"
-msgstr "Hosts/límite"
+msgid "Hosts/Limit"
+msgstr ""
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -331,6 +346,9 @@ msgstr "La API de la imagen mostró HTTP/%{code} con '%{body}."
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Interface fact"
 msgstr ""
 
@@ -346,11 +364,17 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
 msgid "Kexec template not associated with operating system"
 msgstr "La plantilla Kexec no está asociada al sistema operativo."
 
-msgid "Last facts upload"
-msgstr "Últimos datos cargados"
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "Learn more about this in the documentation."
+msgstr ""
 
 msgid "List all discovered hosts"
 msgstr "Listar todos los hosts descubiertos"
@@ -365,7 +389,7 @@ msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
 msgid "Location"
-msgstr "Ubicación"
+msgstr "Lugares"
 
 msgid "Locations"
 msgstr "Ubicaciones"
@@ -424,6 +448,9 @@ msgstr "No hay hosts descubiertos disponibles"
 msgid "No discovered hosts for the selected period"
 msgstr ""
 
+msgid "No discovered hosts found in this context."
+msgstr ""
+
 msgid "No discovered hosts to provision"
 msgstr "No hay hosts descubiertos para aprovisionar"
 
@@ -434,10 +461,10 @@ msgid "No hostgroup associated with rule '%s'"
 msgstr "No hay ningún grupo de hosts asociado a la regla '%s'."
 
 msgid "No hosts selected"
-msgstr "Ningún host seleccionado"
+msgstr "Ningún equipo seleccionado"
 
 msgid "No hosts were found with that id or name"
-msgstr "No se han encontrado hosts con ese ID o nombre"
+msgstr "No se han encontrado equipos con ese id o nombre"
 
 msgid "No new discovered hosts for this period"
 msgstr ""
@@ -467,7 +494,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Please Confirm"
-msgstr "Confirmar"
+msgstr "Confirme, por favor"
 
 msgid "Primary"
 msgstr "Primaria"
@@ -475,11 +502,11 @@ msgstr "Primaria"
 msgid "Provision"
 msgstr "Aprovisionamiento"
 
+msgid "Provision %s"
+msgstr ""
+
 msgid "Provision a discovered host"
 msgstr "Aprovisionar un host descubierto"
-
-msgid "Quick create"
-msgstr ""
 
 msgid "Reboot"
 msgstr "reiniciar"
@@ -503,7 +530,7 @@ msgid "Rebuild DNS for %s"
 msgstr ""
 
 msgid "Refresh facts"
-msgstr "Actualizar datos"
+msgstr "Refrescar datos"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr "Actualizar eventos de un host descubierto"
@@ -547,11 +574,8 @@ msgstr "Seleccionar una acción"
 msgid "Select all items in this page"
 msgstr "Seleccionar todos los objetos de esta página"
 
-msgid "Select initial host properties"
-msgstr ""
-
 msgid "Select location"
-msgstr "Seleccionar ubicación"
+msgstr "Seleccionar localización"
 
 msgid "Select organization"
 msgstr "Seleccionar organización"
@@ -569,7 +593,7 @@ msgid "Software facts"
 msgstr ""
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Algo ha fallado al seleccionar hosts - %s"
+msgstr "Algo ha fallado al seleccionar equipos - %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr "Especificar plantilla de nombre de host de destino en la misma sintaxis como en plantillas de aprovisionamiento (ERB)"
@@ -581,7 +605,7 @@ msgid "Storage facts"
 msgstr ""
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Introducir"
 
 msgid "Subnet"
 msgstr "Subred"
@@ -599,19 +623,22 @@ msgid "Target host group for this rule with all properties set"
 msgstr "Grupo de hosts de destino para esta regla con todas las propiedades establecidas"
 
 msgid "The default location to place discovered hosts in"
-msgstr "La ubicación predeterminada en la cual se sitúan los hosts descubiertos "
+msgstr "La ubicación predeterminada para colocar hosts descubiertos "
 
 msgid "The default organization to place discovered hosts in"
-msgstr "La ubicación predeterminada para situar organizaciones descubiertas "
+msgstr "La ubicación predeterminada para colocar organizaciones descubiertas "
 
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "El prefijo predeterminado a usar para el nombre de host, debe iniciar por una letra"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Los siguientes hosts no han sido eliminados: %s"
+msgstr "Los siguientes equipos no han sido eliminados: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "Esta acción puede tardar un rato, ya que se destruirán todos los hosts, eventos e informes."
+msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
+
+msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
 
 msgid "Type"
 msgstr ""
@@ -642,9 +669,6 @@ msgstr "Actualizar una regla"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "Subir eventos para un host, si es necesario cree el host."
-
-msgid "Warning"
-msgstr "Advertencia"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""
