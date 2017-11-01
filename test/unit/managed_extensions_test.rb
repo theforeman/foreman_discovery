@@ -24,7 +24,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     @host.stubs(:operatingsystem).returns(@operatingsystem)
     @host.stubs(:provisioning_template).returns('A template')
     @host.stubs(:medium).returns('http://a_medium')
-    @host.stubs(:architecture).returns(FactoryGirl.create(:architecture))
+    @host.stubs(:architecture).returns(FactoryBot.create(:architecture))
     @kexec_json = {
       :kernel => "http://a_host/vmlinuz",
       :initrd => "http://a_host/someimage.img"

@@ -16,7 +16,7 @@ module Api
             "memorysize_mb"     => "42000.42",
             "discovery_version" => "3.0.0",
         }
-        FactoryGirl.create(:setting,
+        FactoryBot.create(:setting,
                            :name     => 'discovery_hostname',
                            :value    => 'discovery_bootif',
                            :category => 'Setting::Discovered')

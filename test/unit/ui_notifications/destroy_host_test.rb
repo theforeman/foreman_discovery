@@ -2,16 +2,16 @@ require 'test_plugin_helper'
 
 class DestroyHostNotificationTest < ActiveSupport::TestCase
   test 'destorying discovered host should remove notification' do
-    host = FactoryGirl.create(:discovered_host)
+    host = FactoryBot.create(:discovered_host)
     assert_difference('blueprint.notifications.count', -1) do
       host.destroy
     end
   end
 
   test 'do not remove notification if others discovered hosts exists' do
-    host1 = FactoryGirl.create(:discovered_host)
+    host1 = FactoryBot.create(:discovered_host)
     assert_equal 1, blueprint.notifications.count
-    host2 = FactoryGirl.create(:discovered_host)
+    host2 = FactoryBot.create(:discovered_host)
     assert_equal 1, blueprint.notifications.count
     host2.destroy
     assert_equal 1, blueprint.notifications.count
@@ -20,7 +20,7 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
   end
 
   test 'discovered host type change should update notifications' do
-    host = FactoryGirl.create(:discovered_host)
+    host = FactoryBot.create(:discovered_host)
     assert_equal 1, blueprint.notifications.count
     new_host = ::ForemanDiscovery::HostConverter.to_managed(host, false, false)
     assert new_host.save!
@@ -28,8 +28,8 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
   end
 
   test 'type change should not removing notifications for discovered hosts' do
-    host1 = FactoryGirl.create(:discovered_host)
-    FactoryGirl.create(:discovered_host)
+    host1 = FactoryBot.create(:discovered_host)
+    FactoryBot.create(:discovered_host)
     assert_equal 1, blueprint.notifications.count
     new_host = ::ForemanDiscovery::HostConverter.to_managed(host1, false, false)
     assert new_host.save!

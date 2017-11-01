@@ -55,7 +55,7 @@ class FactParserTest < ActiveSupport::TestCase
   end
 
   test "#suggested_primary_interface detects interface even when 'ignore_puppet_facts_for_provisioning' is set" do
-    FactoryGirl.create(:setting,
+    FactoryBot.create(:setting,
                        :name => 'ignore_puppet_facts_for_provisioning',
                        :value => true,
                        :category => 'Setting::Provisioning')

@@ -7,7 +7,7 @@ module ForemanDiscovery
 
       context 'hosts controller requests from discovered_hosts url' do
         test 'get "host" params from "discovered_hosts" params' do
-          os = FactoryGirl.create(:operatingsystem, :with_associations)
+          os = FactoryBot.create(:operatingsystem, :with_associations)
           arch_id = os.architectures.first.id
           discovered_host_params = {
             'discovered_host' => { 'architecture_id' => arch_id }

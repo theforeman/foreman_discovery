@@ -5,7 +5,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   setup do
     @request.env['HTTP_REFERER'] = '/discovery_rules'
-    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
+    FactoryBot.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
     @facts = {
       "interfaces"             => "lo,eth0",
       "ipaddress"              => "192.168.100.42",
@@ -25,7 +25,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_index_with_custom_column
-    FactoryGirl.create(:setting,
+    FactoryBot.create(:setting,
                        :name => 'discovery_fact_column',
                        :value => "bios_vendor",
                        :category => 'Setting::Discovered')
@@ -83,8 +83,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_edit_form_quick_submit
     disable_taxonomies do
       host = discover_host_from_facts(@facts)
-      domain = FactoryGirl.create(:domain)
-      hostgroup = FactoryGirl.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+      domain = FactoryBot.create(:domain)
+      hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
       get :edit, {
         :id => host.id,
         :quick_submit => true,
@@ -197,7 +197,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     hostgroup = setup_hostgroup(host)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
+    FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }, set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
@@ -221,7 +221,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     hostgroup = setup_hostgroup(host)
-    FactoryGirl.create(
+    FactoryBot.create(
       :discovery_rule,
       :priority => 1,
       :search => "facts.somefact = abc",
@@ -239,7 +239,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     hostgroup = setup_hostgroup(host)
-    FactoryGirl.create(
+    FactoryBot.create(
       :discovery_rule,
       :priority => 1,
       :search => "facts.somefact = abc",
@@ -314,7 +314,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns)
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    FactoryGirl.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
+    FactoryBot.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, { :id => host.id }, set_session_user(User.current)
   end
 
@@ -333,7 +333,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def prepare_hostgroup_for_dns_rebuild(host)
     hostgroup = setup_hostgroup(host)
-    hostgroup.domain = FactoryGirl.create(:domain, :name => 'myorchdomain.net', :dns => FactoryGirl.create(:smart_proxy, :features => [FactoryGirl.create(:feature, :dns)]))
+    hostgroup.domain = FactoryBot.create(:domain, :name => 'myorchdomain.net', :dns => FactoryBot.create(:smart_proxy, :features => [FactoryBot.create(:feature, :dns)]))
     hostgroup
   end
 end

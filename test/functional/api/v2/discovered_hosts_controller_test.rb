@@ -12,7 +12,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   setup do
     SETTINGS[:organizations_enabled] = true
     SETTINGS[:locations_enabled] = true
-    FactoryGirl.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
+    FactoryBot.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     @facts = {
       "interfaces"        => "lo,eth0",
@@ -33,8 +33,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_show_host
-    FactoryGirl.create(:organization, :name => 'SomeOrg')
-    FactoryGirl.create(:location, :name => 'SomeLoc')
+    FactoryBot.create(:organization, :name => 'SomeOrg')
+    FactoryBot.create(:location, :name => 'SomeLoc')
     host = discover_host_from_facts(@facts)
     get :show, { :id => host.id }
     assert_response :success
@@ -54,8 +54,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_provision_host
-    FactoryGirl.create(:organization, :name => 'SomeOrg')
-    FactoryGirl.create(:location, :name => 'SomeLoc')
+    FactoryBot.create(:organization, :name => 'SomeOrg')
+    FactoryBot.create(:location, :name => 'SomeLoc')
     host = discover_host_from_facts(@facts)
     hostgroup = setup_hostgroup(host)
     put :update,
@@ -86,7 +86,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     taxonomy = { :organizations => [organization_one], :locations => [location_one] }
-    DiscoveryRule.create({:priority => 1, :name => 'rule', :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    DiscoveryRule.create({:priority => 1, :name => 'rule', :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :facts, { :facts => facts }
 
     assert_response :success
@@ -103,7 +103,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc", "discovery_version" => "2.9.9"})
     host = discover_host_from_facts(facts)
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    rule = FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    rule = FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
     assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
@@ -117,7 +117,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc", "discovery_kexec" => "kexec-tools 2.0.8 released 15 February 2015"})
     host = discover_host_from_facts(facts)
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    rule = FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    rule = FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
     assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
@@ -129,8 +129,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
-    taxonomy = { :organizations => [FactoryGirl.create(:organization)], :locations => [FactoryGirl.create(:location)] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    taxonomy = { :organizations => [FactoryBot.create(:organization)], :locations => [FactoryBot.create(:location)] }
+    FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
     show_response = ActiveSupport::JSON.decode(@response.body)
     assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
@@ -142,7 +142,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     taxonomy = { :locations => [host.location] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
     assert_match host.name, @response.body
     assert_response :success
@@ -155,7 +155,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, { :id => host.id }
     assert_response :success
     # test deletion of a managed host
@@ -181,7 +181,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
-    FactoryGirl.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
+    FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision_all, {}
     assert_match(/1 discovered hosts were provisioned/, @response.body)
     managed_host = Host.unscoped.find(host.id)

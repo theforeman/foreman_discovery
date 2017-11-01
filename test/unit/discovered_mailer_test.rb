@@ -4,7 +4,7 @@ class DiscoveredMailerTest < ActiveSupport::TestCase
   setup do
     @user = User.current = users :admin
 
-    FactoryGirl.create(:mail_notification,
+    FactoryBot.create(:mail_notification,
                        :name => :discovered_summary,
                        :description => N_('A summary of discovered hosts'),
                        :mailer => 'DiscoveredMailer',

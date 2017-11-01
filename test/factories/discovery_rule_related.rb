@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :discovery_rule do
     sequence(:name) { |n| "rule#{n}" }
     sequence(:priority) { |n| n }

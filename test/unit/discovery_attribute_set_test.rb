@@ -4,11 +4,11 @@ class DiscoveryAttributeSetTest < ActiveSupport::TestCase
 
   setup do
     @facts = parse_json_fixture('/facts.json')['facts']
-    FactoryGirl.create(:setting,
+    FactoryBot.create(:setting,
                        :name => 'discovery_hostname',
                        :value => 'discovery_bootif',
                        :category => 'Setting::Discovered')
-    FactoryGirl.create(:setting,
+    FactoryBot.create(:setting,
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
