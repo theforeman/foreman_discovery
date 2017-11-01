@@ -17,52 +17,52 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test 'fact value association is set accordingly' do
-    discovered_host = FactoryGirl.create(:discovered_host, :with_facts, :fact_count => 1)
+    discovered_host = FactoryBot.create(:discovered_host, :with_facts, :fact_count => 1)
     fact_value = discovered_host.fact_values.first
     assert_equal discovered_host.id, fact_value.host.id
   end
 
   test "should setup subnet" do
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
   end
 
   test "should setup subnet with org and loc set via settings" do
-    org = FactoryGirl.create(:organization, :name => "subnet_org")
-    loc = FactoryGirl.create(:location, :name => "subnet_loc")
+    org = FactoryBot.create(:organization, :name => "subnet_org")
+    loc = FactoryBot.create(:location, :name => "subnet_loc")
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
   end
 
   test "should setup subnet with org and loc set via facts" do
-    org = FactoryGirl.create(:organization, :name => "subnet_org_via_fact")
-    loc = FactoryGirl.create(:location, :name => "subnet_loc_via_fact")
+    org = FactoryBot.create(:organization, :name => "subnet_org_via_fact")
+    loc = FactoryBot.create(:location, :name => "subnet_loc_via_fact")
     raw = parse_json_fixture('/facts.json')
     @facts['foreman_organization'] = org.name
     @facts['foreman_location'] = loc.name
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
   end
 
   test "should set nested org and loc" do
-    org_parent = FactoryGirl.create(:organization, :name => "org")
-    org = FactoryGirl.create(:organization, :name => "suborg", :parent_id => org_parent.id)
-    loc_parent = FactoryGirl.create(:location, :name => "loc")
-    loc = FactoryGirl.create(:location, :name => "subloc", :parent_id => loc_parent.id)
+    org_parent = FactoryBot.create(:organization, :name => "org")
+    org = FactoryBot.create(:organization, :name => "suborg", :parent_id => org_parent.id)
+    loc_parent = FactoryBot.create(:location, :name => "loc")
+    loc = FactoryBot.create(:location, :name => "subloc", :parent_id => loc_parent.id)
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal org, host.organization
@@ -98,7 +98,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Host::Discovered.delete('mace41f13cc3658')
     Setting[:discovery_lock] = "true"
     raw = parse_json_fixture('/facts.json')
-    subnet = FactoryGirl.create(:subnet,
+    subnet = FactoryBot.create(:subnet,
                                 :tftp,
                                 :network => '10.35.27.0',
                                 :cidr    => '24',
@@ -140,7 +140,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should not create discovered host when managed host exists" do
-    FactoryGirl.create(:host, :mac => 'E4:1F:13:CC:36:58')
+    FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
     raw = parse_json_fixture('/facts.json')
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
@@ -192,14 +192,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test 'discovered host can be searched in multiple taxonomies' do
-    org1 = FactoryGirl.create(:organization)
-    org2 = FactoryGirl.create(:organization)
-    org3 = FactoryGirl.create(:organization)
-    user_subset = FactoryGirl.create(:user, :organizations => [org1, org2])
-    user_all = FactoryGirl.create(:user, :organizations => [org1, org2, org3])
-    host1 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org1)
-    host2 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org2)
-    host3 = FactoryGirl.create(:host, :type => "Host::Discovered", :organization => org3)
+    org1 = FactoryBot.create(:organization)
+    org2 = FactoryBot.create(:organization)
+    org3 = FactoryBot.create(:organization)
+    user_subset = FactoryBot.create(:user, :organizations => [org1, org2])
+    user_all = FactoryBot.create(:user, :organizations => [org1, org2, org3])
+    host1 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org1)
+    host2 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org2)
+    host3 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org3)
     hosts = nil
 
     assert_nil Organization.current

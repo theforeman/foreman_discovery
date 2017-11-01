@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :discovered_host, class: 'Host::Discovered' do
     sequence(:name) { |n| "host#{n}" }
     sequence(:ip)   { |n| IPAddr.new(n, Socket::AF_INET).to_s }
@@ -18,7 +18,7 @@ FactoryGirl.define do
 
       after(:create) do |discovered_host, evaluator|
         evaluator.fact_count.times do
-          FactoryGirl.create(:fact_value, :host => discovered_host)
+          FactoryBot.create(:fact_value, :host => discovered_host)
         end
       end
     end

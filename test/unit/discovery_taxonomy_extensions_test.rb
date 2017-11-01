@@ -7,7 +7,7 @@ class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
   end
 
   test 'deleting location does not hard fail if there is associated discovered host' do
-    location = FactoryGirl.create(:location)
+    location = FactoryBot.create(:location)
 
     assert (host = discover_host_from_facts(@facts))
     host.location = location

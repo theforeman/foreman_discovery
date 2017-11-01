@@ -6,7 +6,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    FactoryGirl.create(:discovery_rule)
+    FactoryBot.create(:discovery_rule)
     get :index, { }
     assert_response :success
     assert_not_nil assigns(:discovery_rules)
@@ -15,7 +15,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should search discovery rule" do
-    FactoryGirl.create(:discovery_rule, :name => "test")
+    FactoryBot.create(:discovery_rule, :name => "test")
     get :index, { :search => "name = test"}
     assert_response :success
     discovery_rules = ActiveSupport::JSON.decode(@response.body)
@@ -23,7 +23,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should show discovery rule with taxonomy" do
-    rule = FactoryGirl.create(:discovery_rule)
+    rule = FactoryBot.create(:discovery_rule)
     get :show, { :id => rule.to_param }
     assert_response :success
     discovery_rule = ActiveSupport::JSON.decode(@response.body)
@@ -33,7 +33,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
 
   test "should create discovery rule with taxonomy" do
     assert_difference('DiscoveryRule.unscoped.count') do
-      hostgroup = FactoryGirl.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
+      hostgroup = FactoryBot.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
       post :create, {:discovery_rule => {
         :name => "foo",
         :search => "bar",
@@ -48,19 +48,19 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
   end
 
   test "should update discovery rule" do
-    rule = FactoryGirl.create(:discovery_rule)
+    rule = FactoryBot.create(:discovery_rule)
     put :update, { :id => rule.to_param, :discovery_rule => { } }
     assert_response :success
   end
 
   test "should update taxonomy for discovery rule" do
-    rule = FactoryGirl.create(:discovery_rule)
+    rule = FactoryBot.create(:discovery_rule)
     put :update, { :id => rule.to_param, :discovery_rule => { :organization_ids => [rule.organizations.first.id] } }
     assert_response :success
   end
 
   test "should destroy discovery rule" do
-    rule = FactoryGirl.create(:discovery_rule)
+    rule = FactoryBot.create(:discovery_rule)
     assert_difference('DiscoveryRule.unscoped.count', -1) do
       delete :destroy, { :id => rule.to_param }
     end

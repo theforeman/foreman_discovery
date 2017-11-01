@@ -9,11 +9,11 @@ def user_with_perms(perms)
     p.resource_type = 'DiscoveryRule' if p.name =~ /discovery_rules$/
     p.save!
   end
-  role = FactoryGirl.create :role
+  role = FactoryBot.create :role
   perms.each do |perm|
-    FactoryGirl.create(:filter, :role => role, :permissions => [perm])
+    FactoryBot.create(:filter, :role => role, :permissions => [perm])
   end
-  user = FactoryGirl.create :user, :with_mail, :admin => false
+  user = FactoryBot.create :user, :with_mail, :admin => false
   user.roles << role
   user.save
   user
@@ -52,29 +52,29 @@ def extract_form_errors(response)
 end
 
 def set_default_settings
-  FactoryGirl.create(:setting, :name => 'discovery_fact', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_organization', :value => "Organization 1", :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_lock', :value => 'false', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
-  FactoryGirl.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_fact', :value => 'discovery_bootif', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_organization', :value => "Organization 1", :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_lock', :value => 'false', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
 end
 
 def setup_hostgroup(host)
-  domain = FactoryGirl.create(:domain)
-  subnet = FactoryGirl.create(:subnet_ipv4, :network => "192.168.100.0")
-  environment = FactoryGirl.create(:environment, :organizations => [host.organization], :locations => [host.location])
-  medium = FactoryGirl.create(:medium, :organizations => [host.organization], :locations => [host.location])
-  os = FactoryGirl.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
-  hostgroup = FactoryGirl.create(
+  domain = FactoryBot.create(:domain)
+  subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
+  environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
+  medium = FactoryBot.create(:medium, :organizations => [host.organization], :locations => [host.location])
+  os = FactoryBot.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
+  hostgroup = FactoryBot.create(
     :hostgroup, :with_rootpass, :with_puppet_orchestration,
     :operatingsystem => os,
     :architecture => os.architectures.first,

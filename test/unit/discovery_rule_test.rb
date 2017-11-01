@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class DiscoveryRuleTest < ActiveSupport::TestCase
   setup do
-    @hostgroup = FactoryGirl.create(:hostgroup)
+    @hostgroup = FactoryBot.create(:hostgroup)
   end
 
   context "#validates attribute" do
@@ -114,7 +114,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
 
   test "should enforce hostgroup organizations and locations" do
     skip unless (SETTINGS[:organizations_enabled] && SETTINGS[:locations_enabled])
-    loc = FactoryGirl.create(:location, :name => "hgloc")
+    loc = FactoryBot.create(:location, :name => "hgloc")
     @hostgroup.locations << loc
     @hostgroup.save!
     rule = DiscoveryRule.new :name => "myrule",
