@@ -9,7 +9,7 @@ class Host::Discovered < ::Host::Base
 
   validates :discovery_attribute_set, :presence => true
 
-  delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
+  delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set, :allow_nil => true
   after_destroy :delete_notification
 
   scoped_search :on => :name, :complete_value => true
