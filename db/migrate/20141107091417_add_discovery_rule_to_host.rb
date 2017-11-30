@@ -1,4 +1,4 @@
-class AddDiscoveryRuleToHost < ActiveRecord::Migration
+class AddDiscoveryRuleToHost < ActiveRecord::Migration[4.2]
   def self.up
     add_column :hosts, :discovery_rule_id, :integer
   end

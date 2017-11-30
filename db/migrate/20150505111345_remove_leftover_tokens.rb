@@ -1,4 +1,4 @@
-class RemoveLeftoverTokens < ActiveRecord::Migration
+class RemoveLeftoverTokens < ActiveRecord::Migration[4.2]
   def up
     existing_tokens = Host::Managed.all.map(&:token).compact
     if existing_tokens.empty?
