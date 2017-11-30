@@ -2,7 +2,7 @@ class FakeDiscoveredHost < ApplicationRecord
   self.table_name = 'hosts'
 end
 
-class FillDiscoveryAttributeSetsForExistingHosts < ActiveRecord::Migration
+class FillDiscoveryAttributeSetsForExistingHosts < ActiveRecord::Migration[4.2]
   def up
     FakeDiscoveredHost.where(:type => "Host::Discovered").all.each do |host|
       begin

@@ -1,4 +1,4 @@
-class RemoveOldPermissions < ActiveRecord::Migration
+class RemoveOldPermissions < ActiveRecord::Migration[4.2]
   def up
     # remove invalid permissions causing http://projects.theforeman.org/issues/9963
     perms = Permission.where("name like '%_discovered_hosts' and resource_type is null").destroy_all

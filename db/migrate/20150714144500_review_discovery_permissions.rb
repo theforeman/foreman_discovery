@@ -1,4 +1,4 @@
-class ReviewDiscoveryPermissions < ActiveRecord::Migration
+class ReviewDiscoveryPermissions < ActiveRecord::Migration[4.2]
   def up
     Role.ignore_locking do
       if (mgr = Role.find_by_name("Discovery Manager"))

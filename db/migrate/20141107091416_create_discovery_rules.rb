@@ -1,4 +1,4 @@
-class CreateDiscoveryRules < ActiveRecord::Migration
+class CreateDiscoveryRules < ActiveRecord::Migration[4.2]
   def change
     create_table :discovery_rules do |t|
       t.string :name, :length => 254

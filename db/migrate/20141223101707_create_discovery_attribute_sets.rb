@@ -1,4 +1,4 @@
-class CreateDiscoveryAttributeSets < ActiveRecord::Migration
+class CreateDiscoveryAttributeSets < ActiveRecord::Migration[4.2]
   def change
     create_table :discovery_attribute_sets do |t|
       t.references :host
