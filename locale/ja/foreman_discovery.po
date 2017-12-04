@@ -6,10 +6,10 @@
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 20:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,10 @@ msgid "%s discovered hosts were provisioned"
 msgstr "%s 検出済みホストがプロビジョニングされました"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr ""
+msgstr "<b>Foreman</b> の検出されたホストの概要"
 
 msgid "A summary of discovered hosts"
-msgstr ""
+msgstr "検出されたホストの概要"
 
 msgid "Assign Location"
 msgstr "場所の割り当て"
@@ -40,7 +40,7 @@ msgid "Assign Organization"
 msgstr "組織の割り当て"
 
 msgid "Associated Hosts"
-msgstr ""
+msgstr "関連付けられたホスト"
 
 msgid "Auto Provision"
 msgstr "自動プロビジョニング"
@@ -49,16 +49,16 @@ msgid "Auto Provision All"
 msgstr "すべてを自動プロビジョニング"
 
 msgid "Auto provisioning"
-msgstr ""
+msgstr "自動プロビジョニング"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
-msgstr ""
+msgstr "新規に検出されたホストを検出に固定するための PXE 設定の自動生成"
 
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
 msgstr "プロビジョニングルールに基づく新たに検出されたホストの自動プロビジョニング"
 
 msgid "Automatically reboot or kexec discovered host during provisioning"
-msgstr ""
+msgstr "プロビジョニング時の検出されたホストの自動的な再起動または kexec の実行"
 
 msgid "Back"
 msgstr "戻る"
@@ -70,19 +70,19 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 msgid "Clean all facts"
-msgstr ""
+msgstr "すべてのファクトのクリーニング"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
-msgstr ""
+msgstr "プロビジョニング時に報告されたすべてのファクトをクリーニング (検出ファクトを除く)"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "ホストの作成"
 
 msgid "Create Rule"
-msgstr ""
+msgstr "ルールの作成"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "テストのために検出済みホストを作成 (新規ホストを作成する場合は /facts を使用)"
@@ -109,22 +109,22 @@ msgid "Delete hosts"
 msgstr "ホストの削除"
 
 msgid "Delete rule '%s'?"
-msgstr ""
+msgstr "ルール '%s' を削除しますか?"
 
 msgid "Destroyed selected hosts"
 msgstr "破棄された選択済みホスト"
 
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 msgid "Disable"
 msgstr "無効にする"
 
 msgid "Disable rule '%s'?"
-msgstr ""
+msgstr "ルール '%s' を無効にしますか?"
 
 msgid "Discovered Hosts"
-msgstr ""
+msgstr "検出されたホスト"
 
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
@@ -139,28 +139,28 @@ msgid "Discovered hosts are rebooting now"
 msgstr "現在、検出されたホストを再起動中です"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr ""
+msgstr "Foreman サーバーの検出されたホスト: %{foreman_url}"
 
 msgid "Discovered hosts summary"
-msgstr ""
+msgstr "検出されたホストの概要"
 
 msgid "Discovery Kexec template"
-msgstr ""
+msgstr "検出 Kexec テンプレート"
 
 msgid "Discovery Proxy"
-msgstr ""
+msgstr "検出プロキシー"
 
 msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "検出されたホストへの接続を管理するためにこのサブネット内で使用する検出プロキシー"
 
 msgid "Discovery Rules"
 msgstr "検出ルール"
 
 msgid "Discovery location"
-msgstr ""
+msgstr "検出ロケーション"
 
 msgid "Discovery organization"
-msgstr ""
+msgstr "検出組織"
 
 msgid "Discovery rules"
 msgstr "検出ルール"
@@ -178,19 +178,19 @@ msgid "DiscoveryRule|Query"
 msgstr "クエリー"
 
 msgid "Disk Count"
-msgstr ""
+msgstr "ディスク数"
 
 msgid "Disk count"
 msgstr "ディスク数"
 
 msgid "Disks Size"
-msgstr ""
+msgstr "ディスクサイズ"
 
 msgid "Disks size"
 msgstr "ディスクサイズ"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
-msgstr ""
+msgstr "ドメインは自動的に追加されます。空白のままの場合には、MAC アドレスに基づくホスト名が使用されます。"
 
 msgid "Edit Discovery Rule"
 msgstr "検出ルールの編集"
@@ -199,7 +199,7 @@ msgid "Enable"
 msgstr "有効にする"
 
 msgid "Enable rule '%s'?"
-msgstr ""
+msgstr "ルール '%s' を有効にしますか?"
 
 msgid "Errors during auto provisioning: %s"
 msgstr "自動プロビジョニング時のエラー: %s"
@@ -223,13 +223,13 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "ホスト一覧に表示する追加の facter 列 (コンマで区切られる)"
 
 msgid "Fact columns"
-msgstr ""
+msgstr "Fact 列"
 
 msgid "Fact name to use for primary interface detection"
-msgstr ""
+msgstr "プライマリーインターフェースの検出に使用するファクト名"
 
 msgid "Facts could not be imported"
-msgstr ""
+msgstr "ファクトをインポートできませんでした"
 
 msgid "Facts refreshed for %s"
 msgstr "%s について更新されたファクト"
@@ -253,25 +253,25 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "エラー %{error_message} のため、%{hostname} のファクトの更新に失敗しました"
 
 msgid "Force DNS"
-msgstr ""
+msgstr "DNS  の強制的な実行"
 
 msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
+msgstr "検出されたホストのプロビジョニング時の DNS エントリーの作成を強制的に実行"
 
 msgid "Foreman discovered hosts summary"
-msgstr ""
+msgstr "Foreman の検出されたホストの概要"
 
 msgid "Hardware"
-msgstr ""
+msgstr "ハードウェア"
 
 msgid "Hardware facts"
-msgstr ""
+msgstr "ハードウェアファクト"
 
 msgid "Highlighted facts"
-msgstr ""
+msgstr "ハイライトされたファクト"
 
 msgid "Highlights"
-msgstr ""
+msgstr "ハイライト"
 
 msgid "Host"
 msgstr "ホスト"
@@ -280,7 +280,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "ルール %{rule} でホスト %{host} がプロビジョニングされました"
 
 msgid "Host Group"
-msgstr ""
+msgstr "ホストグループ"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -296,28 +296,28 @@ msgid "Host of type %s can not be rebooted"
 msgstr "タイプ %s のホストは再起動できません"
 
 msgid "Hostname facts"
-msgstr ""
+msgstr "ホスト名ファクト"
 
 msgid "Hostname for provisioned hosts"
 msgstr "プロビジョニングされたホストのホスト名"
 
 msgid "Hostname prefix"
-msgstr ""
+msgstr "ホスト名のプレフィックス"
 
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
-msgstr ""
+msgstr "ホスト名は数字で開始することができません。facter で提供される固有の情報 (MAC アドレス、BIOS またはシリアル ID) を使用することが適切な方法です。"
 
 msgid "Hosts"
-msgstr ""
+msgstr "ホスト"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "ホスト制限"
 
 msgid "Hosts/Limit"
-msgstr ""
+msgstr "ホスト/制限"
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
-msgstr ""
+msgstr "検出されたホストへの接続を管理するためにこのサブネット内で使用する検出プロキシーの ID"
 
 msgid "IP Address"
 msgstr "IP アドレス"
@@ -326,10 +326,10 @@ msgid "IP address"
 msgstr "IP アドレス"
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
-msgstr ""
+msgstr "IPMI ファクト"
 
 msgid "Identifier"
 msgstr "識別子"
@@ -341,13 +341,13 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "イメージ API が '%{body} とともに HTTP/%{code} を返しました"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr ""
+msgstr "@host 属性のほかに、ランダムな整数の rand 関数を利用できます。例:"
 
 msgid "Init RAM kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "Init RAM kexec URL は無効です: '%s'"
 
 msgid "Interface fact"
-msgstr ""
+msgstr "インターフェースファクト"
 
 msgid "Interfaces"
 msgstr "インターフェース"
@@ -356,19 +356,19 @@ msgid "Invalid facts, must be a Hash"
 msgstr "無効なファクトです。ハッシュにする必要があります"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
-msgstr ""
+msgstr "無効なファクト: ハッシュには discovery_hostname 設定のファクトのいずれの有効な値も含まれていません: %s"
 
 msgid "Invalid hostname: Could not normalize the hostname"
-msgstr ""
+msgstr "無効なホスト名: ホスト名を正規化できませんでした"
 
 msgid "Kernel kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "カーネル kexec URL は無効です: '%s'"
 
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec テンプレートがオペレーティングシステムに関連付けられていません"
 
 msgid "Last Facts Upload"
-msgstr ""
+msgstr "最終ファクトのアップロード"
 
 msgid "Learn more about this in the documentation."
 msgstr ""
@@ -380,10 +380,10 @@ msgid "List all discovery rules"
 msgstr "すべての検出ルールを一覧表示"
 
 msgid "List all fact values of a given discovered host"
-msgstr ""
+msgstr "指定の検出されたホストのすべての値を一覧表示"
 
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr ""
+msgstr "ホスト名に使用するファクトの一覧 (コンマ区切り、first wins)"
 
 msgid "Location"
 msgstr "場所"
@@ -392,16 +392,16 @@ msgid "Locations"
 msgstr "公開する場所"
 
 msgid "Lock PXE"
-msgstr ""
+msgstr "PXE のロック"
 
 msgid "Locked PXEGrub template name"
-msgstr ""
+msgstr "ロックされた PXEGrub テンプレート名"
 
 msgid "Locked PXEGrub2 template name"
-msgstr ""
+msgstr "ロックされた PXEGrub2 テンプレート名"
 
 msgid "Locked PXELinux template name"
-msgstr ""
+msgstr "ロックされた PXELinux テンプレート名"
 
 msgid "MAC address"
 msgstr "MAC アドレス"
@@ -413,7 +413,7 @@ msgid "Memory"
 msgstr "メモリー"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "その他"
 
 msgid "Model"
 msgstr "モデル"
@@ -428,10 +428,10 @@ msgid "Name"
 msgstr "名前"
 
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 msgid "Network facts"
-msgstr ""
+msgstr "ネットワークファクト"
 
 msgid "New Discovery Rule"
 msgstr "新規検出ルール"
@@ -443,7 +443,7 @@ msgid "No discovered hosts available"
 msgstr "利用可能な検出されたホストがありません"
 
 msgid "No discovered hosts for the selected period"
-msgstr ""
+msgstr "選択された期間に検出されたホストはありません"
 
 msgid "No discovered hosts found in this context."
 msgstr ""
@@ -464,7 +464,7 @@ msgid "No hosts were found with that id or name"
 msgstr "該当する ID または名前のホストが見つかりませんでした"
 
 msgid "No new discovered hosts for this period"
-msgstr ""
+msgstr "この期間に検出された新規ホストはありません"
 
 msgid "No rule found for host %s"
 msgstr "ホスト %s のルールが見つかりませんでした"
@@ -473,7 +473,7 @@ msgid "Not reported in more than 7 days"
 msgstr "7 日間を超えて報告されていません"
 
 msgid "One or more hosts have been discovered"
-msgstr ""
+msgstr "1 つ以上のホストが検出されました"
 
 msgid "Organization"
 msgstr "組織"
@@ -482,13 +482,13 @@ msgid "Organizations"
 msgstr "組織"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "ホストを検出に固定する際に使用される PXEGrub テンプレート"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "ホストを検出に固定する際に使用される PXEGrub2 テンプレート"
 
 msgid "PXELinux template to be used when pinning a host to discovery"
-msgstr ""
+msgstr "ホストを検出に固定する際に使用される PXELinux テンプレート"
 
 msgid "Please Confirm"
 msgstr "確認してください"
@@ -500,7 +500,7 @@ msgid "Provision"
 msgstr "プロビジョニング"
 
 msgid "Provision %s"
-msgstr ""
+msgstr "%s のプロビジョニング"
 
 msgid "Provision a discovered host"
 msgstr "検出されたホストのプロビジョニング"
@@ -524,7 +524,7 @@ msgid "Rebooting host %s"
 msgstr "ホスト %s を再起動中"
 
 msgid "Rebuild DNS for %s"
-msgstr ""
+msgstr "%s の DNS の再構築"
 
 msgid "Refresh facts"
 msgstr "ファクトの更新"
@@ -536,7 +536,7 @@ msgid "Regex to organize facts for hardware section"
 msgstr "ハードウェアセクションのファクトを整理する正規表現"
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
-msgstr ""
+msgstr "ハイライトセクションのファクトを整理するための Regex (例: ^(abc|cde)$)"
 
 msgid "Regex to organize facts for ipmi section"
 msgstr "ipmi セクションのファクトを整理する正規表現"
@@ -584,10 +584,10 @@ msgid "Show a discovery rule"
 msgstr "検出ルールの表示"
 
 msgid "Software"
-msgstr ""
+msgstr "ソフトウェア"
 
 msgid "Software facts"
-msgstr ""
+msgstr "ソフトウェアファクト"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "ホストの選択中に問題が発生しました - %s"
@@ -596,10 +596,10 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "プロビジョニングテンプレート (ERB) の場合と同じ構文のターゲットホスト名のテンプレートパターンを指定します。"
 
 msgid "Storage"
-msgstr ""
+msgstr "ストレージ"
 
 msgid "Storage facts"
-msgstr ""
+msgstr "ストレージファクト"
 
 msgid "Submit"
 msgstr "送信"
@@ -608,13 +608,13 @@ msgid "Subnet"
 msgstr "サブネット"
 
 msgid "Successfully provisioned %s"
-msgstr ""
+msgstr "%s が正常にプロビジョニングされました"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr ""
+msgstr "%{time} から %{now} までの概要"
 
 msgid "Summary report for discovered hosts from Foreman"
-msgstr ""
+msgstr "Foreman の検出されたホストの概要レポート"
 
 msgid "Target host group for this rule with all properties set"
 msgstr "すべてのプロパティーセットを持つこのルールのターゲットホストグループ"
@@ -668,7 +668,7 @@ msgid "Upload facts for a host, creating the host if required"
 msgstr "ホストのファクトをアップロードし、必要な場合はホストを作成します"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
-msgstr ""
+msgstr "ホスト名パターンの作成時に、生成されるホスト名が固有であることを確認します。"
 
 msgid "can't contain white spaces."
 msgstr "空白を含めることはできません。"

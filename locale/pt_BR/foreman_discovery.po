@@ -10,10 +10,10 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 21:13+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -119,7 +119,7 @@ msgid "Destroyed selected hosts"
 msgstr "Hosts selecionados foram destruídos"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalhes"
 
 msgid "Disable"
 msgstr "Desabilitar"
@@ -182,7 +182,7 @@ msgid "DiscoveryRule|Query"
 msgstr "Pesquisa"
 
 msgid "Disk Count"
-msgstr ""
+msgstr "Contagem de discos"
 
 msgid "Disk count"
 msgstr "Contagem de Disco"
@@ -266,7 +266,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 msgid "Hardware facts"
 msgstr ""
@@ -284,7 +284,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} recebeu a regra %{rule}"
 
 msgid "Host Group"
-msgstr ""
+msgstr "Grupo de Host"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -312,10 +312,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "Limite de Hosts"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -330,7 +330,7 @@ msgid "IP address"
 msgstr "Endereco de IP"
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr ""
@@ -354,7 +354,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Fatos inválidos, deve ser um Hash"
@@ -417,7 +417,7 @@ msgid "Memory"
 msgstr "Memória"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Geral"
 
 msgid "Model"
 msgstr "Modelo"
@@ -432,7 +432,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Network"
-msgstr ""
+msgstr "Rede"
 
 msgid "Network facts"
 msgstr ""
@@ -588,7 +588,7 @@ msgid "Show a discovery rule"
 msgstr "Exibir uma regra descoberta"
 
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 msgid "Software facts"
 msgstr ""
@@ -600,7 +600,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "Especificar padrão de modelo do hostname alvo na mesma sintaxe que em Modelos de Provisionamento (ERB)."
 
 msgid "Storage"
-msgstr ""
+msgstr "Armazenamento"
 
 msgid "Storage facts"
 msgstr ""
@@ -642,7 +642,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID a rastrear o status de tarefas de orquestração, GET /api/orchestration/:UUID/tasks"

@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 20:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +113,7 @@ msgid "Destroyed selected hosts"
 msgstr "선택된 호스트 삭제"
 
 msgid "Details"
-msgstr ""
+msgstr "상세 정보 "
 
 msgid "Disable"
 msgstr "비활성화 "
@@ -176,7 +176,7 @@ msgid "DiscoveryRule|Query"
 msgstr "쿼리 "
 
 msgid "Disk Count"
-msgstr ""
+msgstr "디스크 수"
 
 msgid "Disk count"
 msgstr "디스크 수 "
@@ -260,7 +260,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "하드웨어"
 
 msgid "Hardware facts"
 msgstr ""
@@ -278,7 +278,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "호스트 %{host}은/는 %{rule}으(로) 프로비저닝됩니다 "
 
 msgid "Host Group"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -306,10 +306,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "호스트"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "호스트 제한"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -324,7 +324,7 @@ msgid "IP address"
 msgstr "IP 주소 "
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr ""
@@ -348,7 +348,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "인터페이스"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "잘못된 팩트, 해시여야 합니다 "
@@ -411,7 +411,7 @@ msgid "Memory"
 msgstr "메모리 "
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "기타"
 
 msgid "Model"
 msgstr "모델 "
@@ -426,7 +426,7 @@ msgid "Name"
 msgstr "이름 "
 
 msgid "Network"
-msgstr ""
+msgstr "네트워크"
 
 msgid "Network facts"
 msgstr ""
@@ -582,7 +582,7 @@ msgid "Show a discovery rule"
 msgstr "검색 규칙 표시 "
 
 msgid "Software"
-msgstr ""
+msgstr "소프트웨어"
 
 msgid "Software facts"
 msgstr ""

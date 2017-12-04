@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 20:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "硬體"
 
 msgid "Hardware facts"
 msgstr ""
@@ -279,7 +279,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "主機 %{host} 已透過規則 %{rule} 佈建"
 
 msgid "Host Group"
-msgstr ""
+msgstr "主機群組"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -307,10 +307,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "主機"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "主機限制"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -325,7 +325,7 @@ msgid "IP address"
 msgstr "IP 位址"
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr ""
@@ -349,7 +349,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "介面"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "詳情無效，必須是雜湊"
@@ -412,7 +412,7 @@ msgid "Memory"
 msgstr "記憶體"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "雜項"
 
 msgid "Model"
 msgstr "型號"
@@ -427,7 +427,7 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 msgid "Network facts"
 msgstr ""
@@ -583,7 +583,7 @@ msgid "Show a discovery rule"
 msgstr "顯示搜尋規則"
 
 msgid "Software"
-msgstr ""
+msgstr "軟體"
 
 msgid "Software facts"
 msgstr ""
@@ -637,7 +637,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "種類"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用來追蹤協調流程任務狀態的 UUID，GET /api/orchestration/:UUID/tasks"

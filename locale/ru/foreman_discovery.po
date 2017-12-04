@@ -10,10 +10,10 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 21:14+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgid "Destroyed selected hosts"
 msgstr "Узлы удалены"
 
 msgid "Details"
-msgstr ""
+msgstr "Свойства"
 
 msgid "Disable"
 msgstr "Отключить"
@@ -286,7 +286,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "%{host} был подготовлен в соответствии с правилом %{rule}"
 
 msgid "Host Group"
-msgstr ""
+msgstr "Группа узлов"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -318,10 +318,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Узлы"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "Ограничение узлов"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -648,7 +648,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID для отслеживания состояния задач оркестрации: GET /api/orchestration/:UUID/tasks"

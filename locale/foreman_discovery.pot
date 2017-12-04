@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-17 15:39+0200\n"
-"PO-Revision-Date: 2017-10-17 15:39+0200\n"
+"POT-Creation-Date: 2017-12-04 16:16+0100\n"
+"PO-Revision-Date: 2017-12-04 16:16+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -181,15 +181,23 @@ msgstr ""
 msgid "flag is used for temporary shutdown of rules"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovery_rules_controller.rb:43
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:39
+msgid "localtion ID for provisioned hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:40
+msgid "organization ID for provisioned hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:44
 msgid "Create a discovery rule"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovery_rules_controller.rb:51
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:52
 msgid "Update a rule"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovery_rules_controller.rb:59
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:60
 msgid "Delete a rule"
 msgstr ""
 
@@ -488,23 +496,23 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:20
+#: ../app/models/host/managed_extensions.rb:23
 msgid "Reloading kernel on %s"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:22
+#: ../app/models/host/managed_extensions.rb:25
 msgid "Rebooting %s"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:43
+#: ../app/models/host/managed_extensions.rb:46
 msgid "Kexec template not associated with operating system"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:48
+#: ../app/models/host/managed_extensions.rb:51
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:49
+#: ../app/models/host/managed_extensions.rb:52
 msgid "Init RAM kexec URL is invalid: '%s'"
 msgstr ""
 

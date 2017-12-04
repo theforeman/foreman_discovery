@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-01 20:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgid "Destroyed selected hosts"
 msgstr "消除所选主机"
 
 msgid "Details"
-msgstr ""
+msgstr "详情"
 
 msgid "Disable"
 msgstr "禁用"
@@ -177,7 +177,7 @@ msgid "DiscoveryRule|Query"
 msgstr "查询"
 
 msgid "Disk Count"
-msgstr ""
+msgstr "磁盘计数"
 
 msgid "Disk count"
 msgstr "磁盘计数"
@@ -261,7 +261,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "硬件"
 
 msgid "Hardware facts"
 msgstr ""
@@ -279,7 +279,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "根据规则 %{rule} 供应主机 %{host}"
 
 msgid "Host Group"
-msgstr ""
+msgstr "主机组"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -307,10 +307,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "主机"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "主机限制"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -325,7 +325,7 @@ msgid "IP address"
 msgstr "IP 地址"
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr ""
@@ -349,7 +349,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "接口"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "无效详情，必须是 Hash"
@@ -412,7 +412,7 @@ msgid "Memory"
 msgstr "内存"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "杂项"
 
 msgid "Model"
 msgstr "型号"
@@ -427,7 +427,7 @@ msgid "Name"
 msgstr "名称"
 
 msgid "Network"
-msgstr ""
+msgstr "网络"
 
 msgid "Network facts"
 msgstr ""
@@ -583,7 +583,7 @@ msgid "Show a discovery rule"
 msgstr "显示发现规则"
 
 msgid "Software"
-msgstr ""
+msgstr "软件"
 
 msgid "Software facts"
 msgstr ""
@@ -595,7 +595,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "以与供应模板（ERB）相同的语法指定目标主机名模板模式。"
 
 msgid "Storage"
-msgstr ""
+msgstr "存储"
 
 msgid "Storage facts"
 msgstr ""
@@ -637,7 +637,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪复杂任务状态的 UUID，GET /api/orchestration/:UUID/tasks"

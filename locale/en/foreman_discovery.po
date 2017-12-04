@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 9.1.0\n"
+"Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -685,6 +685,9 @@ msgstr ""
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
+msgid "localtion ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr ""
 
@@ -695,6 +698,9 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr ""
 
 msgid "number of entries per request"
+msgstr ""
+
+msgid "organization ID for provisioned hosts"
 msgstr ""
 
 msgid "paginate results"
