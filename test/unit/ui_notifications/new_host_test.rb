@@ -18,6 +18,15 @@ class NewHostNotificationTest < ActiveSupport::TestCase
     assert_not_equal expired_at, blueprint.notifications.first.expired_at
   end
 
+  test 'new discovered hosts should show new notification' do
+    host1 = FactoryBot.create :discovered_host
+    ForemanDiscovery::UINotifications::NewHost.deliver!(host1)
+    blueprint.notifications.first.notification_recipients.update_all(seen: true)
+    host2 = FactoryBot.create :discovered_host
+    ForemanDiscovery::UINotifications::NewHost.deliver!(host2)
+    refute blueprint.notifications.first.notification_recipients.first.seen
+  end
+
   private
 
   def blueprint
