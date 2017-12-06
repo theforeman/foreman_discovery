@@ -1,6 +1,9 @@
 require 'test_plugin_helper'
 
 class HostDiscoveredTest < ActiveSupport::TestCase
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
+
   setup do
     @facts = parse_json_fixture('/facts.json')['facts']
     set_default_settings

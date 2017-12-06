@@ -2,6 +2,8 @@ require 'test_plugin_helper'
 
 class DiscoveredExtensionsTest < ActiveSupport::TestCase
   include Foreman::Controller::DiscoveredExtensions
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
 
   setup do
     @facts = facts_simple_network100_42

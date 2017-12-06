@@ -1,6 +1,8 @@
 require 'test_plugin_helper'
 
 class DiscoveredHostsControllerTest < ActionController::TestCase
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
   setup :initialize_host
 
   setup do
