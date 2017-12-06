@@ -3,6 +3,9 @@ require 'test_plugin_helper'
 module Api
   module V2
     class FactValuesControllerExtensionsTest < ActionController::TestCase
+      include FactImporterIsolation
+      allow_transactions_for_any_importer
+
       tests Api::V2::FactValuesController
 
       setup do
