@@ -4,6 +4,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   setup :initialize_host
 
   setup do
+    assert discovered_notification_blueprint
     @request.env['HTTP_REFERER'] = '/discovery_rules'
     FactoryBot.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
     @facts = {
@@ -82,9 +83,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_edit_form_quick_submit
     disable_taxonomies do
-      host = discover_host_from_facts(@facts)
       domain = FactoryBot.create(:domain)
       hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+      new_ip = hostgroup.subnet.ipaddr
+      host = discover_host_from_facts(@facts.merge({
+                                                     'ipaddress' => new_ip,
+                                                     'ipaddress_eth0' => new_ip
+                                                   }))
       get :edit, {
         :id => host.id,
         :quick_submit => true,
