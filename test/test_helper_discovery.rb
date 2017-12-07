@@ -110,6 +110,15 @@ def location_one
   Location.find_by_name('Location 1')
 end
 
+def current_path_info
+  current_url.sub(%r{.*?://}, '')[%r{[/\?\#].*}] || '/'
+end
+
+def current_params
+  query = current_path_info.split('?')[1]
+  Rack::Utils.parse_nested_query query
+end
+
 def facts_simple_network100_42
   {
     "interfaces"       => "lo,eth0,eth1",
@@ -126,4 +135,25 @@ def discover_host_from_facts(facts)
   User.as_anonymous_admin do
     Host::Discovered.import_host(facts)
   end
+end
+
+def assert_param(expected, param)
+  keys = param.split('.')
+  result = current_params
+  keys.each do |key|
+    result = result[key]
+  end
+  assert_equal expected, result
+end
+
+def assert_selected(select_selector, value)
+  select = page.all(select_selector, visible: false).last
+  selected = select.find("option[selected='selected']", visible: false) rescue nil
+  assert_not_nil selected, "Nothing selected in #{select_selector}"
+  assert_equal value.to_s, selected.value
+end
+
+def discovered_notification_blueprint
+  @blueprint ||= FactoryBot.create(:notification_blueprint,
+                                   name: 'new_discovered_host')
 end
