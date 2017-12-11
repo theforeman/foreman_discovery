@@ -690,6 +690,9 @@ msgstr "包含主機詳情的雜湊，其中有最基本的詳情：discovery_bo
 msgid "items selected. Uncheck to Clear"
 msgstr "已選取項目。反選以清除"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "必須以字母或是 ERB 作為起始。"
 
@@ -701,6 +704,9 @@ msgstr "若是使用一個含有 DHCP 協定的子網路則不需要"
 
 msgid "number of entries per request"
 msgstr "每個請求的項目數量"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "編頁結果"

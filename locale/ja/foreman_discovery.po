@@ -691,6 +691,9 @@ msgstr "ファクトの最小セットがあるホスト向けファクトを含
 msgid "items selected. Uncheck to Clear"
 msgstr "項目が選択されています。クリアするにはチェックを解除してください"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "文字または ERB で始まる必要があります。"
 
@@ -702,6 +705,9 @@ msgstr "DHCP プロキシーを使用するサブネットを使用する場合�
 
 msgid "number of entries per request"
 msgstr "要求ごとのエントリー数"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "結果のページネーション"

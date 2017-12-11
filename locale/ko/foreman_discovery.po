@@ -689,6 +689,9 @@ msgstr "최소 세트의 팩트가 있는 호스트의 팩트가 포함된 해�
 msgid "items selected. Uncheck to Clear"
 msgstr "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "문자 또는 ERB로 시작해야 합니다. "
 
@@ -700,6 +703,9 @@ msgstr "DHCP 프록시를 갖는 서브넷을 사용할 필요가 없습니다 "
 
 msgid "number of entries per request"
 msgstr "요청 당 항목 수 "
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "페이지네이션 결과 "

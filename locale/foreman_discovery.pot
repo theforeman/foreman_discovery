@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-04 16:16+0100\n"
-"PO-Revision-Date: 2017-12-04 16:16+0100\n"
+"POT-Creation-Date: 2017-12-11 10:28+0100\n"
+"PO-Revision-Date: 2017-12-11 10:28+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -97,7 +97,7 @@ msgid "Execute rules against a discovered host"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:123
-#: ../app/controllers/discovered_hosts_controller.rb:152
+#: ../app/controllers/discovered_hosts_controller.rb:150
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgid "Unable to provision %{host}: %{errors}"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:132
-#: ../app/controllers/discovered_hosts_controller.rb:159
+#: ../app/controllers/discovered_hosts_controller.rb:157
 msgid "No rule found for host %s"
 msgstr ""
 
@@ -115,12 +115,12 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:143
-#: ../app/controllers/discovered_hosts_controller.rb:165
+#: ../app/controllers/discovered_hosts_controller.rb:163
 msgid "Errors during auto provisioning: %s"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:146
-#: ../app/controllers/discovered_hosts_controller.rb:168
+#: ../app/controllers/discovered_hosts_controller.rb:166
 msgid "No discovered hosts to provision"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovery_rules_controller.rb:39
-msgid "localtion ID for provisioned hosts"
+msgid "location ID for provisioned hosts"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovery_rules_controller.rb:40
@@ -257,59 +257,59 @@ msgstr ""
 msgid "Failed to reboot hosts with error %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:142
+#: ../app/controllers/discovered_hosts_controller.rb:140
 msgid "Destroyed selected hosts"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:144
+#: ../app/controllers/discovered_hosts_controller.rb:142
 msgid "The following hosts were not deleted: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:156
+#: ../app/controllers/discovered_hosts_controller.rb:154
 msgid "Failed to auto provision host %s: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:184
+#: ../app/controllers/discovered_hosts_controller.rb:182
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Highlights"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Storage"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Hardware"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Network"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Software"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "IPMI"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:213
+#: ../app/controllers/discovered_hosts_controller.rb:214
 msgid "Miscellaneous"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:290
+#: ../app/controllers/discovered_hosts_controller.rb:291
 msgid "No hosts were found with that id or name"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:294
+#: ../app/controllers/discovered_hosts_controller.rb:295
 msgid "No hosts selected"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:300
+#: ../app/controllers/discovered_hosts_controller.rb:301
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 

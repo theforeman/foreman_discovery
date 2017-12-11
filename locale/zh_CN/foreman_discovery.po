@@ -690,6 +690,9 @@ msgstr "包含使用最小信息系统集主机的信息系统哈希：discovery
 msgid "items selected. Uncheck to Clear"
 msgstr "已选择项目。取消选择清除。"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "必须以字母或 ERB 开头。"
 
@@ -701,6 +704,9 @@ msgstr "如果使用附带 DHCP 代理服务器的子网则不需要"
 
 msgid "number of entries per request"
 msgstr "每个请求中的条目数"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "页数"

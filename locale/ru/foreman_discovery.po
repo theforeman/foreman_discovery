@@ -701,6 +701,9 @@ msgstr "хэш с минимальным набором фактов узла: d
 msgid "items selected. Uncheck to Clear"
 msgstr "выбрано. Чтобы очистить, снимите флажок"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "должен начинаться с буквы или ERB"
 
@@ -712,6 +715,9 @@ msgstr "не требуется, если используется подсет�
 
 msgid "number of entries per request"
 msgstr "количество записей на запрос"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "постранично"

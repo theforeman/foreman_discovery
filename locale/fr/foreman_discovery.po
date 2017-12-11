@@ -691,6 +691,9 @@ msgstr "hash contenant a minima les facts suivants pour l'hôte : discovery_boot
 msgid "items selected. Uncheck to Clear"
 msgstr "items sélectionnés. Décocher pour Effacer"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "doit commencer par une lettre ou ERB."
 
@@ -702,6 +705,9 @@ msgstr "n'est pas requis s'il s'agit d'un sous réseau avec proxy DHCP"
 
 msgid "number of entries per request"
 msgstr "nombre de résultats par requête"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "paginer les resultats"

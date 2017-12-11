@@ -696,6 +696,9 @@ msgstr "Hash, der Fakten für den Host mit minimaler Anzahl an Fakten enthält: 
 msgid "items selected. Uncheck to Clear"
 msgstr "Elemente ausgewählt. Zum Leeren abwählen"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "muss mit einem Buchstaben oder ERB beginnen."
 
@@ -707,6 +710,9 @@ msgstr "nicht erforderlich, falls ein Subnetz mit DHCP-Proxy verwendet wird"
 
 msgid "number of entries per request"
 msgstr "Anzahl der Einträge pro Anfrage"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "Ergebnisse auf mehreren Seiten anzeigen"

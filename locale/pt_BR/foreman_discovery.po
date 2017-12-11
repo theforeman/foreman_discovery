@@ -695,6 +695,9 @@ msgstr "hash contendo fatos para o host com um conjunto mínimo de fatos: discov
 msgid "items selected. Uncheck to Clear"
 msgstr "itens selecionados. Desselecione para Limpar"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "deve iniciar com uma letra ou ERB."
 
@@ -706,6 +709,9 @@ msgstr "não é necessário se utilizar uma subrede com o proxy DHCP"
 
 msgid "number of entries per request"
 msgstr "número de entradas por requisição"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "paginar resultados"

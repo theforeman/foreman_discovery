@@ -694,6 +694,9 @@ msgstr "hash con eventos para el host con conjunto mínimo de eventos: discovery
 msgid "items selected. Uncheck to Clear"
 msgstr "objetos seleccionados. Desactivar para limpiar"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "debe iniciar por una letra o ERB."
 
@@ -705,6 +708,9 @@ msgstr "no es necesario si se usa una subred con un proxy DHCP"
 
 msgid "number of entries per request"
 msgstr "número de entradas por solicitud"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "paginar resultados"

@@ -691,6 +691,9 @@ msgstr ""
 msgid "items selected. Uncheck to Clear"
 msgstr "ítems seleccionats. Desmarca per netejar"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "ha de començar amb una lletra o ERB."
 
@@ -702,6 +705,9 @@ msgstr "no es requereix si s'està utilitzant una subxarxa amb servidor intermed
 
 msgid "number of entries per request"
 msgstr "Nombre d'entrades per petició"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "pagina els resultats"

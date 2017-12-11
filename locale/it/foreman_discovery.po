@@ -692,6 +692,9 @@ msgstr ""
 msgid "items selected. Uncheck to Clear"
 msgstr "oggetti selezionati. Deselezionare per annullare"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "deve iniziare con una lettera o ERB."
 
@@ -703,6 +706,9 @@ msgstr "non necessario se si utilizza una sottorete con DHCP proxy"
 
 msgid "number of entries per request"
 msgstr "numero di voci per richiesta"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "paginazione risultati"

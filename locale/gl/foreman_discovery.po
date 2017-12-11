@@ -690,6 +690,9 @@ msgstr ""
 msgid "items selected. Uncheck to Clear"
 msgstr "obxetos seleccionados. Desactivar para limpar"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr ""
 
@@ -700,6 +703,9 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr ""
 
 msgid "number of entries per request"
+msgstr ""
+
+msgid "organization ID for provisioned hosts"
 msgstr ""
 
 msgid "paginate results"

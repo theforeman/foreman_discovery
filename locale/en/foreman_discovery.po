@@ -685,7 +685,7 @@ msgstr ""
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
-msgid "localtion ID for provisioned hosts"
+msgid "location ID for provisioned hosts"
 msgstr ""
 
 msgid "must start with a letter or ERB."

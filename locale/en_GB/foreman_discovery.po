@@ -695,6 +695,9 @@ msgstr "hash containing facts for the host with minimum set of facts: discovery_
 msgid "items selected. Uncheck to Clear"
 msgstr "items selected. Uncheck to Clear"
 
+msgid "location ID for provisioned hosts"
+msgstr ""
+
 msgid "must start with a letter or ERB."
 msgstr "must start with a letter or ERB."
 
@@ -706,6 +709,9 @@ msgstr "not required if using a subnet with DHCP proxy"
 
 msgid "number of entries per request"
 msgstr "number of entries per request"
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
 
 msgid "paginate results"
 msgstr "paginate results"
