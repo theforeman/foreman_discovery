@@ -11,6 +11,7 @@ class DiscoveryRule < ApplicationRecord
   validates :hostname, :format => { :with => /\A[a-zA-Z<]/, :message => N_("must start with a letter or ERB.") },
     :allow_blank => true
   validates :hostgroup_id, :presence => true
+  validates :hostgroup, :presence => {:message => N_("must be present.")}
   validates :max_count, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates :priority, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates_lengths_from_database

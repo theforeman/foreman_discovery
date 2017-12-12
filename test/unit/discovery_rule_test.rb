@@ -72,13 +72,24 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     assert_valid rule
   end
 
-  test "should not be able to create a rule without a hostgroup" do
+  test "should not be able to create a rule without a hostgroup-id" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "can't be blank", rule.errors[:hostgroup_id].first
+  end
+
+  test "should not be able to create a rule without a valid hostgroup" do
+    rule = DiscoveryRule.new :name => "myrule",
+      :search => "cpu_count > 1",
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id],
+      :hostgroup_id => 99999
+    refute_valid rule
+
+    assert_equal "must be present.", rule.errors[:hostgroup].first
   end
 
   test "should not be able to create a rule with priority bigger than 2^31" do
