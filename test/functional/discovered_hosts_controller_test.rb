@@ -23,7 +23,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_index
-    get :index, {}, set_session_user_default_reader
+    get :index, params: {}, session: set_session_user_default_reader
     assert_response :success
   end
 
@@ -34,15 +34,15 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
                        :category => 'Setting::Discovered')
     facts = @facts.merge({"bios_vendor" => "QEMU"})
     discover_host_from_facts(facts)
-    get :index, {}, set_session_user_default_reader
+    get :index, params: {}, session: set_session_user_default_reader
     assert_select "td", /QEMU/
     assert_response :success
   end
 
   def test_show_multiple_actions
     host = discover_host_from_facts(@facts)
-    [:multiple_destroy, :select_multiple_organization, :select_multiple_location].each do |path|
-      xhr :post, path, {:host_ids => [host.id]}, set_session_user
+    [:multiple_destroy, :select_multiple_organization, :select_multiple_location].each do |action|
+      process action, method: :post, params: {:host_ids => [host.id]}, session: set_session_user, xhr: true
       assert_response :success
       assert response.body =~ /#{host.name}/
     end
@@ -50,7 +50,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_show_page_categories
     host = discover_host_from_facts(@facts)
-    get :show, {:id => host.id}, set_session_user_default_reader
+    get :show, params: {:id => host.id}, session: set_session_user_default_reader
     assert_select "#category-highlights" do
       assert_select "#fact-ipaddress" do
         assert_select "td", /192.168.100.42/
@@ -61,7 +61,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_edit_form_elements
     host = discover_host_from_facts(@facts)
-    get :edit, {:id => host.id}, set_session_user_default_manager
+    get :edit, params: {:id => host.id}, session: set_session_user_default_manager
     assert_select "select" do |elements|
       elements.each do |element|
         assert_match(/^host_/, element.attributes['id'])
@@ -72,13 +72,13 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_edit_form_attributes
     host = discover_host_from_facts(@facts)
-    get :edit, {:id => host.id}, set_session_user_default_reader
+    get :edit, params: {:id => host.id}, session: set_session_user_default_reader
     assert_not_nil host.cpu_count
   end
 
   def test_edit_form_build_mode_enabled
     host = discover_host_from_facts(@facts)
-    get :edit, {:id => host.id}, set_session_user_default_manager
+    get :edit, params: {:id => host.id}, session: set_session_user_default_manager
     assert_response :success
     assert_select 'input[type=checkbox][checked=checked]#host_build'
   end
@@ -92,12 +92,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
                                                      'ipaddress' => new_ip,
                                                      'ipaddress_eth0' => new_ip
                                                    }))
-      get :edit, {
+      get :edit, params: {
         :id => host.id,
         :quick_submit => true,
         :host => {
           :hostgroup_id => hostgroup.id
-        } }, set_session_user_default_manager
+        } }, session: set_session_user_default_manager
 
       managed_host = Host.find(host.id)
       assert managed_host.build
@@ -110,11 +110,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_edit_form_submit_parameters
     host = discover_host_from_facts(@facts)
     hostgroup = setup_hostgroup(host)
-    get :edit, {
+    get :edit, params: {
       :id => host.id,
       :host => {
         :hostgroup_id => hostgroup.id
-      } }, set_session_user_default_manager
+      } }, session: set_session_user_default_manager
     # all inherit buttons are pressed
     assert_select('button[name=is_overridden_btn]') do |e|
       e.attribute("class") =~ /active/
@@ -143,14 +143,14 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_update_inheritance
     host = discover_host_from_facts(@facts)
     hostgroup = setup_hostgroup(host)
-    put :update, {
+    put :update, params: {
       commit: 'Update',
       id: host.id,
       host: {
         name: 'mytest',
         hostgroup_id: hostgroup.id
       }
-    }, set_session_user(User.current)
+    }, session: set_session_user(User.current)
 
     # Get the managed host instance from the DB
     actual = Host.find(host.id)
@@ -167,7 +167,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_add_entry_to_nav_menu
-    get :index, {}, set_session_user
+    get :index, params: {}, session: set_session_user
     assert_select "a[href=?]", "/discovered_hosts"
   end
 
@@ -175,7 +175,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
-    post "reboot", { :id => host.id }, set_session_user_default_manager
+    post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_nil flash[:error]
     assert_equal "Rebooting host #{host.name}", flash[:notice]
@@ -185,7 +185,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
-    post "reboot", { :id => host.id }, set_session_user_default_manager
+    post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Failed to reboot host #{host.name}", flash[:error]
   end
@@ -194,7 +194,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
-    post "reboot", { :id => host.id }, set_session_user_default_manager
+    post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF50-4973/, flash[:error])
   end
@@ -205,7 +205,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(facts)
     hostgroup = setup_hostgroup(host)
     FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
-    post :auto_provision, { :id => host.id }, set_session_user(User.current)
+    post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_match(/^Host macaabbccddeeff.* was provisioned/, flash[:notice])
@@ -217,7 +217,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
-    post :auto_provision, { :id => host.id }, set_session_user(User.current)
+    post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "No rule found for host macaabbccddeeff", flash[:notice]
@@ -235,7 +235,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :hostgroup => hostgroup,
       :organizations => [host.organization], :locations => [host.location]
     )
-    post :auto_provision_all, {}, set_session_user(User.current)
+    post :auto_provision_all, params: {}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:notice]
@@ -253,7 +253,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :hostgroup => hostgroup,
       :organizations => [host.organization], :locations => [host.location]
     )
-    post :auto_provision_all, {}, set_session_user(User.current)
+    post :auto_provision_all, params: {}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:notice]
@@ -263,7 +263,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
-    post "reboot", { :id => host.id }, set_session_user_default_manager
+    post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Rebooting host #{host.name}", flash[:notice]
     assert_nil flash[:error]
@@ -274,7 +274,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
-    post "reboot_all", { }, set_session_user_default_manager
+    post :reboot_all, params: { }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
     assert_nil flash[:notice]
@@ -284,7 +284,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
-    post "reboot_all", { }, set_session_user_default_manager
+    post :reboot_all, params: { }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF50-4973/, flash[:error])
     assert_nil flash[:notice]
@@ -295,12 +295,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns).never
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    put :update, {:commit => "Update", :id => host.id,
+    put :update, params: {:commit => "Update", :id => host.id,
                   :host => {
       :name => 'mytest',
       :hostgroup_id => hostgroup.id,
     }
-    }, set_session_user(User.current)
+    }, session: set_session_user(User.current)
   end
 
   def test_dns_rebuild
@@ -308,12 +308,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns)
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
-    put :update, {:commit => "Update", :id => host.id,
+    put :update, params: {:commit => "Update", :id => host.id,
                   :host => {
       :name => 'mytest',
       :hostgroup_id => hostgroup.id,
     }
-    }, set_session_user(User.current)
+    }, session: set_session_user(User.current)
   end
 
   def test_dns_rebuild_with_auto_provision
@@ -322,7 +322,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     Nic::Managed.any_instance.expects(:rebuild_dns)
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
     FactoryBot.create(:discovery_rule, :priority => 1, :search => "name = mytest.myorchdomain.net", :hostgroup_id => hostgroup.id, :organizations => [host.organization], :locations => [host.location])
-    post :auto_provision, { :id => host.id }, set_session_user(User.current)
+    post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
   end
 
   private
