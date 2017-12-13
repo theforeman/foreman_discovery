@@ -30,7 +30,7 @@ module Api
         disable_orchestration
         facts = @facts.merge({ "somefact" => "abc" })
         host = discover_host_from_facts(facts)
-        get :index, { :host_id => host.id }
+        get :index, params: { :host_id => host.id }
         assert_response :success
         show_response = ActiveSupport::JSON.decode(@response.body)
         assert_equal "abc", show_response['results'].values.first['somefact']
