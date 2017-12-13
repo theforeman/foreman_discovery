@@ -5,6 +5,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   allow_transactions_for_any_importer
   setup :initialize_host
 
+  basic_index_test('discovered_hosts')
+  basic_pagination_per_page_test
+  basic_pagination_rendered_test
+
   setup do
     assert discovered_notification_blueprint
     @request.env['HTTP_REFERER'] = '/discovery_rules'
