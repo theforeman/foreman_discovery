@@ -10,7 +10,6 @@ class Host::Discovered < ::Host::Base
   validates :discovery_attribute_set, :presence => true
 
   delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set
-  after_create :create_notification
   after_destroy :delete_notification
 
   scoped_search :on => :name, :complete_value => true
@@ -105,6 +104,7 @@ class Host::Discovered < ::Host::Base
     end
 
     populate_discovery_fields_from_facts(facts)
+    create_notification
     parser
   end
 
@@ -196,7 +196,7 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
   end
 
-  def reboot 
+  def reboot
     resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
     resource.reboot
   rescue => e
@@ -246,5 +246,29 @@ class Host::Discovered < ::Host::Base
 
   def delete_notification
     ForemanDiscovery::UINotifications::DestroyHost.deliver!(self)
+  end
+
+  def notification_recipients_ids
+    org_recipients = find_organization_users if Taxonomy.organizations_enabled
+    org_recipients ||= []
+
+    admins = User.unscoped.only_admin.except_hidden.
+      reorder('').distinct.pluck(:id)
+    (org_recipients + admins).uniq
+  end
+
+  private
+
+  def find_organization_users
+    return [] unless organization.present?
+    organization_users = if organization.ignore_types.include? 'User'
+                           User.unscoped.all
+                         else
+                           organization.users
+                         end
+
+    organization_users.find_all do |user|
+      user.can? :create_hosts
+    end.pluck(:id)
   end
 end
