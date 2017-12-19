@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ForemanDiscovery
   module UINotifications
     # Adds notification upon newly discovered Hosts
@@ -17,7 +18,8 @@ module ForemanDiscovery
       def add_notification
         Notification.create!(
           initiator: initiator,
-          audience: ::Notification::AUDIENCE_ADMIN,
+          audience: ::Notification::AUDIENCE_SUBJECT,
+          subject: subject,
           notification_blueprint: blueprint
         )
       end

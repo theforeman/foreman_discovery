@@ -26,7 +26,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should setup subnet" do
-    raw = parse_json_fixture('/facts.json')
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
@@ -38,7 +37,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     loc = FactoryBot.create(:location, :name => "subnet_loc")
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
-    raw = parse_json_fixture('/facts.json')
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
@@ -48,7 +46,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should setup subnet with org and loc set via facts" do
     org = FactoryBot.create(:organization, :name => "subnet_org_via_fact")
     loc = FactoryBot.create(:location, :name => "subnet_loc_via_fact")
-    raw = parse_json_fixture('/facts.json')
     @facts['foreman_organization'] = org.name
     @facts['foreman_location'] = loc.name
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
@@ -64,7 +61,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     loc = FactoryBot.create(:location, :name => "subloc", :parent_id => loc_parent.id)
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
-    raw = parse_json_fixture('/facts.json')
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
@@ -73,7 +69,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should raise when fact_name setting isn't present" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'macaddress_foo'
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
@@ -83,13 +78,11 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should be able to refresh facts" do
     host = Host.create :name => "mydiscoveredhost", :ip => "1.2.3.4", :type => "Host::Discovered"
-    raw = parse_json_fixture('/facts.json')
     ::ForemanDiscovery::NodeAPI::Inventory.any_instance.stubs(:facter).returns(@facts)
     assert host.refresh_facts
   end
 
   test "should create discovered host with hostname if a fact was supplied" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_hostname] = 'somefact'
     facts = @facts.merge({"somefact" => "somename"})
     host = discover_host_from_facts(facts)
@@ -100,7 +93,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should lock host into discovery via PXE configuration" do
     Host::Discovered.delete('mace41f13cc3658')
     Setting[:discovery_lock] = "true"
-    raw = parse_json_fixture('/facts.json')
     subnet = FactoryBot.create(:subnet,
                                 :tftp,
                                 :network => '10.35.27.0',
@@ -124,7 +116,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should create discovered host with fact_name as a name if it is a valid mac" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'somefact'
     Setting[:discovery_hostname] = 'somefact'
     facts = @facts.merge({"somefact" => "E4:1F:13:CC:36:5A"})
@@ -134,7 +125,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should create discovered host with default name if fact_name isn't a valid mac" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_fact] = 'lsbdistcodename'
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
@@ -144,7 +134,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should not create discovered host when managed host exists" do
     FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
-    raw = parse_json_fixture('/facts.json')
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end
@@ -152,21 +141,18 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should create discovered host with prefix" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = 'test'
     host = discover_host_from_facts(@facts)
     assert_equal 'teste41f13cc3658', host.name
   end
 
   test "should create discovered host without prefix" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = ''
     host = discover_host_from_facts(@facts)
     assert_equal 'e41f13cc3658',host.name
   end
 
   test "should refresh existing discovered" do
-    raw = parse_json_fixture('/facts.json')
     interface = mock()
     interface.stubs(:host).returns(Host.create(:name => "xyz", :type => "Host::Discovered"))
     ::Nic::Managed.stubs(:where).with(:mac => @facts['discovery_bootif'].downcase, :primary => true).returns([interface])
@@ -175,7 +161,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should raise when hostname fact cannot be found" do
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_hostname] = 'macaddress_foo'
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
@@ -184,7 +169,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should raise when hostname cannot be computed due to normlization and no prefix" do
-    raw = parse_json_fixture('/facts.json')
     @facts['invalidhostnamefact'] = '...'
     Setting[:discovery_hostname] = 'invalidhostnamefact'
     Setting[:discovery_prefix] = ''
@@ -223,7 +207,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "provisioning a discovered host without saving it doesn't create a token" do
     Setting[:token_duration] = 30 #enable tokens so that we only test the CR
-    raw = parse_json_fixture('/facts.json')
     Setting[:discovery_prefix] = '123'
     host = discover_host_from_facts(@facts)
     host.save
@@ -323,6 +306,35 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     facts = {"custom_hostname" => "testhostname","notmyfact" => "notusedfactvalue"}
     discovery_hostname_fact_array = ['macaddress','custom_hostname','someotherfact']
     assert_equal Host::Discovered.return_first_valid_fact(discovery_hostname_fact_array,facts),"testhostname"
+  end
+
+  context 'notification recipients' do
+    setup do
+      @admins = User.except_hidden.where(:admin => true).pluck(:id)
+      @org = FactoryBot.create(:organization)
+      @host = FactoryBot.create(:discovered_host)
+    end
+
+    test 'finds admin users' do
+      assert_equal @admins.sort, @host.notification_recipients_ids.sort
+    end
+
+    test 'finds users who can create_host in the host org' do
+      setup_user 'create', 'hosts'
+      User.current.organizations << @org
+      recipients = [User.current.id, @admins].flatten.sort
+      @host.organization = @org
+      assert_equal recipients, @host.notification_recipients_ids.sort
+    end
+
+    test 'finds only admin users if organizations are disabled' do
+      begin
+        SETTINGS[:organizations_enabled] = false
+        assert_equal @admins.sort, @host.notification_recipients_ids.sort
+      ensure
+        SETTINGS[:organizations_enabled] = true
+      end
+    end
   end
 
   def parse_json_fixture(relative_path)
