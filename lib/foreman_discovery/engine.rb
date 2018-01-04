@@ -6,6 +6,7 @@ module ForemanDiscovery
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
   #Thus, inherits from ::Rails::Engine and not from Rails::Engine
   class Engine < ::Rails::Engine
+    engine_name 'foreman_discovery'
 
     # support pre-4 Rails versions
     config.autoload_paths += Dir["#{config.root}/app/controllers/foreman_discovery/concerns"]
