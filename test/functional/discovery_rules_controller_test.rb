@@ -19,17 +19,18 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create discovery rule without taxonomy" do
-    assert_difference('DiscoveryRule.unscoped.count') do
+  test "should not create discovery rule without taxonomy" do
+    assert_difference('DiscoveryRule.unscoped.count', 0) do
+      DiscoveryRule.any_instance.stubs(:set_current_taxonomy).returns(true)
       post :create, params: {:discovery_rule => {
         :name => "foo",
         :search => "cpu_count = 42",
         :hostgroup_id => 1,
         :hostname => "",
         :priority => 1}}, session: set_session_user_default_manager
-      assert_empty(extract_form_errors(response))
+      assert_not_empty(extract_form_errors(response))
     end
-    assert_redirected_to discovery_rules_path
+    assert_template :new
   end
 
   test "should create discovery rule with taxonomy" do
