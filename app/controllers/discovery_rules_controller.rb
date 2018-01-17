@@ -8,7 +8,7 @@ class DiscoveryRulesController < ApplicationController
 
   def index
     base = resource_base.search_for(params[:search], :order => (params[:order]))
-    @discovery_rules = base.paginate(:page => params[:page]).includes(:hostgroup)
+    @discovery_rules = base.paginate(:page => params[:page], :per_page => params[:per_page]).includes(:hostgroup)
   end
 
   def new
