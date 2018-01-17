@@ -21,12 +21,12 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def index
-    @hosts = resource_base.search_for(params[:search], :order => params[:order]).includes([
+    @hosts = resource_base_search_and_page.includes([
       :location,
       :organization,
       :model,
       :discovery_attribute_set
-    ], {:interfaces => :subnet}).paginate(:page => params[:page])
+    ], {:interfaces => :subnet})
     fact_array = @hosts.collect do |host|
       [host.id, Hash[host.fact_values.joins(:fact_name).where('fact_names.name' => Setting::Discovered.discovery_fact_column_array).pluck(:name, :value)]]
     end
