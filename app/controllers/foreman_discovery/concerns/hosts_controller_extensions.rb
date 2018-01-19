@@ -11,7 +11,7 @@ module ForemanDiscovery
       # etc.. expect a params[:host] to work.
       def set_discovered_params
         return if params[:discovered_host].nil?
-        params[:host] ||= params[:discovered_host]
+        params[:host] ||= params.delete(:discovered_host)
       end
     end
   end

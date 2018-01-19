@@ -103,7 +103,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       assert managed_host.build
       assert_redirected_to host_url(managed_host)
       assert_equal hostgroup.id, managed_host.hostgroup_id
-      assert_match /Successfully/, flash[:notice]
+      assert_match(/Successfully/, flash[:notice])
     end
   end
 

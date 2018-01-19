@@ -54,10 +54,12 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def edit
+    quick = params.delete(:quick_submit)
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false, discovered_host_params_host) unless @host.nil?
     setup_host_class_variables
     @override_taxonomy = true
-    if params[:quick_submit]
+    # need to permit this one but don't know how
+    if quick
       perform_update(@host, _('Successfully provisioned %s') % @host.name)
     else
       @host.build = true
