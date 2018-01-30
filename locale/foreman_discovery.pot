@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-11 10:28+0100\n"
-"PO-Revision-Date: 2017-12-11 10:28+0100\n"
+"POT-Creation-Date: 2018-01-30 13:01+0100\n"
+"PO-Revision-Date: 2018-01-30 13:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -400,7 +400,7 @@ msgstr ""
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:2
 #: ../app/views/discovered_hosts/welcome.html.erb:1
 #: ../app/views/discovered_hosts/welcome.html.erb:6
-#: ../lib/foreman_discovery/engine.rb:166
+#: ../lib/foreman_discovery/engine.rb:167
 msgid "Discovered Hosts"
 msgstr ""
 
@@ -456,43 +456,43 @@ msgid_plural "Host group locations %s must also be associated to the discovery r
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/models/host/discovered.rb:37
+#: ../app/models/host/discovered.rb:43
 msgid "Invalid facts, must be a Hash"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:42
+#: ../app/models/host/discovered.rb:48
 msgid ""
 "Expected discovery_fact '%s' is missing, unable to detect primary interface an"
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:49
+#: ../app/models/host/discovered.rb:55
 msgid ""
 "Invalid facts: hash does not contain a valid value for any of the facts in the"
 " discovery_hostname setting: %s"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:66
+#: ../app/models/host/discovered.rb:72
 msgid "Facts could not be imported"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:133
+#: ../app/models/host/discovered.rb:139
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:190
+#: ../app/models/host/discovered.rb:196
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:198
+#: ../app/models/host/discovered.rb:204
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:206
+#: ../app/models/host/discovered.rb:212
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:225
+#: ../app/models/host/discovered.rb:231
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
@@ -1013,29 +1013,29 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:151
+#: ../lib/foreman_discovery/engine.rb:152
 msgid "Discovered hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:156
+#: ../lib/foreman_discovery/engine.rb:157
 msgid "Discovery rules"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:172
+#: ../lib/foreman_discovery/engine.rb:173
 msgid "Discovery Kexec template"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:181
+#: ../lib/foreman_discovery/engine.rb:182
 msgid "Discovery Proxy"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:182
+#: ../lib/foreman_discovery/engine.rb:183
 msgid ""
 "Discovery Proxy to use within this subnet for managing connection to discovere"
 "d hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:183
+#: ../lib/foreman_discovery/engine.rb:184
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
