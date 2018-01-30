@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-01 20:57+0000\n"
+"PO-Revision-Date: 2018-01-04 17:08+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -79,10 +79,10 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossible de récupérer les facts depuis le proxy %{url} : %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "Créer un hôte"
 
 msgid "Create Rule"
-msgstr ""
+msgstr "Créer une règle"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr "Créer un hôte détecté à des fins de test (utiliser /facts pour créer des nouveaux hôtes)"
@@ -94,7 +94,7 @@ msgid "Customize Host"
 msgstr ""
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
-msgstr ""
+msgstr "Option nom de fichier DHCP (Grub2 ou PXELinux par défaut)"
 
 msgid "Delete %s?"
 msgstr "Supprimer %s ?"
@@ -145,7 +145,7 @@ msgid "Discovered hosts summary"
 msgstr "Synthèse des hôtes détectés"
 
 msgid "Discovery Kexec template"
-msgstr ""
+msgstr "Modèle Kexec de détection"
 
 msgid "Discovery Proxy"
 msgstr "Proxy de dévouverte"
@@ -184,7 +184,7 @@ msgid "Disk count"
 msgstr "Nombre de disques"
 
 msgid "Disks Size"
-msgstr ""
+msgstr "Taille des disques"
 
 msgid "Disks size"
 msgstr "Taille des disques"
@@ -314,7 +314,7 @@ msgid "Hosts Limit"
 msgstr "Limite d'hôtes"
 
 msgid "Hosts/Limit"
-msgstr ""
+msgstr "Hôtes/Limite"
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr "ID du proxy de découverte à utiliser à l'interieur de ce sous-reseaux pour gérer les connexion des hôtes découverts."
@@ -344,7 +344,7 @@ msgid "In addition to @host attribute function rand for random integers is avail
 msgstr "Outre l'attribut @host, la fonction « rand » pour des nombres entiers aléatoires est disponible. Ex. :"
 
 msgid "Init RAM kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "URL kexec RAM d'initialisation non valide : '%s'"
 
 msgid "Interface fact"
 msgstr "Interface pour les facts"
@@ -362,13 +362,13 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nom d'hôte invalide : impossible de normaliser le nom de l'hôte"
 
 msgid "Kernel kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "URL kexec du noyau non valide : '%s'"
 
 msgid "Kexec template not associated with operating system"
 msgstr "Le modèle Kexec n'est pas associé à un système d'exploitation"
 
 msgid "Last Facts Upload"
-msgstr ""
+msgstr "Derniers facts téléchargés"
 
 msgid "Learn more about this in the documentation."
 msgstr ""
@@ -473,7 +473,7 @@ msgid "Not reported in more than 7 days"
 msgstr "Aucun rapport reçu depuis au moins 7 jours"
 
 msgid "One or more hosts have been discovered"
-msgstr ""
+msgstr "Un ou plusieurs hôtes ont été détectés"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -500,7 +500,7 @@ msgid "Provision"
 msgstr "Provisionner"
 
 msgid "Provision %s"
-msgstr ""
+msgstr "Provisionner %s"
 
 msgid "Provision a discovered host"
 msgstr "Provisionner un hôte détecté"

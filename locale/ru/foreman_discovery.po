@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-01 21:14+0000\n"
+"PO-Revision-Date: 2018-01-05 19:26+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
@@ -70,7 +70,7 @@ msgid "Back"
 msgstr "Назад"
 
 msgid "CPUs"
-msgstr "CPU"
+msgstr "Процессоры"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -187,13 +187,13 @@ msgid "Disk Count"
 msgstr ""
 
 msgid "Disk count"
-msgstr "Число дисков"
+msgstr "Количество дисков"
 
 msgid "Disks Size"
 msgstr ""
 
 msgid "Disks size"
-msgstr "Размер дисков"
+msgstr "Размер диска"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr ""
@@ -268,7 +268,7 @@ msgid "Foreman discovered hosts summary"
 msgstr "Сводка обнаруженных узлов Foreman"
 
 msgid "Hardware"
-msgstr "Оборудование"
+msgstr "Физическое"
 
 msgid "Hardware facts"
 msgstr ""
@@ -333,7 +333,7 @@ msgid "IP Address"
 msgstr "IP"
 
 msgid "IP address"
-msgstr "IP"
+msgstr "IP-адрес"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -399,7 +399,7 @@ msgid "Location"
 msgstr "Местоположение"
 
 msgid "Locations"
-msgstr "Местоположение"
+msgstr "Местоположения"
 
 msgid "Lock PXE"
 msgstr ""
@@ -414,7 +414,7 @@ msgid "Locked PXELinux template name"
 msgstr ""
 
 msgid "MAC address"
-msgstr "MAC"
+msgstr "MAC-адрес"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Максимальное число инициализируемых узлов в соответствии с правилом (0 снимает ограничения)"
@@ -423,7 +423,7 @@ msgid "Memory"
 msgstr "Память"
 
 msgid "Miscellaneous"
-msgstr "Прочее"
+msgstr "Дополнительно"
 
 msgid "Model"
 msgstr "Модель"
@@ -594,7 +594,7 @@ msgid "Show a discovery rule"
 msgstr "Показать правило"
 
 msgid "Software"
-msgstr "Программное обеспечение"
+msgstr "Программы"
 
 msgid "Software facts"
 msgstr ""
@@ -606,7 +606,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr "Определите шаблон для узла, используя синтаксис, аналогичный используемому в подготовительных шаблонах (ERB)."
 
 msgid "Storage"
-msgstr "Хранилище"
+msgstr "Хранение данных"
 
 msgid "Storage facts"
 msgstr ""
@@ -651,7 +651,7 @@ msgid "Type"
 msgstr "Тип"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "UUID для отслеживания состояния задач оркестрации: GET /api/orchestration/:UUID/tasks"
+msgstr "UUID для отслеживания состояния задач оркестрации, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr "Не удалось выбрать подсеть: не определен IP-адрес основного интерфейса"
@@ -675,7 +675,7 @@ msgid "Update a rule"
 msgstr "Обновить правило"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Загрузить факты узла и, если необходимо, создать узел"
+msgstr "Загрузить факты узла, требуемые для создания узла"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""
@@ -711,7 +711,7 @@ msgid "not required if it's a virtual machine"
 msgstr "не требуется для виртуальных машин"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "не требуется, если используется подсеть с DHCP-прокси"
+msgstr "не требуется, если используется подсеть с DHCP прокси"
 
 msgid "number of entries per request"
 msgstr "количество записей на запрос"
@@ -720,7 +720,7 @@ msgid "organization ID for provisioned hosts"
 msgstr ""
 
 msgid "paginate results"
-msgstr "постранично"
+msgstr "постраничный вывод"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr "приоритет правила (должен быть больше 0). Правила выбираются по возрастанию приоритета"

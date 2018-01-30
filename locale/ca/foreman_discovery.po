@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-12 15:15+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -79,13 +80,13 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}: %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "Crea un amfitrió"
 
 msgid "Create Rule"
 msgstr ""
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr "Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear nous amfitrions)"
+msgstr "Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear amfitrions nous)"
 
 msgid "Create a discovery rule"
 msgstr "Crea una regla de descobriment"
@@ -112,7 +113,7 @@ msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr ""
+msgstr "S'han destruït els amfitrions seleccionats"
 
 msgid "Details"
 msgstr ""
@@ -350,7 +351,7 @@ msgid "Interface fact"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfícies"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Objectes d'interès no vàlids, han de tenir un Hash"
@@ -371,7 +372,7 @@ msgid "Last Facts Upload"
 msgstr ""
 
 msgid "Learn more about this in the documentation."
-msgstr ""
+msgstr "Obteniu més informació sobre això a la documentació."
 
 msgid "List all discovered hosts"
 msgstr "Llista tots els amfitrions descoberts"
@@ -434,7 +435,7 @@ msgid "Network facts"
 msgstr ""
 
 msgid "New Discovery Rule"
-msgstr "Nova regla de descobriment"
+msgstr "Regla de descobriment nova"
 
 msgid "New in the last 24 hours"
 msgstr "Nou en les últimes 24 hores"
@@ -461,7 +462,7 @@ msgid "No hosts selected"
 msgstr "Cap amfitrió seleccionat"
 
 msgid "No hosts were found with that id or name"
-msgstr "No s'ha trobat cap amfitrió amb aquest id. o nom"
+msgstr "No s'ha trobat cap amfitrió amb aquest ID o nom"
 
 msgid "No new discovered hosts for this period"
 msgstr ""
@@ -701,7 +702,7 @@ msgid "not required if it's a virtual machine"
 msgstr ""
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "no es requereix si s'està utilitzant una subxarxa amb servidor intermediari de DHCP"
+msgstr "no es requereix si s'està utilitzant una subxarxa amb servidor intermediari DHCP"
 
 msgid "number of entries per request"
 msgstr "Nombre d'entrades per petició"

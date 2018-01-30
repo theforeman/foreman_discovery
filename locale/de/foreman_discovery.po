@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-01 20:56+0000\n"
+"PO-Revision-Date: 2018-01-05 19:26+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgid "Back"
 msgstr "Zurück"
 
 msgid "CPUs"
-msgstr "CPUs"
+msgstr "Anzahl der CPUs:"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -337,7 +337,7 @@ msgid "IPMI facts"
 msgstr "IPMI-Fakten"
 
 msgid "Identifier"
-msgstr "Bezeichner"
+msgstr "Kennung"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr "Image API Verarbeitungsfehler: %{msg} (HTTP/%{code}, Text: %{body})"
@@ -355,7 +355,7 @@ msgid "Interface fact"
 msgstr "Schnittstellenfakt"
 
 msgid "Interfaces"
-msgstr "Schnittstellen"
+msgstr "Interfaces"
 
 msgid "Invalid facts, must be a Hash"
 msgstr "Ungültige Fakten, es muss sich um einen Hash handeln"
@@ -418,7 +418,7 @@ msgid "Memory"
 msgstr "Speicher"
 
 msgid "Miscellaneous"
-msgstr "Verschiedenes"
+msgstr "Erweitert"
 
 msgid "Model"
 msgstr "Modell"
@@ -427,7 +427,7 @@ msgid "Must specify a user with email enabled"
 msgstr "Muss einen Benutzer mit aktivierter E-Mail angeben"
 
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "N/A"
 
 msgid "Name"
 msgstr "Name"
@@ -646,7 +646,7 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "UUID zur Nachverfolgung des Status von Orchestrierungs-Tasks, GET /api/orchestration/:UUID/tasks"
+msgstr "UUID zum Tracken des Status der Orchestrierungsaufgaben, GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to assign subnet, primary interface is missing IP address"
 msgstr "Subnetz kann nicht zugewiesen werden, IP-Adresse der primären Schnittstelle fehlt"
@@ -670,7 +670,7 @@ msgid "Update a rule"
 msgstr "Regel aktualisieren"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Fakten für Host aktualisiert, Host wird erstellt falls erforderlich"
+msgstr "Fakten für einen Host hochladen mit Erstellung des Hosts, wenn erforderlich"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr ""
@@ -706,7 +706,7 @@ msgid "not required if it's a virtual machine"
 msgstr "nicht erforderlich für eine virtuelle Maschine"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "nicht erforderlich, falls ein Subnetz mit DHCP-Proxy verwendet wird"
+msgstr "nicht erforderlich, wenn ein Subnetz mit DHCP-Proxy verwendet wird"
 
 msgid "number of entries per request"
 msgstr "Anzahl der Einträge pro Anfrage"
@@ -715,7 +715,7 @@ msgid "organization ID for provisioned hosts"
 msgstr ""
 
 msgid "paginate results"
-msgstr "Ergebnisse auf mehreren Seiten anzeigen"
+msgstr "Ergebnisse nummerieren"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr "ordnet die Regeln, niedrige Zahlen zuerst. Muss größer als Null sein"

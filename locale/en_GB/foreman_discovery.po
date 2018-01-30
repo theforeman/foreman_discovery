@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-10-17 23:23+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2017-12-25 01:46+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -95,10 +95,10 @@ msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
 
 msgid "Customize Host"
-msgstr ""
+msgstr "Customise Host"
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
-msgstr ""
+msgstr "DHCP filename option (Grub2 or PXELinux by default)"
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -375,7 +375,7 @@ msgid "Last Facts Upload"
 msgstr "Last Facts Upload"
 
 msgid "Learn more about this in the documentation."
-msgstr ""
+msgstr "Learn more about this in the documentation."
 
 msgid "List all discovered hosts"
 msgstr "List all discovered hosts"
@@ -450,7 +450,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "No discovered hosts for the selected period"
 
 msgid "No discovered hosts found in this context."
-msgstr ""
+msgstr "No discovered hosts found in this context."
 
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"
@@ -639,7 +639,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "This might take a while, as all hosts, facts and reports will be destroyed as well"
 
 msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 
 msgid "Type"
 msgstr "Type"
@@ -696,7 +696,7 @@ msgid "items selected. Uncheck to Clear"
 msgstr "items selected. Uncheck to Clear"
 
 msgid "location ID for provisioned hosts"
-msgstr ""
+msgstr "location ID for provisioned hosts"
 
 msgid "must start with a letter or ERB."
 msgstr "must start with a letter or ERB."
@@ -711,7 +711,7 @@ msgid "number of entries per request"
 msgstr "number of entries per request"
 
 msgid "organization ID for provisioned hosts"
-msgstr ""
+msgstr "organisation ID for provisioned hosts"
 
 msgid "paginate results"
 msgstr "paginate results"

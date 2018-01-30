@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-01 20:58+0000\n"
+"PO-Revision-Date: 2018-01-05 19:26+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgid "Edit Discovery Rule"
 msgstr "검색 규칙 편집 "
 
 msgid "Enable"
-msgstr "활성화 "
+msgstr "활성화"
 
 msgid "Enable rule '%s'?"
 msgstr ""
@@ -272,7 +272,7 @@ msgid "Highlights"
 msgstr ""
 
 msgid "Host"
-msgstr "호스트 "
+msgstr "호스트"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "호스트 %{host}은/는 %{rule}으(로) 프로비저닝됩니다 "
@@ -318,7 +318,7 @@ msgid "ID of Discovery Proxy to use within this subnet for managing connection t
 msgstr ""
 
 msgid "IP Address"
-msgstr "IP 주소"
+msgstr "IP 주소 "
 
 msgid "IP address"
 msgstr "IP 주소 "
@@ -387,7 +387,7 @@ msgid "Location"
 msgstr "위치 "
 
 msgid "Locations"
-msgstr "위치"
+msgstr "위치 "
 
 msgid "Lock PXE"
 msgstr ""
@@ -408,7 +408,7 @@ msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "이 규칙에서 프로비저닝되는 최대 호스트 수 (0 = 무제한)"
 
 msgid "Memory"
-msgstr "메모리 "
+msgstr "메모리"
 
 msgid "Miscellaneous"
 msgstr "기타"
@@ -477,7 +477,7 @@ msgid "Organization"
 msgstr "조직 "
 
 msgid "Organizations"
-msgstr "조직 "
+msgstr "조직"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
@@ -492,7 +492,7 @@ msgid "Please Confirm"
 msgstr "확인해 주십시오 "
 
 msgid "Primary"
-msgstr "주요"
+msgstr "주"
 
 msgid "Provision"
 msgstr "프로비저닝 "
@@ -636,7 +636,7 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
-msgstr "유형"
+msgstr "유형 "
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "오케스트레이션 작업 상태를 추적하기 위한 UUID, GET /api/orchestration/:UUID/tasks"
