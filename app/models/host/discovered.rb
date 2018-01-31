@@ -4,6 +4,7 @@ class Host::Discovered < ::Host::Base
   # redefine audits relation because of the type change (by default the relation will look for auditable_type = 'Host::Managed')
   has_many :audits, -> { where(:auditable_type => 'Host::Base') }, :foreign_key => :auditable_id, :class_name => 'Audited::Audit'
 
+  extend Foreman::TelemetryHelper
   include ScopedSearchExtensions
   include BelongsToProxies
   include ::Hostext::OperatingSystem
@@ -91,10 +92,12 @@ class Host::Discovered < ::Host::Base
     if existing_discovery_hosts.empty?
       host = Host.new(:name => hostname, :type => "Host::Discovered")
       send_notifications = true
+      telemetry_increment_counter(:new_discovered_hosts)
     else
       Rails.logger.warn "Multiple (#{existing_discovery_hosts.count}) discovery hosts found with MAC address #{name_fact} - picking most recent NIC entry" if existing_discovery_hosts.count > 1
       host = existing_discovery_hosts.first.host
       send_notifications = false
+      telemetry_increment_counter(:updated_discovered_hosts)
     end
 
     # and save (interfaces are created via puppet parser extension)
@@ -106,6 +109,9 @@ class Host::Discovered < ::Host::Base
     host.create_notification if send_notifications
 
     host
+  rescue
+    telemetry_increment_counter(:failed_discovered_hosts)
+    raise
   end
 
   def setup_clone
@@ -132,7 +138,12 @@ class Host::Discovered < ::Host::Base
   def populate_discovery_fields_from_facts(facts)
     ForemanDiscovery::ImportHookService.new(host: self, facts: facts).after_populate
   ensure
-    self.save!
+    begin
+      self.save!
+    rescue => _
+      telemetry_increment_counter(:failed_discovered_hosts)
+      raise
+    end
   end
 
   def proxied?
