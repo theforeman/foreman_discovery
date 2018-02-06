@@ -1,6 +1,6 @@
 <%= javascript "host_checkbox" %>
 <% title _('Discovered Hosts') %>
-<table class="table table-bordered table-striped table-condensed" >
+<table class="<%= table_css_classes('table-condensed') %>" >
   <tr>
     <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class=''><%= sort :name, :as => _('Name') %></th>
