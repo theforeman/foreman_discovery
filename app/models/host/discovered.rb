@@ -4,8 +4,7 @@ class Host::Discovered < ::Host::Base
   include BelongsToProxies
   include ::Hostext::OperatingSystem
 
-  belongs_to :hostgroup
-  has_one    :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
+  has_one :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
 
   validates :discovery_attribute_set, :presence => true
 
@@ -189,11 +188,6 @@ class Host::Discovered < ::Host::Base
     end
 
     {:cpu_count => cpu_count, :memory => memory, :disk_count => disk_count, :disks_size => disks_size}
-  end
-
-  # no need to store anything in the db if the password is our default
-  def root_pass
-    read_attribute(:root_pass).blank? ? (hostgroup.try(:root_pass) || Setting[:root_pass]) : read_attribute(:root_pass)
   end
 
   def proxied?
