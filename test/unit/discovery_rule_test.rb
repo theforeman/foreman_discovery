@@ -136,4 +136,44 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     refute_valid rule
     assert_equal "Host group location #{loc.name} must also be associated to the discovery rule", rule.errors[:locations].first
   end
+
+  context 'auditing related to discovery rule' do
+    test "should be able to create audit on a rule creation" do
+      rule = nil
+      assert_difference 'Audit.count' do
+        rule = FactoryBot.create(:discovery_rule, :with_auditing)
+      end
+      recent_audit = rule.audits.last
+      assert_equal 'create', recent_audit.action
+    end
+
+    test "should create audit when updating a discovery rule" do
+      rule = FactoryBot.create(:discovery_rule, :with_auditing)
+      assert_difference 'rule.audits.count' do
+        rule.enabled = false
+        rule.save!
+      end
+      audit = rule.audits.last
+      assert_equal 'update', audit.action
+    end
+
+    test "should create audit record when destroying a discovery rule" do
+      rule = FactoryBot.create(:discovery_rule, :with_auditing)
+      assert_difference 'Audit.count' do
+        rule.destroy
+      end
+      audit = rule.audits.last
+      assert_equal 'destroy', audit.action
+    end
+
+    test 'should be able to create audit record on changing hostgroup of rule' do
+      rule = FactoryBot.create(:discovery_rule)
+      hostgroup_one = FactoryBot.create(:hostgroup, :name => "test-hg")
+
+      assert_difference 'hostgroup_one.associated_audits.count' do
+        hostgroup_one.discovery_rules << rule
+        hostgroup_one.save!
+      end
+    end
+  end
 end
