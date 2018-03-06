@@ -1,4 +1,5 @@
 class DiscoveryRule < ApplicationRecord
+  audited :associated_with => :hostgroup
   include Authorizable
   extend FriendlyId
   friendly_id :name
