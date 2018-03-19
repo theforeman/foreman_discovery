@@ -109,8 +109,7 @@ module Api
         end
         process_response state
       rescue Exception => e
-        logger.warn "Host discovery failed, facts: #{facts}"
-        logger.debug e.message + "\n" + e.backtrace.join("\n")
+        Foreman::Logging.exception("Host discovery failed, facts: #{facts}", e)
         render :json => {'message'=>e.to_s}, :status => :unprocessable_entity
       end
 
