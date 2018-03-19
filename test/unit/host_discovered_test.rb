@@ -152,12 +152,20 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal 'e41f13cc3658',host.name
   end
 
-  test "should refresh existing discovered" do
-    interface = mock()
-    interface.stubs(:host).returns(Host.create(:name => "xyz", :type => "Host::Discovered"))
-    ::Nic::Managed.stubs(:where).with(:mac => @facts['discovery_bootif'].downcase, :primary => true).returns([interface])
-    host = discover_host_from_facts(@facts)
-    assert_equal 'xyz', host.name
+  test "should refresh facts and NICs of an existing discovered host" do
+    host1 = discover_host_from_facts(@facts)
+    assert_equal 'mace41f13cc3658', host1.name
+    assert_equal 'IBM System x -[7870K4G]-', host1.facts["productname"]
+    assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
+    assert_equal '10.35.27.3', host1.ip
+
+    @facts["ipaddress_eth0"] = "1.2.3.4"
+    @facts["productname"] = "Dishwasher DW400"
+    host2 = discover_host_from_facts(@facts)
+    assert_equal 'mace41f13cc3658', host2.name
+    assert_equal 'Dishwasher DW400', host2.facts["productname"]
+    assert_equal '1.2.3.4', host2.ip
+    assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
   end
 
   test "should raise when hostname fact cannot be found" do

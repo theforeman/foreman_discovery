@@ -103,7 +103,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       assert managed_host.build
       assert_redirected_to host_url(managed_host)
       assert_equal hostgroup.id, managed_host.hostgroup_id
-      assert_match(/Successfully/, flash[:notice])
+      assert_match(/Successfully/, flash[:success])
     end
   end
 
@@ -178,7 +178,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_nil flash[:error]
-    assert_equal "Rebooting host #{host.name}", flash[:notice]
+    assert_equal "Rebooting host #{host.name}", flash[:success]
   end
 
   def test_reboot_failure
@@ -208,7 +208,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
-    assert_match(/^Host macaabbccddeeff.* was provisioned/, flash[:notice])
+    assert_match(/^Host macaabbccddeeff.* was provisioned/, flash[:success])
     managed_host = Host.find(host.id)
     assert managed_host.build
   end
@@ -220,7 +220,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
-    assert_equal "No rule found for host macaabbccddeeff", flash[:notice]
+    assert_equal "No rule found for host macaabbccddeeff", flash[:success]
   end
 
   def test_auto_provision_all_success
@@ -238,7 +238,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision_all, params: {}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
-    assert_equal "Discovered hosts are provisioning now", flash[:notice]
+    assert_equal "Discovered hosts are provisioning now", flash[:success]
   end
 
   def test_auto_provision_all_no_rule_success
@@ -256,18 +256,17 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :auto_provision_all, params: {}, session: set_session_user(User.current)
     assert_response :redirect
     assert_nil flash[:error]
-    assert_equal "Discovered hosts are provisioning now", flash[:notice]
+    assert_equal "Discovered hosts are provisioning now", flash[:success]
   end
 
   def test_reboot_all_success
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
-    post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
+    post :reboot_all, params: { }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
-    assert_equal "Rebooting host #{host.name}", flash[:notice]
     assert_nil flash[:error]
-    assert_equal "Rebooting host macaabbccddeeff", flash[:notice]
+    assert_equal "Discovered hosts are rebooting now", flash[:success]
   end
 
   def test_reboot_all_failure
@@ -277,7 +276,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :reboot_all, params: { }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
-    assert_nil flash[:notice]
+    assert_nil flash[:success]
   end
 
   def test_reboot_all_error
@@ -287,7 +286,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     post :reboot_all, params: { }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF50-4973/, flash[:error])
-    assert_nil flash[:notice]
+    assert_nil flash[:success]
   end
 
   def test_no_dns_rebuild_if_dns_pending
