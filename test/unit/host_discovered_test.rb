@@ -129,7 +129,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end
-    assert_match(/Unable to detect primary interface using MAC/, exception.message)
+    assert_match(/Unable to find primary NIC/, exception.message)
   end
 
   test "should not create discovered host when managed host exists" do

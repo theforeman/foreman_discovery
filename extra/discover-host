@@ -82,6 +82,7 @@ unless preserve_interfaces
   end
 end
 puts JSON.pretty_generate(json)
-response = RestClient.post url + "/api/v2/discovered_hosts/facts", {"facts" => json}.to_json, {content_type: :json, accept: :json}
+resource = RestClient::Resource.new(url + "/api/v2/discovered_hosts/facts", verify_ssl: OpenSSL::SSL::VERIFY_NONE)
+response = resource.post({"facts" => json}.to_json, {content_type: :json, accept: :json})
 puts response.code
 puts response.body
