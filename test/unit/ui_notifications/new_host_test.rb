@@ -1,6 +1,8 @@
 require 'test_plugin_helper'
 
 class NewHostNotificationTest < ActiveSupport::TestCase
+  include FactImporterIsolation
+  allow_transactions_for_any_importer
   alias_method  :blueprint, :discovered_notification_blueprint
 
   setup do
@@ -9,8 +11,6 @@ class NewHostNotificationTest < ActiveSupport::TestCase
 
   test 'new discovered host should generate a notification' do
     set_default_settings
-    FactImporter.any_instance.expects(:ensure_no_active_transaction).
-      returns(true).at_least_once
     assert_difference('blueprint.notifications.count') do
       discover_host_from_facts(parse_json_fixture('/../facts.json')['facts'])
     end

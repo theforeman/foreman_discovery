@@ -43,7 +43,7 @@ class FactParserTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       @parser.suggested_primary_interface(@host)
     end
-    assert_match(/Unable to detect primary interface using MAC/, exception.message)
+    assert_match(/Unable to find primary NIC/, exception.message)
   end
 
   test "#suggested_primary_interface errors out when bootif fact is missing" do
@@ -51,7 +51,7 @@ class FactParserTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       @parser.suggested_primary_interface(@host)
     end
-    assert_match(/Unable to detect primary interface using MAC/, exception.message)
+    assert_match(/Unable to find primary NIC/, exception.message)
   end
 
   test "#suggested_primary_interface detects interface even when 'ignore_puppet_facts_for_provisioning' is set" do
