@@ -5,8 +5,6 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
   let(:discovered_host) { FactoryBot.create(:discovered_host, :with_facts) }
   let(:discovered_hosts) { Host::Discovered.all }
 
-  extend Minitest::OptionalRetry
-
   setup do
     assert discovered_notification_blueprint
     discovered_host.save!
