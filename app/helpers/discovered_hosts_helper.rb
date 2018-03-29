@@ -56,17 +56,17 @@ module DiscoveredHostsHelper
 
   def discovery_status_icon(host)
     if host.created_at > 1.day.ago
-      status_glyph = 'glyphicon-plus-sign'
+      status_glyph = 'pficon-on-running'
       status_message = _('New in the last 24 hours')
-      status_color = '#89A54E'
+      status_color = '#0088ce'
     elsif host.last_report.present? && host.last_report < 7.days.ago
-      status_glyph = 'glyphicon-exclamation-sign'
+      status_glyph = 'pficon-paused'
       status_message = _('Not reported in more than 7 days')
-      status_color = '#AA4643'
+      status_color = '#ec7a08'
     else
-      status_glyph = 'glyphicon-ok-sign'
+      status_glyph = 'pficon-on'
       status_message = _('Reported in the last 7 days')
-      status_color = '#4572A7'
+      status_color = '#72767b'
     end
 
     "<span class='glyphicon #{status_glyph}' style='color: #{status_color}'
