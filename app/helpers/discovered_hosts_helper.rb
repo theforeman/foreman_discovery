@@ -30,13 +30,27 @@ module DiscoveredHostsHelper
   end
 
   def multiple_discovered_hosts_actions_select
-    actions = [[_('Delete hosts'), multiple_destroy_discovered_hosts_path, hash_for_multiple_destroy_discovered_hosts_path]]
-    actions <<  [_('Assign Organization'), select_multiple_organization_discovered_hosts_path,  hash_for_select_multiple_organization_discovered_hosts_path] if SETTINGS[:organizations_enabled]
-    actions <<  [_('Assign Location'), select_multiple_location_discovered_hosts_path,  hash_for_select_multiple_location_discovered_hosts_path] if SETTINGS[:locations_enabled]
+    actions = [[_('Delete hosts'), multiple_destroy_discovered_hosts_path, hash_for_multiple_destroy_discovered_hosts_path, :build_modal]]
+    actions <<  [_('Assign Organization'), select_multiple_organization_discovered_hosts_path,  hash_for_select_multiple_organization_discovered_hosts_path, :build_modal ] if SETTINGS[:organizations_enabled]
+    actions <<  [_('Assign Location'), select_multiple_location_discovered_hosts_path,  hash_for_select_multiple_location_discovered_hosts_path, :build_modal] if SETTINGS[:locations_enabled]
+
+    actions << [_("Reboot All"), reboot_all_discovered_hosts_path, hash_for_reboot_all_discovered_hosts_path, :link_to, {method: :put, disabled: @host.empty? }]
+    actions << [_("Auto Provision All"), auto_provision_all_discovered_hosts_path, hash_for_auto_provision_all_discovered_hosts_path, :link_to, { method: :post, disabled: @host.empty? }]
 
     select_action_button( _("Select Action"), {:id => 'submit_multiple'},
       actions.map do |action|
-        link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0]) if authorized_for(action[2])
+        next unless authorized_for(action[2])
+        case action[3]
+        when :build_modal
+          link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0])
+        when :redirect_modal
+          link_to_function(action[0], "build_redirect('#{action[1]}')")
+        when :link_to
+          opts = action.count >= 5 ? action[4] : {}
+          method = opts[:method] || :get
+          disabled = opts.key?(:disabled) ? false : opts[:disabled]
+          link_to(action[0], action[1], method: method, disabled: disabled)
+        end
       end.flatten
     )
   end

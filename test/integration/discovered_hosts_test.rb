@@ -21,6 +21,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
                       .expects(:reboot)
                       .at_least(discovered_hosts.count)
       select_all_hosts
+      page.find_link('Select Action').click
       page.find_link('Reboot All').click
     end
   end
@@ -28,6 +29,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
   describe 'Autoprovision all' do
     test 'converts all discovered to managed hosts' do
       select_all_hosts
+      page.find_link('Select Action').click
       page.find_link('Auto Provision All').click
       wait_for_ajax
       assert page.has_text?('Discovered hosts are provisioning now')
