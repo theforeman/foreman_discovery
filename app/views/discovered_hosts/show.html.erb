@@ -18,14 +18,17 @@
       <div id="highlights-panel" class="panel-collapse collapse facts-panel in" >
         <table class="<%= table_css_classes('table-condensed') %>">
           <% @categories[0].sort.each do |key, val| %>
-          <tr id="fact-<%= key.try(:downcase) %>" class="">
-            <th class="ellipsis" width="40%"> <strong> <%= key %> </strong></th>
-            <td><%= val %></td>
-          </tr>
-        <% end -%>
+            <tr id="fact-<%= key.try(:downcase) %>" class="">
+              <th class="ellipsis" width="40%"> <strong> <%= key %> </strong></th>
+              <td><%= val %></td>
+            </tr>
+          <% end -%>
         </table>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-6">
     <% unless @interfaces.empty? %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab">
@@ -56,12 +59,20 @@
       </div>
     <% end %>
   </div>
+</div>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="col-md-6">
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to(_("Collapse All"),"#", :id => "expand_all", :class => "btn btn-default pull-right", style: 'margin-bottom: 1rem') -%>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <% @categories.each_with_index do |val, index| %>
         <% next if index == 0 || val.empty? %>
-        <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default">
+        <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default" style="margin-bottom: 1rem">
           <div class="panel-heading" role="tab">
             <h4 class="panel-title">
               <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true">
@@ -69,14 +80,14 @@
               </a>
             </h4>
           </div>
-          <div id="<%= @categories_names[index].to_s + "panel" %>" class="panel-collapse collapse facts-panel" role="tabpanel">
+          <div id="<%= @categories_names[index].to_s + "panel" %>" class="panel-collapse collapse in facts-panel" role="tabpanel">
             <table class="<%= table_css_classes('table-condensed table-fixed') %>">
-            <% val.sort.each do |key, value|  %>
+              <% val.sort.each do |key, value|  %>
                 <tr class="">
                   <th width="40%" class="ellipsis"><strong> <%= key %> </strong> </th>
                   <td class="ellipsis"> <%= value %> </td>
                 </tr>
-            <% end %>
+              <% end %>
             </table>
           </div>
         </div>
@@ -100,9 +111,10 @@
     $('.primary-flag').tooltip();
     $('.provision-flag').tooltip();
 
+    expand_all_toggle_action = { 'Expand All': 'show', 'Collapse All': 'hide' };
     $('#expand_all').on('click', function () {
-      $('#accordion .panel-collapse').collapse('toggle');
       $(this).text(function(i, text){
+          $('#accordion .panel-collapse').collapse(expand_all_toggle_action[text]);
           return text === "Expand All" ? "Collapse All" : "Expand All";
       })
     });

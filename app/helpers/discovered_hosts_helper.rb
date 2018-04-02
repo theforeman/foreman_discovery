@@ -20,10 +20,6 @@ module DiscoveredHostsHelper
         ),
         select_action_button( _("Select Action"), {}, provision_button(host, hash_for_edit_discovered_host_path(:id => host)), actions.map { |action| display_link_if_authorized(action[0] , action[1], action[2] || {}) }.flatten ),
       button_group(
-        link_to(_("Expand All"),"#", :id => "expand_all", :class => "btn btn-default"
-        )
-      ),
-      button_group(
         display_delete_if_authorized(hash_for_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :destroy_discovered_hosts), :class => "btn btn-default", :data => { :confirm => _('Delete %s?') % host.name })
       )
     )
