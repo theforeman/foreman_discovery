@@ -34,6 +34,8 @@ class DiscoveredHostsController < ::ApplicationController
   end
 
   def show
+    # translating the names of highlights keys
+    @highlights_translated_keys = { ipaddress: _('primary ipaddress') }
     # filter graph time range
     @range = nil
     # summary report text
@@ -222,10 +224,16 @@ class DiscoveredHostsController < ::ApplicationController
       return
     end
     @regex_array.each_with_index do |regex, index|
+      # translate only on hightlights (index 0)
+      translated_key = if index == 0
+                         @highlights_translated_keys[key.to_sym] || key
+                       else
+                         key
+                       end
       if !regex
-        @categories[index][key] = value
+        @categories[index][translated_key] = value
       elsif regex.match key
-        @categories[index][key] = value
+        @categories[index][translated_key] = value
         break
       end
     end
