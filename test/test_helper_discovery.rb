@@ -66,6 +66,7 @@ def set_default_settings
   FactoryBot.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_error_on_existing', :value => false, :category => 'Setting::Discovered')
 end
 
 def setup_hostgroup(host)
