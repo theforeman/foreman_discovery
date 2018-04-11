@@ -1,0 +1,53 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #3f3f3f;
+  background-color: #f1f1f1;
+  padding: 10px 24px;
+}
+
+table {
+  min-width: 400px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  text-align: justify;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  border-collapse: collapse;
+  background: #f5f5f5;
+  background: linear-gradient(#f5f5f5, #e8e8e8);
+  padding: 4px;
+  border: 1px solid #cccccc;
+}
+
+.title {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 120%;
+}
+
+.summary_title {
+  margin: 5px 0px;
+}
+
+.discovered_host_title {
+  margin: 0px;
+}
+
+.table_pane {
+  background: #fff;
+  padding: 10px 20px;
+  border: 1px solid #e1e2e3;
+}
+.discovery-mailer-td-style {
+  text-align: left;
+  border-collapse: collapse;
+  background-color: #fff;
+  padding: 4px;
+  border: 1px solid #ccc;
+}
+

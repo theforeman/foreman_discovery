@@ -34,3 +34,7 @@ doc/
 # Foreman app support
 test/foreman_app
 .foreman_app
+
+# node
+node_modules
+package-lock.json

@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= link_to(_("Collapse All"),"#", :id => "expand_all", :class => "btn btn-default pull-right", style: 'margin-bottom: 1rem') -%>
+    <%= link_to(_("Collapse All"),"#", :id => "expand_all", :class => "btn btn-default pull-right discovery-category-list-margin") -%>
   </div>
 </div>
 
@@ -72,7 +72,7 @@
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <% @categories.each_with_index do |val, index| %>
         <% next if index == 0 || val.empty? %>
-        <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default" style="margin-bottom: 1rem">
+        <div id="category-<%= @categories_names[index].downcase %>" class="panel panel-default discovery-category-list-margin">
           <div class="panel-heading" role="tab">
             <h4 class="panel-title">
               <a role="button" class="expendable-link" data-toggle="collapse" data-parent="#accordion" href="#<%= @categories_names[index].to_s + "panel" %>" aria-expanded="true">

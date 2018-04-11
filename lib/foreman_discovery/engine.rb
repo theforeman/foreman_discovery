@@ -15,6 +15,10 @@ module ForemanDiscovery
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
 
+    initializer 'foreman_discovery.assets.precompile' do |app|
+      app.config.assets.precompile += %w( email_summary.css )
+    end
+
     # Load this before the Foreman config initializers, so that the Setting.descendants
     # list includes the plugin STI setting class
     initializer 'foreman_discovery.load_default_settings', :before => :load_config_initializers do |app|

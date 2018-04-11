@@ -1,0 +1,19 @@
+{
+  "name": "foreman_discovery",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "description": "Node stack for foreman-discovery",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint -c .eslintrc webpack/ script/ || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theforeman/foreman_discovery.git"
+  },
+  "devDependencies": {
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}

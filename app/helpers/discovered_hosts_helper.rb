@@ -56,18 +56,18 @@ module DiscoveredHostsHelper
     if host.created_at > 1.day.ago
       status_glyph = 'pficon-on-running'
       status_message = _('New in the last 24 hours')
-      status_color = '#0088ce'
+      status_color = 'new'
     elsif host.last_report.present? && host.last_report < 7.days.ago
       status_glyph = 'pficon-paused'
       status_message = _('Not reported in more than 7 days')
-      status_color = '#ec7a08'
+      status_color = 'not-reported'
     else
       status_glyph = 'pficon-on'
       status_message = _('Reported in the last 7 days')
-      status_color = '#72767b'
+      status_color = 'reported'
     end
 
-    "<span class='glyphicon #{status_glyph}' style='color: #{status_color}'
+    "<span class='glyphicon #{status_glyph} status-color-#{status_color}'
       title='#{status_message}'></span>".html_safe
   end
 
