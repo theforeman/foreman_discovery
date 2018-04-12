@@ -38,6 +38,11 @@ class Host::Discovered < ::Host::Base
     where(taxonomy_conditions).order("hosts.created_at DESC")
   }
 
+  # Discovery import workflow:
+  # discovered#import_host ->
+  #  discovered#import_facts -> base#import_facts -> base#parse_facts ->
+  #  discovered#populate_fields_from_facts -> base#populate_fields_from_facts -> base#set_interfaces
+  #  discovered#populate_discovery_fields_from_facts
   def self.import_host facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash) || facts.is_a?(ActionController::Parameters)
 
@@ -55,16 +60,25 @@ class Host::Discovered < ::Host::Base
     hostname = normalize_string_for_hostname("#{hostname_prefix}#{name_fact}")
     Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match(/^[a-z]/)
 
-    # find existing or create new host record
+    # check for existing managed hosts and fail or warn
     bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
-    hosts = ::Nic::Managed.where(:mac => bootif_mac, :primary => true)
-    if hosts.empty?
+    existing_managed = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Managed"}).limit(1)
+    if existing_managed.count > 0
+      if Setting[:discovery_error_on_existing]
+        raise ::Foreman::Exception.new("One or more existing managed hosts found: %s", "#{existing_managed.first.name}/#{bootif_mac}")
+      else
+        Rails.logger.warn("One or more existing managed hosts found: #{existing_managed.first.name}/#{bootif_mac}")
+      end
+    end
+
+    # find existing discovered host (pick the oldest if multiple) or create new discovery host record
+    existing_discovery_hosts = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Discovered"}).order('created_at DESC')
+    if existing_discovery_hosts.empty?
       host = Host.new(:name => hostname, :type => "Host::Discovered")
     else
-      Rails.logger.warn "Multiple discovered hosts found with MAC address #{name_fact}, choosing one" if hosts.size > 1
-      host = hosts.first.host
+      Rails.logger.warn "Multiple (#{existing_discovery_hosts.count}) discovery hosts found with MAC address #{name_fact} - picking most recent NIC entry" if existing_discovery_hosts.count > 1
+      host = existing_discovery_hosts.first.host
     end
-    raise ::Foreman::Exception.new("Host already exists as managed: %s", "#{host.name}/#{bootif_mac}") if host.type != "Host::Discovered"
 
     # and save (interfaces are created via puppet parser extension)
     host.save(:validate => false) if host.new_record?
@@ -109,6 +123,9 @@ class Host::Discovered < ::Host::Base
   end
 
   def populate_discovery_fields_from_facts(facts)
+    # set discovery search attributes first
+    self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
+    self.discovery_attribute_set.update_attributes(import_from_facts)
     # set additional discovery attributes
     primary_ip = self.primary_interface.ip
     unless primary_ip.nil?
@@ -136,12 +153,12 @@ class Host::Discovered < ::Host::Base
         Rails.logger.info "Assigned organization: #{self.organization}"
       end
     else
-      raise(::Foreman::Exception.new(N_("Unable to assign subnet, primary interface is missing IP address")))
+      Rails.logger.warn "Unable to assign subnet - reboot trigger may not be possible, primary interface is missing IP address"
     end
-    self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
-    self.discovery_attribute_set.update_attributes(import_from_facts)
+
     # lock the host into discovery via PXE, if feature is enabled in settings
     lock_templates if Setting::Discovered.discovery_lock? && self.subnet.tftp?
+  ensure
     self.save!
   end
 

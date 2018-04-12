@@ -133,11 +133,23 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should not create discovered host when managed host exists" do
-    FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
-    exception = assert_raises(::Foreman::Exception) do
-      discover_host_from_facts(@facts)
+    begin
+      Setting[:discovery_error_on_existing] = true
+      FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
+      exception = assert_raises(::Foreman::Exception) do
+        discover_host_from_facts(@facts)
+      end
+      assert_match(/One or more existing managed hosts found/, exception.message)
+    ensure
+      Setting[:discovery_error_on_existing] = false
     end
-    assert_match(/Host already exists as managed/, exception.message)
+  end
+
+  test "should allow existing managed host discovery" do
+    FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
+    host = discover_host_from_facts(@facts)
+    assert_equal 'mace41f13cc3658', host.name
+    assert_equal 'e4:1f:13:cc:36:58', host.mac
   end
 
   test "should create discovered host with prefix" do
