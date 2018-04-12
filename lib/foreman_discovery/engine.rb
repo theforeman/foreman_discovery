@@ -55,7 +55,7 @@ module ForemanDiscovery
             :"api/v2/discovered_hosts" => [:facts, :create]
           }, :resource_type => 'Host'
           permission :auto_provision_discovered_hosts, {
-            :discovered_hosts          => [:auto_provision, :multiple_auto_provision],
+            :discovered_hosts          => [:auto_provision, :multiple_auto_provision, :submit_multiple_auto_provision],
             :"api/v2/discovered_hosts" => [:auto_provision, :auto_provision_all]
           }, :resource_type => 'Host'
           permission :provision_discovered_hosts, {
@@ -66,7 +66,7 @@ module ForemanDiscovery
             :discovered_hosts          => [:update_multiple_location,
                                            :select_multiple_organization,
                                            :update_multiple_organization,
-                                           :select_multiple_location, :refresh_facts, :reboot, :multiple_reboot],
+                                           :select_multiple_location, :refresh_facts, :reboot, :multiple_reboot, :submit_multiple_reboot],
             :hosts                     => [:process_hostgroup],
             :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
           }, :resource_type => 'Host'
