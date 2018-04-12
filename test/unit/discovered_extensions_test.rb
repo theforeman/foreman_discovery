@@ -48,7 +48,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host = discover_host_from_facts(facts)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
-    FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
+    FactoryBot.create(:discovery_rule, :priority => 0, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r1
   end
@@ -56,7 +56,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
   test "second rule out of two is found for a discovered host" do
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
-    FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = x",
+    FactoryBot.create(:discovery_rule, :priority => 0, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
@@ -81,17 +81,6 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r2 = FactoryBot.create(:discovery_rule, :name => "B", :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     assert_equal find_discovery_rule(host), r2
-  end
-
-  test "older rule out of two is found for a discovered host" do
-    facts = @facts.merge({"somefact" => "abc"})
-    host = discover_host_from_facts(facts)
-    r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
-                       :organizations => [host.organization], :locations => [host.location])
-    r2 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
-                            :organizations => [host.organization], :locations => [host.location],
-                            :created_at => Time.now + 1.day)
-    assert_equal find_discovery_rule(host), r1
   end
 
   test "drained rule does not match for a discovered host" do

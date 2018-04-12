@@ -6,7 +6,7 @@ module Foreman::Controller::DiscoveredExtensions
     raise(::Foreman::Exception.new(N_("Unable to find a discovery rule, no host provided (check permissions)"))) if host.nil?
     Rails.logger.debug "Finding auto discovery rule for host #{host.name} (#{host.id})"
     # rule with *lower* priority wins (older wins for same priority)
-    DiscoveryRule.where(:enabled => true).reorder(:priority, :created_at).each do |rule|
+    DiscoveryRule.where(:enabled => true).reorder(:priority).each do |rule|
       max = rule.max_count
       usage = rule.hosts.size
       Rails.logger.debug "Found rule #{rule.name} (#{rule.id}) [#{usage}/#{max}]"
