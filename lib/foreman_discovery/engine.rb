@@ -72,7 +72,7 @@ module ForemanDiscovery
                                            :refresh_facts,
                                            :reboot,
                                            :multiple_reboot,
-                                           :submit_multi],
+                                           :submit_multiple_reboot],
             :hosts                     => [:process_hostgroup],
             :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
           }, :resource_type => 'Host'
