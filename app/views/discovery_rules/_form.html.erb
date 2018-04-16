@@ -16,7 +16,7 @@
           <div class="tab-pane active" id="primary">
             <%= text_f f, :name %>
             <%= autocomplete_f f, :search,
-                               :path             => "discovered_hosts",
+                               :path             => discovered_hosts_path,
                                :control_group_id => 'search_group', :size => 'col-md-9' %>
             <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label, { :include_blank => false },
                          { :help_inline => _('Target host group for this rule with all properties set') } %>

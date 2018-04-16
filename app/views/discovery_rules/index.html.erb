@@ -1,7 +1,7 @@
 <% title _("Discovery Rules") %>
 <% title_actions new_link(_("Create Rule")), help_button %>
 
-<table class="<%= table_css_classes('table-two-pane') %>">
+<table class="<%= table_css_classes('table-fixed') %>">
   <tr>
     <th><%= sort :name, :as => s_("DiscoveryRule|Name") %></th>
     <th><%= sort :priority, :as => s_("DiscoveryRule|Priority") %></th>
@@ -13,7 +13,7 @@
   </tr>
   <% for rule in @discovery_rules %>
     <tr>
-      <td class='col-md-3 display-two-pane'><%= link_to_if_authorized(trunc_with_tooltip(rule.name), hash_for_edit_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer)) %></td>
+      <td class='col-md-3'><%= link_to_if_authorized(trunc_with_tooltip(rule.name), hash_for_edit_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer)) %></td>
       <td><%= rule.priority %></td>
       <td><%= trunc_with_tooltip(rule.search) %></td>
       <td><%= label_with_link(rule.hostgroup, 26, authorizer) %></td>
