@@ -3,7 +3,7 @@ class ReviewDiscoveryPermissions < ActiveRecord::Migration[4.2]
     Role.ignore_locking do
       if (mgr = Role.find_by_name("Discovery Manager"))
         perms = []
-        perms << "submit_discovered_hosts" if Permission.find_by_name("edit_discovered_hosts")
+        perms << "submit_discovered_hosts" if Permission.find_by_name("edit_hosts")
         perms << "auto_provision_discovered_hosts" if Permission.find_by_name("provision_discovered_hosts")
         perms << "create_discovery_rules" if Permission.find_by_name("new_discovery_rules")
         perms << "destroy_discovery_rules" if Permission.find_by_name("delete_discovery_rules")

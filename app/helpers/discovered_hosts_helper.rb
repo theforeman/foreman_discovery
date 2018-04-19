@@ -12,8 +12,8 @@ module DiscoveredHostsHelper
 
   def discovered_hosts_title_actions(host)
     actions =  [[_('Auto Provision'), hash_for_auto_provision_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :auto_provision_discovered_hosts), :method => :post]]
-    actions <<  [_('Refresh facts') ,hash_for_refresh_facts_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts)]
-    actions <<  [_('Reboot') ,hash_for_reboot_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_discovered_hosts), :method => :put]
+    actions <<  [_('Refresh facts'), hash_for_refresh_facts_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_hosts)]
+    actions <<  [_('Reboot'), hash_for_reboot_discovered_host_path(:id => host).merge(:auth_object => host, :permission => :edit_hosts), :method => :put]
     title_actions(
         button_group(
             link_to(_("Back"), :back, :class => "btn btn-default")

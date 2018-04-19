@@ -64,7 +64,7 @@ module ForemanDiscovery
             :discovered_hosts          => [:edit, :update],
             :"api/v2/discovered_hosts" => [:update]
           }, :resource_type => 'Host'
-          permission :edit_discovered_hosts, {
+          permission :edit_hosts, {
             :discovered_hosts          => [:update_multiple_location,
                                            :select_multiple_organization,
                                            :update_multiple_organization,
@@ -140,7 +140,6 @@ module ForemanDiscovery
           :submit_discovered_hosts,
           :provision_discovered_hosts,
           :auto_provision_discovered_hosts,
-          :edit_discovered_hosts,
           :destroy_discovered_hosts,
           # discovered_rules
           :create_discovery_rules,
