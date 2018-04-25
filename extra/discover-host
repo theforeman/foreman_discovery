@@ -35,7 +35,7 @@ OptionParser.new do |opts|
   end
 
   opts.on("-x", "--[no-]preserve-interfaces", "Preserve interfaces from JSON") do |v|
-    preserve_interfaces = true
+    preserve_interfaces = v == true
   end
 
   opts.on("-pNAME", "--primary=NAME", "Interface to use as primary (defaults to the first one)") do |v|

@@ -202,6 +202,8 @@ module ForemanDiscovery
 
       # Fact parsing
       ::FactParser.register_fact_parser(:foreman_discovery, ForemanDiscovery::FactParser)
+      # Fact importer
+      ::FactImporter.register_fact_importer(:foreman_discovery, ForemanDiscovery::FactImporter)
 
       # Taxonomy extensions
       ::Location.send :include, DiscoveryTaxonomyExtensions
