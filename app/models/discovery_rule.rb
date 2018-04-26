@@ -16,6 +16,7 @@ class DiscoveryRule < ApplicationRecord
   validates :max_count, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates :priority, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates_lengths_from_database
+  validates_uniqueness_of :priority
   before_validation :default_int_attributes
   before_validation :enforce_taxonomy
 
