@@ -1,4 +1,9 @@
 class Host::Discovered < ::Host::Base
+  audited :except => [:last_report]
+  has_associated_audits
+  # redefine audits relation because of the type change (by default the relation will look for auditable_type = 'Host::Managed')
+  has_many :audits, -> { where(:auditable_type => 'Host::Base') }, :foreign_key => :auditable_id, :class_name => 'Audited::Audit'
+
   include ScopedSearchExtensions
   include Foreman::Renderer
   include BelongsToProxies
