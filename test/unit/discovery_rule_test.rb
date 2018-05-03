@@ -5,6 +5,9 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     @hostgroup = FactoryBot.create(:hostgroup)
   end
 
+  should allow_values(*valid_name_list).for(:name)
+  should_not allow_values(*invalid_name_list).for(:name)
+
   context "#validates attribute" do
     setup do
       @huge_name = "x" * 256
