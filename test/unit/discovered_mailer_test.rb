@@ -41,4 +41,18 @@ class DiscoveredMailerTest < ActiveSupport::TestCase
     refute(@email.body.parts.first.body.raw_source.start_with?('<!DOCTYPE')) # text email
     assert(@email.body.parts.last.body.raw_source.start_with?('<!DOCTYPE')) # html email
   end
+
+  test 'discovery mailer sends email when user object is used' do
+    assert MailNotification[:discovered_summary].deliver(user: @user)
+  end
+
+  test 'discovery mailer sends email when user id is used' do
+    assert MailNotification[:discovered_summary].deliver(user: @user.id)
+  end
+
+  test 'discovery mailer must raise exception when sending email to an unknown user type' do
+    assert_raises Foreman::Exception do
+      MailNotification[:discovered_summary].deliver(user: @user.mail)
+    end
+  end
 end
