@@ -71,6 +71,7 @@ class DiscoveredHostsController < ::ApplicationController
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, true, managed_host_params_host)
     forward_url_options
 
+    @override_taxonomy = true
     perform_update(@host)
   end
 
