@@ -31,39 +31,28 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal "Location 1", discovery_rule['locations'].first['name']
   end
 
-  test_attributes :pid => 'b8ae7a80-b9a8-4924-808c-482a2b4102c4'
-  test "should create discovery rule with name" do
-    min_required_attr = { :name => 'new_rule', :search => 'CPU_Count = 1', :hostgroup_id => hostgroups(:unusual).id }
-    assert_difference('DiscoveryRule.unscoped.count') do
-      post :create, params: {:discovery_rule => min_required_attr}
-    end
-    assert_response :success
-    response = JSON.parse(@response.body)
-    assert response.key?('name')
-    assert_equal min_required_attr[:name], response['name']
-    assert response.key?('hostgroup_id')
-    assert_equal min_required_attr[:hostgroup_id], response['hostgroup_id']
-    assert response.key?('search')
-    assert_equal min_required_attr[:search], response['search']
-  end
-
   test_attributes :pid => '121e0a30-8a24-47d7-974d-998886ed1ea7'
   test "should create discovery rule with taxonomy" do
+    hostgroup = FactoryBot.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
+    valid_attributes = {
+      :name => "foo",
+      :search => "bar",
+      :hostgroup_id => hostgroup.id,
+      :organization_ids => [organization_one.id],
+      :location_ids => [location_one.id],
+      :hostname => "",
+      :priority => 1
+    }
     assert_difference('DiscoveryRule.unscoped.count') do
-      hostgroup = FactoryBot.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
-      post :create, params: {:discovery_rule => {
-        :name => "foo",
-        :search => "bar",
-        :hostgroup_id => hostgroup.id,
-        :organization_ids => [organization_one.id],
-        :location_ids => [location_one.id],
-        :hostname => "",
-        :priority => 1}}
+      post :create, params: { :discovery_rule => valid_attributes }
       refute_match /error/, response.body
     end
     assert_response :success
     response = JSON.parse(@response.body)
-    assert response.key?('id')
+    assert %w[id name hostgroup_id search].all? { |needed_key| response.key?(needed_key) }
+    assert_equal valid_attributes[:name], response['name']
+    assert_equal valid_attributes[:hostgroup_id], response['hostgroup_id']
+    assert_equal valid_attributes[:search], response['search']
     discovery_rule = DiscoveryRule.unscoped.find(response['id'])
     refute discovery_rule.nil?
     assert_equal organization_one.id, discovery_rule.organizations.first.id
@@ -149,7 +138,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
       delete :destroy, params: { :id => rule.to_param }
     end
     assert_response :success
-    assert_raise(ActiveRecord::RecordNotFound) { DiscoveryRule.unscoped.find(rule.id) }
+    refute DiscoveryRule.unscoped.exists?(rule.id)
   end
 
   test_attributes :pid => '415379b7-0134-40b9-adb1-2fe0adb1ac36'
@@ -163,33 +152,5 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     end
     assert_response :unprocessable_entity
     assert_include @response.body, 'Name is too long (maximum is 255 characters)'
-  end
-
-  test_attributes :pid => '84503d8d-86f6-49bf-ab97-eff418d3e3d0'
-  test "should not create with invalid host limit" do
-    assert_difference('DiscoveryRule.unscoped.count', 0) do
-      post :create, params: {:discovery_rule => {
-        :name => 'new_rule',
-        :search => 'CPU_Count = 1',
-        :hostgroup_id => hostgroups(:unusual).id,
-        :max_count => 'invalid max_count type'
-      }}
-    end
-    assert_response :unprocessable_entity
-    assert_include @response.body, 'Max count is not a number'
-  end
-
-  test_attributes :pid => '4ec7d76a-22ba-4c3e-952c-667a6f0a5728'
-  test "should not create with invalid priority" do
-    assert_difference('DiscoveryRule.unscoped.count', 0) do
-      post :create, params: {:discovery_rule => {
-        :name => 'new_rule',
-        :search => 'CPU_Count = 1',
-        :hostgroup_id => hostgroups(:unusual).id,
-        :priority => 'invalid priority type'
-      }}
-    end
-    assert_response :unprocessable_entity
-    assert_include @response.body, 'Priority is not a number'
   end
 end
