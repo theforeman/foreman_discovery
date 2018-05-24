@@ -46,5 +46,5 @@ Please read kexec(8) man page for more information about semantics.
 <% else -%>
   "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} nomodeset #{append}" %>",
 <% end -%>
-  "extra": ["--args-linux"]
+  "extra": []
 }
