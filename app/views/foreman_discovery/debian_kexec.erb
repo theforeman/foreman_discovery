@@ -35,5 +35,5 @@ Please read kexec(8) man page for more information about semantics.
   "kernel": "<%= @kexec_kernel %>",
   "initram": "<%= @kexec_initrd %>",
   "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.join(' ') %>",
-  "extra": ["--args-linux"]
+  "extra": []
 }
