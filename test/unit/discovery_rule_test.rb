@@ -5,6 +5,9 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     @hostgroup = FactoryBot.create(:hostgroup)
   end
 
+  should allow_values(*valid_name_list).for(:name)
+  should_not allow_values(*invalid_name_list).for(:name)
+
   context "#validates attribute" do
     setup do
       @huge_name = "x" * 256
@@ -52,6 +55,12 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     end
   end
 
+  test_attributes :pid => 'b8ae7a80-b9a8-4924-808c-482a2b4102c4'
+  test "should create discovery rule with name and minimum required attributes" do
+    rule = DiscoveryRule.new(:name => 'new_rule', :search => 'cpu_count = 1', :hostgroup_id => hostgroups(:unusual).id)
+    assert_valid rule
+  end
+
   test "should be able to create a rule without entering hosts limit" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
@@ -92,6 +101,19 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     assert_equal "must be present.", rule.errors[:hostgroup].first
   end
 
+  test_attributes :pid => '4ec7d76a-22ba-4c3e-952c-667a6f0a5728'
+  test "should not create with invalid priority type" do
+    rule = DiscoveryRule.new(
+      :name => 'new_rule',
+      :search => 'cpu_count = 1',
+      :hostgroup_id => hostgroups(:unusual).id,
+      :priority => 'invalid priority type'
+    )
+    refute_valid rule
+    assert rule.errors.key?(:priority)
+    assert_equal "is not a number", rule.errors[:priority].first
+  end
+
   test "should not be able to create a rule with priority bigger than 2^31" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
@@ -101,6 +123,19 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :location_ids => [location_one.id]
     refute_valid rule
     assert_equal "must be less than 2147483648", rule.errors[:priority].first
+  end
+
+  test_attributes :pid => '84503d8d-86f6-49bf-ab97-eff418d3e3d0'
+  test "should not create with invalid max count type" do
+    rule = DiscoveryRule.new(
+      :name => 'new_rule',
+      :search => 'cpu_count = 1',
+      :hostgroup_id => hostgroups(:unusual).id,
+      :max_count => 'invalid max_count type'
+    )
+    refute_valid rule
+    assert rule.errors.key?(:max_count)
+    assert_equal "is not a number", rule.errors[:max_count].first
   end
 
   test "should not be able to create a rule with max count bigger than 2^31" do
