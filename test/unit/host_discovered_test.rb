@@ -32,6 +32,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal subnet, host.primary_interface.subnet
   end
 
+  test "should setup subnet when update_subnets_from_facts is true" do
+    Setting[:update_subnets_from_facts] = true
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = discover_host_from_facts(@facts)
+    assert_equal subnet, host.primary_interface.subnet
+  end
+
   test "should setup subnet with org and loc set via settings" do
     org = FactoryBot.create(:organization, :name => "subnet_org")
     loc = FactoryBot.create(:location, :name => "subnet_loc")

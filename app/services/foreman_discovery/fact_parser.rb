@@ -13,8 +13,14 @@ module ForemanDiscovery
         {:mac => bootif_mac, :fact => FacterUtils::bootif_name, :filter => Setting[:ignored_interface_identifiers]}))
     end
 
+    # ignores 'ignore_puppet_facts_for_provisioning' setting
     def parse_interfaces?
-      true # to make 'ignore_puppet_facts_for_provisioning' setting non-effective
+      true
+    end
+
+    # ignores 'update_subnets_from_facts' setting
+    def get_facts_for_interface(interface)
+      super.merge(keep_subnet: true)
     end
   end
 end
