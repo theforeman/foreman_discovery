@@ -19,6 +19,19 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert Host::Discovered.find_by_name('mace41f13cc3658')
   end
 
+  test "should import facts from yaml with MAC-based generator as Host::Discovered" do
+    Setting[:discovery_naming] = "MAC-name"
+    host = discover_host_from_facts(@facts)
+    assert_equal "myrna-katie-wesly-maslyn", host.name
+  end
+
+  test "should import facts from yaml with random based generator as Host::Discovered" do
+    Setting[:discovery_naming] = "Random-name"
+    Rails.cache.stubs(:fetch).with("name_generator_register").returns(1305)
+    host = discover_host_from_facts(@facts)
+    assert_equal "velma-startin", host.name
+  end
+
   test 'fact value association is set accordingly' do
     discovered_host = FactoryBot.create(:discovered_host, :with_facts, :fact_count => 1)
     fact_value = discovered_host.fact_values.first
