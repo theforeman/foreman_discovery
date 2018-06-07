@@ -378,7 +378,57 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     end
   end
 
+  test "primary interface isn't touched with no LLDP facts" do
+    Setting[:discovery_auto_bond] = true
+    raw = parse_json_fixture('/facts.json')['facts']
+    host = discover_host_from_facts(raw)
+    refute_nil host.primary_interface
+    assert_equal "eth0", host.primary_interface.identifier
+  end
+
+  test "provision_interface isn't touched with no peer on the same VLAN" do
+    Setting[:discovery_auto_bond] = true
+    raw = parse_json_fixture('/facts_with_lldp.json')['facts']
+    host = discover_host_from_facts(raw)
+    refute_nil host.primary_interface
+    assert_equal "eth0", host.primary_interface.identifier
+  end
+
+  test "provision_interface is switched to bond0 with more than one interface on the same VLAN" do
+    Setting[:discovery_auto_bond] = true
+    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    host = discover_host_from_facts(raw)
+    refute_nil host.primary_interface
+    assert_equal "bond0", host.primary_interface.identifier
+  end
+
+  test "provision_interface is not switched to bond0 if disabled" do
+    Setting[:discovery_auto_bond] = false
+    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    host = discover_host_from_facts(raw)
+    refute_nil host.primary_interface
+    assert_equal "eth0", host.primary_interface.identifier
+  end
+
+  test "former provision_interface is cleanup up after switching to bond0" do
+    Setting[:discovery_auto_bond] = true
+    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    host = discover_host_from_facts(raw)
+    refute_nil host.primary_interface
+
+    former_interface = nil
+    host.interfaces.each do |interface|
+      former_interface = interface if interface.identifier == 'eth0'
+    end
+
+    refute_nil former_interface
+    assert_instance_of ::Nic::Managed, former_interface
+    assert_nil former_interface.ip
+    assert_nil former_interface.name
+    assert_equal false, former_interface.primary
+  end
+
   def parse_json_fixture(relative_path)
-    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
+    JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end
