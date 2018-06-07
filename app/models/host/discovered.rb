@@ -143,6 +143,7 @@ class Host::Discovered < ::Host::Base
     self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
     self.discovery_attribute_set.update_attributes(import_from_facts)
     # set additional discovery attributes
+    ::ForemanDiscovery::LldpNeighbors.eventually_make_bond(self) if Setting[:discovery_auto_bond]
     primary_ip = self.primary_interface.ip
     unless primary_ip.nil?
       subnet = Subnet.subnet_for(primary_ip)

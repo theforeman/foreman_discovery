@@ -17,6 +17,7 @@ class Setting::Discovered < ::Setting
     Setting.transaction do
       [
         self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif", N_("Interface fact")),
+        self.set('discovery_auto_bond', N_("Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"), false, N_("Create bond interfaces")),
         self.set('discovery_clean_facts', N_("Clean all reported facts during provisioning (except discovery facts)"), false, N_("Clean all facts")),
         self.set('discovery_hostname', N_("List of facts to use for the hostname (separated by comma, first wins)"), "discovery_bootif", N_("Hostname facts")),
         self.set('discovery_auto', N_("Automatically provision newly discovered hosts, according to the provisioning rules"), false, N_("Auto provisioning")),
