@@ -146,7 +146,7 @@ class DiscoveredHostsController < ::ApplicationController
     # keep all the ones that were not deleted for notification.
     missed_hosts = @hosts.select {|host| !host.destroy }
     if missed_hosts
-      notice _("Destroyed selected hosts")
+      success _("Destroyed selected hosts")
     else
       error _("The following hosts were not deleted: %s") % missed_hosts
     end
