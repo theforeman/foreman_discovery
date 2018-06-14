@@ -261,7 +261,7 @@ Lint/ParenthesesAsGroupedExpression:
   Enabled: false
 
 # Offense count: 176
-Lint/RescueWithoutErrorClass:
+Style/RescueStandardError:
   Enabled: false
 
 # Offense count: 1
@@ -395,12 +395,6 @@ Performance/Caller:
 # Offense count: 9
 # Cop supports --auto-correct.
 Performance/Casecmp:
-  Enabled: false
-
-# Offense count: 32
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect.
-Performance/HashEachMethods:
   Enabled: false
 
 # Offense count: 2
@@ -870,7 +864,7 @@ Style/TernaryParentheses:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 # Offense count: 2
