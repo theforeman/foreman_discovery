@@ -45,9 +45,6 @@ msgstr "関連付けられたホスト"
 msgid "Auto Provision"
 msgstr "自動プロビジョニング"
 
-msgid "Auto Provision All"
-msgstr "すべてを自動プロビジョニング"
-
 msgid "Auto provisioning"
 msgstr "自動プロビジョニング"
 
@@ -75,6 +72,9 @@ msgstr "すべてのファクトのクリーニング"
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "プロビジョニング時に報告されたすべてのファクトをクリーニング (検出ファクトを除く)"
 
+msgid "Collapse All"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
@@ -96,6 +96,9 @@ msgstr ""
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP ファイル名オプション (デフォルトでは Grub2 または PXELinux)"
 
+msgid "Delete"
+msgstr ""
+
 msgid "Delete %s?"
 msgstr "%s を削除しますか?"
 
@@ -104,9 +107,6 @@ msgstr "検出されたホストの削除"
 
 msgid "Delete a rule"
 msgstr "ルールの削除"
-
-msgid "Delete hosts"
-msgstr "ホストの削除"
 
 msgid "Delete rule '%s'?"
 msgstr "ルール '%s' を削除しますか?"
@@ -125,6 +125,9 @@ msgstr "ルール '%s' を無効にしますか?"
 
 msgid "Discovered Hosts"
 msgstr "検出されたホスト"
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr ""
 
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
@@ -155,6 +158,9 @@ msgstr "検出されたホストへの接続を管理するためにこのサブ
 
 msgid "Discovery Rules"
 msgstr "検出ルール"
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
 
 msgid "Discovery location"
 msgstr "検出ロケーション"
@@ -189,17 +195,23 @@ msgstr "ディスクサイズ"
 msgid "Disks size"
 msgstr "ディスク容量"
 
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "ドメインは自動的に追加されます。空白のままの場合には、MAC アドレスに基づくホスト名が使用されます。"
 
-msgid "Edit Discovery Rule"
-msgstr "検出ルールの編集"
+msgid "Edit %s"
+msgstr ""
 
 msgid "Enable"
 msgstr "有効化"
 
 msgid "Enable rule '%s'?"
 msgstr "ルール '%s' を有効にしますか?"
+
+msgid "Error on existing NIC"
+msgstr ""
 
 msgid "Errors during auto provisioning: %s"
 msgstr "自動プロビジョニング時のエラー: %s"
@@ -212,9 +224,6 @@ msgstr "検出されたホストに対するルールの実行"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "現在検出されているすべてのホストに対するルールの実行"
-
-msgid "Expand All"
-msgstr "すべて展開"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "予測された discovery_fact '%s' がありません。プライマリーインターフェースを検出したり、ホスト名を設定したりできません"
@@ -506,9 +515,6 @@ msgstr "検出されたホストのプロビジョニング"
 msgid "Reboot"
 msgstr "再起動"
 
-msgid "Reboot All"
-msgstr "すべてを再起動"
-
 msgid "Rebooting %s"
 msgstr "%s を再起動中"
 
@@ -641,14 +647,11 @@ msgstr "タイプ"
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr "サブネットを割り当てることができません。プライマリーインターフェースには IP アドレスがありません"
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr "discovery_fact '%{fact}' で指定された MAC '%{mac}' を使用してプライマリーインターフェースを検出できません"
-
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "検出ルールを見つけることができません。指定されるホストがありません (パーミッションを確認してください)"
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "%{url} から kexec を %{name} に対して実行できません: %{msg}"
@@ -690,6 +693,9 @@ msgid "items selected. Uncheck to Clear"
 msgstr "項目が選択されています。クリアするにはチェックを解除してください"
 
 msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."

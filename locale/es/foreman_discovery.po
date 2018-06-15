@@ -48,9 +48,6 @@ msgstr "Hosts asociados"
 msgid "Auto Provision"
 msgstr "Autoaprovisionamiento"
 
-msgid "Auto Provision All"
-msgstr "Autoaprovisionar todo"
-
 msgid "Auto provisioning"
 msgstr "Autoaprovisionamiento"
 
@@ -78,6 +75,9 @@ msgstr "Eliminar todos los eventos"
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Eliminar todos los eventos informados durante el aprovisionamiento (excepto los eventos de detección)"
 
+msgid "Collapse All"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No pudieron obtenerse los eventos del proxy %{url}: %{error}"
 
@@ -99,6 +99,9 @@ msgstr ""
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "Opción de nombre de archivo DHCP (Grub2 o PXELinux en forma predeterminada)"
 
+msgid "Delete"
+msgstr ""
+
 msgid "Delete %s?"
 msgstr "¿Borrar %s?"
 
@@ -107,9 +110,6 @@ msgstr "Eliminar un host detectado"
 
 msgid "Delete a rule"
 msgstr "Eliminar una regla"
-
-msgid "Delete hosts"
-msgstr "Borrar Equipos"
 
 msgid "Delete rule '%s'?"
 msgstr "¿Eliminar regla '%s'?"
@@ -128,6 +128,9 @@ msgstr "¿Deshabilitar regla '%s'?"
 
 msgid "Discovered Hosts"
 msgstr "Hosts detectados"
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr ""
 
 msgid "Discovered host: %s"
 msgstr "Equipo descubierto: %s"
@@ -158,6 +161,9 @@ msgstr "Proxy de detección para usar en esta subred para administrar la conexi�
 
 msgid "Discovery Rules"
 msgstr "Reglas de detección"
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
 
 msgid "Discovery location"
 msgstr "Ubicación de la detección"
@@ -192,17 +198,23 @@ msgstr "Tamaño de los discos"
 msgid "Disks size"
 msgstr "Tamaño de discos"
 
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "El dominio se agregará en forma automática. Se utilizará un nombre de host basado en la dirección MAC cuando quede en blanco."
 
-msgid "Edit Discovery Rule"
-msgstr "Editar regla de detección"
+msgid "Edit %s"
+msgstr ""
 
 msgid "Enable"
 msgstr "Activar"
 
 msgid "Enable rule '%s'?"
 msgstr "¿Habilitar regla '%s'?"
+
+msgid "Error on existing NIC"
+msgstr ""
 
 msgid "Errors during auto provisioning: %s"
 msgstr "Errores durante el autoaprovisionamiento: %s"
@@ -215,9 +227,6 @@ msgstr "Ejecutar reglas en función de un host detectado"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "Ejecutar reglas contra todos los hosts detectados actualmente"
-
-msgid "Expand All"
-msgstr "Expandir todo"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "Falta el discovery_fact '%s' esperado. No es posible detectar la interfaz principal y definir el nombre de host"
@@ -511,9 +520,6 @@ msgstr "Aprovisionar un host detectado"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-msgid "Reboot All"
-msgstr "Reiniciar todo"
-
 msgid "Rebooting %s"
 msgstr "Reiniciando %s"
 
@@ -646,14 +652,11 @@ msgstr "Tipo"
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr "No es posible asignar una subred. Falta la dirección IP de la interfaz principal"
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr "No es posible detectar la interfaz primaria mediante el uso de MAC '%{mac}' especificado por discovery_fact '%{fact}'"
-
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "No es posible buscar una regla de detección, no se ha aprovisionado un host (verificar permisos)"
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "No es posible ejecutar kexec en %{name} a través de %{url}: %{msg}"
@@ -695,6 +698,9 @@ msgid "items selected. Uncheck to Clear"
 msgstr "objetos seleccionados. Desactivar para limpiar"
 
 msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."

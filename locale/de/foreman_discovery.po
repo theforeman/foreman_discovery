@@ -50,9 +50,6 @@ msgstr "Zugewiesene Hosts"
 msgid "Auto Provision"
 msgstr "Automatisch bereitstellen"
 
-msgid "Auto Provision All"
-msgstr "Alle automatisch bereitstellen"
-
 msgid "Auto provisioning"
 msgstr "Automatische Bereitstellung"
 
@@ -80,6 +77,9 @@ msgstr "Alle Fakten löschen"
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Alle berichteten Fakten während der Bereitstellung löschen (ausgenommen Entdeckungsfakten)"
 
+msgid "Collapse All"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
 
@@ -101,6 +101,9 @@ msgstr ""
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
 msgid "Delete %s?"
 msgstr "%s löschen?"
 
@@ -109,9 +112,6 @@ msgstr "Entdeckten Host löschen"
 
 msgid "Delete a rule"
 msgstr "Regel löschen"
-
-msgid "Delete hosts"
-msgstr "Hosts löschen"
 
 msgid "Delete rule '%s'?"
 msgstr "Regel '%s' löschen?"
@@ -130,6 +130,9 @@ msgstr "Regel '%s' deaktivieren?"
 
 msgid "Discovered Hosts"
 msgstr "Entdeckte Hosts"
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr ""
 
 msgid "Discovered host: %s"
 msgstr "Entdeckter Host: %s"
@@ -160,6 +163,9 @@ msgstr ""
 
 msgid "Discovery Rules"
 msgstr "Entdeckungsregeln"
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
 
 msgid "Discovery location"
 msgstr "Entdeckungsort"
@@ -194,17 +200,23 @@ msgstr ""
 msgid "Disks size"
 msgstr "Festplattengröße"
 
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr ""
 
-msgid "Edit Discovery Rule"
-msgstr "Entdeckungsregel bearbeiten"
+msgid "Edit %s"
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktivieren"
 
 msgid "Enable rule '%s'?"
 msgstr "Regel '%s' aktivieren?"
+
+msgid "Error on existing NIC"
+msgstr ""
 
 msgid "Errors during auto provisioning: %s"
 msgstr "Fehler bei automatischer Bereitstellung: %s"
@@ -217,9 +229,6 @@ msgstr "Regeln auf einem entdeckten Host anwenden"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "Regeln auf allen kürzlich entdeckten Hosts anwenden"
-
-msgid "Expand All"
-msgstr "Alle ausklappen"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "Erwartetes discovery_fact '%s' fehlt, primäre Schnittstelle kann nicht gefunden und Hostname nicht eingestellt werden"
@@ -513,9 +522,6 @@ msgstr "Entdeckten Host bereitstellen"
 msgid "Reboot"
 msgstr "Neustart"
 
-msgid "Reboot All"
-msgstr "Alle neu starten"
-
 msgid "Rebooting %s"
 msgstr "%s wird neu gestartet"
 
@@ -648,14 +654,11 @@ msgstr "Typ"
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID zum Tracken des Status der Orchestrierungsaufgaben, GET /api/orchestration/:UUID/tasks"
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr "Subnetz kann nicht zugewiesen werden, IP-Adresse der primären Schnittstelle fehlt"
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr "Entdeckung der primären Schnittstelle mittels MAC '%{mac}', festgelegt durch discovery_fact '%{fact}', nicht möglich"
-
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "Keine Entdeckungsregel gefunden, kein Host bereitgestellt (Berechtigungen prüfen)"
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "kexec kann nicht auf  %{name} über %{url} ausgeführt werden: %{msg}"
@@ -697,6 +700,9 @@ msgid "items selected. Uncheck to Clear"
 msgstr "Elemente ausgewählt. Zum Leeren abwählen"
 
 msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."

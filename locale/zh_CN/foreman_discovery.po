@@ -44,9 +44,6 @@ msgstr "关联主机"
 msgid "Auto Provision"
 msgstr "自动置备"
 
-msgid "Auto Provision All"
-msgstr "全部自动置备"
-
 msgid "Auto provisioning"
 msgstr "自动置备"
 
@@ -74,6 +71,9 @@ msgstr "清除所有详情"
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "置备期间清除所有报告的详情（发现详情除外）"
 
+msgid "Collapse All"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
 
@@ -95,6 +95,9 @@ msgstr ""
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP 文件名选项（默认为 Grub2 或 PXELinux）"
 
+msgid "Delete"
+msgstr ""
+
 msgid "Delete %s?"
 msgstr "删除 %s"
 
@@ -103,9 +106,6 @@ msgstr "删除发现主机"
 
 msgid "Delete a rule"
 msgstr "删除规则"
-
-msgid "Delete hosts"
-msgstr "删除主机"
 
 msgid "Delete rule '%s'?"
 msgstr "删除规则 '%s'？"
@@ -124,6 +124,9 @@ msgstr "禁用规则 '%s'？"
 
 msgid "Discovered Hosts"
 msgstr "发现主机"
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr ""
 
 msgid "Discovered host: %s"
 msgstr "找到的主机：%s"
@@ -154,6 +157,9 @@ msgstr "本子网内用于管理到发现主机的连接的发现代理服务器
 
 msgid "Discovery Rules"
 msgstr "发现规则"
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
 
 msgid "Discovery location"
 msgstr "发现位置"
@@ -188,17 +194,23 @@ msgstr "磁盘大小"
 msgid "Disks size"
 msgstr "磁盘大小"
 
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "域将自动附加。留空时将使用基于 MAC 地址的主机名。"
 
-msgid "Edit Discovery Rule"
-msgstr "编辑发现规则"
+msgid "Edit %s"
+msgstr ""
 
 msgid "Enable"
 msgstr "启用"
 
 msgid "Enable rule '%s'?"
 msgstr "启用规则 '%s'？"
+
+msgid "Error on existing NIC"
+msgstr ""
 
 msgid "Errors during auto provisioning: %s"
 msgstr "自动置备期间出错：%s"
@@ -211,9 +223,6 @@ msgstr "对发现主机执行规则"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "对当前所有发现主机执行规则"
-
-msgid "Expand All"
-msgstr "展开全部"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "期望的 discovery_fact '%s' 缺失，无法检测主接口和设置主机名称"
@@ -509,9 +518,6 @@ msgstr "置备发现主机"
 msgid "Reboot"
 msgstr "重启"
 
-msgid "Reboot All"
-msgstr "全部重启"
-
 msgid "Rebooting %s"
 msgstr "正在重启 %s"
 
@@ -644,14 +650,11 @@ msgstr "类型"
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪业务流程任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr "无法分配子网，主接口缺少  IP 地址"
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr "无法使用 discovery_fact '%{fact}' 指定的 MAC '%{mac}' 监测到主接口"
-
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "无法找到发现规则，未提供主机（检查许可）"
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "无法通过 %{url} 在 %{name} 上执行 kexec：%{msg}"
@@ -693,6 +696,9 @@ msgid "items selected. Uncheck to Clear"
 msgstr "已选择项目。取消选择清除。"
 
 msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."

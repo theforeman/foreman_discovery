@@ -39,9 +39,6 @@ msgstr ""
 msgid "Auto Provision"
 msgstr ""
 
-msgid "Auto Provision All"
-msgstr ""
-
 msgid "Auto provisioning"
 msgstr ""
 
@@ -69,6 +66,9 @@ msgstr ""
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
+msgid "Collapse All"
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
@@ -90,6 +90,9 @@ msgstr ""
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
 msgid "Delete %s?"
 msgstr ""
 
@@ -97,9 +100,6 @@ msgid "Delete a discovered host"
 msgstr ""
 
 msgid "Delete a rule"
-msgstr ""
-
-msgid "Delete hosts"
 msgstr ""
 
 msgid "Delete rule '%s'?"
@@ -118,6 +118,9 @@ msgid "Disable rule '%s'?"
 msgstr ""
 
 msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
 
 msgid "Discovered host: %s"
@@ -148,6 +151,9 @@ msgid "Discovery Proxy to use within this subnet for managing connection to disc
 msgstr ""
 
 msgid "Discovery Rules"
+msgstr ""
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
 msgid "Discovery location"
@@ -183,16 +189,22 @@ msgstr ""
 msgid "Disks size"
 msgstr ""
 
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr ""
 
-msgid "Edit Discovery Rule"
+msgid "Edit %s"
 msgstr ""
 
 msgid "Enable"
 msgstr ""
 
 msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Error on existing NIC"
 msgstr ""
 
 msgid "Errors during auto provisioning: %s"
@@ -205,9 +217,6 @@ msgid "Execute rules against a discovered host"
 msgstr ""
 
 msgid "Execute rules against all currently discovered hosts"
-msgstr ""
-
-msgid "Expand All"
 msgstr ""
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
@@ -502,9 +511,6 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-msgid "Reboot All"
-msgstr ""
-
 msgid "Rebooting %s"
 msgstr ""
 
@@ -637,13 +643,10 @@ msgstr ""
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
 
-msgid "Unable to assign subnet, primary interface is missing IP address"
-msgstr ""
-
-msgid "Unable to detect primary interface using MAC '%{mac}' specified by discovery_fact '%{fact}'"
-msgstr ""
-
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
@@ -686,6 +689,9 @@ msgid "items selected. Uncheck to Clear"
 msgstr ""
 
 msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."
