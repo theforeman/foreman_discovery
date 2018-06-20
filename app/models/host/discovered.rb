@@ -42,6 +42,12 @@ class Host::Discovered < ::Host::Base
     where(taxonomy_conditions).order("hosts.created_at DESC")
   }
 
+  NAMING_PATTERNS = {
+    'Fact' => _('Fact + prefix'),
+    'Random-name' => _('Random name'),
+    'MAC-name' => _('MAC-based name')
+  }.freeze
+
   # Discovery import workflow:
   # discovered#import_host ->
   #  discovered#import_facts -> base#import_facts -> base#parse_facts ->
@@ -56,16 +62,22 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::Exception.new(N_("Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname") % FacterUtils::bootif_name) unless FacterUtils::bootif_present(facts)
 
     # construct hostname
-    prefix_from_settings = Setting[:discovery_prefix]
-    hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
-
-    name_fact = return_first_valid_fact(Setting::Discovered.discovery_hostname_fact_array, facts)
-    raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"), Setting::Discovered.discovery_hostname_fact_array.join(', '))) unless name_fact && name_fact.present?
-    hostname = normalize_string_for_hostname("#{hostname_prefix}#{name_fact}")
+    bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
+    hostname = ''
+    if Setting[:discovery_naming] == 'MAC-name'
+      hostname = NameGenerator.new.generate_next_mac_name(bootif_mac)
+    elsif Setting[:discovery_naming] == 'Random-name'
+      hostname = NameGenerator.new.generate_next_random_name
+    else
+      prefix_from_settings = Setting[:discovery_prefix]
+      hostname_prefix = prefix_from_settings if prefix_from_settings.present? && prefix_from_settings.match(/^[a-zA-Z].*/)
+      name_fact = return_first_valid_fact(Setting::Discovered.discovery_hostname_fact_array, facts)
+      raise(::Foreman::Exception.new(N_("Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"), Setting::Discovered.discovery_hostname_fact_array.join(', '))) unless name_fact && name_fact.present?
+      hostname = normalize_string_for_hostname("#{hostname_prefix}#{name_fact}")
+    end
     Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match(/^[a-z]/)
 
     # check for existing managed hosts and fail or warn
-    bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
     existing_managed = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Managed"}).limit(1)
     if existing_managed.count > 0
       if Setting[:discovery_error_on_existing]
