@@ -63,7 +63,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     put :update, params: {
         id: host.id,
         discovered_host: {
-          hostgroup_id: hostgroup.id
+          hostgroup_id: hostgroup.id,
+          build: true
         }
       }
 
@@ -82,6 +83,25 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal hostgroup.environment_id, actual.environment_id
     assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
     assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    assert actual.build?
+  end
+
+  def test_provision_host_without_build_flag
+    FactoryBot.create(:organization, :name => 'SomeOrg')
+    FactoryBot.create(:location, :name => 'SomeLoc')
+    host = discover_host_from_facts(@facts)
+    hostgroup = setup_hostgroup(host)
+    put :update, params: {
+        id: host.id,
+        discovered_host: {
+          hostgroup_id: hostgroup.id,
+          build: false
+        }
+      }
+    assert_response :success
+    actual = Host.unscoped.find(host.id)
+    assert_equal hostgroup.id, actual.hostgroup_id
+    refute actual.build?
   end
 
   def test_auto_provision_success_via_upload
