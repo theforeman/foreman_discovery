@@ -294,6 +294,9 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns).never
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
+    Host::Managed.any_instance.stubs(:queue_puppetca_create).returns(true)
+    Host::Managed.any_instance.stubs(:queue_puppetca_certname_reset).returns(true)
+    Host::Managed.any_instance.stubs(:queue_puppetca_autosign_destroy).returns(true)
     put :update, params: {:commit => "Update", :id => host.id,
                   :host => {
       :name => 'mytest',
