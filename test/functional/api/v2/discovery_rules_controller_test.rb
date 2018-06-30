@@ -31,7 +31,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal "Location 1", discovery_rule['locations'].first['name']
   end
 
-  test_attributes :pid => '121e0a30-8a24-47d7-974d-998886ed1ea7'
   test "should create discovery rule with taxonomy" do
     hostgroup = FactoryBot.create(:hostgroup, :with_os, :with_rootpass, :organizations => [organization_one], :locations => [location_one])
     valid_attributes = {
@@ -65,7 +64,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test_attributes :pid => '769c0739-538b-4451-af7b-deb2ecd3dc0d'
   test "should update discovery rule name" do
     rule = FactoryBot.create(:discovery_rule)
     new_name = 'new_rule_name'
@@ -81,7 +79,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test_attributes :pid => '0f8ec302-f9de-4713-87b7-0f1aca515149'
   test "should update taxonomies for discovery rule" do
     min_required_attr = { :name => 'new_rule', :search => 'CPU_Count = 1', :hostgroup_id => hostgroups(:unusual).id }
     rule = DiscoveryRule.new(min_required_attr)
@@ -100,7 +97,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal [location_one.id], rule.locations.map {|loc| loc.id}
   end
 
-  test_attributes :pid => '2c5ecb7e-87bc-4980-9620-7ae00e3f360e'
   test "should update search rule" do
     rule = FactoryBot.create(:discovery_rule)
     new_search = 'Location = Default_Location'
@@ -110,7 +106,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal new_search, rule.search
   end
 
-  test_attributes :pid => '33084060-2866-46b9-bfab-23d91aea73d8'
   test "should update host limit" do
     rule = FactoryBot.create(:discovery_rule)
     new_max_count = 150
@@ -121,7 +116,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal new_max_count, rule.max_count
   end
 
-  test_attributes :pid => '330aa943-167b-46dd-b434-1a6e5fe8f283'
   test "test_positive_disable" do
     rule = FactoryBot.create(:discovery_rule)
     assert rule.enabled
@@ -131,7 +125,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     refute rule.enabled
   end
 
-  test_attributes :pid => '9fdba953-dcc7-4532-9204-17a45b0d9e05'
   test "should destroy discovery rule" do
     rule = FactoryBot.create(:discovery_rule)
     assert_difference('DiscoveryRule.unscoped.count', -1) do
@@ -141,7 +134,6 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     refute DiscoveryRule.unscoped.exists?(rule.id)
   end
 
-  test_attributes :pid => '415379b7-0134-40b9-adb1-2fe0adb1ac36'
   test "should not create with too long name" do
     assert_difference('DiscoveryRule.unscoped.count', 0) do
       post :create, params: {:discovery_rule => {
