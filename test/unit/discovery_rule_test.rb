@@ -55,7 +55,6 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     end
   end
 
-  test_attributes :pid => 'b8ae7a80-b9a8-4924-808c-482a2b4102c4'
   test "should create discovery rule with name and minimum required attributes" do
     rule = DiscoveryRule.new(:name => 'new_rule', :search => 'cpu_count = 1', :hostgroup_id => hostgroups(:unusual).id)
     assert_valid rule
@@ -101,7 +100,6 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     assert_equal "must be present.", rule.errors[:hostgroup].first
   end
 
-  test_attributes :pid => '4ec7d76a-22ba-4c3e-952c-667a6f0a5728'
   test "should not create with invalid priority type" do
     rule = DiscoveryRule.new(
       :name => 'new_rule',
@@ -125,7 +123,6 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     assert_equal "must be less than 2147483648", rule.errors[:priority].first
   end
 
-  test_attributes :pid => '84503d8d-86f6-49bf-ab97-eff418d3e3d0'
   test "should not create with invalid max count type" do
     rule = DiscoveryRule.new(
       :name => 'new_rule',
