@@ -5,7 +5,6 @@ class Host::Discovered < ::Host::Base
   has_many :audits, -> { where(:auditable_type => 'Host::Base') }, :foreign_key => :auditable_id, :class_name => 'Audited::Audit'
 
   include ScopedSearchExtensions
-  include Foreman::Renderer
   include BelongsToProxies
   include ::Hostext::OperatingSystem
 
@@ -184,8 +183,9 @@ class Host::Discovered < ::Host::Base
     TemplateKind::PXE.each do |kind|
       template_name = Setting["discovery_#{kind.downcase}_lock_template"]
       Rails.logger.info "Locking discovered host #{self.mac} in subnet #{subnet} via #{template_name} template"
-      template = unattended_render(::ProvisioningTemplate.find_by_name(template_name).template)
-      subnet.tftp_proxy.set(kind, mac, :pxeconfig => template)
+      template = ::ProvisioningTemplate.find_by_name(template_name)
+      rendered_template = render_template(template: template, params: { host: self })
+      subnet.tftp_proxy.set(kind, mac, :pxeconfig => rendered_template)
     end
   rescue ::Foreman::Exception => e
     ::Foreman::Logging.exception("Could not set tftp_proxy from proxy", e)

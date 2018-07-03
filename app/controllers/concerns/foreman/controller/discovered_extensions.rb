@@ -51,7 +51,9 @@ module Foreman::Controller::DiscoveredExtensions
     host.discovery_rule = rule
     # render hostname only when all other fields are set
     original_name = host.name
-    host.name = host.render_template(rule.hostname) unless rule.hostname.empty?
+    source = Foreman::Renderer::Source::String.new(name: 'Hostname template', content: rule.hostname)
+    scope = Foreman::Renderer.get_scope(host: host, source: source)
+    host.name = Foreman::Renderer.render(source, scope)
     # fallback to the original if template did not expand
     host.name = original_name if host.name.empty?
     # explicitly set all inheritable attributes from hostgroup
