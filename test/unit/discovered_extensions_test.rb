@@ -157,7 +157,9 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
-    assert managed_host = perform_auto_provision(host, r1)
+    managed_host = perform_auto_provision(host, r1)
+    assert_empty host.errors
+    assert managed_host
     assert_empty managed_host.errors
     refute_nil hostgroup.pxe_loader, managed_host.pxe_loader
     assert_equal hostgroup.pxe_loader, managed_host.pxe_loader
@@ -187,7 +189,9 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
-    assert managed_host = perform_auto_provision(host, r1)
+    managed_host = perform_auto_provision(host, r1)
+    assert_empty host.errors
+    assert managed_host
     assert_empty managed_host.errors
     refute_nil hostgroup.pxe_loader, managed_host.pxe_loader
     assert_equal hostgroup.pxe_loader, managed_host.pxe_loader
