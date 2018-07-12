@@ -24,7 +24,7 @@
                        :label_help => render('discovery_rules/template_inline').html_safe,
                        :label_help_options => {:title => _("Hostname for provisioned hosts"), :'data-placement' => 'bottom' } %>
             <%= counter_f f, :max_count, :label => _('Hosts Limit'), :help_inline => _('Maximum hosts provisioned with this rule (0 = unlimited)'), :min => 0 %>
-            <%= counter_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)'), step: 100, value: 0 %>
+            <%= counter_f f, :priority, :help_inline => _('Rule priority (lower integer means higher priority)'), step: DiscoveryRule::STEP %>
             <%= checkbox_f f, :enabled %>
           </div>
           <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @discovery_rule %>

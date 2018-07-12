@@ -1,4 +1,5 @@
 class DiscoveryRule < ApplicationRecord
+  STEP = 100
   audited :associated_with => :hostgroup
   include Authorizable
   extend FriendlyId
@@ -38,6 +39,10 @@ class DiscoveryRule < ApplicationRecord
   def default_int_attributes
    self.max_count ||= 0
    self.priority  ||= 0
+  end
+
+  def self.suggest_priority
+    self.unscoped.maximum(:priority).to_i + STEP
   end
 
   def enforce_taxonomy
