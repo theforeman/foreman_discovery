@@ -46,6 +46,7 @@ module Api
 
       def create
         @discovery_rule = DiscoveryRule.new(discovery_rule_params)
+        @discovery_rule.priority = DiscoveryRule.suggest_priority if discovery_rule_params[:priority].blank?
         process_response @discovery_rule.save
       end
 
