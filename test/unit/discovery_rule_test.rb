@@ -210,5 +210,13 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
         hostgroup_one.save!
       end
     end
+
+    test 'should be able to suggest next priority' do
+      existing = FactoryBot.create(:discovery_rule)
+      first_new = FactoryBot.create(:discovery_rule, :priority => DiscoveryRule.suggest_priority)
+      assert first_new.priority > 0
+      second_new = FactoryBot.create(:discovery_rule, :priority => DiscoveryRule.suggest_priority)
+      assert_equal DiscoveryRule::STEP, second_new.priority - first_new.priority
+    end
   end
 end

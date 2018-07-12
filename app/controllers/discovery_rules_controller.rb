@@ -12,7 +12,7 @@ class DiscoveryRulesController < ApplicationController
   end
 
   def new
-    @discovery_rule = DiscoveryRule.new
+    @discovery_rule = DiscoveryRule.new(:priority => DiscoveryRule.suggest_priority)
   end
 
   def create
