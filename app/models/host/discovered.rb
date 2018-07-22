@@ -106,7 +106,7 @@ class Host::Discovered < ::Host::Base
     # record the last time it sent facts...
     self.last_report = Time.now
     # Set the correct facts type for new foreman facts importing code.
-    facts[:_type] = :foreman_discovery if SETTINGS[:version].short > '1.16'
+    facts[:_type] = :foreman_discovery
     super(facts)
   end
 
@@ -120,17 +120,11 @@ class Host::Discovered < ::Host::Base
     super
   end
 
-  def populate_fields_from_facts(*params)
-    if SETTINGS[:version].short > '1.16'
-      parser, type, source_proxy = params
-      facts = parser.facts
-      # detect interfaces and primary interface using extensions
-      super(parser, type, source_proxy)
-    else
-      # backwards compatibility
-      facts = params[0] || self.facts_hash
-      parser = super(facts, :foreman_discovery)
-    end
+  def populate_fields_from_facts(parser, type, source_proxy)
+    facts = parser.facts
+
+    # detect interfaces and primary interface using extensions
+    super(parser, type, source_proxy)
 
     populate_discovery_fields_from_facts(facts)
     create_notification
