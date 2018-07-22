@@ -131,75 +131,11 @@ class Host::Discovered < ::Host::Base
     parser
   end
 
+  # set additional discovery attributes
   def populate_discovery_fields_from_facts(facts)
-    # set discovery search attributes first
-    self.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => id).first_or_create
-    self.discovery_attribute_set.update_attributes(import_from_facts)
-    # set additional discovery attributes
-    ::ForemanDiscovery::LldpNeighbors.eventually_make_bond(self) if Setting[:discovery_auto_bond]
-    primary_ip = self.primary_interface.ip
-    unless primary_ip.nil?
-      subnet = Subnet.subnet_for(primary_ip)
-      if subnet
-        Rails.logger.info "Detected subnet: #{subnet} with taxonomy #{subnet.organizations.collect(&:name)}/#{subnet.locations.collect(&:name)}"
-      else
-        Rails.logger.warn "Subnet could not be detected for #{primary_ip}"
-      end
-      # set subnet
-      self.primary_interface.subnet = subnet
-      # set location and organization
-      if SETTINGS[:locations_enabled]
-        self.location = Location.find_by_title(facts["foreman_location"] || facts["discovery_location"]) ||
-          Location.find_by_title(Setting[:discovery_location]) ||
-          subnet.try(:locations).try(:first) ||
-          Location.first
-        Rails.logger.info "Assigned location: #{self.location}"
-      end
-      if SETTINGS[:organizations_enabled]
-        self.organization = Organization.find_by_title(facts["foreman_organization"] || facts["discovery_organization"]) ||
-          Organization.find_by_title(Setting[:discovery_organization]) ||
-          subnet.try(:organizations).try(:first) ||
-          Organization.first
-        Rails.logger.info "Assigned organization: #{self.organization}"
-      end
-    else
-      Rails.logger.warn "Unable to assign subnet - reboot trigger may not be possible, primary interface is missing IP address"
-    end
-
-    # lock the host into discovery via PXE, if feature is enabled in settings
-    lock_templates if Setting::Discovered.discovery_lock? && self.subnet.tftp?
+    ForemanDiscovery::ImportHookService.new(host: self, facts: facts).after_populate
   ensure
     self.save!
-  end
-
-  def lock_templates
-    @host = self
-    TemplateKind::PXE.each do |kind|
-      template_name = Setting["discovery_#{kind.downcase}_lock_template"]
-      Rails.logger.info "Locking discovered host #{self.mac} in subnet #{subnet} via #{template_name} template"
-      template = ::ProvisioningTemplate.find_by_name(template_name)
-      rendered_template = render_template(template: template, params: { host: self })
-      subnet.tftp_proxy.set(kind, mac, :pxeconfig => rendered_template)
-    end
-  rescue ::Foreman::Exception => e
-    ::Foreman::Logging.exception("Could not set tftp_proxy from proxy", e)
-  end
-
-  def import_from_facts(facts = self.facts_hash)
-    cpu_count  = facts['physicalprocessorcount'].to_i rescue 0
-    memory     = facts['memorysize_mb'].to_f.ceil rescue 0
-    disks      = facts.select { |key, value| key.to_s =~ /blockdevice.*_size/ }
-    disks_size = 0
-    disk_count = 0
-
-    if disks.any?
-      disks.values.each { |size| disks_size += (size.to_f rescue 0) }
-      disk_count = disks.size
-      # Turning disks_size to closest Mega for easier to read UI
-      disks_size = (disks_size / 1024 / 1024).ceil if disks_size > 0
-    end
-
-    {:cpu_count => cpu_count, :memory => memory, :disk_count => disk_count, :disks_size => disks_size}
   end
 
   def proxied?

@@ -7,8 +7,7 @@ class FillDiscoveryAttributeSetsForExistingHosts < ActiveRecord::Migration[4.2]
     FakeDiscoveredHost.where(:type => "Host::Discovered").all.each do |host|
       begin
         say "Populating attribute set for discovered host #{host.name}"
-        host.discovery_attribute_set = DiscoveryAttributeSet.where(:host_id => host.id).first_or_create
-        host.discovery_attribute_set.update_attributes(host.import_from_facts)
+        ForemanDiscovery::ImportHooks::DiscoveryAttribute.new(host: host, facts: host.facts_hash).after_populate
         host.save!
       rescue Exception => e
         say "Error while populating host #{host.name}, deleting: #{e.message}:\n" + e.backtrace.join("\n")
