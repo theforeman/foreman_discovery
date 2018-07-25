@@ -217,4 +217,26 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       assert_equal DiscoveryRule::STEP, second_new.priority - first_new.priority
     end
   end
+
+  context 'suggest next priority' do
+    setup do
+      @organization = FactoryBot.create(:organization)
+      @location = FactoryBot.create(:location)
+    end
+
+    test 'when there exists a discovery_rule of the given organization' do
+      hostgroup = FactoryBot.create(:hostgroup, organizations: [@organization], locations: [@location] )
+      discovery_rule = FactoryBot.create(:discovery_rule,
+        priority: rand(100),
+        hostgroup: hostgroup,
+        organizations: [@organization],
+        locations: [@location])
+
+      assert_equal DiscoveryRule.suggest_priority(@organization), (discovery_rule.priority + DiscoveryRule::STEP)
+    end
+
+    test 'when there is no discovery_rule of the given organization' do
+      assert_equal DiscoveryRule.suggest_priority(@organization), DiscoveryRule::STEP
+    end
+  end
 end

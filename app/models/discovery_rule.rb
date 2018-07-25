@@ -17,9 +17,9 @@ class DiscoveryRule < ApplicationRecord
   validates :max_count, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates :priority, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than => 2**31 }
   validates_lengths_from_database
-  validates_uniqueness_of :priority
   before_validation :default_int_attributes
   before_validation :enforce_taxonomy
+  validate :unique_priority, if: :priority_changed?
 
   belongs_to :hostgroup
   has_many :hosts, :dependent => :nullify
@@ -36,13 +36,31 @@ class DiscoveryRule < ApplicationRecord
     end
   }
 
+  def unique_priority
+      %w(locations organizations).each do |taxonomy|
+        discovery_rule_ids = TaxableTaxonomy.where(
+          taxable_type: 'DiscoveryRule',
+          taxonomy_id: send("#{taxonomy.singularize}_ids")).pluck(:taxable_id)
+        discovery_rules = DiscoveryRule.unscoped.where(id: discovery_rule_ids)
+        if discovery_rules.pluck(:priority).include?(priority)
+          errors.add(:priority, _("is already taken"))
+        end
+      end
+  end
+
   def default_int_attributes
    self.max_count ||= 0
    self.priority  ||= 0
   end
 
-  def self.suggest_priority
-    self.unscoped.maximum(:priority).to_i + STEP
+  def self.suggest_priority(organization = Organization.current)
+    discovery_rules = DiscoveryRule.unscoped
+    return (discovery_rules.maximum(:priority).to_i + STEP) if organization.nil?
+    discovery_rule_ids = TaxableTaxonomy.where(
+      taxable_type: 'DiscoveryRule',
+      taxonomy_id: organization.id).pluck(:taxable_id)
+    discovery_rules = discovery_rules.where(id: discovery_rule_ids)
+    discovery_rules.maximum(:priority).to_i + STEP
   end
 
   def enforce_taxonomy
