@@ -9,7 +9,7 @@
     <th><%= _("Host Group") %></th>
     <th><%= _("Hosts/Limit") %></th>
     <th><%= sort :enabled, :as => s_("DiscoveryRule|Enabled") %></th>
-    <th></th>
+    <th><%= _("Actions") %></th>
   </tr>
   <% for rule in @discovery_rules %>
     <tr>
