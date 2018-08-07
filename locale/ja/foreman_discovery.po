@@ -6,10 +6,10 @@
 # Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-01-05 19:26+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"Last-Translator: Tomoyuki KATO <inactive+katomo@transifex.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "プロビジョニング時に報告されたすべてのファクトをクリーニング (検出ファクトを除く)"
 
 msgid "Collapse All"
-msgstr ""
+msgstr "すべて折りたたむ"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
@@ -91,13 +91,13 @@ msgid "Create a discovery rule"
 msgstr "検出ルールの作成"
 
 msgid "Customize Host"
-msgstr ""
+msgstr "ホストのカスタマイズ"
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP ファイル名オプション (デフォルトでは Grub2 または PXELinux)"
 
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 msgid "Delete %s?"
 msgstr "%s を削除しますか?"
@@ -202,7 +202,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr "ドメインは自動的に追加されます。空白のままの場合には、MAC アドレスに基づくホスト名が使用されます。"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s の編集"
 
 msgid "Enable"
 msgstr "有効化"
@@ -293,11 +293,13 @@ msgstr "ホストグループ"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] "ホストグループの場所 %s も検出ルールに関連付ける必要があります"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] "ホストグループ組織 %s も検出ルールに関連付ける必要があります"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Host of type %s can not be rebooted"
 msgstr "タイプ %s のホストを再起動できません"
@@ -378,7 +380,7 @@ msgid "Last Facts Upload"
 msgstr "最終ファクトのアップロード"
 
 msgid "Learn more about this in the documentation."
-msgstr ""
+msgstr "この詳細についてはドキュメンテーションを参照してください。"
 
 msgid "List all discovered hosts"
 msgstr "すべての検出されたホストを一覧表示"
@@ -453,7 +455,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "選択された期間に検出されたホストはありません"
 
 msgid "No discovered hosts found in this context."
-msgstr ""
+msgstr "このコンテキストで検出されたホストはありません。"
 
 msgid "No discovered hosts to provision"
 msgstr "プロビジョニングする検出されたホストがありません"
@@ -639,7 +641,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります。"
 
 msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "このページでは、プロビジョニングする予定の検出されたベアメタルまたは仮想ノードを表示しています。"
 
 msgid "Type"
 msgstr "タイプ"
@@ -693,7 +695,7 @@ msgid "items selected. Uncheck to Clear"
 msgstr "項目が選択されています。クリアするにはチェックを解除してください"
 
 msgid "location ID for provisioned hosts"
-msgstr ""
+msgstr "プロビジョニングされたホストのロケーション ID"
 
 msgid "must be present."
 msgstr ""
@@ -711,7 +713,7 @@ msgid "number of entries per request"
 msgstr "要求ごとのエントリー数"
 
 msgid "organization ID for provisioned hosts"
-msgstr ""
+msgstr "プロビジョニングされたホストの組織 ID"
 
 msgid "paginate results"
 msgstr "結果のページネーション"

@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-01-05 19:26+0000\n"
+"PO-Revision-Date: 2018-06-15 10:50+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -72,7 +72,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "置备期间清除所有报告的详情（发现详情除外）"
 
 msgid "Collapse All"
-msgstr ""
+msgstr "隐藏全部"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
@@ -90,13 +90,13 @@ msgid "Create a discovery rule"
 msgstr "创建发现规则"
 
 msgid "Customize Host"
-msgstr ""
+msgstr "自定义主机"
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP 文件名选项（默认为 Grub2 或 PXELinux）"
 
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 msgid "Delete %s?"
 msgstr "删除 %s"
@@ -201,7 +201,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr "域将自动附加。留空时将使用基于 MAC 地址的主机名。"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "编辑 %s"
 
 msgid "Enable"
 msgstr "启用"
@@ -293,14 +293,12 @@ msgstr "主机组"
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
 msgstr[0] ""
-"主机组位置 %s 也必须与发现规则关联\n"
-"主机组位置 %s 也必须与发现规则关联"
+msgstr[1] ""
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
 msgstr[0] ""
-"主机组机构 %s 也必须与发现规则关联\n"
-"主机组机构 %s 也必须与发现规则关联"
+msgstr[1] ""
 
 msgid "Host of type %s can not be rebooted"
 msgstr "%s 类型的主机不能重启"
@@ -381,7 +379,7 @@ msgid "Last Facts Upload"
 msgstr "最后详情上传"
 
 msgid "Learn more about this in the documentation."
-msgstr ""
+msgstr "在本文档中了解更多这方面的内容。"
 
 msgid "List all discovered hosts"
 msgstr "列出所有发现主机"
@@ -456,7 +454,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "选定时间段内没有发现主机"
 
 msgid "No discovered hosts found in this context."
-msgstr ""
+msgstr "在此上下文中未找到发现主机。"
 
 msgid "No discovered hosts to provision"
 msgstr "没有要置备的发现主机"
@@ -642,7 +640,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
 
 msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "此页显示了等待置备的发现裸机或虚拟节点。"
 
 msgid "Type"
 msgstr "类型"
@@ -696,7 +694,7 @@ msgid "items selected. Uncheck to Clear"
 msgstr "已选择项目。取消选择清除。"
 
 msgid "location ID for provisioned hosts"
-msgstr ""
+msgstr "预配主机的位置 ID"
 
 msgid "must be present."
 msgstr ""
@@ -714,7 +712,7 @@ msgid "number of entries per request"
 msgstr "每个请求中的条目数"
 
 msgid "organization ID for provisioned hosts"
-msgstr ""
+msgstr "预配主机的组织 ID"
 
 msgid "paginate results"
 msgstr "编页结果"
