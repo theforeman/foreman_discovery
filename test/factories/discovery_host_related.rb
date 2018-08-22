@@ -13,7 +13,7 @@ FactoryBot.define do
 
     trait :with_facts do
       transient do
-        fact_count 20
+        fact_count { 20 }
       end
 
       after(:create) do |discovered_host, evaluator|
