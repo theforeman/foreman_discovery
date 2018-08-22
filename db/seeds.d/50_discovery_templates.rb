@@ -1,6 +1,9 @@
-kind = TemplateKind.unscoped.where(:name => 'kexec').first_or_create
 organizations = Organization.unscoped.all
 locations = Location.unscoped.all
+
+kind = TemplateKind.unscoped.find_or_create_by(name: 'kexec')
+kind.description = N_("Command line options for kexec during PXE-less provisioning.")
+kind.save!
 
 ProvisioningTemplate.without_auditing do
   [['redhat_kexec.erb', 'Red Hat'], ['debian_kexec.erb', 'Debian']].each do |tmpl_names|
