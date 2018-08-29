@@ -1,6 +1,6 @@
 <%#
 kind: kexec
-name: Red Hat kexec
+name: Discovery Red Hat kexec
 oses:
 - CentOS 4
 - CentOS 5
@@ -39,9 +39,8 @@ Please read kexec(8) man page for more information about semantics.
   options << "inst.stage2=#{@host.operatingsystem.medium_uri(@host)}" if @host.operatingsystem.name.match(/Atomic/i)
 -%>
 {
-  "comment": "WARNING: Both kernel and initram are not set in preview mode due to http://projects.theforeman.org/issues/19737",
-  "kernel": "<%= @kexec_kernel %>",
-  "initram": "<%= @kexec_initrd %>",
+  "kernel": "<%= @kernel_uri %>",
+  "initram": "<%= @initrd_uri %>",
 <% if (@host.operatingsystem.name == 'Fedora' and @host.operatingsystem.major.to_i > 16) or
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
   "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset " + options.compact.join(' ') %>",
