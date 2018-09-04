@@ -1,11 +1,11 @@
-require 'test_plugin_helper'
+require_relative '../test_plugin_helper'
 
 class DiscoveryAttributeSetTest < ActiveSupport::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
   setup do
-    @facts = parse_json_fixture('/facts.json')['facts']
+    @facts = parse_json_fixture('regular_host', true)
     FactoryBot.create(:setting,
                        :name => 'discovery_hostname',
                        :value => 'discovery_bootif',
@@ -47,9 +47,5 @@ class DiscoveryAttributeSetTest < ActiveSupport::TestCase
     assert_equal 1, results.count
     results = Host::Discovered.search_for("disks_size > #{disks_size}")
     assert_equal 0, results.count
-  end
-
-  def parse_json_fixture(relative_path)
-    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end

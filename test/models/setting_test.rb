@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../test_plugin_helper'
 
 class SettingTest < ActiveSupport::TestCase
   test "should update hostname prefix with multiple valid values" do

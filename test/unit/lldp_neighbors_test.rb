@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require_relative '../test_plugin_helper'
 
 class LldpNeighborsTest < ActiveSupport::TestCase
   test "#get_neighbors_by_interface gives nothing with no LLDP facts" do
@@ -35,7 +35,7 @@ class LldpNeighborsTest < ActiveSupport::TestCase
   private
 
   def simple_facts
-    neighbors 'facts'
+    neighbors 'regular_host'
   end
 
   def lldp_facts
@@ -47,10 +47,6 @@ class LldpNeighborsTest < ActiveSupport::TestCase
   end
 
   def neighbors(name)
-    ForemanDiscovery::LldpNeighbors.from_facts(get_facts name)
-  end
-
-  def get_facts(name)
-    JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + "/#{name}.json")))['facts']
+    ForemanDiscovery::LldpNeighbors.from_facts(parse_json_fixture(name, true))
   end
 end

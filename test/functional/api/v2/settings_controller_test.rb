@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require_relative '../../../test_plugin_helper'
 
 class Api::V2::SettingsControllerTest < ActionController::TestCase
   setup do

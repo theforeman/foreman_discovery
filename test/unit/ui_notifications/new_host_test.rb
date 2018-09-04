@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require_relative '../../test_plugin_helper'
 
 class NewHostNotificationTest < ActiveSupport::TestCase
   include FactImporterIsolation
@@ -12,7 +12,7 @@ class NewHostNotificationTest < ActiveSupport::TestCase
   test 'new discovered host should generate a notification' do
     set_default_settings
     assert_difference('blueprint.notifications.count') do
-      discover_host_from_facts(parse_json_fixture('/../facts.json')['facts'])
+      discover_host_from_facts(parse_json_fixture('regular_host', true))
     end
   end
 
@@ -25,9 +25,5 @@ class NewHostNotificationTest < ActiveSupport::TestCase
     ForemanDiscovery::UINotifications::NewHost.deliver!(host2)
     assert_equal 1, blueprint.notifications.count
     assert_not_equal expired_at, blueprint.notifications.first.expired_at
-  end
-
-  def parse_json_fixture(relative_path)
-    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end
