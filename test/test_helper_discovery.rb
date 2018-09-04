@@ -60,8 +60,7 @@ def set_default_settings
   FactoryBot.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_lock', :value => 'false', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
+  FactoryBot.create(:setting, :name => 'discovery_lock', :value => false, :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
   FactoryBot.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
@@ -159,4 +158,9 @@ end
 def discovered_notification_blueprint
   @blueprint ||= FactoryBot.create(:notification_blueprint,
                                    name: 'new_discovered_host')
+end
+
+def parse_json_fixture(filename, remove_root_element = false)
+  raw = JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + "/facts/#{filename}.json")))
+  remove_root_element ? raw['facts'] : raw
 end

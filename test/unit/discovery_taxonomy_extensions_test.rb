@@ -1,11 +1,11 @@
-require 'test_plugin_helper'
+require_relative '../test_plugin_helper'
 
 class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
   setup do
-    @facts = parse_json_fixture('/facts.json')['facts']
+    @facts = parse_json_fixture('regular_host', true)
     set_default_settings
   end
 
@@ -19,9 +19,5 @@ class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
     assert_nothing_raised do
       refute location.destroy, 'Location was destroyed but it should not be allowed'
     end
-  end
-
-  def parse_json_fixture(relative_path)
-    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end

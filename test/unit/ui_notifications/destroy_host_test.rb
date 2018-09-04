@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require_relative '../../test_plugin_helper'
 
 class DestroyHostNotificationTest < ActiveSupport::TestCase
   alias_method  :blueprint, :discovered_notification_blueprint
@@ -50,9 +50,5 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
     new_host = ::ForemanDiscovery::HostConverter.to_managed(host1, false, false)
     assert new_host.save!
     assert_equal 1, blueprint.notifications.count
-  end
-
-  def parse_json_fixture(relative_path)
-    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end

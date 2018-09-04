@@ -1,11 +1,11 @@
-require 'test_plugin_helper'
+require_relative '../test_plugin_helper'
 
 class HostDiscoveredTest < ActiveSupport::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
   setup do
-    @facts = parse_json_fixture('/facts.json')['facts']
+    @facts = parse_json_fixture('regular_host', true)
     set_default_settings
   end
 
@@ -112,28 +112,32 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should lock host into discovery via PXE configuration" do
-    Host::Discovered.delete('mace41f13cc3658')
-    Setting[:discovery_lock] = "true"
-    subnet = FactoryBot.create(:subnet,
-                                :tftp,
-                                :network => '10.35.27.0',
-                                :cidr    => '24',
-                                :mask    => '255.255.255.0',
-                                :organizations => [organization_one],
-                                :locations => [location_one]
-    )
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
-    ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
-    TemplateKind::PXE.each do |kind|
-      ProvisioningTemplate.where(:name => "#{kind.downcase}_discovery").first_or_create(
-          :template_kind_id => template_kinds(kind.downcase.to_sym),
-          :snippet => true,
-          :template => "test"
+    begin
+      Host::Discovered.delete('mace41f13cc3658')
+      Setting[:discovery_lock] = true
+      subnet = FactoryBot.create(:subnet,
+                                  :tftp,
+                                  :network => '10.35.27.0',
+                                  :cidr    => '24',
+                                  :mask    => '255.255.255.0',
+                                  :organizations => [organization_one],
+                                  :locations => [location_one]
       )
+      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
+      TemplateKind::PXE.each do |kind|
+        ProvisioningTemplate.where(:name => "#{kind.downcase}_discovery").first_or_create(
+            :template_kind_id => template_kinds(kind.downcase.to_sym),
+            :snippet => true,
+            :template => "test"
+        )
+      end
+      assert discover_host_from_facts(@facts)
+      assert Host::Discovered.find_by_name('mace41f13cc3658')
+      refute Host::Managed.find_by_name('mace41f13cc3658')
+    ensure
+      Setting[:discovery_lock] = false
     end
-    assert discover_host_from_facts(@facts)
-    assert Host::Discovered.find_by_name('mace41f13cc3658')
-    refute Host::Managed.find_by_name('mace41f13cc3658')
   end
 
   test "should create discovered host with fact_name as a name if it is a valid mac" do
@@ -258,7 +262,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "all non-discovery facts are deleted after managed conversion" do
     Setting[:discovery_clean_facts] = true
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     raw.merge!({
       'delete_me' => "content",
       'discovery_keep_me' => "content",
@@ -272,7 +276,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "primary interface is preserved after managed conversion" do
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     raw.merge!({
       'keep_me' => "content",
       'discovery_keep_me' => "content",
@@ -285,7 +289,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "provision interface is preserved after managed conversion" do
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     raw.merge!({
       'keep_me' => "content",
       'discovery_keep_me' => "content",
@@ -298,7 +302,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "provision interface host association is preserved after managed conversion" do
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     raw.merge!({
       'keep_me' => "content",
       'discovery_keep_me' => "content",
@@ -311,7 +315,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "all facts are preserved after managed conversion" do
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     raw.merge!({
       'keep_me' => "content",
       'discovery_keep_me' => "content",
@@ -380,7 +384,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "primary interface isn't touched with no LLDP facts" do
     Setting[:discovery_auto_bond] = true
-    raw = parse_json_fixture('/facts.json')['facts']
+    raw = parse_json_fixture('regular_host', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
     assert_equal "eth0", host.primary_interface.identifier
@@ -388,7 +392,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "provision_interface isn't touched with no peer on the same VLAN" do
     Setting[:discovery_auto_bond] = true
-    raw = parse_json_fixture('/facts_with_lldp.json')['facts']
+    raw = parse_json_fixture('facts_with_lldp', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
     assert_equal "eth0", host.primary_interface.identifier
@@ -396,7 +400,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "provision_interface is switched to bond0 with more than one interface on the same VLAN" do
     Setting[:discovery_auto_bond] = true
-    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
     assert_equal "bond0", host.primary_interface.identifier
@@ -404,7 +408,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "provision_interface is not switched to bond0 if disabled" do
     Setting[:discovery_auto_bond] = false
-    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
     assert_equal "eth0", host.primary_interface.identifier
@@ -412,7 +416,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "former provision_interface is cleanup up after switching to bond0" do
     Setting[:discovery_auto_bond] = true
-    raw = parse_json_fixture('/facts_with_lldp_bond_candidate.json')['facts']
+    raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
 
@@ -426,9 +430,5 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_nil former_interface.ip
     assert_nil former_interface.name
     assert_equal false, former_interface.primary
-  end
-
-  def parse_json_fixture(relative_path)
-    JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + relative_path)))
   end
 end

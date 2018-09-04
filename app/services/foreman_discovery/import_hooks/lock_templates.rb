@@ -8,9 +8,14 @@ module ForemanDiscovery
 
       def lock_templates
         TemplateKind::PXE.each do |kind|
-          template_name = Setting["discovery_#{kind.downcase}_lock_template"]
+          setting = "discovery_#{kind.downcase}_lock_template"
+          template_name = Setting[setting]
           logger.info "Locking discovered host #{host.mac} in subnet #{host.subnet} via #{template_name} template"
-          template = ::ProvisioningTemplate.find_by_name(template_name)
+          template = ::ProvisioningTemplate.unscoped.find_by_name(template_name)
+          if template.nil?
+            logger.warn "Template '#{template_name}' provided by setting '#{setting}' does not exist, not locking"
+            next
+          end
           rendered_template = host.render_template(template: template, params: { host: host })
           host.subnet.tftp_proxy.set(kind, host.mac, pxeconfig: rendered_template)
         end

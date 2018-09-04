@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require_relative '../test_plugin_helper'
 
 class DiscoveredHostsControllerTest < ActionController::TestCase
   include FactImporterIsolation
@@ -168,7 +168,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_add_entry_to_nav_menu
     get :index, params: {}, session: set_session_user
-    assert_select "a[href=?]", "/discovered_hosts"
+    assert_response :success
+    assert response.body =~ /"\/discovered_hosts"/
   end
 
   def test_reboot_success
