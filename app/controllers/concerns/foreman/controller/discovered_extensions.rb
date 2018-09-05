@@ -72,6 +72,7 @@ module Foreman::Controller::DiscoveredExtensions
     result = true
     error_message = _("Errors during reboot: %s")
     overall_errors = ""
+    host_details  = []
 
     if hosts.count > 0
       hosts.each do |discovered_host|
@@ -80,11 +81,17 @@ module Foreman::Controller::DiscoveredExtensions
             error =  "#{discovered_host.name}: failed to reboot "
             overall_errors << error
             logger.error error
+            host_details << {:name => discovered_host.name, :error => error}
           end
         rescue Exception => e
-          error = "#{discovered_host.name}: #{e.to_s} "
-          overall_errors << error
-          logger.error error
+          msg = if e.respond_to?(:wrapped_exception)
+                  e.wrapped_exception.message
+                else
+                  e.message
+                end
+          overall_errors << msg
+          Foreman::Logging.exception(msg, e)
+          host_details << {:name => discovered_host.name, :error => msg}
         end
       end
     else
@@ -94,6 +101,10 @@ module Foreman::Controller::DiscoveredExtensions
 
     if overall_errors.present? || !result
       error_message % overall_errors.strip
+      {
+        :message => error_message % overall_errors.strip,
+        :host_details => host_details
+      }
     end
   end
 

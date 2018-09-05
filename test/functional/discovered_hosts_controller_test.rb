@@ -275,7 +275,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
-    assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
+    assert_equal "{:message=>\"Errors during reboot: #{host.name}: failed to reboot\", :host_details=>[{:name=>\"#{host.name}\", :error=>\"macaabbccddeeff: failed to reboot \"}]}", flash[:error]
     assert_nil flash[:success]
   end
 
@@ -285,7 +285,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-4973/, flash[:error])
+    assert_equal "{:message=>\"Errors during reboot: request failed\", :host_details=>[{:name=>\"#{host.name}\", :error=>\"request failed\"}]}", flash[:error]
     assert_nil flash[:success]
   end
 
