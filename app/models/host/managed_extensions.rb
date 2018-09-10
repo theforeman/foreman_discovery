@@ -17,7 +17,7 @@ module Host::ManagedExtensions
       return
     end
     return if new_record? # Discovered Hosts already exist, and new_records will break `find`
-    return unless type_changed? and ::Host::Base.find(self.id).type == "Host::Discovered"
+    return unless will_save_change_to_attribute?(:type, from: 'Host::Discovered')
     # reboot task must be high priority and there is no compensation action apparently
     if facts['discovery_kexec'] && provisioning_template(:kind => 'kexec')
       post_queue.create(:name => _("Reloading kernel on %s") % self, :priority => 10000, :action => [self, :setKexec])
@@ -63,12 +63,12 @@ module Host::ManagedExtensions
 
   def delete_discovery_attribute_set
     return if new_record?
-    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if type_changed?
+    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if saved_change_to_attribute?(:type)
   end
 
   def update_notifications
     return if new_record?
-    return unless type_changed?
+    return unless saved_change_to_attribute?(:type)
     ForemanDiscovery::UINotifications::DestroyHost.deliver!(self)
   end
 end

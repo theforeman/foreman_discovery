@@ -33,19 +33,17 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
   end
 
   test "queue_reboot enques reboot command when there is no kexec fact" do
-    @host.stubs(:type_changed?).returns(true)
+    @host.stubs(:will_save_change_to_attribute?).with(:type, from: 'Host::Discovered').returns(true)
     @host.stubs(:new_record?).returns(false)
     @host.id = 130513
-    ::Host::Base.stubs(:find).with(@host.id).returns(@host)
     @post_queue.expects(:create).with(has_entry(:action, [@host, :setReboot])).once
     @host.queue_reboot
   end
 
   test "queue_reboot enques reboot command when there is no kexec template" do
-    @host.stubs(:type_changed?).returns(true)
+    @host.stubs(:will_save_change_to_attribute?).with(:type, from: 'Host::Discovered').returns(true)
     @host.stubs(:new_record?).returns(false)
     @host.id = 130513
-    ::Host::Base.stubs(:find).with(@host.id).returns(@host)
     @facts['discovery_kexec'] = "Kexec version X.Y.Z"
     @host.stubs(:provisioning_template).returns(nil)
     @post_queue.expects(:create).with(has_entry(:action, [@host, :setReboot])).once
@@ -53,10 +51,9 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
   end
 
   test "queue_reboot enques kexec command" do
-    @host.stubs(:type_changed?).returns(true)
+    @host.stubs(:will_save_change_to_attribute?).with(:type, from: 'Host::Discovered').returns(true)
     @host.stubs(:new_record?).returns(false)
     @host.id = 130513
-    ::Host::Base.stubs(:find).with(@host.id).returns(@host)
     @facts['discovery_kexec'] = "Kexec version X.Y.Z"
     @post_queue.expects(:create).with(has_entry(:action, [@host, :setKexec])).once
     @host.queue_reboot
