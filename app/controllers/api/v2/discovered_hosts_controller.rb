@@ -210,16 +210,9 @@ module Api
       api :PUT, "/discovered_hosts/reboot_all", N_("Rebooting all discovered hosts")
 
       def reboot_all
-        error_message = perform_reboot_all
-        if error_message
-          render_error :custom_error,
-                       :status => :unprocessable_entity,
-                       :locals => {
-                           :message => error_message
-                       }
-        else
-          process_success _("Discovered hosts are rebooting now")
-        end
+        exceptions = perform_reboot_all
+        return process_success _("Discovered hosts are rebooting now") unless exceptions.present?
+        render :json => (::Foreman::MultiException.new(exceptions,"Errors During Rebooting")).as_json
       end
 
       private

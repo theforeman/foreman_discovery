@@ -125,7 +125,7 @@ class DiscoveredHostsController < ::ApplicationController
     error_message = perform_reboot_all(@hosts)
 
     if error_message
-      process_error :error_msg => error_message, :redirect => :back
+      process_error :error_msg => error_message.first.message, :redirect => :back
     else
       process_success :success_msg => _("Discovered hosts are rebooting now"), :success_redirect => :back
     end
