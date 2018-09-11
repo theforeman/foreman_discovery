@@ -450,6 +450,13 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     end
   end
 
+  test "primary interface via tagged VLAN is discovered with an IP" do
+    raw = parse_json_fixture('rhel7-vlan')
+    host = discover_host_from_facts(raw)
+    assert_equal "192.168.1.16", host.ip
+    assert_equal "eno49.444", host.primary_interface.identifier
+  end
+
   test "primary interface isn't touched with no LLDP facts" do
     Setting[:discovery_auto_bond] = true
     raw = parse_json_fixture('regular_host', true)
