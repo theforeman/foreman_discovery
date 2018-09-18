@@ -21,7 +21,7 @@
     <% end -%>
     <th class="hidden-tablet hidden-xs"><%= sort :subnet, :as => _("Subnet") %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last Facts Upload") %></th>
-    <th></th>
+    <th class="hidden-tablet hidden-xs"><%= _("Actions") %></th>
   </tr>
   <% @hosts.each do |host| -%>
     <tr>
