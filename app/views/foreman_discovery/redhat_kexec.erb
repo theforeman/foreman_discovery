@@ -34,7 +34,9 @@ Please read kexec(8) man page for more information about semantics.
   mask = @host.facts['discovery_netmask']
   gw = @host.facts['discovery_gateway']
   dns = @host.facts['discovery_dns']
-  append = @host.facts['append']
+  options = ["nomodeset"]
+  options << @host.facts['append']
+  options << "inst.stage2=#{@host.operatingsystem.medium_uri(@host)}" if @host.operatingsystem.name.match(/Atomic/i)
 -%>
 {
   "comment": "WARNING: Both kernel and initram are not set in preview mode due to http://projects.theforeman.org/issues/19737",
@@ -44,7 +46,7 @@ Please read kexec(8) man page for more information about semantics.
     (@host.operatingsystem.name != 'Fedora' and @host.operatingsystem.major.to_i >= 7) -%>
   "append": "ks=<%= foreman_url('provision') + "&static=yes" %> inst.ks.sendmac <%= "ip=#{ip}::#{gw}:#{mask}:::none nameserver=#{dns} ksdevice=bootif BOOTIF=#{bootif} nomodeset #{append}" %>",
 <% else -%>
-  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} nomodeset #{append}" %>",
+  "append": "ks=<%= foreman_url('provision') + "&static=yes" %> kssendmac nicdelay=5 <%= "ip=#{ip} netmask=#{mask} gateway=#{gw} dns=#{dns} ksdevice=#{mac} BOOTIF=#{bootif} " + options.compact.join(' ') %>",
 <% end -%>
   "extra": []
 }
