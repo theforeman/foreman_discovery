@@ -7,15 +7,16 @@
 # Christina Gurski <Gurski_christina@yahoo.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2014-2017
 # Lukáš Zapletal, 2015
+# Martin Zimmermann <martin.zimmermann@gmx.com>, 2018
 # simon11 <simon.stieger.98@live.de>, 2014
 # simon11 <simon.stieger.98@live.de>, 2014
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-01-05 19:26+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2018-08-12 21:09+0000\n"
+"Last-Translator: Martin Zimmermann <martin.zimmermann@gmx.com>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +61,7 @@ msgid "Automatically provision newly discovered hosts, according to the provisio
 msgstr "Neu entdeckte Hosts automatisch bereitstellen gemäß Bereitstellungsregeln"
 
 msgid "Automatically reboot or kexec discovered host during provisioning"
-msgstr ""
+msgstr "Automatischer Reboot oder kexec endeckter Hosts während der Bereitstellung"
 
 msgid "Back"
 msgstr "Zurück"
@@ -78,13 +79,13 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Alle berichteten Fakten während der Bereitstellung löschen (ausgenommen Entdeckungsfakten)"
 
 msgid "Collapse All"
-msgstr ""
+msgstr "Alle einklappen"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "Host erstellen"
 
 msgid "Create Rule"
 msgstr "Regel erstellen"
@@ -102,7 +103,7 @@ msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 msgid "Delete %s?"
 msgstr "%s löschen?"
@@ -207,7 +208,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s bearbeiten"
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -240,7 +241,7 @@ msgid "Fact columns"
 msgstr "Faktspalten"
 
 msgid "Fact name to use for primary interface detection"
-msgstr ""
+msgstr "Fakt Name zur Verwendung bei der Erkennung der primären Schnittstelle"
 
 msgid "Facts could not be imported"
 msgstr "Fakten konnten nicht importiert werden"
@@ -358,7 +359,7 @@ msgid "In addition to @host attribute function rand for random integers is avail
 msgstr ""
 
 msgid "Init RAM kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "Init RAM kexec URL ist ungültig: '%s'"
 
 msgid "Interface fact"
 msgstr "Schnittstellenfakt"
@@ -376,7 +377,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Ungültiger Hostname: Konnte den Hostnamen nicht normalisieren"
 
 msgid "Kernel kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "Kernel kexec URL ist ist ungültig: '%s'"
 
 msgid "Kexec template not associated with operating system"
 msgstr "Kexec Vorlage ist nicht dem Betriebssystem zugeordnet"
@@ -397,7 +398,7 @@ msgid "List all fact values of a given discovered host"
 msgstr "Alle Faktwerte eines angegebenen entdeckten Hosts auflisten"
 
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr ""
+msgstr "Liste der Fakten zur Bildung des Hostnamens (durch Kommas getrennt, der erste Eintrag gewinnt)"
 
 msgid "Location"
 msgstr "Standort"
@@ -700,10 +701,10 @@ msgid "items selected. Uncheck to Clear"
 msgstr "Elemente ausgewählt. Zum Leeren abwählen"
 
 msgid "location ID for provisioned hosts"
-msgstr ""
+msgstr "Standort Kennung für bereitgestellte Hosts"
 
 msgid "must be present."
-msgstr ""
+msgstr "muss vorhanden sein."
 
 msgid "must start with a letter or ERB."
 msgstr "muss mit einem Buchstaben oder ERB beginnen."
@@ -718,7 +719,7 @@ msgid "number of entries per request"
 msgstr "Anzahl der Einträge pro Anfrage"
 
 msgid "organization ID for provisioned hosts"
-msgstr ""
+msgstr "Organisations-Kennung für bereitgestellte Hosts"
 
 msgid "paginate results"
 msgstr "Ergebnisse nummerieren"

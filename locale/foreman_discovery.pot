@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 11:25+0200\n"
-"PO-Revision-Date: 2018-06-15 11:25+0200\n"
+"POT-Creation-Date: 2018-10-25 13:56+0200\n"
+"PO-Revision-Date: 2018-10-25 13:56+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Create a discovery rule"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovery_rules_controller.rb:52
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:53
 msgid "Update a rule"
 msgstr ""
 
-#: ../app/controllers/api/v2/discovery_rules_controller.rb:60
+#: ../app/controllers/api/v2/discovery_rules_controller.rb:61
 msgid "Delete a rule"
 msgstr ""
 
@@ -213,11 +213,11 @@ msgstr ""
 msgid "No hostgroup associated with rule '%s'"
 msgstr ""
 
-#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:71
+#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:73
 msgid "Errors during reboot: %s"
 msgstr ""
 
-#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:89
+#: ../app/controllers/concerns/foreman/controller/discovered_extensions.rb:91
 msgid "No discovered hosts to reboot"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
-#: ../app/models/setting/discovered.rb:23
+#: ../app/models/setting/discovered.rb:24
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:48
 msgid "Reboot"
 msgstr ""
@@ -426,71 +426,83 @@ msgstr ""
 msgid "Delete rule '%s'?"
 msgstr ""
 
-#: ../app/mailers/discovered_mailer.rb:4
-msgid "Must specify a user with email enabled"
+#: ../app/mailers/discovered_mailer.rb:9
+msgid "Invalid user type of %s was provided"
 msgstr ""
 
-#: ../app/mailers/discovered_mailer.rb:15
+#: ../app/mailers/discovered_mailer.rb:26
 msgid "Discovered hosts summary"
 msgstr ""
 
-#: ../app/models/discovery_rule.rb:10
+#: ../app/models/discovery_rule.rb:11
 msgid "can't contain white spaces."
 msgstr ""
 
-#: ../app/models/discovery_rule.rb:12
+#: ../app/models/discovery_rule.rb:13
 msgid "must start with a letter or ERB."
 msgstr ""
 
-#: ../app/models/discovery_rule.rb:15
+#: ../app/models/discovery_rule.rb:16
 msgid "must be present."
 msgstr ""
 
-#: ../app/models/discovery_rule.rb:48
+#: ../app/models/discovery_rule.rb:53
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/models/discovery_rule.rb:54
+#: ../app/models/discovery_rule.rb:59
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/models/host/discovered.rb:51
-msgid "Invalid facts, must be a Hash"
+#: ../app/models/host/discovered.rb:45
+msgid "Fact + prefix"
+msgstr ""
+
+#: ../app/models/host/discovered.rb:46
+msgid "Random name"
+msgstr ""
+
+#: ../app/models/host/discovered.rb:47
+msgid "MAC-based name"
 msgstr ""
 
 #: ../app/models/host/discovered.rb:56
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+#: ../app/models/host/discovered.rb:61
 msgid ""
 "Expected discovery_fact '%s' is missing, unable to detect primary interface an"
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:63
+#: ../app/models/host/discovered.rb:74
 msgid ""
 "Invalid facts: hash does not contain a valid value for any of the facts in the"
 " discovery_hostname setting: %s"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:89
+#: ../app/models/host/discovered.rb:100
 msgid "Facts could not be imported"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:212
+#: ../app/models/host/discovered.rb:155
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:220
+#: ../app/models/host/discovered.rb:163
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:228
+#: ../app/models/host/discovered.rb:171
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:247
+#: ../app/models/host/discovered.rb:190
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
@@ -527,164 +539,182 @@ msgid "Interface fact"
 msgstr ""
 
 #: ../app/models/setting/discovered.rb:20
-msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgid ""
+"Automatic bond interface (if another interface is detected on the same VLAN vi"
+"a LLDP)"
 msgstr ""
 
 #: ../app/models/setting/discovered.rb:20
+msgid "Create bond interfaces"
+msgstr ""
+
+#: ../app/models/setting/discovered.rb:21
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
+#: ../app/models/setting/discovered.rb:21
 msgid "Clean all facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:21
+#: ../app/models/setting/discovered.rb:22
 msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:21
+#: ../app/models/setting/discovered.rb:22
 msgid "Hostname facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:22
+#: ../app/models/setting/discovered.rb:23
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
 "rules"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:22
+#: ../app/models/setting/discovered.rb:23
 msgid "Auto provisioning"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:23
+#: ../app/models/setting/discovered.rb:24
 msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:24
+#: ../app/models/setting/discovered.rb:25
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:24
+#: ../app/models/setting/discovered.rb:25
 msgid "Hostname prefix"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:25
+#: ../app/models/setting/discovered.rb:26
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:25
+#: ../app/models/setting/discovered.rb:26
 msgid "Fact columns"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:26
+#: ../app/models/setting/discovered.rb:27
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:26
+#: ../app/models/setting/discovered.rb:27
 msgid "Highlighted facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:27
+#: ../app/models/setting/discovered.rb:28
 msgid "Regex to organize facts for storage section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:27
+#: ../app/models/setting/discovered.rb:28
 msgid "Storage facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:28
+#: ../app/models/setting/discovered.rb:29
 msgid "Regex to organize facts for software section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:28
+#: ../app/models/setting/discovered.rb:29
 msgid "Software facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:29
+#: ../app/models/setting/discovered.rb:30
 msgid "Regex to organize facts for hardware section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:29
+#: ../app/models/setting/discovered.rb:30
 msgid "Hardware facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:30
+#: ../app/models/setting/discovered.rb:31
 msgid "Regex to organize facts for network section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:30
+#: ../app/models/setting/discovered.rb:31
 msgid "Network facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:31
+#: ../app/models/setting/discovered.rb:32
 msgid "Regex to organize facts for ipmi section"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:31
+#: ../app/models/setting/discovered.rb:32
 msgid "IPMI facts"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:32
+#: ../app/models/setting/discovered.rb:33
 msgid ""
 "Automatically generate PXE configuration to pin a newly discovered host to dis"
 "covery"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:32
+#: ../app/models/setting/discovered.rb:33
 msgid "Lock PXE"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:33
+#: ../app/models/setting/discovered.rb:34
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:33
+#: ../app/models/setting/discovered.rb:34
 msgid "Locked PXELinux template name"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:34
+#: ../app/models/setting/discovered.rb:35
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:34
+#: ../app/models/setting/discovered.rb:35
 msgid "Locked PXEGrub template name"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:35
+#: ../app/models/setting/discovered.rb:36
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:35
+#: ../app/models/setting/discovered.rb:36
 msgid "Locked PXEGrub2 template name"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:36
+#: ../app/models/setting/discovered.rb:37
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:36
+#: ../app/models/setting/discovered.rb:37
 msgid "Force DNS"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:37
+#: ../app/models/setting/discovered.rb:38
 msgid ""
 "Do not allow to discover existing managed host matching MAC of a provisioning "
 "NIC (errors out early)"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:37
+#: ../app/models/setting/discovered.rb:38
 msgid "Error on existing NIC"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:44
+#: ../app/models/setting/discovered.rb:39
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
+#: ../app/models/setting/discovered.rb:39
+msgid "Type of name generator"
+msgstr ""
+
+#: ../app/models/setting/discovered.rb:46
 msgid "The default location to place discovered hosts in"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:44
+#: ../app/models/setting/discovered.rb:46
 msgid "Discovery location"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:52
+#: ../app/models/setting/discovered.rb:54
 msgid "The default organization to place discovered hosts in"
 msgstr ""
 
-#: ../app/models/setting/discovered.rb:52
+#: ../app/models/setting/discovered.rb:54
 msgid "Discovery organization"
 msgstr ""
 
@@ -793,6 +823,11 @@ msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:23
 msgid "Last Facts Upload"
+msgstr ""
+
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:24
+#: ../app/views/discovery_rules/index.html.erb:12
+msgid "Actions"
 msgstr ""
 
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:60
@@ -1007,6 +1042,10 @@ msgstr ""
 
 #: ../app/views/discovery_rules/new.html.erb:1
 msgid "New Discovery Rule"
+msgstr ""
+
+#: ../db/seeds.d/50_discovery_templates.rb:5
+msgid "Command line options for kexec during PXE-less provisioning."
 msgstr ""
 
 #: ../db/seeds.d/70_discovery_mail_notification.rb:3

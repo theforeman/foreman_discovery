@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2015-2017
+# Andi Chandler <andi@gowling.com>, 2015-2018
 # Dominic Cleal <dominic@cleal.org>, 2013-2015
 # Dominic Cleal <dominic@cleal.org>, 2016
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-25 01:46+0000\n"
+"PO-Revision-Date: 2018-07-18 21:47+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -77,7 +77,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Clean all reported facts during provisioning (except discovery facts)"
 
 msgid "Collapse All"
-msgstr ""
+msgstr "Collapse All"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
@@ -101,7 +101,7 @@ msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP filename option (Grub2 or PXELinux by default)"
 
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 msgid "Delete %s?"
 msgstr "Delete %s?"
@@ -131,7 +131,7 @@ msgid "Discovered Hosts"
 msgstr "Discovered Hosts"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr ""
+msgstr "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
@@ -164,7 +164,7 @@ msgid "Discovery Rules"
 msgstr "Discovery Rules"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr ""
+msgstr "Discovery fact parser does not work with non-discovery host '%{host}'"
 
 msgid "Discovery location"
 msgstr "Discovery location"
@@ -200,13 +200,13 @@ msgid "Disks size"
 msgstr "Disks size"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
-msgstr ""
+msgstr "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Edit %s"
 
 msgid "Enable"
 msgstr "Enable"
@@ -215,7 +215,7 @@ msgid "Enable rule '%s'?"
 msgstr "Enable rule '%s'?"
 
 msgid "Error on existing NIC"
-msgstr ""
+msgstr "Error on existing NIC"
 
 msgid "Errors during auto provisioning: %s"
 msgstr "Errors during auto provisioning: %s"
@@ -657,7 +657,7 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "Unable to find a discovery rule, no host provided (check permissions)"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
-msgstr ""
+msgstr "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "Unable to perform kexec on %{name} via %{url}: %{msg}"
@@ -702,7 +702,7 @@ msgid "location ID for provisioned hosts"
 msgstr "location ID for provisioned hosts"
 
 msgid "must be present."
-msgstr ""
+msgstr "must be present."
 
 msgid "must start with a letter or ERB."
 msgstr "must start with a letter or ERB."

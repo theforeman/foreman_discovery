@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2017-12-11 11:31+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"Last-Translator: Dominic Cleal <dominic@cleal.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgid "%s ago"
 msgstr "%s 之前"
 
 msgid "%s discovered hosts were provisioned"
-msgstr "%s 已發現的主機已供給"
+msgstr ""
 
 msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
@@ -42,7 +42,7 @@ msgid "Associated Hosts"
 msgstr ""
 
 msgid "Auto Provision"
-msgstr "自動佈建"
+msgstr ""
 
 msgid "Auto provisioning"
 msgstr ""
@@ -51,7 +51,7 @@ msgid "Automatically generate PXE configuration to pin a newly discovered host t
 msgstr ""
 
 msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
-msgstr "根據佈建規則來自動佈建新發現的主機"
+msgstr ""
 
 msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
@@ -72,10 +72,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Collapse All"
-msgstr ""
+msgstr "全部收回"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
-msgstr "無法由協定 %{url} 取得詳細資料：%{error}"
+msgstr ""
 
 msgid "Create Host"
 msgstr ""
@@ -84,10 +84,10 @@ msgid "Create Rule"
 msgstr ""
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr "建立測試用的搜尋主機（使用 /facts 來建立新主機）"
+msgstr ""
 
 msgid "Create a discovery rule"
-msgstr "建立一項搜尋規則"
+msgstr ""
 
 msgid "Customize Host"
 msgstr ""
@@ -96,16 +96,16 @@ msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 msgid "Delete %s?"
 msgstr "刪除 %s？"
 
 msgid "Delete a discovered host"
-msgstr "刪除發現的主機"
+msgstr ""
 
 msgid "Delete a rule"
-msgstr "刪除規則"
+msgstr ""
 
 msgid "Delete rule '%s'?"
 msgstr ""
@@ -135,10 +135,10 @@ msgid "Discovered hosts"
 msgstr "發現的主機"
 
 msgid "Discovered hosts are provisioning now"
-msgstr "發現的主機現在正在佈建"
+msgstr ""
 
 msgid "Discovered hosts are rebooting now"
-msgstr "發現的主機正在重新啟動"
+msgstr ""
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr ""
@@ -156,7 +156,7 @@ msgid "Discovery Proxy to use within this subnet for managing connection to disc
 msgstr ""
 
 msgid "Discovery Rules"
-msgstr "搜尋規則"
+msgstr ""
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
@@ -168,19 +168,19 @@ msgid "Discovery organization"
 msgstr ""
 
 msgid "Discovery rules"
-msgstr "搜尋規則"
+msgstr ""
 
 msgid "DiscoveryRule|Enabled"
-msgstr "已啟用"
+msgstr ""
 
 msgid "DiscoveryRule|Name"
-msgstr "名稱"
+msgstr ""
 
 msgid "DiscoveryRule|Priority"
-msgstr "優先順序"
+msgstr ""
 
 msgid "DiscoveryRule|Query"
-msgstr "查詢"
+msgstr ""
 
 msgid "Disk Count"
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "編輯 %s"
 
 msgid "Enable"
 msgstr "啟用"
@@ -213,22 +213,22 @@ msgid "Error on existing NIC"
 msgstr ""
 
 msgid "Errors during auto provisioning: %s"
-msgstr "進行自動佈建時發生了錯誤：%s"
+msgstr ""
 
 msgid "Errors during reboot: %s"
-msgstr "重新開機時發生了錯誤：%s"
+msgstr ""
 
 msgid "Execute rules against a discovered host"
-msgstr "針對於一部發現的主機執行規則"
+msgstr ""
 
 msgid "Execute rules against all currently discovered hosts"
-msgstr "針對於所有目前已發現的主機執行規則"
+msgstr ""
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr "沒有預期的 discovery_fact '%s'，無法偵測主介面並設定主機名稱"
+msgstr ""
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "要在主機清單中顯示的額外事實欄（以逗號隔開）"
+msgstr ""
 
 msgid "Fact columns"
 msgstr ""
@@ -243,22 +243,22 @@ msgid "Facts refreshed for %s"
 msgstr "%s 的詳情已刷新"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr "自動佈建主機 %s 失敗：%s"
+msgstr ""
 
 msgid "Failed to reboot host %s"
-msgstr "重新啟動主機 %s 失敗"
+msgstr ""
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "重新啟動主機 %{hostname} 失敗，錯誤訊息為 %{error_message}"
+msgstr ""
 
 msgid "Failed to reboot hosts with error %s"
-msgstr "重新啟動主機失敗，錯誤訊息為 %s"
+msgstr ""
 
 msgid "Failed to refresh facts for %s"
 msgstr "刷新 %s 的詳情失敗"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "重新刷新主機 %{hostname} 的事實失敗，錯誤訊息為 %{error_message}"
+msgstr ""
 
 msgid "Force DNS"
 msgstr ""
@@ -285,7 +285,7 @@ msgid "Host"
 msgstr "主機"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "主機 %{host} 已透過規則 %{rule} 佈建"
+msgstr ""
 
 msgid "Host Group"
 msgstr "主機群組"
@@ -301,13 +301,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Host of type %s can not be rebooted"
-msgstr "類型為 %s 的主機無法重新啟動"
+msgstr ""
 
 msgid "Hostname facts"
 msgstr ""
 
 msgid "Hostname for provisioned hosts"
-msgstr "已佈建之主機的主機名稱"
+msgstr ""
 
 msgid "Hostname prefix"
 msgstr ""
@@ -343,10 +343,10 @@ msgid "Identifier"
 msgstr "辨識碼"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr "映像檔 API 處理錯誤：%{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr "映像檔 API 傳回 HTTP/%{code} 與 '%{body}"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -361,7 +361,7 @@ msgid "Interfaces"
 msgstr "介面"
 
 msgid "Invalid facts, must be a Hash"
-msgstr "詳情無效，必須是雜湊"
+msgstr ""
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
 msgstr ""
@@ -373,7 +373,7 @@ msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
 msgid "Kexec template not associated with operating system"
-msgstr "kexec 範本並不與作業系統相關連"
+msgstr ""
 
 msgid "Last Facts Upload"
 msgstr ""
@@ -382,10 +382,10 @@ msgid "Learn more about this in the documentation."
 msgstr ""
 
 msgid "List all discovered hosts"
-msgstr "列出所有發現的主機"
+msgstr ""
 
 msgid "List all discovery rules"
-msgstr "列出所有的搜尋規則"
+msgstr ""
 
 msgid "List all fact values of a given discovered host"
 msgstr ""
@@ -415,7 +415,7 @@ msgid "MAC address"
 msgstr "MAC 位址"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr "以此規則佈建的主機已達到最大限制（0 = 無限制）"
+msgstr ""
 
 msgid "Memory"
 msgstr "記憶體"
@@ -442,13 +442,13 @@ msgid "Network facts"
 msgstr ""
 
 msgid "New Discovery Rule"
-msgstr "新的搜尋規則"
+msgstr ""
 
 msgid "New in the last 24 hours"
-msgstr "過去 24 小時的新項目"
+msgstr ""
 
 msgid "No discovered hosts available"
-msgstr "未發現可用的主機"
+msgstr ""
 
 msgid "No discovered hosts for the selected period"
 msgstr ""
@@ -457,13 +457,13 @@ msgid "No discovered hosts found in this context."
 msgstr ""
 
 msgid "No discovered hosts to provision"
-msgstr "未發現可佈建的主機"
+msgstr ""
 
 msgid "No discovered hosts to reboot"
-msgstr "未發現可重新啟動的主機"
+msgstr ""
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr "沒有主機群組與規則 '%s' 相關連"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "未選擇主機"
@@ -475,10 +475,10 @@ msgid "No new discovered hosts for this period"
 msgstr ""
 
 msgid "No rule found for host %s"
-msgstr "未找到主機 %s 的規則"
+msgstr ""
 
 msgid "Not reported in more than 7 days"
-msgstr "七天內未回報"
+msgstr ""
 
 msgid "One or more hosts have been discovered"
 msgstr ""
@@ -511,7 +511,7 @@ msgid "Provision %s"
 msgstr ""
 
 msgid "Provision a discovered host"
-msgstr "佈建一部已發現的主機"
+msgstr ""
 
 msgid "Reboot"
 msgstr "重新開機"
@@ -520,13 +520,13 @@ msgid "Rebooting %s"
 msgstr "重新啟動 %s"
 
 msgid "Rebooting a discovered host"
-msgstr "重新啟動一部已發現的主機"
+msgstr ""
 
 msgid "Rebooting all discovered hosts"
-msgstr "重新啟動所有已發現的主機"
+msgstr ""
 
 msgid "Rebooting host %s"
-msgstr "重新啟動主機 %s"
+msgstr ""
 
 msgid "Rebuild DNS for %s"
 msgstr ""
@@ -535,40 +535,40 @@ msgid "Refresh facts"
 msgstr "刷新詳情"
 
 msgid "Refreshing the facts of a discovered host"
-msgstr "刷新一部已發現之主機的詳情"
+msgstr ""
 
 msgid "Regex to organize facts for hardware section"
-msgstr "用來為 hardware 一節組織事實時使用的正規表示式"
+msgstr ""
 
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
 msgid "Regex to organize facts for ipmi section"
-msgstr "用來為 ipmi 一節組織事實時使用的正規表示式"
+msgstr ""
 
 msgid "Regex to organize facts for network section"
-msgstr "用來為 network 一節組織事實時使用的正規表示式"
+msgstr ""
 
 msgid "Regex to organize facts for software section"
-msgstr "用來為 software 一節組織事實時使用的正規表示式"
+msgstr ""
 
 msgid "Regex to organize facts for storage section"
-msgstr "用來為 storage 一節組織事實時使用的正規表示式"
+msgstr ""
 
 msgid "Reloading kernel on %s"
-msgstr "在 %s 上重新載入 kernel"
+msgstr ""
 
 msgid "Reported in the last 7 days"
-msgstr "過去七天內已回報"
+msgstr ""
 
 msgid "Rule disabled"
-msgstr "規則已停用"
+msgstr ""
 
 msgid "Rule enabled"
-msgstr "規則已啟用"
+msgstr ""
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr "規則優先順序（愈小的數字代表愈高的優先權）"
+msgstr ""
 
 msgid "Select Action"
 msgstr "選擇動作"
@@ -583,10 +583,10 @@ msgid "Select organization"
 msgstr "選擇組織"
 
 msgid "Show a discovered host"
-msgstr "顯示發現的主機"
+msgstr ""
 
 msgid "Show a discovery rule"
-msgstr "顯示搜尋規則"
+msgstr ""
 
 msgid "Software"
 msgstr "軟體"
@@ -598,7 +598,7 @@ msgid "Something went wrong while selecting hosts - %s"
 msgstr "選擇主機時發生了錯誤 - %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
-msgstr "以在佈建範本（ERB）中的相同語法，指定目標主機名稱範本格式。"
+msgstr ""
 
 msgid "Storage"
 msgstr "儲存裝置"
@@ -622,7 +622,7 @@ msgid "Summary report for discovered hosts from Foreman"
 msgstr ""
 
 msgid "Target host group for this rule with all properties set"
-msgstr "此規則的目標主機群組，並且設置了所有內容"
+msgstr ""
 
 msgid "The default location to place discovered hosts in"
 msgstr "放置已發現之主機的預設位置"
@@ -631,7 +631,7 @@ msgid "The default organization to place discovered hosts in"
 msgstr "放置已發現之主機的預設組織"
 
 msgid "The default prefix to use for the host name, must start with a letter"
-msgstr "主機名稱的預設前綴，必須以字母為起始"
+msgstr ""
 
 msgid "The following hosts were not deleted: %s"
 msgstr "下列主機尚未刪除：%s"
@@ -649,22 +649,22 @@ msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/ta
 msgstr "用來追蹤協調流程任務狀態的 UUID，GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
-msgstr "找不到探索規則，未提供主機（檢查權限）"
+msgstr ""
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr ""
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "無法透過 %{url} 在 %{name} 上執行 kexec：%{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr "無法供給 %{host}：%{errors}"
+msgstr ""
 
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "無法透過 %{url} 重新啟動 %{name}：%{msg}"
+msgstr ""
 
 msgid "Update a rule"
-msgstr "更新規則"
+msgstr ""
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr "上傳主機的詳情，並視需求建立主機"
@@ -673,22 +673,22 @@ msgid "When creating hostname patterns, make sure the resulting host names are u
 msgstr ""
 
 msgid "can't contain white spaces."
-msgstr "不可包含空格。"
+msgstr ""
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
-msgstr "定義一項模式來為相符的主機指定易讀的主機名稱"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr "啟用來限制每個規則所能搭配的最大已佈建主機之數量"
+msgstr ""
 
 msgid "filter results"
 msgstr "篩選結果"
 
 msgid "flag is used for temporary shutdown of rules"
-msgstr "旗標可用來暫時性關閉規則"
+msgstr ""
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr "包含主機詳情的雜湊，其中有最基本的詳情：discovery_bootif、macaddress_eth0、ipaddress、ipaddress_eth0、interfaces：eth0（大部分範例中，主介面的名稱都是 eth0）"
+msgstr ""
 
 msgid "items selected. Uncheck to Clear"
 msgstr "已選取項目。反選以清除"
@@ -700,10 +700,10 @@ msgid "must be present."
 msgstr ""
 
 msgid "must start with a letter or ERB."
-msgstr "必須以字母或是 ERB 作為起始。"
+msgstr ""
 
 msgid "not required if it's a virtual machine"
-msgstr "若是虛擬機器則不需要"
+msgstr ""
 
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "若是使用一個含有 DHCP 協定的子網路則不需要"
@@ -718,19 +718,19 @@ msgid "paginate results"
 msgstr "編頁結果"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
-msgstr "按照順序排序規則，數字較小的優先。必須大於零"
+msgstr ""
 
 msgid "query to match discovered hosts for the particular rule"
-msgstr "查詢與發現的主機相符的特定規則"
+msgstr ""
 
 msgid "represents rule name shown to the users"
-msgstr "代表使用者所會看見的規則名稱"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
-msgstr "若值並非從主機群組或設定中的預設密碼所繼承的話則需要"
+msgstr ""
 
 msgid "sort results"
 msgstr "排序結果"
 
 msgid "the hostgroup that is used to auto provision a host"
-msgstr "用來自動佈建一部主機的主機群組"
+msgstr ""

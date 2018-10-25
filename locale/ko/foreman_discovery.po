@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 10.0.0\n"
+"Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-01-05 19:26+0000\n"
+"PO-Revision-Date: 2018-06-15 10:50+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Collapse All"
-msgstr ""
+msgstr "모두 축소"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
@@ -95,7 +95,7 @@ msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "삭제 "
 
 msgid "Delete %s?"
 msgstr "%s 을(를) 삭제하시겠습니까?"
@@ -200,7 +200,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s 편집 "
 
 msgid "Enable"
 msgstr "활성화"
