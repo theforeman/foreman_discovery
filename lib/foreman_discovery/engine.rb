@@ -155,12 +155,12 @@ module ForemanDiscovery
 
         # menu entries
         menu :top_menu, :discovered_hosts, :url_hash => {:controller => :discovered_hosts, :action => :index},
-          :caption=> N_('Discovered hosts'),
+          :caption=> N_('Discovered Hosts'),
           :parent => :hosts_menu,
           :after=>:hosts
 
         menu :top_menu, :discovery_rules, :url_hash => {:controller => :discovery_rules, :action => :index},
-          :caption => N_('Discovery rules'),
+          :caption => N_('Discovery Rules'),
           :parent => :configure_menu,
           :after=> :hostgroups
 
