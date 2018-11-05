@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
-"Last-Translator: Dominic Cleal <dominic@cleal.org>\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
+"Last-Translator: Andrei Burd <burdandrei@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,9 @@ msgstr "Сводка обнаруженных узлов от <b>Foreman</b>"
 msgid "A summary of discovered hosts"
 msgstr "Сводка состояния обнаруженных узлов"
 
+msgid "Actions"
+msgstr "Действия"
+
 msgid "Assign Location"
 msgstr "Выбрать местоположение"
 
@@ -52,6 +55,9 @@ msgid "Auto Provision"
 msgstr "Автоматическая подготовка"
 
 msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -81,6 +87,9 @@ msgstr ""
 msgid "Collapse All"
 msgstr "Свернуть все"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Не удалось получить факты с %{url}: %{error}"
 
@@ -95,6 +104,9 @@ msgstr "Создать узел на базе обнаруженного для 
 
 msgid "Create a discovery rule"
 msgstr "Создать правило"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr ""
@@ -168,6 +180,9 @@ msgstr "Правила обнаружения"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr ""
 
@@ -236,6 +251,9 @@ msgstr "Отсутствует факт «%s»: невозможно опред�
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Дополнительные столбцы Facter в списке узлов (через запятую)"
+
+msgid "Fact + prefix"
+msgstr ""
 
 msgid "Fact columns"
 msgstr ""
@@ -380,6 +398,9 @@ msgstr "Недействительные факты: строка не соде�
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Не удалось нормализовать имя узла"
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -425,6 +446,9 @@ msgstr ""
 msgid "MAC address"
 msgstr "MAC-адрес"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Максимальное число инициализируемых узлов в соответствии с правилом (0 снимает ограничения)"
 
@@ -436,9 +460,6 @@ msgstr "Дополнительно"
 
 msgid "Model"
 msgstr "Модель"
-
-msgid "Must specify a user with email enabled"
-msgstr "Необходимо указать пользователя с активным почтовым адресом"
 
 msgid "N/A"
 msgstr "нет"
@@ -523,6 +544,9 @@ msgstr ""
 
 msgid "Provision a discovered host"
 msgstr "Подготовить обнаруженный узел"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Перезагрузить"
@@ -655,6 +679,9 @@ msgstr ""
 
 msgid "Type"
 msgstr "Тип"
+
+msgid "Type of name generator"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID для отслеживания состояния задач оркестрации, GET /api/orchestration/:UUID/tasks"

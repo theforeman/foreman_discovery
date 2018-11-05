@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
+"Last-Translator: Giuseppe Pignataro (Fastbyte01) <rogepix@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/foreman/foreman/language/it/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,9 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
+msgid "Actions"
+msgstr "Azioni"
+
 msgid "Assign Location"
 msgstr "Assegna posizione"
 
@@ -47,6 +50,9 @@ msgid "Auto Provision"
 msgstr "Auto Provision"
 
 msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -76,6 +82,9 @@ msgstr ""
 msgid "Collapse All"
 msgstr "Comprimi tutto"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossibile ottenere gli eventi dal proxy %{url}: %{error}"
 
@@ -90,6 +99,9 @@ msgstr ""
 
 msgid "Create a discovery rule"
 msgstr "Crea una regola per la scoperta"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr ""
@@ -163,6 +175,9 @@ msgstr "Regola per la scoperta"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr ""
 
@@ -230,6 +245,9 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr ""
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "Fact + prefix"
 msgstr ""
 
 msgid "Fact columns"
@@ -371,6 +389,9 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -416,6 +437,9 @@ msgstr ""
 msgid "MAC address"
 msgstr "Indirizzo MAC"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Numero di host massimo con provisioning con questa regola (0 = unlimited)"
 
@@ -427,9 +451,6 @@ msgstr "Varie"
 
 msgid "Model"
 msgstr "Modello"
-
-msgid "Must specify a user with email enabled"
-msgstr "Specificare un utente con una email abilitata"
 
 msgid "N/A"
 msgstr "N/A"
@@ -514,6 +535,9 @@ msgstr ""
 
 msgid "Provision a discovered host"
 msgstr "Esegui il provisioning di un host rilevato"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Riavvia"
@@ -646,6 +670,9 @@ msgstr ""
 
 msgid "Type"
 msgstr "Tipo"
+
+msgid "Type of name generator"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestration/:UUID/tasks"

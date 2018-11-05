@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
 "Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
@@ -32,6 +32,9 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
+msgid "Actions"
+msgstr "Accións"
+
 msgid "Assign Location"
 msgstr "Asignar Lugar"
 
@@ -45,6 +48,9 @@ msgid "Auto Provision"
 msgstr ""
 
 msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -74,6 +80,9 @@ msgstr ""
 msgid "Collapse All"
 msgstr ""
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
@@ -87,6 +96,9 @@ msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
 
 msgid "Create a discovery rule"
+msgstr ""
+
+msgid "Create bond interfaces"
 msgstr ""
 
 msgid "Customize Host"
@@ -161,6 +173,9 @@ msgstr ""
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr ""
 
@@ -228,6 +243,9 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr ""
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "Fact + prefix"
 msgstr ""
 
 msgid "Fact columns"
@@ -369,6 +387,9 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -414,6 +435,9 @@ msgstr ""
 msgid "MAC address"
 msgstr ""
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
 
@@ -425,9 +449,6 @@ msgstr ""
 
 msgid "Model"
 msgstr "Modelo"
-
-msgid "Must specify a user with email enabled"
-msgstr ""
 
 msgid "N/A"
 msgstr "N/A"
@@ -511,6 +532,9 @@ msgid "Provision %s"
 msgstr ""
 
 msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Random name"
 msgstr ""
 
 msgid "Reboot"
@@ -643,6 +667,9 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
+msgstr ""
+
+msgid "Type of name generator"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"

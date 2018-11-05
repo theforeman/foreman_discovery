@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-07-18 21:47+0000\n"
+"PO-Revision-Date: 2018-10-30 12:54+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -37,6 +37,9 @@ msgstr "<b>Foreman</b> Discovered hosts summary"
 msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
 
+msgid "Actions"
+msgstr "Actions"
+
 msgid "Assign Location"
 msgstr "Assign Location"
 
@@ -51,6 +54,9 @@ msgstr "Auto Provision"
 
 msgid "Auto provisioning"
 msgstr "Auto provisioning"
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -79,6 +85,9 @@ msgstr "Clean all reported facts during provisioning (except discovery facts)"
 msgid "Collapse All"
 msgstr "Collapse All"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr "Command line options for kexec during PXE-less provisioning."
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Could not get facts from proxy %{url}: %{error}"
 
@@ -93,6 +102,9 @@ msgstr "Create a discovered host for testing (use /facts to create new hosts)"
 
 msgid "Create a discovery rule"
 msgstr "Create a discovery rule"
+
+msgid "Create bond interfaces"
+msgstr "Create bond interfaces"
 
 msgid "Customize Host"
 msgstr "Customise Host"
@@ -166,6 +178,9 @@ msgstr "Discovery Rules"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr "Discovery fact parser does not work with non-discovery host '%{host}'"
 
+msgid "Discovery hostname naming pattern"
+msgstr "Discovery hostname naming pattern"
+
 msgid "Discovery location"
 msgstr "Discovery location"
 
@@ -234,6 +249,9 @@ msgstr "Expected discovery_fact '%s' is missing, unable to detect primary interf
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Extra facter columns to show in host lists (separate by comma)"
+
+msgid "Fact + prefix"
+msgstr "Fact + prefix"
 
 msgid "Fact columns"
 msgstr "Fact columns"
@@ -374,6 +392,9 @@ msgstr "Invalid facts: hash does not contain a valid value for any of the facts 
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Invalid hostname: Could not normalise the hostname"
 
+msgid "Invalid user type of %s was provided"
+msgstr "Invalid user type of %s was provided"
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "Kernel kexec URL is invalid: '%s'"
 
@@ -419,6 +440,9 @@ msgstr "Locked PXELinux template name"
 msgid "MAC address"
 msgstr "MAC address"
 
+msgid "MAC-based name"
+msgstr "MAC-based name"
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Maximum hosts provisioned with this rule (0 = unlimited)"
 
@@ -430,9 +454,6 @@ msgstr "Miscellaneous"
 
 msgid "Model"
 msgstr "Model"
-
-msgid "Must specify a user with email enabled"
-msgstr "Must specify a user with email enabled"
 
 msgid "N/A"
 msgstr "N/A"
@@ -517,6 +538,9 @@ msgstr "Provision %s"
 
 msgid "Provision a discovered host"
 msgstr "Provision a discovered host"
+
+msgid "Random name"
+msgstr "Random name"
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -649,6 +673,9 @@ msgstr "This page shows discovered bare-metal or virtual nodes waiting to be pro
 
 msgid "Type"
 msgstr "Type"
+
+msgid "Type of name generator"
+msgstr "Type of name generator"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"

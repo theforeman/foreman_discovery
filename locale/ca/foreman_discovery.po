@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
@@ -34,6 +34,9 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
+msgid "Actions"
+msgstr "Accions"
+
 msgid "Assign Location"
 msgstr "Assigna la ubicació"
 
@@ -47,6 +50,9 @@ msgid "Auto Provision"
 msgstr "Auto aprovisiona"
 
 msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -76,6 +82,9 @@ msgstr ""
 msgid "Collapse All"
 msgstr ""
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}: %{error}"
 
@@ -90,6 +99,9 @@ msgstr "Crea un amfitrió descobert per a provar-ho  (utilitzeu /facts per crear
 
 msgid "Create a discovery rule"
 msgstr "Crea una regla de descobriment"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr ""
@@ -163,6 +175,9 @@ msgstr "Regles de descobriment"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr ""
 
@@ -230,6 +245,9 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr ""
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "Fact + prefix"
 msgstr ""
 
 msgid "Fact columns"
@@ -371,6 +389,9 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -416,6 +437,9 @@ msgstr ""
 msgid "MAC address"
 msgstr "Adreça MAC"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Nombre màxim d'amfitrions aprovisionats amb aquesta regla (0 = il·limitat)"
 
@@ -427,9 +451,6 @@ msgstr ""
 
 msgid "Model"
 msgstr "Model"
-
-msgid "Must specify a user with email enabled"
-msgstr ""
 
 msgid "N/A"
 msgstr "N/D"
@@ -514,6 +535,9 @@ msgstr ""
 
 msgid "Provision a discovered host"
 msgstr "Aprovisiona un amfitrió descobert"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reinicia"
@@ -645,6 +669,9 @@ msgid "This page shows discovered bare-metal or virtual nodes waiting to be prov
 msgstr ""
 
 msgid "Type"
+msgstr ""
+
+msgid "Type of name generator"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"

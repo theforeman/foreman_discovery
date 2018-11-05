@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
+"Last-Translator: Flamarion Jorge <jorge.flamarion@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,9 @@ msgstr "Resumo dos hosts descobertos pelo <b>Foreman</b>"
 msgid "A summary of discovered hosts"
 msgstr "Um resumo de hosts descobertos"
 
+msgid "Actions"
+msgstr "Ações"
+
 msgid "Assign Location"
 msgstr "Atribuir Local"
 
@@ -51,6 +54,9 @@ msgstr "Provisionamento automático"
 
 msgid "Auto provisioning"
 msgstr "Provisionamento automático"
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "Gerar configuração PXE automaticamente para fixar um host novo descoberto para o Discovery"
@@ -79,6 +85,9 @@ msgstr "Limpar todos os fatos relatados durante o provisionamento (exceto fatos 
 msgid "Collapse All"
 msgstr "Recolher todos"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Não foi possível obter fatos do proxy %{url}: %{error}"
 
@@ -93,6 +102,9 @@ msgstr "Crie um host descoberto para testes (use /facts para criar novos hosts)"
 
 msgid "Create a discovery rule"
 msgstr "Criar uma regra do Discovery"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr "Personalizar host"
@@ -166,6 +178,9 @@ msgstr "Regras do Discovery"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr "Local do Discovery"
 
@@ -234,6 +249,9 @@ msgstr "'%s' discovery_fact  esperado está ausente, não é possível detectar 
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Colunas extras do Facter para exibir nas listas de hosts (separadas por vírgulas)"
+
+msgid "Fact + prefix"
+msgstr ""
 
 msgid "Fact columns"
 msgstr "Colunas de fatos"
@@ -374,6 +392,9 @@ msgstr "Fatos inválidos: o hash não contém um valor válido para nenhum dos f
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nome de host inválido: não foi possível normalizar o nome do host"
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "URL do kexec do kernel é inválido: '%s'"
 
@@ -419,6 +440,9 @@ msgstr "Nome do modelo PXELinux bloqueado"
 msgid "MAC address"
 msgstr "Endereço MAC"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Máximo de hosts provisionados com essa regra (0 = ilimitado)"
 
@@ -430,9 +454,6 @@ msgstr "Geral"
 
 msgid "Model"
 msgstr "Modelo"
-
-msgid "Must specify a user with email enabled"
-msgstr "Deve especificar um usuário com email habilitado"
 
 msgid "N/A"
 msgstr "N/A"
@@ -517,6 +538,9 @@ msgstr "Provisionar %s"
 
 msgid "Provision a discovered host"
 msgstr "Provisionar um host descoberto"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -649,6 +673,9 @@ msgstr "Esta página mostra nós bare-metal ou virtuais aguardando o provisionam
 
 msgid "Type"
 msgstr "Tipo"
+
+msgid "Type of name generator"
+msgstr "Tipo de gerador de nomes"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID a rastrear o status de tarefas de orquestração, GET /api/orchestration/:UUID/tasks"

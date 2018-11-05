@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
-"Last-Translator: Tomoyuki KATO <inactive+katomo@transifex.com>\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,9 @@ msgstr "<b>Foreman</b> の検出されたホストの概要"
 msgid "A summary of discovered hosts"
 msgstr "検出されたホストの概要"
 
+msgid "Actions"
+msgstr "アクション"
+
 msgid "Assign Location"
 msgstr "場所の割り当て"
 
@@ -47,6 +50,9 @@ msgstr "自動プロビジョニング"
 
 msgid "Auto provisioning"
 msgstr "自動プロビジョニング"
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "新規に検出されたホストを検出に固定するための PXE 設定の自動生成"
@@ -75,6 +81,9 @@ msgstr "プロビジョニング時に報告されたすべてのファクトを
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
@@ -89,6 +98,9 @@ msgstr "(新規ホストを作成するための使用 /ファクト) をテス�
 
 msgid "Create a discovery rule"
 msgstr "検出ルールの作成"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr "ホストのカスタマイズ"
@@ -162,6 +174,9 @@ msgstr "検出ルール"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr "検出ロケーション"
 
@@ -230,6 +245,9 @@ msgstr "予測された discovery_fact '%s' がありません。プライマリ
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "ホスト一覧に表示される追加の facter 列 (コンマ区切り)"
+
+msgid "Fact + prefix"
+msgstr ""
 
 msgid "Fact columns"
 msgstr "Fact 列"
@@ -370,6 +388,9 @@ msgstr "無効なファクト: ハッシュには discovery_hostname 設定の�
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "無効なホスト名: ホスト名を正規化できませんでした"
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "カーネル kexec URL は無効です: '%s'"
 
@@ -415,6 +436,9 @@ msgstr "ロックされた PXELinux テンプレート名"
 msgid "MAC address"
 msgstr "MAC アドレス"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "このルール (0 = unlimited) でプロビジョニングされた最大数のホスト"
 
@@ -426,9 +450,6 @@ msgstr "その他"
 
 msgid "Model"
 msgstr "モデル"
-
-msgid "Must specify a user with email enabled"
-msgstr "メールが有効にされたユーザーを指定する必要があります"
 
 msgid "N/A"
 msgstr "該当なし"
@@ -513,6 +534,9 @@ msgstr "%s のプロビジョニング"
 
 msgid "Provision a discovered host"
 msgstr "検出されたホストのプロビジョニング"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "再起動"
@@ -645,6 +669,9 @@ msgstr "このページでは、プロビジョニングする予定の検出さ
 
 msgid "Type"
 msgstr "タイプ"
+
+msgid "Type of name generator"
+msgstr "名前ジェネレーターのタイプ"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"

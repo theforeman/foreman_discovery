@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -32,6 +32,9 @@ msgstr "<b>Foreman</b> 发现主机概述"
 msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
 
+msgid "Actions"
+msgstr "操作"
+
 msgid "Assign Location"
 msgstr "指定位置"
 
@@ -46,6 +49,9 @@ msgstr "自动置备"
 
 msgid "Auto provisioning"
 msgstr "自动置备"
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "自动生成 PXE 配置，以将新发现主机固定至发现"
@@ -74,6 +80,9 @@ msgstr "置备期间清除所有报告的详情（发现详情除外）"
 msgid "Collapse All"
 msgstr "隐藏全部"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
 
@@ -88,6 +97,9 @@ msgstr "创建一个用于测试的发现主机（使用 /详情创建新主机�
 
 msgid "Create a discovery rule"
 msgstr "创建发现规则"
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr "自定义主机"
@@ -161,6 +173,9 @@ msgstr "发现规则"
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr "发现位置"
 
@@ -229,6 +244,9 @@ msgstr "期望的 discovery_fact '%s' 缺失，无法检测主接口和设置主
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "在主机列表中显示的额外 facter 列（用逗号隔开）"
+
+msgid "Fact + prefix"
+msgstr ""
 
 msgid "Fact columns"
 msgstr "详情列"
@@ -369,6 +387,9 @@ msgstr "无效详情：hash 不包含 discovery_hostname 设置中任何详情�
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "无效的主机名：无法标准化主机名"
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "内核 kexec URL 无效：'%s'"
 
@@ -414,6 +435,9 @@ msgstr "锁定的 PXELinux 模板名称"
 msgid "MAC address"
 msgstr "MAC 地址"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "按照此规则置备的最大主机数（0 = 没有限制）"
 
@@ -425,9 +449,6 @@ msgstr "杂项"
 
 msgid "Model"
 msgstr "型号"
-
-msgid "Must specify a user with email enabled"
-msgstr "必须指定一个启用了电子邮件的用户"
 
 msgid "N/A"
 msgstr "N/A"
@@ -512,6 +533,9 @@ msgstr "置备 %s"
 
 msgid "Provision a discovered host"
 msgstr "置备发现主机"
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "重启"
@@ -644,6 +668,9 @@ msgstr "此页显示了等待置备的发现裸机或虚拟节点。"
 
 msgid "Type"
 msgstr "类型"
+
+msgid "Type of name generator"
+msgstr "名称生成器类型"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪业务流程任务状态的 UUID，GET /api/orchestration/:UUID/tasks"

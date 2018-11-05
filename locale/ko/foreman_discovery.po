@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 13.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-06-15 10:50+0000\n"
+"PO-Revision-Date: 2018-10-25 20:13+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,9 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
+msgid "Actions"
+msgstr "동작 "
+
 msgid "Assign Location"
 msgstr "위치 지정 "
 
@@ -44,6 +47,9 @@ msgid "Auto Provision"
 msgstr "자동 프로비저닝 "
 
 msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
 msgstr ""
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
@@ -73,6 +79,9 @@ msgstr ""
 msgid "Collapse All"
 msgstr "모두 축소"
 
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
@@ -87,6 +96,9 @@ msgstr "검색된 호스트를 테스트용으로 생성(/facts를 사용하여 
 
 msgid "Create a discovery rule"
 msgstr "검색 규칙 생성 "
+
+msgid "Create bond interfaces"
+msgstr ""
 
 msgid "Customize Host"
 msgstr ""
@@ -160,6 +172,9 @@ msgstr "검색 규칙 "
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
 msgstr ""
 
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
 msgid "Discovery location"
 msgstr ""
 
@@ -228,6 +243,9 @@ msgstr "필요한 discovery_fact '%s'이(가) 누락되었습니다. 기본 인�
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "호스트 목록에 표시할 추가 팩트 열(쉼표로 구분)"
+
+msgid "Fact + prefix"
+msgstr ""
 
 msgid "Fact columns"
 msgstr ""
@@ -368,6 +386,9 @@ msgstr ""
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -413,6 +434,9 @@ msgstr ""
 msgid "MAC address"
 msgstr "MAC 주소"
 
+msgid "MAC-based name"
+msgstr ""
+
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "이 규칙에서 프로비저닝되는 최대 호스트 수 (0 = 무제한)"
 
@@ -424,9 +448,6 @@ msgstr "기타"
 
 msgid "Model"
 msgstr "모델 "
-
-msgid "Must specify a user with email enabled"
-msgstr "이메일이 활성화된 사용자를 지정해야 합니다 "
 
 msgid "N/A"
 msgstr "해당 없음 "
@@ -511,6 +532,9 @@ msgstr ""
 
 msgid "Provision a discovered host"
 msgstr "검색된 호스트 프로비저닝 "
+
+msgid "Random name"
+msgstr ""
 
 msgid "Reboot"
 msgstr "다시 시작"
@@ -643,6 +667,9 @@ msgstr ""
 
 msgid "Type"
 msgstr "유형 "
+
+msgid "Type of name generator"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "오케스트레이션 작업 상태를 추적하기 위한 UUID, GET /api/orchestration/:UUID/tasks"
