@@ -41,7 +41,7 @@ action "Want me to update AUTHORS file" do
   run "git log --pretty=format:'%an' | sort -u > AUTHORS"
 end
 
-action "Modified engine.rb to match minimum Foreman core version"
+action "Modified lib/foreman_discovery/engine.rb to match minimum Foreman core version"
 
 action "Modified #{RUBY_VERSION_FILE} to match desired version"
 
