@@ -77,6 +77,8 @@ action "Is https://rubygems.org/gems/#{$plugin_name} looking good"
 
 action "Created new stable branch and pushed to origin"
 
+action "Updated documentation at www.theforeman.org?"
+
 action "Updated jenkins_job_builder http://bit.ly/2iZKR3B branch"
 
 puts "Well done! Go ahead and create documentation and changelog:"
