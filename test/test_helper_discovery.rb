@@ -1,5 +1,5 @@
 def set_session_user(user)
-  SETTINGS[:login] ? {:user => user.id, :expires_at => 5.minutes.from_now} : {}
+  {:user => user.id, :expires_at => 5.minutes.from_now}
 end
 
 def user_with_perms(perms)
