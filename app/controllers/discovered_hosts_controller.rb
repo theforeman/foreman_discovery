@@ -9,6 +9,7 @@ class DiscoveredHostsController < ::ApplicationController
   before_action :find_by_name_incl_subnet, :only => [:show]
   before_action :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy, :multiple_reboot, :submit_multiple_reboot, :multiple_auto_provision, :submit_multiple_auto_provision]
   before_action :taxonomy_scope, :only => [:edit]
+  before_action :check_for_subnet, :only => [:reboot, :auto_provision, :submit_multiple_reboot, :submit_multiple_auto_provision]
 
   around_action :skip_bullet, :only => [:edit]
 
@@ -290,6 +291,20 @@ class DiscoveredHostsController < ::ApplicationController
     @host ||= includes.empty? ? resource_base.find_by_name(id) : resource_base.includes(includes).find_by_name(id)
     not_found and return(false) unless @host
     @host
+  end
+
+  def check_for_subnet
+    case params[:action]
+      when 'reboot', 'auto_provision'
+        if @host.subnet.nil?
+          warning _("Discovered host reported from unknown subnet, communication will not be proxied.")
+        end
+      when 'submit_multiple_reboot', 'submit_multiple_auto_provision'
+        hosts_without_subnet = @hosts.limit(5).select { |host| host.subnet.nil? }.pluck(:name)
+        if hosts_without_subnet.present?
+          warning _("Discovered hosts reported from unknown subnet are #{hosts_without_subnet}, communication will not be proxied.")
+        end
+    end
   end
 
   def find_by_name_incl_subnet

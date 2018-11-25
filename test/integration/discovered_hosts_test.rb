@@ -19,6 +19,8 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   describe 'Multiple host Reboot' do
     test 'triggers reboot on all discovered_hosts' do
+      subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
       Host::Discovered.any_instance
                       .expects(:reboot)
                       .at_least(discovered_hosts.count)
@@ -33,6 +35,8 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   describe 'Multiple host Autoprovision' do
     test 'converts all discovered to managed hosts' do
+      subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
       select_host_checkbox(discovered_host.id)
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
