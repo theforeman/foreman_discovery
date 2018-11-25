@@ -3,6 +3,7 @@ require 'integration_test_helper'
 
 class DiscoveredHostsTest < IntegrationTestWithJavascript
   let(:discovered_host) { FactoryBot.create(:discovered_host, :with_facts) }
+  let(:subnet) { FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0") }
   let(:discovered_hosts) { Host::Discovered.all }
 
   setup do
@@ -17,8 +18,9 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
     Host::Discovered.destroy_all
   end
 
-  describe 'Multiple host Reboot' do
-    test 'triggers reboot on all discovered_hosts' do
+  describe 'Perform host Reboot' do
+    test 'triggers reboot on a single discovered_host' do
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
       Host::Discovered.any_instance
                       .expects(:reboot)
                       .at_least(discovered_hosts.count)
@@ -29,11 +31,46 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
     end
+
+    test 'triggers reboot on all discovered_hosts' do
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
+      Host::Discovered.any_instance
+                      .expects(:reboot)
+                      .at_least(discovered_hosts.count)
+      select_all_hosts
+      page.find_link('Select Action').click
+      page.find_link('Reboot').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
+    end
+
+    test 'shows warning for all hosts with missing subnet' do
+      select_all_hosts
+      page.find_link('Select Action').click
+      page.find_link('Auto Provision').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
+      wait_for_ajax
+      assert page.has_text?("Discovered hosts reported from unknown subnet")
+    end
   end
 
-  describe 'Multiple host Autoprovision' do
-    test 'converts all discovered to managed hosts' do
+  describe 'Perform host Autoprovision' do
+    test 'converts single discovered to managed host' do
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
       select_host_checkbox(discovered_host.id)
+      page.find_link('Select Action').click
+      page.find_link('Auto Provision').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
+    end
+
+    test 'converts all discovered to managed hosts' do
+      Host::Discovered.any_instance.stubs(:subnet).returns(subnet)
+      select_all_hosts
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
       wait_for_ajax
@@ -42,11 +79,22 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       wait_for_ajax
       assert page.has_text?('Discovered hosts are provisioning now')
     end
+
+    test 'shows warning for all hosts with missing subnet' do
+      select_all_hosts
+      page.find_link('Select Action').click
+      page.find_link('Auto Provision').click
+      wait_for_ajax
+      assert page.has_text?('The following hosts are about to be changed')
+      page.find_button('Submit').click
+      wait_for_ajax
+      assert page.has_text?("Discovered hosts reported from unknown subnet")
+    end
   end
 
   describe 'Delete hosts' do
     test 'it removes all hosts' do
-      select_host_checkbox(discovered_host.id)
+      select_all_hosts
       page.find_link('Select Action').click
       page.find_link('Delete').click
       wait_for_ajax

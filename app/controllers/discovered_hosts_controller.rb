@@ -9,6 +9,7 @@ class DiscoveredHostsController < ::ApplicationController
   before_action :find_by_name_incl_subnet, :only => [:show]
   before_action :find_multiple, :only => [:multiple_destroy, :submit_multiple_destroy, :multiple_reboot, :submit_multiple_reboot, :multiple_auto_provision, :submit_multiple_auto_provision]
   before_action :taxonomy_scope, :only => [:edit]
+  before_action :check_for_subnet, :only => [:reboot, :auto_provision, :submit_multiple_reboot, :submit_multiple_auto_provision]
 
   around_action :skip_bullet, :only => [:edit]
 
@@ -292,6 +293,21 @@ class DiscoveredHostsController < ::ApplicationController
     @host
   end
 
+  def check_for_subnet
+    hosts_without_subnet = []
+    case params[:action]
+      when 'reboot', 'auto_provision'
+        if @host.subnet.nil?
+          process_warning :warning_msg => _("Discovered host reported from unknown subnet, communication will not be proxied.")
+        end
+      when 'submit_multiple_reboot', 'submit_multiple_auto_provision'
+        hosts_without_subnet = @hosts.limit(3).select { |host| host.subnet.nil? }.pluck(:name)
+        if hosts_without_subnet.present?
+          process_warning :warning_msg => _("Discovered hosts reported from unknown subnet are %s, communication will not be proxied.") % hosts_without_subnet.join(', ')
+        end
+    end
+  end
+
   def find_by_name_incl_subnet
     find_by_name({:interfaces => :subnet})
   end
@@ -346,5 +362,9 @@ class DiscoveredHostsController < ::ApplicationController
       discovery_subnet = "#{@host.primary_interface.subnet.name} (#{@host.primary_interface.subnet.network})"
       assign_fact_to_category("discovery_subnet", discovery_subnet)
     end
+  end
+
+  def process_warning(hash = {})
+    warning hash[:warning_msg]
   end
 end
