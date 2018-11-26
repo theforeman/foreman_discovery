@@ -27,7 +27,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should import facts from yaml with random based generator as Host::Discovered" do
     Setting[:discovery_naming] = "Random-name"
-    Rails.cache.stubs(:fetch).with("name_generator_register").returns(1305)
+    NameGenerator.any_instance.stubs(:register).returns(1305)
     host = discover_host_from_facts(@facts)
     assert_equal "velma-startin", host.name
   end
