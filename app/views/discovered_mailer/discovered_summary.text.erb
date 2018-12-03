@@ -14,7 +14,7 @@
     <%= _('Disk count') %> <%= discovery_attribute(host, :disk_count) %>
     <%= _('Disks size') %> <%= number_to_human_size(discovery_attribute(host, :disks_size, 0) * 1024 * 1024) %>
 
-    (<%= discovered_host_path(:id => host, :host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme) %>)
+    (<%= discovered_host_url(:id => host, :host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme) %>)
     -
   <% end %>
 <% else %>
