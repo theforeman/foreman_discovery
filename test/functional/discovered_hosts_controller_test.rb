@@ -84,27 +84,25 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_edit_form_quick_submit
-    disable_taxonomies do
-      domain = FactoryBot.create(:domain)
-      hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
-      new_ip = hostgroup.subnet.ipaddr
-      host = discover_host_from_facts(@facts.merge({
-                                                     'ipaddress' => new_ip,
-                                                     'ipaddress_eth0' => new_ip
-                                                   }))
-      get :edit, params: {
-        :id => host.id,
-        :quick_submit => true,
-        :host => {
-          :hostgroup_id => hostgroup.id
-        } }, session: set_session_user_default_manager
+    domain = FactoryBot.create(:domain)
+    hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+    new_ip = hostgroup.subnet.ipaddr
+    host = discover_host_from_facts(@facts.merge({
+                                                    'ipaddress' => new_ip,
+                                                    'ipaddress_eth0' => new_ip
+                                                  }))
+    get :edit, params: {
+      :id => host.id,
+      :quick_submit => true,
+      :host => {
+        :hostgroup_id => hostgroup.id
+      } }, session: set_session_user_default_manager
 
-      managed_host = Host.find(host.id)
-      assert managed_host.build
-      assert_redirected_to host_url(managed_host)
-      assert_equal hostgroup.id, managed_host.hostgroup_id
-      assert_match(/Successfully/, flash[:success])
-    end
+    managed_host = Host.find(host.id)
+    assert managed_host.build
+    assert_redirected_to host_url(managed_host)
+    assert_equal hostgroup.id, managed_host.hostgroup_id
+    assert_match(/Successfully/, flash[:success])
   end
 
   def test_edit_form_submit_parameters
