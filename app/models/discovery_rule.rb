@@ -25,10 +25,10 @@ class DiscoveryRule < ApplicationRecord
   has_many :hosts, :dependent => :nullify
 
   scoped_search :on => :name, :complete_value => :true
-  scoped_search :on => :priority
-  scoped_search :on => :search
+  scoped_search :on => :priority, :only_explicit => true
+  scoped_search :on => :search, :only_explicit => true
   scoped_search :on => :enabled
-  scoped_search :relation => :hostgroup, :on => :name, :complete_value => true, :rename => :hostgroup
+  scoped_search :relation => :hostgroup, :on => :name, :complete_value => true, :rename => :hostgroup, :only_explicit => true
 
   default_scope lambda {
     with_taxonomy_scope do

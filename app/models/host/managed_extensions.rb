@@ -8,7 +8,7 @@ module Host::ManagedExtensions
 
     belongs_to :discovery_rule
 
-    scoped_search :relation => :discovery_rule, :on => :name, :rename => :discovery_rule, :complete_value => true
+    scoped_search :relation => :discovery_rule, :on => :name, :rename => :discovery_rule, :complete_value => true, :only_explicit => true
   end
 
   def queue_reboot

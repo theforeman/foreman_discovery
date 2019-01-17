@@ -20,7 +20,7 @@ class Host::Discovered < ::Host::Base
   scoped_search :on => :last_report, :complete_value => true, :only_explicit => true
   scoped_search :relation => :primary_interface, :on => :ip, :complete_value => true
   scoped_search :relation => :primary_interface, :on => :mac, :complete_value => true
-  scoped_search :relation => :model, :on => :name, :complete_value => true, :rename => :model
+  scoped_search :relation => :model, :on => :name, :complete_value => true, :rename => :model, :only_explicit => true
   scoped_search :relation => :fact_values, :on => :value, :in_key => :fact_names, :on_key => :name, :rename => :facts, :complete_value => true, :only_explicit => true
   scoped_search :relation => :location, :on => :name, :rename => :location, :complete_value => true, :only_explicit => true
   scoped_search :on => :location_id, :complete_value => false, :only_explicit => true, :validator => ScopedSearch::Validators::INTEGER
