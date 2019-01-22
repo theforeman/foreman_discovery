@@ -13,12 +13,8 @@
     <% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
       <th class="hidden-tablet hidden-xs"><%= fact_column.capitalize %></th>
     <% end %>
-    <% if SETTINGS[:locations_enabled] -%>
-      <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
-    <% end -%>
-    <% if SETTINGS[:organizations_enabled] -%>
-      <th class="hidden-tablet hidden-xs"><%= sort :organization, :as => _('Organization') %></th>
-    <% end -%>
+    <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
+    <th class="hidden-tablet hidden-xs"><%= sort :organization, :as => _('Organization') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :subnet, :as => _("Subnet") %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :last_report, :as => _("Last Facts Upload") %></th>
     <th class="hidden-tablet hidden-xs"><%= _("Actions") %></th>
@@ -29,12 +25,8 @@
         <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized_for_edit_destroy?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
       </td>
       <%= render :partial => "discovered_host", :locals => {:host => host} %>
-      <% if SETTINGS[:locations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.location.try(:title) %></td>
-      <% end -%>
-      <% if SETTINGS[:organizations_enabled] -%>
-        <td class="hidden-tablet hidden-xs"><%= host.organization.try(:title) %></td>
-      <% end -%>
+      <td class="hidden-tablet hidden-xs"><%= host.location.try(:title) %></td>
+      <td class="hidden-tablet hidden-xs"><%= host.organization.try(:title) %></td>
       <td class="hidden-tablet hidden-xs"><%= host.primary_interface.try(:subnet).try(:to_label) %></td>
       <td class="hidden-tablet hidden-xs"><%= disc_report_column(host) %></td>
       <td>

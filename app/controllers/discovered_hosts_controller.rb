@@ -318,14 +318,10 @@ class DiscoveredHostsController < ::ApplicationController
       @location = @host.location
     end
 
-    if SETTINGS[:organizations_enabled]
-      @organization ||= Organization.current
-      @organization ||= Organization.my_organizations.first
-    end
-    if SETTINGS[:locations_enabled]
-      @location ||= Location.current
-      @location ||= Location.my_locations.first
-    end
+    @organization ||= Organization.current
+    @organization ||= Organization.my_organizations.first
+    @location ||= Location.current
+    @location ||= Location.my_locations.first
   end
 
   # particular actions will always raise N+1 queries

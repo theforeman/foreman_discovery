@@ -33,12 +33,8 @@ module Foreman::Controller::DiscoveredExtensions
   end
 
   def validate_rule_by_taxonomy rule, host
-    if SETTINGS[:organizations_enabled]
-      return false unless rule.organizations.include?(host.organization)
-    end
-    if SETTINGS[:locations_enabled]
-      return false unless rule.locations.include?(host.location)
-    end
+    return false unless rule.organizations.include?(host.organization)
+    return false unless rule.locations.include?(host.location)
     true
   end
 
