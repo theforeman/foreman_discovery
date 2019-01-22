@@ -34,7 +34,6 @@ module ForemanDiscovery
       end
 
       def set_location
-        return unless SETTINGS[:locations_enabled]
         host.location = suggested_location
         logger.info "Assigned location: #{host.location}"
       end
@@ -47,7 +46,6 @@ module ForemanDiscovery
       end
 
       def set_organization
-        return unless SETTINGS[:organizations_enabled]
         host.organization = suggested_organization
         logger.info "Assigned organization: #{host.organization}"
       end

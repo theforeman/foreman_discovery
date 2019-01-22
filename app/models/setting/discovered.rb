@@ -16,6 +16,8 @@ class Setting::Discovered < ::Setting
 
     Setting.transaction do
       [
+        self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Proc.new {Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}]} }),
+        self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Proc.new {Hash[Organization.all.map{|org| [org[:title], org[:title]]}]} }),
         self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif", N_("Interface fact")),
         self.set('discovery_auto_bond', N_("Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"), false, N_("Create bond interfaces")),
         self.set('discovery_clean_facts', N_("Clean all reported facts during provisioning (except discovery facts)"), false, N_("Clean all facts")),
@@ -38,22 +40,6 @@ class Setting::Discovered < ::Setting
         self.set('discovery_error_on_existing', N_("Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"), false, N_("Error on existing NIC")),
         self.set('discovery_naming', N_("Discovery hostname naming pattern"), 'Fact', N_("Type of name generator"), nil, {:collection => Proc.new {::Host::Discovered::NAMING_PATTERNS} }),
       ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-    end
-
-    if SETTINGS[:locations_enabled]
-      Setting.transaction do
-        [
-          self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Proc.new {Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}]} }),
-        ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-      end
-    end
-
-    if SETTINGS[:organizations_enabled]
-      Setting.transaction do
-        [
-          self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Proc.new {Hash[Organization.all.map{|org| [org[:title], org[:title]]}]} }),
-        ].compact.each { |s| self.create s.update(:category => "Setting::Discovered")}
-      end
     end
 
     true

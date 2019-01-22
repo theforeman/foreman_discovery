@@ -36,8 +36,8 @@ module Api
           param :max_count, Integer, :desc => N_("enables to limit maximum amount of provisioned hosts per rule")
           param :priority, Integer, :desc => N_("puts the rules in order, low numbers go first. Must be greater then zero")
           param :enabled, :bool, :desc => N_("flag is used for temporary shutdown of rules")
-          param :location_ids, Array, :required => true, :desc => N_("location ID for provisioned hosts") if SETTINGS[:locations_enabled]
-          param :organization_ids, Array, :required => true, :desc => N_("organization ID for provisioned hosts") if SETTINGS[:organizations_enabled]
+          param :location_ids, Array, :required => true, :desc => N_("location ID for provisioned hosts")
+          param :organization_ids, Array, :required => true, :desc => N_("organization ID for provisioned hosts")
         end
       end
 

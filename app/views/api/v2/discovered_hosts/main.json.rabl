@@ -9,10 +9,5 @@ node :subnet_name do |host|
   host.subnet.to_label if host.subnet.present?
 end
 
-if SETTINGS[:organizations_enabled]
-  attributes :organization_id, :organization_name
-end
-
-if SETTINGS[:locations_enabled]
-  attributes :location_id, :location_name
-end
+attributes :organization_id, :organization_name
+attributes :location_id, :location_name

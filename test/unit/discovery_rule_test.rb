@@ -150,7 +150,6 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
   end
 
   test "should enforce hostgroup organizations" do
-    skip unless SETTINGS[:organizations_enabled]
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
       :hostgroup_id => @hostgroup.id
@@ -159,7 +158,6 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
   end
 
   test "should enforce hostgroup organizations and locations" do
-    skip unless (SETTINGS[:organizations_enabled] && SETTINGS[:locations_enabled])
     loc = FactoryBot.create(:location, :name => "hgloc")
     @hostgroup.locations << loc
     @hostgroup.save!

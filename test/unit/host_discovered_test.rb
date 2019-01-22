@@ -371,15 +371,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       @host.organization = @org
       assert_equal recipients, @host.notification_recipients_ids.sort
     end
-
-    test 'finds only admin users if organizations are disabled' do
-      begin
-        SETTINGS[:organizations_enabled] = false
-        assert_equal @admins.sort, @host.notification_recipients_ids.sort
-      ensure
-        SETTINGS[:organizations_enabled] = true
-      end
-    end
   end
 
   test "primary interface isn't touched with no LLDP facts" do
