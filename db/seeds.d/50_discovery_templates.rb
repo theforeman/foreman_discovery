@@ -19,6 +19,7 @@ ProvisioningTemplate.without_auditing do
       :vendor   => "Foreman Discovery",
       :locked   => true
     }
+    tmpl.template = content
     tmpl.organizations = organizations if SETTINGS[:organizations_enabled]
     tmpl.locations = locations if SETTINGS[:locations_enabled]
     tmpl.save!(:validate => false) if tmpl.changes.present?

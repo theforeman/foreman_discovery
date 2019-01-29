@@ -45,7 +45,6 @@ module Host::ManagedExtensions
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
     @host = self
-    @kexec_kernel, @kexec_initrd = operatingsystem.boot_files_uri(@host.medium, @host.architecture, @host)
     # try to parse JSON and error out early
     json = JSON.parse(unattended_render(template))
     ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
