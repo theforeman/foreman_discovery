@@ -1,6 +1,6 @@
 <%#
 kind: kexec
-name: Debian kexec
+name: Discovery Debian kexec
 oses:
 - Debian
 - Ubuntu
@@ -32,9 +32,8 @@ Please read kexec(8) man page for more information about semantics.
   options << "inst.stage2=#{@host.operatingsystem.medium_uri(@host)}" if @host.operatingsystem.name.match(/Atomic/i)
 -%>
 {
-  "comment": "WARNING: Both kernel and initram are not set in preview mode due to http://projects.theforeman.org/issues/19737",
-  "kernel": "<%= @kexec_kernel %>",
-  "initram": "<%= @kexec_initrd %>",
+  "kernel": "<%= @kernel_uri %>",
+  "initram": "<%= @initrd_uri %>",
   "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.compact.join(' ') %>",
   "extra": []
 }

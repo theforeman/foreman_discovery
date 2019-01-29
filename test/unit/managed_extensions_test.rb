@@ -63,10 +63,4 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     Host::Discovered.any_instance.expects(:reboot).once
     @host.setReboot
   end
-
-  test "setKexec calls boot_files_uri and kexec API" do
-    Host::Discovered.any_instance.expects(:kexec).with() { |json| JSON.parse(json) }.once
-    @operatingsystem.expects(:boot_files_uri).with(@host.medium, @host.architecture, @host)
-    @host.setKexec
-  end
 end
