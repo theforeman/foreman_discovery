@@ -41,15 +41,23 @@ module Host::ManagedExtensions
     # no reboot on orchestration rollback
   end
 
-  def setKexec
+  def render_kexec_template
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
-    @host = self
-    # try to parse JSON and error out early
-    json = JSON.parse(unattended_render(template))
+
+    source = Foreman::Renderer::Source::String.new(name: template.name, content: template.template)
+    scope = Foreman::Renderer.get_scope(host: self, source: source)
+    json = JSON.parse(Foreman::Renderer.render(source, scope))
     ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
     ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initrd']) unless json['initrd'] =~ /\Ahttp.+\Z/
-    old.becomes(Host::Discovered).kexec json.to_json
+    json
+  rescue StandardError => e
+    Foreman::Logging.exception("Unable render or parse kexec template, must be valid JSON", e)
+    {status: "Unable to render or parse template: " + e.to_s}
+  end
+
+  def setKexec
+    old.becomes(Host::Discovered).kexec(render_kexec_template.to_json)
     true
   rescue ::Foreman::Exception => e
     Foreman::Logging.exception("Unable to kexec", e)
