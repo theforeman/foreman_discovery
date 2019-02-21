@@ -22,11 +22,15 @@ see the [API README](README.api.md)
 We use [RedMine instance](http://projects.theforeman.org/projects/discovery/issues)
 instead of github.com issues. Please report issues there.
 
-## Grace Note: Testing
+## Testing
 
-If you only wish to test the plugin code itself, you don't need to create the PXE boot
-image above, or have a TFTP server to run it from. Simply POST a hash of Host Facts to
-`/api/v2/discovered_hosts/facts` to create a Discovered Host in the UI.
+There are unit and integration tests in the repository, to run them execute the following in the *Foreman core* directory:
+
+	bundle exec rake test:discovery
+
+It is possible to execute a single test, however the path must be *absolute* (e.g. use `$HOME` variable):
+
+	bundle exec rake test:discovery TEST=~/work/foreman_discovery/test/unit/host_discovered_test.rb
 
 # Copyright
 

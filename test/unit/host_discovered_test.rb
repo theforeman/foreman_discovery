@@ -62,17 +62,82 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
+    assert_equal org, host.organization
+    assert_equal loc, host.location
   end
 
-  test "should setup subnet with org and loc set via facts" do
-    org = FactoryBot.create(:organization, :name => "subnet_org_via_fact")
-    loc = FactoryBot.create(:location, :name => "subnet_loc_via_fact")
-    @facts['foreman_organization'] = org.name
-    @facts['foreman_location'] = loc.name
-    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+  test "should detect taxonomy as 'first' organization (e.g. randomly)" do
+    org = FactoryBot.create(:organization)
+    loc = FactoryBot.create(:location)
+    org2 = FactoryBot.create(:organization)
+    loc2 = FactoryBot.create(:location)
+    Setting['discovery_organization'] = nil
+    Setting['discovery_location'] = nil
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, org2], :locations => [loc, loc2])
     Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
+    assert host.organization
+    assert host.location
+  end
+
+  test "discovery_organization must not be overriden by organization_fact from core" do
+    begin
+      org = FactoryBot.create(:organization, :name => "subnet_org", :title => "subnet_org")
+      loc = FactoryBot.create(:location, :name => "subnet_loc", :title => "subnet_loc")
+      bad_org = FactoryBot.create(:organization, :name => "bad_org", :title => "bad_org")
+      bad_loc = FactoryBot.create(:location, :name => "bad_loc", :title => "bad_loc")
+      Setting['organization_fact'] = "test_org"
+      Setting['location_fact'] = "test_loc"
+      Setting['discovery_organization'] = org.name
+      Setting['discovery_location'] = loc.name
+      subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
+      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      host = discover_host_from_facts(@facts.merge("test_org" => bad_org.title, "test_loc" => bad_loc.title))
+      assert_equal subnet, host.primary_interface.subnet
+      assert_equal org, host.organization
+      assert_equal loc, host.location
+    ensure
+      Setting['organization_fact'] = nil
+      Setting['location_fact'] = nil
+    end
+  end
+
+  test "discovery_organization must not be overriden by foreman_organization from core" do
+    org = FactoryBot.create(:organization, :name => "subnet_org", :title => "subnet_org")
+    loc = FactoryBot.create(:location, :name => "subnet_loc", :title => "subnet_loc")
+    bad_org = FactoryBot.create(:organization, :name => "bad_org", :title => "bad_org")
+    bad_loc = FactoryBot.create(:location, :name => "bad_loc", :title => "bad_loc")
+    Setting['discovery_organization'] = org.name
+    Setting['discovery_location'] = loc.name
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
+    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    host = discover_host_from_facts(@facts.merge("foreman_organization" => bad_org.title, "foreman_location" => bad_loc.title))
+    assert_equal subnet, host.primary_interface.subnet
+    assert_equal org, host.organization
+    assert_equal loc, host.location
+  end
+
+  test "discovery_organization must not be overriden by default_organization from core" do
+    begin
+      org = FactoryBot.create(:organization, :name => "subnet_org", :title => "subnet_org")
+      loc = FactoryBot.create(:location, :name => "subnet_loc", :title => "subnet_loc")
+      bad_org = FactoryBot.create(:organization, :name => "bad_org", :title => "bad_org")
+      bad_loc = FactoryBot.create(:location, :name => "bad_loc", :title => "bad_loc")
+      Setting['default_organization'] = bad_org.title
+      Setting['default_location'] = bad_loc.title
+      Setting['discovery_organization'] = org.name
+      Setting['discovery_location'] = loc.name
+      subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
+      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      host = discover_host_from_facts(@facts)
+      assert_equal subnet, host.primary_interface.subnet
+      assert_equal org, host.organization
+      assert_equal loc, host.location
+    ensure
+      Setting['default_organization'] = nil
+      Setting['default_location'] = nil
+    end
   end
 
   test "should set nested org and loc" do
