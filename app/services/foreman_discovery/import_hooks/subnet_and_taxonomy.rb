@@ -39,7 +39,8 @@ module ForemanDiscovery
       end
 
       def suggested_location
-        Location.find_by_title(facts["foreman_location"] || facts["discovery_location"]) ||
+        logger.warn("Do not use 'foreman_location' fact for discovery and use 'discovery_location' instead") if facts["foreman_location"]
+        Location.find_by_title(facts["discovery_location"]) ||
           Location.find_by_title(Setting[:discovery_location]) ||
           host.subnet.try(:locations).try(:first) ||
           Location.first
@@ -51,7 +52,8 @@ module ForemanDiscovery
       end
 
       def suggested_organization
-        Organization.find_by_title(facts["foreman_organization"] || facts["discovery_organization"]) ||
+        logger.warn("Do not use 'foreman_organization' fact for discovery and use 'discovery_organization' instead") if facts["foreman_organization"]
+        Organization.find_by_title(facts["discovery_organization"]) ||
           Organization.find_by_title(Setting[:discovery_organization]) ||
           host.subnet.try(:organizations).try(:first) ||
           Organization.first
