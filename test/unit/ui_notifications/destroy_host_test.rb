@@ -41,6 +41,15 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
     assert_equal 0, blueprint.notifications.count
   end
 
+  test 'discovered host type must not update notifications on plain save' do
+    host = FactoryBot.create(:discovered_host)
+    ForemanDiscovery::UINotifications::NewHost.deliver!(host)
+    assert_equal 1, blueprint.notifications.count
+    host.name = "triggerchange"
+    assert host.save!
+    assert_equal 1, blueprint.notifications.count
+  end
+
   test 'type change should not removing notifications for discovered hosts' do
     host1 = FactoryBot.create(:discovered_host)
     ForemanDiscovery::UINotifications::NewHost.deliver!(host1)
