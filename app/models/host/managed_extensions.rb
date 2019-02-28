@@ -70,12 +70,14 @@ module Host::ManagedExtensions
 
   def delete_discovery_attribute_set
     return if new_record?
-    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if saved_change_to_attribute?(:type)
+
+    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if saved_change_to_attribute?(:type) && type_previously_changed?
   end
 
   def update_notifications
     return if new_record?
-    return unless saved_change_to_attribute?(:type)
+    return unless saved_change_to_attribute?(:type) || type_previously_changed?
+
     ForemanDiscovery::UINotifications::DestroyHost.deliver!(self)
   end
 end
