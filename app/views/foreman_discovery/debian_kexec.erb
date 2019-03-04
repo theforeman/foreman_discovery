@@ -24,7 +24,7 @@ Please read kexec(8) man page for more information about semantics.
   mask = @host.facts['discovery_netmask']
   gw = @host.facts['discovery_gateway']
   dns = @host.facts['discovery_dns']
-  options = ["nomodeset", "auto=true"]
+  options = ["nomodeset", "nokaslr", "auto=true"]
   options << @host.facts['append']
   options << "domain=#{@host.domain}"
   options << 'console-setup/ask_detect=false console-setup/layout=USA console-setup/variant=USA keyboard-configuration/layoutcode=us localechooser/translation/warn-light=true localechooser/translation/warn-severe=true'
