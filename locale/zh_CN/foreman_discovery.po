@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 13.0.0\n"
+"Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
+"PO-Revision-Date: 2019-03-18 15:25+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -51,7 +51,7 @@ msgid "Auto provisioning"
 msgstr "自动置备"
 
 msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
-msgstr ""
+msgstr "自动绑定接口（如果通过 LLDP 在同一个 VLAN 中发现另外一个接口）"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "自动生成 PXE 配置，以将新发现主机固定至发现"
@@ -81,7 +81,7 @@ msgid "Collapse All"
 msgstr "隐藏全部"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
+msgstr "在 PXE-less 置备过程中  kexec 的命令行选项。"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
@@ -99,7 +99,7 @@ msgid "Create a discovery rule"
 msgstr "创建发现规则"
 
 msgid "Create bond interfaces"
-msgstr ""
+msgstr "创建绑定接口"
 
 msgid "Customize Host"
 msgstr "自定义主机"
@@ -138,7 +138,7 @@ msgid "Discovered Hosts"
 msgstr "发现主机"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr ""
+msgstr "发现的主机 '%{host}' 的所有 NIC 都被过滤掉，过滤：%{filter}"
 
 msgid "Discovered host: %s"
 msgstr "找到的主机：%s"
@@ -171,10 +171,10 @@ msgid "Discovery Rules"
 msgstr "发现规则"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr ""
+msgstr "发现 fact 解析器无法在未发现主机 '%{host}' 上工作"
 
 msgid "Discovery hostname naming pattern"
-msgstr ""
+msgstr "发现主机名的名称特征"
 
 msgid "Discovery location"
 msgstr "发现位置"
@@ -210,7 +210,7 @@ msgid "Disks size"
 msgstr "磁盘大小"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
-msgstr ""
+msgstr "不允许发现匹配一个置备 NIC 的 MAC 的已存在的管理的主机（早期出现错误）"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "域将自动附加。留空时将使用基于 MAC 地址的主机名。"
@@ -225,7 +225,7 @@ msgid "Enable rule '%s'?"
 msgstr "启用规则 '%s'？"
 
 msgid "Error on existing NIC"
-msgstr ""
+msgstr "已存在的 NIC 上的错误"
 
 msgid "Errors during auto provisioning: %s"
 msgstr "自动置备期间出错：%s"
@@ -246,7 +246,7 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "在主机列表中显示的额外 facter 列（用逗号隔开）"
 
 msgid "Fact + prefix"
-msgstr ""
+msgstr "Fact + 前缀"
 
 msgid "Fact columns"
 msgstr "详情列"
@@ -388,7 +388,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "无效的主机名：无法标准化主机名"
 
 msgid "Invalid user type of %s was provided"
-msgstr ""
+msgstr "提供了无效的 %s 用户类型"
 
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "内核 kexec URL 无效：'%s'"
@@ -436,7 +436,7 @@ msgid "MAC address"
 msgstr "MAC 地址"
 
 msgid "MAC-based name"
-msgstr ""
+msgstr "基于 MAC 的名称"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "按照此规则置备的最大主机数（0 = 没有限制）"
@@ -535,7 +535,7 @@ msgid "Provision a discovered host"
 msgstr "置备发现主机"
 
 msgid "Random name"
-msgstr ""
+msgstr "随机名"
 
 msgid "Reboot"
 msgstr "重启"
@@ -679,7 +679,7 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "无法找到发现规则，未提供主机（检查许可）"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
-msgstr ""
+msgstr "无法找到带有 '%{fact}' 指定的 %{mac} 的主 NIC。NIC 过滤：%{filter}"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "无法通过 %{url} 在 %{name} 上执行 kexec：%{msg}"
@@ -724,7 +724,7 @@ msgid "location ID for provisioned hosts"
 msgstr "预配主机的位置 ID"
 
 msgid "must be present."
-msgstr ""
+msgstr "必须存在。"
 
 msgid "must start with a letter or ERB."
 msgstr "必须以字母或 ERB 开始。"

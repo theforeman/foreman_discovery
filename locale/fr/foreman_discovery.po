@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Baptiste Agasse <baptiste.agasse@gmail.com>, 2018
+# Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019
 # Claer <transiblu@claer.hammock.fr>, 2013-2016
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 13.0.0\n"
+"Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>\n"
+"PO-Revision-Date: 2019-04-15 11:54+0000\n"
+"Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,7 @@ msgid "Auto provisioning"
 msgstr "Provisioning automatique"
 
 msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
-msgstr ""
+msgstr "Interface de liaison automatique (si une autre interface est détectée sur le même VLAN via LLDP)"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "Générer automatiquement la configuration PXE pour épingler un hôte récemment détecté"
@@ -83,7 +83,7 @@ msgid "Collapse All"
 msgstr "Tout réduire"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
+msgstr "Options de ligne de commande pour kexec lors du provisoning sans PXE."
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossible d'obtenir les facts du proxy %{url} : %{error}"
@@ -95,13 +95,13 @@ msgid "Create Rule"
 msgstr "Créer une règle"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
-msgstr "Créer un hôte détecté pour le test (utiliser /faits pour créer des hôtes)"
+msgstr "Créer un hôte détecté pour le test (utiliser /facts pour créer des hôtes)"
 
 msgid "Create a discovery rule"
 msgstr "Créer une règle de détection"
 
 msgid "Create bond interfaces"
-msgstr ""
+msgstr "Créer des interfaces de liaison"
 
 msgid "Customize Host"
 msgstr "Personnaliser l'hôte"
@@ -173,10 +173,10 @@ msgid "Discovery Rules"
 msgstr "Règles de détection"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr ""
+msgstr "L'analyseur de faits de découverte ne fonctionne pas avec l'hôte de non-découverte '%{host}'"
 
 msgid "Discovery hostname naming pattern"
-msgstr ""
+msgstr "Modèle de nommage du nom d'hôte de découverte"
 
 msgid "Discovery location"
 msgstr "Emplacement de détection"
@@ -212,7 +212,7 @@ msgid "Disks size"
 msgstr "Taille des disques"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
-msgstr ""
+msgstr "Ne pas autoriser la découverte du MAC correspondant à un hôte géré existant d'une carte réseau de provisionnement (erreurs survenues tôt)"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "Le domaine sera ajouté automatiquement. Un nom d'hôte basé sur une adresse MAC sera utilisé si le champ est vide."
@@ -248,7 +248,7 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Colonnes facter supplémentaires pour un affichage sous forme de listes d'hôtes (séparés par une virgule)"
 
 msgid "Fact + prefix"
-msgstr ""
+msgstr "Fact + préfixe"
 
 msgid "Fact columns"
 msgstr "Colonnes fact"
@@ -317,8 +317,8 @@ msgstr[1] "Les emplacements %s du groupe d'hôtes doivent aussi être associés 
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] "L'organisation %s du groupe d'hôtes doit aussi être associé à la règle de découverte"
-msgstr[1] "Les organisations %s du groupe d'hôtes doivent aussi être associés à la règle de découverte"
+msgstr[0] "L'organisation %s du groupe d'hôtes doit aussi être associée à la règle de découverte"
+msgstr[1] "Les organisations %s du groupe d'hôtes doivent aussi être associées à la règle de découverte"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "Impossible de redémarrer l'hôte de type %s"
@@ -390,7 +390,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nom d'hôte non valide. Impossible de normaliser le nom d'hôte"
 
 msgid "Invalid user type of %s was provided"
-msgstr ""
+msgstr "Le type d'utilisateur non valide %s a été fourni"
 
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "URL kexec du noyau non valide : '%s'"
@@ -438,7 +438,7 @@ msgid "MAC address"
 msgstr "Adresse MAC"
 
 msgid "MAC-based name"
-msgstr ""
+msgstr "Nom basé MAC"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Nombre maximal d'hôtes provisionnés avec cette règle (0 = illimité)"
@@ -537,7 +537,7 @@ msgid "Provision a discovered host"
 msgstr "Provisionner un hôte détecté"
 
 msgid "Random name"
-msgstr ""
+msgstr "Nom aléatoire"
 
 msgid "Reboot"
 msgstr "Redémarrer"
@@ -696,7 +696,7 @@ msgid "Update a rule"
 msgstr "Mettre à jour une règle"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Télécharge les faits d'un hôte, crée l'hôte si besoin"
+msgstr "Télécharger les faits d'un hôte, création de l'hôte si besoin"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "Lors de la création de modèles de nom d'hôte, veillez à ce que les noms d'hôte soient uniques."

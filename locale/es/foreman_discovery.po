@@ -9,10 +9,10 @@
 # Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 13.0.0\n"
+"Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Félix Barbeira <fbarbeira@gmail.com>\n"
+"PO-Revision-Date: 2019-03-18 15:21+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgid "Auto provisioning"
 msgstr "Autoaprovisionamiento"
 
 msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
-msgstr ""
+msgstr "Interfaz de asociación aleatoria (si se detecta otra interfaz en la misma VLAN mediante LLDP)"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "Generar configuración PXE en forma automática para adjuntar un host descubierto recientemente a la detección"
@@ -85,7 +85,7 @@ msgid "Collapse All"
 msgstr "Colapsó todo"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
+msgstr "Opciones de la línea de comandos para kexec durante el aprovisionamiento sin PXE."
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No pudieron obtenerse los eventos del proxy %{url}: %{error}"
@@ -103,7 +103,7 @@ msgid "Create a discovery rule"
 msgstr "Crear una regla de detección"
 
 msgid "Create bond interfaces"
-msgstr ""
+msgstr "Crear interfaces de asociación"
 
 msgid "Customize Host"
 msgstr "Personalizar host"
@@ -142,7 +142,7 @@ msgid "Discovered Hosts"
 msgstr "Hosts detectados"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr ""
+msgstr "El host detectado '%{host}' tiene todas las NIC filtradas, filtro: %{filter}"
 
 msgid "Discovered host: %s"
 msgstr "Equipo descubierto: %s"
@@ -175,10 +175,10 @@ msgid "Discovery Rules"
 msgstr "Reglas de detección"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr ""
+msgstr "El analizador de hechos de detección no funciona con el host de no detección '%{host}'"
 
 msgid "Discovery hostname naming pattern"
-msgstr ""
+msgstr "Detección de patrón de definición de nombre de host"
 
 msgid "Discovery location"
 msgstr "Ubicación de la detección"
@@ -214,7 +214,7 @@ msgid "Disks size"
 msgstr "Tamaño de discos"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
-msgstr ""
+msgstr "No permitir detectar host administrados existentes que coincidan con la MAC de una NIC de aprovisionamiento (se produce un error temprano)"
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
 msgstr "El dominio se agregará en forma automática. Se utilizará un nombre de host basado en la dirección MAC cuando quede en blanco."
@@ -229,7 +229,7 @@ msgid "Enable rule '%s'?"
 msgstr "¿Habilitar regla '%s'?"
 
 msgid "Error on existing NIC"
-msgstr ""
+msgstr "Error en la NIC existente"
 
 msgid "Errors during auto provisioning: %s"
 msgstr "Errores durante el autoaprovisionamiento: %s"
@@ -250,7 +250,7 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Columnas de eventos adicionales para mostrar en las listas de hosts (separados por comas)"
 
 msgid "Fact + prefix"
-msgstr ""
+msgstr "Hecho + prefijo"
 
 msgid "Fact columns"
 msgstr "Columnas de eventos"
@@ -392,7 +392,7 @@ msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nombre de host inválido: no es posible normalizar el nombre de host"
 
 msgid "Invalid user type of %s was provided"
-msgstr ""
+msgstr "Se proporcionó un tipo de usuario no válido de %s"
 
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "La URL del kexec del kernel no es válida: '%s'"
@@ -440,7 +440,7 @@ msgid "MAC address"
 msgstr "Dirección MAC"
 
 msgid "MAC-based name"
-msgstr ""
+msgstr "Nombre basado en MAC"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Hosts máximos aprovisionados con esta regla (0 = ilimitado)"
@@ -539,7 +539,7 @@ msgid "Provision a discovered host"
 msgstr "Aprovisionar un host detectado"
 
 msgid "Random name"
-msgstr ""
+msgstr "Nombre aleatorio"
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -683,7 +683,7 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "No es posible buscar una regla de detección, no se ha aprovisionado un host (verificar permisos)"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
-msgstr ""
+msgstr "No se puede encontrar la NIC principal con %{mac} especificada mediante '%{fact}', filtro de NIC: %{filter}"
 
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr "No es posible ejecutar kexec en %{name} a través de %{url}: %{msg}"
@@ -728,7 +728,7 @@ msgid "location ID for provisioned hosts"
 msgstr "ID de ubicación para hosts aprovisionados"
 
 msgid "must be present."
-msgstr ""
+msgstr "debe estar presente."
 
 msgid "must start with a letter or ERB."
 msgstr "debe comenzar con una letra o ERB."

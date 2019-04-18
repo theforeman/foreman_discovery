@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 13.0.0\n"
+"Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -138,9 +138,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr ""
 
-msgid "Discovered hosts"
-msgstr ""
-
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
@@ -175,9 +172,6 @@ msgid "Discovery location"
 msgstr ""
 
 msgid "Discovery organization"
-msgstr ""
-
-msgid "Discovery rules"
 msgstr ""
 
 msgid "DiscoveryRule|Enabled"
