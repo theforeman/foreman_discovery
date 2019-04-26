@@ -34,7 +34,7 @@ module DiscoveredHostsHelper
 
     select_action_button( _("Select Action"), {:id => 'submit_multiple'},
       actions.map do |action|
-        link_to_function(action[0], "build_modal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0]) if authorized_for(action[2])
+        link_to_function(action[0], "tfm.hosts.table.buildModal(this, '#{action[1]}')", :'data-dialog-title' => _("%s - The following hosts are about to be changed") % action[0]) if authorized_for(action[2])
       end.flatten
     )
   end

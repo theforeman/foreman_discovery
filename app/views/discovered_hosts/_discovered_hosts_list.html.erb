@@ -1,8 +1,7 @@
-<%= javascript "host_checkbox" %>
 <% title _('Discovered Hosts') %>
 <table class="<%= table_css_classes('table-condensed') %>" >
   <tr>
-    <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
+    <th class="ca"><%= check_box_tag "check_all", "", false, { :onclick => "tfm.hosts.table.toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th class=''><%= sort :name, :as => _('Name') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :model, :as => _('Model') %></th>
     <th class="hidden-tablet hidden-xs"><%= sort :ip, :as => _('IP Address') %></th>
@@ -22,7 +21,7 @@
   <% @hosts.each do |host| -%>
     <tr>
       <td class="ca">
-        <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized_for_edit_destroy?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' -%>
+        <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{host.id}", :disabled => !authorized_for_edit_destroy?, :class => 'host_select_boxes', :onclick => 'tfm.hosts.table.hostChecked(this)' -%>
       </td>
       <%= render :partial => "discovered_host", :locals => {:host => host} %>
       <td class="hidden-tablet hidden-xs"><%= host.location.try(:title) %></td>
@@ -56,7 +55,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= _('Cancel') %></button>
-        <button type="button" class="btn btn-primary" onclick="submit_modal_form()"><%= _('Submit') %></button>
+        <button type="button" class="btn btn-primary" onclick="tfm.hosts.table.submitModalForm()"><%= _('Submit') %></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
