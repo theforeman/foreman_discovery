@@ -3,7 +3,7 @@
   <div class="col-md-8">
     <%= form_for :location, :url => update_multiple_location_discovered_hosts_path(:host_ids => params[:host_ids]) do |f| %>
       <%= f.select :id, Location.all.map{|e| [e.name, e.id]},{:include_blank => _("Select location")},
-                   :onchange => "toggle_multiple_ok_button(this)" %>
+                   :onchange => "tfm.hosts.table.toggleMultipleOkButton (this)" %>
       <%= f.hidden_field :optimistic_import, :value => "yes" %>
     <% end %>
   </div>
