@@ -45,9 +45,7 @@ module Host::ManagedExtensions
     template = provisioning_template(:kind => 'kexec')
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
 
-    source = Foreman::Renderer::Source::String.new(name: template.name, content: template.template)
-    scope = Foreman::Renderer.get_scope(host: self, source: source)
-    json = JSON.parse(Foreman::Renderer.render(source, scope))
+    json = JSON.parse(render_template(template: template))
     ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
     ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initrd']) unless json['initrd'] =~ /\Ahttp.+\Z/
     json
