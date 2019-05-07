@@ -65,7 +65,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     end
 
     test "setKexec calls renderer" do
-      Host::Discovered.any_instance.expects(:kexec).with() { |json| JSON.parse(json) }.once
+      Host::Discovered.any_instance.expects(:render_template).with() { |json| JSON.parse(json) }.once
       Foreman::Renderer.expects(:render).returns({})
       @host.setKexec
     end
@@ -88,7 +88,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
 
     test "kexec template is correctly rendered" do
       expected = {
-        "append" => "ks=http://foreman.some.host.fqdn/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nomodeset",
+        "append" => "ks=http://foreman.some.host.fqdn/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nokaslr nomodeset",
         "extra" => []
       }
       assert @host.operatingsystem.respond_to?(:pxe_type)
