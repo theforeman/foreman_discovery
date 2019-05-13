@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -143,9 +143,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr ""
 
-msgid "Discovered hosts"
-msgstr ""
-
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
@@ -180,9 +177,6 @@ msgid "Discovery location"
 msgstr ""
 
 msgid "Discovery organization"
-msgstr ""
-
-msgid "Discovery rules"
 msgstr ""
 
 msgid "DiscoveryRule|Enabled"

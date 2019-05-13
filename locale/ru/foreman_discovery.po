@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Andrei Burd <burdandrei@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -150,9 +150,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr "Обнаружен узел: %s"
 
-msgid "Discovered hosts"
-msgstr "Обнаруженные узлы"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "Выполняется подготовка обнаруженных узлов"
 
@@ -188,9 +185,6 @@ msgstr ""
 
 msgid "Discovery organization"
 msgstr ""
-
-msgid "Discovery rules"
-msgstr "Правила обнаружения"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Включено"

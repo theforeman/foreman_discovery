@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,9 +142,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr "검색된 호스트: %s"
 
-msgid "Discovered hosts"
-msgstr "검색된 호스트 "
-
 msgid "Discovered hosts are provisioning now"
 msgstr "현재 검색된 호스트를 프로비저닝하고 있습니다"
 
@@ -180,9 +177,6 @@ msgstr ""
 
 msgid "Discovery organization"
 msgstr ""
-
-msgid "Discovery rules"
-msgstr "검색 규칙 "
 
 msgid "DiscoveryRule|Enabled"
 msgstr "활성화 "

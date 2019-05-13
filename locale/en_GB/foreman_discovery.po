@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-30 12:54+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -148,9 +148,6 @@ msgstr "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
 
-msgid "Discovered hosts"
-msgstr "Discovered hosts"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "Discovered hosts are provisioning now"
 
@@ -186,9 +183,6 @@ msgstr "Discovery location"
 
 msgid "Discovery organization"
 msgstr "Discovery organisation"
-
-msgid "Discovery rules"
-msgstr "Discovery rules"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Enabled"

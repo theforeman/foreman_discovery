@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-18 15:20+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -143,9 +143,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr "發現的主機：%s"
 
-msgid "Discovered hosts"
-msgstr "發現的主機"
-
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
@@ -180,9 +177,6 @@ msgid "Discovery location"
 msgstr ""
 
 msgid "Discovery organization"
-msgstr ""
-
-msgid "Discovery rules"
 msgstr ""
 
 msgid "DiscoveryRule|Enabled"

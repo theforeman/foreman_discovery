@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-18 15:23+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -144,9 +144,6 @@ msgstr "検出ホスト '%{host}' は全 NIC がフィルタリングされて�
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
 
-msgid "Discovered hosts"
-msgstr "検出されたホスト"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "検出されたホストのプロビジョニング中"
 
@@ -182,9 +179,6 @@ msgstr "検出ロケーション"
 
 msgid "Discovery organization"
 msgstr "検出組織"
-
-msgid "Discovery rules"
-msgstr "検出ルール"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "有効化"

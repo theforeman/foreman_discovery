@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-18 15:21+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -147,9 +147,6 @@ msgstr "El host detectado '%{host}' tiene todas las NIC filtradas, filtro: %{fil
 msgid "Discovered host: %s"
 msgstr "Equipo descubierto: %s"
 
-msgid "Discovered hosts"
-msgstr "Equipos descubiertos"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "Los hosts detectados se están aprovisionando ahora"
 
@@ -185,9 +182,6 @@ msgstr "Ubicación de la detección"
 
 msgid "Discovery organization"
 msgstr "Organización de detección"
-
-msgid "Discovery rules"
-msgstr "Reglas de detección"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "Regla de detección|Habilitada"

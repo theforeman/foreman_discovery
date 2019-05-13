@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-18 15:25+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2019-04-18 19:36+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -143,9 +143,6 @@ msgstr "发现的主机 '%{host}' 的所有 NIC 都被过滤掉，过滤：%{fil
 msgid "Discovered host: %s"
 msgstr "找到的主机：%s"
 
-msgid "Discovered hosts"
-msgstr "找到的主机"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "现在发现主机正在置备"
 
@@ -181,9 +178,6 @@ msgstr "发现位置"
 
 msgid "Discovery organization"
 msgstr "发现机构"
-
-msgid "Discovery rules"
-msgstr "发现规则"
 
 msgid "DiscoveryRule|Enabled"
 msgstr "发现规则|已启用"

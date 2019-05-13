@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
+# Alexander Stoll <Alexander.Stoll@netways.de>, 2019
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2014
 # Christina Gurski <Gurski_christina@yahoo.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2014-2017
@@ -15,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 14.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-10-25 20:13+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2019-05-09 09:32+0000\n"
+"Last-Translator: Alexander Stoll <Alexander.Stoll@netways.de>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +89,7 @@ msgid "Collapse All"
 msgstr "Alle einklappen"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
+msgstr "Kommandozeilenoptionen für kexec während PXE-loser Bereitstellung"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Fakten konnten nicht vom Proxy %{url} abgerufen werden: %{error}"
@@ -109,10 +110,10 @@ msgid "Create bond interfaces"
 msgstr ""
 
 msgid "Customize Host"
-msgstr ""
+msgstr "Host anpassen"
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
-msgstr ""
+msgstr "DHCP-Dateinamensoption (Standardmäßig Grub2/PXELinux)"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -150,9 +151,6 @@ msgstr ""
 msgid "Discovered host: %s"
 msgstr "Entdeckter Host: %s"
 
-msgid "Discovered hosts"
-msgstr "Entdeckte Hosts"
-
 msgid "Discovered hosts are provisioning now"
 msgstr "Entdeckte Hosts, die jetzt bereitgestellt werden"
 
@@ -169,7 +167,7 @@ msgid "Discovery Kexec template"
 msgstr ""
 
 msgid "Discovery Proxy"
-msgstr ""
+msgstr "Discovery-Proxy"
 
 msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -189,9 +187,6 @@ msgstr "Entdeckungsort"
 msgid "Discovery organization"
 msgstr "Entdeckungsorganisation"
 
-msgid "Discovery rules"
-msgstr "Entdeckungsregeln"
-
 msgid "DiscoveryRule|Enabled"
 msgstr "Aktiviert"
 
@@ -205,13 +200,13 @@ msgid "DiscoveryRule|Query"
 msgstr "Abfrage"
 
 msgid "Disk Count"
-msgstr ""
+msgstr "Festplattenanzahl"
 
 msgid "Disk count"
 msgstr "Festplattenanzahl"
 
 msgid "Disks Size"
-msgstr ""
+msgstr "Festplattengröße"
 
 msgid "Disks size"
 msgstr "Festplattengröße"
@@ -220,7 +215,7 @@ msgid "Do not allow to discover existing managed host matching MAC of a provisio
 msgstr ""
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
-msgstr ""
+msgstr "Domäne wird automatisch angehängt. Ein Hostname basierend auf der MAC-Adresse wird genutzt, wenn das Feld leer ist."
 
 msgid "Edit %s"
 msgstr "%s bearbeiten"
@@ -232,7 +227,7 @@ msgid "Enable rule '%s'?"
 msgstr "Regel '%s' aktivieren?"
 
 msgid "Error on existing NIC"
-msgstr ""
+msgstr "Fehler auf existierenden NIC"
 
 msgid "Errors during auto provisioning: %s"
 msgstr "Fehler bei automatischer Bereitstellung: %s"
@@ -253,7 +248,7 @@ msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "Zusätzliche Facter-Spalten zum Anzeigen in Hostlisten (mit Komma getrennt)"
 
 msgid "Fact + prefix"
-msgstr ""
+msgstr "Fakt + Prefix"
 
 msgid "Fact columns"
 msgstr "Faktspalten"
@@ -347,7 +342,7 @@ msgid "Hosts Limit"
 msgstr "Hosts-Limit"
 
 msgid "Hosts/Limit"
-msgstr ""
+msgstr "Hosts/Limit"
 
 msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -404,10 +399,10 @@ msgid "Kexec template not associated with operating system"
 msgstr "Kexec Vorlage ist nicht dem Betriebssystem zugeordnet"
 
 msgid "Last Facts Upload"
-msgstr ""
+msgstr "Letzter Fakten-Upload"
 
 msgid "Learn more about this in the documentation."
-msgstr ""
+msgstr "Mehr dazu in der Dokumentation."
 
 msgid "List all discovered hosts"
 msgstr "Alle entdeckten Hosts auflisten"
@@ -437,13 +432,13 @@ msgid "Locked PXEGrub2 template name"
 msgstr "Gesperrter PXEGrub2-Vorlagenname"
 
 msgid "Locked PXELinux template name"
-msgstr ""
+msgstr "Gesperrter PXELinux-Vorlagenname"
 
 msgid "MAC address"
 msgstr "MAC-Adresse"
 
 msgid "MAC-based name"
-msgstr ""
+msgstr "Mac-basierter Name"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "Höchstanzahl von Hosts, die mit dieser Regel bereitgestellt werden (0 = unbegrenzt)"
@@ -482,7 +477,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "Keine entdeckten Hosts für den ausgewählten Zeitraum"
 
 msgid "No discovered hosts found in this context."
-msgstr ""
+msgstr "Keine entdeckten Hosts gefunden in diesem Kontext."
 
 msgid "No discovered hosts to provision"
 msgstr "Keine entdeckten Hosts zur Bereitstellung"
@@ -509,7 +504,7 @@ msgid "Not reported in more than 7 days"
 msgstr "Nicht berichtet in mehr als 7 Tagen"
 
 msgid "One or more hosts have been discovered"
-msgstr ""
+msgstr "Einer oder mehrere Hosts wurden entdeckt"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -536,13 +531,13 @@ msgid "Provision"
 msgstr "Bereitstellen"
 
 msgid "Provision %s"
-msgstr ""
+msgstr "Bereitstellung %s"
 
 msgid "Provision a discovered host"
 msgstr "Entdeckten Host bereitstellen"
 
 msgid "Random name"
-msgstr ""
+msgstr "Zufälliger Name"
 
 msgid "Reboot"
 msgstr "Neustart"

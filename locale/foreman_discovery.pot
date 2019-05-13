@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-18 13:34+0200\n"
-"PO-Revision-Date: 2019-04-18 13:34+0200\n"
+"POT-Creation-Date: 2019-05-13 15:39+0200\n"
+"PO-Revision-Date: 2019-05-13 15:39+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -327,19 +327,19 @@ msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:14
 #: ../app/helpers/discovered_hosts_helper.rb:29
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:38
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:37
 msgid "Auto Provision"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:15
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:39
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:38
 msgid "Refresh facts"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
 #: ../app/models/setting/discovered.rb:26
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:40
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:39
 msgid "Reboot"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgid "Select Action"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:23
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:41
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:40
 msgid "Delete %s?"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgid "Provision"
 msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:26
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:2
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:1
 #: ../app/views/discovered_hosts/welcome.html.erb:1
 #: ../app/views/discovered_hosts/welcome.html.erb:6
 #: ../lib/foreman_discovery/engine.rb:158
@@ -519,11 +519,11 @@ msgstr ""
 msgid "Kexec template not associated with operating system"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:51
+#: ../app/models/host/managed_extensions.rb:49
 msgid "Kernel kexec URL is invalid: '%s'"
 msgstr ""
 
-#: ../app/models/host/managed_extensions.rb:52
+#: ../app/models/host/managed_extensions.rb:50
 msgid "Init RAM kexec URL is invalid: '%s'"
 msgstr ""
 
@@ -750,7 +750,7 @@ msgid "Host"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:4
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:7
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:6
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:8
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:18
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:10
@@ -758,14 +758,14 @@ msgid "Model"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:5
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:9
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:8
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:20
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:12
 msgid "CPUs"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:6
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:10
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:9
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:21
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:13
 msgid "Memory"
@@ -779,67 +779,67 @@ msgstr ""
 msgid "Create Host"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:4
 msgid "Select all items in this page"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:4
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:6
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:7
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:17
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:9
 msgid "Name"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:8
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:7
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:19
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:11
 msgid "IP Address"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:11
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:10
 msgid "Disk Count"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:12
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:11
 msgid "Disks Size"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:16
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:15
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:9
 msgid "Location"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:17
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:16
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:10
 msgid "Organization"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:18
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:17
 msgid "Subnet"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:19
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:18
 msgid "Last Facts Upload"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:20
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:19
 #: ../app/views/discovery_rules/index.html.erb:12
 msgid "Actions"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:52
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:51
 msgid "Please Confirm"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:58
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:57
 msgid "Cancel"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:59
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:58
 msgid "Submit"
 msgstr ""
 
