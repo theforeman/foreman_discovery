@@ -14,6 +14,7 @@ module ForemanDiscovery
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
+    config.autoload_paths += Dir["#{config.root}/app/graphql"]
 
     # Load this before the Foreman config initializers, so that the Setting.descendants
     # list includes the plugin STI setting class
@@ -215,6 +216,9 @@ module ForemanDiscovery
       # Controller extensions
       ::HostsController.send :include, ForemanDiscovery::Concerns::HostsControllerExtensions
       ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
+
+      # Graphql extensions
+      Types::Query.send(:include, Types::Extensions::ForemanDiscovery::QueryExtensions)
     end
 
     rake_tasks do
