@@ -7,7 +7,7 @@ require "foreman_discovery/version"
 Gem::Specification.new do |s|
   s.name = "foreman_discovery"
   s.version = ForemanDiscovery::VERSION
-  s.authors = IO.readlines("AUTHORS").map(&:strip)
+  s.authors = IO.readlines("AUTHORS", encoding: "utf-8").map(&:strip)
   s.email = "gsutclif@redhat.com"
   s.description = "MaaS Discovery Plugin engine for Foreman"
   s.extra_rdoc_files = [
