@@ -25,6 +25,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     }
     set_default_settings
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   def test_get_index

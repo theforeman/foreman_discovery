@@ -14,6 +14,7 @@ class DiscoveryAttributeSetTest < ActiveSupport::TestCase
                        :name => 'discovery_prefix',
                        :value => 'mac',
                        :category => 'Setting::Discovered')
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   test "can search discovered hosts by cpu" do

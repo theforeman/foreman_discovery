@@ -7,6 +7,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   setup do
     @facts = parse_json_fixture('regular_host', true)
     set_default_settings
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   test "should be able to create Host::Discovered objects" do

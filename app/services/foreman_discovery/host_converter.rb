@@ -1,5 +1,4 @@
 class ForemanDiscovery::HostConverter
-
   # Converts discovered host to managed host without uptading the database.
   # Record must be saved explicitly (using save! or update_attributes! or similar).
   # Creates shallow copy.
@@ -35,4 +34,33 @@ class ForemanDiscovery::HostConverter
     host.build = true
   end
 
+  def self.unused_ip_for_subnet(subnet, mac, existing_ip)
+    ipam = subnet.unused_ip(mac)
+    raise(::Foreman::Exception.new(N_("IPAM must be configured for subnet '%s'"), subnet)) unless ipam.present?
+
+    # None IPAM returns nil - in that case keep the current address
+    suggested_ip = ipam.suggest_ip
+    suggested_ip.nil? ? existing_ip : suggested_ip
+  end
+
+  def self.unused_ip_for_host(host, new_subnet = nil, new_subnet6 = nil)
+    host.interfaces.each do |interface|
+      next unless interface.managed?
+
+      interface.subnet = new_subnet if new_subnet
+      interface.subnet6 = new_subnet6 if new_subnet6
+      interface.ip = unused_ip_for_subnet(interface.subnet, interface.mac, interface.ip) if interface.subnet
+      interface.ip6 = unused_ip_for_subnet(interface.subnet6, interface.mac, interface.ip6) if interface.subnet6
+      interface.save!
+    end
+  end
+
+  def self.change_subnet_and_unused_ip(host, hostgroup)
+    if host.subnet != hostgroup.subnet || host.subnet6 != hostgroup.subnet6
+      Rails.logger.debug "Discovered host subnets #{[host.subnet, host.subnet6]} do not match hostgroup subnets #{[hostgroup.subnet, hostgroup.subnet6]}"
+      unused_ip_for_host(host, host.hostgroup.subnet, host.hostgroup.subnet6)
+    else
+      Rails.logger.debug "Discovered host subnets #{[host.subnet, host.subnet6]} match hostgroup subnets"
+    end
+  end
 end
