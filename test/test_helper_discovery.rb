@@ -133,6 +133,18 @@ def facts_simple_network100_42
   }
 end
 
+def facts_network_2001_db8
+  {
+    "interfaces"       => "lo,eth0,eth1",
+    "ipaddress6"        => "2001:db8::1",
+    "ipaddress6_eth0"   => "2001:db8::1",
+    "ipaddress6_eth1"   => "2001:db9::1",
+    "macaddress_eth0"  => "AA:BB:CC:DD:EE:FA",
+    "macaddress_eth1"  => "AA:BB:CC:DD:EE:FB",
+    "discovery_bootif" => "AA:BB:CC:DD:EE:FA",
+  }
+end
+
 def discover_host_from_facts(facts)
   User.as_anonymous_admin do
     Host::Discovered.import_host(facts)

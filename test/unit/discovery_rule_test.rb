@@ -3,6 +3,7 @@ require_relative '../test_plugin_helper'
 class DiscoveryRuleTest < ActiveSupport::TestCase
   setup do
     @hostgroup = FactoryBot.create(:hostgroup)
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   should allow_values(*valid_name_list).for(:name)

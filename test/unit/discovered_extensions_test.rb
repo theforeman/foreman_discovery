@@ -7,7 +7,9 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   setup do
     @facts = facts_simple_network100_42
+    @facts_ipv6 = facts_network_2001_db8
     set_default_settings
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   test "no rule is found for empty rule set" do
@@ -177,6 +179,53 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
     refute_nil hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
     assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+  end
+
+  class StubIPAM
+    def suggest_ip
+      "192.168.101.13"
+    end
+  end
+
+  test "subnet is changed and unused_ip called" do
+    ::ForemanDiscovery::HostConverter.unstub(:unused_ip_for_host)
+    facts = @facts.merge({"somefact" => "abc"})
+    domain = FactoryBot.create(:domain)
+    subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    subnet2 = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_101', :network => '192.168.101.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    host = discover_host_from_facts(facts)
+    assert_equal subnet, host.subnet
+    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet2, :domain => domain)
+    r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    Subnet.any_instance.expects(:unused_ip).with(host.mac).returns(StubIPAM.new)
+    host.primary_interface.stubs(:queue_tftp)
+    host.primary_interface.stubs(:queue_dhcp)
+    managed_host = perform_auto_provision(host, r1)
+    assert_empty host.errors
+    assert managed_host
+    assert_empty managed_host.errors
+    assert_equal hostgroup.subnet, managed_host.subnet
+    assert_equal "192.168.101.13", managed_host.ip
+  end
+
+  test "subnet6 is changed and unused_ip called" do
+    ::ForemanDiscovery::HostConverter.unstub(:unused_ip_for_host)
+    facts = @facts_ipv6.merge({"somefact" => "abc"})
+    domain = FactoryBot.create(:domain)
+    subnet = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db8::/32", :mask => "ffff:ffff::", :name => "ipv6_discovered", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    subnet2 = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db9::/32", :mask => "ffff:ffff::", :name => "ipv6_provision", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    host = discover_host_from_facts(facts)
+    assert_equal subnet, host.subnet6
+    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet6 => subnet2, :domain => domain)
+    r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
+    host.primary_interface.stubs(:queue_tftp)
+    host.primary_interface.stubs(:queue_dhcp)
+    managed_host = perform_auto_provision(host, r1)
+    assert_empty host.errors
+    assert managed_host
+    assert_empty managed_host.errors
+    assert_equal hostgroup.subnet, managed_host.subnet
+    assert_equal "2001:db9::a8bb:ccff:fedd:eefa", managed_host.ip6
   end
 
   test "attributes from hostgroup are copied after auto provisioning for host without subnet detected" do

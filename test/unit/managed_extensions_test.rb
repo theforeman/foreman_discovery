@@ -30,6 +30,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
       @host.stubs(:medium).returns('http://a_medium')
       @host.stubs(:architecture).returns(FactoryBot.create(:architecture))
       ::MediumProviders::Default.any_instance.stubs(:validate).returns([])
+      ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
     end
 
     test "queue_reboot enques reboot command when there is no kexec fact" do

@@ -41,6 +41,8 @@ module Foreman::Controller::DiscoveredExtensions
   # trigger the provisioning
   def perform_auto_provision original_host, rule
     raise(::Foreman::Exception.new(N_("No hostgroup associated with rule '%s'"), rule)) if rule.hostgroup.nil?
+
+    logger.debug "Auto-provisioning via rule #{rule} hostgroup #{rule.hostgroup} subnet #{rule.hostgroup.subnet}"
     host = ::ForemanDiscovery::HostConverter.to_managed(original_host)
     host.hostgroup_id = rule.hostgroup_id
     host.comment = "Auto-discovered and provisioned via rule '#{rule.name}'"
@@ -55,6 +57,8 @@ module Foreman::Controller::DiscoveredExtensions
     # explicitly set all inheritable attributes from hostgroup
     host.attributes = host.apply_inherited_attributes(hostgroup_id: rule.hostgroup_id)
     host.set_hostgroup_defaults
+    # change subnet and fetch unused IPs
+    ::ForemanDiscovery::HostConverter.unused_ip_for_host(host, rule.hostgroup.subnet, rule.hostgroup.subnet6)
     # save! does not work here
     if host.save
       host

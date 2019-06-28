@@ -10,6 +10,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
     discovered_host.save!
     visit discovered_hosts_path
     page.evaluate_script("document.getElementById('fixedPropertiesSelector-#{discovered_host.id}').classList.remove('fade')")
+    ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
   teardown do

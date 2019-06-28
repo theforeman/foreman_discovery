@@ -4,14 +4,15 @@ module ForemanDiscovery
     class SubnetAndTaxonomy < ImportHook
       def after_populate
         primary_ip = host.primary_interface.ip
+        primary_ip6 = host.primary_interface.ip6
 
-        unless primary_ip
+        unless primary_ip || primary_ip6
           logger.warn "Unable to assign subnet - reboot trigger may not be possible, primary interface is missing IP address"
           return
         end
 
         # set subnet
-        set_subnet(primary_ip)
+        set_subnets(primary_ip, primary_ip6)
         # set location and organization
         set_location
         set_organization
@@ -19,18 +20,9 @@ module ForemanDiscovery
 
       private
 
-      def set_subnet(ip)
-        host.primary_interface.subnet = suggested_subnet(ip)
-      end
-
-      def suggested_subnet(ip)
-        subnet = Subnet.subnet_for(ip)
-        if subnet
-          logger.info "Detected subnet: #{subnet} with taxonomy #{subnet.organizations.collect(&:name)}/#{subnet.locations.collect(&:name)}"
-        else
-          logger.warn "Subnet could not be detected for #{ip}"
-        end
-        subnet
+      def set_subnets(ip, ip6)
+        host.primary_interface.subnet = ForemanDiscovery::SubnetSuggestion.for(ip: ip, kind: 'IPv4') if ip
+        host.primary_interface.subnet6 = ForemanDiscovery::SubnetSuggestion.for(ip: ip6, kind: 'IPv6') if ip6
       end
 
       def set_location
