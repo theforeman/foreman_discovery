@@ -16,6 +16,7 @@ base = find_base
 version = "3.4.0"
 interfaces = []
 preserve_interfaces = false
+use_facts_endpoint = false
 primary = nil
 bootif = nil
 url = "http://admin:changeme@localhost:3000"
@@ -38,6 +39,10 @@ OptionParser.new do |opts|
 
   opts.on("-x", "--[no-]preserve-interfaces", "Preserve interfaces from JSON") do |v|
     preserve_interfaces = true
+  end
+
+  opts.on("-a", "--facts", "Use host facts endpoint") do |v|
+    use_facts_endpoint = true
   end
 
   opts.on("-pNAME", "--primary=NAME", "Interface to use as primary (defaults to the first one)") do |v|
@@ -85,7 +90,14 @@ unless preserve_interfaces
   end
 end
 puts JSON.pretty_generate(json)
-resource = RestClient::Resource.new(url + "/api/v2/discovered_hosts/facts", verify_ssl: OpenSSL::SSL::VERIFY_NONE)
-response = resource.post({"facts" => json}.to_json, {content_type: :json, accept: :json})
+if use_facts_endpoint
+  endpoint = url + "/api/v2/hosts/facts"
+  payload = {"facts" => json, "name" => json["hostname"] || json["networking"]["fqdn"]}
+else
+  endpoint = url + "/api/v2/discovered_hosts/facts"
+  payload = {"facts" => json}
+end
+resource = RestClient::Resource.new(endpoint, verify_ssl: OpenSSL::SSL::VERIFY_NONE)
+response = resource.post(payload.to_json, {content_type: :json, accept: :json})
 puts response.code
 puts response.body

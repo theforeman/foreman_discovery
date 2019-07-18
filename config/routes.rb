@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'os_selected_discovered_hosts'           => 'hosts#os_selected'
   post 'medium_selected_discovered_hosts'       => 'hosts#medium_selected'
 
+  get 'discovered_hosts/help', :action => :welcome, :controller => 'discovered_hosts'
+
   constraints(:id => /[^\/]+/) do
     resources :discovered_hosts, :except => [:new, :create] do
       member do

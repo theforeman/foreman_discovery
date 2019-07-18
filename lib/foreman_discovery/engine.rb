@@ -48,7 +48,7 @@ module ForemanDiscovery
         # discovered hosts permissions
         security_block :discovery do
           permission :view_discovered_hosts, {
-            :discovered_hosts          => [:index, :show, :auto_complete_search],
+            :discovered_hosts          => [:index, :show, :auto_complete_search, :welcome],
             :"api/v2/discovered_hosts" => [:index, :show]
           }, :resource_type => 'Host'
           permission :submit_discovered_hosts, {
