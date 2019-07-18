@@ -3,5 +3,4 @@ class DiscoveryAttributeSet < ApplicationRecord
 
   validates :cpu_count, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
   validates :memory, :presence => true,    :numericality => {:greater_than_or_equal_to => 0}
-  validates :host, :presence => true
 end

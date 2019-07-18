@@ -9,8 +9,7 @@ class Host::Discovered < ::Host::Base
   include ::Hostext::OperatingSystem
 
   has_one :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
-
-  validates :discovery_attribute_set, :presence => true
+  validates_associated :discovery_attribute_set
 
   delegate :memory, :cpu_count, :disk_count, :disks_size, :to => :discovery_attribute_set, :allow_nil => true
   after_destroy :delete_notification
