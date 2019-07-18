@@ -3,8 +3,15 @@ module ForemanDiscovery
   module ImportHooks
     class DiscoveryAttribute < ImportHook
       def after_populate
-        host.discovery_attribute_set = DiscoveryAttributeSet.where(host_id: host.id).first_or_create
-        host.discovery_attribute_set.update(import_from_facts)
+        # This should be done in a SQL transaction but we cannot use transactions for
+        # host updates because it utterly breaks our orchestration. We must work with
+        # the fact that discovery_attribute_set can end up being nil and controllers
+        # and views must be aware and render zero/blank values.
+        if host.discovery_attribute_set
+          host.discovery_attribute_set.update(import_from_facts)
+        else
+          host.build_discovery_attribute_set(import_from_facts)
+        end
       end
 
       def import_from_facts
