@@ -86,7 +86,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_edit_form_quick_submit
     domain = FactoryBot.create(:domain)
     hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
-    new_ip = hostgroup.subnet.ipaddr
+    new_ip = hostgroup.subnet.ipaddr.to_s
     host = discover_host_from_facts(@facts.merge({
                                                     'ipaddress' => new_ip,
                                                     'ipaddress_eth0' => new_ip

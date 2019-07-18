@@ -65,8 +65,8 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     end
 
     test "setKexec calls renderer" do
-      Host::Discovered.any_instance.expects(:render_template).with() { |json| JSON.parse(json) }.once
-      Foreman::Renderer.expects(:render).returns({})
+      @host.expects(:render_kexec_template).once.returns({})
+      Host::Discovered.any_instance.expects(:kexec).once
       @host.setKexec
     end
   end
