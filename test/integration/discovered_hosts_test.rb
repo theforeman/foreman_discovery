@@ -9,6 +9,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
     assert discovered_notification_blueprint
     discovered_host.save!
     visit discovered_hosts_path
+    page.evaluate_script("document.getElementById('fixedPropertiesSelector-#{discovered_host.id}').classList.remove('fade')")
   end
 
   teardown do
@@ -64,15 +65,14 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
     test 'and forwards to editing it' do
       create_host
-      assert_equal edit_discovered_host_path(id: discovered_host),
-                   current_path
+      assert_current_path edit_discovered_host_path(id: discovered_host), ignore_query: true
     end
 
     context 'with a Hostgroup selected' do
       let(:discovery_hostgroup) { Hostgroup.first }
 
       test 'it passes it on' do
-        select_from('host_hostgroup_id', discovery_hostgroup.id)
+        select2(discovery_hostgroup.name, from: 'host_hostgroup_id')
         create_host
         assert_param discovery_hostgroup.id.to_s,
                      'host.hostgroup_id'
@@ -83,7 +83,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       let(:discovery_location) { Location.first }
 
       test 'it passes it on' do
-        select_from('host_location_id', discovery_location.id)
+        select2(discovery_location.name, from: 'host_location_id')
         create_host
         assert_param discovery_location.id.to_s,
                      'host.location_id'
@@ -94,7 +94,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       let(:discovery_organization) { Organization.first }
 
       test 'it passes it on' do
-        select_from('host_organization_id', discovery_organization.id)
+        select2(discovery_organization.name, from: 'host_organization_id')
         create_host
         assert_param discovery_organization.id.to_s,
                      'host.organization_id'
@@ -145,12 +145,6 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   def select_host_checkbox(id)
     page.find("#host_ids_#{id}").click
-  end
-
-  def select_from(element_id, id)
-    page.find_by_id(element_id, visible: false)
-        .find("option[value='#{id}']", visible: false)
-        .select_option
   end
 
   def create_host
