@@ -4,25 +4,25 @@
       <div class="modal-header">
         <h4 class="modal-title" id="fixedPropertiesSelectorLabel">Select initial host properties</h4>
       </div>
-      <div class="modal-body">
-        <%= form_for host, :url => edit_discovered_host_path(host), :method => :get do |f| %>
-            <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label,
-                         { :include_blank => true },
-                         { :help_inline => :indicator, :size => 'col-md-10' } %>
+      <%= form_for host, :url => edit_discovered_host_path(host), :method => :get do |f| %>
+        <div class="modal-body">
+          <%= select_f f, :hostgroup_id, accessible_resource_records(:hostgroup, :title).to_a, :id, :to_label,
+                      { :include_blank => true },
+                      { :help_inline => :indicator, :size => 'col-md-10' } %>
 
-            <% if show_organization_tab?  %>
-                <%= select_f f, :organization_id, Organization.my_organizations, :id, :to_label, {}, {:size => 'col-md-10'} %>
-            <% end %>
+          <% if show_organization_tab?  %>
+            <%= select_f f, :organization_id, Organization.my_organizations, :id, :to_label, {}, {:size => 'col-md-10'} %>
+          <% end %>
 
-            <% if show_location_tab? %>
-                <%= select_f f, :location_id, Location.my_locations, :id, :to_label, {}, {:size => 'col-md-10'} %>
-            <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <input type="submit" class="btn btn-default" value="<%= _('Customize Host') %>" />
-        <input type="submit" class="btn btn-primary" value="<%= _('Create Host') %>" name="quick_submit" />
-      </div>
+          <% if show_location_tab? %>
+            <%= select_f f, :location_id, Location.my_locations, :id, :to_label, {}, {:size => 'col-md-10'} %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-default" value="<%= _('Customize Host') %>" />
+          <input type="submit" class="btn btn-primary" value="<%= _('Create Host') %>" name="quick_submit" />
+        </div>
       <% end %>
     </div>
   </div>
