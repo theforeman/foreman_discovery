@@ -1,0 +1,128 @@
+{
+  "uptime_seconds": 206,
+  "architecture": "x86_64",
+  "virtual": "kvm",
+  "is_virtual": true,
+  "kernel": "Linux",
+  "blockdevice_vda_size": 6442450944,
+  "blockdevice_vda_vendor": "0x1af4",
+  "blockdevices": "vda",
+  "dhcp_servers": {
+    "system": "192.168.122.1",
+    "bond0": "192.168.122.1"
+  },
+  "domain": "nat.lan",
+  "hardwaremodel": "x86_64",
+  "operatingsystem": "CentOS",
+  "os": {
+    "name": "CentOS",
+    "family": "RedHat",
+    "release": {
+      "major": "7",
+      "minor": "6",
+      "full": "7.6.1810"
+    }
+  },
+  "facterversion": "2.4.1",
+  "filesystems": "xfs",
+  "fqdn": "localhost.nat.lan",
+  "gid": "root",
+  "hardwareisa": "x86_64",
+  "hostname": "localhost",
+  "id": "root",
+  "interfaces": "bond0,eth0,eth1,lo",
+  "ipaddress_bond0": "192.168.122.7",
+  "macaddress_bond0": "52:54:00:fd:1e:62",
+  "netmask_bond0": "255.255.255.0",
+  "mtu_bond0": 1500,
+  "macaddress_eth0": "52:54:00:FD:1E:62",
+  "mtu_eth0": 1500,
+  "macaddress_eth1": "52:54:00:7C:84:DA",
+  "mtu_eth1": 1500,
+  "ipaddress_lo": "127.0.0.1",
+  "netmask_lo": "255.0.0.0",
+  "mtu_lo": 65536,
+  "ipaddress": "192.168.122.7",
+  "kernelmajversion": "3.10",
+  "kernelrelease": "3.10.0-957.el7.x86_64",
+  "kernelversion": "3.10.0",
+  "rubyplatform": "x86_64-linux",
+  "macaddress": "52:54:00:fd:1e:62",
+  "bios_vendor": "SeaBIOS",
+  "bios_version": "1.12.0-2.fc30",
+  "bios_release_date": "04/01/2014",
+  "manufacturer": "QEMU",
+  "productname": "Standard PC (Q35 + ICH9, 2009)",
+  "serialnumber": "Not Specified",
+  "uuid": "d1e61ef9-663e-4195-b256-f64b9f8cc8ae",
+  "type": "Other",
+  "memorysize": "8.41 GB",
+  "memoryfree": "8.20 GB",
+  "swapsize": "615.00 MB",
+  "swapfree": "615.00 MB",
+  "swapsize_mb": "615.00",
+  "swapfree_mb": "615.00",
+  "memorysize_mb": "8615.46",
+  "memoryfree_mb": "8395.15",
+  "netmask": "255.255.255.0",
+  "network_bond0": "192.168.122.0",
+  "network_lo": "127.0.0.0",
+  "uptime_hours": 0,
+  "operatingsystemmajrelease": "7",
+  "rubysitedir": "/usr/local/share/ruby/site_ruby/",
+  "operatingsystemrelease": "7.6.1810",
+  "osfamily": "RedHat",
+  "partitions": {
+    "vda1": {
+      "size": "2048"
+    },
+    "vda2": {
+      "uuid": "1f259325-5eb4-4334-81f3-699ace4a28ff",
+      "size": "2097152",
+      "mount": "/boot",
+      "filesystem": "xfs"
+    },
+    "vda3": {
+      "uuid": "6639b5c4-1ba1-41d6-a4a0-6253eeaaae05",
+      "size": "1259520",
+      "filesystem": "swap"
+    },
+    "vda4": {
+      "uuid": "09aced65-5b86-4efe-9da0-c86a3311e1b8",
+      "size": "9220096",
+      "mount": "/",
+      "filesystem": "xfs"
+    }
+  },
+  "path": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin",
+  "rubyversion": "2.0.0",
+  "physicalprocessorcount": 2,
+  "processors": {
+    "models": [
+      "AMD EPYC Processor (with IBPB)",
+      "AMD EPYC Processor (with IBPB)"
+    ],
+    "count": 2,
+    "physicalcount": 2
+  },
+  "processor0": "AMD EPYC Processor (with IBPB)",
+  "processor1": "AMD EPYC Processor (with IBPB)",
+  "processorcount": 2,
+  "ps": "ps -ef",
+  "selinux": true,
+  "selinux_enforced": true,
+  "selinux_policyversion": "31",
+  "selinux_current_mode": "enforcing",
+  "selinux_config_mode": "enforcing",
+  "selinux_config_policy": "unknown",
+  "system_uptime": {
+    "seconds": 206,
+    "hours": 0,
+    "days": 0,
+    "uptime": "0:03 hours"
+  },
+  "timezone": "EDT",
+  "uniqueid": "007f0100",
+  "uptime": "0:03 hours",
+  "uptime_days": 0
+}

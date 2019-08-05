@@ -38,9 +38,20 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal discovered_host.id, fact_value.host.id
   end
 
+  test "should detect bridge as the primary" do
+    # Detected primary should be the bridge (.2)
+    # "ipaddress_br180": "10.35.27.2"
+    # "ipaddress_eth0": "10.35.27.3"
+    # "ipaddress": "10.35.27.2"
+    subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
+    host = discover_host_from_facts(@facts)
+    assert_equal '10.35.27.2', host.primary_interface.ip
+  end
+
   test "should setup subnet" do
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
   end
@@ -48,7 +59,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should setup subnet when update_subnets_from_facts is true" do
     Setting[:update_subnets_from_facts] = true
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
   end
@@ -59,7 +70,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
     assert_equal org, host.organization
@@ -74,7 +85,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting['discovery_organization'] = nil
     Setting['discovery_location'] = nil
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, org2], :locations => [loc, loc2])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal subnet, host.primary_interface.subnet
     assert host.organization
@@ -92,7 +103,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       Setting['discovery_organization'] = org.name
       Setting['discovery_location'] = loc.name
       subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
-      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
       host = discover_host_from_facts(@facts.merge("test_org" => bad_org.title, "test_loc" => bad_loc.title))
       assert_equal subnet, host.primary_interface.subnet
       assert_equal org, host.organization
@@ -111,7 +122,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts.merge("foreman_organization" => bad_org.title, "foreman_location" => bad_loc.title))
     assert_equal subnet, host.primary_interface.subnet
     assert_equal org, host.organization
@@ -129,7 +140,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       Setting['discovery_organization'] = org.name
       Setting['discovery_location'] = loc.name
       subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
-      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
       host = discover_host_from_facts(@facts)
       assert_equal subnet, host.primary_interface.subnet
       assert_equal org, host.organization
@@ -148,7 +159,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting['discovery_organization'] = org.name
     Setting['discovery_location'] = loc.name
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
-    Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+    Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
     assert_equal org, host.organization
     assert_equal loc, host.location
@@ -188,7 +199,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                                   :organizations => [organization_one],
                                   :locations => [location_one]
       )
-      Subnet.expects(:subnet_for).with('10.35.27.3').returns(subnet)
+      Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
       ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
       TemplateKind::PXE.each do |kind|
         ProvisioningTemplate.where(:name => "#{kind.downcase}_discovery").first_or_create(
@@ -259,14 +270,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal 'mace41f13cc3658', host1.name
     assert_equal 'IBM System x -[7870K4G]-', host1.facts["productname"]
     assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
-    assert_equal '10.35.27.3', host1.ip
+    assert_equal '10.35.27.2', host1.ip
 
     @facts["ipaddress_eth0"] = "1.2.3.4"
     @facts["productname"] = "Dishwasher DW400"
     host2 = discover_host_from_facts(@facts)
     assert_equal 'mace41f13cc3658', host2.name
     assert_equal 'Dishwasher DW400', host2.facts["productname"]
-    assert_equal '1.2.3.4', host2.ip
+    assert_equal '10.35.27.2', host2.ip
     assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
   end
 
@@ -443,7 +454,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('regular_host', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
-    assert_equal "eth0", host.primary_interface.identifier
+    assert_equal "br180", host.primary_interface.identifier
   end
 
   test "provision_interface isn't touched with no peer on the same VLAN" do
@@ -451,7 +462,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     raw = parse_json_fixture('facts_with_lldp', true)
     host = discover_host_from_facts(raw)
     refute_nil host.primary_interface
-    assert_equal "eth0", host.primary_interface.identifier
+    assert_equal "br180", host.primary_interface.identifier
   end
 
   test "provision_interface is switched to bond0 with more than one interface on the same VLAN" do
