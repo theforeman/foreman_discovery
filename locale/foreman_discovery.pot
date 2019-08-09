@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 15:39+0200\n"
-"PO-Revision-Date: 2019-05-13 15:39+0200\n"
+"POT-Creation-Date: 2019-08-09 11:23+0200\n"
+"PO-Revision-Date: 2019-08-09 11:23+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -459,51 +459,51 @@ msgid_plural "Host group locations %s must also be associated to the discovery r
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/models/host/discovered.rb:41
+#: ../app/models/host/discovered.rb:40
 msgid "Fact + prefix"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:42
+#: ../app/models/host/discovered.rb:41
 msgid "Random name"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:43
+#: ../app/models/host/discovered.rb:42
 msgid "MAC-based name"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:52
+#: ../app/models/host/discovered.rb:51
 msgid "Invalid facts, must be a Hash"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:57
+#: ../app/models/host/discovered.rb:56
 msgid ""
 "Expected discovery_fact '%s' is missing, unable to detect primary interface an"
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:70
+#: ../app/models/host/discovered.rb:69
 msgid ""
 "Invalid facts: hash does not contain a valid value for any of the facts in the"
 " discovery_hostname setting: %s"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:96
+#: ../app/models/host/discovered.rb:95
 msgid "Facts could not be imported"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:151
+#: ../app/models/host/discovered.rb:150
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:159
+#: ../app/models/host/discovered.rb:158
 msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:167
+#: ../app/models/host/discovered.rb:166
 msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:186
+#: ../app/models/host/discovered.rb:185
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 

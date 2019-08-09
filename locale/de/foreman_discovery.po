@@ -14,7 +14,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 14.0.0\n"
+"Project-Id-Version: foreman_discovery 15.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-05-09 09:32+0000\n"
 "Last-Translator: Alexander Stoll <Alexander.Stoll@netways.de>\n"
