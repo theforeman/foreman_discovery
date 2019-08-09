@@ -159,20 +159,6 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
   end
 
-  def test_auto_provision_with_wrong_disabled_org_sucess
-    disable_orchestration
-    SETTINGS[:organizations_enabled] = false
-    facts = @facts.merge({"somefact" => "abc"})
-    host = discover_host_from_facts(facts)
-    taxonomy = { :locations => [host.location] }
-    FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
-    post :auto_provision, params: { :id => host.id }
-    assert_match host.name, @response.body
-    assert_response :success
-  ensure
-    SETTINGS[:organizations_enabled] = true
-  end
-
   def test_auto_provision_success_and_delete
     disable_orchestration
     facts = @facts.merge({"somefact" => "abc"})
