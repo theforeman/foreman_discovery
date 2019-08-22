@@ -3,10 +3,12 @@ require 'optparse'
 require 'json'
 require 'rest-client'
 
-def find_base name="default"
-  return name if File.exists?(name)
+def find_base name = "default"
+  return name if File.exist?(name)
+
   file = File.absolute_path(File.dirname(__FILE__) + "../../test/facts/#{name}.json")
-  raise "Unable to find file #{file}" unless File.exists?(file)
+  raise "Unable to find file #{file}" unless File.exist?(file)
+
   file
 end
 
@@ -70,8 +72,8 @@ unless preserve_interfaces
   json["interfaces"] = interfaces.map{|i| i.first}.join(',')
   interfaces.each do |iface|
     name, subnet, ipo, mac = iface
-    mac = (["52"] + 5.times.map { '%02x' % rand(0..255) }).join(':') unless mac
-    ipo = rand(1..253) unless ipo
+    mac ||= (["52"] + 5.times.map { '%02x' % rand(0..255) }).join(':')
+    ipo ||= rand(1..253)
     ip = "192.168.#{subnet}.#{ipo}"
     json["macaddress_#{name}"] = mac
     json["ipaddress_#{name}"] = ip
