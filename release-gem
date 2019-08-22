@@ -4,7 +4,8 @@ $plugin_name = "foreman_discovery"
 RUBY_VERSION_FILE = "lib/#{$plugin_name}/version.rb"
 
 def die(msg)
-  STDERR.puts msg; exit 1
+  warn msg
+  exit 1
 end
 
 def run(cmd)
@@ -16,7 +17,7 @@ end
 def action(question)
   puts "#{question} ? [Y/n]"
   die("Aborted.") if STDIN.gets.chomp.match(/^(n|no|nope)$/i)
-  die("Check failed, exiting.") if block_given? && ! yield
+  die("Check failed, exiting.") if block_given? && !yield
 end
 
 action "Extracted strings with: rake plugin:gettext[#{$plugin_name}] (Foreman dir)"
