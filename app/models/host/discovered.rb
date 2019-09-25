@@ -72,12 +72,17 @@ class Host::Discovered < ::Host::Base
     Rails.logger.warn "Hostname does not start with an alphabetical character" unless hostname.downcase.match(/^[a-z]/)
 
     # check for existing managed hosts and fail or warn
-    existing_managed = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Managed"}).limit(1)
+    existing_managed = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Managed"}).limit(1) ||
+      Host::Managed.find_by_name(hostname).limit(1)
     if existing_managed.count > 0
-      if Setting[:discovery_error_on_existing]
-        raise ::Foreman::Exception.new("One or more existing managed hosts found: %s", "#{existing_managed.first.name}/#{bootif_mac}")
+      host_name = "#{existing_managed.first.name}/#{bootif_mac}"
+      if Setting[:discovery_action_on_existing] == "Error"
+        raise ::Foreman::Exception.new("One or more existing managed hosts found: %s", "#{host_name}")
+      elsif Setting[:discovery_action_on_existing] == "Delete"
+        Rails.logger.warn("Deleting an existing managed host: #{host_name}")
+        existing_managed.first.host.destroy
       else
-        Rails.logger.warn("One or more existing managed hosts found: #{existing_managed.first.name}/#{bootif_mac}")
+        Rails.logger.warn("Ignoring an existing managed host: #{host_name}")
       end
     end
 

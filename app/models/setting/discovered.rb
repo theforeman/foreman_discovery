@@ -33,7 +33,7 @@ class Setting::Discovered < ::Setting
       self.set('discovery_pxegrub_lock_template', N_("PXEGrub template to be used when pinning a host to discovery"), 'pxegrub_discovery', N_("Locked PXEGrub template name"), nil, { :collection => Proc.new {Hash[ProvisioningTemplate.where(:template_kind => TemplateKind.find_by_name(:snippet)).map{|template| [template[:name], template[:name]]}]} }),
       self.set('discovery_pxegrub2_lock_template', N_("PXEGrub2 template to be used when pinning a host to discovery"), 'pxegrub2_discovery', N_("Locked PXEGrub2 template name"), nil, { :collection => Proc.new {Hash[ProvisioningTemplate.where(:template_kind => TemplateKind.find_by_name(:snippet)).map{|template| [template[:name], template[:name]]}]} }),
       self.set('discovery_always_rebuild_dns', N_("Force DNS entries creation when provisioning discovered host"), true, N_("Force DNS")),
-      self.set('discovery_error_on_existing', N_("Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"), false, N_("Error on existing NIC")),
+      self.set('discovery_action_on_existing', N_("Action to take when a host with provisioning MAC already exist"), "Ignore", N_("Action on existing managed host"), nil, { :collection => Proc.new {Hash[["Ignore", "Error", "Delete"].map{|x| [x, x]}]} }),
       self.set('discovery_naming', N_("Discovery hostname naming pattern"), 'Fact', N_("Type of name generator"), nil, {:collection => Proc.new {::Host::Discovered::NAMING_PATTERNS} }),
     ]
   end
