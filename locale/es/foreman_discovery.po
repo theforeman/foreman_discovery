@@ -9,7 +9,7 @@
 # Sergio Ocón <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -35,6 +35,9 @@ msgstr "<b>Foreman</b> Resumen de hosts detectados"
 
 msgid "A summary of discovered hosts"
 msgstr "Resumen de los hosts detectados"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "Acciones"
@@ -349,6 +352,9 @@ msgstr "Dirección IP"
 msgid "IP address"
 msgstr "Dirección IP"
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI"
 
@@ -363,6 +369,12 @@ msgstr "Error de procesamiento de la API de la imagen: %{msg} (HTTP/%{code}, bod
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "La API de la imagen arrojó HTTP/%{code} with '%{body}"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Además del atributo @host, la función aleatoria para los números enteros aleatorizados se encuentra disponible. Ejemplos:"
@@ -579,6 +591,9 @@ msgstr "Regex para organizar eventos para la sección de almacenamiento"
 
 msgid "Reloading kernel on %s"
 msgstr "Recargando el kernel en %s"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Informado en los últimos 7 días"

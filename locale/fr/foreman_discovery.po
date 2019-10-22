@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -33,6 +33,9 @@ msgstr "<b>Foreman</b> Synthèse des hôtes détectés"
 
 msgid "A summary of discovered hosts"
 msgstr "Synthèse des hôtes détectés"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "Actions"
@@ -347,6 +350,9 @@ msgstr "Adresse IP"
 msgid "IP address"
 msgstr "Adresse IP"
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI "
 
@@ -361,6 +367,12 @@ msgstr "Erreur de traitement de l'API d'image : %{msg} (HTTP/%{code}, body: %{bo
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "L'API d'image a retourné HTTP/%{code} avec '%{body}"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "En plus de la fonction d'attribut @host, la fonction ALEA pour les entiers aléatoires est disponible. Exemples :"
@@ -577,6 +589,9 @@ msgstr "Expression régulière pour organiser les facts pour la section stockage
 
 msgid "Reloading kernel on %s"
 msgstr "Rechargement du noyau sur %s"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Signalé au cours des 7 derniers jours"

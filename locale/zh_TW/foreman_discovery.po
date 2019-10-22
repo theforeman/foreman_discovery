@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -30,6 +30,9 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -345,6 +348,9 @@ msgstr "IP 位址"
 msgid "IP address"
 msgstr "IP 位址"
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI"
 
@@ -358,6 +364,12 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
 msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
@@ -574,6 +586,9 @@ msgid "Regex to organize facts for storage section"
 msgstr ""
 
 msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Remote action:"
 msgstr ""
 
 msgid "Reported in the last 7 days"

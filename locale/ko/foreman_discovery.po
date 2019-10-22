@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -29,6 +29,9 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -344,6 +347,9 @@ msgstr "IP 주소 "
 msgid "IP address"
 msgstr "IP 주소 "
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI"
 
@@ -358,6 +364,12 @@ msgstr "이미지 API 처리 오류: %{msg}(HTTP/%{code}, 본문: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "이미지 API에서 '%{body}'이(가) 포함된 HTTP/%{code}을(를) 반환했습니다."
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -574,6 +586,9 @@ msgstr "스토리지 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Reloading kernel on %s"
 msgstr "%s에서 커널을 다시 로드하는 중"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "지난 7일 이내에 보고됨"

@@ -4,13 +4,13 @@
 #
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2015-2018
-# Dominic Cleal <dominic@cleal.org>, 2013-2015
-# Dominic Cleal <dominic@cleal.org>, 2016
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2013-2015
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2016
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -36,6 +36,9 @@ msgstr "<b>Foreman</b> Discovered hosts summary"
 
 msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "Actions"
@@ -350,6 +353,9 @@ msgstr "IP Address"
 msgid "IP address"
 msgstr "IP address"
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI"
 
@@ -364,6 +370,12 @@ msgstr "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
@@ -580,6 +592,9 @@ msgstr "Regex to organise facts for storage section"
 
 msgid "Reloading kernel on %s"
 msgstr "Reloading kernel on %s"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Reported in the last 7 days"

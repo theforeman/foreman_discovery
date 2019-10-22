@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Dominic Cleal <dominic@cleal.org>, 2014
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2014
 # Junior Alvim <alvin@intechne.com.br>, 2014
 # Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2014
 # Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2014-2015
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.0.0\n"
+"Project-Id-Version: foreman_discovery 15.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-18 19:36+0000\n"
 "Last-Translator: Lukáš Zapletal\n"
@@ -36,6 +36,9 @@ msgstr "Resumo dos hosts descobertos pelo <b>Foreman</b>"
 
 msgid "A summary of discovered hosts"
 msgstr "Um resumo de hosts descobertos"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "Ações"
@@ -350,6 +353,9 @@ msgstr "Endereço IP"
 msgid "IP address"
 msgstr "Endereco de IP"
 
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
 msgid "IPMI"
 msgstr "IPMI"
 
@@ -364,6 +370,12 @@ msgstr "Erro de processamento da API da imagem: %{msg} (HTTP/%{code}, corpo: %{b
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "API da imagem retornou HTTP/%{code} com '%{body}"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Além do atributo @host, a função rand para inteiros aleatórios está disponível. Exemplos:"
@@ -580,6 +592,9 @@ msgstr "Regex para organizar fatos da seção de armazenamento"
 
 msgid "Reloading kernel on %s"
 msgstr "Recarregando kernel no %s"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Relatado nos últimos sete dias"
