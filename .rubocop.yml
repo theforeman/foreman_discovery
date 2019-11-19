@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 inherit_from:
   - .rubocop_todo.yml
 
@@ -13,33 +15,14 @@ AllCops:
     - 'extra/discover-host'
     - 'test/**/*'
 
-Rails:
-  Enabled: true
-
-# It's 2019 with 4K displays for God sake!
-Metrics/LineLength:
-  Max: 150
-
-# Don't prefer is_a? over kind_of?
-Style/ClassCheck:
+Layout:
   Enabled: false
 
-# Don't enforce documentation
-Style/Documentation:
+Metrics:
   Enabled: false
 
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
+Style:
   Enabled: false
 
-# Both double and single quotes are OK
-Style/StringLiterals:
-  Enabled: false
-
-# Don't enforce frozen string literals
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-#Allow both ['a', 'b'], %w[a b] and %w(a b) style arrays
-Style/WordArray:
+Naming:
   Enabled: false
