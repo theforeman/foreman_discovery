@@ -27,7 +27,7 @@ module Host::ManagedExtensions
   end
 
   def setReboot
-    old.becomes(Host::Discovered).reboot
+    old.becomes(Host::Discovered).reboot(facts["discovery_bootip"] || facts["ipaddress"])
     # It is too late to report error in the post_queue, we catch them and
     # continue. If flash is implemented for new hosts (http://projects.theforeman.org/issues/10559)
     # we can report the error to the user perhaps.

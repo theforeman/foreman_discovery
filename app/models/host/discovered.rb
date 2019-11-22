@@ -137,12 +137,12 @@ class Host::Discovered < ::Host::Base
     subnet.present? && subnet.discovery.present?
   end
 
-  def proxy_url
-    proxied? ? subnet.discovery.url + "/discovery/#{self.ip}" : "https://#{self.ip}:8443"
+  def proxy_url(node_ip)
+    proxied? ? subnet.discovery.url + "/discovery/#{node_ip}" : "https://#{node_ip}:8443"
   end
 
   def refresh_facts
-    facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url).facter
+    facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url(self.ip)).facter
     self.class.import_host facts
     import_facts facts
   rescue => e
@@ -150,20 +150,42 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
   end
 
-  def reboot
-    resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
-    resource.reboot
-  rescue => e
-    ::Foreman::Logging.exception("Unable to reboot #{name}", e)
-    raise ::Foreman::WrappedException.new(e, N_("Unable to reboot %{name} via %{url}: %{msg}"), :name => name, :url => proxy_url, :msg => e.to_s)
+  def reboot(node_ip = nil)
+    # perform the action against the original lease as well as the new reservation
+    [node_ip || facts["discovery_bootip"] || facts["ipaddress"], self.ip].compact.each do |next_ip|
+      begin
+        node_url = proxy_url(next_ip)
+        logger.debug "Performing reboot call against #{node_url}"
+        resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => node_url)
+        return true if resource.reboot
+      rescue => e
+        msg = N_("Unable to perform reboot on %{name} (%{url}): %{msg}")
+        ::Foreman::Logging.exception(msg % { :name => name, :url => node_url, :msg => e.to_s }, e)
+        if next_ip == self.ip
+          raise ::Foreman::WrappedException.new(e, msg, :name => name, :url => node_url, :msg => e.to_s)
+        end
+      end
+    end
+    false
   end
 
-  def kexec json
-    resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => proxy_url)
-    resource.kexec json
-  rescue => e
-    ::Foreman::Logging.exception("Unable to perform kexec on #{name}", e)
-    raise ::Foreman::WrappedException.new(e, N_("Unable to perform kexec on %{name} via %{url}: %{msg}"), :name => name, :url => proxy_url, :msg => e.to_s)
+  def kexec(json, node_ip = nil)
+    # perform the action against the original lease as well as the new reservation
+    [node_ip || facts["discovery_bootip"] || facts["ipaddress"], self.ip].compact.each do |next_ip|
+      begin
+        node_url = proxy_url(next_ip)
+        logger.debug "Performing kexec call against #{node_url}"
+        resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => node_url)
+        return true if resource.kexec(json)
+      rescue => e
+        msg = N_("Unable to perform kexec on %{name} (%{url}): %{msg}")
+        ::Foreman::Logging.exception(msg % { :name => name, :url => node_url, :msg => e.to_s }, e)
+        if next_ip == self.ip
+          raise ::Foreman::WrappedException.new(e, msg, :name => name, :url => node_url, :msg => e.to_s)
+        end
+      end
+    end
+    false
   end
 
   def self.model_name

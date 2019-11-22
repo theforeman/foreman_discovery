@@ -183,7 +183,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
-    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).twice.returns(false)
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
     assert_equal "Failed to reboot host #{host.name}", flash[:error]
@@ -195,7 +195,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-4973/, flash[:error])
+    assert_match(/ERF50-9494/, flash[:error])
   end
 
   def test_auto_provision_success
@@ -271,7 +271,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_multiple_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
-    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).twice.returns(false)
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
     assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
@@ -284,7 +284,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-4973/, flash[:error])
+    assert_match(/ERF50-9494/, flash[:error])
     assert_nil flash[:success]
   end
 
