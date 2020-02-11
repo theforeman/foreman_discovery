@@ -148,8 +148,8 @@ module ForemanDiscovery
           :edit_discovery_rules,
           :destroy_discovery_rules,
         ]
-        role "Discovery Reader", READER
-        role "Discovery Manager", MANAGER
+        role "Discovery Reader", READER, "Role granting permissions to view discovered hosts"
+        role "Discovery Manager", MANAGER, "Role granting permissions to perform provisioning of discovered hosts"
 
         add_all_permissions_to_default_roles
 
