@@ -199,15 +199,17 @@ class DiscoveredHostsController < ::ApplicationController
 
   def setup_host_class_variables
     if @host.hostgroup
+      subnet = @host.hostgroup.subnet || @host.subnet
+      subnet6 = @host.hostgroup.subnet6 || @host.subnet6
       @architecture    = @host.hostgroup.architecture
       @operatingsystem = @host.hostgroup.operatingsystem
       @environment     = @host.hostgroup.environment
       @domain          = @host.hostgroup.domain
-      @subnet          = @host.hostgroup.subnet
+      @subnet          = subnet
+      @subnet6         = subnet6
       @compute_profile = @host.hostgroup.compute_profile
       @realm           = @host.hostgroup.realm
-      @host.interfaces.first.assign_attributes(subnet: @subnet,
-                                               domain: @domain)
+      @host.interfaces.first.assign_attributes(subnet: subnet, subnet6: subnet6, domain: @domain)
       @host.environment = @environment
     end
   end

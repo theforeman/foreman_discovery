@@ -17,8 +17,6 @@
           <% if show_location_tab? %>
             <%= select_f f, :location_id, Location.my_locations, :id, :to_label, {}, {:size => 'col-md-10'} %>
           <% end %>
-
-          <div>Changing the Host's Subnet is not possible via Customize Host form, use Create Host or Auto provisioning and set the desired Subnet in the Hostgroup.</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
