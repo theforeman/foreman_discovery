@@ -33,7 +33,7 @@ OptionParser.new do |opts|
     version = v
   end
 
-  opts.on("-iARRAY", "--interface=ARRAY", Array, "Comma separated array: name,subnet,ip,mac (can be used multiple times, default: eth0,122,7,AA:BB:CC:DD:EE:FF") do |v|
+  opts.on("-iARRAY", "--interface=ARRAY", Array, "Comma separated array: name,network/prefix,mac,ip (can be used multiple times, default: eth0,192.168.122.0/24") do |v|
     interfaces << v
   end
 
@@ -66,7 +66,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-interfaces << ["eth0", "122"] if interfaces.empty?
+interfaces << ["eth0", "192.168.122.0/24"] if interfaces.empty?
 primary ||= interfaces.first.first
 bootif ||= interfaces.first.first
 json = JSON.parse(File.read(base))
@@ -76,15 +76,21 @@ json["discovery_version"] = version
 unless preserve_interfaces
   json["interfaces"] = interfaces.map{|i| i.first}.join(',')
   interfaces.each do |iface|
-    name, subnet, ipo, mac = iface
+    name, subnet, mac, explicit_ip = iface
     mac ||= (["52"] + 5.times.map { '%02x' % rand(0..255) }).join(':')
-    ipo ||= rand(1..253)
-    ip = "192.168.#{subnet}.#{ipo}"
     json["macaddress_#{name}"] = mac
-    json["ipaddress_#{name}"] = ip
+    subnet_woprefix, prefix = subnet.split('/')
+    if subnet.include?('.')
+      random_ip = IPAddr.new(subnet, Socket::AF_INET) | IPAddr.new(rand(2**prefix.to_i), Socket::AF_INET)
+      fact_name = "ipaddress"
+    else
+      random_ip = IPAddr.new(subnet, Socket::AF_INET6) | IPAddr.new(rand(2**prefix.to_i), Socket::AF_INET6)
+      fact_name = "ipaddress6"
+    end
+    json["#{fact_name}_#{name}"] = explicit_ip ? explicit_ip : random_ip
     if name == primary
-      json["macaddress"] = mac
-      json["ipaddress"] = ip
+      json["macaddress"] = json["macaddress_#{name}"]
+      json[fact_name] = json["#{fact_name}_#{name}"]
     end
     json["discovery_bootif"] = mac if name == bootif
   end
