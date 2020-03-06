@@ -204,6 +204,8 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
+    refute_nil hostgroup.subnet
+    refute_nil managed_host.subnet
     assert_equal hostgroup.subnet, managed_host.subnet
     assert_equal "192.168.101.13", managed_host.ip
   end
@@ -224,7 +226,9 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
-    assert_equal hostgroup.subnet, managed_host.subnet
+    refute_nil hostgroup.subnet6
+    refute_nil managed_host.subnet6
+    assert_equal hostgroup.subnet6, managed_host.subnet6
     assert_equal "2001:db9::a8bb:ccff:fedd:eefa", managed_host.ip6
   end
 
