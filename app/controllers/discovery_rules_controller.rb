@@ -28,7 +28,7 @@ class DiscoveryRulesController < ApplicationController
   end
 
   def update
-    if @discovery_rule.update_attributes(discovery_rule_params)
+    if @discovery_rule.update(discovery_rule_params)
       process_success
     else
       process_error

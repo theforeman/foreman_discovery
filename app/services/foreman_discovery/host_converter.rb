@@ -1,6 +1,6 @@
 class ForemanDiscovery::HostConverter
   # Converts discovered host to managed host without uptading the database.
-  # Record must be saved explicitly (using save! or update_attributes! or similar).
+  # Record must be saved explicitly (using save! or update! or similar).
   # Creates shallow copy.
   def self.to_managed(original_host, set_managed = true, set_build = true, added_attributes = {})
     host = original_host.becomes(::Host::Managed)
