@@ -9,7 +9,7 @@
     # and makes sure there are no two entities with the same priority.
     DiscoveryRules.reset_column_information
     DiscoveryRules.unscoped.reorder(:priority, :created_at).find_each do |rule|
-      rule.update_attributes!(:priority => score)
+      rule.update!(:priority => score)
       score += delta
     end
     change_column :discovery_rules, :priority, :integer, null: false
