@@ -22,7 +22,7 @@ class DiscoveryRule < ApplicationRecord
   before_validation :enforce_taxonomy
 
   belongs_to :hostgroup
-  has_many :hosts, :dependent => :nullify
+  has_many_hosts :dependent => :nullify
 
   scoped_search :on => :name, :complete_value => :true
   scoped_search :on => :priority, :only_explicit => true
