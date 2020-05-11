@@ -36,9 +36,6 @@ msgstr "<b>Foreman</b> Resumen de hosts detectados"
 msgid "A summary of discovered hosts"
 msgstr "Resumen de los hosts detectados"
 
-msgid "Action with sub plans"
-msgstr "Acción con subplanes"
-
 msgid "Actions"
 msgstr "Acciones"
 
@@ -140,6 +137,11 @@ msgstr "Inhabilitar"
 
 msgid "Disable rule '%s'?"
 msgstr "¿Deshabilitar regla '%s'?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Hosts detectados"
@@ -370,12 +372,6 @@ msgstr "Error de procesamiento de la API de la imagen: %{msg} (HTTP/%{code}, bod
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "La API de la imagen arrojó HTTP/%{code} with '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Importar clases Puppet"
-
-msgid "Import facts"
-msgstr "Importar datos"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Además del atributo @host, la función aleatoria para los números enteros aleatorizados se encuentra disponible. Ejemplos:"
 
@@ -592,9 +588,6 @@ msgstr "Regex para organizar eventos para la sección de almacenamiento"
 msgid "Reloading kernel on %s"
 msgstr "Recargando el kernel en %s"
 
-msgid "Remote action:"
-msgstr "Acción remota:"
-
 msgid "Reported in the last 7 days"
 msgstr "Informado en los últimos 7 días"
 
@@ -694,14 +687,14 @@ msgstr "No es posible buscar una regla de detección, no se ha aprovisionado un 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr "No se puede encontrar la NIC principal con %{mac} especificada mediante '%{fact}', filtro de NIC: %{filter}"
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "No es posible ejecutar kexec en %{name} a través de %{url}: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "No es posible aprovisionar %{host}: %{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "No es posible reiniciar %{name} a través de %{url}: %{msg}"
 
 msgid "Update a rule"
 msgstr "Actualizar una regla"

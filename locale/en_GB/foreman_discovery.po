@@ -37,9 +37,6 @@ msgstr "<b>Foreman</b> Discovered hosts summary"
 msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
 
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
 msgstr "Actions"
 
@@ -141,6 +138,11 @@ msgstr "Disable"
 
 msgid "Disable rule '%s'?"
 msgstr "Disable rule '%s'?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Discovered Hosts"
@@ -371,12 +373,6 @@ msgstr "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
 
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
 
@@ -593,9 +589,6 @@ msgstr "Regex to organise facts for storage section"
 msgid "Reloading kernel on %s"
 msgstr "Reloading kernel on %s"
 
-msgid "Remote action:"
-msgstr ""
-
 msgid "Reported in the last 7 days"
 msgstr "Reported in the last 7 days"
 
@@ -695,14 +688,14 @@ msgstr "Unable to find a discovery rule, no host provided (check permissions)"
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "Unable to provision %{host}: %{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "Unable to reboot %{name} via %{url}: %{msg}"
 
 msgid "Update a rule"
 msgstr "Update a rule"
