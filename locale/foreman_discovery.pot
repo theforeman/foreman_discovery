@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-22 11:55+0200\n"
-"PO-Revision-Date: 2019-10-22 11:55+0200\n"
+"POT-Creation-Date: 2020-05-11 14:58+0530\n"
+"PO-Revision-Date: 2020-05-11 14:58+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -495,15 +495,15 @@ msgstr ""
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:158
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
+#: ../app/models/host/discovered.rb:162
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:166
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+#: ../app/models/host/discovered.rb:181
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:185
+#: ../app/models/host/discovered.rb:207
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
@@ -744,6 +744,12 @@ msgstr ""
 #: ../app/services/foreman_discovery/node_api/node_resource.rb:78
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
+
+#: ../app/views/dashboard/_discovery_widget.html.erb:5
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/views/dashboard/_discovery_widget.html.erb:9
 msgid "No discovered hosts available"
@@ -1088,20 +1094,4 @@ msgstr ""
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
-msgstr ""
-
-#: action_names.rb:2
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:4
-msgid "Action with sub plans"
-msgstr ""
-
-#: action_names.rb:5
-msgid "Remote action:"
 msgstr ""

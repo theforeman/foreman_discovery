@@ -32,9 +32,6 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
 msgstr "Accións"
 
@@ -136,6 +133,11 @@ msgstr ""
 
 msgid "Disable rule '%s'?"
 msgstr ""
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr ""
@@ -366,12 +368,6 @@ msgstr ""
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -588,9 +584,6 @@ msgstr ""
 msgid "Reloading kernel on %s"
 msgstr ""
 
-msgid "Remote action:"
-msgstr ""
-
 msgid "Reported in the last 7 days"
 msgstr ""
 
@@ -690,13 +683,13 @@ msgstr ""
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr ""
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
 msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr ""
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
 msgstr ""
 
 msgid "Update a rule"

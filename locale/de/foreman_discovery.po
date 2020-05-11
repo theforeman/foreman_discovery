@@ -40,9 +40,6 @@ msgstr "<b>Foreman</b> Zusammenfassung entdeckter Hosts"
 msgid "A summary of discovered hosts"
 msgstr "Eine Zusammenfassung der entdeckten Hosts"
 
-msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
-
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -144,6 +141,11 @@ msgstr "Deaktivieren"
 
 msgid "Disable rule '%s'?"
 msgstr "Regel '%s' deaktivieren?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Entdeckte Hosts"
@@ -374,12 +376,6 @@ msgstr "Image API Verarbeitungsfehler: %{msg} (HTTP/%{code}, Text: %{body})"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API gibt HTTP/%{code} mit '%{body} zurück"
 
-msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
-
-msgid "Import facts"
-msgstr "Fakten importieren"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -596,9 +592,6 @@ msgstr "Regex zur Faktensortierung im Speicher-Bereich"
 msgid "Reloading kernel on %s"
 msgstr "Kernel auf %s wird neu geladen"
 
-msgid "Remote action:"
-msgstr "Entfernte Aktion:"
-
 msgid "Reported in the last 7 days"
 msgstr "Berichtet in den letzten 7 Tagen"
 
@@ -698,14 +691,14 @@ msgstr "Keine Entdeckungsregel gefunden, kein Host bereitgestellt (Berechtigunge
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr ""
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "kexec kann nicht auf  %{name} über %{url} ausgeführt werden: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "%{host} kann nicht bereitgestellt werden: %{errors} "
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "%{name} kann nicht über %{url} neu gestartet werden: %{msg}"
 
 msgid "Update a rule"
 msgstr "Regel aktualisieren"

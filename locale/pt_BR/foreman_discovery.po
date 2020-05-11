@@ -37,9 +37,6 @@ msgstr "Resumo dos hosts descobertos pelo <b>Foreman</b>"
 msgid "A summary of discovered hosts"
 msgstr "Um resumo de hosts descobertos"
 
-msgid "Action with sub plans"
-msgstr "Ação com subplanos"
-
 msgid "Actions"
 msgstr "Ações"
 
@@ -141,6 +138,11 @@ msgstr "Desabilitar"
 
 msgid "Disable rule '%s'?"
 msgstr "Desabilitar regra '%s'?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Hosts descobertos"
@@ -371,12 +373,6 @@ msgstr "Erro de processamento da API da imagem: %{msg} (HTTP/%{code}, corpo: %{b
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "API da imagem retornou HTTP/%{code} com '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Importar classes de Puppet"
-
-msgid "Import facts"
-msgstr "Importar fatos"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Além do atributo @host, a função rand para inteiros aleatórios está disponível. Exemplos:"
 
@@ -593,9 +589,6 @@ msgstr "Regex para organizar fatos da seção de armazenamento"
 msgid "Reloading kernel on %s"
 msgstr "Recarregando kernel no %s"
 
-msgid "Remote action:"
-msgstr "Ação remota:"
-
 msgid "Reported in the last 7 days"
 msgstr "Relatado nos últimos sete dias"
 
@@ -695,14 +688,14 @@ msgstr "Não foi possível encontrar uma regra do Discovery, nenhum host foi for
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr "Não foi possível encontrar a NIC primária com o %{mac} especificado via '%{fact}'. Filtro da NIC: %{filter}"
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "Não foi possível executar kexec no %{name} por %{url}: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "Não foi possível provisionar %{host}: %{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "Não foi possível reinicializar %{name} por %{url}: %{msg}"
 
 msgid "Update a rule"
 msgstr "Atualizar uma regra"

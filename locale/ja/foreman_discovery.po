@@ -33,9 +33,6 @@ msgstr "<b>Foreman</b> の検出されたホストの概要"
 msgid "A summary of discovered hosts"
 msgstr "検出されたホストの概要"
 
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
-
 msgid "Actions"
 msgstr "アクション"
 
@@ -137,6 +134,11 @@ msgstr "無効化"
 
 msgid "Disable rule '%s'?"
 msgstr "ルール '%s' を無効にしますか?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "検出されたホスト"
@@ -367,12 +369,6 @@ msgstr "イメージ API の処理エラー: %{msg} (HTTP/%{code}、本体: %{bo
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "イメージ API で返された HTTP/%{code}: '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "@host 属性のほかに、ランダムな整数の rand 関数を利用できます。例:"
 
@@ -589,9 +585,6 @@ msgstr "ストレージセクションのファクトを整理するための Re
 msgid "Reloading kernel on %s"
 msgstr "カーネルを %s にリロード中"
 
-msgid "Remote action:"
-msgstr "リモートアクション:"
-
 msgid "Reported in the last 7 days"
 msgstr "過去 7 日以内に報告あり"
 
@@ -691,14 +684,14 @@ msgstr "検出ルールを見つけることができません。指定される
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr "%{mac} が '%{fact}' で指定されたプライマリー NIC を見つけることができません。NIC フィルター: %{filter}"
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "%{url} から kexec を %{name} に対して実行できません: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "%{host} をプロビジョニングできません: %{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "%{url} から %{name} を再起動できません: %{msg}"
 
 msgid "Update a rule"
 msgstr "ルールの更新"

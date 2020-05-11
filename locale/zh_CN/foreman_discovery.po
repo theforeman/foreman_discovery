@@ -32,9 +32,6 @@ msgstr "<b>Foreman</b> 发现主机概述"
 msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
 
-msgid "Action with sub plans"
-msgstr "带有子计划的操作"
-
 msgid "Actions"
 msgstr "操作"
 
@@ -136,6 +133,11 @@ msgstr "禁用"
 
 msgid "Disable rule '%s'?"
 msgstr "禁用规则 '%s'？"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "发现主机"
@@ -366,12 +368,6 @@ msgstr "镜像 API 处理出错：%{msg}（HTTP/%{code}，主体：%{body}）"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "镜像 API 返回 HTTP/%{code} 与 '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "导入 Puppet 类"
-
-msgid "Import facts"
-msgstr "导入 fact"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "除了 @host 属性函数之外，还提供随机整数 rand。"
 
@@ -588,9 +584,6 @@ msgstr "组织存储部分详情的正则表达式"
 msgid "Reloading kernel on %s"
 msgstr "正在 %s 上重新加载内核"
 
-msgid "Remote action:"
-msgstr "远程操作："
-
 msgid "Reported in the last 7 days"
 msgstr "最近 7 天内报告"
 
@@ -690,14 +683,14 @@ msgstr "无法找到发现规则，未提供主机（检查许可）"
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr "无法找到带有 '%{fact}' 指定的 %{mac} 的主 NIC。NIC 过滤：%{filter}"
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "无法通过 %{url} 在 %{name} 上执行 kexec：%{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "无法置备 %{host}：%{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "无法通过 %{url} 重启 %{name} ：%{msg}"
 
 msgid "Update a rule"
 msgstr "更新规则"

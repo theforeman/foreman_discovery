@@ -39,9 +39,6 @@ msgstr "Сводка обнаруженных узлов от <b>Foreman</b>"
 msgid "A summary of discovered hosts"
 msgstr "Сводка состояния обнаруженных узлов"
 
-msgid "Action with sub plans"
-msgstr "Действия с подпланами"
-
 msgid "Actions"
 msgstr "Действия"
 
@@ -143,6 +140,11 @@ msgstr "Отключить"
 
 msgid "Disable rule '%s'?"
 msgstr "Отключить правило «%s»?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Обнаруженные узлы"
@@ -377,12 +379,6 @@ msgstr "API образа вернул ошибку HTTP/%{code}: %{msg} (body: %
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "API образа вернул ошибку HTTP/%{code}: '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Импорт классов Puppet"
-
-msgid "Import facts"
-msgstr "Импорт фактов"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -599,9 +595,6 @@ msgstr "Регулярное выражение для организации ф
 msgid "Reloading kernel on %s"
 msgstr "Перезагрузка ядра на %s"
 
-msgid "Remote action:"
-msgstr "Удаленное действие:"
-
 msgid "Reported in the last 7 days"
 msgstr "Были данные за последние 7 дней"
 
@@ -701,14 +694,14 @@ msgstr "Не удалось найти правило: необходимо ук
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 msgstr ""
 
-msgid "Unable to perform kexec on %{name} via %{url}: %{msg}"
-msgstr "Не удалось выполнить kexec на %{name} с %{url}: %{msg}"
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "Не удалось подготовить %{host}: %{errors}"
-
-msgid "Unable to reboot %{name} via %{url}: %{msg}"
-msgstr "Не удалось перезагрузить %{name} с %{url}: %{msg}"
 
 msgid "Update a rule"
 msgstr "Обновить правило"
