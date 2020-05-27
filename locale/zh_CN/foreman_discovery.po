@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.1.0\n"
+"Project-Id-Version: foreman_discovery 16.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-22 20:43+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,9 @@ msgstr "<b>Foreman</b> 发现主机概述"
 
 msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "操作"
@@ -368,6 +371,12 @@ msgstr "镜像 API 处理出错：%{msg}（HTTP/%{code}，主体：%{body}）"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "镜像 API 返回 HTTP/%{code} 与 '%{body}"
 
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "除了 @host 属性函数之外，还提供随机整数 rand。"
 
@@ -583,6 +592,9 @@ msgstr "组织存储部分详情的正则表达式"
 
 msgid "Reloading kernel on %s"
 msgstr "正在 %s 上重新加载内核"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "最近 7 天内报告"

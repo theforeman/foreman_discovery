@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.1.0\n"
+"Project-Id-Version: foreman_discovery 16.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-22 20:43+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +29,9 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -367,6 +370,12 @@ msgstr "이미지 API 처리 오류: %{msg}(HTTP/%{code}, 본문: %{body})"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "이미지 API에서 '%{body}'이(가) 포함된 HTTP/%{code}을(를) 반환했습니다."
 
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -582,6 +591,9 @@ msgstr "스토리지 섹션의 팩트를 구성하기 위한 정규식"
 
 msgid "Reloading kernel on %s"
 msgstr "%s에서 커널을 다시 로드하는 중"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "지난 7일 이내에 보고됨"

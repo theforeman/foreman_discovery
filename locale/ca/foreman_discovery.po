@@ -7,10 +7,10 @@
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.1.0\n"
+"Project-Id-Version: foreman_discovery 16.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-22 20:43+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,9 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -370,6 +373,12 @@ msgstr ""
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -585,6 +594,9 @@ msgstr "Expressió regular per a organitzar els objectes d'interès per a la sec
 
 msgid "Reloading kernel on %s"
 msgstr "S'està tornant a carregar el kernel a %s"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Es va informar en els últims 7 dies"

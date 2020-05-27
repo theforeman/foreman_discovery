@@ -9,15 +9,15 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2014-2017
 # Lukáš Zapletal, 2015
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2018
-# simon11 <simon.stieger.98@live.de>, 2014
-# simon11 <simon.stieger.98@live.de>, 2014
+# simon11 <transifex@stieger.co>, 2014
+# simon11 <transifex@stieger.co>, 2014
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.1.0\n"
+"Project-Id-Version: foreman_discovery 16.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-22 20:43+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
+"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,6 +39,9 @@ msgstr "<b>Foreman</b> Zusammenfassung entdeckter Hosts"
 
 msgid "A summary of discovered hosts"
 msgstr "Eine Zusammenfassung der entdeckten Hosts"
+
+msgid "Action with sub plans"
+msgstr ""
 
 msgid "Actions"
 msgstr "Aktionen"
@@ -376,6 +379,12 @@ msgstr "Image API Verarbeitungsfehler: %{msg} (HTTP/%{code}, Text: %{body})"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API gibt HTTP/%{code} mit '%{body} zurück"
 
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -591,6 +600,9 @@ msgstr "Regex zur Faktensortierung im Speicher-Bereich"
 
 msgid "Reloading kernel on %s"
 msgstr "Kernel auf %s wird neu geladen"
+
+msgid "Remote action:"
+msgstr ""
 
 msgid "Reported in the last 7 days"
 msgstr "Berichtet in den letzten 7 Tagen"

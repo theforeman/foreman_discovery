@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 14:58+0530\n"
-"PO-Revision-Date: 2020-05-11 14:58+0530\n"
+"POT-Creation-Date: 2020-05-27 14:11+0200\n"
+"PO-Revision-Date: 2020-05-27 14:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1094,4 +1094,20 @@ msgstr ""
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
+msgstr ""
+
+#: action_names.rb:2
+msgid "Remote action:"
+msgstr ""
+
+#: action_names.rb:3
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Action with sub plans"
 msgstr ""

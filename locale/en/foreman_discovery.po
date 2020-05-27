@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 15.1.0\n"
+"Project-Id-Version: foreman_discovery 16.0.1\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -25,6 +25,9 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -363,6 +366,12 @@ msgstr ""
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -577,6 +586,9 @@ msgid "Regex to organize facts for storage section"
 msgstr ""
 
 msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Remote action:"
 msgstr ""
 
 msgid "Reported in the last 7 days"
