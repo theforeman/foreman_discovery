@@ -22,9 +22,10 @@ environments. The template must generate JSON format with the following items
 "kernel", "initram", "append" and "extra". The kexec command is composed in
 the following way:
 
-kexec --force --reset-vga --append=$append --initrd=$initram $extra $kernel
+kexec --force --debug --append=$append --initrd=$initram $extra $kernel
 
 Please read kexec(8) man page for more information about semantics.
+Extra options like --reset-vga can be set via "extra" array.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
