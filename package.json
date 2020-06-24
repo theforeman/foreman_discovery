@@ -1,0 +1,39 @@
+{
+  "name": "foreman_discovery",
+  "version": "16.2.0",
+  "description": "This plugin enables Foreman to do automatic bare-metal discovery of unknown nodes on the provisioning network.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tfm-lint --plugin -d /webpack",
+    "test": "tfm-test --plugin",
+    "test:watch": "tfm-test --plugin --watchAll",
+    "test:current": "tfm-test --plugin --watch",
+    "publish-coverage": "tfm-publish-coverage",
+    "stories": "tfm-stories --plugin",
+    "stories:build": "tfm-build-stories --plugin",
+    "create-react-component": "yo react-domain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theforeman/foreman_discovery.git"
+  },
+  "bugs": {
+    "url": "http://projects.theforeman.org/projects/foreman_discovery/issues"
+  },
+  "peerDependencies": {
+    "@theforeman/vendor": ">= 4.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@theforeman/builder": "^4.14.0",
+    "@theforeman/eslint-plugin-foreman": "4.14.0",
+    "@theforeman/stories": "^4.14.0",
+    "@theforeman/test": "^4.14.0",
+    "@theforeman/vendor-dev": "^4.14.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "prettier": "^1.19.1",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.0.0"
+  }
+}
