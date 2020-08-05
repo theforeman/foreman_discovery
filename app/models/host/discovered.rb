@@ -44,9 +44,13 @@ class Host::Discovered < ::Host::Base
 
   # Discovery import workflow:
   # discovered#import_host ->
-  #  discovered#import_facts -> base#import_facts -> base#parse_facts ->
-  #  discovered#populate_fields_from_facts -> base#populate_fields_from_facts -> base#set_interfaces
-  #  discovered#populate_discovery_fields_from_facts
+  # ForemanDiscovery::HostFactImporter#import_facts ->
+  # ::HostFactImporter#import_facts ->
+  # ::HostFactImporter#parse_facts ->
+  # discovered#populate_fields_from_facts ->
+  # base#populate_fields_from_facts ->
+  # base#set_interfaces ->
+  # discovered#populate_discovery_fields_from_facts
   def self.import_host facts
     raise(::Foreman::Exception.new(N_("Invalid facts, must be a Hash"))) unless facts.is_a?(Hash) || facts.is_a?(ActionController::Parameters)
 
@@ -92,17 +96,9 @@ class Host::Discovered < ::Host::Base
 
     # and save (interfaces are created via puppet parser extension)
     host.save(:validate => false) if host.new_record?
-    raise ::Foreman::Exception.new(N_("Facts could not be imported")) unless host.import_facts(facts)
+    importer = ForemanDiscovery::HostFactImporter.new(host)
+    raise ::Foreman::Exception.new(N_("Facts could not be imported")) unless importer.import_facts(facts)
     host
-  end
-
-  def import_facts(facts)
-    # Discovered Hosts won't report in via puppet, so we can use that field to
-    # record the last time it sent facts...
-    self.last_report = Time.now
-    # Set the correct facts type for new foreman facts importing code.
-    facts[:_type] = :foreman_discovery
-    super(facts)
   end
 
   def setup_clone
@@ -144,7 +140,7 @@ class Host::Discovered < ::Host::Base
   def refresh_facts
     facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url(self.ip)).facter
     self.class.import_host facts
-    import_facts facts
+    ForemanDiscovery::HostFactImporter.new(self).import_facts facts
   rescue => e
     ::Foreman::Logging.exception("Unable to get facts from proxy", e)
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
