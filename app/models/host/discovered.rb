@@ -140,7 +140,7 @@ class Host::Discovered < ::Host::Base
   def refresh_facts
     facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url(self.ip)).facter
     self.class.import_host facts
-    ForemanDiscovery::HostFactImporter.new(self).import_facts facts
+    ::ForemanDiscovery::HostFactImporter.new(self).import_facts facts
   rescue => e
     ::Foreman::Logging.exception("Unable to get facts from proxy", e)
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
