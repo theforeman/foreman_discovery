@@ -260,12 +260,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_equal 'teste41f13cc3658', host.name
   end
 
-  test "should create discovered host without prefix" do
-    Setting[:discovery_prefix] = ''
-    host = discover_host_from_facts(@facts)
-    assert_equal 'e41f13cc3658',host.name
-  end
-
   test "should refresh facts and NICs of an existing discovered host" do
     host1 = discover_host_from_facts(@facts)
     assert_equal 'mace41f13cc3658', host1.name
@@ -288,16 +282,6 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       discover_host_from_facts(@facts)
     end
     assert_match(/Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting:/, exception.message)
-  end
-
-  test "should raise when hostname cannot be computed due to normlization and no prefix" do
-    @facts['invalidhostnamefact'] = '...'
-    Setting[:discovery_hostname] = 'invalidhostnamefact'
-    Setting[:discovery_prefix] = ''
-    exception = assert_raises(::Foreman::Exception) do
-      discover_host_from_facts(@facts)
-    end
-    assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
   end
 
   test 'discovered host can be searched in multiple taxonomies' do

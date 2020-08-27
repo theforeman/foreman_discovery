@@ -8,7 +8,9 @@ class Setting::Discovered < ::Setting
   BLANK_ATTRS << 'discovery_facts_hardware'
   BLANK_ATTRS << 'discovery_facts_network'
   BLANK_ATTRS << 'discovery_facts_ipmi'
-  BLANK_ATTRS << 'discovery_prefix'
+
+  STRING_PRESENCE_ATTRS = ['discovery_hostname', 'discovery_prefix']
+  validates :value, :presence => true, :if => proc { |s| STRING_PRESENCE_ATTRS.include?(s.name) }
 
   def self.default_settings
     [
