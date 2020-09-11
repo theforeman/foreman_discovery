@@ -9,6 +9,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     @facts = facts_simple_network100_42
     @facts_ipv6 = facts_network_2001_db8
     set_default_settings
+    ProxyAPI::DHCP.any_instance.stubs(:record).returns(nil)
     ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 
