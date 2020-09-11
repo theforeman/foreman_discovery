@@ -146,9 +146,11 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
   end
 
-  def reboot(node_ip = nil)
+  def reboot(old_ip = nil, new_ip = nil)
     # perform the action against the original lease as well as the new reservation
-    [node_ip || facts["discovery_bootip"] || facts["ipaddress"], self.ip].compact.each do |next_ip|
+    ips = [old_ip, new_ip, self.ip].compact.uniq
+    logger.debug "Performing reboot calls against #{ips.to_sentence}, facts left #{facts.count}"
+    ips.each do |next_ip|
       begin
         node_url = proxy_url(next_ip)
         logger.debug "Performing reboot call against #{node_url}"
@@ -157,17 +159,17 @@ class Host::Discovered < ::Host::Base
       rescue => e
         msg = N_("Unable to perform reboot on %{name} (%{url}): %{msg}")
         ::Foreman::Logging.exception(msg % { :name => name, :url => node_url, :msg => e.to_s }, e)
-        if next_ip == self.ip
-          raise ::Foreman::WrappedException.new(e, msg, :name => name, :url => node_url, :msg => e.to_s)
-        end
       end
     end
-    false
+    msg = N_("Unable to perform %{action} on %{ips}")
+    raise ::Foreman::Exception.new(msg, action: "reboot", ips: ips.to_sentence)
   end
 
-  def kexec(json, node_ip = nil)
+  def kexec(json, old_ip = nil, new_ip = nil)
     # perform the action against the original lease as well as the new reservation
-    [node_ip || facts["discovery_bootip"] || facts["ipaddress"], self.ip].compact.each do |next_ip|
+    ips = [old_ip, new_ip, self.ip].compact.uniq
+    logger.debug "Performing kexec calls against #{ips.to_sentence}, #{facts.count} facts left"
+    ips.each do |next_ip|
       begin
         node_url = proxy_url(next_ip)
         logger.debug "Performing kexec call against #{node_url}"
@@ -176,12 +178,10 @@ class Host::Discovered < ::Host::Base
       rescue => e
         msg = N_("Unable to perform kexec on %{name} (%{url}): %{msg}")
         ::Foreman::Logging.exception(msg % { :name => name, :url => node_url, :msg => e.to_s }, e)
-        if next_ip == self.ip
-          raise ::Foreman::WrappedException.new(e, msg, :name => name, :url => node_url, :msg => e.to_s)
-        end
       end
     end
-    false
+    msg = N_("Unable to perform %{action} on %{ips}")
+    raise ::Foreman::Exception.new(msg, action: "kexec", ips: ips.to_sentence)
   end
 
   def self.model_name

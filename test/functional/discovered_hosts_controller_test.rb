@@ -8,7 +8,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   setup do
     assert discovered_notification_blueprint
     @request.env['HTTP_REFERER'] = '/discovery_rules'
-    FactoryBot.create(:subnet, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
+    FactoryBot.create(:subnet, :dhcp, :network => "192.168.100.1", :mask => "255.255.255.0", :locations => [location_one], :organizations => [organization_one])
     @facts = {
       "interfaces"             => "lo,eth0",
       "ipaddress"              => "192.168.100.42",
@@ -115,7 +115,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       } }, session: set_session_user_default_manager
     # all inherit buttons are pressed
     assert_select('button[name=is_overridden_btn]') do |e|
-      e.attribute("class") =~ /active/
+      e.attribute("class").to_s =~ /active/
     end
     # particular fields are set
     assert_select '#host_hostgroup_id [selected]' do |e|
@@ -140,6 +140,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_update_inheritance
     host = discover_host_from_facts(@facts)
+    ForemanDiscovery::HostConverter.stubs(:unused_ip_for_subnet).returns(host.ip)
     hostgroup = setup_hostgroup(host)
     put :update, params: {
       commit: 'Update',
@@ -183,10 +184,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
-    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).twice.returns(false)
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
-    assert_equal "Failed to reboot host #{host.name}", flash[:error]
+    assert_match(/ERF42-4036/, flash[:error])
   end
 
   def test_reboot_error
@@ -195,7 +196,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-9494/, flash[:error])
+    assert_match(/ERF42-4036/, flash[:error])
   end
 
   def test_auto_provision_success
@@ -271,10 +272,10 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_multiple_reboot_failure
     @request.env["HTTP_REFERER"] = discovered_hosts_url
     host = discover_host_from_facts(@facts)
-    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).twice.returns(false)
+    ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
-    assert_equal "Errors during reboot: #{host.name}: failed to reboot", flash[:error]
+    assert_match(/ERF42-4036/, flash[:error])
     assert_nil flash[:success]
   end
 
@@ -284,12 +285,15 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
     assert_redirected_to discovered_hosts_url
-    assert_match(/ERF50-9494/, flash[:error])
+    assert_match(/ERF42-4036/, flash[:error])
     assert_nil flash[:success]
   end
 
   def test_no_dns_rebuild_if_dns_pending
     host = discover_host_from_facts(@facts)
+    ForemanDiscovery::HostConverter.stubs(:unused_ip_for_subnet).returns(host.ip)
+    Nic::Managed.any_instance.stubs(:dhcp_update_required?).returns(false)
+    Net::DHCP::Record.any_instance.stubs(:conflicting?).returns(false)
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns).never
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
@@ -306,6 +310,9 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_dns_rebuild
     host = prepare_host_for_dns_rebuild
+    ForemanDiscovery::HostConverter.stubs(:unused_ip_for_subnet).returns(host.ip)
+    Nic::Managed.any_instance.stubs(:dhcp_update_required?).returns(false)
+    Net::DHCP::Record.any_instance.stubs(:conflicting?).returns(false)
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns)
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)
@@ -319,6 +326,8 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_dns_rebuild_with_auto_provision
     host = prepare_host_for_dns_rebuild
+    ForemanDiscovery::HostConverter.stubs(:unused_ip_for_subnet).returns(host.ip)
+    Nic::Managed.any_instance.stubs(:dhcp_update_required?).returns(false)
     hostgroup = prepare_hostgroup_for_dns_rebuild(host)
     Nic::Managed.any_instance.expects(:rebuild_dns)
     Host::Managed.any_instance.stubs(:skip_orchestration?).returns(false)

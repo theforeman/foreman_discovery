@@ -6,6 +6,7 @@ module ForemanDiscovery::NodeAPI
       @args = args
       @connect_params = {
         :headers => { :accept => :json },
+        :timeout => 20, # tighter timeout, discovery performs up to two calls per request
       }
 
       if url.match(/^https/i) && Rails.env != "test"
