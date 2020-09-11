@@ -35,12 +35,21 @@ class ForemanDiscovery::HostConverter
   end
 
   def self.unused_ip_for_subnet(subnet, mac, existing_ip)
-    ipam = subnet.unused_ip(mac)
-    raise(::Foreman::Exception.new(N_("IPAM must be configured for subnet '%s'"), subnet)) unless ipam.present?
+    # prefer existing reservation to prevent conflicts
+    existing_rec = subnet&.dhcp_proxy&.record(subnet.network, mac)
 
-    # None IPAM returns nil - in that case keep the current address
-    suggested_ip = ipam.suggest_ip
-    suggested_ip.nil? ? existing_ip : suggested_ip
+    if existing_rec && existing_rec.type == "reservation"
+      # reuse the reservation
+      existing_rec.ip
+    else
+      # no reservation - find new unused IP
+      ipam = subnet.unused_ip(mac)
+      raise(::Foreman::Exception.new(N_("IPAM must be configured for subnet '%s'"), subnet)) unless ipam.present?
+
+      # None IPAM returns nil - in that case keep the current address
+      suggested_ip = ipam.suggest_ip
+      suggested_ip.nil? ? existing_ip : suggested_ip
+    end
   end
 
   def self.unused_ip_for_host(host, new_subnet = nil, new_subnet6 = nil)
@@ -51,7 +60,6 @@ class ForemanDiscovery::HostConverter
       interface.subnet6 = new_subnet6 if new_subnet6
       interface.ip = unused_ip_for_subnet(interface.subnet, interface.mac, interface.ip) if interface.subnet
       interface.ip6 = unused_ip_for_subnet(interface.subnet6, interface.mac, interface.ip6) if interface.subnet6
-      interface.save!
     end
   end
 

@@ -18,6 +18,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
 
       @host = StubHost.new
       @host.type = "Host::Discovered"
+      @host.stubs(:ip).returns("192.168.1.1")
       @host.stubs(:old).returns(@host)
       @facts = {}
       @host.stubs(:facts).returns(@facts)
