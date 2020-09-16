@@ -14,7 +14,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.0.1\n"
+"Project-Id-Version: foreman_discovery 16.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -701,6 +701,9 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "Keine Entdeckungsregel gefunden, kein Host bereitgestellt (Berechtigungen prüfen)"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
+
+msgid "Unable to perform %{action} on %{ips}"
 msgstr ""
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"

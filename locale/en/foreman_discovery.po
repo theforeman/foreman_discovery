@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.0.1\n"
+"Project-Id-Version: foreman_discovery 16.1.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -688,6 +688,9 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr ""
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
+
+msgid "Unable to perform %{action} on %{ips}"
 msgstr ""
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
