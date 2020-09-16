@@ -43,7 +43,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 1.24.0'
+        requires_foreman '>= 2.2'
 
         # discovered hosts permissions
         security_block :discovery do
