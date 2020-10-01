@@ -51,24 +51,30 @@ module Api
       param :id, :identifier, :required => true
       param :discovered_host, Hash, :action_aware => true do
         param :name, String
-        param :environment_id, String
+        param :environment_id, String, :desc => N_("required if host is managed and value is not inherited from host group")
         param :ip, String, :desc => N_("not required if using a subnet with DHCP proxy")
         param :mac, String, :desc => N_("not required if it's a virtual machine")
-        param :architecture_id, :number
-        param :domain_id, :number
+        param :architecture_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
+        param :domain_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
         param :puppet_proxy_id, :number
         param :puppet_class_ids, Array
-        param :operatingsystem_id, String
-        param :medium_id, :number
-        param :ptable_id, :number
-        param :subnet_id, :number
+        param :operatingsystem_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
+        param :medium_id, String, :desc => N_("required if not imaged based provisioning and host is managed and value is not inherited from host group")
+        param :ptable_id, :number, :desc => N_("required if host is managed and custom partition has not been defined")
+        param :subnet_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
         param :sp_subnet_id, :number
         param :model_id, :number
         param :hostgroup_id, :number
         param :owner_id, :number
+        param :owner_type, Host::Base::OWNER_TYPES, :desc => N_("Host's owner type")
         param :puppet_ca_proxy_id, :number
         param :image_id, :number
-        param :host_parameters_attributes, Array
+        param :host_parameters_attributes, Array, :desc => N_("Host's parameters (array or indexed hash)") do
+          param :name, String, :desc => N_("Name of the parameter"), :required => true
+          param :value, String, :desc => N_("Parameter value"), :required => true
+          param :parameter_type, Parameter::KEY_TYPES, :desc => N_("Type of value")
+          param :hidden_value, :bool
+        end
         param :build, :bool
         param :enabled, :bool
         param :provision_method, String
