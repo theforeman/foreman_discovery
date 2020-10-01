@@ -168,7 +168,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_add_entry_to_nav_menu
     get :index, params: {}, session: set_session_user
     assert_response :success
-    assert response.body =~ /"\/discovered_hosts"/
+    assert response.body =~ /\/discovered_hosts/
   end
 
   def test_reboot_success

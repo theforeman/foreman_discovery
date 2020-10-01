@@ -79,12 +79,12 @@ unless preserve_interfaces
     name, subnet, mac, explicit_ip = iface
     mac ||= (["52"] + 5.times.map { '%02x' % rand(0..255) }).join(':')
     json["macaddress_#{name}"] = mac
-    subnet_woprefix, prefix = subnet.split('/')
+    _, prefix = subnet.split('/')
     if subnet.include?('.')
-      random_ip = IPAddr.new(subnet, Socket::AF_INET) | IPAddr.new(rand(2**prefix.to_i), Socket::AF_INET)
+      random_ip = IPAddr.new(subnet, Socket::AF_INET) | IPAddr.new(rand(2**(32 - prefix.to_i)), Socket::AF_INET)
       fact_name = "ipaddress"
     else
-      random_ip = IPAddr.new(subnet, Socket::AF_INET6) | IPAddr.new(rand(2**prefix.to_i), Socket::AF_INET6)
+      random_ip = IPAddr.new(subnet, Socket::AF_INET6) | IPAddr.new(rand(2**(32 - prefix.to_i)), Socket::AF_INET6)
       fact_name = "ipaddress6"
     end
     json["#{fact_name}_#{name}"] = explicit_ip ? explicit_ip : random_ip

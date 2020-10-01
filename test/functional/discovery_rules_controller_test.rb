@@ -6,7 +6,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   test "should add a link to navigation" do
     get :index, params: {}, session: set_session_user
     assert_response :success
-    assert response.body =~ /"\/discovery_rules"/
+    assert response.body =~ /\/discovery_rules/
   end
 
   test "reader role should get index" do
