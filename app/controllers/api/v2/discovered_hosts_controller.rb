@@ -108,6 +108,13 @@ module Api
         state = true
         User.as_anonymous_admin do
           @discovered_host = Host::Discovered.import_host(facts)
+          # Host::Based.set_taxonomies sets taxonomies during import from either
+          # facts or via Global Foreman setting "default_taxonomy", reset it back so
+          # the anonymous admin can see all records. We set taxonomy explicitly via
+          # discovery SubnetAndTaxonomy import hook and enforce taxnomy manually
+          # in find_discovery_rule method via validate_rule_by_taxonomy.
+          Organization.current = nil
+          Location.current = nil
           Rails.logger.warn 'Discovered facts import unsuccessful, skipping auto provisioning' unless @discovered_host
           if Setting['discovery_auto'] && @discovered_host && (rule = find_discovery_rule(@discovered_host))
             state = perform_auto_provision(@discovered_host, rule)
