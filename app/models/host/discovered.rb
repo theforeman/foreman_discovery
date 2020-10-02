@@ -143,7 +143,7 @@ class Host::Discovered < ::Host::Base
     ::ForemanDiscovery::HostFactImporter.new(self).import_facts facts
   rescue => e
     ::Foreman::Logging.exception("Unable to get facts from proxy", e)
-    raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url, :error => e)
+    raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url(self.ip), :error => e)
   end
 
   def reboot(old_ip = nil, new_ip = nil)
