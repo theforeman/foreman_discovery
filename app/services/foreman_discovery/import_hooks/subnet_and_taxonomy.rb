@@ -35,6 +35,7 @@ module ForemanDiscovery
         Location.find_by_title(facts["discovery_location"]) ||
           Location.find_by_title(Setting[:discovery_location]) ||
           host.subnet.try(:locations).try(:first) ||
+          host.subnet6.try(:locations).try(:first) ||
           Location.first
       end
 
@@ -48,6 +49,7 @@ module ForemanDiscovery
         Organization.find_by_title(facts["discovery_organization"]) ||
           Organization.find_by_title(Setting[:discovery_organization]) ||
           host.subnet.try(:organizations).try(:first) ||
+          host.subnet6.try(:organizations).try(:first) ||
           Organization.first
       end
     end
