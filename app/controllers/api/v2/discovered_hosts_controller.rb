@@ -113,11 +113,11 @@ module Api
           # the anonymous admin can see all records. We set taxonomy explicitly via
           # discovery SubnetAndTaxonomy import hook and enforce taxnomy manually
           # in find_discovery_rule method via validate_rule_by_taxonomy.
-          Organization.current = nil
-          Location.current = nil
-          Rails.logger.warn 'Discovered facts import unsuccessful, skipping auto provisioning' unless @discovered_host
-          if Setting['discovery_auto'] && @discovered_host && (rule = find_discovery_rule(@discovered_host))
-            state = perform_auto_provision(@discovered_host, rule)
+          Taxonomy.no_taxonomy_scope do
+            Rails.logger.warn 'Discovered facts import unsuccessful, skipping auto provisioning' unless @discovered_host
+            if Setting['discovery_auto'] && @discovered_host && (rule = find_discovery_rule(@discovered_host))
+              state = perform_auto_provision(@discovered_host, rule)
+            end
           end
         end
         process_response state
