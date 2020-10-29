@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md"
   ]
-  s.files = Dir["{app,extra,config,db,lib}/**/*"] + Dir["locale/**/*.{po,pot,mo}"] + ["LICENSE", "README.md"]
+  s.files = Dir["{app,extra,config,db,lib,webpack}/**/*"] + Dir["locale/**/*.{po,pot,mo}"] +
+    ["LICENSE", "README.md", "package.json"]
   s.test_files = Dir["test/**/*"]
   s.homepage = 'https://github.com/theforeman/foreman_discovery'
   s.licenses = ["GPL-3.0"]
