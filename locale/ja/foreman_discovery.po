@@ -6,7 +6,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -324,6 +324,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "タイプ %s のホストを再起動できません"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr "ホスト名ファクト"
 
@@ -411,9 +417,6 @@ msgstr "オペレーティングシステムに関連付けられていない Ke
 msgid "Last Facts Upload"
 msgstr "最終ファクトのアップロード"
 
-msgid "Learn more about this in the documentation."
-msgstr "この詳細についてはドキュメンテーションを参照してください。"
-
 msgid "List all discovered hosts"
 msgstr "すべての検出されたホストを一覧表示"
 
@@ -468,6 +471,9 @@ msgstr "該当なし"
 msgid "Name"
 msgstr "名前"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "ネットワーク"
 
@@ -485,9 +491,6 @@ msgstr "検出されたホストがありません"
 
 msgid "No discovered hosts for the selected period"
 msgstr "選択された期間に検出されたホストはありません"
-
-msgid "No discovered hosts found in this context."
-msgstr "このコンテキストで検出されたホストはありません。"
 
 msgid "No discovered hosts to provision"
 msgstr "プロビジョニングする検出されたホストがありません"
@@ -530,6 +533,9 @@ msgstr "ホストを検出に固定する際に使用される PXEGrub2 テン�
 
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "ホストを検出に固定する際に使用される PXELinux テンプレート"
+
+msgid "Parameter value"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "確認してください"
@@ -678,14 +684,14 @@ msgstr "次のホストが削除されました: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります。"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "このページでは、プロビジョニングする予定の検出されたベアメタルまたは仮想ノードを表示しています。"
-
 msgid "Type"
 msgstr "タイプ"
 
 msgid "Type of name generator"
 msgstr "名前ジェネレーターのタイプ"
+
+msgid "Type of value"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"
@@ -770,6 +776,15 @@ msgstr "特定ルールの検出されたホストに一致するクエリー"
 
 msgid "represents rule name shown to the users"
 msgstr "ユーザーに表示されるルール名の表示"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "値がホストグループから継承されていないか、または設定済みのデフォルトパスワードである場合に必須です。"

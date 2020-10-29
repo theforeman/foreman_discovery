@@ -7,7 +7,7 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -325,6 +325,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "Impossibile eseguire il riavvio sul tipo di host %s "
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr ""
 
@@ -412,9 +418,6 @@ msgstr ""
 msgid "Last Facts Upload"
 msgstr ""
 
-msgid "Learn more about this in the documentation."
-msgstr ""
-
 msgid "List all discovered hosts"
 msgstr "Elenca tutti gli host rilevati"
 
@@ -469,6 +472,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "Nome"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "Rete"
 
@@ -485,9 +491,6 @@ msgid "No discovered hosts available"
 msgstr "Nessun host rilevato disponibile"
 
 msgid "No discovered hosts for the selected period"
-msgstr ""
-
-msgid "No discovered hosts found in this context."
 msgstr ""
 
 msgid "No discovered hosts to provision"
@@ -530,6 +533,9 @@ msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "Parameter value"
 msgstr ""
 
 msgid "Please Confirm"
@@ -679,13 +685,13 @@ msgstr "I seguenti host non sono stati rilevati: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Questa operazione potrebbe richiedere qualche istante poichè saranno annullati anche gli host, eventi e riporti"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
-
 msgid "Type"
 msgstr "Tipo"
 
 msgid "Type of name generator"
+msgstr ""
+
+msgid "Type of value"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -771,6 +777,15 @@ msgstr "interrogazione da corrispondere agli host rilevati per una regola partic
 
 msgid "represents rule name shown to the users"
 msgstr "rappresenta il nome della regola da mostrare agli utenti"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "necessario se il valore non è ereditato da un gruppo di host o password predefinita nelle impostazione"

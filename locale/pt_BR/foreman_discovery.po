@@ -10,7 +10,7 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -328,6 +328,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "Tipo de host %s não pode ser reinicializado"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr "Fatos do nome do host"
 
@@ -415,9 +421,6 @@ msgstr "Modelo kexec não associado ao sistema operacional"
 msgid "Last Facts Upload"
 msgstr "Carregamento dos últimos fatos"
 
-msgid "Learn more about this in the documentation."
-msgstr "Para saber mais sobre isso, acesse a documentação."
-
 msgid "List all discovered hosts"
 msgstr "Listar todos os hosts descobertos"
 
@@ -472,6 +475,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "Nome"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "Rede"
 
@@ -489,9 +495,6 @@ msgstr "Nenhum host descoberto disponível"
 
 msgid "No discovered hosts for the selected period"
 msgstr "Nenhum host descoberto para o período selecionado"
-
-msgid "No discovered hosts found in this context."
-msgstr "Nenhum host descoberto encontrado neste contexto."
 
 msgid "No discovered hosts to provision"
 msgstr "Nenhum host descoberto para provisionamento"
@@ -534,6 +537,9 @@ msgstr "Modelo PXEGrub2 a ser usado para fixar um host no Discovery"
 
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "Modelo PXELinux a ser usado para fixar um host no Discovery"
+
+msgid "Parameter value"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Por favor confirme"
@@ -682,14 +688,14 @@ msgstr "Os hosts a seguir não foram removidos: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Isto pode demorar um pouco, pois todos os hosts, fatos e relatórios também serão destruídos"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "Esta página mostra nós bare-metal ou virtuais aguardando o provisionamento."
-
 msgid "Type"
 msgstr "Tipo"
 
 msgid "Type of name generator"
 msgstr "Tipo de gerador de nomes"
+
+msgid "Type of value"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID a rastrear o status de tarefas de orquestração, GET /api/orchestration/:UUID/tasks"
@@ -774,6 +780,15 @@ msgstr "consulta para corresponder hosts descobertos a uma regra específica"
 
 msgid "represents rule name shown to the users"
 msgstr "representa nome da regra exibido para os usuários"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "obrigatório se o valor não for herdado do grupo de hosts ou da senha padrão nas configurações"

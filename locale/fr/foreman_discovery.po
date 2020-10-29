@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -325,6 +325,12 @@ msgstr[1] "Les organisations %s du groupe d'hôtes doivent aussi être associée
 msgid "Host of type %s can not be rebooted"
 msgstr "Impossible de redémarrer l'hôte de type %s"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr "Facts du nom d'hôte"
 
@@ -412,9 +418,6 @@ msgstr "Modèle kexec non associé à un système d'exploitation"
 msgid "Last Facts Upload"
 msgstr "Derniers facts téléchargés"
 
-msgid "Learn more about this in the documentation."
-msgstr "Approfondissez ce sujet dans la documentation."
-
 msgid "List all discovered hosts"
 msgstr "Afficher tous les hôtes détectés"
 
@@ -469,6 +472,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "Nom"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "Réseau"
 
@@ -486,9 +492,6 @@ msgstr "Aucun hôte détecté disponible"
 
 msgid "No discovered hosts for the selected period"
 msgstr "Aucun hôte détecté pendant la période sélectionnée"
-
-msgid "No discovered hosts found in this context."
-msgstr "Aucun hôte détecté trouvé dans ce contexte."
 
 msgid "No discovered hosts to provision"
 msgstr "Aucun hôte détecté à provisionner"
@@ -531,6 +534,9 @@ msgstr "Modèle PXEGrub2 à utiliser lors de l'épinglage d'un hôte pour la dé
 
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "Modèle PXELinux à utiliser lors de l'épinglage d'un hôte pour la détection"
+
+msgid "Parameter value"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
@@ -679,14 +685,14 @@ msgstr "Les hôtes suivants n'ont pas été supprimés : %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Cette action peut prendre un certain temps, pour tous les hôtes, les rapports et facts vont aussi être supprimés"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "Cette page montre les nœuds nus ou virtuels en attente de mise en service."
-
 msgid "Type"
 msgstr "Type"
 
 msgid "Type of name generator"
 msgstr "Générateur type de nom"
+
+msgid "Type of value"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID pour surveiller l'état des tâches d'orchestration : GET /api/orchestration/:UUID/tasks"
@@ -771,6 +777,15 @@ msgstr "requête à faire correspondre aux hôtes détectés pour la règle en q
 
 msgid "represents rule name shown to the users"
 msgstr "représente le nom de règle affiché aux utilisateurs"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "requis si la valeur n'est pas héritée d'un groupe d'hôtes ou du mot de passe par défaut défini dans les paramètres"

@@ -9,7 +9,7 @@
 # Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -327,6 +327,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "No es posible reiniciar el tipo de host %s"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr "Eventos del nombre de host"
 
@@ -414,9 +420,6 @@ msgstr "Plantilla kexec no asociada con el sistema operativo"
 msgid "Last Facts Upload"
 msgstr "Última carga de datos"
 
-msgid "Learn more about this in the documentation."
-msgstr "Consulte la documentación para obtener más información."
-
 msgid "List all discovered hosts"
 msgstr "Confeccionar una lista de los hosts detectados"
 
@@ -471,6 +474,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "Nombre"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "Red"
 
@@ -488,9 +494,6 @@ msgstr "No hay hosts detectados disponibles"
 
 msgid "No discovered hosts for the selected period"
 msgstr "No se detectaron hosts para el periodo seleccionado"
-
-msgid "No discovered hosts found in this context."
-msgstr "No se encontraron hosts detectados en este contexto."
 
 msgid "No discovered hosts to provision"
 msgstr "No hay hosts detectados para aprovisionar"
@@ -533,6 +536,9 @@ msgstr "Plantilla PXEGrub2 que debe utilizarse al adjuntar un host a la detecci�
 
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "Debe utilizarse la plantilla PXELinux para adjuntar un host a la detección"
+
+msgid "Parameter value"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Confirme, por favor"
@@ -681,14 +687,14 @@ msgstr "Los siguientes equipos no han sido eliminados: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "Esta página muestra los nodos sin sistema operativo o virtuales detectados cuyo aprovisionamiento está pendiente."
-
 msgid "Type"
 msgstr "Tipo"
 
 msgid "Type of name generator"
 msgstr "Tipo de generador de nombre"
+
+msgid "Type of value"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
@@ -773,6 +779,15 @@ msgstr "consulta para establecer una coincidencia de los hosts detectados respec
 
 msgid "represents rule name shown to the users"
 msgstr "representa el nombre de la regla que se les muestra a los usuarios"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "es necesario si el valor no se hereda del grupo del host o de la contraseña predeterminada en las configuraciones"

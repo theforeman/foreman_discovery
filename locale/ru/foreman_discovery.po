@@ -10,7 +10,7 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -334,6 +334,12 @@ msgstr[3] "С правилом также необходимо связать о
 msgid "Host of type %s can not be rebooted"
 msgstr "Узел типа %s не может быть перезагружен"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr ""
 
@@ -421,9 +427,6 @@ msgstr "Шаблон kexec не привязан к операционной с�
 msgid "Last Facts Upload"
 msgstr ""
 
-msgid "Learn more about this in the documentation."
-msgstr ""
-
 msgid "List all discovered hosts"
 msgstr "Показать все обнаруженные узлы"
 
@@ -478,6 +481,9 @@ msgstr "нет"
 msgid "Name"
 msgstr "Имя"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "Сеть"
 
@@ -495,9 +501,6 @@ msgstr "Нет обнаруженных узлов"
 
 msgid "No discovered hosts for the selected period"
 msgstr "За указанный период времени новых узлов не обнаружено"
-
-msgid "No discovered hosts found in this context."
-msgstr ""
 
 msgid "No discovered hosts to provision"
 msgstr "Нет обнаруженных узлов"
@@ -539,6 +542,9 @@ msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "Parameter value"
 msgstr ""
 
 msgid "Please Confirm"
@@ -688,13 +694,13 @@ msgstr "Узлы не были удалены: %s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Это может занять некоторое время, так как в ходе выполнения будут удалены узлы, статистика и все отчеты"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
-
 msgid "Type"
 msgstr "Тип"
 
 msgid "Type of name generator"
+msgstr ""
+
+msgid "Type of value"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -780,6 +786,15 @@ msgstr "запрос для поиска соответствий среди у�
 
 msgid "represents rule name shown to the users"
 msgstr "название правила, которое увидят пользователи"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "обязательно, если пароль не унаследован от группы узлов или заданного по умолчанию пароля"

@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -323,6 +323,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr "%s 类型的主机不能重启"
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr "主机名详情"
 
@@ -410,9 +416,6 @@ msgstr "Kexec 模板未与操作系统关联"
 msgid "Last Facts Upload"
 msgstr "最后详情上传"
 
-msgid "Learn more about this in the documentation."
-msgstr "在本文档中了解更多这方面的内容。"
-
 msgid "List all discovered hosts"
 msgstr "列出所有发现主机"
 
@@ -467,6 +470,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "名称"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "网络"
 
@@ -484,9 +490,6 @@ msgstr "没有可用的发现主机"
 
 msgid "No discovered hosts for the selected period"
 msgstr "选定时间段内没有发现主机"
-
-msgid "No discovered hosts found in this context."
-msgstr "在此上下文中未找到发现主机。"
 
 msgid "No discovered hosts to provision"
 msgstr "没有要置备的发现主机"
@@ -529,6 +532,9 @@ msgstr "将主机固定至发现时使用的 PXEGrub2 模板"
 
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "将主机固定至发现时使用的 PXELinux 模板"
+
+msgid "Parameter value"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "请确认"
@@ -677,14 +683,14 @@ msgstr "未删除以下主机：%s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "此页显示了等待置备的发现裸机或虚拟节点。"
-
 msgid "Type"
 msgstr "类型"
 
 msgid "Type of name generator"
 msgstr "名称生成器类型"
+
+msgid "Type of value"
+msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "用来跟踪业务流程任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
@@ -769,6 +775,15 @@ msgstr "与特定规则的发现主机匹配的查询"
 
 msgid "represents rule name shown to the users"
 msgstr "代表显示给用户的规则名称"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "如果数值不是从主机组或设置中的默认密码继承，则需要。"

@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.1.0\n"
+"Project-Id-Version: foreman_discovery 16.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2020-05-26 17:21+0000\n"
 "Last-Translator: Transifex Bot <>\n"
@@ -323,6 +323,12 @@ msgstr[1] ""
 msgid "Host of type %s can not be rebooted"
 msgstr ""
 
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
 msgid "Hostname facts"
 msgstr ""
 
@@ -410,9 +416,6 @@ msgstr ""
 msgid "Last Facts Upload"
 msgstr ""
 
-msgid "Learn more about this in the documentation."
-msgstr ""
-
 msgid "List all discovered hosts"
 msgstr ""
 
@@ -467,6 +470,9 @@ msgstr "N/A"
 msgid "Name"
 msgstr "名稱"
 
+msgid "Name of the parameter"
+msgstr ""
+
 msgid "Network"
 msgstr "網路"
 
@@ -483,9 +489,6 @@ msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
-msgstr ""
-
-msgid "No discovered hosts found in this context."
 msgstr ""
 
 msgid "No discovered hosts to provision"
@@ -528,6 +531,9 @@ msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "Parameter value"
 msgstr ""
 
 msgid "Please Confirm"
@@ -677,13 +683,13 @@ msgstr "下列主機尚未刪除：%s"
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
 
-msgid "This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
-
 msgid "Type"
 msgstr "種類"
 
 msgid "Type of name generator"
+msgstr ""
+
+msgid "Type of value"
 msgstr ""
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -768,6 +774,15 @@ msgid "query to match discovered hosts for the particular rule"
 msgstr ""
 
 msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr ""
 
 msgid "required if value is not inherited from host group or default password in settings"
