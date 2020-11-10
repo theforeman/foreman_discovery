@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-29 12:15+0100\n"
-"PO-Revision-Date: 2020-10-29 12:15+0100\n"
+"POT-Creation-Date: 2020-11-10 16:45+0100\n"
+"PO-Revision-Date: 2020-11-10 16:45+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1132,9 +1132,9 @@ msgid "Import Puppet classes"
 msgstr ""
 
 #: action_names.rb:4
-msgid "Action with sub plans"
+msgid "Import facts"
 msgstr ""
 
 #: action_names.rb:5
-msgid "Import facts"
+msgid "Action with sub plans"
 msgstr ""
