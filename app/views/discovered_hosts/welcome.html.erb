@@ -11,6 +11,5 @@
   <%= notifications %>
   <div id="organization-id" data-id="<%= Organization.current.id if Organization.current %>" ></div>
   <div id="user-id" data-id="<%= User.current.id if User.current %>" ></div>
-  <%= react_component('DiscoveredHosts',
-       docUrl: "https://theforeman.org/plugins/foreman_discovery/#{ForemanDiscovery::VERSION.scan(/\d+\.\d+/).first}/index.html" ) %>
+  <%= react_component('DiscoveredHosts', docUrl: discovery_doc_url ) %>
 <% end %>
