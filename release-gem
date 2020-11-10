@@ -2,6 +2,7 @@
 
 $plugin_name = "foreman_discovery"
 RUBY_VERSION_FILE = "lib/#{$plugin_name}/version.rb"
+JS_VERSION_FILE = "package.json"
 
 def die(msg)
   warn msg
@@ -44,13 +45,18 @@ end
 
 action "Modified lib/foreman_discovery/engine.rb to match minimum Foreman core version"
 
-action "Modified #{RUBY_VERSION_FILE} to match desired version"
+action "Modified #{RUBY_VERSION_FILE} to match the desired version"
 
 action "Created 'Version X.Y' commit with engine.rb/version.rb change"
 
 action "Created git tag" do
   $git_version = `git describe --abbrev=0 --tags`.chomp
   $git_version == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
+end
+
+action "Modified #{JS_VERSION_FILE} to match the desired version" do
+  $git_version = `git describe --abbrev=0 --tags`.chomp
+  $git_version == File.read(JS_VERSION_FILE).match(/"version":\s*"([0-9\.]+)"/)[1]
 end
 
 action "Is version #{$git_version} the one to be released"

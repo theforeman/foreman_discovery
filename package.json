@@ -1,6 +1,6 @@
 {
   "name": "foreman_discovery",
-  "version": "16.3.2",
+  "version": "16.3.4",
   "description": "This plugin enables Foreman to do automatic bare-metal discovery of unknown nodes on the provisioning network.",
   "main": "index.js",
   "scripts": {
