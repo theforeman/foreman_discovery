@@ -1,6 +1,6 @@
-import React from "react";
-import EmptyState from "./Components/EmptyState";
+import React from 'react';
+import EmptyState from './Components/EmptyState';
 
-const DiscoveredHosts = ({ docUrl }) => <EmptyState docUrl={docUrl} />;
+const DiscoveredHosts = props => <EmptyState {...props} />;
 
 export default DiscoveredHosts;

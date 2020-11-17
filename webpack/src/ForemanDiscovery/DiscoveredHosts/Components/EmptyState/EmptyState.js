@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { translate as __ } from "foremanReact/common/I18n";
-import ForemanEmptyState from "foremanReact/components/common/EmptyState";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { translate as __ } from 'foremanReact/common/I18n';
+import ForemanEmptyState from 'foremanReact/components/common/EmptyState';
 
-const EmptyState = (props) => {
+const EmptyState = props => {
   const description = __(
-    "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+    'No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned.'
   );
   const documentation = {
     url: props.docUrl,
@@ -22,7 +22,7 @@ const EmptyState = (props) => {
 };
 
 EmptyState.propTypes = {
-  docUrl: PropTypes.string,
+  docUrl: PropTypes.string.isRequired,
 };
 
 export default EmptyState;

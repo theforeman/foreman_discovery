@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForemanEmptyState rendering render with Props 1`] = `
+<DefaultEmptyState
+  description="No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+  documentation={
+    Object {
+      "url": "https://foreman.example.com",
+    }
+  }
+  header="Foreman Discovery"
+  icon="gears"
+  iconType="fa"
+  secondaryActions={Array []}
+/>
+`;
