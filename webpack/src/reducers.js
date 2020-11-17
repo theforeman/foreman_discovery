@@ -1,5 +1,3 @@
-import { combineReducers } from "redux";
-
 const reducers = {
   foremanDiscovery: {},
 };
