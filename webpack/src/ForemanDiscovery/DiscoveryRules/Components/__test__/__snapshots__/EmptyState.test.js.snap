@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForemanEmptyState rendering render with Props 1`] = `
+<DefaultEmptyState
+  action={
+    Object {
+      "title": "Create Rule",
+      "url": "/discovery_rules/new",
+    }
+  }
+  description="No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+  documentation={
+    Object {
+      "url": "https://foreman.example.com",
+    }
+  }
+  header="Discovery Rules"
+  icon="gavel"
+  iconType="fa"
+  secondaryActions={Array []}
+/>
+`;
