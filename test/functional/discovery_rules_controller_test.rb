@@ -12,7 +12,6 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   test "reader role should get index" do
     get :index, params: {}, session: set_session_user_default_reader
     assert_response :success
-    assert_not_nil assigns(:discovery_rules)
   end
 
   test "should get new" do

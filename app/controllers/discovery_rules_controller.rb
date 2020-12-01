@@ -6,6 +6,10 @@ class DiscoveryRulesController < ApplicationController
 
   before_action :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 
+  def model_of_controller
+    Host::Discovered
+  end
+
   def index
     base = resource_base.search_for(params[:search], :order => (params[:order]))
     @discovery_rules = base.paginate(:page => params[:page], :per_page => params[:per_page]).includes(:hostgroup)

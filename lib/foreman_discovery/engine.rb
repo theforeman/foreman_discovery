@@ -86,7 +86,7 @@ module ForemanDiscovery
         # discovery rules permissions
         security_block :discovery_rules do
           permission :view_discovery_rules, {
-            :discovery_rules => [:index, :show, :auto_complete_search],
+            :discovery_rules => [:index, :show, :auto_complete_search, :welcome],
             :"api/v2/discovery_rules" => [:index, :show]
           }, :resource_type => 'DiscoveryRule'
           permission :create_discovery_rules, {
