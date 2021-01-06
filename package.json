@@ -21,15 +21,15 @@
     "url": "http://projects.theforeman.org/projects/foreman_discovery/issues"
   },
   "peerDependencies": {
-    "@theforeman/vendor": ">= 4.14.0"
+    "@theforeman/vendor": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
-    "@theforeman/builder": "^4.14.0",
-    "@theforeman/eslint-plugin-foreman": "4.14.0",
-    "@theforeman/stories": "^4.14.0",
-    "@theforeman/test": "^4.14.0",
-    "@theforeman/vendor-dev": "^4.14.0",
+    "@theforeman/builder": "^6.0.0",
+    "@theforeman/eslint-plugin-foreman": "^6.0.0",
+    "@theforeman/stories": "^6.0.0",
+    "@theforeman/test": "^8.0.0",
+    "@theforeman/vendor-dev": "^6.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "prettier": "^1.19.1",
