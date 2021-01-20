@@ -39,14 +39,10 @@ class DiscoveredHostsController < ::ApplicationController
     @range = nil
     # summary report text
     @report_summary = nil
-    init_regex_and_categories
-    @interfaces = []
-    get_interfaces
-    @host.facts_hash.each do |key, value|
-      value = number_to_human_size(value) if /size$/.match(key)
-      assign_fact_to_category(key, value)
-    end
-    add_custom_facts
+    resolver = ForemanDiscovery::FactToCategoryResolver.new(@host)
+    @categories_names = ForemanDiscovery::FactToCategoryResolver::CATEGORIES_NAMES
+    @categories = resolver.categories
+    @interfaces = resolver.interfaces
   end
 
   def destroy
@@ -212,33 +208,6 @@ class DiscoveredHostsController < ::ApplicationController
       @realm           = @host.hostgroup.realm
       @host.interfaces.first.assign_attributes(subnet: subnet, subnet6: subnet6, domain: @domain)
       @host.environment = @environment
-    end
-  end
-
-  def init_regex_and_categories
-    hightlights = Setting[:discovery_facts_highlights].empty? ? /^(productname|memorysize|manufacturer|architecture|macaddress$|processorcount|physicalprocessorcount|discovery_subnet|discovery_boot|ipaddress$)/ : Regexp.new(Setting[:discovery_facts_highlights])
-    storage = Setting[:discovery_facts_storage].empty? ? /^blockdevice/ : Regexp.new(Setting[:discovery_facts_storage])
-    hardware = Setting[:discovery_facts_hardware].empty? ? /^(hardw|manufacturer|memo|process)/ : Regexp.new(Setting[:discovery_facts__hardware])
-    network = Setting[:discovery_facts_network].empty? ? /^(interfaces|dhcp|fqdn|hostname)/ : Regexp.new(Setting[:discovery_facts_network])
-    software = Setting[:discovery_facts_software].empty? ? /^(bios|os|discovery)/ : Regexp.new(Setting[:discovery_facts_software])
-    ipmi = Setting[:discovery_facts_ipmi].empty? ? /^ipmi/ : Regexp.new(Setting[:discovery_facts_ipmi])
-    @regex_array = [hightlights, storage, hardware, network, software, ipmi, false]
-    @categories = Array.new(7) { Hash.new }
-    @categories_names = [N_("Highlights"), N_("Storage"), N_("Hardware"), N_("Network"), N_("Software"), N_("IPMI"), N_("Miscellaneous")]
-  end
-
-  def assign_fact_to_category(key, value)
-    if @interfaces.any? {|interface| key.include? interface[:identifier]}
-      @categories[3][key] = value
-      return
-    end
-    @regex_array.each_with_index do |regex, index|
-      if !regex
-        @categories[index][key] = value
-      elsif regex.match key
-        @categories[index][key] = value
-        break
-      end
     end
   end
 
