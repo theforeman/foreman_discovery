@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgid "A summary of discovered hosts"
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "하위 계획이 있는 작업"
 
 msgid "Actions"
 msgstr "동작 "
@@ -142,6 +142,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered Rules"
 msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
@@ -279,6 +282,9 @@ msgstr "%s에 대한 팩트를 새로고침하는데 실패했습니다 "
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "%{error_message} 오류가 발생하여 %{hostname}의 팩트를 새로 고치지 못했습니다."
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr ""
 
@@ -323,10 +329,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr "호스트 유형 %s은(는) 재부팅할 수 없습니다 "
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "호스트의 소유자 유형"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "호스트의 매개 변수(배열 또는 인덱싱된 해시)"
 
 msgid "Hostname facts"
 msgstr ""
@@ -377,10 +383,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "이미지 API에서 '%{body}'이(가) 포함된 HTTP/%{code}을(를) 반환했습니다."
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet 클래스 가져오기"
 
 msgid "Import facts"
-msgstr ""
+msgstr "팩트 불러오기"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -470,7 +476,7 @@ msgid "Name"
 msgstr "이름 "
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "매개 변수의 이름"
 
 msgid "Network"
 msgstr "네트워크"
@@ -533,7 +539,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "매개 변수 값"
 
 msgid "Please Confirm"
 msgstr "확인해 주십시오 "
@@ -599,7 +605,7 @@ msgid "Reloading kernel on %s"
 msgstr "%s에서 커널을 다시 로드하는 중"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "원격 작업:"
 
 msgid "Reported in the last 7 days"
 msgstr "지난 7일 이내에 보고됨"
@@ -727,6 +733,9 @@ msgstr "공백을 포함할 수 없습니다. "
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "해당 호스트에 읽기 좋은 호스트 이름을 할당하기 위해 패턴을 정의합니다"
 
+msgid "documentation"
+msgstr ""
+
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "규칙 당 프로비저닝된 호스트의 최대 수량을 제한할 수 있게 합니다"
 
@@ -776,13 +785,13 @@ msgid "represents rule name shown to the users"
 msgstr "사용자에게 표시되는 규칙 이름을 표시합니다"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "호스트가 관리되고 있으며 사용자 정의 파티션이 정의되고 있지 않은 경우에 필요합니다 "
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "호스트가 관리되고 있으며 값이 호스트 그룹에서 상속되지 않은 경우에 필요합니다 "
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "이미지 기반의 프로비저닝이 아니고 호스트가 관리되어 값이 호스트 그룹에서 상속되지 않은 경우에 필요합니다 "
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "값이 호스트 그룹이나 설정의 기본값 암호에서 상속되지 않은 경우에 필요합니다 "

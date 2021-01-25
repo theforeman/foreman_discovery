@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
@@ -145,6 +145,9 @@ msgstr[1] ""
 msgid "Discovered Hosts"
 msgstr ""
 
+msgid "Discovered Rules"
+msgstr ""
+
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
 
@@ -278,6 +281,9 @@ msgid "Failed to refresh facts for %s"
 msgstr ""
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "For more information please see "
 msgstr ""
 
 msgid "Force DNS"
@@ -726,6 +732,9 @@ msgid "can't contain white spaces."
 msgstr ""
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "documentation"
 msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"

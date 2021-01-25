@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Crited <Alexander.Stoll@netways.de>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid "A summary of discovered hosts"
 msgstr "Eine Zusammenfassung der entdeckten Hosts"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Aktion mit Unterplänen"
 
 msgid "Actions"
 msgstr "Aktionen"
@@ -152,6 +152,9 @@ msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Entdeckte Hosts"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
@@ -288,6 +291,9 @@ msgstr "Fehler beim Aktualisieren von Fakten für %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Fehler beim Aktualisieren der Fakten für %{hostname} mit Fehlermeldung %{error_message}"
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr "DNS erzwingen"
 
@@ -332,10 +338,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Host vom Typ %s kann nicht neu gestartet werden"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Eigentümertyp des Hosts"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Hostparameter (Array oder indizierter Hash)"
 
 msgid "Hostname facts"
 msgstr "Hostnamenfakten"
@@ -386,10 +392,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API gibt HTTP/%{code} mit '%{body} zurück"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet-Klassen importieren"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Fakten importieren"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -479,7 +485,7 @@ msgid "Name"
 msgstr "Name"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Name des Parameters"
 
 msgid "Network"
 msgstr "Netzwerk"
@@ -542,7 +548,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Parameterwert"
 
 msgid "Please Confirm"
 msgstr "Bitte bestätigen"
@@ -608,7 +614,7 @@ msgid "Reloading kernel on %s"
 msgstr "Kernel auf %s wird neu geladen"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Entfernte Aktion:"
 
 msgid "Reported in the last 7 days"
 msgstr "Berichtet in den letzten 7 Tagen"
@@ -698,7 +704,7 @@ msgid "Type of name generator"
 msgstr "Typ des Namensgenerators"
 
 msgid "Type of value"
-msgstr ""
+msgstr "Typ des Wertes"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID zum Tracken des Status der Orchestrierungsaufgaben, GET /api/orchestration/:UUID/tasks"
@@ -735,6 +741,9 @@ msgstr "darf keine Leerzeichen enthalten."
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "definiert ein Muster, nach dem einfach lesbare Hostnamen zu übereinstimmenden Hosts zugewiesen werden"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "ermöglicht die Begrenzung der maximal bereitgestellten Hosts pro Regel"
@@ -785,13 +794,13 @@ msgid "represents rule name shown to the users"
 msgstr "repräsentiert den Regelnamen, der Benutzern angezeigt wird"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "erforderlich, wenn der Host gemanagt und keine spezifische Partition definiert ist"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "erforderlich, wenn der Host gemanagt und der Wert nicht von einer Hostgruppe vererbt ist"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "erforderlich, wenn die Bereitstellung nicht image-basiert, der Host gemanagt und der Wert nicht von einer Hostgruppe vererbt ist"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "erforderlich, falls kein Wert von Hostgruppe geerbt wird oder es nicht das Standardpasswort in Einstellungen ist"

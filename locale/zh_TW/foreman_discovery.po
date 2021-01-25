@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgid "A summary of discovered hosts"
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "有子計畫的動作"
 
 msgid "Actions"
 msgstr "動作"
@@ -143,6 +143,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered Rules"
 msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
@@ -280,6 +283,9 @@ msgstr "刷新 %s 的詳情失敗"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr ""
 
@@ -324,10 +330,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr ""
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "主機的擁有者類型"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "主機參數（陣列或索引過的雜湊）"
 
 msgid "Hostname facts"
 msgstr ""
@@ -378,10 +384,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "匯入 Puppet 類別"
 
 msgid "Import facts"
-msgstr ""
+msgstr "匯入詳情"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -471,7 +477,7 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "參數名稱"
 
 msgid "Network"
 msgstr "網路"
@@ -534,7 +540,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "參數值"
 
 msgid "Please Confirm"
 msgstr "請確認"
@@ -600,7 +606,7 @@ msgid "Reloading kernel on %s"
 msgstr ""
 
 msgid "Remote action:"
-msgstr ""
+msgstr "遠端動作："
 
 msgid "Reported in the last 7 days"
 msgstr ""
@@ -728,6 +734,9 @@ msgstr ""
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr ""
 
+msgid "documentation"
+msgstr ""
+
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr ""
 
@@ -777,13 +786,13 @@ msgid "represents rule name shown to the users"
 msgstr ""
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "若主機是個受管理的主機，並且尚未定義自訂分割區的話便需要"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr ""

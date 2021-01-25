@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Robin Friberg <robin.friberg@gmail.com>\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/foreman/foreman/lang"
 "uage/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -148,6 +148,9 @@ msgstr[1] ""
 msgid "Discovered Hosts"
 msgstr "Hittade värdar"
 
+msgid "Discovered Rules"
+msgstr ""
+
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
 
@@ -281,6 +284,9 @@ msgid "Failed to refresh facts for %s"
 msgstr "Misslyckades med att uppdatera fakta för %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "For more information please see "
 msgstr ""
 
 msgid "Force DNS"
@@ -474,7 +480,7 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Parameterns namn"
 
 msgid "Network"
 msgstr ""
@@ -537,7 +543,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Parametervärde"
 
 msgid "Please Confirm"
 msgstr "Var god, bekräfta"
@@ -729,6 +735,9 @@ msgid "can't contain white spaces."
 msgstr ""
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "documentation"
 msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"

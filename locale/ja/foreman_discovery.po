@@ -4,12 +4,13 @@
 #
 # Translators:
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
+# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-12-01 08:28+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -19,28 +20,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - 以下のホストはすぐに変更されます"
+msgstr "%s: 以下のホストはまもなく変更されます"
 
 msgid "%s ago"
 msgstr "%s 前"
 
 msgid "%s discovered hosts were provisioned"
-msgstr "%s 検出されたホストがプロビジョニングされました"
+msgstr "検出ホスト %s 台がプロビジョニングされました"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr "<b>Foreman</b> の検出されたホストの概要"
+msgstr "<b>Foreman</b> 検出されたホストの概要"
 
 msgid "A summary of discovered hosts"
 msgstr "検出されたホストの概要"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "サブプランによるアクション"
 
 msgid "Actions"
 msgstr "アクション"
 
 msgid "Assign Location"
-msgstr "場所の割り当て"
+msgstr "ロケーションの割り当て"
 
 msgid "Assign Organization"
 msgstr "組織の割り当て"
@@ -73,7 +74,7 @@ msgid "CPUs"
 msgstr "CPU"
 
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "取り消し"
 
 msgid "Clean all facts"
 msgstr "すべてのファクトのクリーニング"
@@ -127,7 +128,7 @@ msgid "Delete rule '%s'?"
 msgstr "ルール '%s' を削除しますか?"
 
 msgid "Destroyed selected hosts"
-msgstr "破棄された選択済みホスト"
+msgstr "破棄済みの選択ホスト"
 
 msgid "Details"
 msgstr "詳細"
@@ -140,14 +141,16 @@ msgstr "ルール '%s' を無効にしますか?"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "検出されたホスト"
 
 msgid "Discovered Hosts"
 msgstr "検出されたホスト"
 
+msgid "Discovered Rules"
+msgstr ""
+
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr "検出ホスト '%{host}' は全 NIC がフィルタリングされています。フィルター: %{filter}"
+msgstr "検出ホスト '%{host}' では全 NIC がフィルタリングされています。フィルター: %{filter}"
 
 msgid "Discovered host: %s"
 msgstr "検出されたホスト: %s"
@@ -243,7 +246,7 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "現在検出されているすべてのホストに対するルールの実行"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr "予測された discovery_fact '%s' がありません。プライマリーインターフェースを検出したり、ホスト名を設定したりできません"
+msgstr "必要な discovery_fact '%s' がありません。プライマリーインターフェースの検出やホスト名の設定ができません"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "ホスト一覧に表示される追加の facter 列 (コンマ区切り)"
@@ -261,7 +264,7 @@ msgid "Facts could not be imported"
 msgstr "ファクトをインポートできませんでした"
 
 msgid "Facts refreshed for %s"
-msgstr "%s について更新されたファクト"
+msgstr "%s の更新済みファクト"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "ホスト %s の自動プロビジョニングに失敗しました: %s"
@@ -270,16 +273,19 @@ msgid "Failed to reboot host %s"
 msgstr "ホスト %s の再起動に失敗しました"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "ホスト %{hostname} の再起動に失敗し、エラー %{error_message} が発生しました"
+msgstr "ホスト %{hostname} は %{error_message} のエラーで再起動に失敗しました"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr "ホストの再起動に失敗し、エラー %s が発生しました"
+msgstr "ホストは %s のエラーで再起動に失敗しました"
 
 msgid "Failed to refresh facts for %s"
 msgstr "%s のファクトの更新に失敗しました"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "%{hostname} のファクトの更新に失敗し、エラー %{error_message} が発生しました"
+msgstr "%{error_message} エラーで %{hostname} のファクトの更新に失敗しました"
+
+msgid "For more information please see "
+msgstr ""
 
 msgid "Force DNS"
 msgstr "DNS  の強制的な実行"
@@ -313,22 +319,20 @@ msgstr "ホストグループ"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ホストグループの場所 %s も検出ルールに関連付ける必要があります"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ホストグループの組織 %s も検出ルールに関連付ける必要があります"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "タイプ %s のホストを再起動できません"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "ホストの所有者タイプ"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "ホストのパラメーター (配列またはインデックス化されたハッシュ)"
 
 msgid "Hostname facts"
 msgstr "ホスト名ファクト"
@@ -361,7 +365,7 @@ msgid "IP address"
 msgstr "IP アドレス"
 
 msgid "IPAM must be configured for subnet '%s'"
-msgstr ""
+msgstr "IPAM はサブネット '%s' 用に設定する必要があります"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -370,19 +374,19 @@ msgid "IPMI facts"
 msgstr "IPMI ファクト"
 
 msgid "Identifier"
-msgstr "識別子"
+msgstr "ID"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr "イメージ API の処理エラー: %{msg} (HTTP/%{code}、本体: %{body})"
+msgstr "イメージ API 処理エラー: %{msg} (HTTP/%{code}、ボディー: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "イメージ API で返された HTTP/%{code}: '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet クラスのインポート"
 
 msgid "Import facts"
-msgstr ""
+msgstr "ファクトのインポート"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "@host 属性のほかに、ランダムな整数の rand 関数を利用できます。例:"
@@ -400,7 +404,7 @@ msgid "Invalid facts, must be a Hash"
 msgstr "無効なファクトです。ハッシュである必要があります。"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
-msgstr "無効なファクト: ハッシュには discovery_hostname 設定のファクトのいずれの有効な値も含まれていません: %s"
+msgstr "無効なファクト: discovery_hostname 設定の全ファクトで、ハッシュの値は無効です: %s"
 
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "無効なホスト名: ホスト名を正規化できませんでした"
@@ -430,7 +434,7 @@ msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr "ホスト名に使用するファクトの一覧 (コンマ区切り、first wins)"
 
 msgid "Location"
-msgstr "場所"
+msgstr "ロケーション"
 
 msgid "Locations"
 msgstr "ロケーション"
@@ -454,7 +458,7 @@ msgid "MAC-based name"
 msgstr "MAC ベースの名前"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
-msgstr "このルール (0 = unlimited) でプロビジョニングされた最大数のホスト"
+msgstr "このルールでプロビジョニングする最大ホスト数 (0 = 無制限)"
 
 msgid "Memory"
 msgstr "メモリー"
@@ -466,13 +470,13 @@ msgid "Model"
 msgstr "モデル"
 
 msgid "N/A"
-msgstr "該当なし"
+msgstr "N/A"
 
 msgid "Name"
 msgstr "名前"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "パラメーター名"
 
 msgid "Network"
 msgstr "ネットワーク"
@@ -535,7 +539,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "ホストを検出に固定する際に使用される PXELinux テンプレート"
 
 msgid "Parameter value"
-msgstr ""
+msgstr "パラメーター値"
 
 msgid "Please Confirm"
 msgstr "確認してください"
@@ -568,7 +572,7 @@ msgid "Rebooting all discovered hosts"
 msgstr "すべての検出されたホストの再起動中"
 
 msgid "Rebooting host %s"
-msgstr "ホスト %s の再起動中"
+msgstr "ホスト %s の再起動"
 
 msgid "Rebuild DNS for %s"
 msgstr "%s の DNS の再構築"
@@ -601,7 +605,7 @@ msgid "Reloading kernel on %s"
 msgstr "カーネルを %s にリロード中"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "リモートアクション:"
 
 msgid "Reported in the last 7 days"
 msgstr "過去 7 日以内に報告あり"
@@ -613,7 +617,7 @@ msgid "Rule enabled"
 msgstr "有効にされたルール"
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr "ルールの優先順位 (整数の低い値は高い優先順位を意味します)"
+msgstr "ルールの優先順位 (整数値が低いほど、優先順位が高い)"
 
 msgid "Select Action"
 msgstr "アクションの選択"
@@ -640,7 +644,7 @@ msgid "Software facts"
 msgstr "ソフトウェアファクト"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "ホストの選択中に問題が発生しました - %s"
+msgstr "ホストの選択中に問題が発生しました: %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr "プロビジョニングテンプレート (ERB) と同じ構文のターゲットホスト名テンプレートのパターンを指定します。"
@@ -661,13 +665,13 @@ msgid "Successfully provisioned %s"
 msgstr "%s が正常にプロビジョニングされました"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr "%{time} から %{now} までの概要"
+msgstr "%{time} 前から %{now} までの概要"
 
 msgid "Summary report for discovered hosts from Foreman"
 msgstr "Foreman の検出されたホストの概要レポート"
 
 msgid "Target host group for this rule with all properties set"
-msgstr "すべてのプロパティーが設定されたこのルールのターゲットホストグループ"
+msgstr "このルールのターゲットホストグループ。全プロパティーを設定しておいてください。"
 
 msgid "The default location to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトの場所"
@@ -679,7 +683,7 @@ msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "ホスト名に使用するデフォルトのプレフィックスは文字で開始する必要があります"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "次のホストが削除されました: %s"
+msgstr "以下のホストは削除されませんでした: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります。"
@@ -691,7 +695,7 @@ msgid "Type of name generator"
 msgstr "名前ジェネレーターのタイプ"
 
 msgid "Type of value"
-msgstr ""
+msgstr "値のタイプ"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "オーケストレーションタスクの状態を追跡するための UUID。GET /api/orchestration/:UUID/tasks"
@@ -700,16 +704,16 @@ msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "検出ルールを見つけることができません。指定されるホストがありません (パーミッションを確認してください)"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
-msgstr "%{mac} が '%{fact}' で指定されたプライマリー NIC を見つけることができません。NIC フィルター: %{filter}"
+msgstr "%{mac} が %{fact} で指定されたプライマリー NIC を見つけることができません。NIC フィルター: %{filter}"
 
 msgid "Unable to perform %{action} on %{ips}"
-msgstr ""
+msgstr "%{ips} で %{action} を実行できません"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "%{name} の (%{url}) で kexec を実行できません: %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "%{name} の (%{url}) で再起動を実行できません: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "%{host} をプロビジョニングできません: %{errors}"
@@ -721,13 +725,16 @@ msgid "Upload facts for a host, creating the host if required"
 msgstr "ホストのファクトをアップロードし、必要な場合はホストを作成します"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
-msgstr "ホスト名パターンの作成時に、生成されるホスト名が固有であることを確認します。"
+msgstr "ホスト名パターンの作成時に、生成されるホスト名が一意であることを確認します。"
 
 msgid "can't contain white spaces."
 msgstr "空白を含めることができません。"
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "人が判読できるホスト名を一致するホストに割り当てるパターンの定義"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "ルール別のプロビジョニングされたホストの最大数の制限を許可"
@@ -778,13 +785,13 @@ msgid "represents rule name shown to the users"
 msgstr "ユーザーに表示されるルール名の表示"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "ホストが管理されており、カスタムパーティションが定義されていない場合に必須です。"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です。"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です。"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "値がホストグループから継承されていないか、または設定済みのデフォルトパスワードである場合に必須です。"

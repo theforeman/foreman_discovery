@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-12-01 08:28+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -18,22 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - 要更改以下主机"
+msgstr "%s - 以下主机即将更改"
 
 msgid "%s ago"
 msgstr "%s 前"
 
 msgid "%s discovered hosts were provisioned"
-msgstr "已置备 %s 发现主机"
+msgstr "%s 发现的主机被置备"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr "<b>Foreman</b> 发现主机概述"
+msgstr "<b>Foreman</b> 发现的主机概述"
 
 msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "有子計畫的動作"
 
 msgid "Actions"
 msgstr "操作"
@@ -42,7 +42,7 @@ msgid "Assign Location"
 msgstr "指定位置"
 
 msgid "Assign Organization"
-msgstr "指定机构"
+msgstr "指定組織"
 
 msgid "Associated Hosts"
 msgstr "关联主机"
@@ -66,7 +66,7 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr "置备期间自动重启或 kexec 发现主机"
 
 msgid "Back"
-msgstr "后退"
+msgstr "返回"
 
 msgid "CPUs"
 msgstr "CPU"
@@ -81,10 +81,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "置备期间清除所有报告的详情（发现详情除外）"
 
 msgid "Collapse All"
-msgstr "隐藏全部"
+msgstr "全部折叠"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr "在 PXE-less 置备过程中  kexec 的命令行选项。"
+msgstr "在 PXE-less 置备过程中 kexec 的命令行选项。"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
@@ -111,10 +111,10 @@ msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr "DHCP 文件名选项（默认为 Grub2 或 PXELinux）"
 
 msgid "Delete"
-msgstr "删除"
+msgstr "刪除"
 
 msgid "Delete %s?"
-msgstr "删除 %s"
+msgstr "刪除 %s?"
 
 msgid "Delete a discovered host"
 msgstr "删除发现主机"
@@ -126,10 +126,10 @@ msgid "Delete rule '%s'?"
 msgstr "删除规则 '%s'？"
 
 msgid "Destroyed selected hosts"
-msgstr "消除所选主机"
+msgstr "刪除選擇的主機"
 
 msgid "Details"
-msgstr "详情"
+msgstr "细节"
 
 msgid "Disable"
 msgstr "禁用"
@@ -139,17 +139,19 @@ msgstr "禁用规则 '%s'？"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "发现的主机"
 
 msgid "Discovered Hosts"
 msgstr "发现主机"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "发现的主机 '%{host}' 的所有 NIC 都被过滤掉，过滤：%{filter}"
 
 msgid "Discovered host: %s"
-msgstr "找到的主机：%s"
+msgstr "发现的主机：%s"
 
 msgid "Discovered hosts are provisioning now"
 msgstr "现在发现主机正在置备"
@@ -176,7 +178,7 @@ msgid "Discovery Rules"
 msgstr "发现规则"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr "发现 fact 解析器无法在未发现主机 '%{host}' 上工作"
+msgstr "发现事实解析器无法在未发现主机 '%{host}' 上工作"
 
 msgid "Discovery hostname naming pattern"
 msgstr "发现主机名的名称特征"
@@ -203,13 +205,13 @@ msgid "Disk Count"
 msgstr "磁盘计数"
 
 msgid "Disk count"
-msgstr "磁盘计数"
+msgstr "磁碟計數"
 
 msgid "Disks Size"
 msgstr "磁盘大小"
 
 msgid "Disks size"
-msgstr "磁盘大小"
+msgstr "磁碟大小"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
 msgstr "不允许发现匹配一个置备 NIC 的 MAC 的已存在的管理的主机（早期出现错误）"
@@ -233,7 +235,7 @@ msgid "Errors during auto provisioning: %s"
 msgstr "自动置备期间出错：%s"
 
 msgid "Errors during reboot: %s"
-msgstr "重启期间出错：%s"
+msgstr "重启时出错：%s"
 
 msgid "Execute rules against a discovered host"
 msgstr "对发现主机执行规则"
@@ -242,7 +244,7 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "对当前所有发现主机执行规则"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr "期望的 discovery_fact '%s' 缺失，无法检测主接口和设置主机名称"
+msgstr "缺少期望的 discovery_fact '%s'，无法检测主接口和设置主机名称"
 
 msgid "Extra facter columns to show in host lists (separate by comma)"
 msgstr "在主机列表中显示的额外 facter 列（用逗号隔开）"
@@ -260,25 +262,28 @@ msgid "Facts could not be imported"
 msgstr "无法导入详情"
 
 msgid "Facts refreshed for %s"
-msgstr "为 %s 刷新详情"
+msgstr "%s 的事实已刷新"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "无法自动置备主机 %s：%s"
 
 msgid "Failed to reboot host %s"
-msgstr "无法重启主机 %s"
+msgstr "重启主机 %s 失败"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "无法重启主机 %{hostname}，发生错误 %{error_message}"
+msgstr "重启主机 %{hostname} 失败，错误为 %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr "无法重启主机，发生错误 %s"
+msgstr "无法重启主机，错误 %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "为 %s 刷新详情失败"
+msgstr "%s 的事实刷新失败"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "为 %{hostname} 刷新详情失败，发生错误 %{error_message} "
+msgstr "为 %{hostname} 刷新事实失败，错误为 %{error_message}"
+
+msgid "For more information please see "
+msgstr ""
 
 msgid "Force DNS"
 msgstr "强制 DNS"
@@ -302,32 +307,30 @@ msgid "Highlights"
 msgstr "亮点"
 
 msgid "Host"
-msgstr "主机"
+msgstr "主办"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "主机 %{host} 置备了规则 %{rule}"
+msgstr "主机 %{host} 被置备，带有规则 %{rule}"
 
 msgid "Host Group"
-msgstr "主机组"
+msgstr "主機群組"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "主机组位置 %s 也必须与发现规则关联"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "主机组机构 %s 也必须与发现规则关联"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "%s 类型的主机不能重启"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "主机拥有者类型"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "主机参数（阵列或索引哈希）"
 
 msgid "Hostname facts"
 msgstr "主机名详情"
@@ -345,7 +348,7 @@ msgid "Hosts"
 msgstr "主机"
 
 msgid "Hosts Limit"
-msgstr "主机限制"
+msgstr "主機限制"
 
 msgid "Hosts/Limit"
 msgstr "主机/限制"
@@ -354,13 +357,13 @@ msgid "ID of Discovery Proxy to use within this subnet for managing connection t
 msgstr "本子网内用于管理到发现主机的连接的发现代理服务器 ID"
 
 msgid "IP Address"
-msgstr "IP 地址"
+msgstr "IP地址"
 
 msgid "IP address"
-msgstr "IP 地址"
+msgstr "IP 位址"
 
 msgid "IPAM must be configured for subnet '%s'"
-msgstr ""
+msgstr "必须为子网 '%s' 配置 IPAM"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -369,19 +372,19 @@ msgid "IPMI facts"
 msgstr "IPMI 详情"
 
 msgid "Identifier"
-msgstr "身份标识"
+msgstr "鉴定"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr "镜像 API 处理出错：%{msg}（HTTP/%{code}，主体：%{body}）"
+msgstr "图片 API 处理错误：%{msg} （HTTP /%{code} ， 内容：%{body} ）"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr "镜像 API 返回 HTTP/%{code} 与 '%{body}"
+msgstr "镜像 API 返回 HTTP/%{code}，带有 '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "导入 Puppet 类"
 
 msgid "Import facts"
-msgstr ""
+msgstr "匯入詳情"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "除了 @host 属性函数之外，还提供随机整数 rand。"
@@ -447,7 +450,7 @@ msgid "Locked PXELinux template name"
 msgstr "锁定的 PXELinux 模板名称"
 
 msgid "MAC address"
-msgstr "MAC 地址"
+msgstr "MAC 位址"
 
 msgid "MAC-based name"
 msgstr "基于 MAC 的名称"
@@ -456,22 +459,22 @@ msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr "按照此规则置备的最大主机数（0 = 没有限制）"
 
 msgid "Memory"
-msgstr "内存"
+msgstr "记忆"
 
 msgid "Miscellaneous"
 msgstr "杂项"
 
 msgid "Model"
-msgstr "型号"
+msgstr "模型"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr "N / A"
 
 msgid "Name"
 msgstr "名称"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "參數名稱"
 
 msgid "Network"
 msgstr "网络"
@@ -498,13 +501,13 @@ msgid "No discovered hosts to reboot"
 msgstr "没有要重启的发现主机"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr "没有主机组与规则 '%s' 关联"
+msgstr "没有与规则 '%s' 关联的主机组"
 
 msgid "No hosts selected"
-msgstr "未选择任何主机"
+msgstr "未選擇主機"
 
 msgid "No hosts were found with that id or name"
-msgstr "未找到符合此 id 或者名称的主机"
+msgstr "沒有找到擁有此 ID 或名稱的主機"
 
 msgid "No new discovered hosts for this period"
 msgstr "此时间段内没有新发现主机"
@@ -513,7 +516,7 @@ msgid "No rule found for host %s"
 msgstr "没有为主机 %s 找到规则"
 
 msgid "Not reported in more than 7 days"
-msgstr " 超过 7 天没有报告"
+msgstr "没有超过 7 天的报告"
 
 msgid "One or more hosts have been discovered"
 msgstr "已发现一个或多个主机"
@@ -534,16 +537,16 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "将主机固定至发现时使用的 PXELinux 模板"
 
 msgid "Parameter value"
-msgstr ""
+msgstr "参数值"
 
 msgid "Please Confirm"
-msgstr "请确认"
+msgstr "請確認"
 
 msgid "Primary"
 msgstr "主"
 
 msgid "Provision"
-msgstr "供应"
+msgstr "置备"
 
 msgid "Provision %s"
 msgstr "置备 %s"
@@ -558,7 +561,7 @@ msgid "Reboot"
 msgstr "重启"
 
 msgid "Rebooting %s"
-msgstr "正在重启 %s"
+msgstr "重启 %s"
 
 msgid "Rebooting a discovered host"
 msgstr "重启发现主机"
@@ -573,7 +576,7 @@ msgid "Rebuild DNS for %s"
 msgstr "为 %s 重建 DNS"
 
 msgid "Refresh facts"
-msgstr "刷新详情"
+msgstr "刷新詳情"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr "刷新发现主机的详情"
@@ -600,7 +603,7 @@ msgid "Reloading kernel on %s"
 msgstr "正在 %s 上重新加载内核"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "远程操作："
 
 msgid "Reported in the last 7 days"
 msgstr "最近 7 天内报告"
@@ -615,16 +618,16 @@ msgid "Rule priority (lower integer means higher priority)"
 msgstr "规则优先级（整数越小，优先级越高）"
 
 msgid "Select Action"
-msgstr "选择动作"
+msgstr "選擇動作"
 
 msgid "Select all items in this page"
-msgstr "选择本页中的所有项目"
+msgstr "選擇這頁中的所有項目"
 
 msgid "Select location"
-msgstr "选择位置"
+msgstr "選擇位置"
 
 msgid "Select organization"
-msgstr "选择机构"
+msgstr "選擇組織"
 
 msgid "Show a discovered host"
 msgstr "显示一个发现主机"
@@ -660,7 +663,7 @@ msgid "Successfully provisioned %s"
 msgstr "已成功置备 %s"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr "从 %{time} 前到 %{now} 的概述"
+msgstr "从%{time}以前到 %{now} 的概述"
 
 msgid "Summary report for discovered hosts from Foreman"
 msgstr "来自 Foreman 的 发现主机概述报告"
@@ -669,46 +672,46 @@ msgid "Target host group for this rule with all properties set"
 msgstr "此规则的目标主机组所有属性已设置"
 
 msgid "The default location to place discovered hosts in"
-msgstr "找到主机的默认位置"
+msgstr "放置已發現之主機的預設位置"
 
 msgid "The default organization to place discovered hosts in"
-msgstr "找到主机的默认机构"
+msgstr "放置已發現之主機的預設組織"
 
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "使用的主机名默认前缀必须以字母开头"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "未删除以下主机：%s"
+msgstr "以下主机没有删除：%s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "这需要一些时间，因为同时还要删除所有主机、详情及报告。"
+msgstr "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
 
 msgid "Type"
-msgstr "类型"
+msgstr "類型"
 
 msgid "Type of name generator"
 msgstr "名称生成器类型"
 
 msgid "Type of value"
-msgstr ""
+msgstr "值类型"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
-msgstr "用来跟踪业务流程任务状态的 UUID，GET /api/orchestration/:UUID/tasks"
+msgstr "用來追蹤協調流程任務狀態的 UUID，GET /api/orchestration/:UUID/tasks"
 
 msgid "Unable to find a discovery rule, no host provided (check permissions)"
 msgstr "无法找到发现规则，未提供主机（检查许可）"
 
 msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
-msgstr "无法找到带有 '%{fact}' 指定的 %{mac} 的主 NIC。NIC 过滤：%{filter}"
+msgstr "无法找到带有通过 '%{fact}' 指定的 '%{mac}' 的主 NIC。NIC 过滤：%{filter}"
 
 msgid "Unable to perform %{action} on %{ips}"
-msgstr ""
+msgstr "无法在 %{ips} 上执行 %{action}"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "无法在 %{name} (%{url}) 上执行 kexec : %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "无法在%{name}（%{url}）上执行重新引导：%{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "无法置备 %{host}：%{errors}"
@@ -717,7 +720,7 @@ msgid "Update a rule"
 msgstr "更新规则"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "上传主机的系统详情，如需要，请创建主机。"
+msgstr "上傳主機的詳情，並視需求建立主機"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "创建主机名模式时，确保生成的主机名是唯一的。"
@@ -727,6 +730,9 @@ msgstr "不能包含空格。"
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "定义向匹配主机分配人类可读的主机名称的模式"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "支持根据规则限制置备主机的最大数量"
@@ -741,7 +747,7 @@ msgid "hash containing facts for the host with minimum set of facts: discovery_b
 msgstr "hash 包含具备最小详情集合的主机的详情：discovery_bootif、macaddress_eth0、ipaddress、ipaddress_eth0、interfaces: eth0（主接口名为 eth0 的示例）"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "已选择项目。取消选择清除。"
+msgstr "已選取項目。反選以清除"
 
 msgid "location ID for provisioned hosts"
 msgstr "预配主机的位置 ID"
@@ -756,16 +762,16 @@ msgid "not required if it's a virtual machine"
 msgstr "如果是虚拟机，则不需要"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "如果使用附带 DHCP 代理服务器的子网则不需要"
+msgstr "若是使用一個含有 DHCP 協定的子網路則不需要"
 
 msgid "number of entries per request"
-msgstr "每个请求中的条目数"
+msgstr "每個請求的項目數量"
 
 msgid "organization ID for provisioned hosts"
 msgstr "预配主机的组织 ID"
 
 msgid "paginate results"
-msgstr "编页结果"
+msgstr "編頁結果"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr "按顺序排列规则，低数值优先。必须大于 0"
@@ -777,19 +783,19 @@ msgid "represents rule name shown to the users"
 msgstr "代表显示给用户的规则名称"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "如果已管理主机，且未定义自定义分区，则需填写。"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "如果数值不是从主机组或设置中的默认密码继承，则需要。"
 
 msgid "sort results"
-msgstr "结果排序"
+msgstr "排序結果"
 
 msgid "the hostgroup that is used to auto provision a host"
 msgstr "用于自动置备主机的主机组"

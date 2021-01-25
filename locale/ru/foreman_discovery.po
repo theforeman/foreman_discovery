@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgid "A summary of discovered hosts"
 msgstr "Сводка состояния обнаруженных узлов"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Действия с подпланами"
 
 msgid "Actions"
 msgstr "Действия"
@@ -151,6 +151,9 @@ msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Обнаруженные узлы"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
@@ -287,6 +290,9 @@ msgstr "Не удалось обновить факты %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Не удалось обновить факты %{hostname}. Ошибка: %{error_message}"
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr ""
 
@@ -335,10 +341,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Узел типа %s не может быть перезагружен"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Тип владельца узла"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Параметры узла (массив или индексированный хэш)"
 
 msgid "Hostname facts"
 msgstr ""
@@ -389,10 +395,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "API образа вернул ошибку HTTP/%{code}: '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Импорт классов Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Импорт фактов"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -482,7 +488,7 @@ msgid "Name"
 msgstr "Имя"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Название параметра"
 
 msgid "Network"
 msgstr "Сеть"
@@ -545,7 +551,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Значение параметра"
 
 msgid "Please Confirm"
 msgstr "Подтвердите"
@@ -611,7 +617,7 @@ msgid "Reloading kernel on %s"
 msgstr "Перезагрузка ядра на %s"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Удаленное действие:"
 
 msgid "Reported in the last 7 days"
 msgstr "Были данные за последние 7 дней"
@@ -739,6 +745,9 @@ msgstr "не может содержать пробелов"
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "шаблон для присвоения узлам понятных имен"
 
+msgid "documentation"
+msgstr ""
+
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "максимальное число узлов для указанного правила"
 
@@ -788,13 +797,13 @@ msgid "represents rule name shown to the users"
 msgstr "название правила, которое увидят пользователи"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "требуется, если узел находится под управлением, но собственный раздел не был объявлен"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "требуется, если узел уже контролируется, но значение не было унаследовано от группы узлов"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "требуется, если подготовка управляемого узла осуществляется без участия образов и при этом значение не было унаследовано от группы узлов"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "обязательно, если пароль не унаследован от группы узлов или заданного по умолчанию пароля"

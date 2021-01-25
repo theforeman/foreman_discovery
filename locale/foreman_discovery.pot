@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-10 16:45+0100\n"
-"PO-Revision-Date: 2020-11-10 16:45+0100\n"
+"POT-Creation-Date: 2021-01-25 08:51+0100\n"
+"PO-Revision-Date: 2021-01-25 08:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -351,11 +351,11 @@ msgstr ""
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
-#: ../app/controllers/discovery_rules_controller.rb:68
+#: ../app/controllers/discovery_rules_controller.rb:72
 msgid "Rule enabled"
 msgstr ""
 
-#: ../app/controllers/discovery_rules_controller.rb:68
+#: ../app/controllers/discovery_rules_controller.rb:72
 msgid "Rule disabled"
 msgstr ""
 
@@ -365,19 +365,19 @@ msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:14
 #: ../app/helpers/discovered_hosts_helper.rb:29
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:37
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:40
 msgid "Auto Provision"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:15
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:38
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:41
 msgid "Refresh facts"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
 #: ../app/models/setting/discovered.rb:24
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:39
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:42
 msgid "Reboot"
 msgstr ""
 
@@ -391,7 +391,7 @@ msgid "Select Action"
 msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:23
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:40
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:43
 msgid "Delete %s?"
 msgstr ""
 
@@ -801,7 +801,7 @@ msgid "Host"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:4
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:6
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:7
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:8
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:18
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:10
@@ -809,14 +809,14 @@ msgid "Model"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:5
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:8
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:9
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:20
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:12
 msgid "CPUs"
 msgstr ""
 
 #: ../app/views/dashboard/_discovery_widget_host_list.html.erb:6
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:9
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:10
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:21
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:13
 msgid "Memory"
@@ -830,67 +830,67 @@ msgstr ""
 msgid "Create Host"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:4
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
 msgid "Select all items in this page"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:4
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:5
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:6
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:7
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:17
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:9
 msgid "Name"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:7
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:8
 #: ../app/views/discovered_mailer/discovered_summary.html.erb:19
 #: ../app/views/discovered_mailer/discovered_summary.text.erb:11
 msgid "IP Address"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:10
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:11
 msgid "Disk Count"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:11
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:12
 msgid "Disks Size"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:15
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:16
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:9
 msgid "Location"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:16
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:17
 #: ../app/views/discovered_hosts/_selected_hosts.html.erb:10
 msgid "Organization"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:17
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:18
 msgid "Subnet"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:18
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:19
 msgid "Last Facts Upload"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:19
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:20
 #: ../app/views/discovery_rules/index.html.erb:12
 msgid "Actions"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:51
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:55
 msgid "Please Confirm"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:57
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:61
 msgid "Cancel"
 msgstr ""
 
-#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:58
+#: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:62
 msgid "Submit"
 msgstr ""
 
@@ -1052,6 +1052,7 @@ msgid "Discovery Rules"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:2
+#: ../webpack/src/ForemanDiscovery/DiscoveryRules/Components/EmptyState/EmptyState.js:9
 msgid "Create Rule"
 msgstr ""
 
@@ -1081,6 +1082,10 @@ msgstr ""
 
 #: ../app/views/discovery_rules/new.html.erb:1
 msgid "New Discovery Rule"
+msgstr ""
+
+#: ../app/views/discovery_rules/welcome.html.erb:8
+msgid "Discovered Rules"
 msgstr ""
 
 #: ../db/seeds.d/50_discovery_templates.rb:5
@@ -1123,18 +1128,28 @@ msgid ""
 "covered hosts"
 msgstr ""
 
+#:
+#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:33
+msgid "For more information please see "
+msgstr ""
+
+#:
+#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:34
+msgid "documentation"
+msgstr ""
+
 #: action_names.rb:2
-msgid "Remote action:"
+msgid "Action with sub plans"
 msgstr ""
 
 #: action_names.rb:3
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:4
 msgid "Import facts"
 msgstr ""
 
+#: action_names.rb:4
+msgid "Import Puppet classes"
+msgstr ""
+
 #: action_names.rb:5
-msgid "Action with sub plans"
+msgid "Remote action:"
 msgstr ""

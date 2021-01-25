@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-12-02 19:17+0000\n"
+"Last-Translator: Marco Calamaro <ottopodo@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/foreman/foreman/language/it/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossibile ottenere gli eventi dal proxy %{url}: %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "Crea Host"
 
 msgid "Create Rule"
 msgstr ""
@@ -145,6 +145,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered Rules"
 msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
@@ -282,6 +285,9 @@ msgstr "Impossibile aggiornare gli eventi per %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr ""
 
@@ -326,10 +332,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Impossibile eseguire il riavvio sul tipo di host %s "
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Tipo di proprietario dell'host"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Parametri dell'host (array o hash indicizzato)"
 
 msgid "Hostname facts"
 msgstr ""
@@ -380,10 +386,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importa classi Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importa gli eventi"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
@@ -473,7 +479,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Nome del parametro"
 
 msgid "Network"
 msgstr "Rete"
@@ -536,7 +542,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Valore parametro"
 
 msgid "Please Confirm"
 msgstr "Conferma"
@@ -602,7 +608,7 @@ msgid "Reloading kernel on %s"
 msgstr ""
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Azione remota:"
 
 msgid "Reported in the last 7 days"
 msgstr ""
@@ -692,7 +698,7 @@ msgid "Type of name generator"
 msgstr ""
 
 msgid "Type of value"
-msgstr ""
+msgstr "Tipo di valore"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID per controllare gli stati dei compiti d'orchestrazione, GET /api/orchestration/:UUID/tasks"
@@ -729,6 +735,9 @@ msgstr "non può avere spazi."
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "definisce uno schema per assegnare gli hostname leggibili dall'utente agli host corrispondenti"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "permette di limitare la quantità massima di host con provisioning per regola"
@@ -779,13 +788,13 @@ msgid "represents rule name shown to the users"
 msgstr "rappresenta il nome della regola da mostrare agli utenti"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "necessario se l'host è gestito e la partizione personalizzata non è stata definita"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "necessario se l'host è gestito ed il valore non è stato ereditato da un gruppo di host"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "necessario se non è disponibile imaged based provisioning e l'host è gestito ed il valore non è stato ereditato dal gruppo di host"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "necessario se il valore non è ereditato da un gruppo di host o password predefinita nelle impostazione"

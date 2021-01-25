@@ -4,15 +4,17 @@
 #
 # Translators:
 # elobato <elobatocs@gmail.com>, 2015
+# elobato <elobatocs@gmail.com>, 2015
 # francis <hackgo@gmail.com>, 2013-2014
+# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
 # Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014-2015
 # Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +39,7 @@ msgid "A summary of discovered hosts"
 msgstr "Resumen de los hosts detectados"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Acción con subplanes"
 
 msgid "Actions"
 msgstr "Acciones"
@@ -85,7 +87,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Eliminar todos los eventos informados durante el aprovisionamiento (excepto los eventos de detección)"
 
 msgid "Collapse All"
-msgstr "Colapsó todo"
+msgstr "Contraer todo"
 
 msgid "Command line options for kexec during PXE-less provisioning."
 msgstr "Opciones de la línea de comandos para kexec durante el aprovisionamiento sin PXE."
@@ -133,21 +135,24 @@ msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
 
 msgid "Details"
-msgstr "Información"
+msgstr "Detalles"
 
 msgid "Disable"
-msgstr "Inhabilitar"
+msgstr "Deshabilitar"
 
 msgid "Disable rule '%s'?"
 msgstr "¿Deshabilitar regla '%s'?"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Host detectado"
+msgstr[1] "Hosts detectados"
 
 msgid "Discovered Hosts"
 msgstr "Hosts detectados"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "El host detectado '%{host}' tiene todas las NIC filtradas, filtro: %{filter}"
@@ -225,7 +230,7 @@ msgid "Edit %s"
 msgstr "Editar %s"
 
 msgid "Enable"
-msgstr "Activar"
+msgstr "Habilitar"
 
 msgid "Enable rule '%s'?"
 msgstr "¿Habilitar regla '%s'?"
@@ -284,6 +289,9 @@ msgstr "Fallo al refrescar datos para %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Ocurrió un error al actualizar los eventos de %{hostname} con el error  %{error_message}"
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr "Forzar DNS"
 
@@ -306,7 +314,7 @@ msgid "Highlights"
 msgstr "Aspectos destacados"
 
 msgid "Host"
-msgstr "Host"
+msgstr "host"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "El host %{host} se aprovisionó con la regla %{rule}"
@@ -316,22 +324,22 @@ msgstr "Grupo de Equipo"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La ubicación del grupo de host %s debe estar asociada también con la regla de detección"
+msgstr[1] "Las ubicaciones del grupo de host %s deben estar asociadas también con la regla de detección"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La organización del grupo de host %s debe estar asociada también con la regla de detección"
+msgstr[1] "Las organizaciones del grupo de host %s deben estar asociadas también con la regla de detección"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "No es posible reiniciar el tipo de host %s"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Tipo de propietario de host"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Parámetros del host (array o hash indexado)"
 
 msgid "Hostname facts"
 msgstr "Eventos del nombre de host"
@@ -364,7 +372,7 @@ msgid "IP address"
 msgstr "Dirección IP"
 
 msgid "IPAM must be configured for subnet '%s'"
-msgstr ""
+msgstr "El IPAM debe ser configurado para la subred '%s'"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -382,10 +390,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "La API de la imagen arrojó HTTP/%{code} with '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importar clases Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importar datos"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Además del atributo @host, la función aleatoria para los números enteros aleatorizados se encuentra disponible. Ejemplos:"
@@ -433,7 +441,7 @@ msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr "Mostrar los eventos que deben utilizarse para el nombre de host (separados por comas, los primeros son los más importantes)"
 
 msgid "Location"
-msgstr "Lugares"
+msgstr "Ubicación"
 
 msgid "Locations"
 msgstr "Ubicaciones"
@@ -463,19 +471,19 @@ msgid "Memory"
 msgstr "Memoria"
 
 msgid "Miscellaneous"
-msgstr "Miscelánea"
+msgstr "Misceláneo"
 
 msgid "Model"
-msgstr "Modelo"
+msgstr "Modelado"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr "N/C"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Nombre del parámetro"
 
 msgid "Network"
 msgstr "Red"
@@ -505,7 +513,7 @@ msgid "No hostgroup associated with rule '%s'"
 msgstr "No hay grupo de host asociado con la regla '%s'"
 
 msgid "No hosts selected"
-msgstr "Ningún equipo seleccionado"
+msgstr "Ningún host seleccionado"
 
 msgid "No hosts were found with that id or name"
 msgstr "No se han encontrado equipos con ese id o nombre"
@@ -538,16 +546,16 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "Debe utilizarse la plantilla PXELinux para adjuntar un host a la detección"
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Valor del parámetro"
 
 msgid "Please Confirm"
-msgstr "Confirme, por favor"
+msgstr "Confirmar"
 
 msgid "Primary"
 msgstr "Primario"
 
 msgid "Provision"
-msgstr "Aprovisionamiento"
+msgstr "Aprovisionar"
 
 msgid "Provision %s"
 msgstr "Aprovisionar %s"
@@ -604,7 +612,7 @@ msgid "Reloading kernel on %s"
 msgstr "Recargando el kernel en %s"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Acción remota:"
 
 msgid "Reported in the last 7 days"
 msgstr "Informado en los últimos 7 días"
@@ -643,7 +651,7 @@ msgid "Software facts"
 msgstr "Eventos de software"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Algo ha fallado al seleccionar equipos - %s"
+msgstr "Algo ha fallado al seleccionar hosts - %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr "Especificar el patrón de la plantilla del nombre de host de destino con la misma sintaxis que en las Plantillas de aprovisionamiento (ERB)."
@@ -655,7 +663,7 @@ msgid "Storage facts"
 msgstr "Eventos de almacenamiento"
 
 msgid "Submit"
-msgstr "Introducir"
+msgstr "Enviar"
 
 msgid "Subnet"
 msgstr "Subred"
@@ -694,7 +702,7 @@ msgid "Type of name generator"
 msgstr "Tipo de generador de nombre"
 
 msgid "Type of value"
-msgstr ""
+msgstr "Tipo de valor"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID para seguir el estado de la tarea de orquestación, GET /api/orchestration/:UUID/tasks"
@@ -709,10 +717,10 @@ msgid "Unable to perform %{action} on %{ips}"
 msgstr ""
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "No es posible ejecutar kexec en %{name} (%{url}): %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "No se puede realizar el reinicio en %{name} (%{url}): %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "No es posible aprovisionar %{host}: %{errors}"
@@ -731,6 +739,9 @@ msgstr "no puede incluir espacios en blanco."
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "define un patrón para asignarles a los hosts coincidentes nombres de hosts aptos para la lectura humana"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "se habilita para limitar la cantidad máxima de hosts aprovisionados por regla"
@@ -781,13 +792,13 @@ msgid "represents rule name shown to the users"
 msgstr "representa el nombre de la regla que se les muestra a los usuarios"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "obligatorio si el host está administrado y no se han definido particiones personalizadas"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "obligatorio si los hosts están administrados y el valor no se ha heredado de un grupo de hosts"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "obligatorio si el aprovisionamiento no se basa en imágenes,  el host está administrado  y el valor no se hereda de un grupo de hosts"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "es necesario si el valor no se hereda del grupo del host o de la contraseña predeterminada en las configuraciones"

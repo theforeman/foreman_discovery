@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-12-01 08:27+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
 "Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,13 +29,13 @@ msgid "%s discovered hosts were provisioned"
 msgstr "%s hôtes détectés ont été provisionnés"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr "<b>Foreman</b> Synthèse des hôtes détectés"
+msgstr "Synthèse des hôtes détectés Foreman"
 
 msgid "A summary of discovered hosts"
 msgstr "Synthèse des hôtes détectés"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Action avec sous-plans"
 
 msgid "Actions"
 msgstr "Actions"
@@ -68,7 +68,7 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr "Redémarrer automatiquement ou effectuer un kexec sur l'hôte détecté pendant le provisioning"
 
 msgid "Back"
-msgstr "Retour"
+msgstr "Précédent"
 
 msgid "CPUs"
 msgstr "Processeurs"
@@ -83,7 +83,7 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Nettoyer tous les facts signalés pendant le provisioning (sauf les facts de détection)"
 
 msgid "Collapse All"
-msgstr "Tout réduire"
+msgstr "Réduire tout"
 
 msgid "Command line options for kexec during PXE-less provisioning."
 msgstr "Options de ligne de commande pour kexec lors du provisoning sans PXE."
@@ -116,7 +116,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete %s?"
-msgstr "Supprimer %s ?"
+msgstr "Supprimer"
 
 msgid "Delete a discovered host"
 msgstr "Supprimer un hôte détecté"
@@ -141,17 +141,20 @@ msgstr "Désactiver la règle '%s' ?"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hôtes détectés"
+msgstr[1] "Hôtes détectés"
 
 msgid "Discovered Hosts"
 msgstr "Hôtes détectés"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "L'hôte découvert '%{host}' a eu toutes ces interfaces réseau filtrés, filtre: %{filter}"
 
 msgid "Discovered host: %s"
-msgstr "Hôtes détectés : %s"
+msgstr "Hôtes détectés"
 
 msgid "Discovered hosts are provisioning now"
 msgstr "Les hôtes détectés sont maintenant provisionnés"
@@ -220,7 +223,7 @@ msgid "Domain will be appended automatically. A hostname based on MAC address wi
 msgstr "Le domaine sera ajouté automatiquement. Un nom d'hôte basé sur une adresse MAC sera utilisé si le champ est vide."
 
 msgid "Edit %s"
-msgstr "Modifier %s"
+msgstr "Modifier"
 
 msgid "Enable"
 msgstr "Activer"
@@ -271,7 +274,7 @@ msgid "Failed to reboot host %s"
 msgstr "Échec du redémarrage de l'hôte %s"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %{error_message}"
+msgstr "Échec du redémarrage des hôtes avec l'erreur %s"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "Échec du redémarrage des hôtes avec l'erreur %s"
@@ -280,7 +283,10 @@ msgid "Failed to refresh facts for %s"
 msgstr "Échec de rafraichissement des facts pour %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "Échec de l'actualisation des facts pour %{hostname} avec l'erreur %{error_message}"
+msgstr "Échec de rafraichissement des facts pour %s"
+
+msgid "For more information please see "
+msgstr ""
 
 msgid "Force DNS"
 msgstr "Forcer DNS"
@@ -314,22 +320,22 @@ msgstr "Groupe d'hôtes"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] "L'emplacement %s du groupe d'hôtes doit aussi être associé à la règle de découverte"
-msgstr[1] "Les emplacements %s du groupe d'hôtes doivent aussi être associés à la règle de découverte"
+msgstr[0] "L'emplacement du groupe d'hôtes %s doit également être associé à la règle de détection"
+msgstr[1] "L'emplacement du groupe d'hôtes %s doit également être associé à la règle de détection"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] "L'organisation %s du groupe d'hôtes doit aussi être associée à la règle de découverte"
-msgstr[1] "Les organisations %s du groupe d'hôtes doivent aussi être associées à la règle de découverte"
+msgstr[0] "L'organisation du groupe d'hôtes %s doit également être associée à la règle de détection"
+msgstr[1] "L'organisation du groupe d'hôtes %s doit également être associée à la règle de détection"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "Impossible de redémarrer l'hôte de type %s"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Type de propriétaire de l'hôte"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Paramètres de l'hôte (tableau ou hachage indexé)"
 
 msgid "Hostname facts"
 msgstr "Facts du nom d'hôte"
@@ -362,7 +368,7 @@ msgid "IP address"
 msgstr "Adresse IP"
 
 msgid "IPAM must be configured for subnet '%s'"
-msgstr ""
+msgstr "L'IPAM doit être configuré pour le sous-réseau \"%s\""
 
 msgid "IPMI"
 msgstr "IPMI "
@@ -371,19 +377,19 @@ msgid "IPMI facts"
 msgstr "Facts IPMI"
 
 msgid "Identifier"
-msgstr "Identifiant"
+msgstr "Identificateur"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
-msgstr "Erreur de traitement de l'API d'image : %{msg} (HTTP/%{code}, body: %{body})"
+msgstr "Erreur de traitement de l'API d'image :  (HTTP/, corps : )"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "L'API d'image a retourné HTTP/%{code} avec '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importer des classes Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importer des faits"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "En plus de la fonction d'attribut @host, la fonction ALEA pour les entiers aléatoires est disponible. Exemples :"
@@ -431,7 +437,7 @@ msgid "List of facts to use for the hostname (separated by comma, first wins)"
 msgstr "Liste des facts à utiliser pour le nom d'hôte (séparés par une virgule, le premier l'emporte)"
 
 msgid "Location"
-msgstr "Localisation"
+msgstr "Emplacement"
 
 msgid "Locations"
 msgstr "Emplacements"
@@ -464,16 +470,16 @@ msgid "Miscellaneous"
 msgstr "Divers"
 
 msgid "Model"
-msgstr "Modèle"
+msgstr "Modéliser"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr "Sans objet"
 
 msgid "Name"
 msgstr "Nom"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Nom du paramêtre"
 
 msgid "Network"
 msgstr "Réseau"
@@ -536,7 +542,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "Modèle PXELinux à utiliser lors de l'épinglage d'un hôte pour la détection"
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Valeur du paramètre"
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
@@ -545,10 +551,10 @@ msgid "Primary"
 msgstr "Primaire"
 
 msgid "Provision"
-msgstr "Provisionner"
+msgstr "Mettre en service"
 
 msgid "Provision %s"
-msgstr "Provisionner %s"
+msgstr "Mettre en service"
 
 msgid "Provision a discovered host"
 msgstr "Provisionner un hôte détecté"
@@ -569,7 +575,7 @@ msgid "Rebooting all discovered hosts"
 msgstr "Redémarrage de tous les hôtes détectés"
 
 msgid "Rebooting host %s"
-msgstr "Redémarrage de l'hôte %s"
+msgstr "Redémarrage des l'hôtes"
 
 msgid "Rebuild DNS for %s"
 msgstr "Reconstruire DNS pour %s"
@@ -602,7 +608,7 @@ msgid "Reloading kernel on %s"
 msgstr "Rechargement du noyau sur %s"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Action distante :"
 
 msgid "Reported in the last 7 days"
 msgstr "Signalé au cours des 7 derniers jours"
@@ -641,7 +647,7 @@ msgid "Software facts"
 msgstr "Facts logiciels"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr "Quelque chose s'est mal passé lors de la sélection des hôtes - %s"
+msgstr "Une erreur s'est produite lors de la sélection des hôtes - %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr "Spécifiez le modèle de nom d'hôte cible dans la même syntaxe que celle des modèles de provisioning (ERB)."
@@ -653,16 +659,16 @@ msgid "Storage facts"
 msgstr "Facts de stockage"
 
 msgid "Submit"
-msgstr "Soumettre"
+msgstr "Envoyer"
 
 msgid "Subnet"
-msgstr "Sous-Réseau"
+msgstr "Sous-réseau"
 
 msgid "Successfully provisioned %s"
 msgstr "Provisioning réussi de %s"
 
 msgid "Summary from %{time} ago to %{now}"
-msgstr "Synthèse de %{time} à %{now}"
+msgstr "Résumé d'il y a un an à %{now}"
 
 msgid "Summary report for discovered hosts from Foreman"
 msgstr "Rapport de synthèse des hôtes détectés depuis Foreman"
@@ -692,7 +698,7 @@ msgid "Type of name generator"
 msgstr "Générateur type de nom"
 
 msgid "Type of value"
-msgstr ""
+msgstr "Type de valeur"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID pour surveiller l'état des tâches d'orchestration : GET /api/orchestration/:UUID/tasks"
@@ -704,13 +710,13 @@ msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filte
 msgstr "Impossible de trouver une carte réseau primaire avec %{mac} spécifié via '%{fact}', Filtre de carte réseau: %{filter}"
 
 msgid "Unable to perform %{action} on %{ips}"
-msgstr ""
+msgstr "Impossible d'exécuter sur %{ips}"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "Impossible d'exécuter kexec sur %{name} (%{url}) : %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "Impossible d'effectuer un redémarrage sur %{name} (%{url}) : %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "Impossible de provisionner %{host} : %{errors}"
@@ -719,7 +725,7 @@ msgid "Update a rule"
 msgstr "Mettre à jour une règle"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "Télécharger les faits d'un hôte, création de l'hôte si besoin"
+msgstr "Télécharge les facts d'un hôte, créé l'hôte si besoin"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "Lors de la création de modèles de nom d'hôte, veillez à ce que les noms d'hôte soient uniques."
@@ -729,6 +735,9 @@ msgstr "ne peut pas contenir des espaces blancs."
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "définit un modèle pour attribuer les noms d'hôte lisibles par l'homme aux hôtes correspondants"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "permet de limiter le nombre maximal d'hôtes provisionnés par règle"
@@ -779,13 +788,13 @@ msgid "represents rule name shown to the users"
 msgstr "représente le nom de règle affiché aux utilisateurs"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "requis si l'hôte est géré et possède une partition spécifique qui n'a pas été définie"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "requis si le provisioning n'est pas basé sur une image , que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "requis si la valeur n'est pas héritée d'un groupe d'hôtes ou du mot de passe par défaut défini dans les paramètres"

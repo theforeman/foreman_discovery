@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -38,7 +38,7 @@ msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Action with sub plans"
 
 msgid "Actions"
 msgstr "Actions"
@@ -149,6 +149,9 @@ msgstr[1] ""
 
 msgid "Discovered Hosts"
 msgstr "Discovered Hosts"
+
+msgid "Discovered Rules"
+msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
@@ -285,6 +288,9 @@ msgstr "Failed to refresh facts for %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Failed to refresh facts for %{hostname} with error %{error_message}"
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr "Force DNS"
 
@@ -383,10 +389,10 @@ msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Import Puppet classes"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Import facts"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
@@ -605,7 +611,7 @@ msgid "Reloading kernel on %s"
 msgstr "Reloading kernel on %s"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Remote action:"
 
 msgid "Reported in the last 7 days"
 msgstr "Reported in the last 7 days"
@@ -732,6 +738,9 @@ msgstr "can't contain white spaces."
 
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr "defines a pattern to assign human-readable hostnames to the matching hosts"
+
+msgid "documentation"
+msgstr ""
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "enables to limit maximum amount of provisioned hosts per rule"

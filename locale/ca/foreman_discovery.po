@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered Rules"
 msgstr ""
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
@@ -282,6 +285,9 @@ msgstr "No s'ha pogut refrescar els objectes d'interès per a %s"
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
+msgid "For more information please see "
+msgstr ""
+
 msgid "Force DNS"
 msgstr ""
 
@@ -326,7 +332,7 @@ msgid "Host of type %s can not be rebooted"
 msgstr ""
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Tipus de propietari de l'amfitrió"
 
 msgid "Host's parameters (array or indexed hash)"
 msgstr ""
@@ -473,7 +479,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Nom del paràmetre"
 
 msgid "Network"
 msgstr ""
@@ -536,7 +542,7 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Valor del paràmetre"
 
 msgid "Please Confirm"
 msgstr "Si us plau, confirmeu"
@@ -730,6 +736,9 @@ msgstr "no pot contenir espais en blanc."
 msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
 msgstr ""
 
+msgid "documentation"
+msgstr ""
+
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "permet la limitació del nombre total màxim dels amfitrions aprovisionats per cada regla"
 
@@ -779,7 +788,7 @@ msgid "represents rule name shown to the users"
 msgstr "representa el nom de la regla que es mostra als usuaris"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "es requereix si l'amfitrió està gestionat i no s'ha definit la partició personalitzada"
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr ""
