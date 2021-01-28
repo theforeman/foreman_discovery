@@ -21,10 +21,10 @@ class ForemanDiscovery::HostConverter
   def self.set_build_clean_facts(host)
     # fact cleaning
     if Setting['discovery_clean_facts']
-      # clean all facts except those starting with "discovery_"
+      # clean all facts except those from Discovery
       host.define_singleton_method(:clear_facts) do
-          keep_ids = FactValue.where("host_id = #{host.id}").joins(:fact_name).where("fact_names.name like 'discovery_%'").pluck("fact_values.id")
-          FactValue.where("host_id = #{host.id} and id not in (?)", keep_ids).delete_all
+        keep_ids = FactValue.where(host_id: host.id, fact_names: { type: 'DiscoveryFactName' }).where("fact_names.name like 'discovery_%'").joins(:fact_name).pluck("fact_values.id")
+        FactValue.where.not(id: keep_ids).delete_all
       end
     else
       # clean no facts (default behavior)
