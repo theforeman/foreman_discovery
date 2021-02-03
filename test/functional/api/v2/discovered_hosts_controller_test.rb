@@ -4,6 +4,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
+  alias_method  :blueprint, :failed_discovery_blueprint
+
   def switch_controller(klass)
     old_controller = @controller
     @controller = klass.new
@@ -26,6 +28,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     set_default_settings
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
     ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
+
+    assert blueprint
   end
 
   def test_get_index
@@ -206,4 +210,9 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_failed_discovery_notification
+    bad_facts = { this_is: 'bad' }
+    post :facts, params: { facts: bad_facts }
+    assert_equal 1, Notification.all.count
+  end
 end

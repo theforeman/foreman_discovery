@@ -10,8 +10,14 @@
       links:
       [
         path_method: :discovered_hosts_path,
-        title: _('Details')
-      ]
-    }
-  }
+        title: _('Details'),
+      ],
+    },
+  },
+  {
+    group: _('Hosts'),
+    name: 'failed_discovery',
+    message: _('Error message goes here'),
+    level: 'error',
+  },
 ].each { |blueprint| UINotifications::Seed.new(blueprint).configure }

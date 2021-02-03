@@ -122,6 +122,7 @@ module Api
         end
         process_response state
       rescue Exception => e
+        ForemanDiscovery::UINotifications::FailedDiscovery.new(e).deliver!
         Foreman::Logging.exception("Host discovery failed, facts: #{facts}", e)
         render :json => {'message'=>e.to_s}, :status => :unprocessable_entity
       end
