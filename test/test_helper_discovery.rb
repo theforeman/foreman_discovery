@@ -172,6 +172,11 @@ def discovered_notification_blueprint
                                    name: 'new_discovered_host')
 end
 
+def failed_discovery_blueprint
+  @blueprint ||= FactoryBot.create(:notification_blueprint,
+                                   name: 'failed_discovery')
+end
+
 def parse_json_fixture(filename, remove_root_element = false)
   raw = JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + "/facts/#{filename}.json")))
   remove_root_element ? raw['facts'] : raw
