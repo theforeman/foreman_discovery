@@ -35,6 +35,6 @@ Extra options like --reset-vga can be set via "extra" array.
 {
   "kernel": "<%= @kernel_uri %>",
   "initram": "<%= @initrd_uri %>",
-  "append": "url=<%= foreman_url('provision') + "&static=yes" %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=true netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.compact.join(' ') %>",
+  "append": "url=<%= @static ? foreman_url('provision') + "&static=yes" : foreman_url('provision') %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=<%= @static ? true : false %> netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.compact.join(' ') %>",
   "extra": []
 }
