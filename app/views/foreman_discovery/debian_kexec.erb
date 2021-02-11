@@ -12,12 +12,15 @@ environments. The template must generate JSON format with the following items
 "kernel", "initram", "append" and "extra". The kexec command is composed in
 the following way:
 
-kexec --force --debug --append=$append --initrd=$initram $extra $kernel
+kexec --force --reset-vga --append=$append --initrd=$initram $extra $kernel
 
 Please read kexec(8) man page for more information about semantics.
-Extra options like --reset-vga can be set via "extra" array.
 -%>
 <%
+  iface = @host.provision_interface
+  subnet4 = iface.subnet
+  subnet6 = iface.subnet6
+ 
   mac = @host.facts['discovery_bootif']
   bootif = '00-' + mac.gsub(':', '-') if mac
   ip_cidr = @host.facts['discovery_ip_cidr']
@@ -29,12 +32,31 @@ Extra options like --reset-vga can be set via "extra" array.
   options << @host.facts['append']
   options << "domain=#{@host.domain}"
   options << 'console-setup/ask_detect=false console-setup/layout=USA console-setup/variant=USA keyboard-configuration/layoutcode=us localechooser/translation/warn-light=true localechooser/translation/warn-severe=true'
-  options << "locale=#{host_param('lang') || 'en_US'}"
+  options << "locale=#{@host.params['lang'] || 'en_US'}"
   options << "inst.stage2=#{@host.operatingsystem.medium_uri(@host)}" if @host.operatingsystem.name.match(/Atomic/i)
+  
+  if subnet4 && !subnet4.dhcp_boot_mode?
+    foreman_url = foreman_url('provision', static: '1')
+    options << "netcfg/disable_dhcp=true"
+    options << "netcfg/get_ipaddress=#{ip}"
+    options << "netcfg/get_netmask=#{mask}"
+    options << "netcfg/get_gateway=#{gw}"
+    options << "netcfg/get_nameservers=#{dns}"
+  elsif subnet6 && !subnet6.dhcp_boot_mode?
+    foreman_url = foreman_url('provision', static6: '1')
+    options << "netcfg/disable_dhcp=true"
+    options << "netcfg/get_ipaddress=#{ip}"
+    options << "netcfg/get_netmask=#{mask}"
+    options << "netcfg/get_gateway=#{gw}"
+    options << "netcfg/get_nameservers=#{dns}"
+  else
+    foreman_url = foreman_url('provision')
+    options << "netcfg/disable_dhcp=false"
+  end
 -%>
 {
   "kernel": "<%= @kernel_uri %>",
   "initram": "<%= @initrd_uri %>",
-  "append": "url=<%= @static ? foreman_url('provision') + "&static=yes" : foreman_url('provision') %> interface=<%= mac %> netcfg/get_ipaddress=<%= ip %> netcfg/get_netmask=<%= mask %> netcfg/get_gateway=<%= gw %> netcfg/get_nameservers=<%= dns %> netcfg/disable_dhcp=<%= @static ? true : false %> netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.compact.join(' ') %>",
+  "append": "url=<%= foreman_url %> interface=<%= mac %> netcfg/get_hostname=<%= @host.name %> BOOTIF=<%= bootif %> <%= options.compact.join(' ') %>",
   "extra": []
 }
