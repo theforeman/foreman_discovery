@@ -7,7 +7,7 @@ class DiscoveryRulesController < ApplicationController
   before_action :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
 
   def model_of_controller
-    Host::Discovered
+    DiscoveryRule
   end
 
   def index
