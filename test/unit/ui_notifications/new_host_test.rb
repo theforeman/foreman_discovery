@@ -16,14 +16,14 @@ class NewHostNotificationTest < ActiveSupport::TestCase
     end
   end
 
-  test 'multiple discovered hosts should generate only one notification' do
+  test 'multiple discovered hosts should generate multiple notifications' do
     host1 = FactoryBot.create :discovered_host
     ForemanDiscovery::UINotifications::NewHost.deliver!(host1)
     expired_at = blueprint.notifications.first.expired_at
     Time.any_instance.stubs(:utc).returns(expired_at + 1.hour)
     host2 = FactoryBot.create :discovered_host
     ForemanDiscovery::UINotifications::NewHost.deliver!(host2)
-    assert_equal 1, blueprint.notifications.count
-    assert_not_equal expired_at, blueprint.notifications.first.expired_at
+    assert_equal 2, blueprint.notifications.count
+    assert_not_equal expired_at, blueprint.notifications.last.expired_at
   end
 end

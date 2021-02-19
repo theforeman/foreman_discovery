@@ -1,7 +1,7 @@
 # seeds UI notification blueprints that are supported by Disocvery.
 [
   {
-    group: _('Hosts'),
+    group: _('New hosts'),
     name: 'new_discovered_host',
     message: _('One or more hosts have been discovered'),
     level: 'info',
