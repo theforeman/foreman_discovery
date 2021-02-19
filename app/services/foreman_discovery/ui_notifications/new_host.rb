@@ -8,7 +8,7 @@ module ForemanDiscovery
       private
 
       def create
-        add_notification if update_notifications.zero?
+        add_notification
       end
 
       def update_notifications
@@ -19,6 +19,7 @@ module ForemanDiscovery
         Notification.create!(
           initiator: initiator,
           audience: ::Notification::AUDIENCE_SUBJECT,
+          message: _("Host %s has been dicovered") % subject.name,
           subject: subject,
           notification_blueprint: blueprint
         )

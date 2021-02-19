@@ -21,13 +21,6 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
       ForemanDiscovery::UINotifications::NewHost.deliver!(host)
     end
     assert_equal 1, blueprint.notifications.count
-    assert_no_difference('blueprint.notifications.count') do
-      host = FactoryBot.create(:discovered_host)
-      ForemanDiscovery::UINotifications::NewHost.deliver!(host)
-    end
-    assert_no_difference('blueprint.notifications.count') do
-      Host::Discovered.all.last.destroy
-    end
     Host::Discovered.destroy_all
     assert_equal 0, blueprint.notifications.count
   end
@@ -55,9 +48,9 @@ class DestroyHostNotificationTest < ActiveSupport::TestCase
     ForemanDiscovery::UINotifications::NewHost.deliver!(host1)
     host2 = FactoryBot.create(:discovered_host)
     ForemanDiscovery::UINotifications::NewHost.deliver!(host2)
-    assert_equal 1, blueprint.notifications.count
+    assert_equal 2, blueprint.notifications.count
     new_host = ::ForemanDiscovery::HostConverter.to_managed(host1, false, false)
     assert new_host.save!
-    assert_equal 1, blueprint.notifications.count
+    assert_equal 2, blueprint.notifications.count
   end
 end
