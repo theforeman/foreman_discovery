@@ -3,7 +3,7 @@
 </div><div>
 <%= _("Domain will be appended automatically. A hostname based on MAC address will be used when left blank.")  %><br/>
 <%= _("In addition to @host attribute function rand for random integers is available. Examples:") %><br/>
-<code>@host.facts['bios_vendor'], @host.discovery_rule.name</code> or <code>rand(9999)</code>.
+<code>@host.facts['bios_vendor'], @host.discovery_rule.name, sequence_hostgroup_param_next('EL7/MyHG')</code> or <code>rand(9999)</code>.
 </div><div>
 <%= _("When creating hostname patterns, make sure the resulting host names are unique.") %><br/>
 <%= _("Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).") %>
