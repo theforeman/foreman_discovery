@@ -49,11 +49,11 @@ class DiscoveryRule < ApplicationRecord
     return if hostgroup.nil?
     unless (ms = hostgroup.organizations - organizations).empty?
       names = ms.collect(&:name).to_sentence
-      errors.add(:organizations, n_("Host group organization %s must also be associated to the discovery rule", "Host group organizations %s must also be associated to the discovery rule", ms.size) % names)
+      errors.add(:base, n_("Host group organization %s must also be associated to the discovery rule", "Host group organizations %s must also be associated to the discovery rule", ms.size) % names)
     end
     unless (ms = hostgroup.locations - locations).empty?
       names = ms.collect(&:name).to_sentence
-      errors.add(:locations, n_("Host group location %s must also be associated to the discovery rule", "Host group locations %s must also be associated to the discovery rule", ms.size) % names)
+      errors.add(:base, n_("Host group location %s must also be associated to the discovery rule", "Host group locations %s must also be associated to the discovery rule", ms.size) % names)
     end
   end
 end

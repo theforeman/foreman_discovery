@@ -155,7 +155,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :hostgroup_id => @hostgroup.id
     refute_valid rule
-    assert_equal "Host group organization #{organization_one.name} must also be associated to the discovery rule", rule.errors[:organizations].first
+    assert_equal "Host group organization #{organization_one.name} must also be associated to the discovery rule", rule.errors[:base].first
   end
 
   test "should enforce hostgroup organizations and locations" do
@@ -168,7 +168,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
     refute_valid rule
-    assert_equal "Host group location #{loc.name} must also be associated to the discovery rule", rule.errors[:locations].first
+    assert_equal "Host group location #{loc.name} must also be associated to the discovery rule", rule.errors[:base].first
   end
 
   context 'auditing related to discovery rule' do
