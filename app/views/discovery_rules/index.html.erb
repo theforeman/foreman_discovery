@@ -8,6 +8,8 @@
     <th><%= sort :search, :as => s_("DiscoveryRule|Query") %></th>
     <th><%= _("Host Group") %></th>
     <th><%= _("Hosts/Limit") %></th>
+    <th><%= sort :location, :as => _('Location') %></th>
+    <th><%= sort :organization, :as => _('Organization') %></th>
     <th><%= sort :enabled, :as => s_("DiscoveryRule|Enabled") %></th>
     <th><%= _("Actions") %></th>
   </tr>
@@ -18,6 +20,8 @@
       <td><%= trunc_with_tooltip(rule.search) %></td>
       <td><%= label_with_link(rule.hostgroup, 26, authorizer) %></td>
       <td><%= rule.hosts.count %> / <%= rule.max_count %></td>
+      <td><%= rule.locations.find_by(title: Location.current.try(:title)).try(:title) || rule.locations.pluck(:title).join(",") %></td>
+      <td><%= rule.organizations.find_by(title: Organization.current.try(:title)).try(:title) || rule.organizations.pluck(:title).join(",") %></td>
       <td><%= checked_icon rule.enabled %></td>
       <td><%= action_buttons(*permitted_discovery_actions(rule)) %></td>
     </tr>
