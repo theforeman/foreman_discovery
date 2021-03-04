@@ -41,8 +41,14 @@ class DiscoveryRule < ApplicationRecord
    self.priority  ||= 0
   end
 
-  def self.suggest_priority
-    self.unscoped.maximum(:priority).to_i + STEP
+  def self.suggest_priority(organization = Organization.current)
+    discovery_rules = DiscoveryRule.unscoped
+    return (discovery_rules.maximum(:priority).to_i + STEP) if organization.nil?
+    discovery_rule_ids = TaxableTaxonomy.where(
+      taxable_type: 'DiscoveryRule',
+      taxonomy_id: organization.id).pluck(:taxable_id)
+    discovery_rules = discovery_rules.where(id: discovery_rule_ids)
+    discovery_rules.maximum(:priority).to_i + STEP
   end
 
   def enforce_taxonomy
