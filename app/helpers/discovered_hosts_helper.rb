@@ -7,7 +7,7 @@ module DiscoveredHostsHelper
   end
 
   def disc_report_column(record)
-    record.last_report? ? (_("%s ago") % time_ago_in_words(record.last_report.getlocal)) : ""
+    record.last_report? ? date_time_relative(record.last_report.getlocal) : ""
   end
 
   def discovered_hosts_title_actions(host)
