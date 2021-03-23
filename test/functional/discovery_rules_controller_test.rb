@@ -71,6 +71,12 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
     assert_redirected_to discovery_rules_path
   end
 
+  test 'clone' do
+    rule = FactoryBot.create(:discovery_rule)
+    get :clone, params: { :id => rule.id }, session: set_session_user
+    assert_template 'clone'
+  end
+
   private
 
   def initialize_host

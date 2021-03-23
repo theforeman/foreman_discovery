@@ -4,7 +4,7 @@ class DiscoveryRulesController < ApplicationController
 
   include Foreman::Controller::Parameters::DiscoveryRule
 
-  before_action :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision]
+  before_action :find_resource, :only => [:edit, :update, :destroy, :enable, :disable, :auto_provision, :clone]
 
   def model_of_controller
     DiscoveryRule
@@ -17,6 +17,11 @@ class DiscoveryRulesController < ApplicationController
 
   def new
     @discovery_rule = DiscoveryRule.new(:priority => DiscoveryRule.suggest_priority)
+  end
+
+  def clone
+    @discovery_rule = @discovery_rule.deep_clone except: [:name, :priority]
+    @discovery_rule.priority = DiscoveryRule.suggest_priority
   end
 
   def create
@@ -59,6 +64,8 @@ class DiscoveryRulesController < ApplicationController
 
   def action_permission
     case params[:action]
+    when 'clone'
+      :create
     when 'enable', 'disable'
       :edit
     else

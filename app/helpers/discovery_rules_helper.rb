@@ -30,6 +30,7 @@ module DiscoveryRulesHelper
     else
       actions << display_link_if_authorized(_('Enable'), hash_for_enable_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer), :data => { :confirm => _("Enable rule '%s'?") % rule })
     end
+    actions << display_link_if_authorized(_("Clone"), hash_for_clone_discovery_rule_path(id: rule).merge(auth_object: rule, authorizer: authorizer))
     actions << display_delete_if_authorized(hash_for_discovery_rule_path(:id => rule).merge(:auth_object => rule, :authorizer => authorizer), :data => { :confirm => _("Delete rule '%s'?") % rule })
   end
 end

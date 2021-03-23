@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   resources :discovery_rules, :except => [:show] do
     member do
+      get :clone
       get :enable
       get :disable
     end
