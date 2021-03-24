@@ -3,7 +3,7 @@ module Host::ManagedExtensions
 
   included do
     # execute standard callbacks
-    after_validation :queue_reboot
+    after_validation :queue_reboot_and_token
     after_save :delete_discovery_attribute_set, :update_notifications
 
     belongs_to :discovery_rule
@@ -11,19 +11,32 @@ module Host::ManagedExtensions
     scoped_search :relation => :discovery_rule, :on => :name, :rename => :discovery_rule, :complete_value => true, :only_explicit => true
   end
 
-  def queue_reboot
+  def queue_reboot_and_token
     unless errors.empty? && Setting[:discovery_reboot]
       logger.warn("Not queueing Discovery reboot: #{errors.full_messages.to_sentence}")
       return
     end
     return if new_record? # Discovered Hosts already exist, and new_records will break `find`
     return unless will_save_change_to_attribute?(:type, from: 'Host::Discovered')
+
+    # token regeneration in core is only based on build flag, explicitly regenerate it before TFTP deployments
+    queue.create(:name => _("Set build flag on %s") % self, :priority => 19, :action => [self, :setBuild])
+
+
     # reboot task must be high priority and there is no compensation action apparently
     if facts['discovery_kexec'] && provisioning_template(:kind => 'kexec')
       post_queue.create(:name => _("Reloading kernel on %s") % self, :priority => 10000, :action => [self, :setKexec])
     else
       post_queue.create(:name => _("Rebooting %s") % self, :priority => 10000, :action => [self, :setReboot])
     end
+  end
+
+  def setBuild
+    set_token
+  end
+
+  def delBuild
+    # no action
   end
 
   def setReboot

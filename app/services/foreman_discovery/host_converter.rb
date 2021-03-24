@@ -30,8 +30,9 @@ class ForemanDiscovery::HostConverter
       # clean no facts (default behavior)
       host.define_singleton_method(:clear_facts) {}
     end
-    # set build flag
+    # set build flag and call set_token explicitly to force new one
     host.build = true
+    host.set_token
   end
 
   def self.unused_ip_for_subnet(subnet, mac, existing_ip)
