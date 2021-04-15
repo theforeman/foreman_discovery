@@ -1,0 +1,14 @@
+{
+  "physicalprocessorcount": "3",
+  "memorysize_mb": "900",
+  "blockdevice.sda_size": "1234567890",
+  "blockdevice.sdb_size": "123456700",
+  "hardwaremodel": "Fake Host FH420 Same",
+  "discovery_version": "3.4.4",
+  "interfaces": "eth0",
+  "macaddress_eth0": "52:0b:d5:5e:3c:01",
+  "ipaddress_eth0": "192.168.99.13",
+  "macaddress": "52:0b:d5:5e:3c:01",
+  "ipaddress": "192.168.99.13",
+  "discovery_bootif": "52:0b:d5:5e:3c:01"
+}

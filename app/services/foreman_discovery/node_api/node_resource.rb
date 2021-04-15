@@ -1,5 +1,7 @@
 module ForemanDiscovery::NodeAPI
   class NodeResource
+    include Foreman::TelemetryHelper
+
     def initialize(args)
       raise ArgumentError, "Options must be hash" unless args.is_a?(Hash)
       raise ArgumentError, "Option 'url' must be provided" unless args[:url]
@@ -81,38 +83,58 @@ module ForemanDiscovery::NodeAPI
 
     def get(payload = {}, path = nil)
       logger.debug("Image API GET #{url} (path=#{path}, payload=#{payload})")
-      if path
-        resource[URI.escape(path)].get payload
-      else
-        resource.get payload
+      telemetry_duration_histogram(:discovery_request_duration, :ms, method: 'get') do
+        if path
+          resource[URI.escape(path)].get payload
+        else
+          resource.get payload
+        end
       end
+    rescue
+      telemetry_increment_counter(:discovery_failed_requests)
+      raise
     end
 
     def post(payload, path = nil)
       logger.debug("Image API POST #{url} (path=#{path}, payload=#{payload})")
-      if path
-        resource[path].post payload
-      else
-        resource.post payload
+      telemetry_duration_histogram(:discovery_request_duration, :ms, method: 'post') do
+        if path
+          resource[path].post payload
+        else
+          resource.post payload
+        end
       end
+    rescue
+      telemetry_increment_counter(:discovery_failed_requests)
+      raise
     end
 
     def put(payload, path = nil)
       logger.debug("Image API PUT #{url} (path=#{path}, payload=#{payload})")
-      if path
-        resource[path].put payload
-      else
-        resource.put payload
+      telemetry_duration_histogram(:discovery_request_duration, :ms, method: 'put') do
+        if path
+          resource[path].put payload
+        else
+          resource.put payload
+        end
       end
+    rescue
+      telemetry_increment_counter(:discovery_failed_requests)
+      raise
     end
 
     def delete(path)
       logger.debug("Image API DELETE #{url} (path=#{path})")
-      if path
-        resource[path].delete
-      else
-        resource.delete
+      telemetry_duration_histogram(:discovery_request_duration, :ms, method: 'delete') do
+        if path
+          resource[path].delete
+        else
+          resource.delete
+        end
       end
+    rescue
+      telemetry_increment_counter(:discovery_failed_requests)
+      raise
     end
   end
 end

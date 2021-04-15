@@ -189,6 +189,13 @@ module ForemanDiscovery
           :label => N_('Discovery Proxy'),
           :description => N_('Discovery Proxy to use within this subnet for managing connection to discovered hosts'),
           :api_description => N_('ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts')
+
+        # telemetry
+        add_counter_telemetry(:new_discovered_hosts, 'Number of requests processed as new discovered hosts')
+        add_counter_telemetry(:updated_discovered_hosts, 'Number of requests processed as discovered updates')
+        add_counter_telemetry(:failed_discovered_hosts, 'Number of failed discovery or fact update requests')
+        add_histogram_telemetry(:discovery_request_duration, 'Time spent in request to discovered node (ms)', [:method])
+        add_counter_telemetry(:discovery_failed_requests, 'Number of discovery node requests failed')
       end
     end
 
