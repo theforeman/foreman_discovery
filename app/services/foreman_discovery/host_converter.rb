@@ -76,10 +76,13 @@ class ForemanDiscovery::HostConverter
 
   def self.prefill_attributes_from_facts(host)
     facts = host.facts_hash
+    parser = PuppetFactParser.new(facts)
 
     architecture_type = facts['architecture']
 
     architecture = Architecture.find_by(name: architecture_type)
     host.architecture = architecture
+
+    host.model = parser.model
   end
 end
