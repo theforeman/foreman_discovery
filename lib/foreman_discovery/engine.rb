@@ -173,10 +173,6 @@ module ForemanDiscovery
         # add dashboard widget
         widget 'discovery_widget', :name=>N_('Discovered Hosts'), :sizex => 6, :sizey =>1
 
-        # allowed helpers and variables
-        allowed_template_helpers :rand
-        allowed_template_variables :kexec_kernel, :kexec_initrd
-
         template_labels 'kexec' => N_('Discovery Kexec template')
 
         # apipie API documentation
