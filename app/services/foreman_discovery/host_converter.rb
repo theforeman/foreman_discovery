@@ -13,6 +13,8 @@ class ForemanDiscovery::HostConverter
       host.managed = set_managed
       host.primary_interface.managed = set_managed
     end
+
+    prefill_attributes_from_facts(host)
     # set build only and only on final save (facts are deleted)
     set_build_clean_facts(host) if set_build
     host
@@ -70,5 +72,14 @@ class ForemanDiscovery::HostConverter
     else
       Rails.logger.debug "Discovered host subnets #{[host.subnet, host.subnet6]} match hostgroup subnets"
     end
+  end
+
+  def self.prefill_attributes_from_facts(host)
+    facts = host.facts_hash
+
+    architecture_type = facts['architecture']
+
+    architecture = Architecture.find_by(name: architecture_type)
+    host.architecture = architecture
   end
 end
