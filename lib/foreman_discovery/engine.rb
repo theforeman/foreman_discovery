@@ -107,6 +107,8 @@ module ForemanDiscovery
           }, :resource_type => 'DiscoveryRule'
         end
 
+        register_global_js_file 'global'
+
         READER = [
           # core permissions
           :view_organizations,

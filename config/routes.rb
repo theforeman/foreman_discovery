@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'discovered_hosts/help', :action => :welcome, :controller => 'discovered_hosts'
   get 'discovery_rules/help', :action => :welcome, :controller => 'discovery_rules'
+  get 'discovery_rules_test', to: 'react#index'  # Uses foreman's react controller
 
   constraints(:id => /[^\/]+/) do
     resources :discovered_hosts, :except => [:new, :create] do
