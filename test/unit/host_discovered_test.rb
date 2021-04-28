@@ -234,16 +234,39 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_match(/Unable to find primary NIC/, exception.message)
   end
 
-  test "should not create discovered host when managed host exists" do
+  test "should respect discovery_action_on_existing setting 'Error'" do
     begin
-      Setting[:discovery_error_on_existing] = true
+      Setting[:discovery_action_on_existing] = "Error"
       FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
       exception = assert_raises(::Foreman::Exception) do
         discover_host_from_facts(@facts)
       end
       assert_match(/One or more existing managed hosts found/, exception.message)
     ensure
-      Setting[:discovery_error_on_existing] = false
+      Setting[:discovery_action_on_existing] = "Ignore"
+    end
+  end
+
+  test "should respect discovery_action_on_existing setting 'Delete' for MAC" do
+    begin
+      Setting[:discovery_action_on_existing] = "Delete"
+      FactoryBot.create(:host, :name => "existing_host", :mac => 'E4:1F:13:CC:36:58')
+      facts = @facts.merge({"macaddress" => "E4:1F:13:CC:36:58"})
+      host = discover_host_from_facts(facts)
+      assert Host::Discovered.find_by_name('mace41f13cc3658')
+    ensure
+      Setting[:discovery_action_on_existing] = "Ignore"
+    end
+  end
+
+  test "should respect discovery_action_on_existing setting 'Delete' for hostname" do
+    begin
+      Setting[:discovery_action_on_existing] = "Delete"
+      FactoryBot.create(:host, :name => "mace41f13cc3658", :mac => 'E4:1F:13:CC:11:22')
+      host = discover_host_from_facts(@facts)
+      assert Host::Discovered.find_by_name('mace41f13cc3658')
+    ensure
+      Setting[:discovery_action_on_existing] = "Ignore"
     end
   end
 
