@@ -54,10 +54,7 @@ action "Created git tag" do
   $git_version == File.read(RUBY_VERSION_FILE).match(/VERSION\s*=\s"([0-9\.]+)"/)[1]
 end
 
-action "Modified #{JS_VERSION_FILE} to match the desired version" do
-  $git_version = `git describe --abbrev=0 --tags`.chomp
-  $git_version == File.read(JS_VERSION_FILE).match(/"version":\s*"([0-9\.]+)"/)[1]
-end
+action "Modified #{JS_VERSION_FILE} to match the desired version"
 
 action "Is version #{$git_version} the one to be released"
 
