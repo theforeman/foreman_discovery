@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-10-29 17:16+0000\n"
+"PO-Revision-Date: 2021-01-25 08:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
@@ -24,9 +24,6 @@ msgstr ""
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s - The following hosts are about to be changed"
-
-msgid "%s ago"
-msgstr "%s ago"
 
 msgid "%s discovered hosts were provisioned"
 msgstr "%s discovered hosts were provisioned"
@@ -84,6 +81,12 @@ msgstr "Clean all facts"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Clean all reported facts during provisioning (except discovery facts)"
+
+msgid "Clone"
+msgstr ""
+
+msgid "Clone %s"
+msgstr ""
 
 msgid "Collapse All"
 msgstr "Collapse All"
@@ -156,6 +159,9 @@ msgstr ""
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 
+msgid "Discovered host reported from unknown subnet, communication will not be proxied."
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
 
@@ -167,6 +173,9 @@ msgstr "Discovered hosts are rebooting now"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr "Discovered hosts from Foreman server at %{foreman_url}"
+
+msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
+msgstr ""
 
 msgid "Discovered hosts summary"
 msgstr "Discovered hosts summary"
@@ -233,6 +242,9 @@ msgstr "Enable"
 
 msgid "Enable rule '%s'?"
 msgstr "Enable rule '%s'?"
+
+msgid "Error message goes here"
+msgstr ""
 
 msgid "Error on existing NIC"
 msgstr "Error on existing NIC"
@@ -314,6 +326,9 @@ msgstr "Highlights"
 
 msgid "Host"
 msgstr "Host"
+
+msgid "Host %s has been dicovered"
+msgstr ""
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} was provisioned with rule %{rule}"
@@ -492,6 +507,9 @@ msgstr "Network facts"
 
 msgid "New Discovery Rule"
 msgstr "New Discovery Rule"
+
+msgid "New hosts"
+msgstr ""
 
 msgid "New in the last 24 hours"
 msgstr "New in the last 24 hours"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 16.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-10-29 17:16+0000\n"
-"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
+"PO-Revision-Date: 2021-01-25 08:35+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,6 @@ msgstr ""
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s — узлы будут изменены"
-
-msgid "%s ago"
-msgstr "%s назад"
 
 msgid "%s discovered hosts were provisioned"
 msgstr "Подготовлено узлов: %s"
@@ -85,6 +82,12 @@ msgid "Clean all facts"
 msgstr ""
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
+msgid "Clone"
+msgstr ""
+
+msgid "Clone %s"
 msgstr ""
 
 msgid "Collapse All"
@@ -158,6 +161,9 @@ msgstr ""
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr ""
 
+msgid "Discovered host reported from unknown subnet, communication will not be proxied."
+msgstr ""
+
 msgid "Discovered host: %s"
 msgstr "Обнаружен узел: %s"
 
@@ -169,6 +175,9 @@ msgstr "Выполняется перезагрузка обнаруженных
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr "Узлы, обнаруженные сервером Foreman %{foreman_url}"
+
+msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
+msgstr ""
 
 msgid "Discovered hosts summary"
 msgstr "Сводка обнаруженных узлов"
@@ -235,6 +244,9 @@ msgstr "Включить"
 
 msgid "Enable rule '%s'?"
 msgstr "Включить правило «%s»?"
+
+msgid "Error message goes here"
+msgstr ""
 
 msgid "Error on existing NIC"
 msgstr ""
@@ -316,6 +328,9 @@ msgstr "Основные"
 
 msgid "Host"
 msgstr "Узел"
+
+msgid "Host %s has been dicovered"
+msgstr ""
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "%{host} был подготовлен в соответствии с правилом %{rule}"
@@ -498,6 +513,9 @@ msgstr ""
 
 msgid "New Discovery Rule"
 msgstr "Новое правило"
+
+msgid "New hosts"
+msgstr ""
 
 msgid "New in the last 24 hours"
 msgstr "Новое за последние 24 часа"
