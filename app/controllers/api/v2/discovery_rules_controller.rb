@@ -50,6 +50,16 @@ module Api
         process_response @discovery_rule.save
       end
 
+      api :GET, "/discovery_rules/:id/", N_("Clone a rule")
+      param :id, :identifier, :required => true
+      param_group :discovery_rule, :as => :clone
+
+      def clone
+        @discovery_rule = @discovery_rule.deep_clone except: [:name, :priority]
+        @discovery_rule.priority = DiscoveryRule.suggest_priority
+        process_response true, @discovery_rule
+      end
+
       api :PUT, "/discovery_rules/:id/", N_("Update a rule")
       param :id, :identifier, :required => true
       param_group :discovery_rule, :as => :update

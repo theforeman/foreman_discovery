@@ -91,7 +91,7 @@ module ForemanDiscovery
           }, :resource_type => 'DiscoveryRule'
           permission :create_discovery_rules, {
             :discovery_rules => [:new, :create, :clone],
-            :"api/v2/discovery_rules" => [:create]
+            :"api/v2/discovery_rules" => [:create, :clone]
           }, :resource_type => 'DiscoveryRule'
           permission :edit_discovery_rules, {
             :discovery_rules => [:edit, :update, :enable, :disable],

@@ -59,7 +59,11 @@ Rails.application.routes.draw do
           resources :facts, :only => :index, :controller => :fact_values
         end
       end
-      resources :discovery_rules, :except => [:new, :edit]
+      resources :discovery_rules, :except => [:new, :edit] do
+        member do
+          get 'clone'
+        end
+      end
     end
   end
 
