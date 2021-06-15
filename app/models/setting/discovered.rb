@@ -37,6 +37,7 @@ class Setting::Discovered < ::Setting
       self.set('discovery_always_rebuild_dns', N_("Force DNS entries creation when provisioning discovered host"), true, N_("Force DNS")),
       self.set('discovery_error_on_existing', N_("Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"), false, N_("Error on existing NIC")),
       self.set('discovery_naming', N_("Discovery hostname naming pattern"), 'Fact', N_("Type of name generator"), nil, {:collection => Proc.new {::Host::Discovered::NAMING_PATTERNS} }),
+      self.set('discovery_prefer_ipv6', N_("Prefer IPv6 to IPv4 when calling discovered nodes"), false, N_("Prefer IPv6")),
     ]
   end
 
