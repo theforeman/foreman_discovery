@@ -29,7 +29,7 @@ Extra options like --reset-vga can be set via "extra" array.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
-  bootif = host_param("hardware_type", "01") + mac.gsub(':', '-') if mac
+  bootif = host_param("hardware_type", "01") + '-' + mac.gsub(':', '-') if mac
   ip_cidr = @host.facts['discovery_ip_cidr']
   ip = @host.facts['discovery_ip']
   mask = @host.facts['discovery_netmask']
