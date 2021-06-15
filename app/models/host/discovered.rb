@@ -133,26 +133,39 @@ class Host::Discovered < ::Host::Base
     subnet.present? && subnet.discovery.present?
   end
 
+  def ip4or6
+    if Setting[:discovery_prefer_ipv6]
+      IPAddr.new(self.ip6 || self.ip)
+    else
+      IPAddr.new(self.ip || self.ip6)
+    end
+  end
+
   def proxy_url(node_ip)
-    proxied? ? subnet.discovery.url + "/discovery/#{node_ip}" : "https://#{node_ip}:8443"
+    wrapped_ip = node_ip.ipv6? ? "[#{node_ip}]" : node_ip
+    proxied? ? subnet.discovery.url + "/discovery/#{node_ip}" : "https://#{wrapped_ip}:8443"
   end
 
   def refresh_facts
-    facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url(self.ip)).facter
+    facts = ::ForemanDiscovery::NodeAPI::Inventory.new(:url => proxy_url(ip4or6)).facter
     self.class.import_host facts
     ::ForemanDiscovery::HostFactImporter.new(self).import_facts facts
   rescue => e
     ::Foreman::Logging.exception("Unable to get facts from proxy", e)
-    raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url(self.ip), :error => e)
+    raise ::Foreman::WrappedException.new(e, N_("Could not get facts from proxy %{url}: %{error}"), :url => proxy_url(ip4or6), :error => e)
   end
 
-  def reboot(old_ip = nil, new_ip = nil)
+  def reboot(old_ip = nil, new_ip = nil, old_ip6 = nil, new_ip6 = nil)
     # perform the action against the original lease as well as the new reservation
-    ips = [old_ip, new_ip, self.ip].compact.uniq
+    if Setting[:discovery_prefer_ipv6]
+      ips = [old_ip6, new_ip6, self.ip6, old_ip, new_ip, self.ip].compact.uniq
+    else
+      ips = [old_ip, new_ip, self.ip, old_ip6, new_ip6, self.ip6].compact.uniq
+    end
     logger.debug "Performing reboot calls against #{ips.to_sentence}, facts left #{facts.count}"
     ips.each do |next_ip|
       begin
-        node_url = proxy_url(next_ip)
+        node_url = proxy_url(IPAddr.new(next_ip))
         logger.debug "Performing reboot call against #{node_url}"
         resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => node_url)
         return true if resource.reboot
@@ -165,13 +178,17 @@ class Host::Discovered < ::Host::Base
     raise ::Foreman::Exception.new(msg, action: "reboot", ips: ips.to_sentence)
   end
 
-  def kexec(json, old_ip = nil, new_ip = nil)
+  def kexec(json, old_ip = nil, new_ip = nil, old_ip6 = nil, new_ip6 = nil)
     # perform the action against the original lease as well as the new reservation
-    ips = [old_ip, new_ip, self.ip].compact.uniq
+    if Setting[:discovery_prefer_ipv6]
+      ips = [old_ip6, new_ip6, self.ip6, old_ip, new_ip, self.ip].compact.uniq
+    else
+      ips = [old_ip, new_ip, self.ip, old_ip6, new_ip6, self.ip6].compact.uniq
+    end
     logger.debug "Performing kexec calls against #{ips.to_sentence}, #{facts.count} facts left"
     ips.each do |next_ip|
       begin
-        node_url = proxy_url(next_ip)
+        node_url = proxy_url(IPAddr.new(next_ip))
         logger.debug "Performing kexec call against #{node_url}"
         resource = ::ForemanDiscovery::NodeAPI::Power.service(:url => node_url)
         return true if resource.kexec(json)
