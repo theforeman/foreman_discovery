@@ -27,7 +27,7 @@ module Host::ManagedExtensions
   end
 
   def setReboot
-    old.becomes(Host::Discovered).reboot(old.ip, ip)
+    old.becomes(Host::Discovered).reboot(old.ip, ip, old.ip6, ip6)
     # It is too late to report error in the post_queue, we catch them and
     # continue. If flash is implemented for new hosts (http://projects.theforeman.org/issues/10559)
     # we can report the error to the user perhaps.
@@ -55,7 +55,7 @@ module Host::ManagedExtensions
   end
 
   def setKexec
-    old.becomes(Host::Discovered).kexec(render_kexec_template.to_json, old.ip, ip)
+    old.becomes(Host::Discovered).kexec(render_kexec_template.to_json, old.ip, ip, old.ip6, ip6)
     true
   rescue ::Foreman::Exception => e
     Foreman::Logging.exception("Unable to kexec", e)
