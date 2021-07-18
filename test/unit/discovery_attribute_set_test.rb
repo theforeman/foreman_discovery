@@ -6,14 +6,8 @@ class DiscoveryAttributeSetTest < ActiveSupport::TestCase
 
   setup do
     @facts = parse_json_fixture('regular_host', true)
-    FactoryBot.create(:setting,
-                       :name => 'discovery_hostname',
-                       :value => 'discovery_bootif',
-                       :category => 'Setting::Discovered')
-    FactoryBot.create(:setting,
-                       :name => 'discovery_prefix',
-                       :value => 'mac',
-                       :category => 'Setting::Discovered')
+    Setting['discovery_hostname'] = 'discovery_bootif'
+    Setting['discovery_prefix'] = 'mac'
     ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
   end
 

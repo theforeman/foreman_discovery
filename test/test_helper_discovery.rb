@@ -52,22 +52,22 @@ def extract_form_errors(response)
 end
 
 def set_default_settings
-  FactoryBot.create(:setting, :name => 'discovery_fact', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_organization', :value => "Organization 1", :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_lock', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_error_on_existing', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_naming', :value => 'Fact', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_auto_bond', :value => false, :category => 'Setting::Discovered')
+  Setting['discovery_fact'] = 'discovery_bootif'
+  Setting['discovery_hostname'] = 'discovery_bootif'
+  Setting['discovery_auto'] = true
+  Setting['discovery_reboot'] = true
+  Setting['discovery_organization'] = "Organization"
+  Setting['discovery_location'] = "Location"
+  Setting['discovery_prefix'] = 'mac'
+  Setting['discovery_clean_facts'] = false
+  Setting['discovery_lock'] = false
+  Setting['discovery_pxelinux_lock_template'] = 'pxelinux_discovery'
+  Setting['discovery_pxegrub_lock_template'] = 'pxegrub_discovery'
+  Setting['discovery_pxegrub2_lock_template'] = 'pxegrub2_discovery'
+  Setting['discovery_always_rebuild_dns'] = true
+  Setting['discovery_error_on_existing'] = false
+  Setting['discovery_naming'] = 'Fact'
+  Setting['discovery_auto_bond'] = false
 end
 
 def setup_hostgroup(host)

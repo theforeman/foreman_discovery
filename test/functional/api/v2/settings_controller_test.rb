@@ -2,7 +2,7 @@ require_relative '../../../test_plugin_helper'
 
 class Api::V2::SettingsControllerTest < ActionController::TestCase
   setup do
-    FactoryBot.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
+    Setting['discovery_prefix'] = 'mac'
   end
 
   test_attributes :pid => '2c5ecb7e-87bc-4980-9620-7ae00e3f360e'

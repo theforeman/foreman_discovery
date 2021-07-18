@@ -55,10 +55,7 @@ class FactParserTest < ActiveSupport::TestCase
   end
 
   test "#suggested_primary_interface detects interface even when 'ignore_puppet_facts_for_provisioning' is set" do
-    FactoryBot.create(:setting,
-                       :name => 'ignore_puppet_facts_for_provisioning',
-                       :value => true,
-                       :category => 'Setting::Provisioning')
+    Setting['ignore_puppet_facts_for_provisioning'] = true
     assert_equal 'eth2', @parser.suggested_primary_interface(@host).try(:first)
   end
 
