@@ -52,14 +52,21 @@ class ForemanDiscovery::HostConverter
     end
   end
 
+  def self.ip_for_subnet(subnet, mac, ip) 
+    return ip if ip && subnet&.unused_ip(mac)&.ip_include?(ip)
+
+    unused_ip_for_subnet(subnet, mac, ip)
+  end
+
   def self.unused_ip_for_host(host, new_subnet = nil, new_subnet6 = nil)
     host.interfaces.each do |interface|
       next unless interface.managed?
 
       interface.subnet = new_subnet if new_subnet
       interface.subnet6 = new_subnet6 if new_subnet6
-      interface.ip = unused_ip_for_subnet(interface.subnet, interface.mac, interface.ip) if interface.subnet
-      interface.ip6 = unused_ip_for_subnet(interface.subnet6, interface.mac, interface.ip6) if interface.subnet6
+
+      interface.ip = ip_for_subnet(interface.subnet, interface.mac, interface.ip) if interface.subnet
+      interface.ip6 = ip_for_subnet(interface.subnet6, interface.mac, interface.ip6) if interface.subnet6
     end
   end
 

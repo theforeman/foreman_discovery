@@ -196,6 +196,19 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     def suggest_ip
       "192.168.101.13"
     end
+
+    def ip_addr
+      @ip_addr ||= IPAddr.new("#{suggest_ip}/24")
+    end
+    
+    
+    def subnet_range
+      @subnet_range ||= ip_addr.to_range
+    end
+
+    def ip_include?(ip)
+      ip_addr.include?(ip)
+    end
   end
 
   test "subnet is changed and unused_ip called" do
@@ -208,7 +221,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_equal subnet, host.subnet
     hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet2, :domain => domain)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
-    Subnet.any_instance.expects(:unused_ip).with(host.mac).returns(StubIPAM.new)
+    Subnet.any_instance.expects(:unused_ip).at_least_once.with(host.mac).returns(StubIPAM.new)
     host.primary_interface.stubs(:queue_tftp)
     host.primary_interface.stubs(:queue_dhcp)
     managed_host = perform_auto_provision(host, r1)
