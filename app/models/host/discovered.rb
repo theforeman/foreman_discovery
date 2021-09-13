@@ -63,7 +63,8 @@ class Host::Discovered < ::Host::Base
     bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
     hostname = ''
     if Setting[:discovery_naming] == 'MAC-name'
-      hostname = NameGenerator.new.generate_next_mac_name(bootif_mac)
+      hostname_mac = return_first_valid_mac(Setting::Discovered.discovery_hostname_fact_array, facts) || bootif_mac
+      hostname = NameGenerator.new.generate_next_mac_name(hostname_mac)
     elsif Setting[:discovery_naming] == 'Random-name'
       hostname = NameGenerator.new.generate_next_random_name
     else
@@ -224,6 +225,14 @@ class Host::Discovered < ::Host::Base
     hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9\-]|[^a-z0-9]*$)/,'')
     raise(::Foreman::Exception.new(N_("Invalid hostname: Could not normalize the hostname"))) unless hostname && hostname.present?
     hostname
+  end
+
+  def self.return_first_valid_mac(facts_array, facts)
+    return facts[facts_array] if !facts_array.is_a?(Array)
+    facts_array.each do |value|
+      return facts[value] if !facts[value].nil? && facts[value].match(/([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})/)
+    end
+    return nil
   end
 
   def self.return_first_valid_fact(facts_array, facts)
