@@ -174,8 +174,12 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       end
 
       it 'sets inherited attributes' do
-        %i[environment architecture operatingsystem].each do |attribute|
+        %i[architecture operatingsystem].each do |attribute|
           assert_selected "#host_#{attribute}_id", hostgroup.send(attribute).id
+        end
+
+        if defined? ForemanPuppet
+          assert_selected "#host_puppet_attributes_environment_id", hostgroup.send(:environment).id
         end
 
         page.find('a[href="#network"]').click
