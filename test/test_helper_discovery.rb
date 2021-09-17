@@ -56,8 +56,8 @@ def set_default_settings
   Setting['discovery_hostname'] = 'discovery_bootif'
   Setting['discovery_auto'] = true
   Setting['discovery_reboot'] = true
-  Setting['discovery_organization'] = "Organization"
-  Setting['discovery_location'] = "Location"
+  Setting['discovery_organization'] = "Organization 1"
+  Setting['discovery_location'] = "Location 1"
   Setting['discovery_prefix'] = 'mac'
   Setting['discovery_clean_facts'] = false
   Setting['discovery_lock'] = false
@@ -77,7 +77,7 @@ def setup_hostgroup(host)
   medium = FactoryBot.create(:medium, :organizations => [host.organization], :locations => [host.location])
   os = FactoryBot.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
   hostgroup = FactoryBot.create(
-    :hostgroup, :with_rootpass, :with_puppet_orchestration,
+    :hostgroup, :with_rootpass, :with_puppet_enc,
     :operatingsystem => os,
     :architecture => os.architectures.first,
     :ptable => os.ptables.first,

@@ -4,6 +4,10 @@ module ForemanDiscovery
       extend ActiveSupport::Concern
       included do
         before_action :set_discovered_params
+
+        if defined?(ForemanPuppet)
+          helper ForemanPuppet::HostsAndHostgroupsHelper
+        end
       end
 
       # Change params to what the hosts controller expects. Certain methods

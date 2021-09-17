@@ -14,6 +14,9 @@ class DiscoveredHostsController < ::ApplicationController
   around_action :skip_bullet, :only => [:edit]
 
   helper :hosts
+  if defined?(ForemanPuppet)
+    helper ForemanPuppet::HostsAndHostgroupsHelper
+  end
 
   layout 'layouts/application'
 
