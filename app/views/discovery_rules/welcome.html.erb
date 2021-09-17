@@ -8,7 +8,6 @@
 <% content_for(:title, _("Discovered Rules")) %>
 
 <% content_for(:content) do %>
-  <%= notifications %>
   <div id="organization-id" data-id="<%= Organization.current.id if Organization.current %>" ></div>
   <div id="user-id" data-id="<%= User.current.id if User.current %>" ></div>
   <%= react_component('DiscoveryRules', docUrl: discovery_doc_url + '/#4.3Automaticprovisioning' ) %>
