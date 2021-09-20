@@ -161,9 +161,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal hostgroup.medium_id, actual.medium_id
     assert_equal hostgroup.ptable_id, actual.ptable_id
     assert_equal hostgroup.domain_id, actual.domain_id
-    assert_equal hostgroup.environment_id, actual.environment_id
-    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
-    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    if defined?(ForemanPuppet)
+      assert_equal hostgroup.environment_id, actual.environment_id
+      assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+      assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    end
   end
 
   def test_add_entry_to_nav_menu
