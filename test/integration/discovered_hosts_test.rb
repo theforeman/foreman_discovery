@@ -161,9 +161,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       let(:hostgroup_environment) { FactoryBot.create(:environment) }
       let(:hostgroup_domain) { FactoryBot.create(:domain) }
       let(:hostgroup) do
-        FactoryBot.create(:hostgroup, :with_os,
-                           environment: hostgroup_environment,
-                           domain: hostgroup_domain)
+        if defined?(ForemanPuppet)
+          FactoryBot.create(:hostgroup, :with_os, environment: hostgroup_environment, domain: hostgroup_domain)
+        else
+          FactoryBot.create(:hostgroup, :with_os, domain: hostgroup_domain)
+        end
       end
 
       setup do

@@ -73,19 +73,25 @@ end
 def setup_hostgroup(host)
   domain = FactoryBot.create(:domain)
   subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
-  environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
   medium = FactoryBot.create(:medium, :organizations => [host.organization], :locations => [host.location])
   os = FactoryBot.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
-  hostgroup = FactoryBot.create(
-    :hostgroup, :with_rootpass, :with_puppet_enc,
+  args = {
     :operatingsystem => os,
     :architecture => os.architectures.first,
     :ptable => os.ptables.first,
     :medium => os.media.first,
-    :environment => environment,
     :subnet => subnet,
     :domain => domain,
-    :organizations => [host.organization], :locations => [host.location])
+    :organizations => [host.organization],
+    :locations => [host.location]
+  }
+  if defined?(ForemanPuppet)
+    environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
+    args[:environment] = environment
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_puppet_enc, **args)
+  else
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, **args)
+  end
   domain.subnets << hostgroup.subnet
   hostgroup.medium.organizations |= [host.organization]
   hostgroup.medium.locations |= [host.location]
@@ -95,12 +101,14 @@ def setup_hostgroup(host)
   hostgroup.domain.locations |= [host.location]
   hostgroup.subnet.organizations |= [host.organization]
   hostgroup.subnet.locations |= [host.location]
-  hostgroup.environment.organizations |= [host.organization]
-  hostgroup.environment.locations |= [host.location]
-  hostgroup.puppet_proxy.organizations |= [host.organization]
-  hostgroup.puppet_proxy.locations |= [host.location]
-  hostgroup.puppet_ca_proxy.organizations |= [host.organization]
-  hostgroup.puppet_ca_proxy.locations |= [host.location]
+  if defined?(ForemanPuppet)
+    hostgroup.environment.organizations |= [host.organization]
+    hostgroup.environment.locations |= [host.location]
+    hostgroup.puppet_proxy.organizations |= [host.organization]
+    hostgroup.puppet_proxy.locations |= [host.location]
+    hostgroup.puppet_ca_proxy.organizations |= [host.organization]
+    hostgroup.puppet_ca_proxy.locations |= [host.location]
+  end
   hostgroup
 end
 
