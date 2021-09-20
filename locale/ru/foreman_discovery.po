@@ -10,10 +10,10 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.3.4\n"
+"Project-Id-Version: foreman_discovery 17.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-01-25 08:35+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-08-13 20:22+0000\n"
+"Last-Translator: Pavel Ershov <yosho1@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -85,10 +85,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Клонировать"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Клонировать %s"
 
 msgid "Collapse All"
 msgstr "Свернуть все"
@@ -100,7 +100,7 @@ msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Не удалось получить факты с %{url}: %{error}"
 
 msgid "Create Host"
-msgstr ""
+msgstr "Создать Узел"
 
 msgid "Create Rule"
 msgstr ""
@@ -303,7 +303,7 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Не удалось обновить факты %{hostname}. Ошибка: %{error_message}"
 
 msgid "For more information please see "
-msgstr ""
+msgstr "За подробной информацией обратитесь к"
 
 msgid "Force DNS"
 msgstr ""
@@ -574,6 +574,12 @@ msgstr "Значение параметра"
 msgid "Please Confirm"
 msgstr "Подтвердите"
 
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
+
 msgid "Primary"
 msgstr "Основной"
 
@@ -725,7 +731,7 @@ msgid "Type of name generator"
 msgstr ""
 
 msgid "Type of value"
-msgstr ""
+msgstr "Тип значения"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID для отслеживания состояния задач оркестрации, GET /api/orchestration/:UUID/tasks"
@@ -764,7 +770,7 @@ msgid "defines a pattern to assign human-readable hostnames to the matching host
 msgstr "шаблон для присвоения узлам понятных имен"
 
 msgid "documentation"
-msgstr ""
+msgstr "документация"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "максимальное число узлов для указанного правила"

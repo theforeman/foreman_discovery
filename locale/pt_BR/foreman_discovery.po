@@ -13,10 +13,10 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.3.4\n"
+"Project-Id-Version: foreman_discovery 17.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-01-25 08:35+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
+"PO-Revision-Date: 2021-05-03 08:29+0000\n"
+"Last-Translator: Flamarion Jorge <jorge.flamarion@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -86,10 +86,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Limpar todos os fatos relatados durante o provisionamento (exceto fatos do Discovery)"
 
 msgid "Clone"
-msgstr ""
+msgstr "Clonar"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Clonar %s"
 
 msgid "Collapse All"
 msgstr "Recolher todos"
@@ -570,6 +570,12 @@ msgstr "Valor do parâmetro"
 
 msgid "Please Confirm"
 msgstr "Por favor confirme"
+
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primário"

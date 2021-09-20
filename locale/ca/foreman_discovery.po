@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2017
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.3.4\n"
+"Project-Id-Version: foreman_discovery 17.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-01-25 08:35+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-05-03 08:29+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -80,10 +80,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Clona"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Clona %s"
 
 msgid "Collapse All"
 msgstr ""
@@ -564,6 +564,12 @@ msgstr "Valor del paràmetre"
 
 msgid "Please Confirm"
 msgstr "Si us plau, confirmeu"
+
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primària"
