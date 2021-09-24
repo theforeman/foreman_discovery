@@ -198,7 +198,7 @@ module ForemanDiscovery
     config.to_prepare do
 
       # Fact parsing
-      ::FactParser.register_fact_parser(:foreman_discovery, ForemanDiscovery::FactParser)
+      Foreman::Plugin.fact_parser_registry.register(:foreman_discovery, ForemanDiscovery::FactParser)
 
       # Taxonomy extensions
       ::Location.send :include, DiscoveryTaxonomyExtensions
