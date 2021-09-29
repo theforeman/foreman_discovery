@@ -10,5 +10,5 @@
 <% content_for(:content) do %>
   <div id="organization-id" data-id="<%= Organization.current.id if Organization.current %>" ></div>
   <div id="user-id" data-id="<%= User.current.id if User.current %>" ></div>
-  <%= react_component('DiscoveryRules', docUrl: discovery_doc_url + '/#4.3Automaticprovisioning' ) %>
+  <%= react_component('DiscoveryRules', docUrl: external_link_path(type: 'plugin_manual', name: 'foreman_discovery', version: discovery_doc_version, section: '#4.3Automaticprovisioning') ) %>
 <% end %>
