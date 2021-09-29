@@ -98,8 +98,7 @@ module DiscoveredHostsHelper
     discovered_host_path(host)
   end
 
-  def discovery_doc_url
-    doc_version = Foreman::Plugin.find(:foreman_discovery).version.scan(/\d+\.\d+/).first
-    "https://theforeman.org/plugins/foreman_discovery/#{doc_version}"
+  def discovery_doc_version
+    Foreman::Plugin.find(:foreman_discovery).version.scan(/\d+\.\d+/).first
   end
 end
