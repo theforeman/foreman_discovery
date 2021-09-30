@@ -212,8 +212,6 @@ module ForemanDiscovery
       # Controller extensions
       ::HostsController.send :include, ForemanDiscovery::Concerns::HostsControllerExtensions
       ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
-
-      Foreman::Plugin.fact_importer_registry.register(:foreman_discovery, DiscoveryFactImporter)
     end
 
     rake_tasks do

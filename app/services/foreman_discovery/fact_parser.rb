@@ -22,5 +22,9 @@ module ForemanDiscovery
     def get_facts_for_interface(interface)
       super.merge(keep_subnet: true)
     end
+
+    def fact_name_class
+      DiscoveryFactName
+    end
   end
 end
