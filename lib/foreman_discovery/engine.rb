@@ -126,14 +126,12 @@ module ForemanDiscovery
           :assign_locations,
           :view_architectures,
           :view_domains,
-          :view_environments,
           :view_hostgroups,
           :view_media,
           :view_models,
           :view_operatingsystems,
           :view_provisioning_templates,
           :view_ptables,
-          :view_puppetclasses,
           :view_realms,
           :view_smart_proxies,
           :view_subnets,
@@ -149,6 +147,9 @@ module ForemanDiscovery
           :edit_discovery_rules,
           :destroy_discovery_rules,
         ]
+        if defined?(ForemanPuppet::VERSION) 
+          MANAGER += [ :view_environments, :view_puppetclasses ]
+        end
         role "Discovery Reader", READER, "Role granting permissions to view discovered hosts"
         role "Discovery Manager", MANAGER, "Role granting permissions to perform provisioning of discovered hosts"
 
