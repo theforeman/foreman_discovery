@@ -15,7 +15,10 @@ class DiscoveredHostsController < ::ApplicationController
 
   helper :hosts
   if defined?(ForemanPuppet)
+    helper ForemanPuppet::HostsHelper
     helper ForemanPuppet::HostsAndHostgroupsHelper
+    helper ForemanPuppet::PuppetclassesHelper
+    helper ForemanPuppet::PuppetclassLookupKeysHelper
   end
 
   layout 'layouts/application'
