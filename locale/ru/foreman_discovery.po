@@ -10,10 +10,10 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 17.1.0\n"
+"Project-Id-Version: foreman_discovery 18.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-08-13 20:22+0000\n"
-"Last-Translator: Pavel Ershov <yosho1@yandex.ru>\n"
+"PO-Revision-Date: 2021-09-20 17:24+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
