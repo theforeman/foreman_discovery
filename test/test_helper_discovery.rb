@@ -52,40 +52,46 @@ def extract_form_errors(response)
 end
 
 def set_default_settings
-  FactoryBot.create(:setting, :name => 'discovery_fact', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_hostname', :value => 'discovery_bootif', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_auto', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_reboot', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_organization', :value => "Organization 1", :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_location', :value => "Location 1", :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_prefix', :value => 'mac', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_clean_facts', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_lock', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxelinux_lock_template', :value => 'pxelinux_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxegrub_lock_template', :value => 'pxegrub_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_pxegrub2_lock_template', :value => 'pxegrub2_discovery', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_always_rebuild_dns', :value => true, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_error_on_existing', :value => false, :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_naming', :value => 'Fact', :category => 'Setting::Discovered')
-  FactoryBot.create(:setting, :name => 'discovery_auto_bond', :value => false, :category => 'Setting::Discovered')
+  Setting['discovery_fact'] = 'discovery_bootif'
+  Setting['discovery_hostname'] = 'discovery_bootif'
+  Setting['discovery_auto'] = true
+  Setting['discovery_reboot'] = true
+  Setting['discovery_organization'] = "Organization 1"
+  Setting['discovery_location'] = "Location 1"
+  Setting['discovery_prefix'] = 'mac'
+  Setting['discovery_clean_facts'] = false
+  Setting['discovery_lock'] = false
+  Setting['discovery_pxelinux_lock_template'] = 'pxelinux_discovery'
+  Setting['discovery_pxegrub_lock_template'] = 'pxegrub_discovery'
+  Setting['discovery_pxegrub2_lock_template'] = 'pxegrub2_discovery'
+  Setting['discovery_always_rebuild_dns'] = true
+  Setting['discovery_error_on_existing'] = false
+  Setting['discovery_naming'] = 'Fact'
+  Setting['discovery_auto_bond'] = false
 end
 
 def setup_hostgroup(host)
   domain = FactoryBot.create(:domain)
   subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
-  environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
   medium = FactoryBot.create(:medium, :organizations => [host.organization], :locations => [host.location])
   os = FactoryBot.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
-  hostgroup = FactoryBot.create(
-    :hostgroup, :with_rootpass, :with_puppet_orchestration,
+  args = {
     :operatingsystem => os,
     :architecture => os.architectures.first,
     :ptable => os.ptables.first,
     :medium => os.media.first,
-    :environment => environment,
     :subnet => subnet,
     :domain => domain,
-    :organizations => [host.organization], :locations => [host.location])
+    :organizations => [host.organization],
+    :locations => [host.location]
+  }
+  if defined?(ForemanPuppet)
+    environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
+    args[:environment] = environment
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_puppet_enc, **args)
+  else
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, **args)
+  end
   domain.subnets << hostgroup.subnet
   hostgroup.medium.organizations |= [host.organization]
   hostgroup.medium.locations |= [host.location]
@@ -95,12 +101,14 @@ def setup_hostgroup(host)
   hostgroup.domain.locations |= [host.location]
   hostgroup.subnet.organizations |= [host.organization]
   hostgroup.subnet.locations |= [host.location]
-  hostgroup.environment.organizations |= [host.organization]
-  hostgroup.environment.locations |= [host.location]
-  hostgroup.puppet_proxy.organizations |= [host.organization]
-  hostgroup.puppet_proxy.locations |= [host.location]
-  hostgroup.puppet_ca_proxy.organizations |= [host.organization]
-  hostgroup.puppet_ca_proxy.locations |= [host.location]
+  if defined?(ForemanPuppet)
+    hostgroup.environment.organizations |= [host.organization]
+    hostgroup.environment.locations |= [host.location]
+    hostgroup.puppet_proxy.organizations |= [host.organization]
+    hostgroup.puppet_proxy.locations |= [host.location]
+    hostgroup.puppet_ca_proxy.organizations |= [host.organization]
+    hostgroup.puppet_ca_proxy.locations |= [host.location]
+  end
   hostgroup
 end
 

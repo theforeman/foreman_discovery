@@ -156,7 +156,17 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
     assert_equal subnet, host.subnet
-    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet, :domain => domain)
+    if defined? ForemanPuppet
+      hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_rootpass, :with_os,
+        pxe_loader: "PXELinux BIOS",
+        subnet: subnet,
+        domain: domain)
+    else
+      hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os,
+        pxe_loader: "PXELinux BIOS",
+        subnet: subnet,
+        domain: domain)
+    end
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
@@ -174,12 +184,12 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_equal hostgroup.subnet, managed_host.provision_interface.subnet
     refute_nil hostgroup.domain, managed_host.domain
     assert_equal hostgroup.domain, managed_host.domain
-    refute_nil hostgroup.environment, managed_host.environment
-    assert_equal hostgroup.environment, managed_host.environment
-    refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
-    assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
-    refute_nil hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
-    assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+    if defined? ForemanPuppet
+      refute_nil hostgroup.environment, managed_host.environment
+      assert_equal hostgroup.environment, managed_host.environment
+      refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
+      assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
+    end
   end
 
   class StubIPAM
@@ -196,7 +206,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     subnet2 = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_101', :network => '192.168.101.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
     assert_equal subnet, host.subnet
-    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet2, :domain => domain)
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet2, :domain => domain)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     Subnet.any_instance.expects(:unused_ip).with(host.mac).returns(StubIPAM.new)
     host.primary_interface.stubs(:queue_tftp)
@@ -219,7 +229,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     subnet2 = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db9::/32", :mask => "ffff:ffff::", :name => "ipv6_provision", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
     assert_equal subnet, host.subnet6
-    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet6 => subnet2, :domain => domain)
+    hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet6 => subnet2, :domain => domain)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.stubs(:queue_tftp)
     host.primary_interface.stubs(:queue_dhcp)
@@ -239,7 +249,17 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     refute host.subnet
     domain = FactoryBot.create(:domain)
     subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
-    hostgroup = FactoryBot.create(:hostgroup, :with_environment, :with_rootpass, :with_puppet_orchestration, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet, :domain => domain)
+    if defined? ForemanPuppet
+      hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_rootpass, :with_os,
+        pxe_loader: "PXELinux BIOS",
+        subnet: subnet,
+        domain: domain)
+    else
+      hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os,
+        pxe_loader: "PXELinux BIOS",
+        subnet: subnet,
+        domain: domain)
+    end
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
@@ -257,12 +277,12 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     assert_equal hostgroup.subnet, managed_host.provision_interface.subnet
     refute_nil hostgroup.domain, managed_host.domain
     assert_equal hostgroup.domain, managed_host.domain
-    refute_nil hostgroup.environment, managed_host.environment
-    assert_equal hostgroup.environment, managed_host.environment
-    refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
-    assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
-    refute_nil hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
-    assert_equal hostgroup.puppet_ca_proxy, managed_host.puppet_ca_proxy
+    if defined? ForemanPuppet
+      refute_nil hostgroup.environment, managed_host.environment
+      assert_equal hostgroup.environment, managed_host.environment
+      refute_nil hostgroup.puppet_proxy, managed_host.puppet_proxy
+      assert_equal hostgroup.puppet_proxy, managed_host.puppet_proxy
+    end
   end
 
   def setup_normal_renderer

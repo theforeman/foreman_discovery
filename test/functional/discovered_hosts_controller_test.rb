@@ -28,10 +28,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_index_with_custom_column
-    FactoryBot.create(:setting,
-                       :name => 'discovery_fact_column',
-                       :value => "bios_vendor",
-                       :category => 'Setting::Discovered')
+    Setting['discovery_fact_column'] = "bios_vendor"
     facts = @facts.merge({"bios_vendor" => "QEMU"})
     discover_host_from_facts(facts)
     get :index, params: {}, session: set_session_user_default_reader
@@ -85,7 +82,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_edit_form_quick_submit
     domain = FactoryBot.create(:domain)
-    hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_environment, :with_rootpass, :with_os, :domain => domain)
+    if defined? ForemanPuppet
+      hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_puppet_enc, :with_rootpass, :with_os, :domain => domain)
+    else
+      hostgroup = FactoryBot.create(:hostgroup, :with_subnet, :with_rootpass, :with_os, :domain => domain)
+    end
     new_ip = hostgroup.subnet.ipaddr.to_s
     host = discover_host_from_facts(@facts.merge({
                                                     'ipaddress' => new_ip,
@@ -160,9 +161,11 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal hostgroup.medium_id, actual.medium_id
     assert_equal hostgroup.ptable_id, actual.ptable_id
     assert_equal hostgroup.domain_id, actual.domain_id
-    assert_equal hostgroup.environment_id, actual.environment_id
-    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
-    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    if defined?(ForemanPuppet)
+      assert_equal hostgroup.environment_id, actual.environment_id
+      assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+      assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
+    end
   end
 
   def test_add_entry_to_nav_menu

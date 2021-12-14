@@ -43,7 +43,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 2.4'
+        requires_foreman '>= 3.2'
 
         # discovered hosts permissions
         security_block :discovery do
@@ -126,14 +126,12 @@ module ForemanDiscovery
           :assign_locations,
           :view_architectures,
           :view_domains,
-          :view_environments,
           :view_hostgroups,
           :view_media,
           :view_models,
           :view_operatingsystems,
           :view_provisioning_templates,
           :view_ptables,
-          :view_puppetclasses,
           :view_realms,
           :view_smart_proxies,
           :view_subnets,
@@ -149,6 +147,9 @@ module ForemanDiscovery
           :edit_discovery_rules,
           :destroy_discovery_rules,
         ]
+        if defined?(ForemanPuppet::VERSION) 
+          MANAGER += [ :view_environments, :view_puppetclasses ]
+        end
         role "Discovery Reader", READER, "Role granting permissions to view discovered hosts"
         role "Discovery Manager", MANAGER, "Role granting permissions to perform provisioning of discovered hosts"
 
@@ -198,7 +199,7 @@ module ForemanDiscovery
     config.to_prepare do
 
       # Fact parsing
-      ::FactParser.register_fact_parser(:foreman_discovery, ForemanDiscovery::FactParser)
+      Foreman::Plugin.fact_parser_registry.register(:foreman_discovery, ForemanDiscovery::FactParser)
 
       # Taxonomy extensions
       ::Location.send :include, DiscoveryTaxonomyExtensions

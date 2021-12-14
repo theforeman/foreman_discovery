@@ -161,9 +161,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       let(:hostgroup_environment) { FactoryBot.create(:environment) }
       let(:hostgroup_domain) { FactoryBot.create(:domain) }
       let(:hostgroup) do
-        FactoryBot.create(:hostgroup, :with_os,
-                           environment: hostgroup_environment,
-                           domain: hostgroup_domain)
+        if defined?(ForemanPuppet)
+          FactoryBot.create(:hostgroup, :with_os, environment: hostgroup_environment, domain: hostgroup_domain)
+        else
+          FactoryBot.create(:hostgroup, :with_os, domain: hostgroup_domain)
+        end
       end
 
       setup do
@@ -174,8 +176,12 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       end
 
       it 'sets inherited attributes' do
-        %i[environment architecture operatingsystem].each do |attribute|
+        %i[architecture operatingsystem].each do |attribute|
           assert_selected "#host_#{attribute}_id", hostgroup.send(attribute).id
+        end
+
+        if defined? ForemanPuppet
+          assert_selected "#host_puppet_attributes_environment_id", hostgroup.send(:environment).id
         end
 
         page.find('a[href="#network"]').click

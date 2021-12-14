@@ -7,9 +7,9 @@
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.3.4\n"
+"Project-Id-Version: foreman_discovery 18.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-01-25 08:35+0000\n"
+"PO-Revision-Date: 2021-09-20 17:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
@@ -80,10 +80,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Clona"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Clona %s"
 
 msgid "Collapse All"
 msgstr ""
@@ -564,6 +564,12 @@ msgstr "Valor del paràmetre"
 
 msgid "Please Confirm"
 msgstr "Si us plau, confirmeu"
+
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primària"

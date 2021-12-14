@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 16.3.4\n"
+"Project-Id-Version: foreman_discovery 18.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-01-25 08:35+0000\n"
+"PO-Revision-Date: 2021-09-20 17:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
@@ -78,10 +78,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Clonar"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Clonar %s"
 
 msgid "Collapse All"
 msgstr ""
@@ -562,6 +562,12 @@ msgstr ""
 
 msgid "Please Confirm"
 msgstr "Confirme, por favor"
+
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
 
 msgid "Primary"
 msgstr ""

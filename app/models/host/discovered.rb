@@ -90,15 +90,21 @@ class Host::Discovered < ::Host::Base
     existing_discovery_hosts = Nic::Managed.joins(:host).where(:mac => bootif_mac, :provision => true, :hosts => {:type => "Host::Discovered"}).order('created_at DESC')
     if existing_discovery_hosts.empty?
       host = Host.new(:name => hostname, :type => "Host::Discovered")
+      send_notifications = true
     else
       Rails.logger.warn "Multiple (#{existing_discovery_hosts.count}) discovery hosts found with MAC address #{name_fact} - picking most recent NIC entry" if existing_discovery_hosts.count > 1
       host = existing_discovery_hosts.first.host
+      send_notifications = false
     end
 
     # and save (interfaces are created via puppet parser extension)
     host.save(:validate => false) if host.new_record?
     importer = ForemanDiscovery::HostFactImporter.new(host)
     raise ::Foreman::Exception.new(N_("Facts could not be imported")) unless importer.import_facts(facts)
+
+    # finally, send out notifications for new hosts
+    host.create_notification if send_notifications
+
     host
   end
 
@@ -119,7 +125,6 @@ class Host::Discovered < ::Host::Base
     super(parser, type, source_proxy)
 
     populate_discovery_fields_from_facts(facts)
-    create_notification
     parser
   end
 

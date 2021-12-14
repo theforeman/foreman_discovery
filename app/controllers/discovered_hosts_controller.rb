@@ -14,6 +14,12 @@ class DiscoveredHostsController < ::ApplicationController
   around_action :skip_bullet, :only => [:edit]
 
   helper :hosts
+  if defined?(ForemanPuppet)
+    helper ForemanPuppet::HostsHelper
+    helper ForemanPuppet::HostsAndHostgroupsHelper
+    helper ForemanPuppet::PuppetclassesHelper
+    helper ForemanPuppet::PuppetclassLookupKeysHelper
+  end
 
   layout 'layouts/application'
 
@@ -200,14 +206,16 @@ class DiscoveredHostsController < ::ApplicationController
       subnet6 = @host.hostgroup.subnet6 || @host.subnet6
       @architecture    = @host.hostgroup.architecture
       @operatingsystem = @host.hostgroup.operatingsystem
-      @environment     = @host.hostgroup.environment
+      if defined?(ForemanPuppet)
+        @environment     = @host.hostgroup.environment
+        @host.environment = @environment
+      end
       @domain          = @host.hostgroup.domain
       @subnet          = subnet
       @subnet6         = subnet6
       @compute_profile = @host.hostgroup.compute_profile
       @realm           = @host.hostgroup.realm
       @host.interfaces.first.assign_attributes(subnet: subnet, subnet6: subnet6, domain: @domain)
-      @host.environment = @environment
     end
   end
 
@@ -217,7 +225,9 @@ class DiscoveredHostsController < ::ApplicationController
 
   def load_vars_for_ajax
     return unless @host
-    @environment     = @host.environment
+    if defined?(ForemanPuppet)
+      @environment     = @host.environment
+    end
     @architecture    = @host.architecture
     @domain          = @host.domain
     @operatingsystem = @host.operatingsystem

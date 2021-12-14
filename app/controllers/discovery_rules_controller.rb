@@ -20,7 +20,7 @@ class DiscoveryRulesController < ApplicationController
   end
 
   def clone
-    @discovery_rule = @discovery_rule.deep_clone except: [:name, :priority]
+    @discovery_rule = @discovery_rule.deep_clone except: [:name, :priority], include: [:organizations, :locations]
     @discovery_rule.priority = DiscoveryRule.suggest_priority
   end
 
