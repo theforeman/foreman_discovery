@@ -408,10 +408,16 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
   end
 
-  test "chooshing the first valid fact from array of fact names" do
+  test "choosing the first valid fact from array of fact names" do
     facts = {"custom_hostname" => "testhostname","notmyfact" => "notusedfactvalue"}
     discovery_hostname_fact_array = ['macaddress','custom_hostname','someotherfact']
     assert_equal Host::Discovered.return_first_valid_fact(discovery_hostname_fact_array,facts),"testhostname"
+  end
+
+  test "choosing the first valid MAC address from array of fact names" do
+    facts = {"custom_hostname" => "testhostname","macaddress" => "e5:17:4e:28:02:4c","notmyfact" => "notusedfactvalue"}
+    discovery_hostname_fact_array = ['custom_hostname','macaddress','someotherfact']
+    assert_equal Host::Discovered.return_first_valid_mac(discovery_hostname_fact_array,facts),"e5:17:4e:28:02:4c"
   end
 
   context 'notification recipients' do
