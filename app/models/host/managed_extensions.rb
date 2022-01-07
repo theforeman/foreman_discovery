@@ -4,7 +4,8 @@ module Host::ManagedExtensions
   included do
     # execute standard callbacks
     after_validation :queue_reboot
-    after_save :delete_discovery_attribute_set, :update_notifications
+    after_save :clean_discovery_attributes_on_save, :update_notifications
+    after_destroy :clean_discovery_attributes_on_destroy
 
     belongs_to :discovery_rule
 
@@ -66,10 +67,14 @@ module Host::ManagedExtensions
     # no kexec on orchestration rollback
   end
 
-  def delete_discovery_attribute_set
+  def clean_discovery_attributes_on_save
     return if new_record?
 
     DiscoveryAttributeSet.where(:host_id => self.id).destroy_all if saved_change_to_attribute?(:type) && type_previously_changed?
+  end
+
+  def clean_discovery_attributes_on_destroy
+    DiscoveryAttributeSet.where(:host_id => self.id).destroy_all
   end
 
   def update_notifications
