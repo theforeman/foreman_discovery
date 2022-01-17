@@ -91,7 +91,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
 
     test "kexec template is correctly rendered" do
       expected = {
-        "append" => "ks=http://foreman.some.host.fqdn/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nokaslr nomodeset",
+        "append" => "inst.ks=http://foreman.some.host.fqdn/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nokaslr nomodeset",
         "extra" => []
       }
       assert @host.operatingsystem.respond_to?(:pxe_type)
