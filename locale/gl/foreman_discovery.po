@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Galician (http://www.transifex.com/foreman/foreman/language/gl/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 msgid "CPUs"
 msgstr "Procesadores"
@@ -132,7 +132,7 @@ msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 msgid "Disable"
 msgstr ""
@@ -308,7 +308,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 msgid "Hardware facts"
 msgstr ""
@@ -363,7 +363,7 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Equipos"
 
 msgid "Hosts Limit"
 msgstr ""
@@ -453,7 +453,7 @@ msgid "Location"
 msgstr "Lugares"
 
 msgid "Locations"
-msgstr ""
+msgstr "Lugares"
 
 msgid "Lock PXE"
 msgstr ""
@@ -495,7 +495,7 @@ msgid "Name of the parameter"
 msgstr ""
 
 msgid "Network"
-msgstr ""
+msgstr "Rede"
 
 msgid "Network facts"
 msgstr ""
@@ -509,10 +509,16 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr ""
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "No discovered hosts to provision"
@@ -546,7 +552,7 @@ msgid "Organization"
 msgstr "Organización"
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organizacións"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
@@ -570,7 +576,7 @@ msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
 msgstr ""
 
 msgid "Primary"
-msgstr ""
+msgstr "Primaria"
 
 msgid "Provision"
 msgstr "Aprovisionamento"
@@ -675,7 +681,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Almacenamento"
 
 msgid "Storage facts"
 msgstr ""
@@ -714,7 +720,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "Type of name generator"
 msgstr ""

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -504,10 +504,16 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr ""
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "No discovered hosts to provision"

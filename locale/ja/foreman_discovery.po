@@ -7,10 +7,10 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -508,11 +508,17 @@ msgstr "新規ホスト"
 msgid "New in the last 24 hours"
 msgstr "過去 24 時間以内の新規"
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr "検出されたホストがありません"
 
 msgid "No discovered hosts for the selected period"
 msgstr "選択された期間に検出されたホストはありません"
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
 
 msgid "No discovered hosts to provision"
 msgstr "プロビジョニングする検出されたホストがありません"
@@ -563,10 +569,10 @@ msgid "Please Confirm"
 msgstr "確認してください"
 
 msgid "Prefer IPv6"
-msgstr ""
+msgstr "IPv6 を優先します"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr ""
+msgstr "検出されたノードを呼び出す際に、IPv4 よりも IPv6 を優先します。"
 
 msgid "Primary"
 msgstr "プライマリー"

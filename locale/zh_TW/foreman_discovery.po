@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -509,10 +509,16 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr ""
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "No discovered hosts to provision"

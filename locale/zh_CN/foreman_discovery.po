@@ -5,10 +5,10 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -506,11 +506,17 @@ msgstr "新主机"
 msgid "New in the last 24 hours"
 msgstr "在最近 24 小时之内新建"
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr "没有可用的发现主机"
 
 msgid "No discovered hosts for the selected period"
 msgstr "选定时间段内没有发现主机"
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
 
 msgid "No discovered hosts to provision"
 msgstr "没有要置备的发现主机"
@@ -561,10 +567,10 @@ msgid "Please Confirm"
 msgstr "请确认"
 
 msgid "Prefer IPv6"
-msgstr ""
+msgstr "首选使用 IPv6"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr ""
+msgstr "在调用发现节点时，首选 IPv6 而不是 IPv4"
 
 msgid "Primary"
 msgstr "主"

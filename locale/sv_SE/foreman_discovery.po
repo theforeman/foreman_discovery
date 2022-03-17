@@ -8,10 +8,10 @@
 # johnny.westerlund <johnny.westerlund@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: johnny.westerlund <johnny.westerlund@gmail.com>, 2014\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/foreman/foreman/lang"
 "uage/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 msgid "CPUs"
 msgstr "CPUer"
@@ -135,7 +135,7 @@ msgid "Destroyed selected hosts"
 msgstr "Förstör markerade värdar"
 
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 msgid "Disable"
 msgstr ""
@@ -311,7 +311,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Hårdvara"
 
 msgid "Hardware facts"
 msgstr ""
@@ -366,7 +366,7 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Värdar"
 
 msgid "Hosts Limit"
 msgstr ""
@@ -456,7 +456,7 @@ msgid "Location"
 msgstr "Lokation"
 
 msgid "Locations"
-msgstr ""
+msgstr "Lokationer"
 
 msgid "Lock PXE"
 msgstr ""
@@ -498,7 +498,7 @@ msgid "Name of the parameter"
 msgstr "Parameterns namn"
 
 msgid "Network"
-msgstr ""
+msgstr "Nätverk"
 
 msgid "Network facts"
 msgstr ""
@@ -512,10 +512,16 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr ""
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "No discovered hosts to provision"
@@ -549,7 +555,7 @@ msgid "Organization"
 msgstr "Organisation"
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organisationer"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
@@ -573,7 +579,7 @@ msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
 msgstr ""
 
 msgid "Primary"
-msgstr ""
+msgstr "Primär"
 
 msgid "Provision"
 msgstr "Provisionera"
@@ -678,7 +684,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Lagring"
 
 msgid "Storage facts"
 msgstr ""
@@ -717,7 +723,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr "Detta kan dröja då alla värdar, fakta och rapporter också kommer bli förstörda"
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "Type of name generator"
 msgstr ""

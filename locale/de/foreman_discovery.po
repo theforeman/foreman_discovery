@@ -15,10 +15,10 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-10-13 15:12+0000\n"
-"Last-Translator: Patrick Dolinic\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: Patrick Dolinic, 2021\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -518,11 +518,17 @@ msgstr "Neue Hosts"
 msgid "New in the last 24 hours"
 msgstr "Neu in den letzten 24 Stunden"
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr "Keine entdeckten Hosts verfügbar"
 
 msgid "No discovered hosts for the selected period"
 msgstr "Keine entdeckten Hosts für den ausgewählten Zeitraum"
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
 
 msgid "No discovered hosts to provision"
 msgstr "Keine entdeckten Hosts zur Bereitstellung"

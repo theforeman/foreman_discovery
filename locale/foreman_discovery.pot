@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-25 10:15+0100\n"
-"PO-Revision-Date: 2021-11-25 10:15+0100\n"
+"POT-Creation-Date: 2022-03-17 14:06+0100\n"
+"PO-Revision-Date: 2022-03-17 14:06+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -502,33 +502,33 @@ msgid ""
 "d set hostname"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:73
+#: ../app/models/host/discovered.rb:74
 msgid ""
 "Invalid facts: hash does not contain a valid value for any of the facts in the"
 " discovery_hostname setting: %s"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:102
+#: ../app/models/host/discovered.rb:103
 msgid "Facts could not be imported"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:160
+#: ../app/models/host/discovered.rb:161
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:178
+#: ../app/models/host/discovered.rb:179
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:182 ../app/models/host/discovered.rb:205
+#: ../app/models/host/discovered.rb:183 ../app/models/host/discovered.rb:206
 msgid "Unable to perform %{action} on %{ips}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:201
+#: ../app/models/host/discovered.rb:202
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
 msgstr ""
 
-#: ../app/models/host/discovered.rb:225
+#: ../app/models/host/discovered.rb:226
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr ""
 
@@ -1174,6 +1174,20 @@ msgstr ""
 #:
 #: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:34
 msgid "documentation"
+msgstr ""
+
+#:
+#: ../webpack/src/ForemanDiscovery/DiscoveredHosts/Components/EmptyState/EmptyState.js:7
+msgid ""
+"No discovered hosts found in this context. This page shows discovered bare-met"
+"al or virtual nodes waiting to be provisioned."
+msgstr ""
+
+#:
+#: ../webpack/src/ForemanDiscovery/DiscoveryRules/Components/EmptyState/EmptyState.js:12
+msgid ""
+"No Discovery Rules found in this context. Create Discovery Rules to perform au"
+"tomated provisioning on Discovered Hosts"
 msgstr ""
 
 #: action_names.rb:2

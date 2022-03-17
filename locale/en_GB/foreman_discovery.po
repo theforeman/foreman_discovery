@@ -10,10 +10,10 @@
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2015-2019\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -514,11 +514,17 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr "New in the last 24 hours"
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr "No discovered hosts available"
 
 msgid "No discovered hosts for the selected period"
 msgstr "No discovered hosts for the selected period"
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
 
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"

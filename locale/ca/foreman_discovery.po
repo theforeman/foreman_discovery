@@ -7,10 +7,10 @@
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 18.0.1\n"
+"Project-Id-Version: foreman_discovery 21.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-20 17:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017\n"
 "Language-Team: Catalan (http://www.transifex.com/foreman/foreman/language/ca/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -134,7 +134,7 @@ msgid "Destroyed selected hosts"
 msgstr "S'han destruït els amfitrions seleccionats"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalls"
 
 msgid "Disable"
 msgstr "Inhabilita"
@@ -310,7 +310,7 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Maquinari"
 
 msgid "Hardware facts"
 msgstr ""
@@ -331,7 +331,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "L'amfitrió %{host} va ser aprovisionat amb la regla %{rule}"
 
 msgid "Host Group"
-msgstr ""
+msgstr "Grup dels amfitrions"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -365,10 +365,10 @@ msgid "Hostnames must not start with numbers. A good approach is to use unique i
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Amfitrions"
 
 msgid "Hosts Limit"
-msgstr ""
+msgstr "Límit d'amfitrions"
 
 msgid "Hosts/Limit"
 msgstr ""
@@ -497,7 +497,7 @@ msgid "Name of the parameter"
 msgstr "Nom del paràmetre"
 
 msgid "Network"
-msgstr ""
+msgstr "Xarxa"
 
 msgid "Network facts"
 msgstr ""
@@ -511,10 +511,16 @@ msgstr ""
 msgid "New in the last 24 hours"
 msgstr "Nou en les últimes 24 hores"
 
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
 msgid "No discovered hosts available"
 msgstr ""
 
 msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 msgstr ""
 
 msgid "No discovered hosts to provision"
@@ -677,7 +683,7 @@ msgid "Specify target hostname template pattern in the same syntax as in Provisi
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Emmagatzematge"
 
 msgid "Storage facts"
 msgstr ""
@@ -716,7 +722,7 @@ msgid "This might take a while, as all hosts, facts and reports will be destroye
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 msgid "Type of name generator"
 msgstr ""
