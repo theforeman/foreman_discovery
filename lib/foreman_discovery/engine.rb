@@ -45,38 +45,201 @@ module ForemanDiscovery
       Foreman::Plugin.register :foreman_discovery do
         requires_foreman '>= 3.2'
 
-        # discovered hosts permissions
-        security_block :discovery do
-          permission :view_discovered_hosts, {
-            :discovered_hosts          => [:index, :show, :auto_complete_search, :welcome],
-            :"api/v2/discovered_hosts" => [:index, :show],
-            :'discovered_hosts/react' => [:index]
-          }, :resource_type => 'Host'
-          permission :submit_discovered_hosts, {
-            :"api/v2/discovered_hosts" => [:facts, :create]
-          }, :resource_type => 'Host'
-          permission :auto_provision_discovered_hosts, {
-            :discovered_hosts          => [:auto_provision,
-                                           :multiple_auto_provision,
-                                           :submit_multiple_auto_provision],
-            :"api/v2/discovered_hosts" => [:auto_provision, :auto_provision_all]
-          }, :resource_type => 'Host'
-          permission :provision_discovered_hosts, {
-            :discovered_hosts          => [:edit, :update],
-            :"api/v2/discovered_hosts" => [:update]
-          }, :resource_type => 'Host'
-          permission :edit_discovered_hosts, {
-            :discovered_hosts          => [:update_multiple_location,
-                                           :select_multiple_organization,
-                                           :update_multiple_organization,
-                                           :select_multiple_location,
-                                           :refresh_facts,
-                                           :reboot,
-                                           :multiple_reboot,
-                                           :submit_multiple_reboot],
-            :hosts                     => [:process_hostgroup],
-            :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
-          }, :resource_type => 'Host'
+        # settings
+        settings do
+          category :discovery, N_("Discovery") do
+            snippets = Proc.new {
+              Hash[ProvisioningTemplate.where(:template_kind => TemplateKind.find_by_name(:snippet)).map{|template| [template[:name], template[:name]]}]
+            }
+
+            setting "discovery_location",
+              type: :string,
+              collection: Proc.new { Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}] },
+              default: "",
+              full_name: N_("Discovery location"),
+              description: N_("The default location to place discovered hosts in")
+
+            setting "discovery_organization",
+              type: :string,
+              collection: Proc.new { Hash[Organization.all.map{|org| [org[:title], org[:title]]}] },
+              default: "",
+              full_name: N_("Discovery location"),
+              description: N_("The default location to place discovered hosts in")
+
+            setting "discovery_fact",
+              type: :string,
+              default: "discovery_bootif",
+              full_name: N_("Interface fact"),
+              description: N_("Fact name to use for primary interface detection")
+
+            setting "discovery_auto_bond",
+              type: :boolean,
+              default: false,
+              full_name: N_("Create bond interfaces"),
+              description: N_("Automatic bond interface (if another interface is detected on the same VLAN via LLDP)")
+
+            setting "discovery_clean_facts",
+              type: :boolean,
+              default: false,
+              full_name: N_("Clean all facts"),
+              description: N_("Clean all reported facts during provisioning (except discovery facts)")
+
+            setting "discovery_hostname",
+              type: :string,
+              default: "discovery_bootif",
+              full_name: N_("Hostname facts"),
+              description: N_("List of facts to use for the hostname (separated by comma, first wins)")
+
+            validates "discovery_hostname", presence: true
+
+            setting "discovery_auto",
+              type: :boolean,
+              default: false,
+              full_name: N_("Auto provisioning"),
+              description: N_("Automatically provision newly discovered hosts, according to the provisioning rules")
+
+            setting "discovery_reboot",
+              type: :boolean,
+              default: true,
+              full_name: N_("Reboot"),
+              description: N_("Automatically reboot or kexec discovered host during provisioning")
+
+            setting "discovery_prefix",
+              type: :string,
+              default: "mac",
+              full_name: N_("Hostname prefix"),
+              description: N_("The default prefix to use for the host name, must start with a letter")
+
+            validates "discovery_prefix", presence: true
+
+            setting "discovery_fact_column",
+              type: :string,
+              default: "",
+              full_name: N_("Fact columns"),
+              description: N_("Extra facter columns to show in host lists (separate by comma)")
+
+            setting "discovery_facts_highlights",
+              type: :string,
+              default: "",
+              full_name: N_("Highlighted facts"),
+              description: N_("Regex to organize facts for highlights section - e.g. ^(abc|cde)$")
+
+            setting "discovery_facts_storage",
+              type: :string,
+              default: "",
+              full_name: N_("Storage facts"),
+              description: N_("Regex to organize facts for storage section")
+
+            setting "discovery_facts_software",
+              type: :string,
+              default: "",
+              full_name: N_("Software facts"),
+              description: N_("Regex to organize facts for software section")
+
+            setting "discovery_facts_hardware",
+              type: :string,
+              default: "",
+              full_name: N_("Hardware facts"),
+              description: N_("Regex to organize facts for hardware section")
+
+            setting "discovery_facts_network",
+              type: :string,
+              default: "",
+              full_name: N_("Network facts"),
+              description: N_("Regex to organize facts for network section")
+
+            setting "discovery_facts_ipmi",
+              type: :string,
+              default: "",
+              full_name: N_("IPMI facts"),
+              description: N_("Regex to organize facts for ipmi section")
+
+            setting "discovery_lock",
+              type: :boolean,
+              default: false,
+              full_name: N_("Lock PXE"),
+              description: N_("Automatically generate PXE configuration to pin a newly discovered host to discovery")
+
+            setting "discovery_pxelinux_lock_template",
+              type: :string,
+              collection: snippets,
+              default: "pxelinux_discovery",
+              full_name: N_("Locked PXELinux template name"),
+              description: N_("PXELinux template to be used when pinning a host to discovery")
+
+            setting "discovery_pxegrub_lock_template",
+              type: :string,
+              collection: snippets,
+              default: "pxegrub_discovery",
+              full_name: N_("Locked PXEGrub template name"),
+              description: N_("PXEGrub template to be used when pinning a host to discovery")
+
+            setting "discovery_pxegrub2_lock_template",
+              type: :string,
+              collection: snippets,
+              default: "pxegrub2_discovery",
+              full_name: N_("Locked PXEGrub2 template name"),
+              description: N_("PXEGrub2 template to be used when pinning a host to discovery")
+
+            setting "discovery_always_rebuild_dns",
+              type: :boolean,
+              default: true,
+              full_name: N_("Force DNS"),
+              description: N_("Force DNS entries creation when provisioning discovered host")
+
+            setting "discovery_error_on_existing",
+              type: :boolean,
+              default: false,
+              full_name: N_("Error on existing NIC"),
+              description: N_("Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)")
+
+            setting "discovery_naming",
+              type: :string,
+              collection: Proc.new { ::Host::Discovered::NAMING_PATTERNS },
+              default: "Fact",
+              full_name: N_("Type of name generator"),
+              description: N_("Discovery hostname naming pattern")
+
+            setting "discovery_prefer_ipv6",
+              type: :boolean,
+              default: false,
+              full_name: N_("Prefer IPv6"),
+              description: N_("Prefer IPv6 to IPv4 when calling discovered nodes")
+            end
+          end
+
+          # discovered hosts permissions
+          security_block :discovery do
+            permission :view_discovered_hosts, {
+              :discovered_hosts          => [:index, :show, :auto_complete_search, :welcome],
+              :"api/v2/discovered_hosts" => [:index, :show],
+              :'discovered_hosts/react' => [:index]
+            }, :resource_type => 'Host'
+            permission :submit_discovered_hosts, {
+              :"api/v2/discovered_hosts" => [:facts, :create]
+            }, :resource_type => 'Host'
+            permission :auto_provision_discovered_hosts, {
+              :discovered_hosts          => [:auto_provision,
+                                             :multiple_auto_provision,
+                                             :submit_multiple_auto_provision],
+                                             :"api/v2/discovered_hosts" => [:auto_provision, :auto_provision_all]
+            }, :resource_type => 'Host'
+            permission :provision_discovered_hosts, {
+              :discovered_hosts          => [:edit, :update],
+              :"api/v2/discovered_hosts" => [:update]
+            }, :resource_type => 'Host'
+            permission :edit_discovered_hosts, {
+              :discovered_hosts          => [:update_multiple_location,
+                                             :select_multiple_organization,
+                                             :update_multiple_organization,
+                                             :select_multiple_location,
+                                             :refresh_facts,
+                                             :reboot,
+                                             :multiple_reboot,
+                                             :submit_multiple_reboot],
+                                             :hosts                     => [:process_hostgroup],
+                                             :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
+            }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
             :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],
             :"api/v2/discovered_hosts" => [:destroy]
