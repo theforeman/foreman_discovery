@@ -14,8 +14,8 @@ class Setting::Discovered < ::Setting
 
   def self.default_settings
     [
-      self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Proc.new {Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}]} }),
-      self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Proc.new {Hash[Organization.all.map{|org| [org[:title], org[:title]]}]} }),
+      self.set('discovery_location', N_("The default location to place discovered hosts in"), "", N_("Discovery location"), nil, { :collection => Proc.new {Hash[[['', '']].concat Location.all.map{|loc| [loc[:title], loc[:title]]}]} }),
+      self.set('discovery_organization', N_("The default organization to place discovered hosts in"), "", N_("Discovery organization"), nil, { :collection => Proc.new {Hash[[['', '']].concat Organization.all.map{|org| [org[:title], org[:title]]}]} }),
       self.set('discovery_fact', N_("Fact name to use for primary interface detection"), "discovery_bootif", N_("Interface fact")),
       self.set('discovery_auto_bond', N_("Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"), false, N_("Create bond interfaces")),
       self.set('discovery_clean_facts', N_("Clean all reported facts during provisioning (except discovery facts)"), false, N_("Clean all facts")),
