@@ -54,14 +54,14 @@ module ForemanDiscovery
 
             setting "discovery_location",
               type: :string,
-              collection: Proc.new { Hash[Location.all.map{|loc| [loc[:title], loc[:title]]}] },
+              collection: Proc.new { Hash[[['', '']].concat Location.all.map{|loc| [loc[:title], loc[:title]]}] },
               default: "",
               full_name: N_("Discovery location"),
               description: N_("The default location to place discovered hosts in")
 
             setting "discovery_organization",
               type: :string,
-              collection: Proc.new { Hash[Organization.all.map{|org| [org[:title], org[:title]]}] },
+              collection: Proc.new { Hash[[['', '']].concat Organization.all.map{|org| [org[:title], org[:title]]}] },
               default: "",
               full_name: N_("Discovery location"),
               description: N_("The default location to place discovered hosts in")
