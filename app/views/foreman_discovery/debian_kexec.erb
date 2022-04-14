@@ -4,18 +4,17 @@ name: Discovery Debian kexec
 oses:
 - Debian
 - Ubuntu
--%>
-<%#
-This template is used to pass command line options to kexec when reloading
-kernel on a discovered host instead of rebooting. This is useful in PXE-less
-environments. The template must generate JSON format with the following items
-"kernel", "initram", "append" and "extra". The kexec command is composed in
-the following way:
-
-kexec --force --debug --append=$append --initrd=$initram $extra $kernel
-
-Please read kexec(8) man page for more information about semantics.
-Extra options like --reset-vga can be set via "extra" array.
+description: |
+  This template is used to pass command line options to kexec when reloading
+  kernel on a discovered host instead of rebooting. This is useful in PXE-less
+  environments. The template must generate JSON format with the following items
+  "kernel", "initram", "append" and "extra". The kexec command is composed in
+  the following way:
+  
+  kexec --force --debug --append=$append --initrd=$initram $extra $kernel
+  
+  Please read kexec(8) man page for more information about semantics.
+  Extra options like --reset-vga can be set via "extra" array.
 -%>
 <%
   mac = @host.facts['discovery_bootif']
