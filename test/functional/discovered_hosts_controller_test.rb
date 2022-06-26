@@ -303,6 +303,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     Host::Managed.any_instance.stubs(:queue_puppetca_create).returns(true)
     Host::Managed.any_instance.stubs(:queue_puppetca_certname_reset).returns(true)
     Host::Managed.any_instance.stubs(:queue_puppetca_autosign_destroy).returns(true)
+    ProxyAPI::DNS.any_instance.stubs(:set).returns(true)
     put :update, params: {:commit => "Update", :id => host.id,
                   :host => {
       :name => 'mytest',
@@ -354,6 +355,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def prepare_hostgroup_for_dns_rebuild(host)
     hostgroup = setup_hostgroup(host)
     hostgroup.domain = FactoryBot.create(:domain, :name => 'myorchdomain.net', :dns => FactoryBot.create(:smart_proxy, :features => [FactoryBot.create(:feature, :dns)]))
+    hostgroup.save
     hostgroup
   end
 end

@@ -293,22 +293,18 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host1 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org1)
     host2 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org2)
     host3 = FactoryBot.create(:host, :type => "Host::Discovered", :organization => org3)
-    hosts = nil
 
     assert_nil Organization.current
-    as_user(user_subset) do
-      hosts = Host::Discovered.all
-    end
-    assert_includes hosts, host1
-    assert_includes hosts, host2
-    refute_includes hosts, host3
 
-    as_user(user_all) do
-      hosts = Host::Discovered.all
-    end
-    assert_includes hosts, host1
-    assert_includes hosts, host2
-    assert_includes hosts, host3
+    hosts = as_user(user_subset) { Host::Discovered.all }.map(&:name)
+    assert_includes hosts, host1.name
+    assert_includes hosts, host2.name
+    refute_includes hosts, host3.name
+
+    hosts = as_user(user_all) { Host::Discovered.all }.map(&:name)
+    assert_includes hosts, host1.name
+    assert_includes hosts, host2.name
+    assert_includes hosts, host3.name
   end
 
   test "provisioning a discovered host without saving it doesn't create a token" do
