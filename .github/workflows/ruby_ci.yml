@@ -1,6 +1,9 @@
 name: Ruby
 on:
   pull_request:
+    paths:
+      - "webpack/**"
+      - "package.json"
   push:
     branches:
       - master
@@ -60,16 +63,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version:  ${{ matrix.node-version }}
-      - name: Prepare test DB
-        if: github.event_name != 'push'
-        run: |
-          bundle exec rake db:create
-          bundle exec rake db:migrate
       - name: Prepare webpack
         if: github.event_name != 'push'
         run: |
           npm install
           bundle exec rake webpack:compile
+      - name: Prepare test DB
+        if: github.event_name != 'push'
+        run: |
+          bundle exec rake db:create
+          bundle exec rake db:migrate
       - name: Run plugin tests
         if: github.event_name != 'push'
         run: |
