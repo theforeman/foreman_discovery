@@ -200,8 +200,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     def ip_addr
       @ip_addr ||= IPAddr.new("#{suggest_ip}/24")
     end
-    
-    
+
     def subnet_range
       @subnet_range ||= ip_addr.to_range
     end

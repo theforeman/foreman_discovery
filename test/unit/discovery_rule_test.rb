@@ -39,7 +39,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
 
     context "hostname" do
       test "max length is 255 characters" do
-        @rule.hostname = "abc" +  @huge_name
+        @rule.hostname = "abc#{@huge_name}"
         assert @rule.invalid?
         assert_equal "is too long (maximum is 255 characters)", @rule.errors[:hostname].first
       end
@@ -226,7 +226,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     end
 
     test 'when there exists a discovery_rule of the given organization' do
-      hostgroup = FactoryBot.create(:hostgroup, organizations: [@organization], locations: [@location] )
+      hostgroup = FactoryBot.create(:hostgroup, organizations: [@organization], locations: [@location])
       discovery_rule = FactoryBot.create(:discovery_rule,
         priority: rand(100),
         hostgroup: hostgroup,

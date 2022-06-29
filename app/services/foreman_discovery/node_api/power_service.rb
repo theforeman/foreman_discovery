@@ -1,7 +1,7 @@
 module ForemanDiscovery::NodeAPI
   class PowerService < NodeResource
     def url
-      @args[:url] + "/power"
+      "#{@args[:url]}/power"
     end
 
     def reboot

@@ -4,7 +4,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
-  alias_method  :blueprint, :failed_discovery_blueprint
+  alias_method :blueprint, :failed_discovery_blueprint
 
   def switch_controller(klass)
     old_controller = @controller

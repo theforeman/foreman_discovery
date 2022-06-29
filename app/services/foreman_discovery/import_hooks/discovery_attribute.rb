@@ -22,7 +22,7 @@ module ForemanDiscovery
         disk_count = 0
 
         if disks.any?
-          disks.values.each { |size| disks_size += (size.to_f rescue 0) }
+          disks.each_value { |size| disks_size += (size.to_f rescue 0) }
           disk_count = disks.size
           # Turning disks_size to closest Mega for easier to read UI
           disks_size = (disks_size / 1024 / 1024).ceil if disks_size > 0

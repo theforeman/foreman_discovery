@@ -19,16 +19,12 @@ def user_with_perms(perms)
   user
 end
 
-def as_default_manager
-  as_user(default_manager) do
-    yield
-  end
+def as_default_manager(&block)
+  as_user(default_manager, &block)
 end
 
-def as_default_reader
-  as_user(default_reader) do
-    yield
-  end
+def as_default_reader(&block)
+  as_user(default_reader, &block)
 end
 
 def default_manager
@@ -83,7 +79,7 @@ def setup_hostgroup(host)
     :subnet => subnet,
     :domain => domain,
     :organizations => [host.organization],
-    :locations => [host.location]
+    :locations => [host.location],
   }
   if defined?(ForemanPuppet)
     environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
@@ -121,7 +117,7 @@ def location_one
 end
 
 def current_path_info
-  current_url.sub(%r{.*?://}, '')[%r{[/\?\#].*}] || '/'
+  current_url.sub(%r{.*?://}, '')[%r{[/?\#].*}] || '/'
 end
 
 def current_params

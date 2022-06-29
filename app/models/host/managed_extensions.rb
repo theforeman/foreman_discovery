@@ -51,7 +51,7 @@ module Host::ManagedExtensions
     json
   rescue StandardError => e
     Foreman::Logging.exception("Unable render or parse kexec template, must be valid JSON", e)
-    {status: "Unable to render or parse template: " + e.to_s}
+    {status: "Unable to render or parse template: #{e}"}
   end
 
   def setKexec

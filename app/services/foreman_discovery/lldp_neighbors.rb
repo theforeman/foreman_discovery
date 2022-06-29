@@ -56,22 +56,22 @@ module ForemanDiscovery
       mac = primary.mac
       name = primary.name
       primary.update(
-          :primary   => false,
-          :provision => false,
-          :managed   => false,
-          :name      => nil,
-          :ip        => nil
+        :primary   => false,
+        :provision => false,
+        :managed   => false,
+        :name      => nil,
+        :ip        => nil
       )
 
       bond = Nic::Bond.create(
-          :identifier       => "bond0",
-          :attached_devices => neighbors,
-          :primary          => true,
-          :provision        => true,
-          :name             => name,
-          :ip               => ip,
-          :mac              => mac,
-          :host             => host
+        :identifier       => "bond0",
+        :attached_devices => neighbors,
+        :primary          => true,
+        :provision        => true,
+        :name             => name,
+        :ip               => ip,
+        :mac              => mac,
+        :host             => host
       )
 
       bond.save!
@@ -81,14 +81,14 @@ module ForemanDiscovery
     def self.from_facts(facts)
       neighbors = self.new
       interfaces = {}
-      facts.keys.each do |key|
+      facts.each_key do |key|
         key_s = key.to_s
         next unless key_s.start_with? 'lldp_neighbor_'
 
         property, iface = key_s[14..-1].split('_', 2)
         if property == 'mngAddr'
           protocol, iface = iface.split('_', 2)
-          property += '_' + protocol
+          property += "_#{protocol}"
         end
         interfaces[iface] = {} unless interfaces.has_key? iface
         interfaces[iface][property] = facts[key]

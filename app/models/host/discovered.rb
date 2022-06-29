@@ -62,10 +62,11 @@ class Host::Discovered < ::Host::Base
     # construct hostname
     bootif_mac = FacterUtils::bootif_mac(facts).try(:downcase)
     hostname = ''
-    if Setting[:discovery_naming] == 'MAC-name'
+    case Setting[:discovery_naming]
+    when 'MAC-name'
       hostname_mac = return_first_valid_mac(Setting::Discovered.discovery_hostname_fact_array, facts) || bootif_mac
       hostname = NameGenerator.new.generate_next_mac_name(hostname_mac)
-    elsif Setting[:discovery_naming] == 'Random-name'
+    when 'Random-name'
       hostname = NameGenerator.new.generate_next_random_name
     else
       prefix_from_settings = Setting[:discovery_prefix]
@@ -112,10 +113,6 @@ class Host::Discovered < ::Host::Base
     # Nic::Managed needs this method but Discovered hosts shouldn't
     # be doing orchestration anyway...
     clone
-  end
-
-  def attributes_to_import_from_facts
-    super
   end
 
   def populate_fields_from_facts(parser, type, source_proxy)

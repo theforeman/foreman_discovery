@@ -13,7 +13,7 @@ module ForemanDiscovery
                         N_("Miscellaneous")].freeze
 
     def initialize(host)
-      categories = %i[highlights storage hardware network software ipmi]
+      categories = [:highlights, :storage, :hardware, :network, :software, :ipmi]
 
       @regex_array = categories.map do |category|
         settings_category = settings_discovery_fact_prefix(category)
@@ -103,4 +103,3 @@ module ForemanDiscovery
     end
   end
 end
-

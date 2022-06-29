@@ -9,7 +9,7 @@ module ForemanDiscovery::NodeAPI
         :timeout => 20, # tighter timeout, discovery performs up to two calls per request
       }
 
-      if url.match(/^https/i) && Rails.env != "test"
+      if url.match(/^https/i) && !Rails.env.test?
         if is_proxy?
           logger.debug "Connecting to proxy, setting up SSL client cert"
           cert         = Setting[:ssl_certificate]

@@ -54,7 +54,7 @@ class Api::V2::DiscoveryRulesControllerTest < ActionController::TestCase
     assert_equal valid_attributes[:hostgroup_id], response['hostgroup_id']
     assert_equal valid_attributes[:search], response['search']
     discovery_rule = DiscoveryRule.unscoped.find(response['id'])
-    refute discovery_rule.nil?
+    refute_nil discovery_rule
     assert_equal organization_one.id, discovery_rule.organizations.first.id
     assert_equal location_one.id, discovery_rule.locations.first.id
   end

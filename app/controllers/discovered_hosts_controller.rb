@@ -207,7 +207,7 @@ class DiscoveredHostsController < ::ApplicationController
       @architecture    = @host.hostgroup.architecture
       @operatingsystem = @host.hostgroup.operatingsystem
       if defined?(ForemanPuppet)
-        @environment     = @host.hostgroup.environment
+        @environment = @host.hostgroup.environment
         @host.environment = @environment
       end
       @domain          = @host.hostgroup.domain
@@ -226,7 +226,7 @@ class DiscoveredHostsController < ::ApplicationController
   def load_vars_for_ajax
     return unless @host
     if defined?(ForemanPuppet)
-      @environment     = @host.environment
+      @environment = @host.environment
     end
     @architecture    = @host.architecture
     @domain          = @host.domain
