@@ -65,6 +65,7 @@ jobs:
         run: |
           bundle exec rake db:create
           bundle exec rake db:migrate
+          bundle exec rake webpack:compile
       - name: Run plugin tests
         if: github.event_name != 'push'
         run: |
