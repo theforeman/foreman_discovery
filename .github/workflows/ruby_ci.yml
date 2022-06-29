@@ -1,12 +1,12 @@
 name: Ruby
 on:
   pull_request:
-    paths:
-      - "webpack/**"
-      - "package.json"
   push:
     branches:
       - master
+    paths:
+      - "webpack/**"
+      - "package.json"
 env:
   RAILS_ENV: test
   DATABASE_URL: postgresql://postgres:@localhost/test
