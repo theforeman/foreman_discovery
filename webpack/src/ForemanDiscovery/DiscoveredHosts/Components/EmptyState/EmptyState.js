@@ -12,7 +12,7 @@ const EmptyState = props => {
   };
   return (
     <ForemanEmptyState
-      header="Foreman Discovery"
+      header={__('Foreman Discovery')}
       description={description}
       icon="gears"
       iconType="fa"
