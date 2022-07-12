@@ -349,6 +349,8 @@ module ForemanDiscovery
           :label => N_('Discovery Proxy'),
           :description => N_('Discovery Proxy to use within this subnet for managing connection to discovered hosts'),
           :api_description => N_('ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts')
+
+        extend_user_homepages [{ title: _('Discovered Hosts'), path: '/discovered_hosts', permission: :view_discovered_hosts }]
       end
     end
 
