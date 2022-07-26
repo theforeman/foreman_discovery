@@ -22,6 +22,10 @@ ProvisioningTemplate.without_auditing do
     tmpl.template = content
     tmpl.organizations = organizations
     tmpl.locations = locations
+
+    metadata = Template.parse_metadata(content)
+    tmpl.description = metadata['description']
+
     tmpl.save!(:validate => false) if tmpl.changes.present?
   end
 end
