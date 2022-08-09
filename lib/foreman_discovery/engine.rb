@@ -337,8 +337,6 @@ module ForemanDiscovery
         # add dashboard widget
         widget 'discovery_widget', :name=>N_('Discovered Hosts'), :sizex => 6, :sizey =>1
 
-        template_labels 'kexec' => N_('Discovery Kexec template')
-
         # apipie API documentation
         # Only available in 1.8, otherwise it has to be in the initializer below
         apipie_documented_controllers ["#{ForemanDiscovery::Engine.root}/app/controllers/api/v2/*.rb"]

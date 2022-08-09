@@ -1,4 +1,5 @@
 require_relative '../test_plugin_helper'
+require 'test_helper'
 
 class ManagedExtensionsTest < ActiveSupport::TestCase
   class StubHost < ApplicationRecord
@@ -10,7 +11,7 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
     end
   end
 
-  let(:kexec_template) { FactoryBot.build(:provisioning_template, :template => File.read(File.expand_path(File.join("..", "..", "..", "app", "views", "foreman_discovery", "redhat_kexec.erb"), __FILE__))) }
+  let(:kexec_template) { FactoryBot.build(:provisioning_template, :template => File.read(File.expand_path(File.join("..", "..", "static_fixtures", "redhat_kexec.erb"), __FILE__))) }
 
   context "stubbed orchestration" do
     setup do
