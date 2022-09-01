@@ -63,8 +63,8 @@ module ForemanDiscovery
               type: :string,
               collection: Proc.new { Hash[[['', '']].concat Organization.all.map{|org| [org[:title], org[:title]]}] },
               default: "",
-              full_name: N_("Discovery location"),
-              description: N_("The default location to place discovered hosts in")
+              full_name: N_("Discovery organization"),
+              description: N_("The default organization to place discovered hosts in")
 
             setting "discovery_fact",
               type: :string,
