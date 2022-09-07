@@ -9,7 +9,7 @@ class Setting::Discovered
   end
 
   def self.discovery_lock?
-    Foreman::Cast.to_bool(Setting['discovery_lock'])
+    ActiveRecord::Type::Boolean.new.deserialize(Setting['discovery_lock'])
   end
 
   def self.from_array(setting)
