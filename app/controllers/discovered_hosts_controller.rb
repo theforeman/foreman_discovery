@@ -34,10 +34,15 @@ class DiscoveredHostsController < ::ApplicationController
       :model,
       :discovery_attribute_set
     ], {:interfaces => :subnet})
-    @host_facts = @hosts.collect do |host|
-      query = FactValue.where(host: host).joins(:fact_name).where('fact_names.name' => Setting::Discovered.discovery_fact_column_array)
-      [host.id, query.pluck(:name, :value).to_h]
-    end.to_h
+
+    # Create a mapping { host_id => { name => value } }
+    @host_facts = FactValue.where(host: @hosts)
+      .joins(:fact_name)
+      .where('fact_names.name' => Setting::Discovered.discovery_fact_column_array)
+      .pluck(:host_id, :name, :value)
+      .group_by { |host_id, name, value| host_id }
+      .transform_values { |facts| facts.map { |_, name, value| [name, value] }.to_h }
+      .to_h
   end
 
   def show
