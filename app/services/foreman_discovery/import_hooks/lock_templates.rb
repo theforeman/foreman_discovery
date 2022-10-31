@@ -3,7 +3,7 @@ module ForemanDiscovery
   module ImportHooks
     class LockTemplates < ImportHook
       def after_populate
-        lock_templates if Setting::Discovered.discovery_lock? && host.subnet.tftp?
+        lock_templates if Setting['discovery_lock'] && host.subnet.tftp?
       end
 
       def lock_templates

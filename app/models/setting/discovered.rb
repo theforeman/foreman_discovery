@@ -8,10 +8,6 @@ class Setting::Discovered
     from_array Setting['discovery_hostname']
   end
 
-  def self.discovery_lock?
-    Foreman::Cast.to_bool(Setting['discovery_lock'])
-  end
-
   def self.from_array(setting)
     return [] unless setting.present?
     setting.to_s.split(",").map(&:strip)
