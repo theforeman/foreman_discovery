@@ -28,7 +28,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   end
 
   def test_index_with_custom_column
-    Setting['discovery_fact_column'] = "bios_vendor"
+    Setting['discovery_fact_column'] = ["bios_vendor"]
     facts = @facts.merge({"bios_vendor" => "QEMU"})
     discover_host_from_facts(facts)
     get :index, params: {}, session: set_session_user_default_reader

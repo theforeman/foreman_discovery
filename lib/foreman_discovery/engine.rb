@@ -15,12 +15,6 @@ module ForemanDiscovery
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
 
-    # Load this before the Foreman config initializers, so that the Setting.descendants
-    # list includes the plugin STI setting class
-    initializer 'foreman_discovery.load_default_settings', :before => :load_config_initializers do |app|
-      require_dependency File.expand_path("../../../app/models/setting/discovered.rb", __FILE__) if (Setting.table_exists? rescue(false))
-    end
-
     initializer "foreman_discovery.add_rabl_view_path" do |app|
       Rabl.configure do |config|
         config.view_paths << ForemanDiscovery::Engine.root.join('app', 'views')
@@ -85,10 +79,10 @@ module ForemanDiscovery
               description: N_("Clean all reported facts during provisioning (except discovery facts)")
 
             setting "discovery_hostname",
-              type: :string,
-              default: "discovery_bootif",
+              type: :array,
+              default: ["discovery_bootif"],
               full_name: N_("Hostname facts"),
-              description: N_("List of facts to use for the hostname (separated by comma, first wins)")
+              description: N_("List of facts to use for the hostname (first wins)")
 
             validates "discovery_hostname", presence: true
 
@@ -113,10 +107,10 @@ module ForemanDiscovery
             validates "discovery_prefix", presence: true
 
             setting "discovery_fact_column",
-              type: :string,
-              default: "",
+              type: :array,
+              default: [],
               full_name: N_("Fact columns"),
-              description: N_("Extra facter columns to show in host lists (separate by comma)")
+              description: N_("Extra facter columns to show in host lists")
 
             setting "discovery_facts_highlights",
               type: :string,

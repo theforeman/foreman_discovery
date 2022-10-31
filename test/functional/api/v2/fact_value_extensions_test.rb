@@ -19,7 +19,7 @@ module Api
             "memorysize_mb"     => "42000.42",
             "discovery_version" => "3.0.0",
         }
-        Setting['discovery_hostname'] = 'discovery_bootif'
+        Setting['discovery_hostname'] = ['discovery_bootif']
       end
 
 

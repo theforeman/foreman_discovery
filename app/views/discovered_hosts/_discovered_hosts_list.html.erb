@@ -10,7 +10,7 @@
       <th class="hidden-tablet hidden-xs"><%= sort :memory, :as => _('Memory') %></th>
       <th class="hidden-tablet hidden-xs"><%= sort :disk_count, :as => _('Disk Count') %></th>
       <th class="hidden-tablet hidden-xs"><%= sort :disks_size, :as => _('Disks Size') %></th>
-      <% Setting::Discovered.discovery_fact_column_array.each do |fact_column| %>
+      <% Setting['discovery_fact_column'].each do |fact_column| %>
         <th class="hidden-tablet hidden-xs"><%= fact_column.capitalize %></th>
       <% end %>
       <th class="hidden-tablet hidden-xs"><%= sort :location, :as => _('Location') %></th>
