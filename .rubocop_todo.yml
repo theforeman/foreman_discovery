@@ -55,7 +55,6 @@ Layout/EmptyLineAfterGuardClause:
     - 'app/models/host/discovered.rb'
     - 'app/models/host/managed_extensions.rb'
     - 'app/models/nic/managed_extensions.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/import_hooks/lldp_neighbor.rb'
     - 'app/services/foreman_discovery/lldp_neighbors.rb'
     - 'app/services/foreman_discovery/node_api/node_resource.rb'
@@ -229,7 +228,6 @@ Layout/SpaceAroundOperators:
 Layout/SpaceBeforeBlockBraces:
   Exclude:
     - 'app/models/host/discovered.rb'
-    - 'app/models/setting/discovered.rb'
     - 'test/test_helper_discovery.rb'
 
 # Offense count: 3
@@ -255,7 +253,6 @@ Layout/SpaceInsideBlockBraces:
   Exclude:
     - 'app/controllers/discovered_hosts_controller.rb'
     - 'app/models/host/discovered.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/lldp_neighbors.rb'
     - 'test/functional/api/v2/discovery_rules_controller_test.rb'
     - 'test/test_helper_discovery.rb'
@@ -316,7 +313,6 @@ Lint/RescueException:
   Exclude:
     - 'app/controllers/api/v2/discovered_hosts_controller.rb'
     - 'app/controllers/concerns/foreman/controller/discovered_extensions.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/node_api/node_resource.rb'
 
 # Offense count: 7
@@ -450,13 +446,6 @@ Rails/AssertNot:
     - 'test/functional/api/v2/discovered_hosts_controller_test.rb'
     - 'test/functional/api/v2/discovery_rules_controller_test.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: NilOrEmpty, NotPresent, UnlessPresent.
-Rails/Blank:
-  Exclude:
-    - 'app/models/setting/discovered.rb'
-
 # Offense count: 34
 # Cop supports --auto-correct.
 # Configuration parameters: Whitelist.
@@ -464,7 +453,6 @@ Rails/Blank:
 Rails/DynamicFindBy:
   Exclude:
     - 'app/controllers/discovered_hosts_controller.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/import_hooks/lock_templates.rb'
     - 'app/services/foreman_discovery/import_hooks/subnet_and_taxonomy.rb'
     - 'test/functional/api/v2/settings_controller_test.rb'
@@ -546,7 +534,6 @@ Style/ClassAndModuleChildren:
     - 'app/models/host/discovered.rb'
     - 'app/models/host/managed_extensions.rb'
     - 'app/models/nic/managed_extensions.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/host_converter.rb'
     - 'app/services/foreman_discovery/node_api/inventory.rb'
     - 'app/services/foreman_discovery/node_api/node_resource.rb'
@@ -647,7 +634,6 @@ Style/MutableConstant:
 Style/NegatedIf:
   Exclude:
     - 'app/models/host/discovered.rb'
-    - 'app/models/setting/discovered.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -671,12 +657,6 @@ Style/PercentLiteralDelimiters:
     - 'app/controllers/api/v2/discovered_hosts_controller.rb'
     - 'app/controllers/api/v2/discovery_rules_controller.rb'
     - 'test/unit/lldp_neighbors_test.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-Style/Proc:
-  Exclude:
-    - 'app/models/setting/discovered.rb'
 
 # Offense count: 9
 # Cop supports --auto-correct.
@@ -728,7 +708,6 @@ Style/RedundantSelf:
     - 'app/models/host/discovered.rb'
     - 'app/models/host/managed_extensions.rb'
     - 'app/models/nic/managed_extensions.rb'
-    - 'app/models/setting/discovered.rb'
     - 'app/services/foreman_discovery/lldp_neighbors.rb'
 
 # Offense count: 4

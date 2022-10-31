@@ -181,7 +181,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should create discovered host with hostname if a fact was supplied" do
-    Setting[:discovery_hostname] = 'somefact'
+    Setting[:discovery_hostname] = ['somefact']
     facts = @facts.merge({"somefact" => "somename"})
     host = discover_host_from_facts(facts)
     assert_equal 'macsomename', host.name
@@ -219,7 +219,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should create discovered host with fact_name as a name if it is a valid mac" do
     Setting[:discovery_fact] = 'somefact'
-    Setting[:discovery_hostname] = 'somefact'
+    Setting[:discovery_hostname] = ['somefact']
     facts = @facts.merge({"somefact" => "E4:1F:13:CC:36:5A"})
     host = discover_host_from_facts(facts)
     assert_equal 'mace41f13cc365a', host.name
@@ -277,7 +277,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   end
 
   test "should raise when hostname fact cannot be found" do
-    Setting[:discovery_hostname] = 'macaddress_foo'
+    Setting[:discovery_hostname] = ['macaddress_foo']
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end

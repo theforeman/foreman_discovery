@@ -35,7 +35,7 @@ class DiscoveredHostsController < ::ApplicationController
       :discovery_attribute_set
     ], {:interfaces => :subnet})
     fact_array = @hosts.collect do |host|
-      [host.id, Hash[host.fact_values.joins(:fact_name).where('fact_names.name' => Setting::Discovered.discovery_fact_column_array).pluck(:name, :value)]]
+      [host.id, Hash[host.fact_values.joins(:fact_name).where('fact_names.name' => Setting['discovery_fact_column']).pluck(:name, :value)]]
     end
     @host_facts = Hash[fact_array]
   end

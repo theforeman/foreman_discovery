@@ -53,7 +53,7 @@ end
 
 def set_default_settings
   Setting['discovery_fact'] = 'discovery_bootif'
-  Setting['discovery_hostname'] = 'discovery_bootif'
+  Setting['discovery_hostname'] = ['discovery_bootif']
   Setting['discovery_auto'] = true
   Setting['discovery_reboot'] = true
   Setting['discovery_organization'] = "Organization 1"
