@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 21.0.0\n"
+"Project-Id-Version: foreman_discovery 22.0.2\n"
 "Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
 "PO-Revision-Date: 2015-12-27 01:18+0000\n"
 "Last-Translator: \n"
@@ -79,9 +79,6 @@ msgid "Clone %s"
 msgstr ""
 
 msgid "Collapse All"
-msgstr ""
-
-msgid "Command line options for kexec during PXE-less provisioning."
 msgstr ""
 
 msgid "Could not get facts from proxy %{url}: %{error}"
@@ -170,7 +167,7 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
-msgid "Discovery Kexec template"
+msgid "Discovery"
 msgstr ""
 
 msgid "Discovery Proxy"
@@ -297,6 +294,9 @@ msgid "Force DNS"
 msgstr ""
 
 msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"

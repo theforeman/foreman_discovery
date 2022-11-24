@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 21.0.0\n"
+"Project-Id-Version: foreman_discovery 22.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
+"0 == 0 ? 1 : 2;\n"
 
 msgid "%s - The following hosts are about to be changed"
 msgstr "%s - les hôtes suivants vont être changés"
@@ -89,7 +90,7 @@ msgid "Collapse All"
 msgstr "Réduire tout"
 
 msgid "Command line options for kexec during PXE-less provisioning."
-msgstr "Options de ligne de commande pour kexec lors du provisoning sans PXE."
+msgstr "Options de ligne de commande pour kexec lors du provisioning sans PXE."
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Impossible d'obtenir les facts du proxy %{url}: %{error}"
@@ -146,6 +147,7 @@ msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
 msgstr[0] "Hôtes détectés"
 msgstr[1] "Hôtes détectés"
+msgstr[2] "Hôtes détectés"
 
 msgid "Discovered Hosts"
 msgstr "Hôtes détectés"
@@ -277,7 +279,7 @@ msgid "Facts could not be imported"
 msgstr "Impossible d'importer les facts"
 
 msgid "Facts refreshed for %s"
-msgstr "Facts rafraichis pour %s"
+msgstr "Facts rafraîchis pour %s"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr "Échec de l'approvisionnement automatique de l'hôte %s: %s"
@@ -292,7 +294,7 @@ msgid "Failed to reboot hosts with error %s"
 msgstr "Échec du redémarrage des hôtes avec l'erreur %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "Échec de rafraichissement des facts pour %s"
+msgstr "Échec de rafraîchissement des facts pour %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %{error_message}"
@@ -337,11 +339,13 @@ msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
 msgstr[0] "L'emplacement du groupe d'hôtes %s doit également être associé à la règle de détection"
 msgstr[1] "L'emplacement du groupe d'hôtes %s doit également être associé à la règle de détection"
+msgstr[2] "L'emplacement du groupe d'hôtes %s doit également être associé à la règle de détection"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
 msgstr[0] "L'organisation du groupe d'hôtes %s doit également être associée à la règle de détection"
 msgstr[1] "L'organisation du groupe d'hôtes %s doit également être associée à la règle de détection"
+msgstr[2] "L'organisation du groupe d'hôtes %s doit également être associée à la règle de détection"
 
 msgid "Host of type %s can not be rebooted"
 msgstr "Impossible de redémarrer l'hôte de type %s"
@@ -494,7 +498,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Name of the parameter"
-msgstr "Nom du paramêtre"
+msgstr "Nom du paramètre"
 
 msgid "Network"
 msgstr "Réseau"
@@ -512,7 +516,7 @@ msgid "New in the last 24 hours"
 msgstr "Nouveau au cours des dernières 24 heures"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr ""
+msgstr "Aucune règle de découverte trouvée dans ce contexte. Créer des règles de découverte pour effectuer un provisionnement automatique sur les hôtes découverts."
 
 msgid "No discovered hosts available"
 msgstr "Aucun hôte détecté disponible"
@@ -521,7 +525,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "Aucun hôte détecté pendant la période sélectionnée"
 
 msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "Aucun hôte découvert dans ce contexte. Cette page montre les nœuds nus ou virtuels découverts qui attendent d'être approvisionnés."
 
 msgid "No discovered hosts to provision"
 msgstr "Aucun hôte détecté à provisionner"
@@ -572,10 +576,10 @@ msgid "Please Confirm"
 msgstr "Merci de confirmer"
 
 msgid "Prefer IPv6"
-msgstr ""
+msgstr "Préférer IPv6"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr ""
+msgstr "Préférer IPv6 à IPv4 lors de l'appel des nœuds découverts"
 
 msgid "Primary"
 msgstr "Primaire"
@@ -611,7 +615,7 @@ msgid "Rebuild DNS for %s"
 msgstr "Reconstruire DNS pour %s"
 
 msgid "Refresh facts"
-msgstr "Rafraichir les facts"
+msgstr "Rafraîchir les facts"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr "Actualisation des facts d'un hôte détecté"

@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 21.0.0\n"
+"Project-Id-Version: foreman_discovery 22.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -30,7 +30,7 @@ msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
 
 msgid "Action with sub plans"
-msgstr "有子計畫的動作"
+msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -39,7 +39,7 @@ msgid "Assign Location"
 msgstr "分配位置"
 
 msgid "Assign Organization"
-msgstr "分配机构"
+msgstr "指定机构"
 
 msgid "Associated Hosts"
 msgstr "关联主机"
@@ -399,7 +399,7 @@ msgid "Import Puppet classes"
 msgstr "导入 Puppet 类"
 
 msgid "Import facts"
-msgstr "匯入詳情"
+msgstr "导入事实"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "除了 @host 属性函数之外，还提供随机整数 rand。"
@@ -489,7 +489,7 @@ msgid "Name"
 msgstr "名称"
 
 msgid "Name of the parameter"
-msgstr "参数名"
+msgstr "参数名称"
 
 msgid "Network"
 msgstr "网络"
@@ -507,7 +507,7 @@ msgid "New in the last 24 hours"
 msgstr "在最近 24 小时之内新建"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr ""
+msgstr "在此上下文中没有发现规则。创建发现规则以在发现的主机上执行自动化调配"
 
 msgid "No discovered hosts available"
 msgstr "没有可用的发现主机"
@@ -516,7 +516,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "选定时间段内没有发现主机"
 
 msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "此上下文中未找到发现的主机。此页显示了等待置备的发现裸机或虚拟节点。"
 
 msgid "No discovered hosts to provision"
 msgstr "没有要置备的发现主机"
@@ -750,7 +750,7 @@ msgid "Update a rule"
 msgstr "更新规则"
 
 msgid "Upload facts for a host, creating the host if required"
-msgstr "上载主机的事实，并根据需要创建主机"
+msgstr "为主机上传 fact，需要时会创建主机"
 
 msgid "When creating hostname patterns, make sure the resulting host names are unique."
 msgstr "创建主机名模式时，确保生成的主机名是唯一的。"
@@ -816,10 +816,10 @@ msgid "required if host is managed and custom partition has not been defined"
 msgstr "如果已管理主机，且未定义自定义分区，则需填写。"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr "如果主机是受管的，值没有从主机组继承时需要"
+msgstr "如果主机是受管的，且值没有从主机组继承，则是必需的"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr "如果不是基于置备镜像，主机是受管的，值没有从主机组继承时需要"
+msgstr "如果不是基于置备镜像的，主机是受管的，且值没有从主机组继承，则是必需的"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "如果数值不是从主机组或设置中的默认密码继承，则需要。"

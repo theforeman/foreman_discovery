@@ -7,7 +7,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 21.0.0\n"
+"Project-Id-Version: foreman_discovery 22.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -153,7 +153,7 @@ msgid "Discovered Rules"
 msgstr "検出されたルール"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr "検出されたホスト '%{host}' ではすべての NIC がフィルタリングされています。フィルター: %{filter}"
+msgstr "検出ホスト '%{host}' では全 NIC がフィルタリングされています。フィルター: %{filter}"
 
 msgid "Discovered host reported from unknown subnet, communication will not be proxied."
 msgstr "不明なサブネットから報告された検出されたホスト。通信はプロキシー化されません。"
@@ -297,7 +297,7 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "%{error_message} エラーで %{hostname} のファクトの更新に失敗しました"
 
 msgid "For more information please see "
-msgstr "詳細は、以下を参照してください "
+msgstr "詳細は、以下を参照してください: "
 
 msgid "Force DNS"
 msgstr "DNS の強制的な実行"
@@ -327,7 +327,7 @@ msgid "Host %s has been dicovered"
 msgstr "ホスト %s が検出されました。"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "ホスト %{host} がルール %{rule} でプロビジョニングされました"
+msgstr "ホスト %{host} がルール %{rule} でプロビジョニングされています"
 
 msgid "Host Group"
 msgstr "ホストグループ"
@@ -509,7 +509,7 @@ msgid "New in the last 24 hours"
 msgstr "過去 24 時間以内の新規"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr ""
+msgstr "このコンテキストで検出された検出ルールはありません。検出されたホストで自動プロビジョニングを実行するための検出ルールを作成してください。"
 
 msgid "No discovered hosts available"
 msgstr "検出されたホストがありません"
@@ -518,7 +518,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "選択された期間に検出されたホストはありません"
 
 msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "このコンテキストで検出されたホストはありません。このページでは、プロビジョニングする予定の検出されたベアメタルまたは仮想ノードを表示しています。"
 
 msgid "No discovered hosts to provision"
 msgstr "プロビジョニングする検出されたホストがありません"
@@ -641,10 +641,10 @@ msgid "Reported in the last 7 days"
 msgstr "過去 7 日以内に報告あり"
 
 msgid "Rule disabled"
-msgstr "無効化されたルール"
+msgstr "ルールが無効にされました"
 
 msgid "Rule enabled"
-msgstr "有効化されたルール"
+msgstr "ルールが有効にされました"
 
 msgid "Rule priority (lower integer means higher priority)"
 msgstr "ルールの優先順位 (整数値が低いほど、優先順位が高い)"
@@ -740,10 +740,10 @@ msgid "Unable to perform %{action} on %{ips}"
 msgstr "%{ips} で %{action} を実行できません"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr "%{name} (%{url}) で kexec を実行できません: %{msg}"
+msgstr "%{name} の (%{url}) で kexec を実行できません: %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr "%{name} (%{url}) で再起動を実行できません: %{msg}"
+msgstr "%{name} の (%{url}) で再起動を実行できません: %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "%{host} をプロビジョニングできません: %{errors}"
@@ -770,7 +770,7 @@ msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "ルール別のプロビジョニングされたホストの最大数の制限を許可"
 
 msgid "filter results"
-msgstr "結果のフィルター"
+msgstr "結果のフィルタリング"
 
 msgid "flag is used for temporary shutdown of rules"
 msgstr "フラグはルールの一時的な停止に使用されます"
@@ -794,7 +794,7 @@ msgid "not required if it's a virtual machine"
 msgstr "仮想マシンの場合は不要です"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "DHCP プロキシーを使用するサブネットを使用する場合は不要です"
+msgstr "DHCP プロキシーでサブネットを使用する場合は不要"
 
 msgid "number of entries per request"
 msgstr "要求ごとのエントリー数"
@@ -815,7 +815,7 @@ msgid "represents rule name shown to the users"
 msgstr "ユーザーに表示されるルール名を表します"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr "ホストが管理されており、カスタムパーティションが定義されていない場合に必須です"
+msgstr "ホストが管理されており、カスタムパーティションが定義されていない場合に必須です。"
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です"

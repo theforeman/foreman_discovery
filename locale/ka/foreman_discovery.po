@@ -1,0 +1,834 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_discovery package.
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreman\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Georgian (http://www.transifex.com/foreman/foreman/language/ka/"
+")\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr "%s - ეს ჰოსტები შეიცვლება"
+
+msgid "%s discovered hosts were provisioned"
+msgstr "%s აღმოჩენილი ჰოსტი სამუშაოდ მომზადდა"
+
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr "<b>Foreman</b> აღმოჩენილი ჰოსტების მიმოხილვა"
+
+msgid "A summary of discovered hosts"
+msgstr "აღმოჩენილი ჰოსტების მიმოხილვა"
+
+msgid "Action with sub plans"
+msgstr "ქმედება ქვე-გეგმებით"
+
+msgid "Actions"
+msgstr "ქმედებები"
+
+msgid "Assign Location"
+msgstr "მდებარეობის მინიჭება"
+
+msgid "Assign Organization"
+msgstr "ორგანიზაციის მინიჭება"
+
+msgid "Associated Hosts"
+msgstr "შესაბამისი ჰოსტები"
+
+msgid "Auto Provision"
+msgstr "მუშაობისთვის ავტომატური მომზადება"
+
+msgid "Auto provisioning"
+msgstr "მუშაობისთვის ავტომატურად მომზადება"
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
+msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
+msgstr ""
+
+msgid "Automatically reboot or kexec discovered host during provisioning"
+msgstr ""
+
+msgid "Back"
+msgstr "უკან"
+
+msgid "CPUs"
+msgstr "CPU"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Clean all facts"
+msgstr "ყველა ფაქტის გასუფთავება"
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
+msgid "Clone"
+msgstr "კლონირება"
+
+msgid "Clone %s"
+msgstr "%s-ის კლონი"
+
+msgid "Collapse All"
+msgstr "ყველას ჩაკეცვა"
+
+msgid "Command line options for kexec during PXE-less provisioning."
+msgstr ""
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr "პროქსიდან ფაქტების მიღების შეცდომა %{url}: %{error}"
+
+msgid "Create Host"
+msgstr "ჰოსტის შექმნა"
+
+msgid "Create Rule"
+msgstr "წესის შექმნა"
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr "აღმოჩენილი ჰოსტის სატესტოდ შექმნა (ახალი ჰოსტების შესაქმნელად გამოიყენეთ /facts)"
+
+msgid "Create a discovery rule"
+msgstr "აღმოჩენის წესის ჩვენება"
+
+msgid "Create bond interfaces"
+msgstr "ინტერფეისების აგრეგაციის შექმნა"
+
+msgid "Customize Host"
+msgstr "ჰოსტის მორგება"
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
+msgstr "DHCP-ის ფაილის სახელის პარამეტრი (ნაგულისხმებია Grub2 ან PXELinux)"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Delete %s?"
+msgstr "წავშალო \"%s\"?"
+
+msgid "Delete a discovered host"
+msgstr "აღმოჩენილი ჰოსის წაშლა"
+
+msgid "Delete a rule"
+msgstr "წესის წაშლა"
+
+msgid "Delete rule '%s'?"
+msgstr "წავშალო წესი '%s'?"
+
+msgid "Destroyed selected hosts"
+msgstr "მონიშნული ჰოსტები განადგურებულია"
+
+msgid "Details"
+msgstr "დეტალები"
+
+msgid "Disable"
+msgstr "გამორთვა"
+
+msgid "Disable rule '%s'?"
+msgstr "გავთიშო წესი '%s'?"
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] "აღმოჩენილი ჰოსტი"
+msgstr[1] "აღმოჩენილი ჰოსტი"
+
+msgid "Discovered Hosts"
+msgstr "აღმოჩენილი ჰოსტები"
+
+msgid "Discovered Rules"
+msgstr "აღმოჩენილი წესები"
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr "აღმოჩენილი ჰოსტის '%{host}' ყველა ინტერფეისი გაიფილტრა. ფილტრი: %{filter}"
+
+msgid "Discovered host reported from unknown subnet, communication will not be proxied."
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr "აღმოჩენილი ჰოსტი:%s"
+
+msgid "Discovered hosts are provisioning now"
+msgstr "მიმდინარეობს აღმოჩენილი ჰოსტების სამუშაოდ მომზადება"
+
+msgid "Discovered hosts are rebooting now"
+msgstr "მიმდინარეობს აღმოჩენილი ჰოსტების გადატვირთვა"
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
+msgstr ""
+
+msgid "Discovered hosts summary"
+msgstr "აღმოჩენილი ჰოსტების მიმოხილვა"
+
+msgid "Discovery Kexec template"
+msgstr "Kexec-ის აღმოჩენის შაბლონი"
+
+msgid "Discovery Proxy"
+msgstr "აღმოჩენის პროქსი"
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
+msgid "Discovery Rules"
+msgstr "აღმოჩენის წესები"
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
+
+msgid "Discovery hostname naming pattern"
+msgstr "აღმოჩენილი ჰოსტების სახელების დარქმევის შაბლონი"
+
+msgid "Discovery location"
+msgstr "აღმოჩენის მდებარეობა"
+
+msgid "Discovery organization"
+msgstr "ორგანიზაციის აღმოჩენა"
+
+msgid "DiscoveryRule|Enabled"
+msgstr "აღმოჩენისწესი|ჩართული"
+
+msgid "DiscoveryRule|Name"
+msgstr "აღმოჩენისწესი|ახელი"
+
+msgid "DiscoveryRule|Priority"
+msgstr "აღმოჩენისწესი|პრიორიტეტი"
+
+msgid "DiscoveryRule|Query"
+msgstr "აღმოჩენისწესი|მოთხოვნა"
+
+msgid "Disk Count"
+msgstr "დისკების რაოდენობა"
+
+msgid "Disk count"
+msgstr "დისკების რაოდენობა"
+
+msgid "Disks Size"
+msgstr "დისკების ზომები"
+
+msgid "Disks size"
+msgstr "დისკების ზომები"
+
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
+
+msgid "Edit %s"
+msgstr "%s-ის ჩასწორება"
+
+msgid "Enable"
+msgstr "ჩართვა"
+
+msgid "Enable rule '%s'?"
+msgstr "ჩავრთო წესი '%s'?"
+
+msgid "Error message goes here"
+msgstr "აქ შეცდომები გამოჩნდება"
+
+msgid "Error on existing NIC"
+msgstr "შეცდომა არსებულ NIC-ზე"
+
+msgid "Errors during auto provisioning: %s"
+msgstr "შეცდომა სამუშაოდ ავტომატურად მომზადებისას: %s"
+
+msgid "Errors during reboot: %s"
+msgstr "შეცდომები გადატვირთვისას: %s"
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr "ამჟამად აღმოჩენილ ყველა ჰოსტზე წესების გადატარება"
+
+msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+msgid "Fact + prefix"
+msgstr "ფაქტი + პრეფიქსი"
+
+msgid "Fact columns"
+msgstr "ფაქტის სვეტები"
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
+msgstr "ფაქტების შემოტანა შეუძლებელია"
+
+msgid "Facts refreshed for %s"
+msgstr "%s-ის ფაქტები განახლებულია"
+
+msgid "Failed to auto provision host %s: %s"
+msgstr "ჰოსტის სამუშაოდ მომზადების შეცდომა %s: %s"
+
+msgid "Failed to reboot host %s"
+msgstr "ჰოსტის გადატვირთვის შეცდომა: %s"
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr "ჰოსტის %{hostname} გადატვირთვის შეცდომა: %{error_message}"
+
+msgid "Failed to reboot hosts with error %s"
+msgstr "შეცდომები ჰოსტის გადატვირთვისას: %s"
+
+msgid "Failed to refresh facts for %s"
+msgstr "%s-ის ფაქტების განახლების შეცდომა"
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "For more information please see "
+msgstr "მეტი ინფორმაციისთვის იხილეთ "
+
+msgid "Force DNS"
+msgstr "ნაძალადევი DNS"
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr "Foreman-ით აღმოჩენილი აღმოჩენილი ჰოსტების მიმოხილვა"
+
+msgid "Hardware"
+msgstr "აპარატურა"
+
+msgid "Hardware facts"
+msgstr "აპარატურის ფაქტები"
+
+msgid "Highlighted facts"
+msgstr "გამოკვეთილი ფაქტები"
+
+msgid "Highlights"
+msgstr "განათება"
+
+msgid "Host"
+msgstr "ჰოსტი"
+
+msgid "Host %s has been dicovered"
+msgstr "ჰოსტი აღმოჩენილია: %s"
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr "ჰოსტი %{host} სამუშაოდ მომზადდა წესებით %{rule}"
+
+msgid "Host Group"
+msgstr "ჰოსტების ჯგუფი"
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr "ჰოსტის ამ ტიპის (%s) გადატვირთვა შეუძლებელია"
+
+msgid "Host's owner type"
+msgstr "ჰოსტის მფლობელის ტიპი"
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr "ჰოსტის პარამეტრები (მასივი ან ინდექსირებული ჰეშ)"
+
+msgid "Hostname facts"
+msgstr "ჰოსტის სახელის ფაქტები"
+
+msgid "Hostname for provisioned hosts"
+msgstr "სამუშაოდ მომზადებული ჰოსტების სახელები"
+
+msgid "Hostname prefix"
+msgstr "ჰოსტის სახელის პრეფიქსი"
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "Hosts"
+msgstr "ჰოსტები"
+
+msgid "Hosts Limit"
+msgstr "ჰოსტების ლიმიტი"
+
+msgid "Hosts/Limit"
+msgstr "ჰოსტები/ლიმიტი"
+
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
+msgid "IP Address"
+msgstr "IP მისამართი"
+
+msgid "IP address"
+msgstr "IP მისამართი"
+
+msgid "IPAM must be configured for subnet '%s'"
+msgstr "ქვექსელისთვის '%s' საჭიროა IPAM-ის მორგება"
+
+msgid "IPMI"
+msgstr "IPMI"
+
+msgid "IPMI facts"
+msgstr "IPMI ფაქტები"
+
+msgid "Identifier"
+msgstr "იდენტიფიკატორი"
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr "ასლების API-ის დამუშავების შეცდომა: %{msg} (HTTP/%{code}, შემცველობით: %{body})"
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr "ასლების API-მა დააბრუნა HTTP/%{code} შემცველობით '%{body}"
+
+msgid "Import Puppet classes"
+msgstr "Puppet-ის კლასების შემოტანა"
+
+msgid "Import facts"
+msgstr "ფაქტების შემოტანა"
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr "საწყისი RAM kexec-ის URL არასწორია: \"%s\""
+
+msgid "Interface fact"
+msgstr "ინტერფეისის ფაქტი"
+
+msgid "Interfaces"
+msgstr "ინტერფეისები"
+
+msgid "Invalid facts, must be a Hash"
+msgstr "არასწორი ფაქტები. უნდა წარმოადგენდნენ ჰეშს"
+
+msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Invalid user type of %s was provided"
+msgstr "მომხმარებლის მითითებული ტიპი არასწორია: %s"
+
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr "ბირთვის kexec URL არასწორია: %s"
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Last Facts Upload"
+msgstr "ბოლოს ატვირთული ფაქტები"
+
+msgid "List all discovered hosts"
+msgstr "ყველა აღმოჩენილი ჰოსტის სია"
+
+msgid "List all discovery rules"
+msgstr "აღმოჩენის ყველა წესის სია"
+
+msgid "List all fact values of a given discovered host"
+msgstr "მითითებული აღმოჩენილი ჰოსტის ფაქტის ყველა მნიშვნელობის სია"
+
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
+
+msgid "Location"
+msgstr "მდებარეობა"
+
+msgid "Locations"
+msgstr "მდებარეობები"
+
+msgid "Lock PXE"
+msgstr "PXE-ის ჩაკეტვა"
+
+msgid "Locked PXEGrub template name"
+msgstr "PXEGrub-ის დაბლოკილი შაბლონის სახელი"
+
+msgid "Locked PXEGrub2 template name"
+msgstr "PXEGrub2-ის დაბლოკილი შაბლონის სახელი"
+
+msgid "Locked PXELinux template name"
+msgstr "PXELinux-ის დაბლოკილი შაბლონის სახელი"
+
+msgid "MAC address"
+msgstr "MAC მისამართი"
+
+msgid "MAC-based name"
+msgstr "MAC-ზე დაფუძნებული სახელი"
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr ""
+
+msgid "Memory"
+msgstr "მეხსიერება"
+
+msgid "Miscellaneous"
+msgstr "სხვადასხვა"
+
+msgid "Model"
+msgstr "მოდელი"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "Name of the parameter"
+msgstr "პარამეტრის სახელი"
+
+msgid "Network"
+msgstr "ქსელი"
+
+msgid "Network facts"
+msgstr "ქსელის ფაქტები"
+
+msgid "New Discovery Rule"
+msgstr "აღმოჩენის ახალი წესი"
+
+msgid "New hosts"
+msgstr "ახალი ჰოსტები"
+
+msgid "New in the last 24 hours"
+msgstr "ახახლი ბოლო 24 საათში"
+
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
+msgid "No discovered hosts available"
+msgstr "აღმოჩენილი ჰოსტები მიუწვდომელია"
+
+msgid "No discovered hosts for the selected period"
+msgstr "ამ პერიოდში ახალი ჰოსტები არ აღმოჩენილა"
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
+msgid "No discovered hosts to provision"
+msgstr "სამუშაოდ მოსამზადებელი ჰოსტები აღმოჩენილი არაა"
+
+msgid "No discovered hosts to reboot"
+msgstr "აღმოჩენილი ჰოსტებიდან გადასატვირთი არცერთი არაა"
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr "ჰოსტები მონიშნული არაა"
+
+msgid "No hosts were found with that id or name"
+msgstr "მითითებული ID-ით ან სახელით ჰოსტები ნაპოვნი არაა"
+
+msgid "No new discovered hosts for this period"
+msgstr "ამ პერიოდში ახალი ჰოსტები არ აღმოჩენილა"
+
+msgid "No rule found for host %s"
+msgstr "ჰოსტისთვის წესი ნაპოვნი არაა: %s"
+
+msgid "Not reported in more than 7 days"
+msgstr "ბოლო 7 დღეა, კავშირი არ ყოფილა"
+
+msgid "One or more hosts have been discovered"
+msgstr "აღმოჩენილია ერთი ან მეტი ჰოსტი"
+
+msgid "Organization"
+msgstr "ორგანიზაცია"
+
+msgid "Organizations"
+msgstr "ორგანიზაციები"
+
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr "PXEGrub-ის შაბლონი, რომლითაც აღმოჩენილი ჰოსტების მიჭიკარტება ხდება"
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr "PXEGrub2-ის შაბლონი, რომლითაც აღმოჩენილი ჰოსტების მიჭიკარტება ხდება"
+
+msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr "PXELinux-ის შაბლონი, რომლითაც აღმოჩენილი ჰოსტების მიჭიკარტება ხდება"
+
+msgid "Parameter value"
+msgstr "პარამეტრის მნიშვნელობა"
+
+msgid "Please Confirm"
+msgstr "დაადასტურეთ"
+
+msgid "Prefer IPv6"
+msgstr "IPv6-ის უპირატესობა"
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr "აღმოჩენილ კვანძებზე IPv6-სთვის მეტი პრიორიტეტის მიცემა"
+
+msgid "Primary"
+msgstr "ძირითადი"
+
+msgid "Provision"
+msgstr "მუშაობისთვის მომზადება"
+
+msgid "Provision %s"
+msgstr "მუშაობისთვის მომზადება: %s"
+
+msgid "Provision a discovered host"
+msgstr "აღმოჩენილი ჰოსტის სამუშაოდ მომზადება"
+
+msgid "Random name"
+msgstr "შემთხვევითი სახელი"
+
+msgid "Reboot"
+msgstr "გადატვირთვა"
+
+msgid "Rebooting %s"
+msgstr "%s-ის გადატვირთვა"
+
+msgid "Rebooting a discovered host"
+msgstr "აღმოჩენილი ჰოსტის გადატვირთვა"
+
+msgid "Rebooting all discovered hosts"
+msgstr "აღმოჩენილი ჰოსტების გადატვირთვა"
+
+msgid "Rebooting host %s"
+msgstr "%s-ის გადატვირთვა"
+
+msgid "Rebuild DNS for %s"
+msgstr "%s-ის DNS-ის თავიდან აგება"
+
+msgid "Refresh facts"
+msgstr "ფაქტების განახლება"
+
+msgid "Refreshing the facts of a discovered host"
+msgstr "აღმოჩენილი ჰოსტების ფაქტების განახლება"
+
+msgid "Regex to organize facts for hardware section"
+msgstr "რეგულარული გამოსახულება აპარატურის ფაქტების დასალაგებლად"
+
+msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr "რეგულარული გამოსახულება IPMI-ის ფაქტების დასალაგებლად"
+
+msgid "Regex to organize facts for network section"
+msgstr "რეგულარული გამოსახულება ქსელის ფაქტების დასალაგებლად"
+
+msgid "Regex to organize facts for software section"
+msgstr "რეგულარული გამოსახულება პროგრამების ფაქტების დასალაგებლად"
+
+msgid "Regex to organize facts for storage section"
+msgstr "რეგულარული გამოსახულება საცავის ფაქტების დასალაგებლად"
+
+msgid "Reloading kernel on %s"
+msgstr "ბირთვის გადატვირთვა %s-ზე"
+
+msgid "Remote action:"
+msgstr "დაშორებული ქმედება:"
+
+msgid "Reported in the last 7 days"
+msgstr "შემდგარი კავშირი ბოლო 7 დღის განმავლობაში"
+
+msgid "Rule disabled"
+msgstr "წესი გამორთულია"
+
+msgid "Rule enabled"
+msgstr "წესი ჩართულია"
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
+
+msgid "Select Action"
+msgstr "აირჩიეთ ქმედება"
+
+msgid "Select all items in this page"
+msgstr "ამ გვერდზე ყველა ჩანაწერის მონიშვნა"
+
+msgid "Select location"
+msgstr "აირჩიეთ მდებარეობა"
+
+msgid "Select organization"
+msgstr "აირჩიეთ ორგანიზაცია"
+
+msgid "Show a discovered host"
+msgstr "აღმოჩენილი ჰოსის ჩვენება"
+
+msgid "Show a discovery rule"
+msgstr "აღმოჩენის წესების ჩვენება"
+
+msgid "Software"
+msgstr "პროგრამები"
+
+msgid "Software facts"
+msgstr "პროგრამების ფაქტები"
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr "შეცდომა ჰოსტების მონიშვნისას - %s"
+
+msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
+msgstr ""
+
+msgid "Storage"
+msgstr "საცავი"
+
+msgid "Storage facts"
+msgstr "საცავის ფაქტები"
+
+msgid "Submit"
+msgstr "გაგზავნა"
+
+msgid "Subnet"
+msgstr "ქვექსელი"
+
+msgid "Successfully provisioned %s"
+msgstr "%s წარმატებით მომზადდა სამუშაოდ"
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr "ანგარიში %{time} -ის წინ %{now}-მდე"
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr "Foreman-ით აღმოჩენილი აღმოჩენილი ჰოსტების მიმოხილვა"
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr ""
+
+msgid "The default organization to place discovered hosts in"
+msgstr ""
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
+
+msgid "The following hosts were not deleted: %s"
+msgstr "ჰოსტები არ წაშლილა: %s"
+
+msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgstr ""
+
+msgid "Type"
+msgstr "ტიპი"
+
+msgid "Type of name generator"
+msgstr "სახელის გენერატორის ტიპი"
+
+msgid "Type of value"
+msgstr "მნიშვნელობის ტიპი"
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr "UUID ორკესტრის ამოცანების სტატუსის თვალყურის დევნებისთვის, GET /api/orchestration/:UUID/tasks"
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
+
+msgid "Unable to perform %{action} on %{ips}"
+msgstr "შესრულების შეცდომა %{action} %{ips}-ზე"
+
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr "გადატვირთვის შეცდომა %{name} (%{url}): %{msg}"
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr "სამუშაოდ მომზადების შეცდომა %{host}: %{errors}"
+
+msgid "Update a rule"
+msgstr "წესის განახლება"
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr "ჰოსტის ფაქტების ატვირთვას საჭიროების შემთხვევაში ჰოსტის შექმნაც შეუძლია"
+
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr "არ შეიძლება შეიცავდეს თეთრ გამოტოვებებს."
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "documentation"
+msgstr "დოკუმენტაცია"
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
+msgid "filter results"
+msgstr "ფილტრის შედეგები"
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr "ჩანაწერები მონიშნულია. გასასუფთავებლად მოხსენით მონიშვნა"
+
+msgid "location ID for provisioned hosts"
+msgstr "სამუშაოდ მომზადებული ჰოსტების მდებარეობის ID"
+
+msgid "must be present."
+msgstr "უნდა არსებობდეს."
+
+msgid "must start with a letter or ERB."
+msgstr "უნდა იწყებოდეს სიმბოლოთი ან ERB-ით."
+
+msgid "not required if it's a virtual machine"
+msgstr "საჭირო არაა, თუ ის ვირტუალური მანქანაა"
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr "dhcp პროქსის მქოლე ქვექსელის გამოყენებისას საჭირო არაა"
+
+msgid "number of entries per request"
+msgstr "ელემენტების რაოდენობა თითოეულ მოთხოვნაში"
+
+msgid "organization ID for provisioned hosts"
+msgstr "სამუშაოდ მომზადებული ჰოსტების ორგანიზაციის"
+
+msgid "paginate results"
+msgstr "გვერდების დანომრვის შედეგები"
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr "წარმოადგენს წესის სახელს, რომელსაც მომხმარებლები ხედავენ"
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr "საჭიროა, თუ ჰოსტი იმართება და მორგებული დანაყოფი არ არის განსაზღვრული"
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr "საჭიროა, თუ ჰოსტის მართულია და მნიშვნელობა მემკვიდრეობით არაა გადმოცემული ჰოსტების ჯგუფიდან"
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr "საჭიროა, თუ ჰოსტი ასლით არ მომზადებულა სამუშაოდ, მართულია და მნიშვნელობა მემკვიდრეობით არაა გადმოცემული ჰოსტების ჯგუფიდან"
+
+msgid "required if value is not inherited from host group or default password in settings"
+msgstr ""
+
+msgid "sort results"
+msgstr "შედეგების დალაგება"
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""

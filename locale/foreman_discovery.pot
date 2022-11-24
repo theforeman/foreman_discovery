@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-17 14:06+0100\n"
-"PO-Revision-Date: 2022-03-17 14:06+0100\n"
+"POT-Creation-Date: 2022-11-24 17:02+0100\n"
+"PO-Revision-Date: 2022-11-24 17:02+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -356,8 +356,8 @@ msgstr ""
 
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
-#: ../app/models/setting/discovered.rb:24
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:42
+#: ../lib/foreman_discovery/engine.rb:104
 msgid "Reboot"
 msgstr ""
 
@@ -415,8 +415,8 @@ msgstr ""
 #: ../app/helpers/discovery_rules_helper.rb:26
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:1
 #: ../app/views/discovered_hosts/welcome.html.erb:8
-#: ../lib/foreman_discovery/engine.rb:160
-#: ../lib/foreman_discovery/engine.rb:175
+#: ../lib/foreman_discovery/engine.rb:323
+#: ../lib/foreman_discovery/engine.rb:338
 msgid "Discovered Hosts"
 msgstr ""
 
@@ -554,202 +554,6 @@ msgstr ""
 
 #: ../app/models/nic/managed_extensions.rb:14
 msgid "Rebuild DNS for %s"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:17
-msgid "The default location to place discovered hosts in"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:17
-msgid "Discovery location"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:18
-msgid "The default organization to place discovered hosts in"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:18
-msgid "Discovery organization"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:19
-msgid "Fact name to use for primary interface detection"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:19
-msgid "Interface fact"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:20
-msgid ""
-"Automatic bond interface (if another interface is detected on the same VLAN vi"
-"a LLDP)"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:20
-msgid "Create bond interfaces"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:21
-msgid "Clean all reported facts during provisioning (except discovery facts)"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:21
-msgid "Clean all facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:22
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:22
-msgid "Hostname facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:23
-msgid ""
-"Automatically provision newly discovered hosts, according to the provisioning "
-"rules"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:23
-msgid "Auto provisioning"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:24
-msgid "Automatically reboot or kexec discovered host during provisioning"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:25
-msgid "The default prefix to use for the host name, must start with a letter"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:25
-msgid "Hostname prefix"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:26
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:26
-msgid "Fact columns"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:27
-msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:27
-msgid "Highlighted facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:28
-msgid "Regex to organize facts for storage section"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:28
-msgid "Storage facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:29
-msgid "Regex to organize facts for software section"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:29
-msgid "Software facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:30
-msgid "Regex to organize facts for hardware section"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:30
-msgid "Hardware facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:31
-msgid "Regex to organize facts for network section"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:31
-msgid "Network facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:32
-msgid "Regex to organize facts for ipmi section"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:32
-msgid "IPMI facts"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:33
-msgid ""
-"Automatically generate PXE configuration to pin a newly discovered host to dis"
-"covery"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:33
-msgid "Lock PXE"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:34
-msgid "PXELinux template to be used when pinning a host to discovery"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:34
-msgid "Locked PXELinux template name"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:35
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:35
-msgid "Locked PXEGrub template name"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:36
-msgid "PXEGrub2 template to be used when pinning a host to discovery"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:36
-msgid "Locked PXEGrub2 template name"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:37
-msgid "Force DNS entries creation when provisioning discovered host"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:37
-msgid "Force DNS"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:38
-msgid ""
-"Do not allow to discover existing managed host matching MAC of a provisioning "
-"NIC (errors out early)"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:38
-msgid "Error on existing NIC"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:39
-msgid "Discovery hostname naming pattern"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:39
-msgid "Type of name generator"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:40
-msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr ""
-
-#: ../app/models/setting/discovered.rb:40
-msgid "Prefer IPv6"
 msgstr ""
 
 #: ../app/services/foreman_discovery/fact_parser.rb:4
@@ -1077,7 +881,7 @@ msgid "Edit %s"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:1
-#: ../lib/foreman_discovery/engine.rb:165
+#: ../lib/foreman_discovery/engine.rb:328
 msgid "Discovery Rules"
 msgstr ""
 
@@ -1118,10 +922,6 @@ msgstr ""
 msgid "Discovered Rules"
 msgstr ""
 
-#: ../db/seeds.d/50_discovery_templates.rb:5
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
-
 #: ../db/seeds.d/70_discovery_mail_notification.rb:3
 msgid "A summary of discovered hosts"
 msgstr ""
@@ -1146,21 +946,217 @@ msgstr ""
 msgid "Error message goes here"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:177
-msgid "Discovery Kexec template"
+#: ../lib/foreman_discovery/engine.rb:50
+msgid "Discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:186
-msgid "Discovery Proxy"
+#: ../lib/foreman_discovery/engine.rb:59
+msgid "Discovery location"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:60
+msgid "The default location to place discovered hosts in"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:66
+msgid "Discovery organization"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:67
+msgid "The default organization to place discovered hosts in"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:72
+msgid "Interface fact"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:73
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:78
+msgid "Create bond interfaces"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:79
+msgid ""
+"Automatic bond interface (if another interface is detected on the same VLAN vi"
+"a LLDP)"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:84
+msgid "Clean all facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:85
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:90
+msgid "Hostname facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:91
+msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:98
+msgid "Auto provisioning"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:99
+msgid ""
+"Automatically provision newly discovered hosts, according to the provisioning "
+"rules"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:105
+msgid "Automatically reboot or kexec discovered host during provisioning"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:110
+msgid "Hostname prefix"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:111
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:118
+msgid "Fact columns"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:119
+msgid "Extra facter columns to show in host lists (separate by comma)"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:124
+msgid "Highlighted facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:125
+msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:130
+msgid "Storage facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:131
+msgid "Regex to organize facts for storage section"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:136
+msgid "Software facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:137
+msgid "Regex to organize facts for software section"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:142
+msgid "Hardware facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:143
+msgid "Regex to organize facts for hardware section"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:148
+msgid "Network facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:149
+msgid "Regex to organize facts for network section"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:154
+msgid "IPMI facts"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:155
+msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:160
+msgid "Lock PXE"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:161
+msgid ""
+"Automatically generate PXE configuration to pin a newly discovered host to dis"
+"covery"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:167
+msgid "Locked PXELinux template name"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:168
+msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:174
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:175
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:181
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:182
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
 #: ../lib/foreman_discovery/engine.rb:187
+msgid "Force DNS"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:188
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:193
+msgid "Error on existing NIC"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:194
+msgid ""
+"Do not allow to discover existing managed host matching MAC of a provisioning "
+"NIC (errors out early)"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:200
+msgid "Type of name generator"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:201
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:206
+msgid "Prefer IPv6"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:207
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:347
+msgid "Discovery Proxy"
+msgstr ""
+
+#: ../lib/foreman_discovery/engine.rb:348
 msgid ""
 "Discovery Proxy to use within this subnet for managing connection to discovere"
 "d hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:188
+#: ../lib/foreman_discovery/engine.rb:349
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
@@ -1181,6 +1177,11 @@ msgstr ""
 msgid ""
 "No discovered hosts found in this context. This page shows discovered bare-met"
 "al or virtual nodes waiting to be provisioned."
+msgstr ""
+
+#:
+#: ../webpack/src/ForemanDiscovery/DiscoveredHosts/Components/EmptyState/EmptyState.js:15
+msgid "Foreman Discovery"
 msgstr ""
 
 #:
