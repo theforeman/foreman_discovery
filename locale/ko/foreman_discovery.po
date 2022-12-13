@@ -85,9 +85,6 @@ msgstr "%s 복제 "
 msgid "Collapse All"
 msgstr "모두 축소"
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "프록시 %{url}에서 팩트를 가져올 수 없습니다: %{error}"
 
@@ -174,7 +171,7 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
-msgid "Discovery Kexec template"
+msgid "Discovery"
 msgstr ""
 
 msgid "Discovery Proxy"
@@ -301,6 +298,9 @@ msgid "Force DNS"
 msgstr ""
 
 msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"

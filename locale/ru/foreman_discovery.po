@@ -93,9 +93,6 @@ msgstr "Клонировать %s"
 msgid "Collapse All"
 msgstr "Свернуть все"
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "Не удалось получить факты с %{url}: %{error}"
 
@@ -182,7 +179,7 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr "Сводка обнаруженных узлов"
 
-msgid "Discovery Kexec template"
+msgid "Discovery"
 msgstr ""
 
 msgid "Discovery Proxy"
@@ -309,6 +306,9 @@ msgid "Force DNS"
 msgstr ""
 
 msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"

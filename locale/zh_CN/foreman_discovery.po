@@ -86,9 +86,6 @@ msgstr "克隆 %s"
 msgid "Collapse All"
 msgstr "全部折叠"
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr "在 PXE-less 置备过程中 kexec 的命令行选项。"
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "无法从代理 %{url} 获得详情：%{error}"
 
@@ -174,8 +171,8 @@ msgstr "从未知子网报告发现的主机为 %s，通信数据将不会被代
 msgid "Discovered hosts summary"
 msgstr "发现主机摘要"
 
-msgid "Discovery Kexec template"
-msgstr "发现 Kexec 模板"
+msgid "Discovery"
+msgstr "发现"
 
 msgid "Discovery Proxy"
 msgstr "发现代理服务器"
@@ -302,6 +299,9 @@ msgstr "强制 DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "置备发现主机时强制 DNS 条目创建"
+
+msgid "Foreman Discovery"
+msgstr ""
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman 发现主机概述"

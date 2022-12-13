@@ -93,9 +93,6 @@ msgstr "Clon %s"
 msgid "Collapse All"
 msgstr "Contraer todo"
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr "Opciones de la línea de comandos para kexec durante el aprovisionamiento sin PXE."
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No se pudieron obtener datos del proxy %{url}: %{error}"
 
@@ -183,8 +180,8 @@ msgstr "Los hosts descubiertos reportados desde una subred desconocida son %s, l
 msgid "Discovered hosts summary"
 msgstr "Resumen de hosts detectados"
 
-msgid "Discovery Kexec template"
-msgstr "Plantilla Kexec de detección"
+msgid "Discovery"
+msgstr "Descubrimiento"
 
 msgid "Discovery Proxy"
 msgstr "Proxy de detección"
@@ -311,6 +308,9 @@ msgstr "Forzar DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "Forzar la creación de entradas DNS al aprovisionar host detectado"
+
+msgid "Foreman Discovery"
+msgstr ""
 
 msgid "Foreman discovered hosts summary"
 msgstr "Resumen de hosts detectados de Foreman"

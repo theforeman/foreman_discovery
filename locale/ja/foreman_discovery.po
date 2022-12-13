@@ -88,9 +88,6 @@ msgstr "%s のクローン作成"
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr "PXE なしのプロビジョニング時に使用可能な kexec のコマンドラインオプション"
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "プロキシー %{url} からファクトを取得できませんでした: %{error}"
 
@@ -176,8 +173,8 @@ msgstr "不明なサブネットから報告された検出されたホストは
 msgid "Discovered hosts summary"
 msgstr "検出されたホストの概要"
 
-msgid "Discovery Kexec template"
-msgstr "検出 Kexec テンプレート"
+msgid "Discovery"
+msgstr "検出"
 
 msgid "Discovery Proxy"
 msgstr "検出プロキシー"
@@ -304,6 +301,9 @@ msgstr "DNS の強制的な実行"
 
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "検出されたホストのプロビジョニング時の DNS エントリーの作成を強制的に実行"
+
+msgid "Foreman Discovery"
+msgstr ""
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman の検出されたホストの概要"
