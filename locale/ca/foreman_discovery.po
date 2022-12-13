@@ -88,9 +88,6 @@ msgstr "Clona %s"
 msgid "Collapse All"
 msgstr ""
 
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
-
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "No s'han pogut obtenir els objectes d'interès del servidor intermediari %{url}: %{error}"
 
@@ -177,7 +174,7 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr ""
 
-msgid "Discovery Kexec template"
+msgid "Discovery"
 msgstr ""
 
 msgid "Discovery Proxy"
@@ -304,6 +301,9 @@ msgid "Force DNS"
 msgstr ""
 
 msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"

@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_discovery 22.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -85,9 +85,6 @@ msgstr "%s-ის კლონი"
 
 msgid "Collapse All"
 msgstr "ყველას ჩაკეცვა"
-
-msgid "Command line options for kexec during PXE-less provisioning."
-msgstr ""
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr "პროქსიდან ფაქტების მიღების შეცდომა %{url}: %{error}"
@@ -175,8 +172,8 @@ msgstr ""
 msgid "Discovered hosts summary"
 msgstr "აღმოჩენილი ჰოსტების მიმოხილვა"
 
-msgid "Discovery Kexec template"
-msgstr "Kexec-ის აღმოჩენის შაბლონი"
+msgid "Discovery"
+msgstr "აღმოჩენა"
 
 msgid "Discovery Proxy"
 msgstr "აღმოჩენის პროქსი"
@@ -302,6 +299,9 @@ msgid "Force DNS"
 msgstr "ნაძალადევი DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
 msgstr ""
 
 msgid "Foreman discovered hosts summary"
