@@ -25,65 +25,51 @@ class MigrateDiscoveryHostnameAndFactColumnToArrayTest < ActiveSupport::TestCase
     end
   end
 
+  def setup_setting(name, value)
+    setting = Setting.find_or_create_by(name: name)
+    setting.value = value
+    setting.save(validate: false)
+  end
+
   def test_discovery_hostname_string
-    Setting['discovery_hostname'] = 'discovery_bootif'
-
+    setup_setting('discovery_hostname', 'discovery_bootif')
     migrate_up
-
     assert_equal ['discovery_bootif'], Setting['discovery_hostname']
   end
 
   def test_discovery_hostname_multistring
-    setting = Setting.find_or_create_by(name: 'discovery_hostname')
-    setting.value = 'discovery_bootif, fqdn'
-    setting.save(validate: false)
-
+    setup_setting('discovery_hostname', 'discovery_bootif, fqdn')
     migrate_up
-
     assert_equal ['discovery_bootif', 'fqdn'], Setting['discovery_hostname']
   end
 
   def test_discovery_hostname_array
     Setting['discovery_hostname'] = ['discovery_bootif']
-
     migrate_up
-
     assert_equal ['discovery_bootif'], Setting['discovery_hostname']
   end
 
   def test_discovery_fact_column_empty
-    setting = Setting.find_or_create_by(name: 'discovery_fact_column')
-    setting.value = ''
-    setting.save(validate: false)
-
+    setup_setting('discovery_fact_column', '')
     migrate_up
-
     assert_equal [], Setting['discovery_fact_column']
   end
 
   def test_discovery_fact_column_string
-    Setting['discovery_fact_column'] = 'bios_vendor'
-
+    setup_setting('discovery_fact_column', 'bios_vendor')
     migrate_up
-
     assert_equal ['bios_vendor'], Setting['discovery_fact_column']
   end
 
   def test_discovery_fact_column_multistring
-    setting = Setting.find_or_create_by(name: 'discovery_fact_column')
-    setting.value = 'bios_vendor, fqdn'
-    setting.save(validate: false)
-
+    setup_setting('discovery_fact_column', 'bios_vendor, fqdn')
     migrate_up
-
     assert_equal ['bios_vendor', 'fqdn'], Setting['discovery_fact_column']
   end
 
   def test_discovery_fact_column_array
     Setting['discovery_fact_column'] = ['bios_vendor']
-
     migrate_up
-
     assert_equal ['bios_vendor'], Setting['discovery_fact_column']
   end
 end
