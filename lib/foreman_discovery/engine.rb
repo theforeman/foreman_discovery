@@ -21,13 +21,6 @@ module ForemanDiscovery
       end
     end
 
-    initializer 'foreman_discovery.register_gettext', :after => :load_config_initializers do |app|
-      locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
-      locale_domain = 'foreman_discovery'
-
-      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
-    end
-
     # Add any db migrations
     initializer "foreman_discovery.load_app_instance_data" do |app|
       ForemanDiscovery::Engine.paths['db/migrate'].existent.each do |path|
@@ -37,7 +30,8 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 3.3'
+        requires_foreman '>= 3.7'
+        register_gettext
 
         # settings
         settings do
