@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
@@ -260,8 +260,8 @@ msgstr "Exécuter les règles sur tous les hôtes actuellement détectés"
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "discovery_fact '%s' attendu manquant. Impossible de détecter l'interface principale et de définir le nom d'hôte"
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "Colonnes facter supplémentaires pour un affichage sous forme de listes d'hôtes (séparés par une virgule)"
+msgid "Extra facter columns to show in host lists"
+msgstr ""
 
 msgid "Fact + prefix"
 msgstr "Fact + préfixe"
@@ -452,8 +452,8 @@ msgstr "Répertorier toutes les règles de détection"
 msgid "List all fact values of a given discovered host"
 msgstr "Afficher toutes les valeurs des facts d'un hôte détecté donné"
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr "Liste des facts à utiliser pour le nom d'hôte (séparés par une virgule, le premier l'emporte)"
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
 
 msgid "Location"
 msgstr "Emplacement"
@@ -553,6 +553,18 @@ msgstr "Non signalé dans plus de 7 jours"
 
 msgid "One or more hosts have been discovered"
 msgstr "Un ou plusieurs hôtes ont été détectés"
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organisation"

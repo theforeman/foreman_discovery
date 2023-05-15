@@ -7,7 +7,7 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: caifti <caifti@gmail.com>, 2014\n"
@@ -259,7 +259,7 @@ msgstr "Esegui le regole nei confronti degli host attualemente rilevati"
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr ""
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
+msgid "Extra facter columns to show in host lists"
 msgstr ""
 
 msgid "Fact + prefix"
@@ -449,7 +449,7 @@ msgstr "Elenca tutte le regole per la scoperta"
 msgid "List all fact values of a given discovered host"
 msgstr ""
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
+msgid "List of facts to use for the hostname (first wins)"
 msgstr ""
 
 msgid "Location"
@@ -549,6 +549,18 @@ msgid "Not reported in more than 7 days"
 msgstr ""
 
 msgid "One or more hosts have been discovered"
+msgstr ""
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
 msgstr ""
 
 msgid "Organization"

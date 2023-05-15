@@ -15,7 +15,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Patrick Dolinic, 2021\n"
@@ -265,8 +265,8 @@ msgstr "Regeln auf allen kürzlich entdeckten Hosts anwenden"
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "Erwartetes discovery_fact '%s' fehlt, primäre Schnittstelle kann nicht gefunden und Hostname nicht eingestellt werden"
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "Zusätzliche Facter-Spalten zum Anzeigen in Hostlisten (mit Komma getrennt)"
+msgid "Extra facter columns to show in host lists"
+msgstr ""
 
 msgid "Fact + prefix"
 msgstr "Fakt + Prefix"
@@ -455,8 +455,8 @@ msgstr "Alle Entdeckungsregeln auflisten"
 msgid "List all fact values of a given discovered host"
 msgstr "Alle Faktwerte eines angegebenen entdeckten Hosts auflisten"
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr "Liste der Fakten zur Bildung des Hostnamens (durch Kommas getrennt, der erste Eintrag gewinnt)"
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
 
 msgid "Location"
 msgstr "Standort"
@@ -556,6 +556,18 @@ msgstr "Nicht berichtet in mehr als 7 Tagen"
 
 msgid "One or more hosts have been discovered"
 msgstr "Einer oder mehrere Hosts wurden entdeckt"
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organisation"

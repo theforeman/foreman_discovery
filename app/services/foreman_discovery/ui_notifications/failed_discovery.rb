@@ -21,7 +21,7 @@ module ForemanDiscovery
         Notification.create!(
           initiator: initiator,
           audience: ::Notification::AUDIENCE_ADMIN,
-          message: _("One or more hosts with failed discovery due to error: #{@message}"),
+          message: _("One or more hosts with failed discovery due to error: %s") % @message,
           notification_blueprint: blueprint,
         )
       end

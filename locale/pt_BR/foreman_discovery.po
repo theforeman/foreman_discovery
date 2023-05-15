@@ -13,7 +13,7 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Valeria S Silva <valeriassilva@live.com>, 2015\n"
@@ -266,8 +266,8 @@ msgstr "Executar regras em relação a todos os hosts descobertos atualmente"
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "'%s' discovery_fact  esperado está ausente, não é possível detectar a interface primária e definir o nome do host"
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "Colunas extras do Facter para exibir nas listas de hosts (separadas por vírgulas)"
+msgid "Extra facter columns to show in host lists"
+msgstr ""
 
 msgid "Fact + prefix"
 msgstr "Fato + prefixo"
@@ -458,8 +458,8 @@ msgstr "Listar todas as regras do Discovery"
 msgid "List all fact values of a given discovered host"
 msgstr "Lista todos os valores de fatos de um host descoberto específico"
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr "Lista dos fatos a serem usados para o nome do host (separada por vírgulas, primeiro ganha)"
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
 
 msgid "Location"
 msgstr "Local"
@@ -559,6 +559,18 @@ msgstr "Não relatado em mais de sete dias"
 
 msgid "One or more hosts have been discovered"
 msgstr "Um ou mais hosts foram descobertos"
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
 
 msgid "Organization"
 msgstr "Organização"

@@ -17,7 +17,7 @@ const EmptyState = props => {
   };
   return (
     <ForemanEmptyState
-      header="Discovery Rules"
+      header={__('Discovery Rules')}
       description={description}
       icon="gavel"
       iconType="fa"

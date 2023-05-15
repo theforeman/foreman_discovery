@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-24 17:02+0100\n"
-"PO-Revision-Date: 2022-11-24 17:02+0100\n"
+"POT-Creation-Date: 2023-06-05 16:26+0200\n"
+"PO-Revision-Date: 2023-06-05 16:26+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -357,7 +357,7 @@ msgstr ""
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:42
-#: ../lib/foreman_discovery/engine.rb:104
+#: ../lib/foreman_discovery/engine.rb:92
 msgid "Reboot"
 msgstr ""
 
@@ -415,8 +415,8 @@ msgstr ""
 #: ../app/helpers/discovery_rules_helper.rb:26
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:1
 #: ../app/views/discovered_hosts/welcome.html.erb:8
-#: ../lib/foreman_discovery/engine.rb:323
-#: ../lib/foreman_discovery/engine.rb:338
+#: ../lib/foreman_discovery/engine.rb:311
+#: ../lib/foreman_discovery/engine.rb:326
 msgid "Discovered Hosts"
 msgstr ""
 
@@ -602,12 +602,30 @@ msgstr ""
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
+#: ../app/services/foreman_discovery/node_api/node_resource.rb:4
+msgid "Options must be hash"
+msgstr ""
+
+#: ../app/services/foreman_discovery/node_api/node_resource.rb:5
+msgid "Option 'url' must be provided"
+msgstr ""
+
+#: ../app/services/foreman_discovery/node_api/node_resource.rb:41
+#: ../app/services/foreman_discovery/node_api/node_resource.rb:47
+#: ../app/services/foreman_discovery/node_api/node_resource.rb:53
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
 #: ../app/services/foreman_discovery/node_api/node_resource.rb:76
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
 #: ../app/services/foreman_discovery/node_api/node_resource.rb:79
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+#: ../app/services/foreman_discovery/ui_notifications/failed_discovery.rb:24
+msgid "One or more hosts with failed discovery due to error: %s"
 msgstr ""
 
 #: ../app/services/foreman_discovery/ui_notifications/new_host.rb:22
@@ -881,7 +899,8 @@ msgid "Edit %s"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:1
-#: ../lib/foreman_discovery/engine.rb:328
+#: ../lib/foreman_discovery/engine.rb:316
+#: ../webpack/src/ForemanDiscovery/DiscoveryRules/Components/EmptyState/EmptyState.js:20
 msgid "Discovery Rules"
 msgstr ""
 
@@ -946,217 +965,217 @@ msgstr ""
 msgid "Error message goes here"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:50
+#: ../lib/foreman_discovery/engine.rb:38
 msgid "Discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:59
+#: ../lib/foreman_discovery/engine.rb:47
 msgid "Discovery location"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:60
+#: ../lib/foreman_discovery/engine.rb:48
 msgid "The default location to place discovered hosts in"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:66
+#: ../lib/foreman_discovery/engine.rb:54
 msgid "Discovery organization"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:67
+#: ../lib/foreman_discovery/engine.rb:55
 msgid "The default organization to place discovered hosts in"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:72
+#: ../lib/foreman_discovery/engine.rb:60
 msgid "Interface fact"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:73
+#: ../lib/foreman_discovery/engine.rb:61
 msgid "Fact name to use for primary interface detection"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:78
+#: ../lib/foreman_discovery/engine.rb:66
 msgid "Create bond interfaces"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:79
+#: ../lib/foreman_discovery/engine.rb:67
 msgid ""
 "Automatic bond interface (if another interface is detected on the same VLAN vi"
 "a LLDP)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:84
+#: ../lib/foreman_discovery/engine.rb:72
 msgid "Clean all facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:85
+#: ../lib/foreman_discovery/engine.rb:73
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:90
+#: ../lib/foreman_discovery/engine.rb:78
 msgid "Hostname facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:91
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
+#: ../lib/foreman_discovery/engine.rb:79
+msgid "List of facts to use for the hostname (first wins)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:98
+#: ../lib/foreman_discovery/engine.rb:86
 msgid "Auto provisioning"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:99
+#: ../lib/foreman_discovery/engine.rb:87
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
 "rules"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:105
+#: ../lib/foreman_discovery/engine.rb:93
 msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:110
+#: ../lib/foreman_discovery/engine.rb:98
 msgid "Hostname prefix"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:111
+#: ../lib/foreman_discovery/engine.rb:99
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:118
+#: ../lib/foreman_discovery/engine.rb:106
 msgid "Fact columns"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:119
-msgid "Extra facter columns to show in host lists (separate by comma)"
+#: ../lib/foreman_discovery/engine.rb:107
+msgid "Extra facter columns to show in host lists"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:124
+#: ../lib/foreman_discovery/engine.rb:112
 msgid "Highlighted facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:125
+#: ../lib/foreman_discovery/engine.rb:113
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:130
+#: ../lib/foreman_discovery/engine.rb:118
 msgid "Storage facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:131
+#: ../lib/foreman_discovery/engine.rb:119
 msgid "Regex to organize facts for storage section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:136
+#: ../lib/foreman_discovery/engine.rb:124
 msgid "Software facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:137
+#: ../lib/foreman_discovery/engine.rb:125
 msgid "Regex to organize facts for software section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:142
+#: ../lib/foreman_discovery/engine.rb:130
 msgid "Hardware facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:143
+#: ../lib/foreman_discovery/engine.rb:131
 msgid "Regex to organize facts for hardware section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:148
+#: ../lib/foreman_discovery/engine.rb:136
 msgid "Network facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:149
+#: ../lib/foreman_discovery/engine.rb:137
 msgid "Regex to organize facts for network section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:154
+#: ../lib/foreman_discovery/engine.rb:142
 msgid "IPMI facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:155
+#: ../lib/foreman_discovery/engine.rb:143
 msgid "Regex to organize facts for ipmi section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:160
+#: ../lib/foreman_discovery/engine.rb:148
 msgid "Lock PXE"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:161
+#: ../lib/foreman_discovery/engine.rb:149
 msgid ""
 "Automatically generate PXE configuration to pin a newly discovered host to dis"
 "covery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:167
+#: ../lib/foreman_discovery/engine.rb:155
 msgid "Locked PXELinux template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:168
+#: ../lib/foreman_discovery/engine.rb:156
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:174
+#: ../lib/foreman_discovery/engine.rb:162
 msgid "Locked PXEGrub template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:175
+#: ../lib/foreman_discovery/engine.rb:163
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:181
+#: ../lib/foreman_discovery/engine.rb:169
 msgid "Locked PXEGrub2 template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:182
+#: ../lib/foreman_discovery/engine.rb:170
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:187
+#: ../lib/foreman_discovery/engine.rb:175
 msgid "Force DNS"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:188
+#: ../lib/foreman_discovery/engine.rb:176
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:193
+#: ../lib/foreman_discovery/engine.rb:181
 msgid "Error on existing NIC"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:194
+#: ../lib/foreman_discovery/engine.rb:182
 msgid ""
 "Do not allow to discover existing managed host matching MAC of a provisioning "
 "NIC (errors out early)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:200
+#: ../lib/foreman_discovery/engine.rb:188
 msgid "Type of name generator"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:201
+#: ../lib/foreman_discovery/engine.rb:189
 msgid "Discovery hostname naming pattern"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:206
+#: ../lib/foreman_discovery/engine.rb:194
 msgid "Prefer IPv6"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:207
+#: ../lib/foreman_discovery/engine.rb:195
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:347
+#: ../lib/foreman_discovery/engine.rb:335
 msgid "Discovery Proxy"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:348
+#: ../lib/foreman_discovery/engine.rb:336
 msgid ""
 "Discovery Proxy to use within this subnet for managing connection to discovere"
 "d hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:349
+#: ../lib/foreman_discovery/engine.rb:337
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
