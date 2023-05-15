@@ -3,7 +3,6 @@ $:.push File.expand_path("lib", __dir__)
 # Maintain your gem's version:
 require "foreman_discovery/version"
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name = "foreman_discovery"
   s.version = ForemanDiscovery::VERSION

@@ -7,7 +7,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -257,8 +257,8 @@ msgstr "現在検出されているすべてのホストに対するルールの
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "必要な discovery_fact '%s' がありません。プライマリーインターフェースの検出やホスト名の設定ができません"
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "ホスト一覧に表示される追加の facter 列 (コンマ区切り)"
+msgid "Extra facter columns to show in host lists"
+msgstr ""
 
 msgid "Fact + prefix"
 msgstr "ファクト + プレフィックス"
@@ -445,8 +445,8 @@ msgstr "すべての検出ルールを一覧表示"
 msgid "List all fact values of a given discovered host"
 msgstr "指定の検出されたホストのすべての値を一覧表示"
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr "ホスト名に使用するファクトの一覧 (コンマ区切り、first wins)"
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
 
 msgid "Location"
 msgstr "ロケーション"
@@ -546,6 +546,18 @@ msgstr "8 日以上報告なし"
 
 msgid "One or more hosts have been discovered"
 msgstr "1 つ以上のホストが検出されました"
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
 
 msgid "Organization"
 msgstr "組織"

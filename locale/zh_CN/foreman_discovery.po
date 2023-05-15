@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 22.0.2\n"
+"Project-Id-Version: foreman_discovery v22.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -255,8 +255,8 @@ msgstr "对当前所有发现主机执行规则"
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 msgstr "缺少期望的 discovery_fact '%s'，无法检测主接口和设置主机名称"
 
-msgid "Extra facter columns to show in host lists (separate by comma)"
-msgstr "在主机列表中显示的额外 facter 列（用逗号隔开）"
+msgid "Extra facter columns to show in host lists"
+msgstr ""
 
 msgid "Fact + prefix"
 msgstr "Fact + 前缀"
@@ -443,8 +443,8 @@ msgstr "列出所有发现规则"
 msgid "List all fact values of a given discovered host"
 msgstr "列出给定发现主机的所有系统信息值"
 
-msgid "List of facts to use for the hostname (separated by comma, first wins)"
-msgstr "用于主机名的详情列表（用逗号隔开，第一个有最高优先级）"
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
 
 msgid "Location"
 msgstr "位置"
@@ -544,6 +544,18 @@ msgstr "没有超过 7 天的报告"
 
 msgid "One or more hosts have been discovered"
 msgstr "已发现一个或多个主机"
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
 
 msgid "Organization"
 msgstr "机构"

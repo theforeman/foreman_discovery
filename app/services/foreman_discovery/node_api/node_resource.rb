@@ -1,8 +1,8 @@
 module ForemanDiscovery::NodeAPI
   class NodeResource
     def initialize(args)
-      raise ArgumentError, "Options must be hash" unless args.is_a?(Hash)
-      raise ArgumentError, "Option 'url' must be provided" unless args[:url]
+      raise ArgumentError, _("Options must be hash") unless args.is_a?(Hash)
+      raise ArgumentError, _("Option 'url' must be provided") unless args[:url]
       @args = args
       @connect_params = {
         :headers => { :accept => :json },
@@ -38,19 +38,19 @@ module ForemanDiscovery::NodeAPI
     def scheme
       URI.parse(url).scheme
     rescue Exception => e
-      raise ArgumentError, "Option 'url' must be valid URI: #{e}"
+      raise ArgumentError, _("Option 'url' must be valid URI: %s") % e
     end
 
     def port
       URI.parse(url).port
     rescue Exception => e
-      raise ArgumentError, "Option 'url' must be valid URI: #{e}"
+      raise ArgumentError, _("Option 'url' must be valid URI: %s") % e
     end
 
     def root_path
       URI.parse(url).path
     rescue Exception => e
-      raise ArgumentError, "Option 'url' must be valid URI: #{e}"
+      raise ArgumentError, _("Option 'url' must be valid URI: %s") % e
     end
 
     def is_proxy?

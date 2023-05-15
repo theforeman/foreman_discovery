@@ -1,0 +1,846 @@
+# Czech translations for foreman_discovery package.
+# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_discovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-05-15 15:01+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+"\n"
+
+msgid "%s - The following hosts are about to be changed"
+msgstr ""
+
+msgid "%s discovered hosts were provisioned"
+msgstr ""
+
+msgid "<b>Foreman</b> Discovered hosts summary"
+msgstr ""
+
+msgid "A summary of discovered hosts"
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Assign Location"
+msgstr ""
+
+msgid "Assign Organization"
+msgstr ""
+
+msgid "Associated Hosts"
+msgstr ""
+
+msgid "Auto Provision"
+msgstr ""
+
+msgid "Auto provisioning"
+msgstr ""
+
+msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
+msgstr ""
+
+msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
+msgstr ""
+
+msgid "Automatically provision newly discovered hosts, according to the provisioning rules"
+msgstr ""
+
+msgid "Automatically reboot or kexec discovered host during provisioning"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "CPUs"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Clean all facts"
+msgstr ""
+
+msgid "Clean all reported facts during provisioning (except discovery facts)"
+msgstr ""
+
+msgid "Clone"
+msgstr ""
+
+msgid "Clone %s"
+msgstr ""
+
+msgid "Collapse All"
+msgstr ""
+
+msgid "Could not get facts from proxy %{url}: %{error}"
+msgstr ""
+
+msgid "Create Host"
+msgstr ""
+
+msgid "Create Rule"
+msgstr ""
+
+msgid "Create a discovered host for testing (use /facts to create new hosts)"
+msgstr ""
+
+msgid "Create a discovery rule"
+msgstr ""
+
+msgid "Create bond interfaces"
+msgstr ""
+
+msgid "Customize Host"
+msgstr ""
+
+msgid "DHCP filename option (Grub2 or PXELinux by default)"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete %s?"
+msgstr ""
+
+msgid "Delete a discovered host"
+msgstr ""
+
+msgid "Delete a rule"
+msgstr ""
+
+msgid "Delete rule '%s'?"
+msgstr ""
+
+msgid "Destroyed selected hosts"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable rule '%s'?"
+msgstr ""
+
+msgid "Discovered Host"
+msgid_plural "Discovered Hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Discovered Hosts"
+msgstr ""
+
+msgid "Discovered Rules"
+msgstr ""
+
+msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
+msgstr ""
+
+msgid "Discovered host reported from unknown subnet, communication will not be proxied."
+msgstr ""
+
+msgid "Discovered host: %s"
+msgstr ""
+
+msgid "Discovered hosts are provisioning now"
+msgstr ""
+
+msgid "Discovered hosts are rebooting now"
+msgstr ""
+
+msgid "Discovered hosts from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
+msgstr ""
+
+msgid "Discovered hosts summary"
+msgstr ""
+
+msgid "Discovery"
+msgstr ""
+
+msgid "Discovery Proxy"
+msgstr ""
+
+msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
+msgid "Discovery Rules"
+msgstr ""
+
+msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
+msgstr ""
+
+msgid "Discovery hostname naming pattern"
+msgstr ""
+
+msgid "Discovery location"
+msgstr ""
+
+msgid "Discovery organization"
+msgstr ""
+
+msgid "DiscoveryRule|Enabled"
+msgstr ""
+
+msgid "DiscoveryRule|Name"
+msgstr ""
+
+msgid "DiscoveryRule|Priority"
+msgstr ""
+
+msgid "DiscoveryRule|Query"
+msgstr ""
+
+msgid "Disk Count"
+msgstr ""
+
+msgid "Disk count"
+msgstr ""
+
+msgid "Disks Size"
+msgstr ""
+
+msgid "Disks size"
+msgstr ""
+
+msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
+msgstr ""
+
+msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
+msgstr ""
+
+msgid "Edit %s"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable rule '%s'?"
+msgstr ""
+
+msgid "Error message goes here"
+msgstr ""
+
+msgid "Error on existing NIC"
+msgstr ""
+
+msgid "Errors during auto provisioning: %s"
+msgstr ""
+
+msgid "Errors during reboot: %s"
+msgstr ""
+
+msgid "Execute rules against a discovered host"
+msgstr ""
+
+msgid "Execute rules against all currently discovered hosts"
+msgstr ""
+
+msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
+msgstr ""
+
+msgid "Extra facter columns to show in host lists"
+msgstr ""
+
+msgid "Fact + prefix"
+msgstr ""
+
+msgid "Fact columns"
+msgstr ""
+
+msgid "Fact name to use for primary interface detection"
+msgstr ""
+
+msgid "Facts could not be imported"
+msgstr ""
+
+msgid "Facts refreshed for %s"
+msgstr ""
+
+msgid "Failed to auto provision host %s: %s"
+msgstr ""
+
+msgid "Failed to reboot host %s"
+msgstr ""
+
+msgid "Failed to reboot host %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "Failed to reboot hosts with error %s"
+msgstr ""
+
+msgid "Failed to refresh facts for %s"
+msgstr ""
+
+msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
+msgstr ""
+
+msgid "For more information please see "
+msgstr ""
+
+msgid "Force DNS"
+msgstr ""
+
+msgid "Force DNS entries creation when provisioning discovered host"
+msgstr ""
+
+msgid "Foreman Discovery"
+msgstr ""
+
+msgid "Foreman discovered hosts summary"
+msgstr ""
+
+msgid "Hardware"
+msgstr ""
+
+msgid "Hardware facts"
+msgstr ""
+
+msgid "Highlighted facts"
+msgstr ""
+
+msgid "Highlights"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Host %s has been dicovered"
+msgstr ""
+
+msgid "Host %{host} was provisioned with rule %{rule}"
+msgstr ""
+
+msgid "Host Group"
+msgstr ""
+
+msgid "Host group location %s must also be associated to the discovery rule"
+msgid_plural "Host group locations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host group organization %s must also be associated to the discovery rule"
+msgid_plural "Host group organizations %s must also be associated to the discovery rule"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Host of type %s can not be rebooted"
+msgstr ""
+
+msgid "Host's owner type"
+msgstr ""
+
+msgid "Host's parameters (array or indexed hash)"
+msgstr ""
+
+msgid "Hostname facts"
+msgstr ""
+
+msgid "Hostname for provisioned hosts"
+msgstr ""
+
+msgid "Hostname prefix"
+msgstr ""
+
+msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
+msgstr ""
+
+msgid "Hosts"
+msgstr ""
+
+msgid "Hosts Limit"
+msgstr ""
+
+msgid "Hosts/Limit"
+msgstr ""
+
+msgid "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts"
+msgstr ""
+
+msgid "IP Address"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+msgid "IPAM must be configured for subnet '%s'"
+msgstr ""
+
+msgid "IPMI"
+msgstr ""
+
+msgid "IPMI facts"
+msgstr ""
+
+msgid "Identifier"
+msgstr ""
+
+msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
+msgstr ""
+
+msgid "Image API returned HTTP/%{code} with '%{body}"
+msgstr ""
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
+msgid "In addition to @host attribute function rand for random integers is available. Examples:"
+msgstr ""
+
+msgid "Init RAM kexec URL is invalid: '%s'"
+msgstr ""
+
+msgid "Interface fact"
+msgstr ""
+
+msgid "Interfaces"
+msgstr ""
+
+msgid "Invalid facts, must be a Hash"
+msgstr ""
+
+msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
+msgstr ""
+
+msgid "Invalid hostname: Could not normalize the hostname"
+msgstr ""
+
+msgid "Invalid user type of %s was provided"
+msgstr ""
+
+msgid "Kernel kexec URL is invalid: '%s'"
+msgstr ""
+
+msgid "Kexec template not associated with operating system"
+msgstr ""
+
+msgid "Last Facts Upload"
+msgstr ""
+
+msgid "List all discovered hosts"
+msgstr ""
+
+msgid "List all discovery rules"
+msgstr ""
+
+msgid "List all fact values of a given discovered host"
+msgstr ""
+
+msgid "List of facts to use for the hostname (first wins)"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Lock PXE"
+msgstr ""
+
+msgid "Locked PXEGrub template name"
+msgstr ""
+
+msgid "Locked PXEGrub2 template name"
+msgstr ""
+
+msgid "Locked PXELinux template name"
+msgstr ""
+
+msgid "MAC address"
+msgstr ""
+
+msgid "MAC-based name"
+msgstr ""
+
+msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Name of the parameter"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Network facts"
+msgstr ""
+
+msgid "New Discovery Rule"
+msgstr ""
+
+msgid "New hosts"
+msgstr ""
+
+msgid "New in the last 24 hours"
+msgstr ""
+
+msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
+msgstr ""
+
+msgid "No discovered hosts available"
+msgstr ""
+
+msgid "No discovered hosts for the selected period"
+msgstr ""
+
+msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
+msgstr ""
+
+msgid "No discovered hosts to provision"
+msgstr ""
+
+msgid "No discovered hosts to reboot"
+msgstr ""
+
+msgid "No hostgroup associated with rule '%s'"
+msgstr ""
+
+msgid "No hosts selected"
+msgstr ""
+
+msgid "No hosts were found with that id or name"
+msgstr ""
+
+msgid "No new discovered hosts for this period"
+msgstr ""
+
+msgid "No rule found for host %s"
+msgstr ""
+
+msgid "Not reported in more than 7 days"
+msgstr ""
+
+msgid "One or more hosts have been discovered"
+msgstr ""
+
+msgid "One or more hosts with failed discovery due to error: %s"
+msgstr ""
+
+msgid "Option 'url' must be provided"
+msgstr ""
+
+msgid "Option 'url' must be valid URI: %s"
+msgstr ""
+
+msgid "Options must be hash"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
+
+msgid "PXEGrub template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXEGrub2 template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "PXELinux template to be used when pinning a host to discovery"
+msgstr ""
+
+msgid "Parameter value"
+msgstr ""
+
+msgid "Please Confirm"
+msgstr ""
+
+msgid "Prefer IPv6"
+msgstr ""
+
+msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Provision"
+msgstr ""
+
+msgid "Provision %s"
+msgstr ""
+
+msgid "Provision a discovered host"
+msgstr ""
+
+msgid "Random name"
+msgstr ""
+
+msgid "Reboot"
+msgstr ""
+
+msgid "Rebooting %s"
+msgstr ""
+
+msgid "Rebooting a discovered host"
+msgstr ""
+
+msgid "Rebooting all discovered hosts"
+msgstr ""
+
+msgid "Rebooting host %s"
+msgstr ""
+
+msgid "Rebuild DNS for %s"
+msgstr ""
+
+msgid "Refresh facts"
+msgstr ""
+
+msgid "Refreshing the facts of a discovered host"
+msgstr ""
+
+msgid "Regex to organize facts for hardware section"
+msgstr ""
+
+msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
+msgstr ""
+
+msgid "Regex to organize facts for ipmi section"
+msgstr ""
+
+msgid "Regex to organize facts for network section"
+msgstr ""
+
+msgid "Regex to organize facts for software section"
+msgstr ""
+
+msgid "Regex to organize facts for storage section"
+msgstr ""
+
+msgid "Reloading kernel on %s"
+msgstr ""
+
+msgid "Remote action:"
+msgstr ""
+
+msgid "Reported in the last 7 days"
+msgstr ""
+
+msgid "Rule disabled"
+msgstr ""
+
+msgid "Rule enabled"
+msgstr ""
+
+msgid "Rule priority (lower integer means higher priority)"
+msgstr ""
+
+msgid "Select Action"
+msgstr ""
+
+msgid "Select all items in this page"
+msgstr ""
+
+msgid "Select location"
+msgstr ""
+
+msgid "Select organization"
+msgstr ""
+
+msgid "Show a discovered host"
+msgstr ""
+
+msgid "Show a discovery rule"
+msgstr ""
+
+msgid "Software"
+msgstr ""
+
+msgid "Software facts"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr ""
+
+msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
+msgstr ""
+
+msgid "Storage"
+msgstr ""
+
+msgid "Storage facts"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Subnet"
+msgstr ""
+
+msgid "Successfully provisioned %s"
+msgstr ""
+
+msgid "Summary from %{time} ago to %{now}"
+msgstr ""
+
+msgid "Summary report for discovered hosts from Foreman"
+msgstr ""
+
+msgid "Target host group for this rule with all properties set"
+msgstr ""
+
+msgid "The default location to place discovered hosts in"
+msgstr ""
+
+msgid "The default organization to place discovered hosts in"
+msgstr ""
+
+msgid "The default prefix to use for the host name, must start with a letter"
+msgstr ""
+
+msgid "The following hosts were not deleted: %s"
+msgstr ""
+
+msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Type of name generator"
+msgstr ""
+
+msgid "Type of value"
+msgstr ""
+
+msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
+msgstr ""
+
+msgid "Unable to find a discovery rule, no host provided (check permissions)"
+msgstr ""
+
+msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
+msgstr ""
+
+msgid "Unable to perform %{action} on %{ips}"
+msgstr ""
+
+msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
+msgstr ""
+
+msgid "Unable to provision %{host}: %{errors}"
+msgstr ""
+
+msgid "Update a rule"
+msgstr ""
+
+msgid "Upload facts for a host, creating the host if required"
+msgstr ""
+
+msgid "When creating hostname patterns, make sure the resulting host names are unique."
+msgstr ""
+
+msgid "can't contain white spaces."
+msgstr ""
+
+msgid "defines a pattern to assign human-readable hostnames to the matching hosts"
+msgstr ""
+
+msgid "documentation"
+msgstr ""
+
+msgid "enables to limit maximum amount of provisioned hosts per rule"
+msgstr ""
+
+msgid "filter results"
+msgstr ""
+
+msgid "flag is used for temporary shutdown of rules"
+msgstr ""
+
+msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr ""
+
+msgid "location ID for provisioned hosts"
+msgstr ""
+
+msgid "must be present."
+msgstr ""
+
+msgid "must start with a letter or ERB."
+msgstr ""
+
+msgid "not required if it's a virtual machine"
+msgstr ""
+
+msgid "not required if using a subnet with DHCP proxy"
+msgstr ""
+
+msgid "number of entries per request"
+msgstr ""
+
+msgid "organization ID for provisioned hosts"
+msgstr ""
+
+msgid "paginate results"
+msgstr ""
+
+msgid "puts the rules in order, low numbers go first. Must be greater then zero"
+msgstr ""
+
+msgid "query to match discovered hosts for the particular rule"
+msgstr ""
+
+msgid "represents rule name shown to the users"
+msgstr ""
+
+msgid "required if host is managed and custom partition has not been defined"
+msgstr ""
+
+msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if value is not inherited from host group or default password in settings"
+msgstr ""
+
+msgid "sort results"
+msgstr ""
+
+msgid "the hostgroup that is used to auto provision a host"
+msgstr ""
