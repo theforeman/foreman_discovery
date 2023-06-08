@@ -16,8 +16,8 @@ class LldpNeighborsTest < ActiveSupport::TestCase
   end
 
   test "#list_by_pvid gives an empty Hash without LLDP facts" do
-    assert_equal({}, simple_facts.list_by_pvid)
-    assert_equal({}, ForemanDiscovery::LldpNeighbors.from_facts({}).list_by_pvid)
+    assert_empty(simple_facts.list_by_pvid)
+    assert_empty(ForemanDiscovery::LldpNeighbors.from_facts({}).list_by_pvid)
   end
 
   test "#list_by_pvid gives an empty Hash without LLDP facts" do

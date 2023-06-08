@@ -1,4 +1,4 @@
-class DiscoveredHostsController < ::ApplicationController
+class DiscoveredHostsController < ApplicationController
   include Foreman::Controller::Parameters::DiscoveredHost
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::TaxonomyMultiple
@@ -35,9 +35,9 @@ class DiscoveredHostsController < ::ApplicationController
       :discovery_attribute_set
     ], {:interfaces => :subnet})
     fact_array = @hosts.collect do |host|
-      [host.id, Hash[host.fact_values.joins(:fact_name).where('fact_names.name' => Setting['discovery_fact_column']).pluck(:name, :value)]]
+      [host.id, host.fact_values.joins(:fact_name).where('fact_names.name' => Setting['discovery_fact_column']).pluck(:name, :value).to_h]
     end
-    @host_facts = Hash[fact_array]
+    @host_facts = fact_array.to_h
   end
 
   def show
@@ -49,11 +49,6 @@ class DiscoveredHostsController < ::ApplicationController
     @categories_names = ForemanDiscovery::FactToCategoryResolver::CATEGORIES_NAMES
     @categories = resolver.categories
     @interfaces = resolver.interfaces
-  end
-
-  def destroy
-    @host.destroy
-    redirect_to :action => 'index'
   end
 
   def edit
@@ -76,6 +71,11 @@ class DiscoveredHostsController < ::ApplicationController
 
     @override_taxonomy = true
     perform_update(@host)
+  end
+
+  def destroy
+    @host.destroy
+    redirect_to :action => 'index'
   end
 
   def perform_update(host, success_message = nil)
@@ -207,7 +207,7 @@ class DiscoveredHostsController < ::ApplicationController
       @architecture    = @host.hostgroup.architecture
       @operatingsystem = @host.hostgroup.operatingsystem
       if defined?(ForemanPuppet)
-        @environment     = @host.hostgroup.environment
+        @environment = @host.hostgroup.environment
         @host.environment = @environment
       end
       @domain          = @host.hostgroup.domain
@@ -226,7 +226,7 @@ class DiscoveredHostsController < ::ApplicationController
   def load_vars_for_ajax
     return unless @host
     if defined?(ForemanPuppet)
-      @environment     = @host.environment
+      @environment = @host.environment
     end
     @architecture    = @host.architecture
     @domain          = @host.domain

@@ -4,7 +4,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
 
-  alias_method  :blueprint, :failed_discovery_blueprint
+  alias_method :blueprint, :failed_discovery_blueprint
 
   def switch_controller(klass)
     old_controller = @controller
@@ -34,6 +34,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_get_index
     get :index, params: { }
+
     assert_response :success
   end
 
@@ -42,8 +43,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     FactoryBot.create(:location, :name => 'SomeLoc')
     host = discover_host_from_facts(@facts)
     get :show, params: { :id => host.id }
+
     assert_response :success
     show_response = ActiveSupport::JSON.decode(@response.body)
+
     assert_equal "macaabbccddeeff", show_response["name"]
     assert_equal 42001, show_response["memory"]
     assert_equal 0, show_response["disk_count"]
@@ -55,6 +58,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_delete_discovered_host
     host = discover_host_from_facts(@facts)
     delete :destroy, params: { :id => host.id }
+
     assert_response :success
   end
 
@@ -88,7 +92,8 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
       assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
       assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
     end
-    assert actual.build?
+
+    assert_predicate actual, :build?
   end
 
   def test_provision_host_without_build_flag
@@ -103,10 +108,12 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
           build: false
         }
       }
+
     assert_response :success
     actual = Host.unscoped.find(host.id)
+
     assert_equal hostgroup.id, actual.hostgroup_id
-    refute actual.build?
+    refute_predicate actual, :build?
   end
 
   def test_auto_provision_success_via_upload
@@ -119,9 +126,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
 
     assert_response :success
     actual = JSON.parse(response.body)
+
     assert_not_nil id = actual['id']
     assert !Host::Discovered.unscoped.where(id: id).exists?, 'discovered host still exists!'
-    assert Host.unscoped.where(id: id).exists?, 'host was not auto provisioned!'
+    assert_predicate Host.unscoped.where(id: id), :exists?, 'host was not auto provisioned!'
     assert_not_nil actual['created_at']
     assert_equal "Auto-discovered and provisioned via rule 'rule'", Host.unscoped.find(id).comment
   end
@@ -133,8 +141,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     rule = FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, params: { :id => host.id }
+
     assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
+
     assert managed_host.build
     assert_response :success
   end
@@ -147,8 +157,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     rule = FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, params: { :id => host.id }
+
     assert_match(/Host #{host.name} was provisioned with rule #{rule.name}/, @response.body)
     managed_host = Host.unscoped.find(host.id)
+
     assert managed_host.build
     assert_response :success
   end
@@ -161,6 +173,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, params: { :id => host.id }
     show_response = ActiveSupport::JSON.decode(@response.body)
+
     assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
   end
 
@@ -171,10 +184,12 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision, params: { :id => host.id }
+
     assert_response :success
     # test deletion of a managed host
     switch_controller(::Api::V2::HostsController) do
       delete :destroy, params: { :id => host.id }
+
       assert_match host.name, @response.body
       assert_response :success
     end
@@ -185,8 +200,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     post :auto_provision, params: { :id => host.id }
+
     assert_response :not_found
     show_response = ActiveSupport::JSON.decode(@response.body)
+
     assert_equal "No rule found for host #{host.name}", show_response["error"]["message"]
   end
 
@@ -197,8 +214,10 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     taxonomy = { :organizations => [host.organization], :locations => [host.location] }
     FactoryBot.create(:discovery_rule, {:priority => 1, :search => "facts.somefact = abc", :hostgroup => FactoryBot.create(:hostgroup, :with_os, :with_rootpass, taxonomy)}.merge(taxonomy))
     post :auto_provision_all, params: {}
+
     assert_match(/1 discovered hosts were provisioned/, @response.body)
     managed_host = Host.unscoped.find(host.id)
+
     assert managed_host.build
     assert_response :success
   end
@@ -208,6 +227,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     discover_host_from_facts(facts)
     post :auto_provision_all, params: {}
+
     assert_match(/0 discovered hosts were provisioned/, @response.body)
     assert_response :success
   end
@@ -215,6 +235,7 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
   def test_failed_discovery_notification
     bad_facts = { this_is: 'bad' }
     post :facts, params: { facts: bad_facts }
+
     assert_equal 1, Notification.all.count
   end
 end

@@ -24,6 +24,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
 
   def test_index
     get :index, params: {}, session: set_session_user_default_reader
+
     assert_response :success
   end
 
@@ -32,6 +33,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"bios_vendor" => "QEMU"})
     discover_host_from_facts(facts)
     get :index, params: {}, session: set_session_user_default_reader
+
     assert_select "td", /QEMU/
     assert_response :success
   end
@@ -40,8 +42,9 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     [:multiple_destroy, :select_multiple_organization, :select_multiple_location].each do |action|
       process action, method: :post, params: {:host_ids => [host.id]}, session: set_session_user, xhr: true
+
       assert_response :success
-      assert response.body =~ /#{host.name}/
+      assert_match(/#{host.name}/, response.body)
     end
   end
 
@@ -70,12 +73,14 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
   def test_edit_form_attributes
     host = discover_host_from_facts(@facts)
     get :edit, params: {:id => host.id}, session: set_session_user_default_reader
+
     assert_not_nil host.cpu_count
   end
 
   def test_edit_form_build_mode_enabled
     host = discover_host_from_facts(@facts)
     get :edit, params: {:id => host.id}, session: set_session_user_default_manager
+
     assert_response :success
     assert_select 'input[type=checkbox][checked=checked]#host_build'
   end
@@ -100,6 +105,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       } }, session: set_session_user_default_manager
 
     managed_host = Host.find(host.id)
+
     assert managed_host.build
     assert_redirected_to host_url(managed_host)
     assert_equal hostgroup.id, managed_host.hostgroup_id
@@ -161,17 +167,18 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal hostgroup.medium_id, actual.medium_id
     assert_equal hostgroup.ptable_id, actual.ptable_id
     assert_equal hostgroup.domain_id, actual.domain_id
-    if defined?(ForemanPuppet)
-      assert_equal hostgroup.environment_id, actual.environment_id
-      assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
-      assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
-    end
+    skip unless defined?(ForemanPuppet)
+
+    assert_equal hostgroup.environment_id, actual.environment_id
+    assert_equal hostgroup.puppet_proxy_id, actual.puppet_proxy_id
+    assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
   end
 
   def test_add_entry_to_nav_menu
     get :index, params: {}, session: set_session_user
+
     assert_response :success
-    assert response.body.include?('Discovered Hosts')
+    assert_includes response.body, 'Discovered Hosts'
   end
 
   def test_reboot_success
@@ -179,6 +186,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
+
     assert_redirected_to discovered_hosts_url
     assert_nil flash[:error]
     assert_equal "Rebooting host #{host.name}", flash[:success]
@@ -189,6 +197,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
+
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF42-4036/, flash[:error])
   end
@@ -198,6 +207,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :reboot, params: { :id => host.id }, session: set_session_user_default_manager
+
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF42-4036/, flash[:error])
   end
@@ -209,10 +219,12 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     hostgroup = setup_hostgroup(host)
     FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :hostgroup => hostgroup, :organizations => [host.organization], :locations => [host.location])
     post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
+
     assert_response :redirect
     assert_nil flash[:error]
     assert_match(/^Host macaabbccddeeff.* was provisioned/, flash[:success])
     managed_host = Host.find(host.id)
+
     assert managed_host.build
   end
 
@@ -221,6 +233,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
     post :auto_provision, params: { :id => host.id }, session: set_session_user(User.current)
+
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "No rule found for host macaabbccddeeff", flash[:success]
@@ -239,6 +252,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :organizations => [host.organization], :locations => [host.location]
     )
     post :submit_multiple_auto_provision, params: {:host_ids => host.id}, session: set_session_user(User.current)
+
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:success]
@@ -257,6 +271,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
       :organizations => [host.organization], :locations => [host.location]
     )
     post :submit_multiple_auto_provision, params: {:host_ids => host.id}, session: set_session_user(User.current)
+
     assert_response :redirect
     assert_nil flash[:error]
     assert_equal "Discovered hosts are provisioning now", flash[:success]
@@ -267,6 +282,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(true)
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
+
     assert_redirected_to discovered_hosts_url
     assert_nil flash[:error]
     assert_equal "Discovered hosts are rebooting now", flash[:success]
@@ -277,6 +293,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).returns(false)
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
+
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF42-4036/, flash[:error])
     assert_nil flash[:success]
@@ -287,6 +304,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     host = discover_host_from_facts(@facts)
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.expects(:reboot).raises("request failed")
     post :submit_multiple_reboot, params: {:host_ids => host.id}, session: set_session_user(User.current)
+
     assert_redirected_to discovered_hosts_url
     assert_match(/ERF42-4036/, flash[:error])
     assert_nil flash[:success]

@@ -24,6 +24,9 @@ class DiscoveryRulesController < ApplicationController
     @discovery_rule.priority = DiscoveryRule.suggest_priority
   end
 
+  def edit
+  end
+
   def create
     @discovery_rule = DiscoveryRule.new(discovery_rule_params)
     if @discovery_rule.save
@@ -31,9 +34,6 @@ class DiscoveryRulesController < ApplicationController
     else
       process_error
     end
-  end
-
-  def edit
   end
 
   def update

@@ -15,18 +15,21 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
 
   test "no rule is found for empty rule set" do
     host = discover_host_from_facts(@facts)
+
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with no facts" do
     host = discover_host_from_facts(@facts)
     FactoryBot.create(:discovery_rule, :search => "facts.foo = bar")
+
     refute find_discovery_rule(host)
   end
 
   test "no rule is found out of one for a discovered host with some facts" do
     host = discover_host_from_facts(@facts)
     FactoryBot.create(:discovery_rule, :search => "facts.foo = doesnotexist")
+
     refute find_discovery_rule(host)
   end
 
@@ -35,6 +38,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host = discover_host_from_facts(facts)
     FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = xxx")
     FactoryBot.create(:discovery_rule, :priority => 2, :search => "facts.somefact = zzz")
+
     refute find_discovery_rule(host)
   end
 
@@ -43,6 +47,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host = discover_host_from_facts(facts)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r1
   end
 
@@ -53,6 +58,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                             :organizations => [host.organization], :locations => [host.location])
     FactoryBot.create(:discovery_rule, :priority => 0, :search => "facts.somefact = x",
                        :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r1
   end
 
@@ -63,6 +69,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r2
   end
 
@@ -73,6 +80,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                             :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryBot.create(:discovery_rule, :name => "B", :priority => 2, :search => "facts.somefact = abc",
                        :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r1
   end
 
@@ -83,6 +91,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryBot.create(:discovery_rule, :name => "B", :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r2
   end
 
@@ -94,6 +103,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r2 = FactoryBot.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     FactoryBot.create(:host, :discovery_rule => r1)
+
     assert_equal find_discovery_rule(host), r2
   end
 
@@ -103,8 +113,9 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
-    assert_equal host.primary_interface.managed, true
-    assert_equal host.build, true
+
+    assert_equal(true, host.primary_interface.managed)
+    assert_equal(true, host.build)
     assert_equal host.hostgroup_id, r1.hostgroup_id
     assert_equal host.discovery_rule_id, r1.id
   end
@@ -118,6 +129,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       perform_auto_provision host, r1
     end
+
     assert_match /No hostgroup associated with rule/, exception.message
   end
 
@@ -138,6 +150,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                        :organizations => [host.organization], :locations => [host.location])
     r2 = FactoryBot.create(:discovery_rule, :priority => 2, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
+
     assert_equal find_discovery_rule(host), r2
   end
 
@@ -147,7 +160,8 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc",
                             :organizations => [host.organization], :locations => [host.location])
     perform_auto_provision host, r1
-    assert_equal host.name, "macaabbccddeeff"
+
+    assert_equal("macaabbccddeeff", host.name)
   end
 
   test "attributes from hostgroup are copied after auto provisioning for host with subnet detected" do
@@ -155,6 +169,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     domain = FactoryBot.create(:domain)
     subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
+
     assert_equal subnet, host.subnet
     if defined? ForemanPuppet
       hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_rootpass, :with_os,
@@ -171,6 +186,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
     managed_host = perform_auto_provision(host, r1)
+
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
@@ -200,8 +216,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     def ip_addr
       @ip_addr ||= IPAddr.new("#{suggest_ip}/24")
     end
-    
-    
+
     def subnet_range
       @subnet_range ||= ip_addr.to_range
     end
@@ -218,6 +233,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     subnet2 = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_101', :network => '192.168.101.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
+
     assert_equal subnet, host.subnet
     hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet => subnet2, :domain => domain)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
@@ -225,6 +241,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host.primary_interface.stubs(:queue_tftp)
     host.primary_interface.stubs(:queue_dhcp)
     managed_host = perform_auto_provision(host, r1)
+
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
@@ -241,12 +258,14 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db8::/32", :mask => "ffff:ffff::", :name => "ipv6_discovered", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     subnet2 = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db9::/32", :mask => "ffff:ffff::", :name => "ipv6_provision", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
+
     assert_equal subnet, host.subnet6
     hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet6 => subnet2, :domain => domain)
     r1 = FactoryBot.create(:discovery_rule, :priority => 1, :search => "facts.somefact = abc", :organizations => [host.organization], :locations => [host.location], :hostgroup => hostgroup)
     host.primary_interface.stubs(:queue_tftp)
     host.primary_interface.stubs(:queue_dhcp)
     managed_host = perform_auto_provision(host, r1)
+
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
@@ -259,6 +278,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
   test "attributes from hostgroup are copied after auto provisioning for host without subnet detected" do
     facts = @facts.merge({"somefact" => "abc"})
     host = discover_host_from_facts(facts)
+
     refute host.subnet
     domain = FactoryBot.create(:domain)
     subnet = FactoryBot.create(:subnet_ipv4, :tftp, :dhcp, :name => 'subnet_100', :network => '192.168.100.0', :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
@@ -277,6 +297,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     host.primary_interface.expects(:queue_tftp).at_least(1)
     host.primary_interface.expects(:queue_dhcp).at_least(1)
     managed_host = perform_auto_provision(host, r1)
+
     assert_empty host.errors
     assert managed_host
     assert_empty managed_host.errors
@@ -325,6 +346,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => '<%= "" %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_equal "macaabbccddeeff", host.name
     end
@@ -336,6 +358,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => 'x<%= 1+1 %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_equal "x2", host.name
     end
@@ -347,6 +370,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => 'x<%= rand(4) %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_match(/x[0123]/, host.name)
     end
@@ -358,6 +382,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => 'x<%= @host.name %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_equal "xmacaabbccddeeff", host.name
     end
@@ -369,6 +394,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => 'x<%= @host.ip.gsub(".","-") %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_equal "x192-168-100-42", host.name
     end
@@ -381,6 +407,7 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
                               :hostname => 'x<%= @host.facts["somefact"] %>',
                               :organizations => [host.organization],
                               :locations => [host.location])
+
       refute perform_auto_provision host, r1
       assert_equal "xabc", host.name
     end

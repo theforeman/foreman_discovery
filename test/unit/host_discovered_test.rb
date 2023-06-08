@@ -12,6 +12,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "should be able to create Host::Discovered objects" do
     host = Host.create :name => "mydiscoveredhost", :type => "Host::Discovered"
+
     assert host.is_a?(Host::Discovered)
   end
 
@@ -23,6 +24,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should import facts from yaml with MAC-based generator as Host::Discovered" do
     Setting[:discovery_naming] = "MAC-name"
     host = discover_host_from_facts(@facts)
+
     assert_equal "myrna-katie-wesly-maslyn", host.name
   end
 
@@ -30,12 +32,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_naming] = "Random-name"
     NameGenerator.any_instance.stubs(:register).returns(1305)
     host = discover_host_from_facts(@facts)
+
     assert_equal "velma-startin", host.name
   end
 
   test 'fact value association is set accordingly' do
     discovered_host = FactoryBot.create(:discovered_host, :with_facts, :fact_count => 1)
     fact_value = discovered_host.fact_values.first
+
     assert_equal discovered_host.id, fact_value.host.id
   end
 
@@ -47,6 +51,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal '10.35.27.2', host.primary_interface.ip
   end
 
@@ -54,6 +59,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal subnet, host.primary_interface.subnet
   end
 
@@ -62,6 +68,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [organization_one], :locations => [location_one])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal subnet, host.primary_interface.subnet
   end
 
@@ -73,6 +80,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal subnet, host.primary_interface.subnet
     assert_equal org, host.organization
     assert_equal loc, host.location
@@ -88,6 +96,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, org2], :locations => [loc, loc2])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal subnet, host.primary_interface.subnet
     assert host.organization
     assert host.location
@@ -106,6 +115,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
       Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
       host = discover_host_from_facts(@facts.merge("test_org" => bad_org.title, "test_loc" => bad_loc.title))
+
       assert_equal subnet, host.primary_interface.subnet
       assert_equal org, host.organization
       assert_equal loc, host.location
@@ -125,6 +135,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts.merge("foreman_organization" => bad_org.title, "foreman_location" => bad_loc.title))
+
     assert_equal subnet, host.primary_interface.subnet
     assert_equal org, host.organization
     assert_equal loc, host.location
@@ -143,6 +154,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org, bad_org], :locations => [loc, bad_loc])
       Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
       host = discover_host_from_facts(@facts)
+
       assert_equal subnet, host.primary_interface.subnet
       assert_equal org, host.organization
       assert_equal loc, host.location
@@ -162,6 +174,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     subnet = FactoryBot.create(:subnet_ipv4, :name => 'Subnet99', :network => '10.35.27.0', :organizations => [org], :locations => [loc])
     Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
     host = discover_host_from_facts(@facts)
+
     assert_equal org, host.organization
     assert_equal loc, host.location
   end
@@ -171,12 +184,14 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end
+
     assert_match(/Expected discovery_fact '\w+' is missing/, exception.message)
   end
 
   test "should be able to refresh facts" do
     host = Host.create :name => "mydiscoveredhost", :ip => "1.2.3.4", :type => "Host::Discovered"
     ::ForemanDiscovery::NodeAPI::Inventory.any_instance.stubs(:facter).returns(@facts)
+
     assert host.refresh_facts
   end
 
@@ -184,6 +199,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_hostname] = ['somefact']
     facts = @facts.merge({"somefact" => "somename"})
     host = discover_host_from_facts(facts)
+
     assert_equal 'macsomename', host.name
     refute_equal 'e4:1f:13:cc:36:5a', host.mac
   end
@@ -209,6 +225,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
             :template => "test"
         )
       end
+
       assert discover_host_from_facts(@facts)
       assert Host::Discovered.find_by_name('mace41f13cc3658')
       refute Host::Managed.find_by_name('mace41f13cc3658')
@@ -222,6 +239,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_hostname] = ['somefact']
     facts = @facts.merge({"somefact" => "E4:1F:13:CC:36:5A"})
     host = discover_host_from_facts(facts)
+
     assert_equal 'mace41f13cc365a', host.name
     assert_equal 'e4:1f:13:cc:36:5a', host.mac
   end
@@ -231,6 +249,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end
+
     assert_match(/Unable to find primary NIC/, exception.message)
   end
 
@@ -241,6 +260,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       exception = assert_raises(::Foreman::Exception) do
         discover_host_from_facts(@facts)
       end
+
       assert_match(/One or more existing managed hosts found/, exception.message)
     ensure
       Setting[:discovery_error_on_existing] = false
@@ -250,6 +270,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should allow existing managed host discovery" do
     FactoryBot.create(:host, :mac => 'E4:1F:13:CC:36:58')
     host = discover_host_from_facts(@facts)
+
     assert_equal 'mace41f13cc3658', host.name
     assert_equal 'e4:1f:13:cc:36:58', host.mac
   end
@@ -257,11 +278,13 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "should create discovered host with prefix" do
     Setting[:discovery_prefix] = 'test'
     host = discover_host_from_facts(@facts)
+
     assert_equal 'teste41f13cc3658', host.name
   end
 
   test "should refresh facts and NICs of an existing discovered host" do
     host1 = discover_host_from_facts(@facts)
+
     assert_equal 'mace41f13cc3658', host1.name
     assert_equal 'IBM System x -[7870K4G]-', host1.facts["productname"]
     assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
@@ -270,6 +293,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     @facts["ipaddress_eth0"] = "1.2.3.4"
     @facts["productname"] = "Dishwasher DW400"
     host2 = discover_host_from_facts(@facts)
+
     assert_equal 'mace41f13cc3658', host2.name
     assert_equal 'Dishwasher DW400', host2.facts["productname"]
     assert_equal '10.35.27.2', host2.ip
@@ -281,6 +305,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       discover_host_from_facts(@facts)
     end
+
     assert_match(/Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting:/, exception.message)
   end
 
@@ -297,11 +322,13 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_nil Organization.current
 
     hosts = as_user(user_subset) { Host::Discovered.all }.map(&:name)
+
     assert_includes hosts, host1.name
     assert_includes hosts, host2.name
     refute_includes hosts, host3.name
 
     hosts = as_user(user_all) { Host::Discovered.all }.map(&:name)
+
     assert_includes hosts, host1.name
     assert_includes hosts, host2.name
     assert_includes hosts, host3.name
@@ -313,8 +340,9 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host = discover_host_from_facts(@facts)
     host.save
     h = ::ForemanDiscovery::HostConverter.to_managed(host)
+
     refute_valid h
-    assert Token.where(:host_id => h.id).empty?
+    assert_predicate Token.where(:host_id => h.id), :empty?
   end
 
   test "all non-discovery facts are deleted after managed conversion" do
@@ -328,6 +356,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
     managed.clear_facts
+
     assert_nil managed.facts_hash['delete_me']
     assert_equal "content", managed.facts_hash['discovery_keep_me']
   end
@@ -341,6 +370,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host = discover_host_from_facts(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+
     refute_nil managed.primary_interface
     assert_equal "e4:1f:13:cc:36:58", managed.primary_interface.mac
   end
@@ -354,6 +384,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host = discover_host_from_facts(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+
     refute_nil managed.provision_interface
     assert_equal "e4:1f:13:cc:36:58", managed.provision_interface.mac
   end
@@ -367,6 +398,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host = discover_host_from_facts(raw)
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
+
     refute_nil managed.provision_interface
     assert_equal host, managed.provision_interface.host
   end
@@ -381,39 +413,43 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     host.save
     managed = ::ForemanDiscovery::HostConverter.to_managed(host)
     managed.clear_facts
+
     assert_equal "content", managed.facts_hash['keep_me']
     assert_equal "content", managed.facts_hash['discovery_keep_me']
   end
 
   test "normalization of MAC into a discovered host hostname" do
-    assert_equal Host::Discovered.normalize_string_for_hostname("90:B1:1C:54:D5:82"),"90b11c54d582"
+    assert_equal("90b11c54d582", Host::Discovered.normalize_string_for_hostname("90:B1:1C:54:D5:82"))
   end
 
   test "normalization of a string containing multiple non-alphabetical characters" do
-    assert_equal Host::Discovered.normalize_string_for_hostname(".-_Test::Host.name_-."),"testhostname"
+    assert_equal("testhostname", Host::Discovered.normalize_string_for_hostname(".-_Test::Host.name_-."))
   end
 
   test "normalization of a valid hostname" do
-    assert_equal Host::Discovered.normalize_string_for_hostname("testhostname"),"testhostname"
+    assert_equal("testhostname", Host::Discovered.normalize_string_for_hostname("testhostname"))
   end
 
   test "empty string after hostname normalization should raise an error" do
     exception = assert_raises(::Foreman::Exception) do
       Host::Discovered.normalize_string_for_hostname(".-_")
     end
+
     assert_match(/Invalid hostname: Could not normalize the hostname/, exception.message)
   end
 
   test "choosing the first valid fact from array of fact names" do
     facts = {"custom_hostname" => "testhostname","notmyfact" => "notusedfactvalue"}
     discovery_hostname_fact_array = ['macaddress','custom_hostname','someotherfact']
-    assert_equal Host::Discovered.return_first_valid_fact(discovery_hostname_fact_array,facts),"testhostname"
+
+    assert_equal("testhostname", Host::Discovered.return_first_valid_fact(discovery_hostname_fact_array,facts))
   end
 
   test "choosing the first valid MAC address from array of fact names" do
     facts = {"custom_hostname" => "testhostname","macaddress" => "e5:17:4e:28:02:4c","notmyfact" => "notusedfactvalue"}
     discovery_hostname_fact_array = ['custom_hostname','macaddress','someotherfact']
-    assert_equal Host::Discovered.return_first_valid_mac(discovery_hostname_fact_array,facts),"e5:17:4e:28:02:4c"
+
+    assert_equal("e5:17:4e:28:02:4c", Host::Discovered.return_first_valid_mac(discovery_hostname_fact_array,facts))
   end
 
   context 'notification recipients' do
@@ -432,6 +468,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       User.current.organizations << @org
       recipients = [User.current.id, @admins].flatten.sort
       @host.organization = @org
+
       assert_equal recipients, @host.notification_recipients_ids.sort
     end
   end
@@ -439,6 +476,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
   test "primary interface via tagged VLAN is discovered with an IP" do
     raw = parse_json_fixture('rhel7-vlan')
     host = discover_host_from_facts(raw)
+
     assert_equal "192.168.1.16", host.ip
     assert_equal "eno49.444", host.primary_interface.identifier
   end
@@ -447,6 +485,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_auto_bond] = true
     raw = parse_json_fixture('regular_host', true)
     host = discover_host_from_facts(raw)
+
     refute_nil host.primary_interface
     assert_equal "br180", host.primary_interface.identifier
   end
@@ -455,6 +494,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_auto_bond] = true
     raw = parse_json_fixture('facts_with_lldp', true)
     host = discover_host_from_facts(raw)
+
     refute_nil host.primary_interface
     assert_equal "br180", host.primary_interface.identifier
   end
@@ -463,6 +503,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_auto_bond] = true
     raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
+
     refute_nil host.primary_interface
     assert_equal "bond0", host.primary_interface.identifier
   end
@@ -471,6 +512,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_auto_bond] = false
     raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
+
     refute_nil host.primary_interface
     assert_equal "eth0", host.primary_interface.identifier
   end
@@ -479,6 +521,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     Setting[:discovery_auto_bond] = true
     raw = parse_json_fixture('facts_with_lldp_bond_candidate', true)
     host = discover_host_from_facts(raw)
+
     refute_nil host.primary_interface
 
     former_interface = nil

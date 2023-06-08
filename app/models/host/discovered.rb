@@ -1,4 +1,4 @@
-class Host::Discovered < ::Host::Base
+class Host::Discovered < Host::Base
   audited :except => [:last_report]
   has_associated_audits
   # redefine audits relation because of the type change (by default the relation will look for auditable_type = 'Host::Managed')
@@ -222,7 +222,7 @@ class Host::Discovered < ::Host::Base
   end
 
   def self.normalize_string_for_hostname(hostname)
-    hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9\-]|[^a-z0-9]*$)/,'')
+    hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9-]|[^a-z0-9]*$)/,'')
     raise(::Foreman::Exception.new(N_("Invalid hostname: Could not normalize the hostname"))) unless hostname && hostname.present?
     hostname
   end

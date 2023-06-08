@@ -6,8 +6,8 @@ FactoryBot.define do
 
     after(:build) do |discovered_host|
       attribute_set = DiscoveryAttributeSet.new(:host => discovered_host,
-                                                :memory => '1',
-                                                :cpu_count => '4')
+        :memory => '1',
+        :cpu_count => '4')
       discovered_host.discovery_attribute_set = attribute_set
     end
 

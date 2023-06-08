@@ -56,22 +56,22 @@ module ForemanDiscovery
       mac = primary.mac
       name = primary.name
       primary.update(
-          :primary   => false,
-          :provision => false,
-          :managed   => false,
-          :name      => nil,
-          :ip        => nil
+        :primary   => false,
+        :provision => false,
+        :managed   => false,
+        :name      => nil,
+        :ip        => nil
       )
 
       bond = Nic::Bond.create(
-          :identifier       => "bond0",
-          :attached_devices => neighbors,
-          :primary          => true,
-          :provision        => true,
-          :name             => name,
-          :ip               => ip,
-          :mac              => mac,
-          :host             => host
+        :identifier       => "bond0",
+        :attached_devices => neighbors,
+        :primary          => true,
+        :provision        => true,
+        :name             => name,
+        :ip               => ip,
+        :mac              => mac,
+        :host             => host
       )
 
       bond.save!

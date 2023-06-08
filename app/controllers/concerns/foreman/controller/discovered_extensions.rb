@@ -4,12 +4,12 @@ module Foreman::Controller::DiscoveredExtensions
   # return auto provision rule or false when not present
   def find_discovery_rule host
     raise(::Foreman::Exception.new(N_("Unable to find a discovery rule, no host provided (check permissions)"))) if host.nil?
-    Rails.logger.debug "Finding auto discovery rule for host #{host.name} (#{host.id})"
+    Rails.logger.debug { "Finding auto discovery rule for host #{host.name} (#{host.id})" }
     # rule with *lower* priority wins (older wins for same priority)
     DiscoveryRule.where(:enabled => true).reorder(:priority).each do |rule|
       max = rule.max_count
       usage = rule.hosts.size
-      Rails.logger.debug "Found rule #{rule.name} (#{rule.id}) [#{usage}/#{max}]"
+      Rails.logger.debug { "Found rule #{rule.name} (#{rule.id}) [#{usage}/#{max}]" }
       # if the rule has free slots
       if max == 0 || usage < max
         # try to match the search

@@ -95,9 +95,11 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
         "append" => "inst.ks=http://foreman.example.com/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nokaslr nomodeset",
         "extra" => []
       }
+
       assert @host.operatingsystem.respond_to?(:pxe_type)
       assert @host.medium_provider
       result = @host.render_kexec_template
+
       assert_match(/http:\/\/www.example.com.*vmlinuz/, result.delete("kernel"))
       assert_match(/http:\/\/www.example.com.*initrd.img/, result.delete("initram"))
       assert_equal expected, result

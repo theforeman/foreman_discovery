@@ -28,6 +28,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Reboot').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
     end
@@ -41,6 +42,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Reboot').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
     end
@@ -50,9 +52,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
       wait_for_ajax
+
       assert page.has_text?("Discovered hosts reported from unknown subnet")
     end
   end
@@ -64,6 +68,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
     end
@@ -74,9 +79,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
       wait_for_ajax
+
       assert page.has_text?('Discovered hosts are provisioning now')
     end
 
@@ -85,9 +92,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Auto Provision').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
       wait_for_ajax
+
       assert page.has_text?("Discovered hosts reported from unknown subnet")
     end
   end
@@ -98,9 +107,11 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Select Action').click
       page.find_link('Delete').click
       wait_for_ajax
+
       assert page.has_text?('The following hosts are about to be changed')
       page.find_button('Submit').click
       wait_for_ajax
+
       assert page.has_text?('Destroyed selected hosts')
     end
   end
@@ -114,6 +125,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
     test 'and forwards to editing it' do
       create_host
+
       assert_current_path edit_discovered_host_path(id: discovered_host), ignore_query: true
     end
 
@@ -123,6 +135,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       test 'it passes it on' do
         select2(discovery_hostgroup.name, from: 'host_hostgroup_id')
         create_host
+
         assert_param discovery_hostgroup.id.to_s,
                      'host.hostgroup_id'
       end
@@ -134,6 +147,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       test 'it passes it on' do
         select2(discovery_location.name, from: 'host_location_id')
         create_host
+
         assert_param discovery_location.id.to_s,
                      'host.location_id'
       end
@@ -145,6 +159,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       test 'it passes it on' do
         select2(discovery_organization.name, from: 'host_organization_id')
         create_host
+
         assert_param discovery_organization.id.to_s,
                      'host.organization_id'
       end
@@ -154,6 +169,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
   describe 'edit form' do
     test 'it is a host form' do
       visit edit_discovered_host_path(discovered_host)
+
       assert page.find("form#edit_host_#{discovered_host.id}")
     end
 
@@ -172,6 +188,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
         visit edit_discovered_host_path(discovered_host,
                                         'host[hostgroup_id]' => hostgroup.id)
         page.find("a[href='#os']").click
+
         assert_selected '#host_hostgroup_id', hostgroup.id
       end
 
@@ -186,6 +203,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
         page.find('a[href="#network"]').click
         page.find_button('Edit').click
+
         assert_selected '#host_interfaces_attributes_0_domain_id',
                         hostgroup.domain.id
       end

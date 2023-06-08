@@ -18,13 +18,15 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     context "name" do
       test "max length is 255 characters" do
         @rule.name = @huge_name
-        assert @rule.invalid?
+
+        assert_predicate @rule, :invalid?
         assert_equal "is too long (maximum is 255 characters)", @rule.errors[:name].first
       end
 
       test "can't have whitespace(s)" do
         @rule.name = "my rule"
-        assert @rule.invalid?
+
+        assert_predicate @rule, :invalid?
         assert_equal "can't contain white spaces.", @rule.errors[:name].first
       end
     end
@@ -32,7 +34,8 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     context "search" do
       test "max length is 255 characters" do
         @rule.search = @huge_name
-        assert @rule.invalid?
+
+        assert_predicate @rule, :invalid?
         assert_equal "is too long (maximum is 255 characters)", @rule.errors[:search].first
       end
     end
@@ -40,18 +43,21 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     context "hostname" do
       test "max length is 255 characters" do
         @rule.hostname = "abc" +  @huge_name
-        assert @rule.invalid?
+
+        assert_predicate @rule, :invalid?
         assert_equal "is too long (maximum is 255 characters)", @rule.errors[:hostname].first
       end
 
       test "must start with a letter or ERB" do
         @rule.hostname = "123"
-        assert @rule.invalid?
+
+        assert_predicate @rule, :invalid?
         assert_equal "must start with a letter or ERB.", @rule.errors[:hostname].first
 
         @rule.hostname = "<%= host.hostname %>"
-        assert @rule.valid?
-        assert @rule.errors.blank?
+
+        assert_predicate @rule, :valid?
+        assert_predicate @rule.errors, :blank?
       end
     end
   end
@@ -59,6 +65,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
   test_attributes :pid => 'b8ae7a80-b9a8-4924-808c-482a2b4102c4'
   test "should create discovery rule with name and minimum required attributes" do
     rule = DiscoveryRule.new(:name => 'new_rule', :search => 'cpu_count = 1', :hostgroup_id => hostgroups(:unusual).id)
+
     assert_valid rule
   end
 
@@ -69,6 +76,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :hostgroup_id => @hostgroup.id,
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     assert_valid rule
   end
 
@@ -79,6 +87,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :hostgroup_id => @hostgroup.id,
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     assert_valid rule
   end
 
@@ -87,6 +96,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :search => "cpu_count > 1",
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     refute_valid rule
     assert_equal "can't be blank", rule.errors[:hostgroup_id].first
   end
@@ -97,6 +107,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id],
       :hostgroup_id => 99999
+
     refute_valid rule
 
     assert_equal "must be present.", rule.errors[:hostgroup].first
@@ -110,6 +121,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :hostgroup_id => hostgroups(:unusual).id,
       :priority => 'invalid priority type'
     )
+
     refute_valid rule
     assert rule.errors.key?(:priority)
     assert_equal "is not a number", rule.errors[:priority].first
@@ -118,10 +130,11 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
   test "should not be able to create a rule with priority bigger than 2^31" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
-      :priority => 2**31 + 1,
+      :priority => (2**31) + 1,
       :hostgroup_id => @hostgroup.id,
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     refute_valid rule
     assert_equal "must be less than 2147483648", rule.errors[:priority].first
   end
@@ -134,6 +147,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :hostgroup_id => hostgroups(:unusual).id,
       :max_count => 'invalid max_count type'
     )
+
     refute_valid rule
     assert rule.errors.key?(:max_count)
     assert_equal "is not a number", rule.errors[:max_count].first
@@ -142,10 +156,11 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
   test "should not be able to create a rule with max count bigger than 2^31" do
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
-      :max_count => 2**31 + 1,
+      :max_count => (2**31) + 1,
       :hostgroup_id => @hostgroup.id,
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     refute_valid rule
     assert_equal "must be less than 2147483648", rule.errors[:max_count].first
   end
@@ -154,6 +169,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     rule = DiscoveryRule.new :name => "myrule",
       :search => "cpu_count > 1",
       :hostgroup_id => @hostgroup.id
+
     refute_valid rule
     assert_equal "Host group organization #{organization_one.name} must also be associated to the discovery rule", rule.errors[:base].first
   end
@@ -167,6 +183,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
       :hostgroup_id => @hostgroup.id,
       :organization_ids => [organization_one.id],
       :location_ids => [location_one.id]
+
     refute_valid rule
     assert_equal "Host group location #{loc.name} must also be associated to the discovery rule", rule.errors[:base].first
   end
@@ -178,6 +195,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
         rule = FactoryBot.create(:discovery_rule, :with_auditing)
       end
       recent_audit = rule.audits.last
+
       assert_equal 'create', recent_audit.action
     end
 
@@ -188,6 +206,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
         rule.save!
       end
       audit = rule.audits.last
+
       assert_equal 'update', audit.action
     end
 
@@ -197,6 +216,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
         rule.destroy
       end
       audit = rule.audits.last
+
       assert_equal 'destroy', audit.action
     end
 
@@ -213,8 +233,10 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     test 'should be able to suggest next priority' do
       existing = FactoryBot.create(:discovery_rule)
       first_new = FactoryBot.create(:discovery_rule, :priority => DiscoveryRule.suggest_priority)
+
       assert first_new.priority > 0
       second_new = FactoryBot.create(:discovery_rule, :priority => DiscoveryRule.suggest_priority)
+
       assert_equal DiscoveryRule::STEP, second_new.priority - first_new.priority
     end
   end
@@ -226,7 +248,7 @@ class DiscoveryRuleTest < ActiveSupport::TestCase
     end
 
     test 'when there exists a discovery_rule of the given organization' do
-      hostgroup = FactoryBot.create(:hostgroup, organizations: [@organization], locations: [@location] )
+      hostgroup = FactoryBot.create(:hostgroup, organizations: [@organization], locations: [@location])
       discovery_rule = FactoryBot.create(:discovery_rule,
         priority: rand(100),
         hostgroup: hostgroup,

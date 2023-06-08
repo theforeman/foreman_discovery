@@ -29,12 +29,14 @@ class FactParserTest < ActiveSupport::TestCase
 
   test "#suggested_primary_interface detects interface eth1" do
     FacterUtils.stubs(:bootif_mac).returns('aa:bb:cc:dd:ee:f2')
+
     assert_equal 'eth1', @parser.suggested_primary_interface(@host).try(:first)
   end
 
   test "#suggested_primary_interface detects interface with user defined bootif fact name" do
     FacterUtils.stubs(:bootif_name).returns('my_primary')
     @parser.facts[:my_primary] = 'aa:bb:cc:dd:ee:f1'
+
     assert_equal 'eth0', @parser.suggested_primary_interface(@host).try(:first)
   end
 
@@ -43,6 +45,7 @@ class FactParserTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       @parser.suggested_primary_interface(@host)
     end
+
     assert_match(/Unable to find primary NIC/, exception.message)
   end
 
@@ -51,11 +54,13 @@ class FactParserTest < ActiveSupport::TestCase
     exception = assert_raises(::Foreman::Exception) do
       @parser.suggested_primary_interface(@host)
     end
+
     assert_match(/Unable to find primary NIC/, exception.message)
   end
 
   test "#suggested_primary_interface detects interface even when 'ignore_puppet_facts_for_provisioning' is set" do
     Setting['ignore_puppet_facts_for_provisioning'] = true
+
     assert_equal 'eth2', @parser.suggested_primary_interface(@host).try(:first)
   end
 

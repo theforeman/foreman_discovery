@@ -5,17 +5,20 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
 
   test "should add a link to navigation" do
     get :index, params: {}, session: set_session_user
+
     assert_response :success
-    assert response.body =~ /\/discovery_rules/
+    assert_match(/\/discovery_rules/, response.body)
   end
 
   test "reader role should get index" do
     get :index, params: {}, session: set_session_user_default_reader
+
     assert_response :success
   end
 
   test "should get new" do
     get :new, params: {}, session: set_session_user_default_manager
+
     assert_response :success
   end
 
@@ -28,6 +31,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
         :hostgroup_id => 1,
         :hostname => "",
         :priority => 1}}, session: set_session_user_default_manager
+
       assert_not_empty(extract_form_errors(response))
     end
     assert_template :new
@@ -44,6 +48,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
         :location_ids => [location_one.id],
         :hostname => "",
         :priority => 1}}, session: set_session_user_default_manager
+
       assert_empty(extract_form_errors(response))
     end
     assert_redirected_to discovery_rules_path
@@ -52,12 +57,14 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   test "should get edit" do
     rule = FactoryBot.create(:discovery_rule)
     get :edit, params: {:id => rule.id}, session: set_session_user_default_manager
+
     assert_response :success
   end
 
   test "should update discovery rule" do
     rule = FactoryBot.create(:discovery_rule)
     put :update, params: {:id => rule.id, :discovery_rule => {:name => "new_name"}}, session: set_session_user_default_manager
+
     assert_nil flash[:error]
     assert_redirected_to discovery_rules_path
   end
@@ -74,6 +81,7 @@ class DiscoveryRulesControllerTest < ActionController::TestCase
   test 'clone' do
     rule = FactoryBot.create(:discovery_rule)
     get :clone, params: { :id => rule.id }, session: set_session_user
+
     assert_template 'clone'
   end
 

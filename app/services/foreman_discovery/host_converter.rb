@@ -52,7 +52,7 @@ class ForemanDiscovery::HostConverter
     end
   end
 
-  def self.ip_for_subnet(subnet, mac, ip) 
+  def self.ip_for_subnet(subnet, mac, ip)
     return ip if ip && subnet&.unused_ip(mac)&.ip_include?(ip)
 
     unused_ip_for_subnet(subnet, mac, ip)
@@ -72,10 +72,10 @@ class ForemanDiscovery::HostConverter
 
   def self.change_subnet_and_unused_ip(host, hostgroup)
     if host.subnet != hostgroup.subnet || host.subnet6 != hostgroup.subnet6
-      Rails.logger.debug "Discovered host subnets #{[host.subnet, host.subnet6]} do not match hostgroup subnets #{[hostgroup.subnet, hostgroup.subnet6]}"
+      Rails.logger.debug { "Discovered host subnets #{[host.subnet, host.subnet6]} do not match hostgroup subnets #{[hostgroup.subnet, hostgroup.subnet6]}" }
       unused_ip_for_host(host, host.hostgroup.subnet, host.hostgroup.subnet6)
     else
-      Rails.logger.debug "Discovered host subnets #{[host.subnet, host.subnet6]} match hostgroup subnets"
+      Rails.logger.debug { "Discovered host subnets #{[host.subnet, host.subnet6]} match hostgroup subnets" }
     end
   end
 end

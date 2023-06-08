@@ -13,7 +13,7 @@ module ForemanDiscovery
                         N_("Miscellaneous")].freeze
 
     def initialize(host)
-      categories = %i[highlights storage hardware network software ipmi]
+      categories = [:highlights, :storage, :hardware, :network, :software, :ipmi]
 
       @regex_array = categories.map do |category|
         settings_category = settings_discovery_fact_prefix(category)
@@ -46,7 +46,7 @@ module ForemanDiscovery
 
     def assign_facts(host)
       host.facts_hash.each do |key, value|
-        value = number_to_human_size(value) if /size$/.match(key)
+        value = number_to_human_size(value) if /size$/ =~ key
         assign_fact_to_category(key, value)
       end
 
@@ -103,4 +103,3 @@ module ForemanDiscovery
     end
   end
 end
-

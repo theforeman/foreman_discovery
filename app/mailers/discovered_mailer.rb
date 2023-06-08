@@ -1,4 +1,4 @@
-class DiscoveredMailer < ::ApplicationMailer
+class DiscoveredMailer < ApplicationMailer
   helper :discovered_hosts
   def discovered_summary(options = {})
     user = if options[:user].kind_of? User
@@ -10,7 +10,7 @@ class DiscoveredMailer < ::ApplicationMailer
            end
 
     unless user.mail_enabled?
-      Rails.logger.debug("The user #{user.id} does not email enabled")
+      Rails.logger.debug { "The user #{user.id} does not email enabled" }
       return
     end
     begin

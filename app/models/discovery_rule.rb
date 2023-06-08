@@ -45,7 +45,8 @@ class DiscoveryRule < ApplicationRecord
     return (discovery_rules.maximum(:priority).to_i + STEP) if organization.nil?
     discovery_rule_ids = TaxableTaxonomy.where(
       taxable_type: 'DiscoveryRule',
-      taxonomy_id: organization.id).pluck(:taxable_id)
+      taxonomy_id: organization.id
+    ).pluck(:taxable_id)
     discovery_rules = discovery_rules.where(id: discovery_rule_ids)
     discovery_rules.maximum(:priority).to_i + STEP
   end

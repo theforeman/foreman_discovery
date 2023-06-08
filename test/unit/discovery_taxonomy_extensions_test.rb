@@ -14,6 +14,7 @@ class DiscoveryTaxonomyExtensionsTest < ActiveSupport::TestCase
 
     assert (host = discover_host_from_facts(@facts))
     host.location = location
+
     assert host.save
 
     assert_nothing_raised do

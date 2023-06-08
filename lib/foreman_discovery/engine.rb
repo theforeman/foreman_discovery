@@ -36,20 +36,20 @@ module ForemanDiscovery
         # settings
         settings do
           category :discovery, N_("Discovery") do
-            snippets = Proc.new {
-              Hash[ProvisioningTemplate.where(:template_kind => TemplateKind.find_by_name(:snippet)).map{|template| [template[:name], template[:name]]}]
-            }
+            snippets = proc do
+              ProvisioningTemplate.where(:template_kind => TemplateKind.find_by_name(:snippet)).map { |template| [template[:name], template[:name]] }.to_h
+            end
 
             setting "discovery_location",
               type: :string,
-              collection: Proc.new { Hash[[['', '']].concat Location.all.map{|loc| [loc[:title], loc[:title]]}] },
+              collection: proc { [['', '']].concat(Location.all.map { |loc| [loc[:title], loc[:title]] }).to_h },
               default: "",
               full_name: N_("Discovery location"),
               description: N_("The default location to place discovered hosts in")
 
             setting "discovery_organization",
               type: :string,
-              collection: Proc.new { Hash[[['', '']].concat Organization.all.map{|org| [org[:title], org[:title]]}] },
+              collection: proc { [['', '']].concat(Organization.all.map { |org| [org[:title], org[:title]] }).to_h },
               default: "",
               full_name: N_("Discovery organization"),
               description: N_("The default organization to place discovered hosts in")
@@ -183,7 +183,7 @@ module ForemanDiscovery
 
             setting "discovery_naming",
               type: :string,
-              collection: Proc.new { ::Host::Discovered::NAMING_PATTERNS },
+              collection: proc { ::Host::Discovered::NAMING_PATTERNS },
               default: "Fact",
               full_name: N_("Type of name generator"),
               description: N_("Discovery hostname naming pattern")
@@ -193,44 +193,44 @@ module ForemanDiscovery
               default: false,
               full_name: N_("Prefer IPv6"),
               description: N_("Prefer IPv6 to IPv4 when calling discovered nodes")
-            end
           end
+        end
 
-          # discovered hosts permissions
-          security_block :discovery do
-            permission :view_discovered_hosts, {
-              :discovered_hosts          => [:index, :show, :auto_complete_search, :welcome],
-              :"api/v2/discovered_hosts" => [:index, :show],
+        # discovered hosts permissions
+        security_block :discovery do
+          permission :view_discovered_hosts, {
+            :discovered_hosts          => [:index, :show, :auto_complete_search, :welcome],
+              :'api/v2/discovered_hosts' => [:index, :show],
               :'discovered_hosts/react' => [:index]
-            }, :resource_type => 'Host'
-            permission :submit_discovered_hosts, {
-              :"api/v2/discovered_hosts" => [:facts, :create]
-            }, :resource_type => 'Host'
-            permission :auto_provision_discovered_hosts, {
-              :discovered_hosts          => [:auto_provision,
-                                             :multiple_auto_provision,
-                                             :submit_multiple_auto_provision],
-                                             :"api/v2/discovered_hosts" => [:auto_provision, :auto_provision_all]
-            }, :resource_type => 'Host'
-            permission :provision_discovered_hosts, {
-              :discovered_hosts          => [:edit, :update],
-              :"api/v2/discovered_hosts" => [:update]
-            }, :resource_type => 'Host'
-            permission :edit_discovered_hosts, {
-              :discovered_hosts          => [:update_multiple_location,
-                                             :select_multiple_organization,
-                                             :update_multiple_organization,
-                                             :select_multiple_location,
-                                             :refresh_facts,
-                                             :reboot,
-                                             :multiple_reboot,
-                                             :submit_multiple_reboot],
-                                             :hosts                     => [:process_hostgroup],
-                                             :"api/v2/discovered_hosts" => [:refresh_facts, :reboot, :reboot_all]
-            }, :resource_type => 'Host'
+          }, :resource_type => 'Host'
+          permission :submit_discovered_hosts, {
+            :'api/v2/discovered_hosts' => [:facts, :create]
+          }, :resource_type => 'Host'
+          permission :auto_provision_discovered_hosts, {
+            :discovered_hosts          => [:auto_provision,
+                                           :multiple_auto_provision,
+                                           :submit_multiple_auto_provision],
+                                           :'api/v2/discovered_hosts' => [:auto_provision, :auto_provision_all]
+          }, :resource_type => 'Host'
+          permission :provision_discovered_hosts, {
+            :discovered_hosts          => [:edit, :update],
+            :'api/v2/discovered_hosts' => [:update]
+          }, :resource_type => 'Host'
+          permission :edit_discovered_hosts, {
+            :discovered_hosts          => [:update_multiple_location,
+                                           :select_multiple_organization,
+                                           :update_multiple_organization,
+                                           :select_multiple_location,
+                                           :refresh_facts,
+                                           :reboot,
+                                           :multiple_reboot,
+                                           :submit_multiple_reboot],
+                                           :hosts                     => [:process_hostgroup],
+                                           :'api/v2/discovered_hosts' => [:refresh_facts, :reboot, :reboot_all]
+          }, :resource_type => 'Host'
           permission :destroy_discovered_hosts, {
             :discovered_hosts          => [:destroy, :submit_multiple_destroy, :multiple_destroy],
-            :"api/v2/discovered_hosts" => [:destroy]
+            :'api/v2/discovered_hosts' => [:destroy]
           }, :resource_type => 'Host'
         end
 
@@ -238,23 +238,23 @@ module ForemanDiscovery
         security_block :discovery_rules do
           permission :view_discovery_rules, {
             :discovery_rules => [:index, :show, :auto_complete_search, :welcome],
-            :"api/v2/discovery_rules" => [:index, :show]
+            :'api/v2/discovery_rules' => [:index, :show]
           }, :resource_type => 'DiscoveryRule'
           permission :create_discovery_rules, {
             :discovery_rules => [:new, :create, :clone],
-            :"api/v2/discovery_rules" => [:create]
+            :'api/v2/discovery_rules' => [:create]
           }, :resource_type => 'DiscoveryRule'
           permission :edit_discovery_rules, {
             :discovery_rules => [:edit, :update, :enable, :disable],
-            :"api/v2/discovery_rules" => [:create, :update]
+            :'api/v2/discovery_rules' => [:create, :update]
           }, :resource_type => 'DiscoveryRule'
           permission :execute_discovery_rules, {
             :discovery_rules => [:auto_provision, :auto_provision_all],
-            :"api/v2/discovery_rules" => [:auto_provision, :auto_provision_all]
+            :'api/v2/discovery_rules' => [:auto_provision, :auto_provision_all]
           }, :resource_type => 'DiscoveryRule'
           permission :destroy_discovery_rules, {
             :discovery_rules => [:destroy],
-            :"api/v2/discovery_rules" => [:destroy]
+            :'api/v2/discovery_rules' => [:destroy]
           }, :resource_type => 'DiscoveryRule'
         end
 
@@ -299,7 +299,7 @@ module ForemanDiscovery
           :destroy_discovery_rules,
         ]
         if defined?(ForemanPuppet::Engine)
-          MANAGER += [ :view_environments, :view_puppetclasses ]
+          MANAGER += [:view_environments, :view_puppetclasses]
         end
         role "Discovery Reader", READER, "Role granting permissions to view discovered hosts"
         role "Discovery Manager", MANAGER, "Role granting permissions to perform provisioning of discovered hosts"

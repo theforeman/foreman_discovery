@@ -15,6 +15,7 @@ module ForemanDiscovery
 
           @request.stubs(:path).returns(architecture_selected_discovered_hosts_path)
           post :architecture_selected, params: discovered_host_params, session: set_session_user
+
           assert_match(/"#{os.id}"/, response.body)
         end
       end

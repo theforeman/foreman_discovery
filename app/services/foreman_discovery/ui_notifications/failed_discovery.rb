@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ForemanDiscovery
   module UINotifications
     # Adds notification upon failed discovery
@@ -22,7 +23,7 @@ module ForemanDiscovery
           initiator: initiator,
           audience: ::Notification::AUDIENCE_ADMIN,
           message: _("One or more hosts with failed discovery due to error: %s") % @message,
-          notification_blueprint: blueprint,
+          notification_blueprint: blueprint
         )
       end
 

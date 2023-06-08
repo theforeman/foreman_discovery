@@ -34,8 +34,8 @@ class FactToCategoryResolverTest < ActiveSupport::TestCase
     network_category = categories[3]
     software_category = categories[4]
 
-    assert_equal hardware_category['hardwaremodel'], 'TEST_X64'
-    assert_equal network_category['ipaddress_eth0'], '192.168.1.1'
-    assert_equal software_category['bios_vendor'], 'TEST_BIOS'
+    assert_equal('TEST_X64', hardware_category['hardwaremodel'])
+    assert_equal('192.168.1.1', network_category['ipaddress_eth0'])
+    assert_equal('TEST_BIOS', software_category['bios_vendor'])
   end
 end

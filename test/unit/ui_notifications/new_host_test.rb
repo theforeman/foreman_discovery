@@ -23,6 +23,7 @@ class NewHostNotificationTest < ActiveSupport::TestCase
     Time.any_instance.stubs(:utc).returns(expired_at + 1.hour)
     host2 = FactoryBot.create :discovered_host
     ForemanDiscovery::UINotifications::NewHost.deliver!(host2)
+
     assert_equal 2, blueprint.notifications.count
     assert_not_equal expired_at, blueprint.notifications.last.expired_at
   end
