@@ -27,7 +27,6 @@
     "@babel/core": "^7.7.0",
     "@theforeman/builder": ">= 0",
     "@theforeman/eslint-plugin-foreman": ">= 0",
-    "@theforeman/stories": ">= 0",
     "@theforeman/test": ">= 0",
     "eslint": "^6.7.2",
     "prettier": "^1.19.1",
