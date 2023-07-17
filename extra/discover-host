@@ -6,7 +6,7 @@ require 'rest-client'
 def find_base name = "default"
   return name if File.exist?(name)
 
-  file = File.absolute_path(File.dirname(__FILE__) + "../../test/facts/#{name}.json")
+  file = File.absolute_path(File.dirname(__FILE__) + "/../test/facts/#{name}.json")
   raise "Unable to find file #{file}" unless File.exist?(file)
 
   file
