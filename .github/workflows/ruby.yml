@@ -6,9 +6,17 @@ env:
   RAILS_ENV: test
   DATABASE_URL: postgresql://postgres:@localhost/test
   DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
+  rubocop:
+    uses: theforeman/actions/.github/workflows/rubocop.yml@v0
+    with:
+      command: bundle exec rubocop --parallel --format github
   test_ruby:
     runs-on: ubuntu-latest
+    needs: rubocop
     services:
       postgres:
         image: postgres:12.1
