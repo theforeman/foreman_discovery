@@ -94,8 +94,15 @@ module DiscoveredHostsHelper
   end
 
   def host_path(host)
-    return super unless controller_name == 'discovered_hosts'
-    discovered_host_path(host)
+    return discovered_host_path(host) if controller_name == 'discovered_hosts'
+    # This is a hack to fix the hostgroup selection on the discovered host edit page
+    # The hostgroup onChange action is replacing the form url from `/discovered_hosts/:id`
+    # to `/hosts/:id``, which is not correct (in this case) and it breaks the form submission
+    return discovered_host_path(host) if controller_name == 'hosts' &&
+                                         action_name == 'process_hostgroup' &&
+                                         Host::Discovered.find_by(id: host[:id])
+
+    super
   end
 
   def discovery_doc_version
