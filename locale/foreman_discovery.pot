@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 16:26+0200\n"
-"PO-Revision-Date: 2023-06-05 16:26+0200\n"
+"POT-Creation-Date: 2023-11-28 22:34+0100\n"
+"PO-Revision-Date: 2023-11-28 22:34+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -311,27 +311,27 @@ msgstr ""
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:280
+#: ../app/controllers/discovered_hosts_controller.rb:284
 msgid ""
 "Discovered host reported from unknown subnet, communication will not be proxie"
 "d."
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:285
+#: ../app/controllers/discovered_hosts_controller.rb:289
 msgid ""
 "Discovered hosts reported from unknown subnet are %s, communication will not b"
 "e proxied."
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:299
+#: ../app/controllers/discovered_hosts_controller.rb:303
 msgid "No hosts were found with that id or name"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:303
+#: ../app/controllers/discovered_hosts_controller.rb:307
 msgid "No hosts selected"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:309
+#: ../app/controllers/discovered_hosts_controller.rb:313
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
