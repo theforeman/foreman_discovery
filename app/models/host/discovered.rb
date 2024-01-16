@@ -222,7 +222,7 @@ class Host::Discovered < ::Host::Base
   end
 
   def self.normalize_string_for_hostname(hostname)
-    hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9\-]|[^a-z0-9]*$)/,'')
+    hostname = hostname.to_s.downcase.gsub(/(^[^a-z0-9]*|[^a-z0-9-]|[^a-z0-9]*$)/,'')
     raise(::Foreman::Exception.new(N_("Invalid hostname: Could not normalize the hostname"))) unless hostname && hostname.present?
     hostname
   end
