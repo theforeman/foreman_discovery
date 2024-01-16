@@ -3,6 +3,12 @@ require_relative '../test_plugin_helper'
 class DiscoveryRulesControllerTest < ActionController::TestCase
   setup :initialize_host
 
+  test "should add a link to navigation" do
+    get :index, params: {}, session: set_session_user
+    assert_response :success
+    assert_includes(response.body, '/discovery_rules/')
+  end
+
   test "reader role should get index" do
     get :index, params: {}, session: set_session_user_default_reader
     assert_response :success

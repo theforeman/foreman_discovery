@@ -41,7 +41,7 @@ class DiscoveredHostsControllerTest < ActionController::TestCase
     [:multiple_destroy, :select_multiple_organization, :select_multiple_location].each do |action|
       process action, method: :post, params: {:host_ids => [host.id]}, session: set_session_user, xhr: true
       assert_response :success
-      assert response.body =~ /#{host.name}/
+      assert_includes(response.body, host.name)
     end
   end
 
