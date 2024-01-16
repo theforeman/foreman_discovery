@@ -162,7 +162,7 @@ module Api
 
         total_count = 0
         overall_errors = ""
-        Host::Discovered.all.each do |discovered_host|
+        Host::Discovered.all.find_each do |discovered_host|
           if rule = find_discovery_rule(discovered_host)
             result &= perform_auto_provision(discovered_host, rule)
             unless discovered_host.errors.empty?
