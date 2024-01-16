@@ -40,7 +40,7 @@ module DiscoveredHostsHelper
   end
 
   def turn_zero_to_not_available(value)
-    value == 0 ? 'N/A' : value
+    (value == 0) ? 'N/A' : value
   end
 
   def discovery_attribute(host, attr, default_value = _('N/A'))
