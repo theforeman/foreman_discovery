@@ -5,8 +5,8 @@ specfile_path: rubygem-foreman_discovery.spec
 
 # add or remove files that should be synced
 files_to_sync:
-    - rubygem-foreman_discovery.spec
-    - .packit.yaml
+  - rubygem-foreman_discovery.spec
+  - .packit.yaml
 
 # name in upstream package repository or registry (e.g. in PyPI)
 upstream_package_name: foreman_discovery
@@ -28,11 +28,11 @@ jobs:
   - job: copr_build
     trigger: pull_request
     targets:
-      centos-stream-8:
-        additional_modules: "foreman:el8,nodejs:12"
+      rhel-8:
+        additional_modules: "foreman-devel:el8"
         additional_repos:
-          - http://koji.katello.org/releases/yum/foreman-nightly/el8/x86_64/
-          - http://yum.theforeman.org/plugins/nightly/el8/x86_64/
+          - https://yum.theforeman.org/releases/nightly/el8/x86_64/
+          - https://yum.theforeman.org/plugins/nightly/el8/x86_64/
     module_hotfixes: true
 
 srpm_build_deps:
