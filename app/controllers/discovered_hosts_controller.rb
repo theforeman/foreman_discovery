@@ -83,7 +83,8 @@ class DiscoveredHostsController < ::ApplicationController
       ::ForemanDiscovery::HostConverter.set_build_clean_facts(host)
       ::ForemanDiscovery::HostConverter.unused_ip_for_host(host)
       if host.save
-        success_options = { :success_redirect => host_path(host), :redirect_xhr => request.xhr? }
+        host_path = Setting['host_details_ui'] ? host_details_page_path(host) : host_path(host)
+        success_options = { :success_redirect => host_path, :redirect_xhr => request.xhr? }
         success_options[:success_msg] = success_message if success_message
         process_success success_options
       else
