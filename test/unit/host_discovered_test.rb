@@ -271,7 +271,8 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     @facts["productname"] = "Dishwasher DW400"
     host2 = discover_host_from_facts(@facts)
     assert_equal 'mace41f13cc3658', host2.name
-    assert_equal 'Dishwasher DW400', host2.facts["productname"]
+    # Bypass fact cache by using it as a method
+    assert_equal 'Dishwasher DW400', host2.facts('productname')['productname']
     assert_equal '10.35.27.2', host2.ip
     assert_equal 1, Host::Discovered.where(:name => 'mace41f13cc3658').count
   end
