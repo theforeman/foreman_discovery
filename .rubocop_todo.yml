@@ -255,7 +255,7 @@ Layout/SpaceAfterComma:
   Exclude:
     - 'app/helpers/discovered_hosts_helper.rb'
     - 'app/models/host/discovered.rb'
-    - 'lib/discovery.rake'
+    - 'lib/foreman_discovery.rake'
     - 'test/unit/host_discovered_test.rb'
 
 # Offense count: 1
@@ -820,7 +820,7 @@ Style/ConditionalAssignment:
   Exclude:
     - 'app/helpers/discovery_rules_helper.rb'
     - 'app/models/host/discovered.rb'
-    - 'lib/discovery.rake'
+    - 'lib/foreman_discovery.rake'
     - 'test/functional/discovered_hosts_controller_test.rb'
     - 'test/unit/discovered_extensions_test.rb'
 

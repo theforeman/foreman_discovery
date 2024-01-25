@@ -367,7 +367,7 @@ module ForemanDiscovery
     end
 
     rake_tasks do
-      load "discovery.rake"
+      load "foreman_discovery.rake"
       Rake::Task['db:seed'].enhance do
         ForemanDiscovery::Engine.load_seed
       end
