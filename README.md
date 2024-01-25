@@ -26,11 +26,11 @@ instead of github.com issues. Please report issues there.
 
 There are unit and integration tests in the repository, to run them execute the following in the *Foreman core* directory:
 
-	bundle exec rake test:discovery
+	bundle exec rake test:foreman_discovery
 
 It is possible to execute a single test, however the path must be *absolute* (e.g. use `$HOME` variable):
 
-	bundle exec rake test:discovery TEST=~/work/foreman_discovery/test/unit/host_discovered_test.rb
+	bundle exec rake test:foreman_discovery TEST=~/work/foreman_discovery/test/unit/host_discovered_test.rb
 
 # Copyright
 
