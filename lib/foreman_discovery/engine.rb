@@ -75,10 +75,9 @@ module ForemanDiscovery
             setting "discovery_hostname",
               type: :array,
               default: ["discovery_bootif"],
+              validate: { presence: true },
               full_name: N_("Hostname facts"),
               description: N_("List of facts to use for the hostname (first wins)")
-
-            validates "discovery_hostname", presence: true
 
             setting "discovery_auto",
               type: :boolean,
@@ -95,10 +94,9 @@ module ForemanDiscovery
             setting "discovery_prefix",
               type: :string,
               default: "mac",
+              validate: { presence: true },
               full_name: N_("Hostname prefix"),
               description: N_("The default prefix to use for the host name, must start with a letter")
-
-            validates "discovery_prefix", presence: true
 
             setting "discovery_fact_column",
               type: :array,
