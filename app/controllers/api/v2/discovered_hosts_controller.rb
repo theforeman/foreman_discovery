@@ -218,7 +218,7 @@ module Api
                            :message => error_message
                        }
         else
-          process_success _("Discovered hosts are rebooting now")
+          process_success :success_msg => _("Discovered hosts are rebooting now")
         end
       end
 
