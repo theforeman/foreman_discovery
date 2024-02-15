@@ -297,10 +297,7 @@ module ForemanDiscovery
           :execute_discovery_rules,
           :edit_discovery_rules,
           :destroy_discovery_rules,
-        ]
-        if defined?(ForemanPuppet::Engine)
-          MANAGER += [ :view_environments, :view_puppetclasses ]
-        end
+        ] + (defined?(ForemanPuppet::Engine) ? [ :view_environments, :view_puppetclasses ] : [])
         role "Discovery Reader", READER, "Role granting permissions to view discovered hosts"
         role "Discovery Manager", MANAGER, "Role granting permissions to perform provisioning of discovered hosts"
 
