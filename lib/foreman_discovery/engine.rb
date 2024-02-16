@@ -30,7 +30,7 @@ module ForemanDiscovery
 
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_discovery do
-        requires_foreman '>= 3.8'
+        requires_foreman '>= 3.10'
         register_gettext
 
         # settings
