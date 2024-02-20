@@ -96,28 +96,30 @@
   </div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("table").css('padding', '0');
-    $("table").css("cssText", 'margin-bottom: 0 !important;');
+<% content_for(:javascripts) do -%>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      $("table").css('padding', '0');
+      $("table").css("cssText", 'margin-bottom: 0 !important;');
 
-    provision_class = 'active'
-    primary_class = 'active'
-    var flag_primary = '<i class="glyphicon glyphicon glyphicon-tag primary-flag '+ primary_class +'" title="" data-original-title="'+ __('Primary') +'"></i>';
-    var flags_provision = '<i class="glyphicon glyphicon glyphicon-hdd provision-flag '+ provision_class +'" title="" data-original-title="'+ __('Provisioning') +'"></i>';
+      provision_class = 'active'
+      primary_class = 'active'
+      var flag_primary = '<i class="glyphicon glyphicon glyphicon-tag primary-flag '+ primary_class +'" title="" data-original-title="'+ __('Primary') +'"></i>';
+      var flags_provision = '<i class="glyphicon glyphicon glyphicon-hdd provision-flag '+ provision_class +'" title="" data-original-title="'+ __('Provisioning') +'"></i>';
 
-    $('.flag-primary').html(flag_primary);
-    $('.flag-provision').append(flags_provision);
-    $('.primary-flag').tooltip();
-    $('.provision-flag').tooltip();
+      $('.flag-primary').html(flag_primary);
+      $('.flag-provision').append(flags_provision);
+      $('.primary-flag').tooltip();
+      $('.provision-flag').tooltip();
 
-    expand_all_toggle_action = { 'Expand All': 'show', 'Collapse All': 'hide' };
-    $('#expand_all').on('click', function () {
-      $(this).text(function(i, text){
-          $('#accordion .panel-collapse').collapse(expand_all_toggle_action[text]);
-          return text === "Expand All" ? "Collapse All" : "Expand All";
-      })
+      expand_all_toggle_action = { 'Expand All': 'show', 'Collapse All': 'hide' };
+      $('#expand_all').on('click', function () {
+        $(this).text(function(i, text){
+            $('#accordion .panel-collapse').collapse(expand_all_toggle_action[text]);
+            return text === "Expand All" ? "Collapse All" : "Expand All";
+        })
+      });
+
     });
-
-  });
-</script>
+  </script>
+<% end %>
