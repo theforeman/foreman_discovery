@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 16:26+0200\n"
-"PO-Revision-Date: 2023-06-05 16:26+0200\n"
+"POT-Creation-Date: 2024-08-19 09:51+0200\n"
+"PO-Revision-Date: 2024-08-19 09:51+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -135,7 +135,7 @@ msgid "Execute rules against a discovered host"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:136
-#: ../app/controllers/discovered_hosts_controller.rb:163
+#: ../app/controllers/discovered_hosts_controller.rb:164
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgid "Unable to provision %{host}: %{errors}"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:145
-#: ../app/controllers/discovered_hosts_controller.rb:170
+#: ../app/controllers/discovered_hosts_controller.rb:171
 msgid "No rule found for host %s"
 msgstr ""
 
@@ -153,12 +153,12 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:156
-#: ../app/controllers/discovered_hosts_controller.rb:176
+#: ../app/controllers/discovered_hosts_controller.rb:177
 msgid "Errors during auto provisioning: %s"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:159
-#: ../app/controllers/discovered_hosts_controller.rb:179
+#: ../app/controllers/discovered_hosts_controller.rb:180
 msgid "No discovered hosts to provision"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgid "Rebooting all discovered hosts"
 msgstr ""
 
 #: ../app/controllers/api/v2/discovered_hosts_controller.rb:221
-#: ../app/controllers/discovered_hosts_controller.rb:132
+#: ../app/controllers/discovered_hosts_controller.rb:133
 msgid "Discovered hosts are rebooting now"
 msgstr ""
 
@@ -263,75 +263,75 @@ msgstr ""
 msgid "Successfully provisioned %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:100
+#: ../app/controllers/discovered_hosts_controller.rb:101
 msgid "Facts refreshed for %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:102
+#: ../app/controllers/discovered_hosts_controller.rb:103
 msgid "Failed to refresh facts for %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:105
+#: ../app/controllers/discovered_hosts_controller.rb:106
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:112
+#: ../app/controllers/discovered_hosts_controller.rb:113
 msgid "Host of type %s can not be rebooted"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:116
+#: ../app/controllers/discovered_hosts_controller.rb:117
 msgid "Rebooting host %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:118
+#: ../app/controllers/discovered_hosts_controller.rb:119
 msgid "Failed to reboot host %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:121
+#: ../app/controllers/discovered_hosts_controller.rb:122
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:135
+#: ../app/controllers/discovered_hosts_controller.rb:136
 msgid "Failed to reboot hosts with error %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:153
+#: ../app/controllers/discovered_hosts_controller.rb:154
 msgid "Destroyed selected hosts"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:155
+#: ../app/controllers/discovered_hosts_controller.rb:156
 msgid "The following hosts were not deleted: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:167
+#: ../app/controllers/discovered_hosts_controller.rb:168
 msgid "Failed to auto provision host %s: %s"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:195
+#: ../app/controllers/discovered_hosts_controller.rb:196
 msgid "Discovered hosts are provisioning now"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:280
+#: ../app/controllers/discovered_hosts_controller.rb:285
 msgid ""
 "Discovered host reported from unknown subnet, communication will not be proxie"
 "d."
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:285
+#: ../app/controllers/discovered_hosts_controller.rb:290
 msgid ""
 "Discovered hosts reported from unknown subnet are %s, communication will not b"
 "e proxied."
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:299
+#: ../app/controllers/discovered_hosts_controller.rb:304
 msgid "No hosts were found with that id or name"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:303
+#: ../app/controllers/discovered_hosts_controller.rb:308
 msgid "No hosts selected"
 msgstr ""
 
-#: ../app/controllers/discovered_hosts_controller.rb:309
+#: ../app/controllers/discovered_hosts_controller.rb:314
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 #: ../app/helpers/discovered_hosts_helper.rb:16
 #: ../app/helpers/discovered_hosts_helper.rb:30
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:42
-#: ../lib/foreman_discovery/engine.rb:92
+#: ../lib/foreman_discovery/engine.rb:91
 msgid "Reboot"
 msgstr ""
 
@@ -414,9 +414,9 @@ msgstr ""
 
 #: ../app/helpers/discovery_rules_helper.rb:26
 #: ../app/views/discovered_hosts/_discovered_hosts_list.html.erb:1
-#: ../app/views/discovered_hosts/welcome.html.erb:8
-#: ../lib/foreman_discovery/engine.rb:311
-#: ../lib/foreman_discovery/engine.rb:326
+#: ../app/views/discovered_hosts/welcome.html.erb:5
+#: ../lib/foreman_discovery/engine.rb:309
+#: ../lib/foreman_discovery/engine.rb:324
 msgid "Discovered Hosts"
 msgstr ""
 
@@ -899,7 +899,7 @@ msgid "Edit %s"
 msgstr ""
 
 #: ../app/views/discovery_rules/index.html.erb:1
-#: ../lib/foreman_discovery/engine.rb:316
+#: ../lib/foreman_discovery/engine.rb:314
 #: ../webpack/src/ForemanDiscovery/DiscoveryRules/Components/EmptyState/EmptyState.js:20
 msgid "Discovery Rules"
 msgstr ""
@@ -937,7 +937,7 @@ msgstr ""
 msgid "New Discovery Rule"
 msgstr ""
 
-#: ../app/views/discovery_rules/welcome.html.erb:8
+#: ../app/views/discovery_rules/welcome.html.erb:5
 msgid "Discovered Rules"
 msgstr ""
 
@@ -1011,25 +1011,25 @@ msgstr ""
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:78
+#: ../lib/foreman_discovery/engine.rb:79
 msgid "Hostname facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:79
+#: ../lib/foreman_discovery/engine.rb:80
 msgid "List of facts to use for the hostname (first wins)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:86
+#: ../lib/foreman_discovery/engine.rb:85
 msgid "Auto provisioning"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:87
+#: ../lib/foreman_discovery/engine.rb:86
 msgid ""
 "Automatically provision newly discovered hosts, according to the provisioning "
 "rules"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:93
+#: ../lib/foreman_discovery/engine.rb:92
 msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
@@ -1041,141 +1041,141 @@ msgstr ""
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:106
+#: ../lib/foreman_discovery/engine.rb:104
 msgid "Fact columns"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:107
+#: ../lib/foreman_discovery/engine.rb:105
 msgid "Extra facter columns to show in host lists"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:112
+#: ../lib/foreman_discovery/engine.rb:110
 msgid "Highlighted facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:113
+#: ../lib/foreman_discovery/engine.rb:111
 msgid "Regex to organize facts for highlights section - e.g. ^(abc|cde)$"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:118
+#: ../lib/foreman_discovery/engine.rb:116
 msgid "Storage facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:119
+#: ../lib/foreman_discovery/engine.rb:117
 msgid "Regex to organize facts for storage section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:124
+#: ../lib/foreman_discovery/engine.rb:122
 msgid "Software facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:125
+#: ../lib/foreman_discovery/engine.rb:123
 msgid "Regex to organize facts for software section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:130
+#: ../lib/foreman_discovery/engine.rb:128
 msgid "Hardware facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:131
+#: ../lib/foreman_discovery/engine.rb:129
 msgid "Regex to organize facts for hardware section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:136
+#: ../lib/foreman_discovery/engine.rb:134
 msgid "Network facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:137
+#: ../lib/foreman_discovery/engine.rb:135
 msgid "Regex to organize facts for network section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:142
+#: ../lib/foreman_discovery/engine.rb:140
 msgid "IPMI facts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:143
+#: ../lib/foreman_discovery/engine.rb:141
 msgid "Regex to organize facts for ipmi section"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:148
+#: ../lib/foreman_discovery/engine.rb:146
 msgid "Lock PXE"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:149
+#: ../lib/foreman_discovery/engine.rb:147
 msgid ""
 "Automatically generate PXE configuration to pin a newly discovered host to dis"
 "covery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:155
+#: ../lib/foreman_discovery/engine.rb:153
 msgid "Locked PXELinux template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:156
+#: ../lib/foreman_discovery/engine.rb:154
 msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:162
+#: ../lib/foreman_discovery/engine.rb:160
 msgid "Locked PXEGrub template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:163
+#: ../lib/foreman_discovery/engine.rb:161
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:169
+#: ../lib/foreman_discovery/engine.rb:167
 msgid "Locked PXEGrub2 template name"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:170
+#: ../lib/foreman_discovery/engine.rb:168
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:175
+#: ../lib/foreman_discovery/engine.rb:173
 msgid "Force DNS"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:176
+#: ../lib/foreman_discovery/engine.rb:174
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:181
+#: ../lib/foreman_discovery/engine.rb:179
 msgid "Error on existing NIC"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:182
+#: ../lib/foreman_discovery/engine.rb:180
 msgid ""
 "Do not allow to discover existing managed host matching MAC of a provisioning "
 "NIC (errors out early)"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:188
+#: ../lib/foreman_discovery/engine.rb:186
 msgid "Type of name generator"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:189
+#: ../lib/foreman_discovery/engine.rb:187
 msgid "Discovery hostname naming pattern"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:194
+#: ../lib/foreman_discovery/engine.rb:192
 msgid "Prefer IPv6"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:195
+#: ../lib/foreman_discovery/engine.rb:193
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:335
+#: ../lib/foreman_discovery/engine.rb:333
 msgid "Discovery Proxy"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:336
+#: ../lib/foreman_discovery/engine.rb:334
 msgid ""
 "Discovery Proxy to use within this subnet for managing connection to discovere"
 "d hosts"
 msgstr ""
 
-#: ../lib/foreman_discovery/engine.rb:337
+#: ../lib/foreman_discovery/engine.rb:335
 msgid ""
 "ID of Discovery Proxy to use within this subnet for managing connection to dis"
 "covered hosts"
