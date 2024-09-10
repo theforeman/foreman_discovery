@@ -1,11 +1,12 @@
 import React from 'react';
 import { Icon } from 'patternfly-react';
 import {
-  Title,
   EmptyState,
   EmptyStateVariant,
   EmptyStateBody,
-  EmptyStateSecondaryActions,
+  EmptyStateActions,
+  EmptyStateHeader,
+  EmptyStateFooter,
 } from '@patternfly/react-core';
 import { emptyStatePatternPropTypes } from './EmptyStatePropTypes';
 import { translate as __ } from '../../../common/I18n';
@@ -48,17 +49,15 @@ const EmptyStatePattern = props => {
         {/* TODO: Add pf4 icons, Redmine issue: #30865 */}
         <Icon name={icon} type={iconType} size="2x" />
       </span>
-      <Title headingLevel="h5" size="4xl">
-        {header}
-      </Title>
+      <EmptyStateHeader titleText={<>{header}</>} headingLevel="h5" />
       <EmptyStateBody>
         <div className="empty-state-description">{description}</div>
         <DocumentationBlock />
       </EmptyStateBody>
-      {action}
-      <EmptyStateSecondaryActions>
-        {secondaryActions}
-      </EmptyStateSecondaryActions>
+      <EmptyStateFooter>
+        {action}
+        <EmptyStateActions>{secondaryActions}</EmptyStateActions>
+      </EmptyStateFooter>
     </EmptyState>
   );
 };
