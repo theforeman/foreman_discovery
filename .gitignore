@@ -38,3 +38,4 @@ test/foreman_app
 node_modules
 package-lock.json
 coverage
+locale/action_names.rb
