@@ -13,11 +13,11 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Valeria S Silva <valeriassilva@live.com>, 2015\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/l"
+"Language-Team: Portuguese (Brazil) (http://app.transifex.com/foreman/foreman/l"
 "anguage/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,9 +37,6 @@ msgstr "Resumo de hosts descobertos pelo Foreman"
 
 msgid "A summary of discovered hosts"
 msgstr "Um resumo de hosts descobertos"
-
-msgid "Action with sub plans"
-msgstr "Ação com subplanos "
 
 msgid "Actions"
 msgstr "Ações"
@@ -410,12 +407,6 @@ msgstr "Erro de processamento da API de imagem: %{msg} (HTTP/%{code}, corpo: %{b
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Imagem API retornada HTTP/%{code} com '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Importar classes de Puppet"
-
-msgid "Import facts"
-msgstr "Importar fatos"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Além do atributo @host, a função rand para inteiros aleatórios está disponível. Exemplos:"
 
@@ -658,9 +649,6 @@ msgstr "Regex para organizar fatos da seção de armazenamento"
 
 msgid "Reloading kernel on %s"
 msgstr "Recarregando kernel no %s"
-
-msgid "Remote action:"
-msgstr "Ação remota:"
 
 msgid "Reported in the last 7 days"
 msgstr "Relatado nos últimos sete dias"

@@ -5,11 +5,11 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Georgian (http://www.transifex.com/foreman/foreman/language/ka/"
+"Language-Team: Georgian (http://app.transifex.com/foreman/foreman/language/ka/"
 ")\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,9 +28,6 @@ msgstr "<b>Foreman</b> აღმოჩენილი ჰოსტების �
 
 msgid "A summary of discovered hosts"
 msgstr "აღმოჩენილი ჰოსტების მიმოხილვა"
-
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
 
 msgid "Actions"
 msgstr "ქმედებები"
@@ -51,7 +48,7 @@ msgid "Auto provisioning"
 msgstr "მუშაობისთვის ავტომატურად მომზადება"
 
 msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
-msgstr ""
+msgstr "ავტომატური bond ინტერფეისი (თუ LLDP-ის საშუალებით სხვა ინტერფესის იგივე VLAN-ში ყოფნა გამოვლინდა)"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr ""
@@ -75,7 +72,7 @@ msgid "Clean all facts"
 msgstr "ყველა ფაქტის გასუფთავება"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
-msgstr ""
+msgstr "სამუშაოდ მომზადებისას ყველა მომზადებული ფაქტების გასუფთავება (აღმოჩენის ფაქტების გარდა)"
 
 msgid "Clone"
 msgstr "კლონირება"
@@ -248,7 +245,7 @@ msgid "Errors during reboot: %s"
 msgstr "შეცდომები გადატვირთვისას: %s"
 
 msgid "Execute rules against a discovered host"
-msgstr ""
+msgstr "აღმოჩენილ ჰოსტზე წესების გადატარება"
 
 msgid "Execute rules against all currently discovered hosts"
 msgstr "ამჟამად აღმოჩენილ ყველა ჰოსტზე წესების გადატარება"
@@ -266,7 +263,7 @@ msgid "Fact columns"
 msgstr "ფაქტის სვეტები"
 
 msgid "Fact name to use for primary interface detection"
-msgstr ""
+msgstr "ფაქტის სახელი მთავარი ინტერფეისის პოვნაში გამოსაყენებლად"
 
 msgid "Facts could not be imported"
 msgstr "ფაქტების შემოტანა შეუძლებელია"
@@ -302,7 +299,7 @@ msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
 
 msgid "Foreman Discovery"
-msgstr ""
+msgstr "Foreman -ის აღმოჩენა"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman-ით აღმოჩენილი აღმოჩენილი ჰოსტების მიმოხილვა"
@@ -398,12 +395,6 @@ msgstr "ასლების API-ის დამუშავების შ�
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "ასლების API-მა დააბრუნა HTTP/%{code} შემცველობით '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -423,7 +414,7 @@ msgid "Invalid facts: hash does not contain a valid value for any of the facts i
 msgstr ""
 
 msgid "Invalid hostname: Could not normalize the hostname"
-msgstr ""
+msgstr "არასწორი ჰოსტის სახელი: ჰოსტის სახელის ნორმალიზაცია შეუძლებელია"
 
 msgid "Invalid user type of %s was provided"
 msgstr "მომხმარებლის მითითებული ტიპი არასწორია: %s"
@@ -432,7 +423,7 @@ msgid "Kernel kexec URL is invalid: '%s'"
 msgstr "ბირთვის kexec URL არასწორია: %s"
 
 msgid "Kexec template not associated with operating system"
-msgstr ""
+msgstr "Kexec-ის შაბლონი ოპერაციულ სისტემასთან ასოცირებული არაა"
 
 msgid "Last Facts Upload"
 msgstr "ბოლოს ატვირთული ფაქტები"
@@ -528,7 +519,7 @@ msgid "No discovered hosts to reboot"
 msgstr "აღმოჩენილი ჰოსტებიდან გადასატვირთი არცერთი არაა"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr ""
+msgstr "წესთან '%s' ჰოსტების ჯგუფი ასოცირებული არაა"
 
 msgid "No hosts selected"
 msgstr "ჰოსტები მონიშნული არაა"
@@ -647,9 +638,6 @@ msgstr "რეგულარული გამოსახულება ს�
 msgid "Reloading kernel on %s"
 msgstr "ბირთვის გადატვირთვა %s-ზე"
 
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
-
 msgid "Reported in the last 7 days"
 msgstr "შემდგარი კავშირი ბოლო 7 დღის განმავლობაში"
 
@@ -660,7 +648,7 @@ msgid "Rule enabled"
 msgstr "წესი ჩართულია"
 
 msgid "Rule priority (lower integer means higher priority)"
-msgstr ""
+msgstr "წესის პრიორიტეტი (ნაკლები მნიშვნელობა - მეტი პრიორიტეტი)"
 
 msgid "Select Action"
 msgstr "აირჩიეთ ქმედება"
@@ -717,10 +705,10 @@ msgid "Target host group for this rule with all properties set"
 msgstr ""
 
 msgid "The default location to place discovered hosts in"
-msgstr ""
+msgstr "ნაგულისხმები მდებარეობა აღმოჩენილი ჰოსტების მოსათავსებლად"
 
 msgid "The default organization to place discovered hosts in"
-msgstr ""
+msgstr "ნაგულისხმები ორგანიზაცია აღმოჩენილი ჰოსტების მოსათავსებლად"
 
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
@@ -780,16 +768,16 @@ msgid "documentation"
 msgstr "დოკუმენტაცია"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
-msgstr ""
+msgstr "საშუალებას გაძლევთ, თითოეული წესისთვის სამუშაოდ მოსამზადებელი ჰოსტების მაქსიმალურ რაოდენობა შეზღუდოთ"
 
 msgid "filter results"
 msgstr "ფილტრის შედეგები"
 
 msgid "flag is used for temporary shutdown of rules"
-msgstr ""
+msgstr "ალამი წესების დროების გამოსართავად გამოიყენება"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr ""
+msgstr "ჰეში, რომელიც ჰოსტის შესახებ ფაქტების მინიმალურ ნაკრებს შეიცავს : discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (ძირითადი ინტერფეისის სახელი)"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "ჩანაწერები მონიშნულია. გასასუფთავებლად მოხსენით მონიშვნა"
@@ -822,7 +810,7 @@ msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr ""
 
 msgid "query to match discovered hosts for the particular rule"
-msgstr ""
+msgstr "მოთხოვნა აღმოჩენილი ჰოსტების კონკრეტულ წესთან დასამთხვევად"
 
 msgid "represents rule name shown to the users"
 msgstr "წარმოადგენს წესის სახელს, რომელსაც მომხმარებლები ხედავენ"
@@ -837,10 +825,10 @@ msgid "required if not imaged based provisioning and host is managed and value i
 msgstr "საჭიროა, თუ ჰოსტი ასლით არ მომზადებულა სამუშაოდ, მართულია და მნიშვნელობა მემკვიდრეობით არაა გადმოცემული ჰოსტების ჯგუფიდან"
 
 msgid "required if value is not inherited from host group or default password in settings"
-msgstr ""
+msgstr "საჭიროა, თუ მნიშვნელობა ჰოსტის ჯგუფიდან ან პარამეტრებიდან ნაგულისხმები პაროლიდან არაა მემკვიდრეობით მიღებული"
 
 msgid "sort results"
 msgstr "შედეგების დალაგება"
 
 msgid "the hostgroup that is used to auto provision a host"
-msgstr ""
+msgstr "ჰოსტების ჯგუფი, რომელიც ჰოსტის ავტომატურად სამუშაოდ მომზადებისთვის გამოიყენება"

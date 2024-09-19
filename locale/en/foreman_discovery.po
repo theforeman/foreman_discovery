@@ -1,16 +1,21 @@
-# Copyright (C) Foreman developers
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_discovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
-"Report-Msgid-Bugs-To: foreman-dev@googlegroups.com\n"
-"PO-Revision-Date: 2015-12-27 01:18+0000\n"
-"Last-Translator: \n"
-"Language-Team: EnglishMIME-Version: 1.0\n"
+"Project-Id-Version: foreman_discovery 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-09-19 13:06+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "%s - The following hosts are about to be changed"
 msgstr ""
@@ -22,9 +27,6 @@ msgid "<b>Foreman</b> Discovered hosts summary"
 msgstr ""
 
 msgid "A summary of discovered hosts"
-msgstr ""
-
-msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -393,12 +395,6 @@ msgstr ""
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr ""
 
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr ""
 
@@ -640,9 +636,6 @@ msgid "Regex to organize facts for storage section"
 msgstr ""
 
 msgid "Reloading kernel on %s"
-msgstr ""
-
-msgid "Remote action:"
 msgstr ""
 
 msgid "Reported in the last 7 days"

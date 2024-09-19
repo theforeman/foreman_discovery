@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery v22.0.4",
+        "Project-Id-Version": "foreman_discovery 25.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/language/zh_TW/)",
+        "Language-Team": "Chinese (Taiwan) (http://app.transifex.com/foreman/foreman/language/zh_TW/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -17,281 +17,116 @@
         "domain": "foreman_discovery",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "List all discovered hosts": [
-        ""
-      ],
-      "filter results": [
-        "篩選結果"
-      ],
-      "sort results": [
-        "排序結果"
-      ],
-      "paginate results": [
-        "編頁結果"
-      ],
-      "number of entries per request": [
-        "每個請求的項目數量"
-      ],
-      "Show a discovered host": [
-        ""
-      ],
-      "DHCP filename option (Grub2 or PXELinux by default)": [
-        ""
-      ],
-      "Create a discovered host for testing (use /facts to create new hosts)": [
-        ""
-      ],
-      "Provision a discovered host": [
-        ""
-      ],
-      "required if host is managed and value is not inherited from host group": [
-        "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
-      ],
-      "not required if using a subnet with DHCP proxy": [
-        "若是使用一個含有 DHCP 協定的子網路則不需要"
-      ],
-      "not required if it's a virtual machine": [
-        ""
-      ],
-      "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
-        "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"
-      ],
-      "required if host is managed and custom partition has not been defined": [
-        "若主機是個受管理的主機，並且尚未定義自訂分割區的話便需要"
-      ],
-      "Host's owner type": [
-        "主機的擁有者類型"
-      ],
-      "Host's parameters (array or indexed hash)": [
-        "主機參數（陣列或索引過的雜湊）"
-      ],
-      "Name of the parameter": [
-        "參數名稱"
-      ],
-      "Parameter value": [
-        "參數值"
-      ],
-      "Type of value": [
-        ""
-      ],
-      "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks": [
-        "用來追蹤協調流程任務狀態的 UUID，GET /api/orchestration/:UUID/tasks"
-      ],
-      "required if value is not inherited from host group or default password in settings": [
-        ""
-      ],
-      "Delete a discovered host": [
-        ""
-      ],
-      "Upload facts for a host, creating the host if required": [
-        "上傳主機的詳情，並視需求建立主機"
-      ],
-      "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)": [
-        ""
-      ],
-      "Execute rules against a discovered host": [
-        ""
-      ],
-      "Host %{host} was provisioned with rule %{rule}": [
-        ""
-      ],
-      "Unable to provision %{host}: %{errors}": [
-        ""
-      ],
-      "No rule found for host %s": [
-        ""
-      ],
-      "Execute rules against all currently discovered hosts": [
-        ""
-      ],
-      "Errors during auto provisioning: %s": [
-        ""
-      ],
-      "No discovered hosts to provision": [
-        ""
+      "%s - The following hosts are about to be changed": [
+        "%s - 以下主機即將受到更改"
       ],
       "%s discovered hosts were provisioned": [
         ""
       ],
-      "Refreshing the facts of a discovered host": [
+      "<b>Foreman</b> Discovered hosts summary": [
         ""
       ],
-      "Rebooting a discovered host": [
+      "A summary of discovered hosts": [
         ""
       ],
-      "Rebooting all discovered hosts": [
-        ""
+      "Actions": [
+        "動作"
       ],
-      "Discovered hosts are rebooting now": [
-        ""
+      "Assign Location": [
+        "指定位置"
       ],
-      "List all discovery rules": [
-        ""
+      "Assign Organization": [
+        "指定組織"
       ],
-      "Show a discovery rule": [
-        ""
-      ],
-      "represents rule name shown to the users": [
-        ""
-      ],
-      "query to match discovered hosts for the particular rule": [
-        ""
-      ],
-      "the hostgroup that is used to auto provision a host": [
-        ""
-      ],
-      "defines a pattern to assign human-readable hostnames to the matching hosts": [
-        ""
-      ],
-      "enables to limit maximum amount of provisioned hosts per rule": [
-        ""
-      ],
-      "puts the rules in order, low numbers go first. Must be greater then zero": [
-        ""
-      ],
-      "flag is used for temporary shutdown of rules": [
-        ""
-      ],
-      "location ID for provisioned hosts": [
-        ""
-      ],
-      "organization ID for provisioned hosts": [
-        ""
-      ],
-      "Create a discovery rule": [
-        ""
-      ],
-      "Update a rule": [
-        ""
-      ],
-      "Delete a rule": [
-        ""
-      ],
-      "List all fact values of a given discovered host": [
-        ""
-      ],
-      "Unable to find a discovery rule, no host provided (check permissions)": [
-        ""
-      ],
-      "No hostgroup associated with rule '%s'": [
-        ""
-      ],
-      "Errors during reboot: %s": [
-        ""
-      ],
-      "No discovered hosts to reboot": [
-        ""
-      ],
-      "Successfully provisioned %s": [
-        ""
-      ],
-      "Facts refreshed for %s": [
-        "%s 的詳情已刷新"
-      ],
-      "Failed to refresh facts for %s": [
-        "刷新 %s 的詳情失敗"
-      ],
-      "Failed to refresh facts for %{hostname} with error %{error_message}": [
-        ""
-      ],
-      "Host of type %s can not be rebooted": [
-        ""
-      ],
-      "Rebooting host %s": [
-        ""
-      ],
-      "Failed to reboot host %s": [
-        ""
-      ],
-      "Failed to reboot host %{hostname} with error %{error_message}": [
-        ""
-      ],
-      "Failed to reboot hosts with error %s": [
-        ""
-      ],
-      "Destroyed selected hosts": [
-        "刪除選擇的主機"
-      ],
-      "The following hosts were not deleted: %s": [
-        "下列主機尚未刪除：%s"
-      ],
-      "Failed to auto provision host %s: %s": [
-        ""
-      ],
-      "Discovered hosts are provisioning now": [
-        ""
-      ],
-      "Discovered host reported from unknown subnet, communication will not be proxied.": [
-        ""
-      ],
-      "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
-        ""
-      ],
-      "No hosts were found with that id or name": [
-        "沒有找到擁有此 ID 或名稱的主機"
-      ],
-      "No hosts selected": [
-        "未選擇主機"
-      ],
-      "Something went wrong while selecting hosts - %s": [
-        "選擇主機時發生了錯誤 - %s"
-      ],
-      "Rule enabled": [
-        ""
-      ],
-      "Rule disabled": [
+      "Associated Hosts": [
         ""
       ],
       "Auto Provision": [
         ""
       ],
-      "Refresh facts": [
-        "刷新詳情"
+      "Auto provisioning": [
+        ""
       ],
-      "Reboot": [
-        "重新開機"
+      "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)": [
+        ""
+      ],
+      "Automatically generate PXE configuration to pin a newly discovered host to discovery": [
+        ""
+      ],
+      "Automatically provision newly discovered hosts, according to the provisioning rules": [
+        ""
+      ],
+      "Automatically reboot or kexec discovered host during provisioning": [
+        ""
       ],
       "Back": [
         "上一步"
       ],
-      "Select Action": [
-        "選擇動作"
+      "CPUs": [
+        "CPU"
       ],
-      "Delete %s?": [
-        "刪除 %s？"
+      "Cancel": [
+        "取消"
       ],
-      "Assign Organization": [
-        "指定組織"
+      "Clean all facts": [
+        ""
       ],
-      "Assign Location": [
-        "指定位置"
+      "Clean all reported facts during provisioning (except discovery facts)": [
+        ""
+      ],
+      "Clone": [
+        "複製"
+      ],
+      "Clone %s": [
+        "複製 %s"
+      ],
+      "Collapse All": [
+        "全部收回"
+      ],
+      "Could not get facts from proxy %{url}: %{error}": [
+        ""
+      ],
+      "Create Host": [
+        ""
+      ],
+      "Create Rule": [
+        ""
+      ],
+      "Create a discovered host for testing (use /facts to create new hosts)": [
+        ""
+      ],
+      "Create a discovery rule": [
+        ""
+      ],
+      "Create bond interfaces": [
+        ""
+      ],
+      "Customize Host": [
+        ""
+      ],
+      "DHCP filename option (Grub2 or PXELinux by default)": [
+        ""
       ],
       "Delete": [
         "刪除"
       ],
-      "%s - The following hosts are about to be changed": [
-        "%s - 以下主機即將受到更改"
+      "Delete %s?": [
+        "刪除 %s？"
       ],
-      "N/A": [
-        "N/A"
-      ],
-      "New in the last 24 hours": [
+      "Delete a discovered host": [
         ""
       ],
-      "Not reported in more than 7 days": [
+      "Delete a rule": [
         ""
       ],
-      "Reported in the last 7 days": [
+      "Delete rule '%s'?": [
         ""
       ],
-      "Provision": [
-        "佈建"
+      "Destroyed selected hosts": [
+        "刪除選擇的主機"
       ],
-      "Discovered Hosts": [
-        ""
-      ],
-      "Associated Hosts": [
-        ""
+      "Details": [
+        "詳細資料"
       ],
       "Disable": [
         "停用"
@@ -299,325 +134,65 @@
       "Disable rule '%s'?": [
         ""
       ],
-      "Enable": [
-        "啟用"
-      ],
-      "Enable rule '%s'?": [
-        ""
-      ],
-      "Clone": [
-        "複製"
-      ],
-      "Delete rule '%s'?": [
-        ""
-      ],
-      "Invalid user type of %s was provided": [
-        ""
-      ],
-      "Discovered hosts summary": [
-        ""
-      ],
-      "can't contain white spaces.": [
-        ""
-      ],
-      "must start with a letter or ERB.": [
-        ""
-      ],
-      "must be present.": [
-        ""
-      ],
-      "Host group organization %s must also be associated to the discovery rule": [
+      "Discovered Host": [
         "",
         ""
       ],
-      "Host group location %s must also be associated to the discovery rule": [
-        "",
+      "Discovered Hosts": [
         ""
       ],
-      "Fact + prefix": [
-        ""
-      ],
-      "Random name": [
-        ""
-      ],
-      "MAC-based name": [
-        ""
-      ],
-      "Invalid facts, must be a Hash": [
-        ""
-      ],
-      "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname": [
-        ""
-      ],
-      "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s": [
-        ""
-      ],
-      "Facts could not be imported": [
-        ""
-      ],
-      "Could not get facts from proxy %{url}: %{error}": [
-        ""
-      ],
-      "Unable to perform reboot on %{name} (%{url}): %{msg}": [
-        ""
-      ],
-      "Unable to perform %{action} on %{ips}": [
-        ""
-      ],
-      "Unable to perform kexec on %{name} (%{url}): %{msg}": [
-        ""
-      ],
-      "Invalid hostname: Could not normalize the hostname": [
-        ""
-      ],
-      "Reloading kernel on %s": [
-        ""
-      ],
-      "Rebooting %s": [
-        "重新啟動 %s"
-      ],
-      "Kexec template not associated with operating system": [
-        ""
-      ],
-      "Kernel kexec URL is invalid: '%s'": [
-        ""
-      ],
-      "Init RAM kexec URL is invalid: '%s'": [
-        ""
-      ],
-      "Rebuild DNS for %s": [
-        ""
-      ],
-      "Discovery fact parser does not work with non-discovery host '%{host}'": [
+      "Discovered Rules": [
         ""
       ],
       "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}": [
         ""
       ],
-      "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}": [
+      "Discovered host reported from unknown subnet, communication will not be proxied.": [
         ""
-      ],
-      "Highlights": [
-        ""
-      ],
-      "Storage": [
-        "儲存裝置"
-      ],
-      "Hardware": [
-        "硬體"
-      ],
-      "Network": [
-        "網路"
-      ],
-      "Software": [
-        "軟體"
-      ],
-      "IPMI": [
-        "IPMI"
-      ],
-      "Miscellaneous": [
-        "雜項"
-      ],
-      "IPAM must be configured for subnet '%s'": [
-        ""
-      ],
-      "Options must be hash": [
-        ""
-      ],
-      "Option 'url' must be provided": [
-        ""
-      ],
-      "Option 'url' must be valid URI: %s": [
-        ""
-      ],
-      "Image API returned HTTP/%{code} with '%{body}": [
-        ""
-      ],
-      "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})": [
-        ""
-      ],
-      "One or more hosts with failed discovery due to error: %s": [
-        ""
-      ],
-      "Host %s has been dicovered": [
-        ""
-      ],
-      "Discovered Host": [
-        "",
-        ""
-      ],
-      "No discovered hosts available": [
-        ""
-      ],
-      "Host": [
-        "主機"
-      ],
-      "Model": [
-        "型號"
-      ],
-      "CPUs": [
-        "CPU"
-      ],
-      "Memory": [
-        "記憶體"
-      ],
-      "Customize Host": [
-        ""
-      ],
-      "Create Host": [
-        ""
-      ],
-      "Select all items in this page": [
-        "選擇這頁中的所有項目"
-      ],
-      "items selected. Uncheck to Clear": [
-        "已選取項目。反選以清除"
-      ],
-      "Name": [
-        "名稱"
-      ],
-      "IP Address": [
-        "IP 位址"
-      ],
-      "Disk Count": [
-        ""
-      ],
-      "Disks Size": [
-        ""
-      ],
-      "Location": [
-        "位置"
-      ],
-      "Organization": [
-        "組織"
-      ],
-      "Subnet": [
-        "子網路"
-      ],
-      "Last Facts Upload": [
-        ""
-      ],
-      "Actions": [
-        "動作"
-      ],
-      "Please Confirm": [
-        "請確認"
-      ],
-      "Cancel": [
-        "取消"
-      ],
-      "Submit": [
-        "提交"
-      ],
-      "Provision %s": [
-        ""
-      ],
-      "This might take a while, as all hosts, facts and reports will be destroyed as well": [
-        "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
-      ],
-      "Select location": [
-        "選擇位置"
-      ],
-      "Select organization": [
-        "選擇組織"
       ],
       "Discovered host: %s": [
         "發現的主機：%s"
       ],
-      "Interfaces": [
-        "介面"
-      ],
-      "Type": [
-        "種類"
-      ],
-      "Identifier": [
-        "辨識碼"
-      ],
-      "MAC address": [
-        "MAC 位址"
-      ],
-      "IP address": [
-        "IP 位址"
-      ],
-      "Collapse All": [
-        "全部收回"
-      ],
-      "Summary report for discovered hosts from Foreman": [
+      "Discovered hosts are provisioning now": [
         ""
       ],
-      "<b>Foreman</b> Discovered hosts summary": [
-        ""
-      ],
-      "Summary from %{time} ago to %{now}": [
+      "Discovered hosts are rebooting now": [
         ""
       ],
       "Discovered hosts from Foreman server at %{foreman_url}": [
         ""
       ],
-      "Disk count": [
-        "磁碟計數"
-      ],
-      "Disks size": [
-        "磁碟大小"
-      ],
-      "No discovered hosts for the selected period": [
+      "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
         ""
       ],
-      "Foreman discovered hosts summary": [
+      "Discovered hosts summary": [
         ""
       ],
-      "No new discovered hosts for this period": [
+      "Discovery": [
         ""
       ],
-      "Primary": [
-        "主要"
-      ],
-      "Locations": [
-        "位置"
-      ],
-      "Organizations": [
-        "組織"
-      ],
-      "Target host group for this rule with all properties set": [
+      "Discovery Proxy": [
         ""
       ],
-      "Hostname for provisioned hosts": [
+      "Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
         ""
-      ],
-      "Hosts Limit": [
-        "主機限制"
-      ],
-      "Maximum hosts provisioned with this rule (0 = unlimited)": [
-        ""
-      ],
-      "Rule priority (lower integer means higher priority)": [
-        ""
-      ],
-      "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB).": [
-        ""
-      ],
-      "Domain will be appended automatically. A hostname based on MAC address will be used when left blank.": [
-        ""
-      ],
-      "In addition to @host attribute function rand for random integers is available. Examples:": [
-        ""
-      ],
-      "When creating hostname patterns, make sure the resulting host names are unique.": [
-        ""
-      ],
-      "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).": [
-        ""
-      ],
-      "Clone %s": [
-        "複製 %s"
-      ],
-      "Edit %s": [
-        "編輯 %s"
       ],
       "Discovery Rules": [
         ""
       ],
-      "Create Rule": [
+      "Discovery fact parser does not work with non-discovery host '%{host}'": [
+        ""
+      ],
+      "Discovery hostname naming pattern": [
+        ""
+      ],
+      "Discovery location": [
+        ""
+      ],
+      "Discovery organization": [
+        ""
+      ],
+      "DiscoveryRule|Enabled": [
         ""
       ],
       "DiscoveryRule|Name": [
@@ -629,157 +204,91 @@
       "DiscoveryRule|Query": [
         ""
       ],
-      "Host Group": [
-        "主機群組"
-      ],
-      "Hosts/Limit": [
+      "Disk Count": [
         ""
       ],
-      "DiscoveryRule|Enabled": [
+      "Disk count": [
+        "磁碟計數"
+      ],
+      "Disks Size": [
         ""
       ],
-      "New Discovery Rule": [
+      "Disks size": [
+        "磁碟大小"
+      ],
+      "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)": [
         ""
       ],
-      "Discovered Rules": [
+      "Domain will be appended automatically. A hostname based on MAC address will be used when left blank.": [
         ""
       ],
-      "A summary of discovered hosts": [
+      "Edit %s": [
+        "編輯 %s"
+      ],
+      "Enable": [
+        "啟用"
+      ],
+      "Enable rule '%s'?": [
         ""
-      ],
-      "New hosts": [
-        ""
-      ],
-      "One or more hosts have been discovered": [
-        ""
-      ],
-      "Details": [
-        "詳細資料"
-      ],
-      "Hosts": [
-        "主機"
       ],
       "Error message goes here": [
         ""
       ],
-      "Discovery": [
+      "Error on existing NIC": [
         ""
       ],
-      "Discovery location": [
+      "Errors during auto provisioning: %s": [
         ""
       ],
-      "The default location to place discovered hosts in": [
-        "放置已發現之主機的預設位置"
-      ],
-      "Discovery organization": [
+      "Errors during reboot: %s": [
         ""
       ],
-      "The default organization to place discovered hosts in": [
-        "放置已發現之主機的預設組織"
-      ],
-      "Interface fact": [
+      "Execute rules against a discovered host": [
         ""
       ],
-      "Fact name to use for primary interface detection": [
+      "Execute rules against all currently discovered hosts": [
         ""
       ],
-      "Create bond interfaces": [
-        ""
-      ],
-      "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)": [
-        ""
-      ],
-      "Clean all facts": [
-        ""
-      ],
-      "Clean all reported facts during provisioning (except discovery facts)": [
-        ""
-      ],
-      "Hostname facts": [
-        ""
-      ],
-      "List of facts to use for the hostname (first wins)": [
-        ""
-      ],
-      "Auto provisioning": [
-        ""
-      ],
-      "Automatically provision newly discovered hosts, according to the provisioning rules": [
-        ""
-      ],
-      "Automatically reboot or kexec discovered host during provisioning": [
-        ""
-      ],
-      "Hostname prefix": [
-        ""
-      ],
-      "The default prefix to use for the host name, must start with a letter": [
-        ""
-      ],
-      "Fact columns": [
+      "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname": [
         ""
       ],
       "Extra facter columns to show in host lists": [
         ""
       ],
-      "Highlighted facts": [
+      "Fact + prefix": [
         ""
       ],
-      "Regex to organize facts for highlights section - e.g. ^(abc|cde)$": [
+      "Fact columns": [
         ""
       ],
-      "Storage facts": [
+      "Fact name to use for primary interface detection": [
         ""
       ],
-      "Regex to organize facts for storage section": [
+      "Facts could not be imported": [
         ""
       ],
-      "Software facts": [
+      "Facts refreshed for %s": [
+        "%s 的詳情已刷新"
+      ],
+      "Failed to auto provision host %s: %s": [
         ""
       ],
-      "Regex to organize facts for software section": [
+      "Failed to reboot host %s": [
         ""
       ],
-      "Hardware facts": [
+      "Failed to reboot host %{hostname} with error %{error_message}": [
         ""
       ],
-      "Regex to organize facts for hardware section": [
+      "Failed to reboot hosts with error %s": [
         ""
       ],
-      "Network facts": [
+      "Failed to refresh facts for %s": [
+        "刷新 %s 的詳情失敗"
+      ],
+      "Failed to refresh facts for %{hostname} with error %{error_message}": [
         ""
       ],
-      "Regex to organize facts for network section": [
-        ""
-      ],
-      "IPMI facts": [
-        ""
-      ],
-      "Regex to organize facts for ipmi section": [
-        ""
-      ],
-      "Lock PXE": [
-        ""
-      ],
-      "Automatically generate PXE configuration to pin a newly discovered host to discovery": [
-        ""
-      ],
-      "Locked PXELinux template name": [
-        ""
-      ],
-      "PXELinux template to be used when pinning a host to discovery": [
-        ""
-      ],
-      "Locked PXEGrub template name": [
-        ""
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        ""
-      ],
-      "Locked PXEGrub2 template name": [
-        ""
-      ],
-      "PXEGrub2 template to be used when pinning a host to discovery": [
+      "For more information please see ": [
         ""
       ],
       "Force DNS": [
@@ -788,17 +297,277 @@
       "Force DNS entries creation when provisioning discovered host": [
         ""
       ],
-      "Error on existing NIC": [
+      "Foreman Discovery": [
         ""
       ],
-      "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)": [
+      "Foreman discovered hosts summary": [
         ""
       ],
-      "Type of name generator": [
+      "Hardware": [
+        "硬體"
+      ],
+      "Hardware facts": [
         ""
       ],
-      "Discovery hostname naming pattern": [
+      "Highlighted facts": [
         ""
+      ],
+      "Highlights": [
+        ""
+      ],
+      "Host": [
+        "主機"
+      ],
+      "Host %s has been dicovered": [
+        ""
+      ],
+      "Host %{host} was provisioned with rule %{rule}": [
+        ""
+      ],
+      "Host Group": [
+        "主機群組"
+      ],
+      "Host group location %s must also be associated to the discovery rule": [
+        "",
+        ""
+      ],
+      "Host group organization %s must also be associated to the discovery rule": [
+        "",
+        ""
+      ],
+      "Host of type %s can not be rebooted": [
+        ""
+      ],
+      "Host's owner type": [
+        "主機的擁有者類型"
+      ],
+      "Host's parameters (array or indexed hash)": [
+        "主機參數（陣列或索引過的雜湊）"
+      ],
+      "Hostname facts": [
+        ""
+      ],
+      "Hostname for provisioned hosts": [
+        ""
+      ],
+      "Hostname prefix": [
+        ""
+      ],
+      "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).": [
+        ""
+      ],
+      "Hosts": [
+        "主機"
+      ],
+      "Hosts Limit": [
+        "主機限制"
+      ],
+      "Hosts/Limit": [
+        ""
+      ],
+      "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+        ""
+      ],
+      "IP Address": [
+        "IP 位址"
+      ],
+      "IP address": [
+        "IP 位址"
+      ],
+      "IPAM must be configured for subnet '%s'": [
+        ""
+      ],
+      "IPMI": [
+        "IPMI"
+      ],
+      "IPMI facts": [
+        ""
+      ],
+      "Identifier": [
+        "辨識碼"
+      ],
+      "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})": [
+        ""
+      ],
+      "Image API returned HTTP/%{code} with '%{body}": [
+        ""
+      ],
+      "In addition to @host attribute function rand for random integers is available. Examples:": [
+        ""
+      ],
+      "Init RAM kexec URL is invalid: '%s'": [
+        ""
+      ],
+      "Interface fact": [
+        ""
+      ],
+      "Interfaces": [
+        "介面"
+      ],
+      "Invalid facts, must be a Hash": [
+        ""
+      ],
+      "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s": [
+        ""
+      ],
+      "Invalid hostname: Could not normalize the hostname": [
+        ""
+      ],
+      "Invalid user type of %s was provided": [
+        ""
+      ],
+      "Kernel kexec URL is invalid: '%s'": [
+        ""
+      ],
+      "Kexec template not associated with operating system": [
+        ""
+      ],
+      "Last Facts Upload": [
+        ""
+      ],
+      "List all discovered hosts": [
+        ""
+      ],
+      "List all discovery rules": [
+        ""
+      ],
+      "List all fact values of a given discovered host": [
+        ""
+      ],
+      "List of facts to use for the hostname (first wins)": [
+        ""
+      ],
+      "Location": [
+        "位置"
+      ],
+      "Locations": [
+        "位置"
+      ],
+      "Lock PXE": [
+        ""
+      ],
+      "Locked PXEGrub template name": [
+        ""
+      ],
+      "Locked PXEGrub2 template name": [
+        ""
+      ],
+      "Locked PXELinux template name": [
+        ""
+      ],
+      "MAC address": [
+        "MAC 位址"
+      ],
+      "MAC-based name": [
+        ""
+      ],
+      "Maximum hosts provisioned with this rule (0 = unlimited)": [
+        ""
+      ],
+      "Memory": [
+        "記憶體"
+      ],
+      "Miscellaneous": [
+        "雜項"
+      ],
+      "Model": [
+        "型號"
+      ],
+      "N/A": [
+        "N/A"
+      ],
+      "Name": [
+        "名稱"
+      ],
+      "Name of the parameter": [
+        "參數名稱"
+      ],
+      "Network": [
+        "網路"
+      ],
+      "Network facts": [
+        ""
+      ],
+      "New Discovery Rule": [
+        ""
+      ],
+      "New hosts": [
+        ""
+      ],
+      "New in the last 24 hours": [
+        ""
+      ],
+      "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts": [
+        ""
+      ],
+      "No discovered hosts available": [
+        ""
+      ],
+      "No discovered hosts for the selected period": [
+        ""
+      ],
+      "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned.": [
+        ""
+      ],
+      "No discovered hosts to provision": [
+        ""
+      ],
+      "No discovered hosts to reboot": [
+        ""
+      ],
+      "No hostgroup associated with rule '%s'": [
+        ""
+      ],
+      "No hosts selected": [
+        "未選擇主機"
+      ],
+      "No hosts were found with that id or name": [
+        "沒有找到擁有此 ID 或名稱的主機"
+      ],
+      "No new discovered hosts for this period": [
+        ""
+      ],
+      "No rule found for host %s": [
+        ""
+      ],
+      "Not reported in more than 7 days": [
+        ""
+      ],
+      "One or more hosts have been discovered": [
+        ""
+      ],
+      "One or more hosts with failed discovery due to error: %s": [
+        ""
+      ],
+      "Option 'url' must be provided": [
+        ""
+      ],
+      "Option 'url' must be valid URI: %s": [
+        ""
+      ],
+      "Options must be hash": [
+        ""
+      ],
+      "Organization": [
+        "組織"
+      ],
+      "Organizations": [
+        "組織"
+      ],
+      "PXEGrub template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "PXEGrub2 template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "PXELinux template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "Parameter value": [
+        "參數值"
+      ],
+      "Please Confirm": [
+        "請確認"
       ],
       "Prefer IPv6": [
         ""
@@ -806,41 +575,260 @@
       "Prefer IPv6 to IPv4 when calling discovered nodes": [
         ""
       ],
-      "Discovery Proxy": [
+      "Primary": [
+        "主要"
+      ],
+      "Provision": [
+        "佈建"
+      ],
+      "Provision %s": [
         ""
       ],
-      "Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+      "Provision a discovered host": [
         ""
       ],
-      "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+      "Random name": [
         ""
       ],
-      "For more information please see ": [
+      "Reboot": [
+        "重新開機"
+      ],
+      "Rebooting %s": [
+        "重新啟動 %s"
+      ],
+      "Rebooting a discovered host": [
+        ""
+      ],
+      "Rebooting all discovered hosts": [
+        ""
+      ],
+      "Rebooting host %s": [
+        ""
+      ],
+      "Rebuild DNS for %s": [
+        ""
+      ],
+      "Refresh facts": [
+        "刷新詳情"
+      ],
+      "Refreshing the facts of a discovered host": [
+        ""
+      ],
+      "Regex to organize facts for hardware section": [
+        ""
+      ],
+      "Regex to organize facts for highlights section - e.g. ^(abc|cde)$": [
+        ""
+      ],
+      "Regex to organize facts for ipmi section": [
+        ""
+      ],
+      "Regex to organize facts for network section": [
+        ""
+      ],
+      "Regex to organize facts for software section": [
+        ""
+      ],
+      "Regex to organize facts for storage section": [
+        ""
+      ],
+      "Reloading kernel on %s": [
+        ""
+      ],
+      "Reported in the last 7 days": [
+        ""
+      ],
+      "Rule disabled": [
+        ""
+      ],
+      "Rule enabled": [
+        ""
+      ],
+      "Rule priority (lower integer means higher priority)": [
+        ""
+      ],
+      "Select Action": [
+        "選擇動作"
+      ],
+      "Select all items in this page": [
+        "選擇這頁中的所有項目"
+      ],
+      "Select location": [
+        "選擇位置"
+      ],
+      "Select organization": [
+        "選擇組織"
+      ],
+      "Show a discovered host": [
+        ""
+      ],
+      "Show a discovery rule": [
+        ""
+      ],
+      "Software": [
+        "軟體"
+      ],
+      "Software facts": [
+        ""
+      ],
+      "Something went wrong while selecting hosts - %s": [
+        "選擇主機時發生了錯誤 - %s"
+      ],
+      "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB).": [
+        ""
+      ],
+      "Storage": [
+        "儲存裝置"
+      ],
+      "Storage facts": [
+        ""
+      ],
+      "Submit": [
+        "提交"
+      ],
+      "Subnet": [
+        "子網路"
+      ],
+      "Successfully provisioned %s": [
+        ""
+      ],
+      "Summary from %{time} ago to %{now}": [
+        ""
+      ],
+      "Summary report for discovered hosts from Foreman": [
+        ""
+      ],
+      "Target host group for this rule with all properties set": [
+        ""
+      ],
+      "The default location to place discovered hosts in": [
+        "放置已發現之主機的預設位置"
+      ],
+      "The default organization to place discovered hosts in": [
+        "放置已發現之主機的預設組織"
+      ],
+      "The default prefix to use for the host name, must start with a letter": [
+        ""
+      ],
+      "The following hosts were not deleted: %s": [
+        "下列主機尚未刪除：%s"
+      ],
+      "This might take a while, as all hosts, facts and reports will be destroyed as well": [
+        "這可能會花上一段時間，因為所有主機、詳情與報告皆會被刪除"
+      ],
+      "Type": [
+        "種類"
+      ],
+      "Type of name generator": [
+        ""
+      ],
+      "Type of value": [
+        ""
+      ],
+      "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks": [
+        "用來追蹤協調流程任務狀態的 UUID，GET /api/orchestration/:UUID/tasks"
+      ],
+      "Unable to find a discovery rule, no host provided (check permissions)": [
+        ""
+      ],
+      "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}": [
+        ""
+      ],
+      "Unable to perform %{action} on %{ips}": [
+        ""
+      ],
+      "Unable to perform kexec on %{name} (%{url}): %{msg}": [
+        ""
+      ],
+      "Unable to perform reboot on %{name} (%{url}): %{msg}": [
+        ""
+      ],
+      "Unable to provision %{host}: %{errors}": [
+        ""
+      ],
+      "Update a rule": [
+        ""
+      ],
+      "Upload facts for a host, creating the host if required": [
+        "上傳主機的詳情，並視需求建立主機"
+      ],
+      "When creating hostname patterns, make sure the resulting host names are unique.": [
+        ""
+      ],
+      "can't contain white spaces.": [
+        ""
+      ],
+      "defines a pattern to assign human-readable hostnames to the matching hosts": [
         ""
       ],
       "documentation": [
         ""
       ],
-      "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned.": [
+      "enables to limit maximum amount of provisioned hosts per rule": [
         ""
       ],
-      "Foreman Discovery": [
+      "filter results": [
+        "篩選結果"
+      ],
+      "flag is used for temporary shutdown of rules": [
         ""
       ],
-      "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts": [
+      "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)": [
         ""
       ],
-      "Remote action:": [
-        "遠端動作："
+      "items selected. Uncheck to Clear": [
+        "已選取項目。反選以清除"
       ],
-      "Import Puppet classes": [
-        "匯入 Puppet 類別"
+      "location ID for provisioned hosts": [
+        ""
       ],
-      "Import facts": [
-        "匯入詳情"
+      "must be present.": [
+        ""
       ],
-      "Action with sub plans": [
-        "有子計畫的動作"
+      "must start with a letter or ERB.": [
+        ""
+      ],
+      "not required if it's a virtual machine": [
+        ""
+      ],
+      "not required if using a subnet with DHCP proxy": [
+        "若是使用一個含有 DHCP 協定的子網路則不需要"
+      ],
+      "number of entries per request": [
+        "每個請求的項目數量"
+      ],
+      "organization ID for provisioned hosts": [
+        ""
+      ],
+      "paginate results": [
+        "編頁結果"
+      ],
+      "puts the rules in order, low numbers go first. Must be greater then zero": [
+        ""
+      ],
+      "query to match discovered hosts for the particular rule": [
+        ""
+      ],
+      "represents rule name shown to the users": [
+        ""
+      ],
+      "required if host is managed and custom partition has not been defined": [
+        "若主機是個受管理的主機，並且尚未定義自訂分割區的話便需要"
+      ],
+      "required if host is managed and value is not inherited from host group": [
+        "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
+      ],
+      "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
+        "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"
+      ],
+      "required if value is not inherited from host group or default password in settings": [
+        ""
+      ],
+      "sort results": [
+        "排序結果"
+      ],
+      "the hostgroup that is used to auto provision a host": [
+        ""
       ]
     }
   }

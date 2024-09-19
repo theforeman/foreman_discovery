@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery v22.0.4",
+        "Project-Id-Version": "foreman_discovery 25.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "Galician (http://www.transifex.com/foreman/foreman/language/gl/)",
+        "Language-Team": "Galician (http://app.transifex.com/foreman/foreman/language/gl/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -17,281 +17,116 @@
         "domain": "foreman_discovery",
         "plural_forms": "nplurals=2; plural=(n != 1);"
       },
-      "List all discovered hosts": [
-        ""
-      ],
-      "filter results": [
-        ""
-      ],
-      "sort results": [
-        ""
-      ],
-      "paginate results": [
-        ""
-      ],
-      "number of entries per request": [
-        ""
-      ],
-      "Show a discovered host": [
-        ""
-      ],
-      "DHCP filename option (Grub2 or PXELinux by default)": [
-        ""
-      ],
-      "Create a discovered host for testing (use /facts to create new hosts)": [
-        ""
-      ],
-      "Provision a discovered host": [
-        ""
-      ],
-      "required if host is managed and value is not inherited from host group": [
-        ""
-      ],
-      "not required if using a subnet with DHCP proxy": [
-        ""
-      ],
-      "not required if it's a virtual machine": [
-        ""
-      ],
-      "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
-        ""
-      ],
-      "required if host is managed and custom partition has not been defined": [
-        ""
-      ],
-      "Host's owner type": [
-        ""
-      ],
-      "Host's parameters (array or indexed hash)": [
-        ""
-      ],
-      "Name of the parameter": [
-        ""
-      ],
-      "Parameter value": [
-        ""
-      ],
-      "Type of value": [
-        ""
-      ],
-      "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks": [
-        ""
-      ],
-      "required if value is not inherited from host group or default password in settings": [
-        ""
-      ],
-      "Delete a discovered host": [
-        ""
-      ],
-      "Upload facts for a host, creating the host if required": [
-        ""
-      ],
-      "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)": [
-        ""
-      ],
-      "Execute rules against a discovered host": [
-        ""
-      ],
-      "Host %{host} was provisioned with rule %{rule}": [
-        ""
-      ],
-      "Unable to provision %{host}: %{errors}": [
-        ""
-      ],
-      "No rule found for host %s": [
-        ""
-      ],
-      "Execute rules against all currently discovered hosts": [
-        ""
-      ],
-      "Errors during auto provisioning: %s": [
-        ""
-      ],
-      "No discovered hosts to provision": [
-        ""
+      "%s - The following hosts are about to be changed": [
+        "%s - Os seguintes equipos están a piques de ser modificados"
       ],
       "%s discovered hosts were provisioned": [
         ""
       ],
-      "Refreshing the facts of a discovered host": [
+      "<b>Foreman</b> Discovered hosts summary": [
         ""
       ],
-      "Rebooting a discovered host": [
+      "A summary of discovered hosts": [
         ""
       ],
-      "Rebooting all discovered hosts": [
-        ""
+      "Actions": [
+        "Accións"
       ],
-      "Discovered hosts are rebooting now": [
-        ""
+      "Assign Location": [
+        "Asignar Lugar"
       ],
-      "List all discovery rules": [
-        ""
+      "Assign Organization": [
+        "Asignar Organización"
       ],
-      "Show a discovery rule": [
-        ""
-      ],
-      "represents rule name shown to the users": [
-        ""
-      ],
-      "query to match discovered hosts for the particular rule": [
-        ""
-      ],
-      "the hostgroup that is used to auto provision a host": [
-        ""
-      ],
-      "defines a pattern to assign human-readable hostnames to the matching hosts": [
-        ""
-      ],
-      "enables to limit maximum amount of provisioned hosts per rule": [
-        ""
-      ],
-      "puts the rules in order, low numbers go first. Must be greater then zero": [
-        ""
-      ],
-      "flag is used for temporary shutdown of rules": [
-        ""
-      ],
-      "location ID for provisioned hosts": [
-        ""
-      ],
-      "organization ID for provisioned hosts": [
-        ""
-      ],
-      "Create a discovery rule": [
-        ""
-      ],
-      "Update a rule": [
-        ""
-      ],
-      "Delete a rule": [
-        ""
-      ],
-      "List all fact values of a given discovered host": [
-        ""
-      ],
-      "Unable to find a discovery rule, no host provided (check permissions)": [
-        ""
-      ],
-      "No hostgroup associated with rule '%s'": [
-        ""
-      ],
-      "Errors during reboot: %s": [
-        ""
-      ],
-      "No discovered hosts to reboot": [
-        ""
-      ],
-      "Successfully provisioned %s": [
-        ""
-      ],
-      "Facts refreshed for %s": [
-        ""
-      ],
-      "Failed to refresh facts for %s": [
-        ""
-      ],
-      "Failed to refresh facts for %{hostname} with error %{error_message}": [
-        ""
-      ],
-      "Host of type %s can not be rebooted": [
-        ""
-      ],
-      "Rebooting host %s": [
-        ""
-      ],
-      "Failed to reboot host %s": [
-        ""
-      ],
-      "Failed to reboot host %{hostname} with error %{error_message}": [
-        ""
-      ],
-      "Failed to reboot hosts with error %s": [
-        ""
-      ],
-      "Destroyed selected hosts": [
-        "Eliminados equipos seleccionados"
-      ],
-      "The following hosts were not deleted: %s": [
-        "Os seguintes equipos non foron eliminados: %s"
-      ],
-      "Failed to auto provision host %s: %s": [
-        ""
-      ],
-      "Discovered hosts are provisioning now": [
-        ""
-      ],
-      "Discovered host reported from unknown subnet, communication will not be proxied.": [
-        ""
-      ],
-      "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
-        ""
-      ],
-      "No hosts were found with that id or name": [
-        "Non se atopou ningún equipos con ese id ou nome"
-      ],
-      "No hosts selected": [
-        "Ningún equipo seleccionado"
-      ],
-      "Something went wrong while selecting hosts - %s": [
-        "Algo fallou ao seleccionar equipos - %s"
-      ],
-      "Rule enabled": [
-        ""
-      ],
-      "Rule disabled": [
+      "Associated Hosts": [
         ""
       ],
       "Auto Provision": [
         ""
       ],
-      "Refresh facts": [
+      "Auto provisioning": [
         ""
       ],
-      "Reboot": [
+      "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)": [
+        ""
+      ],
+      "Automatically generate PXE configuration to pin a newly discovered host to discovery": [
+        ""
+      ],
+      "Automatically provision newly discovered hosts, according to the provisioning rules": [
+        ""
+      ],
+      "Automatically reboot or kexec discovered host during provisioning": [
         ""
       ],
       "Back": [
         "Atrás"
       ],
-      "Select Action": [
-        "Selecciona unha Acción"
+      "CPUs": [
+        "Procesadores"
       ],
-      "Delete %s?": [
-        "¿Borrar %s?"
+      "Cancel": [
+        "Cancelar"
       ],
-      "Assign Organization": [
-        "Asignar Organización"
+      "Clean all facts": [
+        ""
       ],
-      "Assign Location": [
-        "Asignar Lugar"
+      "Clean all reported facts during provisioning (except discovery facts)": [
+        ""
+      ],
+      "Clone": [
+        "Clonar"
+      ],
+      "Clone %s": [
+        "Clonar %s"
+      ],
+      "Collapse All": [
+        ""
+      ],
+      "Could not get facts from proxy %{url}: %{error}": [
+        ""
+      ],
+      "Create Host": [
+        ""
+      ],
+      "Create Rule": [
+        ""
+      ],
+      "Create a discovered host for testing (use /facts to create new hosts)": [
+        ""
+      ],
+      "Create a discovery rule": [
+        ""
+      ],
+      "Create bond interfaces": [
+        ""
+      ],
+      "Customize Host": [
+        ""
+      ],
+      "DHCP filename option (Grub2 or PXELinux by default)": [
+        ""
       ],
       "Delete": [
         "Borrar"
       ],
-      "%s - The following hosts are about to be changed": [
-        "%s - Os seguintes equipos están a piques de ser modificados"
+      "Delete %s?": [
+        "¿Borrar %s?"
       ],
-      "N/A": [
-        "N/A"
-      ],
-      "New in the last 24 hours": [
+      "Delete a discovered host": [
         ""
       ],
-      "Not reported in more than 7 days": [
+      "Delete a rule": [
         ""
       ],
-      "Reported in the last 7 days": [
+      "Delete rule '%s'?": [
         ""
       ],
-      "Provision": [
-        "Aprovisionamento"
+      "Destroyed selected hosts": [
+        "Eliminados equipos seleccionados"
       ],
-      "Discovered Hosts": [
-        ""
-      ],
-      "Associated Hosts": [
-        ""
+      "Details": [
+        "Detalles"
       ],
       "Disable": [
         ""
@@ -299,325 +134,65 @@
       "Disable rule '%s'?": [
         ""
       ],
-      "Enable": [
-        ""
-      ],
-      "Enable rule '%s'?": [
-        ""
-      ],
-      "Clone": [
-        "Clonar"
-      ],
-      "Delete rule '%s'?": [
-        ""
-      ],
-      "Invalid user type of %s was provided": [
-        ""
-      ],
-      "Discovered hosts summary": [
-        ""
-      ],
-      "can't contain white spaces.": [
-        ""
-      ],
-      "must start with a letter or ERB.": [
-        ""
-      ],
-      "must be present.": [
-        ""
-      ],
-      "Host group organization %s must also be associated to the discovery rule": [
+      "Discovered Host": [
         "",
         ""
       ],
-      "Host group location %s must also be associated to the discovery rule": [
-        "",
+      "Discovered Hosts": [
         ""
       ],
-      "Fact + prefix": [
-        ""
-      ],
-      "Random name": [
-        ""
-      ],
-      "MAC-based name": [
-        ""
-      ],
-      "Invalid facts, must be a Hash": [
-        ""
-      ],
-      "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname": [
-        ""
-      ],
-      "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s": [
-        ""
-      ],
-      "Facts could not be imported": [
-        ""
-      ],
-      "Could not get facts from proxy %{url}: %{error}": [
-        ""
-      ],
-      "Unable to perform reboot on %{name} (%{url}): %{msg}": [
-        ""
-      ],
-      "Unable to perform %{action} on %{ips}": [
-        ""
-      ],
-      "Unable to perform kexec on %{name} (%{url}): %{msg}": [
-        ""
-      ],
-      "Invalid hostname: Could not normalize the hostname": [
-        ""
-      ],
-      "Reloading kernel on %s": [
-        ""
-      ],
-      "Rebooting %s": [
-        ""
-      ],
-      "Kexec template not associated with operating system": [
-        ""
-      ],
-      "Kernel kexec URL is invalid: '%s'": [
-        ""
-      ],
-      "Init RAM kexec URL is invalid: '%s'": [
-        ""
-      ],
-      "Rebuild DNS for %s": [
-        ""
-      ],
-      "Discovery fact parser does not work with non-discovery host '%{host}'": [
+      "Discovered Rules": [
         ""
       ],
       "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}": [
         ""
       ],
-      "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}": [
-        ""
-      ],
-      "Highlights": [
-        ""
-      ],
-      "Storage": [
-        "Almacenamento"
-      ],
-      "Hardware": [
-        "Hardware"
-      ],
-      "Network": [
-        "Rede"
-      ],
-      "Software": [
-        ""
-      ],
-      "IPMI": [
-        ""
-      ],
-      "Miscellaneous": [
-        ""
-      ],
-      "IPAM must be configured for subnet '%s'": [
-        ""
-      ],
-      "Options must be hash": [
-        ""
-      ],
-      "Option 'url' must be provided": [
-        ""
-      ],
-      "Option 'url' must be valid URI: %s": [
-        ""
-      ],
-      "Image API returned HTTP/%{code} with '%{body}": [
-        ""
-      ],
-      "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})": [
-        ""
-      ],
-      "One or more hosts with failed discovery due to error: %s": [
-        ""
-      ],
-      "Host %s has been dicovered": [
-        ""
-      ],
-      "Discovered Host": [
-        "",
-        ""
-      ],
-      "No discovered hosts available": [
-        ""
-      ],
-      "Host": [
-        "Equipo"
-      ],
-      "Model": [
-        "Modelo"
-      ],
-      "CPUs": [
-        "Procesadores"
-      ],
-      "Memory": [
-        "Memoria"
-      ],
-      "Customize Host": [
-        ""
-      ],
-      "Create Host": [
-        ""
-      ],
-      "Select all items in this page": [
-        "Seleccionar tódolos obxetos desta páxina"
-      ],
-      "items selected. Uncheck to Clear": [
-        "obxetos seleccionados. Desactivar para limpar"
-      ],
-      "Name": [
-        "Nome"
-      ],
-      "IP Address": [
-        "Dirección IP"
-      ],
-      "Disk Count": [
-        ""
-      ],
-      "Disks Size": [
-        ""
-      ],
-      "Location": [
-        "Lugares"
-      ],
-      "Organization": [
-        "Organización"
-      ],
-      "Subnet": [
-        "Subrede"
-      ],
-      "Last Facts Upload": [
-        ""
-      ],
-      "Actions": [
-        "Accións"
-      ],
-      "Please Confirm": [
-        "Confirme, por favor"
-      ],
-      "Cancel": [
-        "Cancelar"
-      ],
-      "Submit": [
-        "Introducir"
-      ],
-      "Provision %s": [
-        ""
-      ],
-      "This might take a while, as all hosts, facts and reports will be destroyed as well": [
-        "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
-      ],
-      "Select location": [
-        ""
-      ],
-      "Select organization": [
+      "Discovered host reported from unknown subnet, communication will not be proxied.": [
         ""
       ],
       "Discovered host: %s": [
         ""
       ],
-      "Interfaces": [
+      "Discovered hosts are provisioning now": [
         ""
       ],
-      "Type": [
-        "Tipo"
-      ],
-      "Identifier": [
-        ""
-      ],
-      "MAC address": [
-        ""
-      ],
-      "IP address": [
-        ""
-      ],
-      "Collapse All": [
-        ""
-      ],
-      "Summary report for discovered hosts from Foreman": [
-        ""
-      ],
-      "<b>Foreman</b> Discovered hosts summary": [
-        ""
-      ],
-      "Summary from %{time} ago to %{now}": [
+      "Discovered hosts are rebooting now": [
         ""
       ],
       "Discovered hosts from Foreman server at %{foreman_url}": [
         ""
       ],
-      "Disk count": [
+      "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
         ""
       ],
-      "Disks size": [
+      "Discovered hosts summary": [
         ""
       ],
-      "No discovered hosts for the selected period": [
+      "Discovery": [
         ""
       ],
-      "Foreman discovered hosts summary": [
+      "Discovery Proxy": [
         ""
       ],
-      "No new discovered hosts for this period": [
+      "Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
         ""
-      ],
-      "Primary": [
-        "Primaria"
-      ],
-      "Locations": [
-        "Lugares"
-      ],
-      "Organizations": [
-        "Organizacións"
-      ],
-      "Target host group for this rule with all properties set": [
-        ""
-      ],
-      "Hostname for provisioned hosts": [
-        ""
-      ],
-      "Hosts Limit": [
-        ""
-      ],
-      "Maximum hosts provisioned with this rule (0 = unlimited)": [
-        ""
-      ],
-      "Rule priority (lower integer means higher priority)": [
-        ""
-      ],
-      "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB).": [
-        ""
-      ],
-      "Domain will be appended automatically. A hostname based on MAC address will be used when left blank.": [
-        ""
-      ],
-      "In addition to @host attribute function rand for random integers is available. Examples:": [
-        ""
-      ],
-      "When creating hostname patterns, make sure the resulting host names are unique.": [
-        ""
-      ],
-      "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).": [
-        ""
-      ],
-      "Clone %s": [
-        "Clonar %s"
-      ],
-      "Edit %s": [
-        "Editar %s"
       ],
       "Discovery Rules": [
         ""
       ],
-      "Create Rule": [
+      "Discovery fact parser does not work with non-discovery host '%{host}'": [
+        ""
+      ],
+      "Discovery hostname naming pattern": [
+        ""
+      ],
+      "Discovery location": [
+        ""
+      ],
+      "Discovery organization": [
+        ""
+      ],
+      "DiscoveryRule|Enabled": [
         ""
       ],
       "DiscoveryRule|Name": [
@@ -629,157 +204,91 @@
       "DiscoveryRule|Query": [
         ""
       ],
-      "Host Group": [
+      "Disk Count": [
         ""
       ],
-      "Hosts/Limit": [
+      "Disk count": [
         ""
       ],
-      "DiscoveryRule|Enabled": [
+      "Disks Size": [
         ""
       ],
-      "New Discovery Rule": [
+      "Disks size": [
         ""
       ],
-      "Discovered Rules": [
+      "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)": [
         ""
       ],
-      "A summary of discovered hosts": [
+      "Domain will be appended automatically. A hostname based on MAC address will be used when left blank.": [
         ""
       ],
-      "New hosts": [
+      "Edit %s": [
+        "Editar %s"
+      ],
+      "Enable": [
         ""
       ],
-      "One or more hosts have been discovered": [
+      "Enable rule '%s'?": [
         ""
-      ],
-      "Details": [
-        "Detalles"
-      ],
-      "Hosts": [
-        "Equipos"
       ],
       "Error message goes here": [
         ""
       ],
-      "Discovery": [
+      "Error on existing NIC": [
         ""
       ],
-      "Discovery location": [
+      "Errors during auto provisioning: %s": [
         ""
       ],
-      "The default location to place discovered hosts in": [
+      "Errors during reboot: %s": [
         ""
       ],
-      "Discovery organization": [
+      "Execute rules against a discovered host": [
         ""
       ],
-      "The default organization to place discovered hosts in": [
+      "Execute rules against all currently discovered hosts": [
         ""
       ],
-      "Interface fact": [
-        ""
-      ],
-      "Fact name to use for primary interface detection": [
-        ""
-      ],
-      "Create bond interfaces": [
-        ""
-      ],
-      "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)": [
-        ""
-      ],
-      "Clean all facts": [
-        ""
-      ],
-      "Clean all reported facts during provisioning (except discovery facts)": [
-        ""
-      ],
-      "Hostname facts": [
-        ""
-      ],
-      "List of facts to use for the hostname (first wins)": [
-        ""
-      ],
-      "Auto provisioning": [
-        ""
-      ],
-      "Automatically provision newly discovered hosts, according to the provisioning rules": [
-        ""
-      ],
-      "Automatically reboot or kexec discovered host during provisioning": [
-        ""
-      ],
-      "Hostname prefix": [
-        ""
-      ],
-      "The default prefix to use for the host name, must start with a letter": [
-        ""
-      ],
-      "Fact columns": [
+      "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname": [
         ""
       ],
       "Extra facter columns to show in host lists": [
         ""
       ],
-      "Highlighted facts": [
+      "Fact + prefix": [
         ""
       ],
-      "Regex to organize facts for highlights section - e.g. ^(abc|cde)$": [
+      "Fact columns": [
         ""
       ],
-      "Storage facts": [
+      "Fact name to use for primary interface detection": [
         ""
       ],
-      "Regex to organize facts for storage section": [
+      "Facts could not be imported": [
         ""
       ],
-      "Software facts": [
+      "Facts refreshed for %s": [
         ""
       ],
-      "Regex to organize facts for software section": [
+      "Failed to auto provision host %s: %s": [
         ""
       ],
-      "Hardware facts": [
+      "Failed to reboot host %s": [
         ""
       ],
-      "Regex to organize facts for hardware section": [
+      "Failed to reboot host %{hostname} with error %{error_message}": [
         ""
       ],
-      "Network facts": [
+      "Failed to reboot hosts with error %s": [
         ""
       ],
-      "Regex to organize facts for network section": [
+      "Failed to refresh facts for %s": [
         ""
       ],
-      "IPMI facts": [
+      "Failed to refresh facts for %{hostname} with error %{error_message}": [
         ""
       ],
-      "Regex to organize facts for ipmi section": [
-        ""
-      ],
-      "Lock PXE": [
-        ""
-      ],
-      "Automatically generate PXE configuration to pin a newly discovered host to discovery": [
-        ""
-      ],
-      "Locked PXELinux template name": [
-        ""
-      ],
-      "PXELinux template to be used when pinning a host to discovery": [
-        ""
-      ],
-      "Locked PXEGrub template name": [
-        ""
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        ""
-      ],
-      "Locked PXEGrub2 template name": [
-        ""
-      ],
-      "PXEGrub2 template to be used when pinning a host to discovery": [
+      "For more information please see ": [
         ""
       ],
       "Force DNS": [
@@ -788,17 +297,277 @@
       "Force DNS entries creation when provisioning discovered host": [
         ""
       ],
-      "Error on existing NIC": [
+      "Foreman Discovery": [
         ""
       ],
-      "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)": [
+      "Foreman discovered hosts summary": [
         ""
       ],
-      "Type of name generator": [
+      "Hardware": [
+        "Hardware"
+      ],
+      "Hardware facts": [
         ""
       ],
-      "Discovery hostname naming pattern": [
+      "Highlighted facts": [
         ""
+      ],
+      "Highlights": [
+        ""
+      ],
+      "Host": [
+        "Equipo"
+      ],
+      "Host %s has been dicovered": [
+        ""
+      ],
+      "Host %{host} was provisioned with rule %{rule}": [
+        ""
+      ],
+      "Host Group": [
+        ""
+      ],
+      "Host group location %s must also be associated to the discovery rule": [
+        "",
+        ""
+      ],
+      "Host group organization %s must also be associated to the discovery rule": [
+        "",
+        ""
+      ],
+      "Host of type %s can not be rebooted": [
+        ""
+      ],
+      "Host's owner type": [
+        ""
+      ],
+      "Host's parameters (array or indexed hash)": [
+        ""
+      ],
+      "Hostname facts": [
+        ""
+      ],
+      "Hostname for provisioned hosts": [
+        ""
+      ],
+      "Hostname prefix": [
+        ""
+      ],
+      "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID).": [
+        ""
+      ],
+      "Hosts": [
+        "Equipos"
+      ],
+      "Hosts Limit": [
+        ""
+      ],
+      "Hosts/Limit": [
+        ""
+      ],
+      "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+        ""
+      ],
+      "IP Address": [
+        "Dirección IP"
+      ],
+      "IP address": [
+        ""
+      ],
+      "IPAM must be configured for subnet '%s'": [
+        ""
+      ],
+      "IPMI": [
+        ""
+      ],
+      "IPMI facts": [
+        ""
+      ],
+      "Identifier": [
+        ""
+      ],
+      "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})": [
+        ""
+      ],
+      "Image API returned HTTP/%{code} with '%{body}": [
+        ""
+      ],
+      "In addition to @host attribute function rand for random integers is available. Examples:": [
+        ""
+      ],
+      "Init RAM kexec URL is invalid: '%s'": [
+        ""
+      ],
+      "Interface fact": [
+        ""
+      ],
+      "Interfaces": [
+        ""
+      ],
+      "Invalid facts, must be a Hash": [
+        ""
+      ],
+      "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s": [
+        ""
+      ],
+      "Invalid hostname: Could not normalize the hostname": [
+        ""
+      ],
+      "Invalid user type of %s was provided": [
+        ""
+      ],
+      "Kernel kexec URL is invalid: '%s'": [
+        ""
+      ],
+      "Kexec template not associated with operating system": [
+        ""
+      ],
+      "Last Facts Upload": [
+        ""
+      ],
+      "List all discovered hosts": [
+        ""
+      ],
+      "List all discovery rules": [
+        ""
+      ],
+      "List all fact values of a given discovered host": [
+        ""
+      ],
+      "List of facts to use for the hostname (first wins)": [
+        ""
+      ],
+      "Location": [
+        "Lugares"
+      ],
+      "Locations": [
+        "Lugares"
+      ],
+      "Lock PXE": [
+        ""
+      ],
+      "Locked PXEGrub template name": [
+        ""
+      ],
+      "Locked PXEGrub2 template name": [
+        ""
+      ],
+      "Locked PXELinux template name": [
+        ""
+      ],
+      "MAC address": [
+        ""
+      ],
+      "MAC-based name": [
+        ""
+      ],
+      "Maximum hosts provisioned with this rule (0 = unlimited)": [
+        ""
+      ],
+      "Memory": [
+        "Memoria"
+      ],
+      "Miscellaneous": [
+        ""
+      ],
+      "Model": [
+        "Modelo"
+      ],
+      "N/A": [
+        "N/A"
+      ],
+      "Name": [
+        "Nome"
+      ],
+      "Name of the parameter": [
+        ""
+      ],
+      "Network": [
+        "Rede"
+      ],
+      "Network facts": [
+        ""
+      ],
+      "New Discovery Rule": [
+        ""
+      ],
+      "New hosts": [
+        ""
+      ],
+      "New in the last 24 hours": [
+        ""
+      ],
+      "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts": [
+        ""
+      ],
+      "No discovered hosts available": [
+        ""
+      ],
+      "No discovered hosts for the selected period": [
+        ""
+      ],
+      "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned.": [
+        ""
+      ],
+      "No discovered hosts to provision": [
+        ""
+      ],
+      "No discovered hosts to reboot": [
+        ""
+      ],
+      "No hostgroup associated with rule '%s'": [
+        ""
+      ],
+      "No hosts selected": [
+        "Ningún equipo seleccionado"
+      ],
+      "No hosts were found with that id or name": [
+        "Non se atopou ningún equipos con ese id ou nome"
+      ],
+      "No new discovered hosts for this period": [
+        ""
+      ],
+      "No rule found for host %s": [
+        ""
+      ],
+      "Not reported in more than 7 days": [
+        ""
+      ],
+      "One or more hosts have been discovered": [
+        ""
+      ],
+      "One or more hosts with failed discovery due to error: %s": [
+        ""
+      ],
+      "Option 'url' must be provided": [
+        ""
+      ],
+      "Option 'url' must be valid URI: %s": [
+        ""
+      ],
+      "Options must be hash": [
+        ""
+      ],
+      "Organization": [
+        "Organización"
+      ],
+      "Organizations": [
+        "Organizacións"
+      ],
+      "PXEGrub template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "PXEGrub2 template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "PXELinux template to be used when pinning a host to discovery": [
+        ""
+      ],
+      "Parameter value": [
+        ""
+      ],
+      "Please Confirm": [
+        "Confirme, por favor"
       ],
       "Prefer IPv6": [
         ""
@@ -806,40 +575,259 @@
       "Prefer IPv6 to IPv4 when calling discovered nodes": [
         ""
       ],
-      "Discovery Proxy": [
+      "Primary": [
+        "Primaria"
+      ],
+      "Provision": [
+        "Aprovisionamento"
+      ],
+      "Provision %s": [
         ""
       ],
-      "Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+      "Provision a discovered host": [
         ""
       ],
-      "ID of Discovery Proxy to use within this subnet for managing connection to discovered hosts": [
+      "Random name": [
         ""
       ],
-      "For more information please see ": [
+      "Reboot": [
+        ""
+      ],
+      "Rebooting %s": [
+        ""
+      ],
+      "Rebooting a discovered host": [
+        ""
+      ],
+      "Rebooting all discovered hosts": [
+        ""
+      ],
+      "Rebooting host %s": [
+        ""
+      ],
+      "Rebuild DNS for %s": [
+        ""
+      ],
+      "Refresh facts": [
+        ""
+      ],
+      "Refreshing the facts of a discovered host": [
+        ""
+      ],
+      "Regex to organize facts for hardware section": [
+        ""
+      ],
+      "Regex to organize facts for highlights section - e.g. ^(abc|cde)$": [
+        ""
+      ],
+      "Regex to organize facts for ipmi section": [
+        ""
+      ],
+      "Regex to organize facts for network section": [
+        ""
+      ],
+      "Regex to organize facts for software section": [
+        ""
+      ],
+      "Regex to organize facts for storage section": [
+        ""
+      ],
+      "Reloading kernel on %s": [
+        ""
+      ],
+      "Reported in the last 7 days": [
+        ""
+      ],
+      "Rule disabled": [
+        ""
+      ],
+      "Rule enabled": [
+        ""
+      ],
+      "Rule priority (lower integer means higher priority)": [
+        ""
+      ],
+      "Select Action": [
+        "Selecciona unha Acción"
+      ],
+      "Select all items in this page": [
+        "Seleccionar tódolos obxetos desta páxina"
+      ],
+      "Select location": [
+        ""
+      ],
+      "Select organization": [
+        ""
+      ],
+      "Show a discovered host": [
+        ""
+      ],
+      "Show a discovery rule": [
+        ""
+      ],
+      "Software": [
+        ""
+      ],
+      "Software facts": [
+        ""
+      ],
+      "Something went wrong while selecting hosts - %s": [
+        "Algo fallou ao seleccionar equipos - %s"
+      ],
+      "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB).": [
+        ""
+      ],
+      "Storage": [
+        "Almacenamento"
+      ],
+      "Storage facts": [
+        ""
+      ],
+      "Submit": [
+        "Introducir"
+      ],
+      "Subnet": [
+        "Subrede"
+      ],
+      "Successfully provisioned %s": [
+        ""
+      ],
+      "Summary from %{time} ago to %{now}": [
+        ""
+      ],
+      "Summary report for discovered hosts from Foreman": [
+        ""
+      ],
+      "Target host group for this rule with all properties set": [
+        ""
+      ],
+      "The default location to place discovered hosts in": [
+        ""
+      ],
+      "The default organization to place discovered hosts in": [
+        ""
+      ],
+      "The default prefix to use for the host name, must start with a letter": [
+        ""
+      ],
+      "The following hosts were not deleted: %s": [
+        "Os seguintes equipos non foron eliminados: %s"
+      ],
+      "This might take a while, as all hosts, facts and reports will be destroyed as well": [
+        "Esta acción pode tardar un anaco, xa que se eliminarán tódolos equipos, datos e informes."
+      ],
+      "Type": [
+        "Tipo"
+      ],
+      "Type of name generator": [
+        ""
+      ],
+      "Type of value": [
+        ""
+      ],
+      "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks": [
+        ""
+      ],
+      "Unable to find a discovery rule, no host provided (check permissions)": [
+        ""
+      ],
+      "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}": [
+        ""
+      ],
+      "Unable to perform %{action} on %{ips}": [
+        ""
+      ],
+      "Unable to perform kexec on %{name} (%{url}): %{msg}": [
+        ""
+      ],
+      "Unable to perform reboot on %{name} (%{url}): %{msg}": [
+        ""
+      ],
+      "Unable to provision %{host}: %{errors}": [
+        ""
+      ],
+      "Update a rule": [
+        ""
+      ],
+      "Upload facts for a host, creating the host if required": [
+        ""
+      ],
+      "When creating hostname patterns, make sure the resulting host names are unique.": [
+        ""
+      ],
+      "can't contain white spaces.": [
+        ""
+      ],
+      "defines a pattern to assign human-readable hostnames to the matching hosts": [
         ""
       ],
       "documentation": [
         ""
       ],
-      "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned.": [
+      "enables to limit maximum amount of provisioned hosts per rule": [
         ""
       ],
-      "Foreman Discovery": [
+      "filter results": [
         ""
       ],
-      "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts": [
+      "flag is used for temporary shutdown of rules": [
         ""
       ],
-      "Remote action:": [
+      "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)": [
         ""
       ],
-      "Import Puppet classes": [
+      "items selected. Uncheck to Clear": [
+        "obxetos seleccionados. Desactivar para limpar"
+      ],
+      "location ID for provisioned hosts": [
         ""
       ],
-      "Import facts": [
+      "must be present.": [
         ""
       ],
-      "Action with sub plans": [
+      "must start with a letter or ERB.": [
+        ""
+      ],
+      "not required if it's a virtual machine": [
+        ""
+      ],
+      "not required if using a subnet with DHCP proxy": [
+        ""
+      ],
+      "number of entries per request": [
+        ""
+      ],
+      "organization ID for provisioned hosts": [
+        ""
+      ],
+      "paginate results": [
+        ""
+      ],
+      "puts the rules in order, low numbers go first. Must be greater then zero": [
+        ""
+      ],
+      "query to match discovered hosts for the particular rule": [
+        ""
+      ],
+      "represents rule name shown to the users": [
+        ""
+      ],
+      "required if host is managed and custom partition has not been defined": [
+        ""
+      ],
+      "required if host is managed and value is not inherited from host group": [
+        ""
+      ],
+      "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
+        ""
+      ],
+      "required if value is not inherited from host group or default password in settings": [
+        ""
+      ],
+      "sort results": [
+        ""
+      ],
+      "the hostgroup that is used to auto provision a host": [
         ""
       ]
     }

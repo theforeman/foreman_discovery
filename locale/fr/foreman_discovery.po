@@ -8,11 +8,11 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
-"Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
+"Language-Team: French (http://app.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,9 +31,6 @@ msgstr "Synthèse des hôtes détectés par <b>Foreman</b> "
 
 msgid "A summary of discovered hosts"
 msgstr "Synthèse des hôtes détectés"
-
-msgid "Action with sub plans"
-msgstr "Action avec sous-plans"
 
 msgid "Actions"
 msgstr "Actions"
@@ -138,7 +135,7 @@ msgid "Disable"
 msgstr "Désactiver"
 
 msgid "Disable rule '%s'?"
-msgstr "Désactiver la règle '%s' ?"
+msgstr "Désactiver la règle ' %s' ?"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
@@ -168,7 +165,7 @@ msgid "Discovered hosts are rebooting now"
 msgstr "Les hôtes détectés sont redémarrés maintenant"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "Hôtes détectés depuis le serveur Foreman à l'adresse %{foreman_url}"
+msgstr "Hôtes détectés depuis le serveur Foreman à l'adresse %%{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 msgstr "Les hôtes découverts provenant d'un sous-réseau inconnu sont %s, la communication ne sera pas assurée par un proxy.."
@@ -189,10 +186,10 @@ msgid "Discovery Rules"
 msgstr "Règles de détection"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr "L'analyseur de faits de découverte ne fonctionne pas avec l'hôte de non-découverte '%{host}'"
+msgstr "L'analyseur de faits de détection ne fonctionne pas avec l'hôte de non-détection '%{host}'"
 
 msgid "Discovery hostname naming pattern"
-msgstr "Modèle de nommage du nom d'hôte de découverte"
+msgstr "Modèle de nommage du nom d'hôte de détection"
 
 msgid "Discovery location"
 msgstr "Emplacement de détection"
@@ -261,7 +258,7 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr "discovery_fact '%s' attendu manquant. Impossible de détecter l'interface principale et de définir le nom d'hôte"
 
 msgid "Extra facter columns to show in host lists"
-msgstr ""
+msgstr "Colonnes facter supplémentaires pour un affichage sous forme de listes d'hôtes (séparés par une virgule)"
 
 msgid "Fact + prefix"
 msgstr "Fact + préfixe"
@@ -285,7 +282,7 @@ msgid "Failed to reboot host %s"
 msgstr "Échec du redémarrage de l'hôte %s"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %{error_message}"
+msgstr "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %%{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "Échec du redémarrage des hôtes avec l'erreur %s"
@@ -294,7 +291,7 @@ msgid "Failed to refresh facts for %s"
 msgstr "Échec de rafraîchissement des facts pour %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %{error_message}"
+msgstr "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %%{error_message}"
 
 msgid "For more information please see "
 msgstr "Pour plus d'informations, voir "
@@ -306,7 +303,7 @@ msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "Forcer la création des entrées DNS lors du provisioning de l'hôte détecté"
 
 msgid "Foreman Discovery"
-msgstr ""
+msgstr "Foreman Discovery"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Synthèse des hôtes détectés Foreman"
@@ -402,13 +399,7 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr "Erreur de traitement de l'API image : %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr "L'API image renvoie HTTP/%{code}  avec '%'{body}"
-
-msgid "Import Puppet classes"
-msgstr "Importer des classes Puppet"
-
-msgid "Import facts"
-msgstr "Importer des faits"
+msgstr "L'API image renvoie HTTP/%{code}  avec '%'%{body}"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "En plus de la fonction d'attribut @host, la fonction ALEA pour les entiers aléatoires est disponible. Exemples :"
@@ -453,7 +444,7 @@ msgid "List all fact values of a given discovered host"
 msgstr "Afficher toutes les valeurs des facts d'un hôte détecté donné"
 
 msgid "List of facts to use for the hostname (first wins)"
-msgstr ""
+msgstr "Liste des facts à utiliser pour le nom d'hôte (séparés par une virgule, le premier l'emporte)"
 
 msgid "Location"
 msgstr "Emplacement"
@@ -516,7 +507,7 @@ msgid "New in the last 24 hours"
 msgstr "Nouveau au cours des dernières 24 heures"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr "Aucune règle de découverte trouvée dans ce contexte. Créer des règles de découverte pour effectuer un provisionnement automatique sur les hôtes découverts."
+msgstr "Aucune règle de détection trouvée dans ce contexte. Créer des règles de détection pour effectuer un provisionnement automatique sur les hôtes détectés."
 
 msgid "No discovered hosts available"
 msgstr "Aucun hôte détecté disponible"
@@ -555,16 +546,16 @@ msgid "One or more hosts have been discovered"
 msgstr "Un ou plusieurs hôtes ont été détectés"
 
 msgid "One or more hosts with failed discovery due to error: %s"
-msgstr ""
+msgstr "Un ou plusieurs hôtes non détectés en raison de cette erreur : %s"
 
 msgid "Option 'url' must be provided"
-msgstr ""
+msgstr "L’option ’url’ doit être fournie"
 
 msgid "Option 'url' must be valid URI: %s"
-msgstr ""
+msgstr "L’option ’url’ doit correspondre à un URI valide : %s"
 
 msgid "Options must be hash"
-msgstr ""
+msgstr "Les options doivent être en hachage"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -652,9 +643,6 @@ msgstr "Expression régulière pour organiser les facts pour la section stockage
 
 msgid "Reloading kernel on %s"
 msgstr "Rechargement du noyau sur %s"
-
-msgid "Remote action:"
-msgstr "Action distante :"
 
 msgid "Reported in the last 7 days"
 msgstr "Signalé au cours des 7 derniers jours"
@@ -840,7 +828,7 @@ msgid "required if host is managed and value is not inherited from host group"
 msgstr "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr "requis si le provisioning n'est pas basé sur une image , que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"
+msgstr "requis si l’attribution n'est pas basée sur une image, que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "requis si la valeur n'est pas héritée d'un groupe d'hôtes ou du mot de passe par défaut défini dans les paramètres"

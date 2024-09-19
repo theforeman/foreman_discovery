@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2015-2019
+# Andi Chandler <andi@gowling.com>, 2015-2019,2023
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2013-2015
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2016
 # Lukáš Zapletal, 2015
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>, 2015-2019\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/foreman/fore"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2015-2019,2023\n"
+"Language-Team: English (United Kingdom) (http://app.transifex.com/foreman/fore"
 "man/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,9 +33,6 @@ msgstr "<b>Foreman</b> Discovered hosts summary"
 
 msgid "A summary of discovered hosts"
 msgstr "A summary of discovered hosts"
-
-msgid "Action with sub plans"
-msgstr "Action with sub plans"
 
 msgid "Actions"
 msgstr "Actions"
@@ -83,10 +80,10 @@ msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr "Clean all reported facts during provisioning (except discovery facts)"
 
 msgid "Clone"
-msgstr ""
+msgstr "Clone"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Clone %s"
 
 msgid "Collapse All"
 msgstr "Collapse All"
@@ -144,20 +141,20 @@ msgstr "Disable rule '%s'?"
 
 msgid "Discovered Host"
 msgid_plural "Discovered Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Discovered Host"
+msgstr[1] "Discovered Hosts"
 
 msgid "Discovered Hosts"
 msgstr "Discovered Hosts"
 
 msgid "Discovered Rules"
-msgstr ""
+msgstr "Discovered Rules"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 msgstr "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
 
 msgid "Discovered host reported from unknown subnet, communication will not be proxied."
-msgstr ""
+msgstr "Discovered host reported from unknown subnet, communication will not be proxied."
 
 msgid "Discovered host: %s"
 msgstr "Discovered host: %s"
@@ -172,13 +169,13 @@ msgid "Discovered hosts from Foreman server at %{foreman_url}"
 msgstr "Discovered hosts from Foreman server at %{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
-msgstr ""
+msgstr "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 
 msgid "Discovered hosts summary"
 msgstr "Discovered hosts summary"
 
 msgid "Discovery"
-msgstr ""
+msgstr "Discovery"
 
 msgid "Discovery Proxy"
 msgstr "Discovery Proxy"
@@ -241,7 +238,7 @@ msgid "Enable rule '%s'?"
 msgstr "Enable rule '%s'?"
 
 msgid "Error message goes here"
-msgstr ""
+msgstr "Error message goes here"
 
 msgid "Error on existing NIC"
 msgstr "Error on existing NIC"
@@ -262,7 +259,7 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
 
 msgid "Extra facter columns to show in host lists"
-msgstr ""
+msgstr "Extra Facter columns to show in host lists"
 
 msgid "Fact + prefix"
 msgstr "Fact + prefix"
@@ -298,7 +295,7 @@ msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
 msgstr "Failed to refresh facts for %{hostname} with error %{error_message}"
 
 msgid "For more information please see "
-msgstr ""
+msgstr "For more information please see "
 
 msgid "Force DNS"
 msgstr "Force DNS"
@@ -307,7 +304,7 @@ msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "Force DNS entries creation when provisioning discovered host"
 
 msgid "Foreman Discovery"
-msgstr ""
+msgstr "Foreman Discovery"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman discovered hosts summary"
@@ -328,7 +325,7 @@ msgid "Host"
 msgstr "Host"
 
 msgid "Host %s has been dicovered"
-msgstr ""
+msgstr "Host %s has been dicovered"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "Host %{host} was provisioned with rule %{rule}"
@@ -350,10 +347,10 @@ msgid "Host of type %s can not be rebooted"
 msgstr "Host of type %s can not be rebooted"
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Host's owner type"
 
 msgid "Host's parameters (array or indexed hash)"
-msgstr ""
+msgstr "Host's parameters (array or indexed hash)"
 
 msgid "Hostname facts"
 msgstr "Hostname facts"
@@ -403,12 +400,6 @@ msgstr "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "Image API returned HTTP/%{code} with '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Import Puppet classes"
-
-msgid "Import facts"
-msgstr "Import facts"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "In addition to @host attribute function rand for random integers is available. Examples:"
 
@@ -452,7 +443,7 @@ msgid "List all fact values of a given discovered host"
 msgstr "List all fact values of a given discovered host"
 
 msgid "List of facts to use for the hostname (first wins)"
-msgstr ""
+msgstr "List of facts to use for the hostname (first wins)"
 
 msgid "Location"
 msgstr "Location"
@@ -497,7 +488,7 @@ msgid "Name"
 msgstr "Name"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Name of the parameter"
 
 msgid "Network"
 msgstr "Network"
@@ -509,13 +500,13 @@ msgid "New Discovery Rule"
 msgstr "New Discovery Rule"
 
 msgid "New hosts"
-msgstr ""
+msgstr "New hosts"
 
 msgid "New in the last 24 hours"
 msgstr "New in the last 24 hours"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr ""
+msgstr "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
 
 msgid "No discovered hosts available"
 msgstr "No discovered hosts available"
@@ -524,7 +515,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "No discovered hosts for the selected period"
 
 msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr ""
+msgstr "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
 
 msgid "No discovered hosts to provision"
 msgstr "No discovered hosts to provision"
@@ -554,16 +545,16 @@ msgid "One or more hosts have been discovered"
 msgstr "One or more hosts have been discovered"
 
 msgid "One or more hosts with failed discovery due to error: %s"
-msgstr ""
+msgstr "One or more hosts with failed discovery due to error: %s"
 
 msgid "Option 'url' must be provided"
-msgstr ""
+msgstr "Option 'url' must be provided"
 
 msgid "Option 'url' must be valid URI: %s"
-msgstr ""
+msgstr "Option 'url' must be valid URI: %s"
 
 msgid "Options must be hash"
-msgstr ""
+msgstr "Options must be hash"
 
 msgid "Organization"
 msgstr "Organisation"
@@ -581,16 +572,16 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr "PXELinux template to be used when pinning a host to discovery"
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Parameter value"
 
 msgid "Please Confirm"
 msgstr "Please Confirm"
 
 msgid "Prefer IPv6"
-msgstr ""
+msgstr "Prefer IPv6"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr ""
+msgstr "Prefer IPv6 to IPv4 when calling discovered nodes"
 
 msgid "Primary"
 msgstr "Primary"
@@ -651,9 +642,6 @@ msgstr "Regex to organise facts for storage section"
 
 msgid "Reloading kernel on %s"
 msgstr "Reloading kernel on %s"
-
-msgid "Remote action:"
-msgstr "Remote action:"
 
 msgid "Reported in the last 7 days"
 msgstr "Reported in the last 7 days"
@@ -743,7 +731,7 @@ msgid "Type of name generator"
 msgstr "Type of name generator"
 
 msgid "Type of value"
-msgstr ""
+msgstr "Type of value"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
@@ -755,13 +743,13 @@ msgid "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filte
 msgstr "Unable to find primary NIC with %{mac} specified via '%{fact}', NIC filter: %{filter}"
 
 msgid "Unable to perform %{action} on %{ips}"
-msgstr ""
+msgstr "Unable to perform %{action} on %{ips}"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "Unable to perform kexec on %{name} (%{url}): %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr ""
+msgstr "Unable to perform reboot on %{name} (%{url}): %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
 msgstr "Unable to provision %{host}: %{errors}"
@@ -782,7 +770,7 @@ msgid "defines a pattern to assign human-readable hostnames to the matching host
 msgstr "defines a pattern to assign human-readable hostnames to the matching hosts"
 
 msgid "documentation"
-msgstr ""
+msgstr "documentation"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr "enables to limit maximum amount of provisioned hosts per rule"
@@ -833,13 +821,13 @@ msgid "represents rule name shown to the users"
 msgstr "represents rule name shown to the users"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr ""
+msgstr "required if host is managed and custom partition has not been defined"
 
 msgid "required if host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "required if host is managed and value is not inherited from host group"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
-msgstr ""
+msgstr "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 
 msgid "required if value is not inherited from host group or default password in settings"
 msgstr "required if value is not inherited from host group or default password in settings"

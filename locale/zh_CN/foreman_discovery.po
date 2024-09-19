@@ -5,11 +5,11 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
+"Language-Team: Chinese (China) (http://app.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,9 +28,6 @@ msgstr "<b>Foreman</b> 发现的主机概述"
 
 msgid "A summary of discovered hosts"
 msgstr "发现主机概述"
-
-msgid "Action with sub plans"
-msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -163,7 +160,7 @@ msgid "Discovered hosts are rebooting now"
 msgstr "现在正在重启发现主机"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "来自 %{foreman_url} Foreman 服务器的发现主机"
+msgstr "来自 %%{foreman_url} Foreman 服务器的发现主机"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 msgstr "从未知子网报告发现的主机为 %s，通信数据将不会被代理。"
@@ -199,19 +196,19 @@ msgid "DiscoveryRule|Enabled"
 msgstr "DiscoveryRule|Enabled"
 
 msgid "DiscoveryRule|Name"
-msgstr "DiscoveryRule|Name"
+msgstr "发现规则|名称"
 
 msgid "DiscoveryRule|Priority"
 msgstr "发现规则|优先级"
 
 msgid "DiscoveryRule|Query"
-msgstr "DiscoveryRule|Query"
+msgstr "发现规则|查询"
 
 msgid "Disk Count"
 msgstr "磁盘计数"
 
 msgid "Disk count"
-msgstr "磁盘计数"
+msgstr "磁盘数"
 
 msgid "Disks Size"
 msgstr "磁盘大小"
@@ -256,7 +253,7 @@ msgid "Expected discovery_fact '%s' is missing, unable to detect primary interfa
 msgstr "缺少期望的 discovery_fact '%s'，无法检测主接口和设置主机名称"
 
 msgid "Extra facter columns to show in host lists"
-msgstr ""
+msgstr "在主机列表中显示的额外 facter 列"
 
 msgid "Fact + prefix"
 msgstr "Fact + 前缀"
@@ -280,7 +277,7 @@ msgid "Failed to reboot host %s"
 msgstr "重启主机 %s 失败"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "重启主机 %{hostname} 失败，错误为 %{error_message}"
+msgstr "重启主机 %%{hostname} 失败，错误为 %%{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "无法重启主机，错误 %s"
@@ -289,7 +286,7 @@ msgid "Failed to refresh facts for %s"
 msgstr "%s 的事实刷新失败"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "为 %{hostname} 刷新事实失败，错误为 %{error_message}"
+msgstr "为 %%{hostname} 刷新事实失败，错误为 %%{error_message}"
 
 msgid "For more information please see "
 msgstr "查看详情 "
@@ -301,7 +298,7 @@ msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "置备发现主机时强制 DNS 条目创建"
 
 msgid "Foreman Discovery"
-msgstr ""
+msgstr "Foreman 发现"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman 发现主机概述"
@@ -322,7 +319,7 @@ msgid "Host"
 msgstr "主机"
 
 msgid "Host %s has been dicovered"
-msgstr "主机 %s 已被发现。"
+msgstr "主机 %s 已被发现"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "主机 %{host} 被置备，带有规则 %{rule}"
@@ -395,14 +392,8 @@ msgstr "图片 API 处理错误：%{msg} （HTTP /%{code} ， 内容：%{body} �
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "镜像 API 返回 HTTP/%{code}，带有 '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "导入 Puppet 类"
-
-msgid "Import facts"
-msgstr "导入事实"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
-msgstr "除了 @host 属性函数之外，还提供随机整数 rand。"
+msgstr "除了 @host 属性函数之外，还提供随机整数 rand。例如："
 
 msgid "Init RAM kexec URL is invalid: '%s'"
 msgstr "Init RAM kexec URL 无效：'%s'"
@@ -444,7 +435,7 @@ msgid "List all fact values of a given discovered host"
 msgstr "列出给定发现主机的所有系统信息值"
 
 msgid "List of facts to use for the hostname (first wins)"
-msgstr ""
+msgstr "用于主机名的详情列表（第一个有最高优先级）"
 
 msgid "Location"
 msgstr "位置"
@@ -546,16 +537,16 @@ msgid "One or more hosts have been discovered"
 msgstr "已发现一个或多个主机"
 
 msgid "One or more hosts with failed discovery due to error: %s"
-msgstr ""
+msgstr "一个或多个因为错误而导致发现失败的主机：%s"
 
 msgid "Option 'url' must be provided"
-msgstr ""
+msgstr "必须提供选项 'url'"
 
 msgid "Option 'url' must be valid URI: %s"
-msgstr ""
+msgstr "选项 'url' 必须是有效的 URI：%s"
 
 msgid "Options must be hash"
-msgstr ""
+msgstr "选项必须是哈希"
 
 msgid "Organization"
 msgstr "机构"
@@ -644,9 +635,6 @@ msgstr "组织存储部分详情的正则表达式"
 msgid "Reloading kernel on %s"
 msgstr "正在 %s 上重新加载内核"
 
-msgid "Remote action:"
-msgstr "远程操作："
-
 msgid "Reported in the last 7 days"
 msgstr "最近 7 天内报告"
 
@@ -726,7 +714,7 @@ msgid "The following hosts were not deleted: %s"
 msgstr "以下主机没有删除：%s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "这可能需要一段时间，因为所有主机，事实和报告也将被销毁。"
+msgstr "这可能需要一段时间，因为所有主机，事实和报告也将被销毁"
 
 msgid "Type"
 msgstr "类型"
@@ -825,7 +813,7 @@ msgid "represents rule name shown to the users"
 msgstr "代表显示给用户的规则名称"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr "如果已管理主机，且未定义自定义分区，则需填写。"
+msgstr "如果已管理主机，且未定义自定义分区，则需填写"
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "如果主机是受管的，且值没有从主机组继承，则是必需的"
@@ -834,7 +822,7 @@ msgid "required if not imaged based provisioning and host is managed and value i
 msgstr "如果不是基于置备镜像的，主机是受管的，且值没有从主机组继承，则是必需的"
 
 msgid "required if value is not inherited from host group or default password in settings"
-msgstr "如果数值不是从主机组或设置中的默认密码继承，则需要。"
+msgstr "如果数值不是从主机组或设置中的默认密码继承，则需要"
 
 msgid "sort results"
 msgstr "排序结果"

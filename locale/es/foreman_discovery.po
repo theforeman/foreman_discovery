@@ -11,11 +11,11 @@
 # Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014\n"
-"Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
+"Language-Team: Spanish (http://app.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,19 +25,16 @@ msgstr ""
 " 2;\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr "%s - Los siguientes hosts están a punto de ser cambiados"
+msgstr "%s - Los siguientes hosts están a punto de ser modificados"
 
 msgid "%s discovered hosts were provisioned"
-msgstr "%s los hosts descubiertos fueron aprovisionados"
+msgstr "%s se aprovisionaron los hosts descubiertos"
 
 msgid "<b>Foreman</b> Discovered hosts summary"
-msgstr "<b>Foreman</b> Resumen de los anfitriones descubiertos"
+msgstr "<b>Foreman</b> Resumen de anfitriones descubiertos"
 
 msgid "A summary of discovered hosts"
 msgstr "Resumen de los hosts detectados"
-
-msgid "Action with sub plans"
-msgstr "Acción con subplanes"
 
 msgid "Actions"
 msgstr "Acciones"
@@ -130,7 +127,7 @@ msgid "Delete a rule"
 msgstr "Eliminar una regla"
 
 msgid "Delete rule '%s'?"
-msgstr "¿Borrar la regla '%s'?"
+msgstr "Borrar regla '%s'?"
 
 msgid "Destroyed selected hosts"
 msgstr "Eliminados equipos seleccionados"
@@ -157,13 +154,13 @@ msgid "Discovered Rules"
 msgstr "Reglas descubiertas"
 
 msgid "Discovered host '%{host}' has all NICs filtered out, filter: %{filter}"
-msgstr "El host descubierto '%{host}' tiene todos los NICs filtrados, filtro: %{filter}"
+msgstr "Descubierto host '%{host}' tiene todos los NICs filtrados, filtro: %{filter}"
 
 msgid "Discovered host reported from unknown subnet, communication will not be proxied."
-msgstr "El host descubierto se reporta desde una subred desconocida, la comunicación no será proxy."
+msgstr "Se ha detectado un host de una subred desconocida, la comunicación no se proxyará."
 
 msgid "Discovered host: %s"
-msgstr "Descubierto el anfitrión: %s"
+msgstr "Anfitrión descubierto: %s"
 
 msgid "Discovered hosts are provisioning now"
 msgstr "Los hosts detectados se están aprovisionando ahora"
@@ -172,10 +169,10 @@ msgid "Discovered hosts are rebooting now"
 msgstr "Se están reiniciando ahora los hosts detectados"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "Hosts descubiertos del servidor Foreman al %{foreman_url}"
+msgstr "Hosts descubiertos del servidor Foreman al %.{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
-msgstr "Los hosts descubiertos reportados desde una subred desconocida son %s, la comunicación no será proxy."
+msgstr "Los hosts descubiertos de los que se informa desde una subred desconocida son %s, la comunicación no será proxy."
 
 msgid "Discovered hosts summary"
 msgstr "Resumen de hosts detectados"
@@ -193,7 +190,7 @@ msgid "Discovery Rules"
 msgstr "Reglas de detección"
 
 msgid "Discovery fact parser does not work with non-discovery host '%{host}'"
-msgstr "El analizador de hechos de descubrimiento no funciona con el host de no descubrimiento '%{host}'"
+msgstr "El analizador de hechos de descubrimiento no funciona con un host que no sea de descubrimiento '%{host}'"
 
 msgid "Discovery hostname naming pattern"
 msgstr "Detección de patrón de definición de nombre de host"
@@ -241,7 +238,7 @@ msgid "Enable"
 msgstr "Habilitar"
 
 msgid "Enable rule '%s'?"
-msgstr "¿Habilitar la regla '%s'?"
+msgstr "¿Habilitar regla '%s'?"
 
 msgid "Error message goes here"
 msgstr "El mensaje de error va aquí"
@@ -250,7 +247,7 @@ msgid "Error on existing NIC"
 msgstr "Error en la NIC existente"
 
 msgid "Errors during auto provisioning: %s"
-msgstr "Errores durante el aprovisionamiento automático: %s"
+msgstr "Errores durante el autoaprovisionamiento: %s"
 
 msgid "Errors during reboot: %s"
 msgstr "Errores durante el reinicio: %s"
@@ -262,7 +259,7 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "Ejecutar reglas contra todos los hosts detectados actualmente"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr "Falta el discovery_fact '%s', no se puede detectar la interfaz primaria y establecer el nombre de host"
+msgstr "Falta el discovery_fact esperado '%s', no se puede detectar la interfaz primaria y establecer el nombre de host."
 
 msgid "Extra facter columns to show in host lists"
 msgstr ""
@@ -283,22 +280,22 @@ msgid "Facts refreshed for %s"
 msgstr "Datos actualizados para %s"
 
 msgid "Failed to auto provision host %s: %s"
-msgstr "Fallo en el aprovisionamiento automático del host %s: %s"
+msgstr "Fallo en el autoaprovisionamiento del host %s: %s"
 
 msgid "Failed to reboot host %s"
-msgstr "Fallo en el reinicio del host %s"
+msgstr "Error al reiniciar el host %s"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
 msgstr "Fallo al reiniciar el host %{hostname} con error %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
-msgstr "Fallo al reiniciar los hosts con error %s"
+msgstr "Error al reiniciar los hosts %s"
 
 msgid "Failed to refresh facts for %s"
-msgstr "Fallo en la actualización de los hechos para %s"
+msgstr "No se han podido actualizar los datos para %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "Fallo en la actualización de los datos para %{hostname} con error %{error_message}"
+msgstr "No se han podido actualizar los datos de %{hostname} con el error %.{error_message}"
 
 msgid "For more information please see "
 msgstr "Para obtener más información, consulte "
@@ -331,28 +328,28 @@ msgid "Host"
 msgstr "host"
 
 msgid "Host %s has been dicovered"
-msgstr "El anfitrión %s ha sido descubierto"
+msgstr "Anfitrión %s ha sido dicovered"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
-msgstr "Host %{host} se aprovisionó con la regla %{rule}"
+msgstr "El host %{host} se aprovisionó con la regla %{rule}"
 
 msgid "Host Group"
 msgstr "Grupo de Equipo"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
-msgstr[0] "La ubicación del grupo de host %s debe estar asociada también con la regla de detección"
-msgstr[1] "Las ubicaciones del grupo de host %s deben estar asociadas también con la regla de detección"
-msgstr[2] "Las ubicaciones del grupo de host %s deben estar asociadas también con la regla de detección"
+msgstr[0] "La ubicación del grupo de hosts %s también debe estar asociada a la regla de detección"
+msgstr[1] "Las ubicaciones de los grupos de hosts %s también deben estar asociadas a la regla de detección"
+msgstr[2] "Las ubicaciones de los grupos de hosts %s también deben estar asociadas a la regla de detección"
 
 msgid "Host group organization %s must also be associated to the discovery rule"
 msgid_plural "Host group organizations %s must also be associated to the discovery rule"
-msgstr[0] "La organización del grupo de host %s debe estar asociada también con la regla de detección"
-msgstr[1] "Las organizaciones del grupo de host %s deben estar asociadas también con la regla de detección"
-msgstr[2] "Las organizaciones del grupo de host %s deben estar asociadas también con la regla de detección"
+msgstr[0] "La organización del grupo de hosts %s también debe estar asociada a la regla de detección"
+msgstr[1] "Las organizaciones de grupos de hosts %s también deben estar asociadas a la regla de detección"
+msgstr[2] "Las organizaciones de grupos de hosts %s también deben estar asociadas a la regla de detección"
 
 msgid "Host of type %s can not be rebooted"
-msgstr "El host de tipo %s no puede ser reiniciado"
+msgstr "Host de tipo %s no se puede reiniciar"
 
 msgid "Host's owner type"
 msgstr "Tipo de propietario de host"
@@ -406,13 +403,7 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr "Error de procesamiento de la API de imágenes: %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr "La API de imágenes devuelve HTTP/%{code} con '%'.{body}"
-
-msgid "Import Puppet classes"
-msgstr "Importar clases Puppet"
-
-msgid "Import facts"
-msgstr "Importar datos"
+msgstr "La API de imágenes devuelve HTTP/%{code} con '%{body}"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "Además del atributo @host, la función aleatoria para los números enteros aleatorizados se encuentra disponible. Ejemplos:"
@@ -430,16 +421,16 @@ msgid "Invalid facts, must be a Hash"
 msgstr "Eventos inválidos. Debe ser un hash"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
-msgstr "Hechos no válidos: el hash no contiene un valor válido para ninguno de los hechos de la configuración discovery_hostname: %s"
+msgstr "Datos no válidos: el hash no contiene un valor válido para ninguno de los datos de la configuración discovery_hostname: %s"
 
 msgid "Invalid hostname: Could not normalize the hostname"
 msgstr "Nombre de host inválido: no es posible normalizar el nombre de host"
 
 msgid "Invalid user type of %s was provided"
-msgstr "Se proporcionó un tipo de usuario no válido de %s "
+msgstr "Se ha proporcionado un tipo de usuario no válido de %s "
 
 msgid "Kernel kexec URL is invalid: '%s'"
-msgstr "La URL del kernel kexec no es válida: '%s'"
+msgstr "Kernel kexec URL no es válido: '%s'"
 
 msgid "Kexec template not associated with operating system"
 msgstr "Plantilla kexec no asociada con el sistema operativo"
@@ -520,7 +511,7 @@ msgid "New in the last 24 hours"
 msgstr "Nuevo en las últimas 24 horas"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr "No se han encontrado Reglas de Descubrimiento en este contexto. Crear Reglas de Descubrimiento para realizar un aprovisionamiento automatizado en los Hosts Descubiertos."
+msgstr "No se han encontrado Reglas de Descubrimiento en este contexto. Crear Reglas de Descubrimiento para realizar aprovisionamiento automatizado en Hosts Descubiertos."
 
 msgid "No discovered hosts available"
 msgstr "No hay hosts detectados disponibles"
@@ -529,7 +520,7 @@ msgid "No discovered hosts for the selected period"
 msgstr "No se detectaron hosts para el periodo seleccionado"
 
 msgid "No discovered hosts found in this context. This page shows discovered bare-metal or virtual nodes waiting to be provisioned."
-msgstr "No se han encontrado hosts descubiertos en este contexto. Esta página muestra los nodos bare-metal o virtuales descubiertos en espera de ser aprovisionados."
+msgstr "No se han encontrado hosts en este contexto. Esta página muestra los nodos virtuales o bare-metal descubiertos a la espera de ser aprovisionados."
 
 msgid "No discovered hosts to provision"
 msgstr "No hay hosts detectados para aprovisionar"
@@ -538,7 +529,7 @@ msgid "No discovered hosts to reboot"
 msgstr "No se detectaron hosts para reiniciar"
 
 msgid "No hostgroup associated with rule '%s'"
-msgstr "No hay ningún grupo de hosts asociado a la regla '%s'"
+msgstr "No hay hostgroup asociado con la regla '%s'"
 
 msgid "No hosts selected"
 msgstr "Ningún host seleccionado"
@@ -550,7 +541,7 @@ msgid "No new discovered hosts for this period"
 msgstr "No se detectaron nuevos hosts para este periodo"
 
 msgid "No rule found for host %s"
-msgstr "No se ha encontrado ninguna regla para el anfitrión %s"
+msgstr "No se ha encontrado ninguna regla para el host %s"
 
 msgid "Not reported in more than 7 days"
 msgstr "No se informó en más de 7 días"
@@ -592,10 +583,10 @@ msgid "Please Confirm"
 msgstr "Confirmar"
 
 msgid "Prefer IPv6"
-msgstr "Preferir IPv6"
+msgstr "Prefer IPv6"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr "Preferir IPv6 a IPv4 al llamar a los nodos descubiertos"
+msgstr "Preferir IPv6 a IPv4 al llamar a nodos descubiertos"
 
 msgid "Primary"
 msgstr "Primario"
@@ -604,7 +595,7 @@ msgid "Provision"
 msgstr "Aprovisionar"
 
 msgid "Provision %s"
-msgstr "Disposición %s"
+msgstr "Provisión %s"
 
 msgid "Provision a discovered host"
 msgstr "Aprovisionar un host detectado"
@@ -616,7 +607,7 @@ msgid "Reboot"
 msgstr "Reiniciar"
 
 msgid "Rebooting %s"
-msgstr "Reiniciando %s"
+msgstr "Reiniciar %s"
 
 msgid "Rebooting a discovered host"
 msgstr "Reiniciando un host detectado"
@@ -625,10 +616,10 @@ msgid "Rebooting all discovered hosts"
 msgstr "Reiniciando todos los hosts detectados"
 
 msgid "Rebooting host %s"
-msgstr "Reiniciar el host %s"
+msgstr "Reinicio del host %s"
 
 msgid "Rebuild DNS for %s"
-msgstr "Reconstruir el DNS para %s"
+msgstr "Reconstruir DNS para %s"
 
 msgid "Refresh facts"
 msgstr "Refrescar datos"
@@ -656,9 +647,6 @@ msgstr "Regex para organizar eventos para la sección de almacenamiento"
 
 msgid "Reloading kernel on %s"
 msgstr "Recarga del núcleo en %s"
-
-msgid "Remote action:"
-msgstr "Acción remota:"
 
 msgid "Reported in the last 7 days"
 msgstr "Informado en los últimos 7 días"
@@ -736,7 +724,7 @@ msgid "The default prefix to use for the host name, must start with a letter"
 msgstr "Prefijo predeterminado que debe utilizarse para el nombre de host. Debe comenzar con una letra"
 
 msgid "The following hosts were not deleted: %s"
-msgstr "Los siguientes hosts no fueron eliminados: %s"
+msgstr "No se han eliminado los siguientes hosts: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr "Esta acción puede tardar un rato, ya que se eliminarán todos los equipos, datos e informes."
@@ -763,13 +751,13 @@ msgid "Unable to perform %{action} on %{ips}"
 msgstr "No se puede realizar %{action} en %{ips}"
 
 msgid "Unable to perform kexec on %{name} (%{url}): %{msg}"
-msgstr "No se puede realizar kexec en %{name} (%{url}): %{msg}"
+msgstr "No se puede ejecutar kexec en %{name} (%{url}): %{msg}"
 
 msgid "Unable to perform reboot on %{name} (%{url}): %{msg}"
-msgstr "No se puede realizar el reinicio en %{name} (%{url}): %{msg}"
+msgstr "No se puede reiniciar %{name} (%{url}): %{msg}"
 
 msgid "Unable to provision %{host}: %{errors}"
-msgstr "No se puede provisionar %{host}: %{errors}"
+msgstr "No se puede aprovisionar %{host}: %{errors}"
 
 msgid "Update a rule"
 msgstr "Actualizar una regla"

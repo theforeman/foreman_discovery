@@ -5,13 +5,14 @@
 # Translators:
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
+# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
-"Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
+"Language-Team: Japanese (http://app.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,9 +31,6 @@ msgstr "<b>Foreman</b> 検出されたホストの概要"
 
 msgid "A summary of discovered hosts"
 msgstr "検出されたホストの概要"
-
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
 
 msgid "Actions"
 msgstr "アクション"
@@ -53,7 +51,7 @@ msgid "Auto provisioning"
 msgstr "自動プロビジョニング"
 
 msgid "Automatic bond interface (if another interface is detected on the same VLAN via LLDP)"
-msgstr "自動ボンドインターフェース (LLDP で同じ VLAN 上に別のインターフェースが検出された場合)"
+msgstr "自動ボンドインターフェイス (LLDP で同じ VLAN 上に別のインターフェイスが検出された場合)"
 
 msgid "Automatically generate PXE configuration to pin a newly discovered host to discovery"
 msgstr "新規に検出されたホストを検出に固定するための PXE 設定の自動生成"
@@ -104,7 +102,7 @@ msgid "Create a discovery rule"
 msgstr "検出ルールの作成"
 
 msgid "Create bond interfaces"
-msgstr "ボンドインターフェースの作成"
+msgstr "ボンドインターフェイスの作成"
 
 msgid "Customize Host"
 msgstr "ホストのカスタマイズ"
@@ -165,7 +163,7 @@ msgid "Discovered hosts are rebooting now"
 msgstr "検出されたホストを現在再起動中"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "Foreman サーバーの検出されたホスト: %{foreman_url}"
+msgstr "Foreman サーバーの検出されたホスト: %%{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 msgstr "不明なサブネットから報告された検出されたホストは %s、通信はプロキシー化されません。"
@@ -255,10 +253,10 @@ msgid "Execute rules against all currently discovered hosts"
 msgstr "現在検出されているすべてのホストに対するルールの実行"
 
 msgid "Expected discovery_fact '%s' is missing, unable to detect primary interface and set hostname"
-msgstr "必要な discovery_fact '%s' がありません。プライマリーインターフェースの検出やホスト名の設定ができません"
+msgstr "必要な discovery_fact '%s' がありません。プライマリーインターフェイスの検出やホスト名の設定ができません"
 
 msgid "Extra facter columns to show in host lists"
-msgstr ""
+msgstr "ホスト一覧に表示される追加の facter 列"
 
 msgid "Fact + prefix"
 msgstr "ファクト + プレフィックス"
@@ -267,7 +265,7 @@ msgid "Fact columns"
 msgstr "Fact 列"
 
 msgid "Fact name to use for primary interface detection"
-msgstr "プライマリーインターフェースの検出に使用するファクト名"
+msgstr "プライマリーインターフェイスの検出に使用するファクト名"
 
 msgid "Facts could not be imported"
 msgstr "ファクトをインポートできませんでした"
@@ -282,7 +280,7 @@ msgid "Failed to reboot host %s"
 msgstr "ホスト %s の再起動に失敗しました"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "ホスト %{hostname} は %{error_message} のエラーで再起動に失敗しました"
+msgstr "ホスト %%{hostname} は %%{error_message} のエラーで再起動に失敗しました"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "ホストは %s のエラーで再起動に失敗しました"
@@ -291,7 +289,7 @@ msgid "Failed to refresh facts for %s"
 msgstr "%s のファクトの更新に失敗しました"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "%{error_message} エラーで %{hostname} のファクトの更新に失敗しました"
+msgstr "%%{error_message} エラーで %%{hostname} のファクトの更新に失敗しました"
 
 msgid "For more information please see "
 msgstr "詳細は、以下を参照してください: "
@@ -303,7 +301,7 @@ msgid "Force DNS entries creation when provisioning discovered host"
 msgstr "検出されたホストのプロビジョニング時の DNS エントリーの作成を強制的に実行"
 
 msgid "Foreman Discovery"
-msgstr ""
+msgstr "Foreman 検出"
 
 msgid "Foreman discovered hosts summary"
 msgstr "Foreman の検出されたホストの概要"
@@ -324,7 +322,7 @@ msgid "Host"
 msgstr "ホスト"
 
 msgid "Host %s has been dicovered"
-msgstr "ホスト %s が検出されました。"
+msgstr "ホスト %s が検出されました"
 
 msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr "ホスト %{host} がルール %{rule} でプロビジョニングされています"
@@ -397,12 +395,6 @@ msgstr "イメージ API 処理エラー: %{msg} (HTTP/%{code}、ボディー: %
 msgid "Image API returned HTTP/%{code} with '%{body}"
 msgstr "イメージ API で返された HTTP/%{code}: '%{body}"
 
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
-
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "@host 属性のほかに、ランダムな整数の rand 関数を利用できます。例:"
 
@@ -410,13 +402,13 @@ msgid "Init RAM kexec URL is invalid: '%s'"
 msgstr "Init RAM kexec URL は無効です: '%s'"
 
 msgid "Interface fact"
-msgstr "インターフェースファクト"
+msgstr "インターフェイスファクト"
 
 msgid "Interfaces"
-msgstr "インターフェース"
+msgstr "インターフェイス"
 
 msgid "Invalid facts, must be a Hash"
-msgstr "無効なファクトです。ハッシュである必要があります。"
+msgstr "無効なファクトです。ハッシュである必要があります"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
 msgstr "無効なファクト: discovery_hostname 設定の全ファクトで、ハッシュの値は無効です: %s"
@@ -446,7 +438,7 @@ msgid "List all fact values of a given discovered host"
 msgstr "指定の検出されたホストのすべての値を一覧表示"
 
 msgid "List of facts to use for the hostname (first wins)"
-msgstr ""
+msgstr "ホスト名に使用するファクトのリスト (first wins)"
 
 msgid "Location"
 msgstr "ロケーション"
@@ -509,7 +501,7 @@ msgid "New in the last 24 hours"
 msgstr "過去 24 時間以内の新規"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
-msgstr "このコンテキストで検出された検出ルールはありません。検出されたホストで自動プロビジョニングを実行するための検出ルールを作成してください。"
+msgstr "このコンテキストで検出された検出ルールはありません。検出されたホストで自動プロビジョニングを実行するための検出ルールを作成してください"
 
 msgid "No discovered hosts available"
 msgstr "検出されたホストがありません"
@@ -548,16 +540,16 @@ msgid "One or more hosts have been discovered"
 msgstr "1 つ以上のホストが検出されました"
 
 msgid "One or more hosts with failed discovery due to error: %s"
-msgstr ""
+msgstr "エラーが原因で 1 つ以上のホストの検出に失敗しました: %s"
 
 msgid "Option 'url' must be provided"
-msgstr ""
+msgstr "オプション 'url' を指定する必要があります。"
 
 msgid "Option 'url' must be valid URI: %s"
-msgstr ""
+msgstr "オプション 'url' は有効な URI でなければなりません: %s"
 
 msgid "Options must be hash"
-msgstr ""
+msgstr "オプションはハッシュでなければなりません"
 
 msgid "Organization"
 msgstr "組織"
@@ -584,7 +576,7 @@ msgid "Prefer IPv6"
 msgstr "IPv6 を優先します"
 
 msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
-msgstr "検出されたノードを呼び出す際に、IPv4 よりも IPv6 を優先します。"
+msgstr "検出されたノードを呼び出す際に、IPv4 よりも IPv6 を優先します"
 
 msgid "Primary"
 msgstr "プライマリー"
@@ -645,9 +637,6 @@ msgstr "ストレージセクションのファクトを整理するための Re
 
 msgid "Reloading kernel on %s"
 msgstr "カーネルを %s にリロード中"
-
-msgid "Remote action:"
-msgstr "リモートアクション:"
 
 msgid "Reported in the last 7 days"
 msgstr "過去 7 日以内に報告あり"
@@ -713,7 +702,7 @@ msgid "Summary report for discovered hosts from Foreman"
 msgstr "Foreman の検出されたホストの概要レポート"
 
 msgid "Target host group for this rule with all properties set"
-msgstr "このルールのターゲットホストグループ。すべてのプロパティーを設定しておいてください。"
+msgstr "このルールのターゲットホストグループ。すべてのプロパティーを設定しておいてください"
 
 msgid "The default location to place discovered hosts in"
 msgstr "検出されたホストを配置するデフォルトのロケーション"
@@ -728,7 +717,7 @@ msgid "The following hosts were not deleted: %s"
 msgstr "以下のホストは削除されませんでした: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
-msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります。"
+msgstr "ホスト、ファクト、およびレポートもすべて破棄されるため、時間がかかる場合があります"
 
 msgid "Type"
 msgstr "タイプ"
@@ -788,7 +777,7 @@ msgid "flag is used for temporary shutdown of rules"
 msgstr "フラグはルールの一時的な停止に使用されます"
 
 msgid "hash containing facts for the host with minimum set of facts: discovery_bootif, macaddress_eth0, ipaddress, ipaddress_eth0, interfaces: eth0 (example in case primary interface is named eth0)"
-msgstr "ファクトの最小セットが設定されたホストのファクトを含むハッシュ : discovery_bootif、macaddress_eth0、ipaddress、ipaddress_eth0、interfaces: eth0 (プライマリーインターフェースの名前が eth0 の場合の例)"
+msgstr "ファクトの最小セットが設定されたホストのファクトを含むハッシュ : discovery_bootif、macaddress_eth0、ipaddress、ipaddress_eth0、interfaces: eth0 (プライマリーインターフェイスの名前が eth0 の場合の例)"
 
 msgid "items selected. Uncheck to Clear"
 msgstr "項目が選択されています。クリアするにはチェックを解除してください"
@@ -827,7 +816,7 @@ msgid "represents rule name shown to the users"
 msgstr "ユーザーに表示されるルール名を表します"
 
 msgid "required if host is managed and custom partition has not been defined"
-msgstr "ホストが管理されており、カスタムパーティションが定義されていない場合に必須です。"
+msgstr "ホストが管理されており、カスタムパーティションが定義されていない場合に必須です"
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です"

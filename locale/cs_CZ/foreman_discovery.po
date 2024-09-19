@@ -1,24 +1,26 @@
-# Czech translations for foreman_discovery package.
-# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_discovery package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery v22.0.4\n"
+"Project-Id-Version: foreman_discovery 25.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-15 15:01+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Czech\n"
-"Language: cs_CZ\n"
+"PO-Revision-Date: 2013-11-15 17:25+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020\n"
+"Language-Team: Czech (Czech Republic) (http://app.transifex.com/foreman/forema"
+"n/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=; plural=;\n"
-"\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= "
+"4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "%s - The following hosts are about to be changed"
-msgstr ""
+msgstr "%s – následující hostitelé budou změněni"
 
 msgid "%s discovered hosts were provisioned"
 msgstr ""
@@ -29,17 +31,14 @@ msgstr ""
 msgid "A summary of discovered hosts"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 msgid "Assign Location"
-msgstr ""
+msgstr "Přiřadit umístění"
 
 msgid "Assign Organization"
-msgstr ""
+msgstr "Přiřadit organizaci"
 
 msgid "Associated Hosts"
 msgstr ""
@@ -63,37 +62,37 @@ msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Zpět"
 
 msgid "CPUs"
-msgstr ""
+msgstr "Procesory"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Clean all facts"
-msgstr ""
+msgstr "Vyčistit všechna fakta"
 
 msgid "Clean all reported facts during provisioning (except discovery facts)"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Klonovat"
 
 msgid "Clone %s"
-msgstr ""
+msgstr "Klonovat %s"
 
 msgid "Collapse All"
-msgstr ""
+msgstr "Sbalit vše"
 
 msgid "Could not get facts from proxy %{url}: %{error}"
 msgstr ""
 
 msgid "Create Host"
-msgstr ""
+msgstr "Vytvořit stroj"
 
 msgid "Create Rule"
-msgstr ""
+msgstr "Vytvořit pravidlo"
 
 msgid "Create a discovered host for testing (use /facts to create new hosts)"
 msgstr ""
@@ -102,37 +101,37 @@ msgid "Create a discovery rule"
 msgstr ""
 
 msgid "Create bond interfaces"
-msgstr ""
+msgstr "Vytvořit spřažení rozhraní"
 
 msgid "Customize Host"
-msgstr ""
+msgstr "Přizpůsobit stroj"
 
 msgid "DHCP filename option (Grub2 or PXELinux by default)"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 msgid "Delete %s?"
-msgstr ""
+msgstr "Smazat %s?"
 
 msgid "Delete a discovered host"
-msgstr ""
+msgstr "Smazat objevené stroje"
 
 msgid "Delete a rule"
-msgstr ""
+msgstr "Smazat pravidlo"
 
 msgid "Delete rule '%s'?"
 msgstr ""
 
 msgid "Destroyed selected hosts"
-msgstr ""
+msgstr "Označené stroje zlikvidovány"
 
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 msgid "Disable"
-msgstr ""
+msgstr "Vypnout"
 
 msgid "Disable rule '%s'?"
 msgstr ""
@@ -143,7 +142,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Discovered Hosts"
-msgstr ""
+msgstr "Objevené stroje"
 
 msgid "Discovered Rules"
 msgstr ""
@@ -155,7 +154,7 @@ msgid "Discovered host reported from unknown subnet, communication will not be p
 msgstr ""
 
 msgid "Discovered host: %s"
-msgstr ""
+msgstr "Objevené stroje: %s"
 
 msgid "Discovered hosts are provisioning now"
 msgstr ""
@@ -176,7 +175,7 @@ msgid "Discovery"
 msgstr ""
 
 msgid "Discovery Proxy"
-msgstr ""
+msgstr "Proxy pro objevování"
 
 msgid "Discovery Proxy to use within this subnet for managing connection to discovered hosts"
 msgstr ""
@@ -191,46 +190,46 @@ msgid "Discovery hostname naming pattern"
 msgstr ""
 
 msgid "Discovery location"
-msgstr ""
+msgstr "Prozkoumávané umístění"
 
 msgid "Discovery organization"
-msgstr ""
+msgstr "Prozkoumávaná organizace"
 
 msgid "DiscoveryRule|Enabled"
-msgstr ""
+msgstr "DiscoveryRule|Zapnuto"
 
 msgid "DiscoveryRule|Name"
-msgstr ""
+msgstr "DiscoveryRule|Název"
 
 msgid "DiscoveryRule|Priority"
-msgstr ""
+msgstr "DiscoveryRule|Priorita"
 
 msgid "DiscoveryRule|Query"
-msgstr ""
+msgstr "DiscoveryRule|Dotaz"
 
 msgid "Disk Count"
-msgstr ""
+msgstr "Počet jednotek úložiště"
 
 msgid "Disk count"
-msgstr ""
+msgstr "Počet jednotek úložiště"
 
 msgid "Disks Size"
-msgstr ""
+msgstr "Velikost jednotky úložiště"
 
 msgid "Disks size"
-msgstr ""
+msgstr "Velikost jednotek úložiště"
 
 msgid "Do not allow to discover existing managed host matching MAC of a provisioning NIC (errors out early)"
 msgstr ""
 
 msgid "Domain will be appended automatically. A hostname based on MAC address will be used when left blank."
-msgstr ""
+msgstr "Doména bude připsána automaticky. Pokud nebude vyplněno, bude použit název stroje založený na MAC adrese."
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Upravit %s"
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Enable rule '%s'?"
 msgstr ""
@@ -260,19 +259,19 @@ msgid "Extra facter columns to show in host lists"
 msgstr ""
 
 msgid "Fact + prefix"
-msgstr ""
+msgstr "Fakt + předpona"
 
 msgid "Fact columns"
-msgstr ""
+msgstr "Sloupce faktu"
 
 msgid "Fact name to use for primary interface detection"
 msgstr ""
 
 msgid "Facts could not be imported"
-msgstr ""
+msgstr "Fakta se nepodařilo importovat"
 
 msgid "Facts refreshed for %s"
-msgstr ""
+msgstr "Fakta znovunačtena pro %s"
 
 msgid "Failed to auto provision host %s: %s"
 msgstr ""
@@ -296,7 +295,7 @@ msgid "For more information please see "
 msgstr ""
 
 msgid "Force DNS"
-msgstr ""
+msgstr "Vynutit DNS"
 
 msgid "Force DNS entries creation when provisioning discovered host"
 msgstr ""
@@ -308,19 +307,19 @@ msgid "Foreman discovered hosts summary"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 msgid "Hardware facts"
-msgstr ""
+msgstr "Fakta o hardware"
 
 msgid "Highlighted facts"
-msgstr ""
+msgstr "Zvýrazněná fakta"
 
 msgid "Highlights"
 msgstr ""
 
 msgid "Host"
-msgstr ""
+msgstr "Stroj"
 
 msgid "Host %s has been dicovered"
 msgstr ""
@@ -329,7 +328,7 @@ msgid "Host %{host} was provisioned with rule %{rule}"
 msgstr ""
 
 msgid "Host Group"
-msgstr ""
+msgstr "Skupina strojů"
 
 msgid "Host group location %s must also be associated to the discovery rule"
 msgid_plural "Host group locations %s must also be associated to the discovery rule"
@@ -345,25 +344,25 @@ msgid "Host of type %s can not be rebooted"
 msgstr ""
 
 msgid "Host's owner type"
-msgstr ""
+msgstr "Typ vlastníka stroje"
 
 msgid "Host's parameters (array or indexed hash)"
 msgstr ""
 
 msgid "Hostname facts"
-msgstr ""
+msgstr "Fakta o názvu stroje"
 
 msgid "Hostname for provisioned hosts"
 msgstr ""
 
 msgid "Hostname prefix"
-msgstr ""
+msgstr "Předpona názvu stroje"
 
 msgid "Hostnames must not start with numbers. A good approach is to use unique information provided by facter (MAC address, BIOS or serial ID)."
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Stroje"
 
 msgid "Hosts Limit"
 msgstr ""
@@ -375,33 +374,27 @@ msgid "ID of Discovery Proxy to use within this subnet for managing connection t
 msgstr ""
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresa"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP adresa"
 
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 msgid "IPMI facts"
-msgstr ""
+msgstr "Fakta o IPMI"
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identifikátor"
 
 msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr ""
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr ""
-
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
@@ -411,13 +404,13 @@ msgid "Init RAM kexec URL is invalid: '%s'"
 msgstr ""
 
 msgid "Interface fact"
-msgstr ""
+msgstr "Fakt o rozhraní"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Rozhraní"
 
 msgid "Invalid facts, must be a Hash"
-msgstr ""
+msgstr "Neplatný fakt, je třeba, aby byl otisk"
 
 msgid "Invalid facts: hash does not contain a valid value for any of the facts in the discovery_hostname setting: %s"
 msgstr ""
@@ -429,7 +422,7 @@ msgid "Invalid user type of %s was provided"
 msgstr ""
 
 msgid "Kernel kexec URL is invalid: '%s'"
-msgstr ""
+msgstr "URL adresa kexec jádra není platná: „%s“"
 
 msgid "Kexec template not associated with operating system"
 msgstr ""
@@ -438,25 +431,25 @@ msgid "Last Facts Upload"
 msgstr ""
 
 msgid "List all discovered hosts"
-msgstr ""
+msgstr "Vypsat všechny  objevené stroje"
 
 msgid "List all discovery rules"
 msgstr ""
 
 msgid "List all fact values of a given discovered host"
-msgstr ""
+msgstr "Vypsat veškerá fakta o daném objeveném stroji"
 
 msgid "List of facts to use for the hostname (first wins)"
 msgstr ""
 
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 msgid "Locations"
-msgstr ""
+msgstr "Umístění"
 
 msgid "Lock PXE"
-msgstr ""
+msgstr "Zamknout PXE"
 
 msgid "Locked PXEGrub template name"
 msgstr ""
@@ -468,37 +461,37 @@ msgid "Locked PXELinux template name"
 msgstr ""
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC adresa"
 
 msgid "MAC-based name"
-msgstr ""
+msgstr "Název odvozený od MAC adresy"
 
 msgid "Maximum hosts provisioned with this rule (0 = unlimited)"
 msgstr ""
 
 msgid "Memory"
-msgstr ""
+msgstr "Operační paměť"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "N/A"
-msgstr ""
+msgstr "Není"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "Name of the parameter"
-msgstr ""
+msgstr "Název parametru"
 
 msgid "Network"
-msgstr ""
+msgstr "Síť"
 
 msgid "Network facts"
-msgstr ""
+msgstr "Fakta o síti"
 
 msgid "New Discovery Rule"
 msgstr ""
@@ -507,7 +500,7 @@ msgid "New hosts"
 msgstr ""
 
 msgid "New in the last 24 hours"
-msgstr ""
+msgstr "Nové v uplynulých 24 hodinách"
 
 msgid "No Discovery Rules found in this context. Create Discovery Rules to perform automated provisioning on Discovered Hosts"
 msgstr ""
@@ -531,7 +524,7 @@ msgid "No hostgroup associated with rule '%s'"
 msgstr ""
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "Nejsou vybrány žádné stroje"
 
 msgid "No hosts were found with that id or name"
 msgstr ""
@@ -546,7 +539,7 @@ msgid "Not reported in more than 7 days"
 msgstr ""
 
 msgid "One or more hosts have been discovered"
-msgstr ""
+msgstr "Byl objeven jeden či více hostitelů"
 
 msgid "One or more hosts with failed discovery due to error: %s"
 msgstr ""
@@ -561,10 +554,10 @@ msgid "Options must be hash"
 msgstr ""
 
 msgid "Organization"
-msgstr ""
+msgstr "Organizace"
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organizace"
 
 msgid "PXEGrub template to be used when pinning a host to discovery"
 msgstr ""
@@ -576,10 +569,10 @@ msgid "PXELinux template to be used when pinning a host to discovery"
 msgstr ""
 
 msgid "Parameter value"
-msgstr ""
+msgstr "Hodnota parametru"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "Potvrďte"
 
 msgid "Prefer IPv6"
 msgstr ""
@@ -588,7 +581,7 @@ msgid "Prefer IPv6 to IPv4 when calling discovered nodes"
 msgstr ""
 
 msgid "Primary"
-msgstr ""
+msgstr "Hlavní"
 
 msgid "Provision"
 msgstr ""
@@ -600,13 +593,13 @@ msgid "Provision a discovered host"
 msgstr ""
 
 msgid "Random name"
-msgstr ""
+msgstr "Náhodný název"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Restart"
 
 msgid "Rebooting %s"
-msgstr ""
+msgstr "Restartování %s"
 
 msgid "Rebooting a discovered host"
 msgstr ""
@@ -621,7 +614,7 @@ msgid "Rebuild DNS for %s"
 msgstr ""
 
 msgid "Refresh facts"
-msgstr ""
+msgstr "Znovu načíst fakta"
 
 msgid "Refreshing the facts of a discovered host"
 msgstr ""
@@ -647,62 +640,59 @@ msgstr ""
 msgid "Reloading kernel on %s"
 msgstr ""
 
-msgid "Remote action:"
-msgstr ""
-
 msgid "Reported in the last 7 days"
 msgstr ""
 
 msgid "Rule disabled"
-msgstr ""
+msgstr "Pravidlo vypnuto"
 
 msgid "Rule enabled"
-msgstr ""
+msgstr "Pravidlo zapnuto"
 
 msgid "Rule priority (lower integer means higher priority)"
 msgstr ""
 
 msgid "Select Action"
-msgstr ""
+msgstr "Vybrat akci"
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "Vybrat všechny položky na této stránce"
 
 msgid "Select location"
-msgstr ""
+msgstr "Vybrat umístění"
 
 msgid "Select organization"
-msgstr ""
+msgstr "Vybrat organizaci"
 
 msgid "Show a discovered host"
-msgstr ""
+msgstr "Zobrazit objevený stroj"
 
 msgid "Show a discovery rule"
 msgstr ""
 
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 msgid "Software facts"
-msgstr ""
+msgstr "Fakta o software"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "Při vybírání strojů se něco pokazilo – %s"
 
 msgid "Specify target hostname template pattern in the same syntax as in Provisioning Templates (ERB)."
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Úložiště"
 
 msgid "Storage facts"
-msgstr ""
+msgstr "Fakta o úložišti"
 
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 msgid "Subnet"
-msgstr ""
+msgstr "Podsíť"
 
 msgid "Successfully provisioned %s"
 msgstr ""
@@ -717,28 +707,28 @@ msgid "Target host group for this rule with all properties set"
 msgstr ""
 
 msgid "The default location to place discovered hosts in"
-msgstr ""
+msgstr "Výchozí umístění do kterého umisťovat objevené stroje"
 
 msgid "The default organization to place discovered hosts in"
-msgstr ""
+msgstr "Výchozí organizace do které umisťovat objevené stroje"
 
 msgid "The default prefix to use for the host name, must start with a letter"
 msgstr ""
 
 msgid "The following hosts were not deleted: %s"
-msgstr ""
+msgstr "Následující stroje nebyly smazány: %s"
 
 msgid "This might take a while, as all hosts, facts and reports will be destroyed as well"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "Type of name generator"
-msgstr ""
+msgstr "Typ generátoru názvů"
 
 msgid "Type of value"
-msgstr ""
+msgstr "Typ hodnoty"
 
 msgid "UUID to track orchestration tasks status, GET /api/orchestration/:UUID/tasks"
 msgstr ""
@@ -762,7 +752,7 @@ msgid "Unable to provision %{host}: %{errors}"
 msgstr ""
 
 msgid "Update a rule"
-msgstr ""
+msgstr "Aktualizovat pravidlo"
 
 msgid "Upload facts for a host, creating the host if required"
 msgstr ""
@@ -777,13 +767,13 @@ msgid "defines a pattern to assign human-readable hostnames to the matching host
 msgstr ""
 
 msgid "documentation"
-msgstr ""
+msgstr "dokumnetace"
 
 msgid "enables to limit maximum amount of provisioned hosts per rule"
 msgstr ""
 
 msgid "filter results"
-msgstr ""
+msgstr "výsledky filtru"
 
 msgid "flag is used for temporary shutdown of rules"
 msgstr ""
@@ -792,7 +782,7 @@ msgid "hash containing facts for the host with minimum set of facts: discovery_b
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "položky označeny. Vyčistíte zrušením zaškrtnutí"
 
 msgid "location ID for provisioned hosts"
 msgstr ""
@@ -804,19 +794,19 @@ msgid "must start with a letter or ERB."
 msgstr ""
 
 msgid "not required if it's a virtual machine"
-msgstr ""
+msgstr "není třeba pokud se jedná o virtuální stroj"
 
 msgid "not required if using a subnet with DHCP proxy"
 msgstr ""
 
 msgid "number of entries per request"
-msgstr ""
+msgstr "počet položek na požadavek"
 
 msgid "organization ID for provisioned hosts"
 msgstr ""
 
 msgid "paginate results"
-msgstr ""
+msgstr "stránkovat výsledky"
 
 msgid "puts the rules in order, low numbers go first. Must be greater then zero"
 msgstr ""
@@ -840,7 +830,7 @@ msgid "required if value is not inherited from host group or default password in
 msgstr ""
 
 msgid "sort results"
-msgstr ""
+msgstr "seřadit výsledky"
 
 msgid "the hostgroup that is used to auto provision a host"
 msgstr ""
