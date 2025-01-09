@@ -33,7 +33,8 @@ module ForemanDiscovery
           identifier: interface["identifier"],
           type: interface["type"],
           mac: interface["mac"],
-          ip: interface["ip"] || "N/A",
+          ip: interface["ip"],
+          ip6: interface["ip6"],
           primary: interface["primary"],
           provision: interface["provision"],
         }
@@ -103,4 +104,3 @@ module ForemanDiscovery
     end
   end
 end
-

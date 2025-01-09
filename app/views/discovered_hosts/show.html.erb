@@ -44,7 +44,8 @@
               <th class="hidden-xs " width="12%"><%= _('Type') %></th>
               <th class="hidden-xs "><%= _('Identifier') %></th>
               <th class="hidden-xs "><%= _("MAC address") %></th>
-              <th class="hidden-xs "><%= _("IP address") %></th>
+              <th class="hidden-xs "><%= _("IPv4") %></th>
+              <th class="hidden-xs "><%= _("IPv6") %></th>
             </tr>
             <% @interfaces.each do |interface| %>
               <tr>
@@ -52,6 +53,7 @@
                 <td class="ellipsis"><%= interface[:identifier] %></td>
                 <td class="ellipsis"><%= interface[:mac] %></td>
                 <td class="ellipsis"><%= interface[:ip] %></td>
+                <td class="ellipsis"><%= interface[:ip6] %></td>
               </tr>
             <% end %>
           </table>
