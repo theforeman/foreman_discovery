@@ -3,7 +3,12 @@
   <%= link_to host, discovered_host_url(:id => host, :host => @url.host, :port => @url.port, :only_path => false, :protocol => @url.scheme) %>
 </td>
 <td style="<%= td_style%>"><%= host.try(:hardware_model_name) || 'N/A' %></td>
+<% if host.ip %>
 <td style="<%= td_style%>"><%= host.ip %></td>
+<% end %>
+<% if host.ip6 %>
+<td style="<%= td_style%>"><%= host.ip6 %></td>
+<% end %>
 <td style="<%= td_style%>"><%= discovery_attribute(host, :cpu_count) %></td>
 <td style="<%= td_style%>"><%= number_to_human_size(discovery_attribute(host, :memory, 0) * 1024 * 1024) %></td>
 <td style="<%= td_style%>"><%= discovery_attribute(host, :disk_count) %></td>
