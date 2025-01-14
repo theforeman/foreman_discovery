@@ -70,9 +70,11 @@ def set_default_settings
   Setting['discovery_auto_bond'] = false
 end
 
-def setup_hostgroup(host)
+def setup_hostgroup(host, subnets: nil)
   domain = FactoryBot.create(:domain)
-  subnet = FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
+  subnets ||= {
+    subnet: FactoryBot.create(:subnet_ipv4, :network => "192.168.100.0")
+  }
   medium = FactoryBot.create(:medium, :organizations => [host.organization], :locations => [host.location])
   os = FactoryBot.create(:operatingsystem, :with_ptables, :with_archs, :media => [medium])
   args = {
@@ -80,11 +82,11 @@ def setup_hostgroup(host)
     :architecture => os.architectures.first,
     :ptable => os.ptables.first,
     :medium => os.media.first,
-    :subnet => subnet,
     :domain => domain,
     :organizations => [host.organization],
     :locations => [host.location]
-  }
+  }.merge(subnets)
+
   if defined?(ForemanPuppet)
     environment = FactoryBot.create(:environment, :organizations => [host.organization], :locations => [host.location])
     args[:environment] = environment
@@ -92,15 +94,26 @@ def setup_hostgroup(host)
   else
     hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, **args)
   end
-  domain.subnets << hostgroup.subnet
+
+  hostgroup_subnets = [hostgroup.subnet6, hostgroup.subnet].compact
+  domain.subnets << hostgroup_subnets
+
+  hostgroup_taxonomies(hostgroup, hostgroup_subnets, host)
+end
+
+def hostgroup_taxonomies(hostgroup, hostgroup_subnets, host)
   hostgroup.medium.organizations |= [host.organization]
   hostgroup.medium.locations |= [host.location]
   hostgroup.ptable.organizations |= [host.organization]
   hostgroup.ptable.locations |= [host.location]
   hostgroup.domain.organizations |= [host.organization]
   hostgroup.domain.locations |= [host.location]
-  hostgroup.subnet.organizations |= [host.organization]
-  hostgroup.subnet.locations |= [host.location]
+
+  hostgroup_subnets.each do |subnet|
+    subnet.organizations |= [host.organization]
+    subnet.locations |= [host.location]
+  end
+
   if defined?(ForemanPuppet)
     hostgroup.environment.organizations |= [host.organization]
     hostgroup.environment.locations |= [host.location]
@@ -109,6 +122,7 @@ def setup_hostgroup(host)
     hostgroup.puppet_ca_proxy.organizations |= [host.organization]
     hostgroup.puppet_ca_proxy.locations |= [host.location]
   end
+
   hostgroup
 end
 

@@ -25,6 +25,12 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
       "memorysize_mb"     => "42000.42",
       "discovery_version" => "3.0.0",
     }
+
+    @facts6 = @facts.merge({
+      "ipaddress"         => "2001:db8::1",
+      "ipaddress6_eth0"   => "2001:db8::1",
+    })
+
     set_default_settings
     ::ForemanDiscovery::NodeAPI::PowerService.any_instance.stubs(:reboot).returns(true)
     ::ForemanDiscovery::HostConverter.stubs(:unused_ip_for_host)
@@ -50,6 +56,16 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
     assert_equal 0, show_response["disks_size"]
     assert_equal Setting[:discovery_organization], show_response["organization_name"]
     assert_equal Setting[:discovery_location], show_response["location_name"]
+  end
+
+  def test_show_host_ipv6
+    host = discover_host_from_facts(@facts6)
+    get :show, params: { :id => host.id }
+    assert_response :success
+
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "macaabbccddeeff", response["name"]
+    assert_equal @facts6["ipaddress6_eth0"], response["ip6"]
   end
 
   def test_delete_discovered_host
@@ -89,6 +105,25 @@ class Api::V2::DiscoveredHostsControllerTest < ActionController::TestCase
       assert_equal hostgroup.puppet_ca_proxy_id, actual.puppet_ca_proxy_id
     end
     assert actual.build?
+  end
+
+  def test_provision_ipv6_host
+    subnet6 = FactoryBot.create(:subnet_ipv6, :network => "2001:db8::")
+    host = discover_host_from_facts(@facts6)
+    hostgroup = setup_hostgroup(host, subnets: { subnet6: subnet6 })
+
+    put :update, params: {
+        id: host.id,
+        discovered_host: {
+          hostgroup_id: hostgroup.id,
+          build: true
+        }
+      }
+
+    assert_response :success
+    actual = Host.unscoped.find(host.id)
+    assert actual.build?
+    assert_equal actual.ip6, @facts6["ipaddress6_eth0"]
   end
 
   def test_provision_host_without_build_flag

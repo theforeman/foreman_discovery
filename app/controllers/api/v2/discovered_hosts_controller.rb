@@ -53,6 +53,7 @@ module Api
         param :name, String
         param :environment_id, String, :desc => N_("required if host is managed and value is not inherited from host group")
         param :ip, String, :desc => N_("not required if using a subnet with DHCP proxy")
+        param :ip6, String, :desc => N_("not required if using an IPv6 subnet with DHCP proxy")
         param :mac, String, :desc => N_("not required if it's a virtual machine")
         param :architecture_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
         param :domain_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
@@ -62,6 +63,7 @@ module Api
         param :medium_id, String, :desc => N_("required if not imaged based provisioning and host is managed and value is not inherited from host group")
         param :ptable_id, :number, :desc => N_("required if host is managed and custom partition has not been defined")
         param :subnet_id, :number, :desc => N_("required if host is managed and value is not inherited from host group")
+        param :subnet6_id, :number, :desc => N_("required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group")
         param :sp_subnet_id, :number
         param :model_id, :number
         param :hostgroup_id, :number
