@@ -52,15 +52,18 @@ module ForemanDiscovery
 
       return if neighbors.nil?
 
-      ip  = primary.ip
+      ip = primary.ip
+      ip6 = primary.ip6
       mac = primary.mac
       name = primary.name
+
       primary.update(
           :primary   => false,
           :provision => false,
           :managed   => false,
           :name      => nil,
-          :ip        => nil
+          :ip        => nil,
+          :ip6       => nil
       )
 
       bond = Nic::Bond.create(
@@ -70,6 +73,7 @@ module ForemanDiscovery
           :provision        => true,
           :name             => name,
           :ip               => ip,
+          :ip6              => ip6,
           :mac              => mac,
           :host             => host
       )
