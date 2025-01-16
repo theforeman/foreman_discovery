@@ -335,13 +335,6 @@ class DiscoveredHostsController < ::ApplicationController
     Bullet.enable = true if defined? Bullet
   end
 
-  def add_custom_facts
-    unless @host.primary_interface.subnet.nil?
-      discovery_subnet = "#{@host.primary_interface.subnet.name} (#{@host.primary_interface.subnet.network})"
-      assign_fact_to_category("discovery_subnet", discovery_subnet)
-    end
-  end
-
   def process_warning(hash = {})
     warning hash[:warning_msg]
   end

@@ -51,10 +51,7 @@ module ForemanDiscovery
         assign_fact_to_category(key, value)
       end
 
-      return if host.primary_interface.subnet.nil?
-
-      discovery_subnet = "#{host.primary_interface.subnet.name} (#{host.primary_interface.subnet.network})"
-      assign_fact_to_category("discovery_subnet", discovery_subnet)
+      subnets_facts(host.primary_interface)
     end
 
     def assign_fact_to_category(key, value)
@@ -73,6 +70,14 @@ module ForemanDiscovery
           break
         end
       end
+    end
+
+    def subnets_facts(iface)
+      subnet4 = iface.subnet
+      subnet6 = iface.subnet6
+
+      assign_fact_to_category("discovery_subnet", "#{subnet4.name} (#{subnet4.network})") if subnet4
+      assign_fact_to_category("discovery_subnet6", "#{subnet6.name} (#{subnet6.network})") if subnet6
     end
 
     def highlights
