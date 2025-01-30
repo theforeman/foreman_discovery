@@ -82,7 +82,7 @@ module ForemanDiscovery::NodeAPI
     def get(payload = {}, path = nil)
       logger.debug("Image API GET #{url} (path=#{path}, payload=#{payload})")
       if path
-        resource[URI.escape(path)].get payload
+        resource[CGI.escape(path)].get payload
       else
         resource.get payload
       end
