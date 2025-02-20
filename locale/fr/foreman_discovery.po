@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
@@ -165,7 +165,7 @@ msgid "Discovered hosts are rebooting now"
 msgstr "Les hôtes détectés sont redémarrés maintenant"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "Hôtes détectés depuis le serveur Foreman à l'adresse %%{foreman_url}"
+msgstr "Hôtes détectés depuis le serveur Foreman à l'adresse %{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 msgstr "Les hôtes découverts provenant d'un sous-réseau inconnu sont %s, la communication ne sera pas assurée par un proxy.."
@@ -282,7 +282,7 @@ msgid "Failed to reboot host %s"
 msgstr "Échec du redémarrage de l'hôte %s"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %%{error_message}"
+msgstr "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %{error_message}"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "Échec du redémarrage des hôtes avec l'erreur %s"
@@ -291,7 +291,7 @@ msgid "Failed to refresh facts for %s"
 msgstr "Échec de rafraîchissement des facts pour %s"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %%{error_message}"
+msgstr "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %{error_message}"
 
 msgid "For more information please see "
 msgstr "Pour plus d'informations, voir "
@@ -380,9 +380,6 @@ msgstr "ID du proxy de détection à utiliser à l'intérieur de ce sous-réseau
 msgid "IP Address"
 msgstr "Adresse IP"
 
-msgid "IP address"
-msgstr "Adresse IP"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "L'IPAM doit être configuré pour le sous-réseau \"%s\""
 
@@ -392,6 +389,12 @@ msgstr "IPMI "
 msgid "IPMI facts"
 msgstr "Facts IPMI"
 
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
+
 msgid "Identifier"
 msgstr "Identificateur"
 
@@ -399,7 +402,7 @@ msgid "Image API processing error: %{msg} (HTTP/%{code}, body: %{body})"
 msgstr "Erreur de traitement de l'API image : %{msg} (HTTP/%{code}, body: %{body})"
 
 msgid "Image API returned HTTP/%{code} with '%{body}"
-msgstr "L'API image renvoie HTTP/%{code}  avec '%'%{body}"
+msgstr "L'API image renvoie HTTP/%{code}  avec ’%{body}"
 
 msgid "In addition to @host attribute function rand for random integers is available. Examples:"
 msgstr "En plus de la fonction d'attribut @host, la fonction ALEA pour les entiers aléatoires est disponible. Exemples :"
@@ -803,6 +806,9 @@ msgstr "non requis s'il s'agit d'une machine virtuelle"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "n'est pas requis s'il s'agit d'un sous-réseau avec un proxy DHCP"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "nombre d'entrées par requête"
 
@@ -826,6 +832,9 @@ msgstr "requis si l'hôte est géré et possède une partition spécifique qui n
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "requis si l’attribution n'est pas basée sur une image, que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"

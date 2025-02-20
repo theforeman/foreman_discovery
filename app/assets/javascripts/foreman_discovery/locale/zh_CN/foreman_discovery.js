@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
-        "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
         "Language-Team": "Chinese (China) (http://app.transifex.com/foreman/foreman/language/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "指定机构"
       ],
       "Associated Hosts": [
-        "关联主机"
+        "关联的主机"
       ],
       "Auto Provision": [
         "自动置备"
@@ -159,7 +159,7 @@
         "现在正在重启发现主机"
       ],
       "Discovered hosts from Foreman server at %{foreman_url}": [
-        "来自 %%{foreman_url} Foreman 服务器的发现主机"
+        "来自 %{foreman_url} Foreman 服务器的发现主机"
       ],
       "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
         "从未知子网报告发现的主机为 %s，通信数据将不会被代理。"
@@ -276,7 +276,7 @@
         "重启主机 %s 失败"
       ],
       "Failed to reboot host %{hostname} with error %{error_message}": [
-        "重启主机 %%{hostname} 失败，错误为 %%{error_message}"
+        "重启主机 %{hostname} 失败，错误为 %{error_message}"
       ],
       "Failed to reboot hosts with error %s": [
         "无法重启主机，错误 %s"
@@ -285,7 +285,7 @@
         "%s 的事实刷新失败"
       ],
       "Failed to refresh facts for %{hostname} with error %{error_message}": [
-        "为 %%{hostname} 刷新事实失败，错误为 %%{error_message}"
+        "为 %{hostname} 刷新事实失败，错误为 %{error_message}"
       ],
       "For more information please see ": [
         "查看详情 "
@@ -368,9 +368,6 @@
       "IP Address": [
         "IP 地址"
       ],
-      "IP address": [
-        "IP 地址"
-      ],
       "IPAM must be configured for subnet '%s'": [
         "必须为子网 '%s' 配置 IPAM"
       ],
@@ -379,6 +376,12 @@
       ],
       "IPMI facts": [
         "IPMI 详情"
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
+        ""
       ],
       "Identifier": [
         "鉴定"
@@ -791,6 +794,9 @@
       "not required if using a subnet with DHCP proxy": [
         "如果使用带有 DHCP 代理的子网则不需要"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "每个请求的条目数"
       ],
@@ -814,6 +820,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "如果主机是受管的，且值没有从主机组继承，则是必需的"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "如果不是基于置备镜像的，主机是受管的，且值没有从主机组继承，则是必需的"

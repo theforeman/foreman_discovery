@@ -10,7 +10,7 @@
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2015-2019,2023\n"
@@ -379,9 +379,6 @@ msgstr "ID of Discovery Proxy to use within this subnet for managing connection 
 msgid "IP Address"
 msgstr "IP Address"
 
-msgid "IP address"
-msgstr "IP address"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "IPAM must be configured for subnet '%s'"
 
@@ -390,6 +387,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "IPMI facts"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "Identifier"
@@ -802,6 +805,9 @@ msgstr "not required if it's a virtual machine"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "not required if using a subnet with DHCP proxy"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "number of entries per request"
 
@@ -825,6 +831,9 @@ msgstr "required if host is managed and custom partition has not been defined"
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "required if host is managed and value is not inherited from host group"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "required if not imaged based provisioning and host is managed and value is not inherited from host group"

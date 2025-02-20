@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_discovery 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2024-09-19 13:06+0200",
+        "PO-Revision-Date": "2025-02-20 10:22+0100",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -371,9 +371,6 @@
       "IP Address": [
         ""
       ],
-      "IP address": [
-        ""
-      ],
       "IPAM must be configured for subnet '%s'": [
         ""
       ],
@@ -381,6 +378,12 @@
         ""
       ],
       "IPMI facts": [
+        ""
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
         ""
       ],
       "Identifier": [
@@ -794,6 +797,9 @@
       "not required if using a subnet with DHCP proxy": [
         ""
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         ""
       ],
@@ -816,6 +822,9 @@
         ""
       ],
       "required if host is managed and value is not inherited from host group": [
+        ""
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
         ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [

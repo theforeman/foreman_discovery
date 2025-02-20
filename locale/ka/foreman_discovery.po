@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -374,9 +374,6 @@ msgstr ""
 msgid "IP Address"
 msgstr "IP მისამართი"
 
-msgid "IP address"
-msgstr "IP მისამართი"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "ქვექსელისთვის '%s' საჭიროა IPAM-ის მორგება"
 
@@ -385,6 +382,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "IPMI ფაქტები"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "იდენტიფიკატორი"
@@ -797,6 +800,9 @@ msgstr "საჭირო არაა, თუ ის ვირტუალუ�
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "dhcp პროქსის მქოლე ქვექსელის გამოყენებისას საჭირო არაა"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "ელემენტების რაოდენობა თითოეულ მოთხოვნაში"
 
@@ -820,6 +826,9 @@ msgstr "საჭიროა, თუ ჰოსტი იმართება �
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "საჭიროა, თუ ჰოსტის მართულია და მნიშვნელობა მემკვიდრეობით არაა გადმოცემული ჰოსტების ჯგუფიდან"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "საჭიროა, თუ ჰოსტი ასლით არ მომზადებულა სამუშაოდ, მართულია და მნიშვნელობა მემკვიდრეობით არაა გადმოცემული ჰოსტების ჯგუფიდან"

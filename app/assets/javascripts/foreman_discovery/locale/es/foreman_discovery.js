@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
-        "Last-Translator": "Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014",
+        "Last-Translator": "Sergio Ocón-Cárdenas, 2014",
         "Language-Team": "Spanish (http://app.transifex.com/foreman/foreman/language/es/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -374,9 +374,6 @@
       "IP Address": [
         "Dirección IP"
       ],
-      "IP address": [
-        "Dirección IP"
-      ],
       "IPAM must be configured for subnet '%s'": [
         "IPAM debe estar configurado para la subred '%s'"
       ],
@@ -385,6 +382,12 @@
       ],
       "IPMI facts": [
         "Eventos IPMI"
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
+        ""
       ],
       "Identifier": [
         "Identificador"
@@ -797,6 +800,9 @@
       "not required if using a subnet with DHCP proxy": [
         "no es necesario si se usa una subred con un proxy DHCP"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "número de entradas por solicitud"
       ],
@@ -820,6 +826,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "obligatorio si los hosts están administrados y el valor no se ha heredado de un grupo de hosts"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "obligatorio si el aprovisionamiento no se basa en imágenes,  el host está administrado  y el valor no se hereda de un grupo de hosts"

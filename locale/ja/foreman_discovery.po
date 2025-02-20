@@ -8,7 +8,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -163,7 +163,7 @@ msgid "Discovered hosts are rebooting now"
 msgstr "検出されたホストを現在再起動中"
 
 msgid "Discovered hosts from Foreman server at %{foreman_url}"
-msgstr "Foreman サーバーの検出されたホスト: %%{foreman_url}"
+msgstr "Foreman サーバーの検出されたホスト: %{foreman_url}"
 
 msgid "Discovered hosts reported from unknown subnet are %s, communication will not be proxied."
 msgstr "不明なサブネットから報告された検出されたホストは %s、通信はプロキシー化されません。"
@@ -280,7 +280,7 @@ msgid "Failed to reboot host %s"
 msgstr "ホスト %s の再起動に失敗しました"
 
 msgid "Failed to reboot host %{hostname} with error %{error_message}"
-msgstr "ホスト %%{hostname} は %%{error_message} のエラーで再起動に失敗しました"
+msgstr "ホスト %{hostname} は %{error_message} のエラーで再起動に失敗しました"
 
 msgid "Failed to reboot hosts with error %s"
 msgstr "ホストは %s のエラーで再起動に失敗しました"
@@ -289,7 +289,7 @@ msgid "Failed to refresh facts for %s"
 msgstr "%s のファクトの更新に失敗しました"
 
 msgid "Failed to refresh facts for %{hostname} with error %{error_message}"
-msgstr "%%{error_message} エラーで %%{hostname} のファクトの更新に失敗しました"
+msgstr "%{error_message} エラーで %{hostname} のファクトの更新に失敗しました"
 
 msgid "For more information please see "
 msgstr "詳細は、以下を参照してください: "
@@ -374,9 +374,6 @@ msgstr "検出されたホストへの接続を管理するためにこのサブ
 msgid "IP Address"
 msgstr "IP アドレス"
 
-msgid "IP address"
-msgstr "IP アドレス"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "IPAM はサブネット '%s' 用に設定する必要があります"
 
@@ -385,6 +382,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "IPMI ファクト"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "ID"
@@ -797,6 +800,9 @@ msgstr "仮想マシンの場合は不要です"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "DHCP プロキシーでサブネットを使用する場合は不要"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "要求ごとのエントリー数"
 
@@ -820,6 +826,9 @@ msgstr "ホストが管理されており、カスタムパーティションが
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"

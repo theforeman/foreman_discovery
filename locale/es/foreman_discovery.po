@@ -6,15 +6,15 @@
 # elobato <elobatocs@gmail.com>, 2015
 # elobato <elobatocs@gmail.com>, 2015
 # francis <hackgo@gmail.com>, 2013-2014
-# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
-# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014-2015
-# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014
+# Sergio Ocón-Cárdenas, 2014
+# Sergio Ocón-Cárdenas, 2014-2015
+# Sergio Ocón-Cárdenas, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
-"Last-Translator: Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2014\n"
+"Last-Translator: Sergio Ocón-Cárdenas, 2014\n"
 "Language-Team: Spanish (http://app.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -384,9 +384,6 @@ msgstr "ID del proxy de detección para usar en esta subred para administrar la 
 msgid "IP Address"
 msgstr "Dirección IP"
 
-msgid "IP address"
-msgstr "Dirección IP"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "IPAM debe estar configurado para la subred '%s'"
 
@@ -395,6 +392,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "Eventos IPMI"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "Identificador"
@@ -807,6 +810,9 @@ msgstr "no es necesario si no se trata de una máquina virtual"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "no es necesario si se usa una subred con un proxy DHCP"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "número de entradas por solicitud"
 
@@ -830,6 +836,9 @@ msgstr "obligatorio si el host está administrado y no se han definido particion
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "obligatorio si los hosts están administrados y el valor no se ha heredado de un grupo de hosts"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "obligatorio si el aprovisionamiento no se basa en imágenes,  el host está administrado  y el valor no se hereda de un grupo de hosts"

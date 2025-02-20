@@ -15,7 +15,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: pdolinic, 2021\n"
@@ -383,9 +383,6 @@ msgstr "ID des Discovery-Proxys, der in diesem Subnetz zum Verwalten der Verbind
 msgid "IP Address"
 msgstr "IP-Adresse"
 
-msgid "IP address"
-msgstr "IP-Adresse"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "IPAM muss für Subnetz '%s' konfiguriert sein"
 
@@ -394,6 +391,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "IPMI-Fakten"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "Kennung"
@@ -806,6 +809,9 @@ msgstr "nicht erforderlich für eine virtuelle Maschine"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "nicht erforderlich, wenn ein Subnetz mit DHCP-Proxy verwendet wird"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "Anzahl der Einträge pro Anfrage"
 
@@ -829,6 +835,9 @@ msgstr "erforderlich, wenn der Host gemanagt und keine spezifische Partition def
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "erforderlich, wenn der Host gemanagt und der Wert nicht von einer Hostgruppe vererbt ist"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "erforderlich, wenn die Bereitstellung nicht image-basiert, der Host gemanagt und der Wert nicht von einer Hostgruppe vererbt ist"
