@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2017",
@@ -371,9 +371,6 @@
       "IP Address": [
         "Adreça IP"
       ],
-      "IP address": [
-        "Adreça IP"
-      ],
       "IPAM must be configured for subnet '%s'": [
         ""
       ],
@@ -381,6 +378,12 @@
         ""
       ],
       "IPMI facts": [
+        ""
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
         ""
       ],
       "Identifier": [
@@ -794,6 +797,9 @@
       "not required if using a subnet with DHCP proxy": [
         "no es requereix si s'està utilitzant una subxarxa amb servidor intermediari DHCP"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "Nombre d'entrades per petició"
       ],
@@ -816,6 +822,9 @@
         "es requereix si l'amfitrió està gestionat i no s'ha definit la partició personalitzada"
       ],
       "required if host is managed and value is not inherited from host group": [
+        ""
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
         ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [

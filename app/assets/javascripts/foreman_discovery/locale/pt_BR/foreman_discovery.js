@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Valeria S Silva <valeriassilva@live.com>, 2015",
@@ -374,9 +374,6 @@
       "IP Address": [
         "Endereço IP"
       ],
-      "IP address": [
-        "Endereco de IP"
-      ],
       "IPAM must be configured for subnet '%s'": [
         "O IPAM deve ser configurado para a sub-rede '%s'"
       ],
@@ -385,6 +382,12 @@
       ],
       "IPMI facts": [
         "Fatos IPMI"
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
+        ""
       ],
       "Identifier": [
         "Identificador"
@@ -797,6 +800,9 @@
       "not required if using a subnet with DHCP proxy": [
         "não necessário se utilizar um subrede com proxy DHCP"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "número de entradas por requisições"
       ],
@@ -820,6 +826,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "necessário se o host é gerenciado e valor não é herdado do grupo de host"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "solicitado se o provisionamento não for baseado em imagem, o host for gerenciado e o valor não for herdado do grupo de host"

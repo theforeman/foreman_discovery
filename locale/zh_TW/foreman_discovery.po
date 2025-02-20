@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -374,9 +374,6 @@ msgstr ""
 msgid "IP Address"
 msgstr "IP 位址"
 
-msgid "IP address"
-msgstr "IP 位址"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
@@ -384,6 +381,12 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPMI facts"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
 msgstr ""
 
 msgid "Identifier"
@@ -797,6 +800,9 @@ msgstr ""
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "若是使用一個含有 DHCP 協定的子網路則不需要"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "每個請求的項目數量"
 
@@ -820,6 +826,9 @@ msgstr "若主機是個受管理的主機，並且尚未定義自訂分割區的
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"

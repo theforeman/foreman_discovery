@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-09-19 13:06+0200\n"
+"PO-Revision-Date: 2025-02-20 10:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -374,9 +374,6 @@ msgstr ""
 msgid "IP Address"
 msgstr ""
 
-msgid "IP address"
-msgstr ""
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
@@ -384,6 +381,12 @@ msgid "IPMI"
 msgstr ""
 
 msgid "IPMI facts"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
 msgstr ""
 
 msgid "Identifier"
@@ -797,6 +800,9 @@ msgstr ""
 msgid "not required if using a subnet with DHCP proxy"
 msgstr ""
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr ""
 
@@ -819,6 +825,9 @@ msgid "required if host is managed and custom partition has not been defined"
 msgstr ""
 
 msgid "required if host is managed and value is not inherited from host group"
+msgstr ""
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
 msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
