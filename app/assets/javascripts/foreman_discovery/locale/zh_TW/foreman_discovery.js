@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
@@ -371,9 +371,6 @@
       "IP Address": [
         "IP 位址"
       ],
-      "IP address": [
-        "IP 位址"
-      ],
       "IPAM must be configured for subnet '%s'": [
         ""
       ],
@@ -381,6 +378,12 @@
         "IPMI"
       ],
       "IPMI facts": [
+        ""
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
         ""
       ],
       "Identifier": [
@@ -794,6 +797,9 @@
       "not required if using a subnet with DHCP proxy": [
         "若是使用一個含有 DHCP 協定的子網路則不需要"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "每個請求的項目數量"
       ],
@@ -817,6 +823,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "若主機是個受管理的主機，並且值不是由主機群組所繼承的話便需要"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "若不是基於映像檔的佈建，而主機受管理並且值並非由主機群組所繼承的話便需要"

@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019",
@@ -161,7 +161,7 @@
         "Les hôtes détectés sont redémarrés maintenant"
       ],
       "Discovered hosts from Foreman server at %{foreman_url}": [
-        "Hôtes détectés depuis le serveur Foreman à l'adresse %%{foreman_url}"
+        "Hôtes détectés depuis le serveur Foreman à l'adresse %{foreman_url}"
       ],
       "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
         "Les hôtes découverts provenant d'un sous-réseau inconnu sont %s, la communication ne sera pas assurée par un proxy.."
@@ -278,7 +278,7 @@
         "Échec du redémarrage de l'hôte %s"
       ],
       "Failed to reboot host %{hostname} with error %{error_message}": [
-        "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %%{error_message}"
+        "Échec du redémarrage de l'hôte %{hostname} avec l'erreur %{error_message}"
       ],
       "Failed to reboot hosts with error %s": [
         "Échec du redémarrage des hôtes avec l'erreur %s"
@@ -287,7 +287,7 @@
         "Échec de rafraîchissement des facts pour %s"
       ],
       "Failed to refresh facts for %{hostname} with error %{error_message}": [
-        "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %%{error_message}"
+        "Impossible de rafraîchir les données pour %{hostname} avec l'erreur %{error_message}"
       ],
       "For more information please see ": [
         "Pour plus d'informations, voir "
@@ -374,9 +374,6 @@
       "IP Address": [
         "Adresse IP"
       ],
-      "IP address": [
-        "Adresse IP"
-      ],
       "IPAM must be configured for subnet '%s'": [
         "L'IPAM doit être configuré pour le sous-réseau \\\"%s\\\""
       ],
@@ -386,6 +383,12 @@
       "IPMI facts": [
         "Facts IPMI"
       ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
+        ""
+      ],
       "Identifier": [
         "Identificateur"
       ],
@@ -393,7 +396,7 @@
         "Erreur de traitement de l'API image : %{msg} (HTTP/%{code}, body: %{body})"
       ],
       "Image API returned HTTP/%{code} with '%{body}": [
-        "L'API image renvoie HTTP/%{code}  avec '%'%{body}"
+        "L'API image renvoie HTTP/%{code}  avec ’%{body}"
       ],
       "In addition to @host attribute function rand for random integers is available. Examples:": [
         "En plus de la fonction d'attribut @host, la fonction ALEA pour les entiers aléatoires est disponible. Exemples :"
@@ -797,6 +800,9 @@
       "not required if using a subnet with DHCP proxy": [
         "n'est pas requis s'il s'agit d'un sous-réseau avec un proxy DHCP"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "nombre d'entrées par requête"
       ],
@@ -820,6 +826,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "requis si l’attribution n'est pas basée sur une image, que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"

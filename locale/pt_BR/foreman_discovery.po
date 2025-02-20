@@ -13,7 +13,7 @@
 # Valeria S Silva <valeriassilva@live.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Valeria S Silva <valeriassilva@live.com>, 2015\n"
@@ -386,9 +386,6 @@ msgstr "ID do proxy do Discovery a ser usado nesta sub-rede para gerenciar conex
 msgid "IP Address"
 msgstr "Endereço IP"
 
-msgid "IP address"
-msgstr "Endereco de IP"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr "O IPAM deve ser configurado para a sub-rede '%s'"
 
@@ -397,6 +394,12 @@ msgstr "IPMI"
 
 msgid "IPMI facts"
 msgstr "Fatos IPMI"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Identifier"
 msgstr "Identificador"
@@ -809,6 +812,9 @@ msgstr "não é obrigatório se for uma máquina virtual"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "não necessário se utilizar um subrede com proxy DHCP"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "número de entradas por requisições"
 
@@ -832,6 +838,9 @@ msgstr "requerido se o host é gerenciado e uma partição customizada não foi 
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "necessário se o host é gerenciado e valor não é herdado do grupo de host"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "solicitado se o provisionamento não for baseado em imagem, o host for gerenciado e o valor não for herdado do grupo de host"

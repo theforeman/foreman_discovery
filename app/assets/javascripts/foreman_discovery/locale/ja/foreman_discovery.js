@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.0.0",
+        "Project-Id-Version": "foreman_discovery 25.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015",
@@ -159,7 +159,7 @@
         "検出されたホストを現在再起動中"
       ],
       "Discovered hosts from Foreman server at %{foreman_url}": [
-        "Foreman サーバーの検出されたホスト: %%{foreman_url}"
+        "Foreman サーバーの検出されたホスト: %{foreman_url}"
       ],
       "Discovered hosts reported from unknown subnet are %s, communication will not be proxied.": [
         "不明なサブネットから報告された検出されたホストは %s、通信はプロキシー化されません。"
@@ -276,7 +276,7 @@
         "ホスト %s の再起動に失敗しました"
       ],
       "Failed to reboot host %{hostname} with error %{error_message}": [
-        "ホスト %%{hostname} は %%{error_message} のエラーで再起動に失敗しました"
+        "ホスト %{hostname} は %{error_message} のエラーで再起動に失敗しました"
       ],
       "Failed to reboot hosts with error %s": [
         "ホストは %s のエラーで再起動に失敗しました"
@@ -285,7 +285,7 @@
         "%s のファクトの更新に失敗しました"
       ],
       "Failed to refresh facts for %{hostname} with error %{error_message}": [
-        "%%{error_message} エラーで %%{hostname} のファクトの更新に失敗しました"
+        "%{error_message} エラーで %{hostname} のファクトの更新に失敗しました"
       ],
       "For more information please see ": [
         "詳細は、以下を参照してください: "
@@ -368,9 +368,6 @@
       "IP Address": [
         "IP アドレス"
       ],
-      "IP address": [
-        "IP アドレス"
-      ],
       "IPAM must be configured for subnet '%s'": [
         "IPAM はサブネット '%s' 用に設定する必要があります"
       ],
@@ -379,6 +376,12 @@
       ],
       "IPMI facts": [
         "IPMI ファクト"
+      ],
+      "IPv4": [
+        ""
+      ],
+      "IPv6": [
+        ""
       ],
       "Identifier": [
         "ID"
@@ -791,6 +794,9 @@
       "not required if using a subnet with DHCP proxy": [
         "DHCP プロキシーでサブネットを使用する場合は不要"
       ],
+      "not required if using an IPv6 subnet with DHCP proxy": [
+        ""
+      ],
       "number of entries per request": [
         "要求ごとのエントリー数"
       ],
@@ -814,6 +820,9 @@
       ],
       "required if host is managed and value is not inherited from host group": [
         "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
+      ],
+      "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
+        ""
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"

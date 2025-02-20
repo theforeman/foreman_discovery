@@ -7,7 +7,7 @@
 # caifti <caifti@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: caifti <caifti@gmail.com>, 2014\n"
@@ -377,9 +377,6 @@ msgstr ""
 msgid "IP Address"
 msgstr "Indirizzo IP"
 
-msgid "IP address"
-msgstr "indirizzo IP"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
@@ -387,6 +384,12 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPMI facts"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
 msgstr ""
 
 msgid "Identifier"
@@ -800,6 +803,9 @@ msgstr "non necessario se è una macchina virtuale"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "non necessario se si utilizza una sottorete con DHCP proxy"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "numero di voci per richiesta"
 
@@ -823,6 +829,9 @@ msgstr "necessario se l'host è gestito e la partizione personalizzata non è st
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "necessario se l'host è gestito ed il valore non è stato ereditato da un gruppo di host"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "necessario se non è disponibile imaged based provisioning e l'host è gestito ed il valore non è stato ereditato dal gruppo di host"

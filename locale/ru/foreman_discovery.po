@@ -10,7 +10,7 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.0.0\n"
+"Project-Id-Version: foreman_discovery 25.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Yulia <yulia.poyarkova@redhat.com>, 2016\n"
@@ -385,9 +385,6 @@ msgstr ""
 msgid "IP Address"
 msgstr "IP"
 
-msgid "IP address"
-msgstr "IP-адрес"
-
 msgid "IPAM must be configured for subnet '%s'"
 msgstr ""
 
@@ -395,6 +392,12 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPMI facts"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
 msgstr ""
 
 msgid "Identifier"
@@ -808,6 +811,9 @@ msgstr "не требуется для виртуальных машин"
 msgid "not required if using a subnet with DHCP proxy"
 msgstr "не требуется, если используется подсеть с DHCP прокси"
 
+msgid "not required if using an IPv6 subnet with DHCP proxy"
+msgstr ""
+
 msgid "number of entries per request"
 msgstr "количество записей на запрос"
 
@@ -831,6 +837,9 @@ msgstr "требуется, если узел находится под упра
 
 msgid "required if host is managed and value is not inherited from host group"
 msgstr "требуется, если узел уже контролируется, но значение не было унаследовано от группы узлов"
+
+msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
+msgstr ""
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "требуется, если подготовка управляемого узла осуществляется без участия образов и при этом значение не было унаследовано от группы узлов"
