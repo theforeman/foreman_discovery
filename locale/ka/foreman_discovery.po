@@ -384,10 +384,10 @@ msgid "IPMI facts"
 msgstr "IPMI ფაქტები"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Identifier"
 msgstr "იდენტიფიკატორი"
