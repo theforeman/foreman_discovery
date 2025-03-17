@@ -384,10 +384,10 @@
         "Eventos IPMI"
       ],
       "IPv4": [
-        ""
+        "IPv4"
       ],
       "IPv6": [
-        ""
+        "IPv6"
       ],
       "Identifier": [
         "Identificador"

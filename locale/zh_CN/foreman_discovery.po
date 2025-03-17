@@ -383,10 +383,10 @@ msgid "IPMI facts"
 msgstr "IPMI 详情"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4的"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6的"
 
 msgid "Identifier"
 msgstr "鉴定"
@@ -800,7 +800,7 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr "如果使用带有 DHCP 代理的子网则不需要"
 
 msgid "not required if using an IPv6 subnet with DHCP proxy"
-msgstr ""
+msgstr "如果使用带有 DHCP 代理的 IPv6 子网，则不需要"
 
 msgid "number of entries per request"
 msgstr "每个请求的条目数"
@@ -827,7 +827,7 @@ msgid "required if host is managed and value is not inherited from host group"
 msgstr "如果主机是受管的，且值没有从主机组继承，则是必需的"
 
 msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
-msgstr ""
+msgstr "如果主机被管理，没有 IPv4 IP / Subnet，或值不是从主机组继承的，则不需要"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "如果不是基于置备镜像的，主机是受管的，且值没有从主机组继承，则是必需的"

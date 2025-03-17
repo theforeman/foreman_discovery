@@ -378,10 +378,10 @@
         "IPMI 详情"
       ],
       "IPv4": [
-        ""
+        "IPv4的"
       ],
       "IPv6": [
-        ""
+        "IPv6的"
       ],
       "Identifier": [
         "鉴定"
@@ -795,7 +795,7 @@
         "如果使用带有 DHCP 代理的子网则不需要"
       ],
       "not required if using an IPv6 subnet with DHCP proxy": [
-        ""
+        "如果使用带有 DHCP 代理的 IPv6 子网，则不需要"
       ],
       "number of entries per request": [
         "每个请求的条目数"
@@ -822,7 +822,7 @@
         "如果主机是受管的，且值没有从主机组继承，则是必需的"
       ],
       "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
-        ""
+        "如果主机被管理，没有 IPv4 IP / Subnet，或值不是从主机组继承的，则不需要"
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "如果不是基于置备镜像的，主机是受管的，且值没有从主机组继承，则是必需的"

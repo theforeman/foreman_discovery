@@ -378,10 +378,10 @@
         "IPMI ファクト"
       ],
       "IPv4": [
-        ""
+        "IPv4"
       ],
       "IPv6": [
-        ""
+        "IPv6"
       ],
       "Identifier": [
         "ID"
@@ -792,10 +792,10 @@
         "仮想マシンの場合は不要です"
       ],
       "not required if using a subnet with DHCP proxy": [
-        "DHCP プロキシーでサブネットを使用する場合は不要"
+        "DHCP プロキシーでサブネットを使用する場合は不要です"
       ],
       "not required if using an IPv6 subnet with DHCP proxy": [
-        ""
+        "DHCP プロキシーで IPv6 サブネットを使用する場合は不要です"
       ],
       "number of entries per request": [
         "要求ごとのエントリー数"
@@ -822,7 +822,7 @@
         "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
       ],
       "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
-        ""
+        "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です。"
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"
