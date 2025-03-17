@@ -384,10 +384,10 @@ msgid "IPMI facts"
 msgstr "IPMI ファクト"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Identifier"
 msgstr "ID"
@@ -798,10 +798,10 @@ msgid "not required if it's a virtual machine"
 msgstr "仮想マシンの場合は不要です"
 
 msgid "not required if using a subnet with DHCP proxy"
-msgstr "DHCP プロキシーでサブネットを使用する場合は不要"
+msgstr "DHCP プロキシーでサブネットを使用する場合は不要です"
 
 msgid "not required if using an IPv6 subnet with DHCP proxy"
-msgstr ""
+msgstr "DHCP プロキシーで IPv6 サブネットを使用する場合は不要です"
 
 msgid "number of entries per request"
 msgstr "要求ごとのエントリー数"
@@ -828,7 +828,7 @@ msgid "required if host is managed and value is not inherited from host group"
 msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
 
 msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
-msgstr ""
+msgstr "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です。"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"

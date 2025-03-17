@@ -378,10 +378,10 @@
         "IPMI 팩트"
       ],
       "IPv4": [
-        ""
+        "IPv4"
       ],
       "IPv6": [
-        ""
+        "IPv6"
       ],
       "Identifier": [
         "식별자"
@@ -795,7 +795,7 @@
         "DHCP 프록시를 갖는 서브넷을 사용할 필요가 없습니다"
       ],
       "not required if using an IPv6 subnet with DHCP proxy": [
-        ""
+        "DHCP 프록시가 있는 IPv6 서브넷을 사용하는 경우 필요하지 않습니다"
       ],
       "number of entries per request": [
         "요청 당 항목 수"
@@ -822,7 +822,7 @@
         "호스트가 관리되고 있으며 값이 호스트 그룹에서 상속되지 않은 경우에 필요합니다"
       ],
       "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
-        ""
+        "호스트가 관리되거나 IPv4 IP/서브넷이 없거나 해당 값이 호스트 그룹에서 상속되지 않는 경우 필요함"
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "이미지 기반의 프로비저닝이 아니고 호스트가 관리되어 값이 호스트 그룹에서 상속되지 않은 경우에 필요합니다"

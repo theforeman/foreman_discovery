@@ -384,10 +384,10 @@
         "Facts IPMI"
       ],
       "IPv4": [
-        ""
+        "IPv4"
       ],
       "IPv6": [
-        ""
+        "IPv6"
       ],
       "Identifier": [
         "Identificateur"
@@ -801,7 +801,7 @@
         "n'est pas requis s'il s'agit d'un sous-réseau avec un proxy DHCP"
       ],
       "not required if using an IPv6 subnet with DHCP proxy": [
-        ""
+        "non requis si vous utilisez un sous-réseau IPv6 avec proxy DHCP"
       ],
       "number of entries per request": [
         "nombre d'entrées par requête"
@@ -828,7 +828,7 @@
         "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
       ],
       "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
-        ""
+        "requis si l'hôte est géré, n'a pas d'adresse IP/sous-réseau IPv4 ou si la valeur n'est pas héritée du groupe d'hôtes"
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "requis si l’attribution n'est pas basée sur une image, que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"

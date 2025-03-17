@@ -394,10 +394,10 @@ msgid "IPMI facts"
 msgstr "Eventos IPMI"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Identifier"
 msgstr "Identificador"

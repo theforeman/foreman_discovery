@@ -390,10 +390,10 @@ msgid "IPMI facts"
 msgstr "Facts IPMI"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Identifier"
 msgstr "Identificateur"
@@ -807,7 +807,7 @@ msgid "not required if using a subnet with DHCP proxy"
 msgstr "n'est pas requis s'il s'agit d'un sous-réseau avec un proxy DHCP"
 
 msgid "not required if using an IPv6 subnet with DHCP proxy"
-msgstr ""
+msgstr "non requis si vous utilisez un sous-réseau IPv6 avec proxy DHCP"
 
 msgid "number of entries per request"
 msgstr "nombre d'entrées par requête"
@@ -834,7 +834,7 @@ msgid "required if host is managed and value is not inherited from host group"
 msgstr "requis si l'hôte est géré et la valeur n'est pas héritée d'un groupe d'hôtes"
 
 msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
-msgstr ""
+msgstr "requis si l'hôte est géré, n'a pas d'adresse IP/sous-réseau IPv4 ou si la valeur n'est pas héritée du groupe d'hôtes"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "requis si l’attribution n'est pas basée sur une image, que l'hôte est géré et que la valeur n'est pas héritée d'un groupe d'hôtes"
