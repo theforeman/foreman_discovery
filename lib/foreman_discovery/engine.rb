@@ -24,7 +24,7 @@ module ForemanDiscovery
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       app.reloader.to_prepare do
         Foreman::Plugin.register :foreman_discovery do
-          requires_foreman '>= 3.13'
+          requires_foreman '>= 3.15'
           register_gettext
 
           # settings
