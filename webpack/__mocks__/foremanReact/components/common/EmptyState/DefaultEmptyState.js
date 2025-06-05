@@ -27,6 +27,7 @@ const DefaultEmptyState = props => {
       component="a"
       onClick={() => actionButtonClickHandler(action)}
       variant="primary"
+      ouiaId="empty-state-primary-action-button"
     >
       {action.title}
     </Button>
@@ -39,6 +40,7 @@ const DefaultEmptyState = props => {
           key={`sec-button-${title}`}
           onClick={() => actionButtonClickHandler({ url, onClick })}
           variant="secondary"
+          ouiaId="empty-state-secondary-action-button"
         >
           {title}
         </Button>
