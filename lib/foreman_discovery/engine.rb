@@ -351,6 +351,7 @@ module ForemanDiscovery
       ::Host::Managed.send :include, Host::ManagedExtensions
       ::Hostgroup.send :include, HostgroupExtensions
       ::Nic::Managed.send :include, Nic::ManagedExtensions
+      ::Filter.send :include, DiscoveryFilterExtensions
 
       # Controller extensions
       ::HostsController.send :include, ForemanDiscovery::Concerns::HostsControllerExtensions
