@@ -88,7 +88,7 @@ module ForemanDiscovery
               setting "discovery_prefix",
                 type: :string,
                 default: "mac",
-                validate: { presence: true },
+                validate: { presence: true, format: { with: /\A[a-zA-Z]/, message: _("must start with a letter") } },
                 full_name: N_("Hostname prefix"),
                 description: N_("The default prefix to use for the host name, must start with a letter")
 
