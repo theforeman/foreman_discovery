@@ -310,7 +310,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
 
   test "provisioning a discovered host without saving it doesn't create a token" do
     Setting[:token_duration] = 30 #enable tokens so that we only test the CR
-    Setting[:discovery_prefix] = '123'
+    Setting[:discovery_prefix] = 'test123'
     host = discover_host_from_facts(@facts)
     host.save
     h = ::ForemanDiscovery::HostConverter.to_managed(host)
