@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -789,6 +789,9 @@ msgid "location ID for provisioned hosts"
 msgstr ""
 
 msgid "must be present."
+msgstr ""
+
+msgid "must start with a letter"
 msgstr ""
 
 msgid "must start with a letter or ERB."

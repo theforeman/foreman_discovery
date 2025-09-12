@@ -6,7 +6,7 @@
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -788,6 +788,9 @@ msgstr "프로비저닝된 호스트의 위치 ID"
 
 msgid "must be present."
 msgstr "반드시 존재해야 합니다."
+
+msgid "must start with a letter"
+msgstr ""
 
 msgid "must start with a letter or ERB."
 msgstr "문자 또는 ERB로 시작해야 합니다."
