@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.1.0",
+        "Project-Id-Version": "foreman_discovery 26.0.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015",
@@ -784,6 +784,9 @@
       ],
       "must be present.": [
         "必須です。"
+      ],
+      "must start with a letter": [
+        ""
       ],
       "must start with a letter or ERB.": [
         "文字または ERB で開始する必要があります。"

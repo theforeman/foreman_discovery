@@ -6,7 +6,7 @@
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -789,6 +789,9 @@ msgstr "预配主机的位置 ID"
 
 msgid "must be present."
 msgstr "必须存在。"
+
+msgid "must start with a letter"
+msgstr ""
 
 msgid "must start with a letter or ERB."
 msgstr "必须以字母或 ERB 开始。"

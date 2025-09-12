@@ -8,7 +8,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -790,6 +790,9 @@ msgstr "プロビジョニングされたホストのロケーション ID"
 
 msgid "must be present."
 msgstr "必須です。"
+
+msgid "must start with a letter"
+msgstr ""
 
 msgid "must start with a letter or ERB."
 msgstr "文字または ERB で開始する必要があります。"

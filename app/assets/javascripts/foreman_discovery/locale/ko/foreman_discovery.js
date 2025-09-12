@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 25.1.0",
+        "Project-Id-Version": "foreman_discovery 26.0.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022",
@@ -784,6 +784,9 @@
       ],
       "must be present.": [
         "반드시 존재해야 합니다."
+      ],
+      "must start with a letter": [
+        ""
       ],
       "must start with a letter or ERB.": [
         "문자 또는 ERB로 시작해야 합니다."

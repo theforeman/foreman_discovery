@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_discovery 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 10:22+0100\n"
-"PO-Revision-Date: 2025-02-20 10:22+0100\n"
+"POT-Creation-Date: 2025-09-12 13:19+0200\n"
+"PO-Revision-Date: 2025-09-12 13:19+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1048,6 +1048,10 @@ msgstr ""
 msgid "Automatically reboot or kexec discovered host during provisioning"
 msgstr ""
 
+#: ../lib/foreman_discovery/engine.rb:91
+msgid "must start with a letter"
+msgstr ""
+
 #: ../lib/foreman_discovery/engine.rb:92
 msgid "Hostname prefix"
 msgstr ""
@@ -1197,12 +1201,12 @@ msgid ""
 msgstr ""
 
 #:
-#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:33
+#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:34
 msgid "For more information please see "
 msgstr ""
 
 #:
-#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:34
+#: ../webpack/__mocks__/foremanReact/components/common/EmptyState/EmptyStatePattern.js:35
 msgid "documentation"
 msgstr ""
 

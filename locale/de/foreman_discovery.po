@@ -15,7 +15,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: pdolinic, 2021\n"
@@ -799,6 +799,9 @@ msgstr "Standort Kennung für bereitgestellte Hosts"
 
 msgid "must be present."
 msgstr "muss vorhanden sein."
+
+msgid "must start with a letter"
+msgstr ""
 
 msgid "must start with a letter or ERB."
 msgstr "muss mit einem Buchstaben oder ERB beginnen."

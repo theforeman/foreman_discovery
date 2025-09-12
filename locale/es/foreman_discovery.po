@@ -11,7 +11,7 @@
 # Sergio Ocón-Cárdenas, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 25.1.0\n"
+"Project-Id-Version: foreman_discovery 26.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Sergio Ocón-Cárdenas, 2014\n"
@@ -800,6 +800,9 @@ msgstr "ID de ubicación para hosts aprovisionados"
 
 msgid "must be present."
 msgstr "debe estar presente."
+
+msgid "must start with a letter"
+msgstr ""
 
 msgid "must start with a letter or ERB."
 msgstr "debe comenzar con una letra o ERB."
