@@ -1,5 +1,6 @@
 require_relative '../test_plugin_helper'
 
+# rubocop:disable Metrics/ClassLength
 class HostDiscoveredTest < ActiveSupport::TestCase
   include FactImporterIsolation
   allow_transactions_for_any_importer
@@ -493,4 +494,20 @@ class HostDiscoveredTest < ActiveSupport::TestCase
     assert_nil former_interface.name
     assert_equal false, former_interface.primary
   end
+
+  test "discovery_prefix validation" do
+    invalid_values = ['with space', 'with$special', '-dash', '0hello', ('a' * 63), '']
+    valid_values = ['valid', 'also-valid', 'a' * 62, 'valid-123', 'dash-']
+
+    invalid_values.each do |value|
+      assert_raises(ActiveRecord::RecordInvalid, "the '#{value}' value should be invalid") do
+        Setting[:discovery_prefix] = value
+      end
+    end
+
+    valid_values.each do |value|
+      Setting[:discovery_prefix] = value
+    end
+  end
+  # rubocop:enable Metrics/ClassLength
 end

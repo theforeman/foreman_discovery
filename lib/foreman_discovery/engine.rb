@@ -21,6 +21,7 @@ module ForemanDiscovery
       end
     end
 
+    # rubocop:disable Metrics/BlockLength
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       app.reloader.to_prepare do
         Foreman::Plugin.register :foreman_discovery do
@@ -88,7 +89,8 @@ module ForemanDiscovery
               setting "discovery_prefix",
                 type: :string,
                 default: "mac",
-                validate: { presence: true, format: { with: /\A[a-zA-Z]/, message: _("must start with a letter") } },
+                validate: { presence: true, format: { with: /\A[a-zA-Z][a-zA-Z0-9-]{0,61}\z/,
+                            message: _("must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.") } },
                 full_name: N_("Hostname prefix"),
                 description: N_("The default prefix to use for the host name, must start with a letter")
 
@@ -330,6 +332,7 @@ module ForemanDiscovery
         end
       end
     end
+    # rubocop:enable Metrics/BlockLength
 
     initializer "foreman_discovery.apipie" do
       if Apipie.configuration.respond_to?(:checksum_path)
