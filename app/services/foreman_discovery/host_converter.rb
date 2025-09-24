@@ -5,14 +5,16 @@ class ForemanDiscovery::HostConverter
   def self.to_managed(original_host, set_managed = true, set_build = true, added_attributes = {})
     host = original_host.becomes(::Host::Managed)
     host.type = 'Host::Managed'
-    host.attributes = host.apply_inherited_attributes(added_attributes)
-    host.set_hostgroup_defaults if host.hostgroup_id.present?
 
     # the following flags can be skipped when parameters are set to false
     if set_managed
       host.managed = set_managed
       host.primary_interface.managed = set_managed
     end
+
+    host.attributes = host.apply_inherited_attributes(added_attributes)
+    host.set_hostgroup_defaults if host.hostgroup_id.present?
+
     # set build only and only on final save (facts are deleted)
     set_build_clean_facts(host) if set_build
     host
@@ -52,7 +54,7 @@ class ForemanDiscovery::HostConverter
     end
   end
 
-  def self.ip_for_subnet(subnet, mac, ip) 
+  def self.ip_for_subnet(subnet, mac, ip)
     return ip if ip && subnet&.unused_ip(mac)&.ip_include?(ip)
 
     unused_ip_for_subnet(subnet, mac, ip)
