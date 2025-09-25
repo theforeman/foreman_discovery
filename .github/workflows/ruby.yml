@@ -19,4 +19,4 @@ jobs:
     uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
     with:
       plugin: foreman_discovery
-      foreman_version: ec9a96068ed24743260d3efe471b4a8a3a7b49f7
+      foreman_version: f356ff61487d13a6707145093e2ed3cc0fa14e6f
