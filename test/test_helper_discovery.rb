@@ -62,7 +62,6 @@ def set_default_settings
   Setting['discovery_clean_facts'] = false
   Setting['discovery_lock'] = false
   Setting['discovery_pxelinux_lock_template'] = 'pxelinux_discovery'
-  Setting['discovery_pxegrub_lock_template'] = 'pxegrub_discovery'
   Setting['discovery_pxegrub2_lock_template'] = 'pxegrub2_discovery'
   Setting['discovery_always_rebuild_dns'] = true
   Setting['discovery_error_on_existing'] = false

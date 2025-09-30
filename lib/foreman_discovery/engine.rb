@@ -21,7 +21,6 @@ module ForemanDiscovery
       end
     end
 
-    # rubocop:disable Metrics/BlockLength
     initializer 'foreman_discovery.register_plugin', :before => :finisher_hook do |app|
       app.reloader.to_prepare do
         Foreman::Plugin.register :foreman_discovery do
@@ -148,13 +147,6 @@ module ForemanDiscovery
                 default: "pxelinux_discovery",
                 full_name: N_("Locked PXELinux template name"),
                 description: N_("PXELinux template to be used when pinning a host to discovery")
-
-              setting "discovery_pxegrub_lock_template",
-                type: :string,
-                collection: snippets,
-                default: "pxegrub_discovery",
-                full_name: N_("Locked PXEGrub template name"),
-                description: N_("PXEGrub template to be used when pinning a host to discovery")
 
               setting "discovery_pxegrub2_lock_template",
                 type: :string,
@@ -332,7 +324,6 @@ module ForemanDiscovery
         end
       end
     end
-    # rubocop:enable Metrics/BlockLength
 
     initializer "foreman_discovery.apipie" do
       if Apipie.configuration.respond_to?(:checksum_path)
