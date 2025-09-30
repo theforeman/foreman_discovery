@@ -202,7 +202,7 @@ class HostDiscoveredTest < ActiveSupport::TestCase
                                   :locations => [location_one]
       )
       Subnet.expects(:subnet_for).with('10.35.27.2').returns(subnet)
-      ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(3)
+      ProxyAPI::TFTP.any_instance.expects(:set).with(anything, 'e4:1f:13:cc:36:58', anything).returns(true).times(2)
       TemplateKind::PXE.each do |kind|
         ProvisioningTemplate.where(:name => "#{kind.downcase}_discovery").first_or_create(
             :template_kind_id => template_kinds(kind.downcase.to_sym),
