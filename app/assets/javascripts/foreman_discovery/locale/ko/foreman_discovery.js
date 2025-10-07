@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.1",
+        "Project-Id-Version": "foreman_discovery 26.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022",
@@ -446,9 +446,6 @@
       "Lock PXE": [
         "PXE 잠금"
       ],
-      "Locked PXEGrub template name": [
-        "잠긴 PXEGrub 템플릿 이름"
-      ],
       "Locked PXEGrub2 template name": [
         "잠긴 PXEGrub2 템플릿 이름"
       ],
@@ -553,9 +550,6 @@
       ],
       "Organizations": [
         "조직"
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        "호스트를 검색에 고정할 때 사용할 PXEGrub 템플릿"
       ],
       "PXEGrub2 template to be used when pinning a host to discovery": [
         "호스트를 검색에 고정할 때 사용할 PXEGrub2 템플릿"
@@ -785,11 +779,11 @@
       "must be present.": [
         "반드시 존재해야 합니다."
       ],
-      "must start with a letter": [
-        ""
-      ],
       "must start with a letter or ERB.": [
         "문자 또는 ERB로 시작해야 합니다."
+      ],
+      "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
+        ""
       ],
       "not required if it's a virtual machine": [
         "가상 머신의 경우 필요하지 않습니다"

@@ -6,7 +6,7 @@
 # Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.1\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020\n"
@@ -454,9 +454,6 @@ msgstr "Umístění"
 msgid "Lock PXE"
 msgstr "Zamknout PXE"
 
-msgid "Locked PXEGrub template name"
-msgstr ""
-
 msgid "Locked PXEGrub2 template name"
 msgstr ""
 
@@ -561,9 +558,6 @@ msgstr "Organizace"
 
 msgid "Organizations"
 msgstr "Organizace"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr ""
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr ""
@@ -793,10 +787,10 @@ msgstr ""
 msgid "must be present."
 msgstr ""
 
-msgid "must start with a letter"
+msgid "must start with a letter or ERB."
 msgstr ""
 
-msgid "must start with a letter or ERB."
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
 msgstr ""
 
 msgid "not required if it's a virtual machine"

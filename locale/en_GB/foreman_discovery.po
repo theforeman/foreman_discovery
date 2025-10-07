@@ -10,7 +10,7 @@
 # Lukáš Zapletal, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2015-2019,2023\n"
@@ -457,9 +457,6 @@ msgstr "Locations"
 msgid "Lock PXE"
 msgstr "Lock PXE"
 
-msgid "Locked PXEGrub template name"
-msgstr "Locked PXEGrub template name"
-
 msgid "Locked PXEGrub2 template name"
 msgstr "Locked PXEGrub2 template name"
 
@@ -564,9 +561,6 @@ msgstr "Organisation"
 
 msgid "Organizations"
 msgstr "Organisations"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr "PXEGrub template to be used when pinning a host to discovery"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr "PXEGrub2 template to be used when pinning a host to discovery"
@@ -796,11 +790,11 @@ msgstr "location ID for provisioned hosts"
 msgid "must be present."
 msgstr "must be present."
 
-msgid "must start with a letter"
-msgstr ""
-
 msgid "must start with a letter or ERB."
 msgstr "must start with a letter or ERB."
+
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr "not required if it's a virtual machine"

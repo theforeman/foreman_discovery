@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.1\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
@@ -458,9 +458,6 @@ msgstr "Emplacements"
 msgid "Lock PXE"
 msgstr "Verrouiller PXE"
 
-msgid "Locked PXEGrub template name"
-msgstr "Nom de modèle PXEGrub verrouillé"
-
 msgid "Locked PXEGrub2 template name"
 msgstr "Nom de modèle PXEGrub2 verrouillé"
 
@@ -565,9 +562,6 @@ msgstr "Organisation"
 
 msgid "Organizations"
 msgstr "Organisations"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr "Modèle PXEGrub à utiliser lors de l'épinglage d'un hôte pour la détection"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr "Modèle PXEGrub2 à utiliser lors de l'épinglage d'un hôte pour la détection"
@@ -797,11 +791,11 @@ msgstr "ID d'emplacement pour les hôtes mis en service"
 msgid "must be present."
 msgstr "doit être présent."
 
-msgid "must start with a letter"
-msgstr ""
-
 msgid "must start with a letter or ERB."
 msgstr "doit commencer par une lettre ou par ERB."
+
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr "non requis s'il s'agit d'une machine virtuelle"
