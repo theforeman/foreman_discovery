@@ -6,7 +6,7 @@
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.1\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -451,9 +451,6 @@ msgstr "位置"
 msgid "Lock PXE"
 msgstr "锁定 PXE"
 
-msgid "Locked PXEGrub template name"
-msgstr "锁定的 PXEGrub 模板名称"
-
 msgid "Locked PXEGrub2 template name"
 msgstr "锁定的 PXEGrub2 模板名称"
 
@@ -558,9 +555,6 @@ msgstr "机构"
 
 msgid "Organizations"
 msgstr "机构"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr "将主机固定至发现时使用的 PXEGrub 模板"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr "将主机固定至发现时使用的 PXEGrub2 模板"
@@ -790,11 +784,11 @@ msgstr "预配主机的位置 ID"
 msgid "must be present."
 msgstr "必须存在。"
 
-msgid "must start with a letter"
-msgstr ""
-
 msgid "must start with a letter or ERB."
 msgstr "必须以字母或 ERB 开始。"
+
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr "如果是虚拟机，则不需要"

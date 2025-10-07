@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.1",
+        "Project-Id-Version": "foreman_discovery 26.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "pdolinic, 2021",
@@ -449,9 +449,6 @@
       "Lock PXE": [
         "PXE sperren"
       ],
-      "Locked PXEGrub template name": [
-        "Gesperrter PXEGrub-Vorlagenname"
-      ],
       "Locked PXEGrub2 template name": [
         "Gesperrter PXEGrub2-Vorlagenname"
       ],
@@ -556,9 +553,6 @@
       ],
       "Organizations": [
         "Organisationen"
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        "PXEGrub-Vorlage, die beim Anheften eines Hosts an die Erkennung verwendet werden soll"
       ],
       "PXEGrub2 template to be used when pinning a host to discovery": [
         "PXEGrub2-Vorlage, die beim Anheften eines Hosts an Discovery verwendet werden soll"
@@ -788,11 +782,11 @@
       "must be present.": [
         "muss vorhanden sein."
       ],
-      "must start with a letter": [
-        ""
-      ],
       "must start with a letter or ERB.": [
         "muss mit einem Buchstaben oder ERB beginnen."
+      ],
+      "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
+        ""
       ],
       "not required if it's a virtual machine": [
         "nicht erforderlich für eine virtuelle Maschine"

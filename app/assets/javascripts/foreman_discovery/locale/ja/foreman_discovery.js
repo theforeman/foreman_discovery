@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.1",
+        "Project-Id-Version": "foreman_discovery 26.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015",
@@ -446,9 +446,6 @@
       "Lock PXE": [
         "PXE のロック"
       ],
-      "Locked PXEGrub template name": [
-        "ロックされた PXEGrub テンプレート名"
-      ],
       "Locked PXEGrub2 template name": [
         "ロックされた PXEGrub2 テンプレート名"
       ],
@@ -553,9 +550,6 @@
       ],
       "Organizations": [
         "組織"
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        "ホストを検出に固定する際に使用される PXEGrub テンプレート"
       ],
       "PXEGrub2 template to be used when pinning a host to discovery": [
         "ホストを検出に固定する際に使用される PXEGrub2 テンプレート"
@@ -785,11 +779,11 @@
       "must be present.": [
         "必須です。"
       ],
-      "must start with a letter": [
-        ""
-      ],
       "must start with a letter or ERB.": [
         "文字または ERB で開始する必要があります。"
+      ],
+      "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
+        ""
       ],
       "not required if it's a virtual machine": [
         "仮想マシンの場合は不要です"

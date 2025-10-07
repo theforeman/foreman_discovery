@@ -8,7 +8,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.1\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -452,9 +452,6 @@ msgstr "ロケーション"
 msgid "Lock PXE"
 msgstr "PXE のロック"
 
-msgid "Locked PXEGrub template name"
-msgstr "ロックされた PXEGrub テンプレート名"
-
 msgid "Locked PXEGrub2 template name"
 msgstr "ロックされた PXEGrub2 テンプレート名"
 
@@ -559,9 +556,6 @@ msgstr "組織"
 
 msgid "Organizations"
 msgstr "組織"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr "ホストを検出に固定する際に使用される PXEGrub テンプレート"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr "ホストを検出に固定する際に使用される PXEGrub2 テンプレート"
@@ -791,11 +785,11 @@ msgstr "プロビジョニングされたホストのロケーション ID"
 msgid "must be present."
 msgstr "必須です。"
 
-msgid "must start with a letter"
-msgstr ""
-
 msgid "must start with a letter or ERB."
 msgstr "文字または ERB で開始する必要があります。"
+
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr "仮想マシンの場合は不要です"

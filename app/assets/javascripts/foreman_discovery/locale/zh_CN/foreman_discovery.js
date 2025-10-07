@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.1",
+        "Project-Id-Version": "foreman_discovery 26.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
@@ -446,9 +446,6 @@
       "Lock PXE": [
         "锁定 PXE"
       ],
-      "Locked PXEGrub template name": [
-        "锁定的 PXEGrub 模板名称"
-      ],
       "Locked PXEGrub2 template name": [
         "锁定的 PXEGrub2 模板名称"
       ],
@@ -553,9 +550,6 @@
       ],
       "Organizations": [
         "机构"
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        "将主机固定至发现时使用的 PXEGrub 模板"
       ],
       "PXEGrub2 template to be used when pinning a host to discovery": [
         "将主机固定至发现时使用的 PXEGrub2 模板"
@@ -785,11 +779,11 @@
       "must be present.": [
         "必须存在。"
       ],
-      "must start with a letter": [
-        ""
-      ],
       "must start with a letter or ERB.": [
         "必须以字母或 ERB 开始。"
+      ],
+      "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
+        ""
       ],
       "not required if it's a virtual machine": [
         "如果是虚拟机，则不需要"

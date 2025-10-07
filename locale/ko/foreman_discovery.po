@@ -6,7 +6,7 @@
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.1\n"
+"Project-Id-Version: foreman_discovery 26.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -450,9 +450,6 @@ msgstr "위치"
 msgid "Lock PXE"
 msgstr "PXE 잠금"
 
-msgid "Locked PXEGrub template name"
-msgstr "잠긴 PXEGrub 템플릿 이름"
-
 msgid "Locked PXEGrub2 template name"
 msgstr "잠긴 PXEGrub2 템플릿 이름"
 
@@ -557,9 +554,6 @@ msgstr "조직 "
 
 msgid "Organizations"
 msgstr "조직"
-
-msgid "PXEGrub template to be used when pinning a host to discovery"
-msgstr "호스트를 검색에 고정할 때 사용할 PXEGrub 템플릿"
 
 msgid "PXEGrub2 template to be used when pinning a host to discovery"
 msgstr "호스트를 검색에 고정할 때 사용할 PXEGrub2 템플릿"
@@ -789,11 +783,11 @@ msgstr "프로비저닝된 호스트의 위치 ID"
 msgid "must be present."
 msgstr "반드시 존재해야 합니다."
 
-msgid "must start with a letter"
-msgstr ""
-
 msgid "must start with a letter or ERB."
 msgstr "문자 또는 ERB로 시작해야 합니다."
+
+msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
+msgstr ""
 
 msgid "not required if it's a virtual machine"
 msgstr "가상 머신의 경우 필요하지 않습니다"

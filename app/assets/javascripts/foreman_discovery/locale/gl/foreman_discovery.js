@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.1",
+        "Project-Id-Version": "foreman_discovery 26.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
@@ -449,9 +449,6 @@
       "Lock PXE": [
         ""
       ],
-      "Locked PXEGrub template name": [
-        ""
-      ],
       "Locked PXEGrub2 template name": [
         ""
       ],
@@ -556,9 +553,6 @@
       ],
       "Organizations": [
         "Organizacións"
-      ],
-      "PXEGrub template to be used when pinning a host to discovery": [
-        ""
       ],
       "PXEGrub2 template to be used when pinning a host to discovery": [
         ""
@@ -788,10 +782,10 @@
       "must be present.": [
         ""
       ],
-      "must start with a letter": [
+      "must start with a letter or ERB.": [
         ""
       ],
-      "must start with a letter or ERB.": [
+      "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
         ""
       ],
       "not required if it's a virtual machine": [
