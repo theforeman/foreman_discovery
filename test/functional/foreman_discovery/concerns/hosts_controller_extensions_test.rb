@@ -18,6 +18,38 @@ module ForemanDiscovery
           assert_match(/"#{os.id}"/, response.body)
         end
       end
+
+      describe 'template_used' do
+        include FactImporterIsolation
+        allow_transactions_for_any_importer
+
+        setup do
+          @facts = {
+            "interfaces" => "lo,eth0",
+            "ipaddress" => "192.168.100.42",
+            "ipaddress_eth0" => "192.168.100.42",
+            "macaddress_eth0" => "AA:BB:CC:DD:EE:FF",
+            "discovery_bootif" => "AA:BB:CC:DD:EE:FF",
+            "physicalprocessorcount" => "42",
+            "discovery_version" => "3.0.0",
+          }
+        end
+
+        test 'converts the discovered host to a managed host' do
+          host = discover_host_from_facts(@facts)
+          params = {
+            id: host.id,
+            host: {
+              architecture_id: architectures(:x86_64).id, # rubocop:disable Naming/VariableNumber
+              operatingsystem_id: operatingsystems(:redhat).id,
+            }
+          }
+          get :template_used, params: params, session: set_session_user
+
+          assert_response :success
+          assert_instance_of Host::Managed, assigns(:host)
+        end
+      end
     end
   end
 end

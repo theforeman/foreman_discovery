@@ -2,7 +2,7 @@ module ForemanDiscovery
   module Concerns
     module HostsControllerExtensions
       extend ActiveSupport::Concern
-      included do
+      prepended do
         before_action :set_discovered_params
       end
 
@@ -12,6 +12,12 @@ module ForemanDiscovery
       def set_discovered_params
         return if params[:discovered_host].nil?
         params[:host] ||= params.delete(:discovered_host)
+      end
+
+      def host_for_template_used
+        super
+
+        @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false, host_params) if @host.is_a?(Host::Discovered)
       end
     end
   end
