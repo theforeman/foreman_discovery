@@ -347,7 +347,7 @@ module ForemanDiscovery
       ::Nic::Managed.send :include, Nic::ManagedExtensions
 
       # Controller extensions
-      ::HostsController.send :include, ForemanDiscovery::Concerns::HostsControllerExtensions
+      ::HostsController.send :prepend, ForemanDiscovery::Concerns::HostsControllerExtensions
       ::Api::V2::FactValuesController.send :include, Api::V2::FactValuesControllerExtensions
 
       Foreman::Plugin.fact_importer_registry.register(:foreman_discovery, DiscoveryFactImporter)
