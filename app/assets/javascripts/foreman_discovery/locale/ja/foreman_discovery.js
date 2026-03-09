@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.2",
+        "Project-Id-Version": "foreman_discovery 26.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015",
@@ -537,7 +537,7 @@
         "エラーが原因で 1 つ以上のホストの検出に失敗しました: %s"
       ],
       "Option 'url' must be provided": [
-        "オプション 'url' を指定する必要があります。"
+        "オプション 'url' を指定する必要があります"
       ],
       "Option 'url' must be valid URI: %s": [
         "オプション 'url' は有効な URI でなければなりません: %s"
@@ -783,7 +783,7 @@
         "文字または ERB で開始する必要があります。"
       ],
       "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
-        ""
+        "文字で開始する必要があります。許可される文字: `a-z`、`A-Z`、`0-9`、および `-`。最大長は 62 文字です。"
       ],
       "not required if it's a virtual machine": [
         "仮想マシンの場合は不要です"
@@ -819,7 +819,7 @@
         "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
       ],
       "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group": [
-        "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です。"
+        "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です"
       ],
       "required if not imaged based provisioning and host is managed and value is not inherited from host group": [
         "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"
