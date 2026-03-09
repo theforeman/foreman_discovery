@@ -6,7 +6,7 @@
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.2\n"
+"Project-Id-Version: foreman_discovery 26.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -787,7 +787,7 @@ msgid "must start with a letter or ERB."
 msgstr "문자 또는 ERB로 시작해야 합니다."
 
 msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
-msgstr ""
+msgstr "반드시 영문자로 시작해야 합니다. 허용되는 문자는 `az`, `AZ`, `0-9`, `-`입니다. 최대 길이는 62자입니다."
 
 msgid "not required if it's a virtual machine"
 msgstr "가상 머신의 경우 필요하지 않습니다"

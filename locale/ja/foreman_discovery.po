@@ -8,7 +8,7 @@
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.2\n"
+"Project-Id-Version: foreman_discovery 26.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2015\n"
@@ -543,7 +543,7 @@ msgid "One or more hosts with failed discovery due to error: %s"
 msgstr "エラーが原因で 1 つ以上のホストの検出に失敗しました: %s"
 
 msgid "Option 'url' must be provided"
-msgstr "オプション 'url' を指定する必要があります。"
+msgstr "オプション 'url' を指定する必要があります"
 
 msgid "Option 'url' must be valid URI: %s"
 msgstr "オプション 'url' は有効な URI でなければなりません: %s"
@@ -789,7 +789,7 @@ msgid "must start with a letter or ERB."
 msgstr "文字または ERB で開始する必要があります。"
 
 msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
-msgstr ""
+msgstr "文字で開始する必要があります。許可される文字: `a-z`、`A-Z`、`0-9`、および `-`。最大長は 62 文字です。"
 
 msgid "not required if it's a virtual machine"
 msgstr "仮想マシンの場合は不要です"
@@ -825,7 +825,7 @@ msgid "required if host is managed and value is not inherited from host group"
 msgstr "ホストが管理されており、値がホストグループから継承されていない場合に必須です"
 
 msgid "required if host is managed, does not have IPv4 IP / Subnet, or the value is not inherited from the host group"
-msgstr "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です。"
+msgstr "ホストが管理対象の場合、IPv4 IP/サブネットがない場合、または値がホストグループから継承されていない場合は必須です"
 
 msgid "required if not imaged based provisioning and host is managed and value is not inherited from host group"
 msgstr "イメージベースのプロビジョニングでない場合で、ホストが管理されており、値がホストグループから継承されていない場合に必須です"

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the foreman_discovery package.
 #
 # Translators:
-# Crited <Alexander.Stoll@netways.de>, 2019
+# Alexander Stoll <Alexander.Stoll@netways.de>, 2019
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2014
 # Christina Gurski <Gurski_christina@yahoo.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2014-2017
@@ -15,7 +15,7 @@
 # stbenjam <stephen@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.2\n"
+"Project-Id-Version: foreman_discovery 26.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: pdolinic, 2021\n"

@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_discovery 26.0.2\n"
+"Project-Id-Version: foreman_discovery 26.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2013-11-15 17:25+0000\n"
 "Last-Translator: Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019\n"
@@ -660,7 +660,7 @@ msgid "Select all items in this page"
 msgstr "Sélectionner tous les éléments de cette page"
 
 msgid "Select location"
-msgstr "Sélectionner une localisation"
+msgstr "Sélectionner un emplacement"
 
 msgid "Select organization"
 msgstr "Choisir une organisation"
@@ -795,7 +795,7 @@ msgid "must start with a letter or ERB."
 msgstr "doit commencer par une lettre ou par ERB."
 
 msgid "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters."
-msgstr ""
+msgstr "doit commencer par une lettre. Caractères utilisés: `a-z`, `A-Z`, `0-9` and `-`. La longueur maximale est de 62 caractères."
 
 msgid "not required if it's a virtual machine"
 msgstr "non requis s'il s'agit d'une machine virtuelle"

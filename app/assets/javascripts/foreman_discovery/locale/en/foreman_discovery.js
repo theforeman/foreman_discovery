@@ -5,17 +5,17 @@
       "": {
         "Project-Id-Version": "foreman_discovery 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2026-02-11 15:57+0100",
+        "PO-Revision-Date": "2026-03-09 12:47+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "English",
-        "Language": "en",
+        "Language-Team": "LANGUAGE <LL@li.org>",
+        "Language": "",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Plural-Forms": "nplurals=; plural=;",
+        "Plural-Forms": "nplurals=INTEGER; plural=EXPRESSION;",
         "lang": "en",
         "domain": "foreman_discovery",
-        "plural_forms": "nplurals=; plural=;"
+        "plural_forms": "nplurals=INTEGER; plural=EXPRESSION;"
       },
       "%s - The following hosts are about to be changed": [
         ""

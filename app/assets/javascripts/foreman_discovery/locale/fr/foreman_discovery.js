@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.2",
+        "Project-Id-Version": "foreman_discovery 26.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019",
@@ -654,7 +654,7 @@
         "Sélectionner tous les éléments de cette page"
       ],
       "Select location": [
-        "Sélectionner une localisation"
+        "Sélectionner un emplacement"
       ],
       "Select organization": [
         "Choisir une organisation"
@@ -789,7 +789,7 @@
         "doit commencer par une lettre ou par ERB."
       ],
       "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
-        ""
+        "doit commencer par une lettre. Caractères utilisés: `a-z`, `A-Z`, `0-9` and `-`. La longueur maximale est de 62 caractères."
       ],
       "not required if it's a virtual machine": [
         "non requis s'il s'agit d'une machine virtuelle"

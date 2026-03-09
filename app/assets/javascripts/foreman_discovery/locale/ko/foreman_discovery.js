@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_discovery": {
       "": {
-        "Project-Id-Version": "foreman_discovery 26.0.2",
+        "Project-Id-Version": "foreman_discovery 26.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2013-11-15 17:25+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2022",
@@ -783,7 +783,7 @@
         "문자 또는 ERB로 시작해야 합니다."
       ],
       "must start with a letter. Allowed characters: `a-z`, `A-Z`, `0-9` and `-`. Max length is 62 characters.": [
-        ""
+        "반드시 영문자로 시작해야 합니다. 허용되는 문자는 `az`, `AZ`, `0-9`, `-`입니다. 최대 길이는 62자입니다."
       ],
       "not required if it's a virtual machine": [
         "가상 머신의 경우 필요하지 않습니다"
