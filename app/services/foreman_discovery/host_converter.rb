@@ -55,7 +55,7 @@ class ForemanDiscovery::HostConverter
   end
 
   def self.ip_for_subnet(subnet, mac, ip)
-    return ip if ip && subnet&.unused_ip(mac)&.ip_include?(ip)
+    return ip if ip.present? && subnet&.unused_ip(mac)&.ip_include?(ip)
 
     unused_ip_for_subnet(subnet, mac, ip)
   end
