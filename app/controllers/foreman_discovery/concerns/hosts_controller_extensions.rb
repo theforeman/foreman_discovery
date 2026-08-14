@@ -25,11 +25,10 @@ module ForemanDiscovery
           not_found
           return false
         end
-        @host = Host::Discovered.authorized(:edit_discovered_hosts, Host::Discovered).find_by_id(id)
+        @host = Host::Discovered.authorized(:edit_discovered_hosts, Host::Discovered).find_by(id: id)
         @host ||= super
         @host
       end
-
     end
   end
 end
