@@ -1,2 +1,2 @@
 f = Feature.unscoped.where(:name => 'Discovery').first_or_create
-raise "Unable to create proxy feature: #{format_errors f}" if f.nil? || f.errors.any?
+raise "Unable to create proxy feature: #{SeedHelper.format_errors(f)}" if f.nil? || f.errors.any?
