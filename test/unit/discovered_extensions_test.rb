@@ -238,8 +238,8 @@ class DiscoveredExtensionsTest < ActiveSupport::TestCase
     ::ForemanDiscovery::HostConverter.unstub(:unused_ip_for_host)
     facts = @facts_ipv6.merge({"somefact" => "abc"})
     domain = FactoryBot.create(:domain)
-    subnet = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db8::/32", :mask => "ffff:ffff::", :name => "ipv6_discovered", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
-    subnet2 = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db9::/32", :mask => "ffff:ffff::", :name => "ipv6_provision", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    subnet = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db8::", :mask => "ffff:ffff::", :name => "ipv6_discovered", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
+    subnet2 = FactoryBot.create(:subnet_ipv6, :tftp, :dhcp, :network => "2001:db9::", :mask => "ffff:ffff::", :name => "ipv6_provision", :ipam => IPAM::MODES[:eui64], :organizations => [Organization.find_by_name("Organization 1")], :locations => [Location.find_by_name("Location 1")])
     host = discover_host_from_facts(facts)
     assert_equal subnet, host.subnet6
     hostgroup = FactoryBot.create(:hostgroup, :with_rootpass, :with_os, :pxe_loader => "PXELinux BIOS", :subnet6 => subnet2, :domain => domain)
