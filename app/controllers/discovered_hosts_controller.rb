@@ -58,12 +58,14 @@ class DiscoveredHostsController < ::ApplicationController
 
   def edit
     quick = params.delete(:quick_submit)
+    name = @host.name
     @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false, discovered_host_params_host) unless @host.nil?
     setup_host_class_variables
     @override_taxonomy = true
     # need to permit this one but don't know how
     if quick
-      perform_update(@host, _('Successfully provisioned %s') % @host.name)
+      name = @host.name if name.blank?
+      perform_update(@host, _('Successfully started provision for %s') % name)
     else
       @host.build = true
       render :template => 'discovered_hosts/edit'
