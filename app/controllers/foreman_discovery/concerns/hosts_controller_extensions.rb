@@ -19,6 +19,16 @@ module ForemanDiscovery
 
         @host = ::ForemanDiscovery::HostConverter.to_managed(@host, true, false, host_params) if @host.is_a?(Host::Discovered)
       end
+
+      def find_resource
+        if (id = params[:id]).blank?
+          not_found
+          return false
+        end
+        @host = Host::Discovered.authorized(:edit_discovered_hosts, Host::Discovered).find_by(id: id)
+        @host ||= super
+        @host
+      end
     end
   end
 end
