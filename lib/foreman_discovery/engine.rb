@@ -27,6 +27,12 @@ module ForemanDiscovery
           requires_foreman '>= 3.15'
           register_gettext
 
+          extend_observable_events [
+            'discovered_host_created.event.foreman',
+            'discovered_host_updated.event.foreman',
+            'discovered_host_destroyed.event.foreman',
+          ]
+
           # settings
           settings do
             category :discovery, N_("Discovery") do

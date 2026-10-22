@@ -8,6 +8,8 @@ class Host::Discovered < ::Host::Base
   include BelongsToProxies
   include ::Hostext::OperatingSystem
 
+  set_crud_hooks :discovered_host
+
   has_one :discovery_attribute_set, :foreign_key => :host_id, :dependent => :destroy
   validates_associated :discovery_attribute_set
 
