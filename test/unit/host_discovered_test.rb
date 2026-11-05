@@ -509,5 +509,30 @@ class HostDiscoveredTest < ActiveSupport::TestCase
       Setting[:discovery_prefix] = value
     end
   end
+
+  describe 'hooks' do
+    let(:callback) { -> {} }
+
+    test 'hooks are defined' do
+      expected = [
+        'discovered_host_created.event.foreman',
+        'discovered_host_updated.event.foreman',
+        'discovered_host_destroyed.event.foreman',
+        'host_facts_updated.event.foreman',
+      ]
+
+      assert_same_elements expected, Host::Discovered.event_subscription_hooks
+    end
+
+    test '"discovered_host_created.event.foreman" event is sent on create' do
+      ActiveSupport::Notifications.subscribed(callback, 'discovered_host_created.event.foreman') do
+        callback.expects(:call).with do |_name, _started, _finished, _unique_id, payload|
+          payload[:object].is_a?(Host::Discovered)
+        end
+
+        FactoryBot.create(:discovered_host)
+      end
+    end
+  end
   # rubocop:enable Metrics/ClassLength
 end
