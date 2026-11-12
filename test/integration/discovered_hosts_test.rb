@@ -29,7 +29,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Reboot').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
     end
 
     test 'triggers reboot on all discovered_hosts' do
@@ -42,9 +42,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Reboot').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      wait_for do
-        page.find_button('Submit').click
-      end
+      click_submit
     end
 
     test 'shows warning for all hosts with missing subnet' do
@@ -53,7 +51,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Auto Provision').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
       wait_for_ajax
       assert page.has_text?("Discovered hosts reported from unknown subnet")
     end
@@ -67,7 +65,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Auto Provision').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
     end
 
     test 'converts all discovered to managed hosts' do
@@ -77,7 +75,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Auto Provision').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
       wait_for_ajax
       assert page.has_text?('Discovered hosts are provisioning now')
     end
@@ -88,7 +86,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Auto Provision').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
       wait_for_ajax
       assert page.has_text?("Discovered hosts reported from unknown subnet")
     end
@@ -101,7 +99,7 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
       page.find_link('Delete').click
       wait_for_ajax
       assert page.has_text?('The following hosts are about to be changed')
-      page.find_button('Submit').click
+      click_submit
       wait_for_ajax
       assert page.has_text?('Destroyed selected hosts')
     end
@@ -202,6 +200,14 @@ class DiscoveredHostsTest < IntegrationTestWithJavascript
 
   def select_host_checkbox(id)
     page.find("#host_ids_#{id}").click
+  end
+
+  def click_submit
+    button = wait_for do
+      page.find_button('Submit')
+    end
+    assert button, 'Could not find submit button'
+    button.click
   end
 
   def create_host
