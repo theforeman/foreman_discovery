@@ -27,11 +27,10 @@ describe('ForemanEmptyState', () => {
     expect(docLink).toHaveAttribute('target', '_blank');
     expect(docLink).toHaveAttribute('rel', 'external noreferrer noopener');
 
-    const actionButton = screen.getByText('Create Rule');
-    expect(actionButton).toBeInTheDocument();
-    expect(actionButton).toHaveAttribute(
-      'data-ouia-component-id',
-      'empty-state-action-button'
+    const actionButton = document.querySelector(
+      '[data-ouia-component-id="empty-state-action-button"]'
     );
+    expect(actionButton).toBeInTheDocument();
+    expect(actionButton).toHaveTextContent('Create Rule');
   });
 });
