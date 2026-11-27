@@ -90,6 +90,18 @@ class ManagedExtensionsTest < ActiveSupport::TestCase
       @host.stubs(:provisioning_template).returns(kexec_template)
     end
 
+    test "rejects a relative kernel URL in a kexec template" do
+      @host.stubs(:render_template).returns('{"kernel":"images/vmlinuz","initram":"https://example.test/initrd.img"}')
+
+      assert_match(/Kernel kexec URL is invalid/, @host.render_kexec_template[:status].to_s)
+    end
+
+    test "rejects a kexec template without an initram URL" do
+      @host.stubs(:render_template).returns('{"kernel":"https://example.test/vmlinuz"}')
+
+      assert_match(/Init RAM kexec URL is invalid/, @host.render_kexec_template[:status].to_s)
+    end
+
     test "kexec template is correctly rendered" do
       expected = {
         "append" => "inst.ks=http://foreman.example.com/unattended/provision&static=yes inst.ks.sendmac ip=::::::none nameserver= ksdevice=bootif BOOTIF= nomodeset nokaslr nomodeset",
