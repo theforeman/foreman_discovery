@@ -46,8 +46,8 @@ module Host::ManagedExtensions
     raise ::Foreman::Exception.new(N_("Kexec template not associated with operating system")) unless template
 
     json = JSON.parse(render_template(template: template))
-    ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
-    ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initrd']) unless json['initrd'] =~ /\Ahttp.+\Z/
+    raise ::Foreman::Exception.new(N_("Kernel kexec URL is invalid: '%s'"), json['kernel']) unless json['kernel'] =~ /\Ahttp.+\Z/
+    raise ::Foreman::Exception.new(N_("Init RAM kexec URL is invalid: '%s'"), json['initram']) unless json['initram'] =~ /\Ahttp.+\Z/
     json
   rescue StandardError => e
     Foreman::Logging.exception("Unable render or parse kexec template, must be valid JSON", e)
